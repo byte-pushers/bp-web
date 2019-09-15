@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="js flexbox no-touch cssanimations csstransforms csstransforms3d video">
-  <head>
+
+<head>
+    <script src="https://use.fontawesome.com/87b4c37243.js"></script>
+
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
@@ -10,83 +13,90 @@
   <link href="http://ovenbits.com/feed" rel="alternate" title="Oven Bits" type="application/atom+xml">
   <link rel="stylesheet" media="screen" href="assets/fontello.css" data-turbolinks-track="true">
   <link rel="stylesheet" media="screen" href="assets/fonts.css" data-turbolinks-track="true">
-  <link rel="stylesheet" media="all"
-    href="assets/styles.css"
-    data-turbolinks-track="true">
+  <link rel="stylesheet" media="all" href="assets/styles.css" data-turbolinks-track="true">
   <script src="assets/vendor-5ece234fab43c7a2b20c2de981f82d62d3d26370e85ccedcfdb1a9.js"
     data-turbolinks-track="true"></script>
   <script src="assets/application-095e2a3ef20967f00ed3d750f512b4e069535585d3a38e090.js"
     data-turbolinks-track="true"></script>
+    
+
   <!--[if lte IE 9]>
 <link rel="stylesheet" media="all" href="http://d36s929gmfcqwt.cloudfront.net/assets/placeholder_polyfill.min-f25ecad953020593d0e64b38c1bed80da4b644cb4f27695584180907583916ea.css" data-turbolinks-track="true" /><script src="http://d36s929gmfcqwt.cloudfront.net/assets/html5shiv.min-d3d35aa8c5c7074d41080b04f1324ad142a05add2f6e1e2ac7028b1eb3bece66.js" data-turbolinks-track="true"></script><script src="http://d36s929gmfcqwt.cloudfront.net/assets/placeholder_polyfill-c31620a5f7dacabefd5186f0d7bfa9d84996e157315e358da5096363207c47b9.js" data-turbolinks-track="true"></script><script src="http://d36s929gmfcqwt.cloudfront.net/assets/jquery.xdomainrequest.min-7ad9413dec6ca19d7934604f81dbd1b13b79e31549cc0caf0bec800d33610065.js" data-turbolinks-track="true"></script><![endif]-->
   <meta name="csrf-param" content="authenticity_token">
   <meta name="csrf-token"
     content="fcZlRAbMIK9SQV1/GRt3ojkve2Tb9c8/zeAAffDLqjhUhdqhzO16rVB16oHN/5xSK465mce5Fjl+N19qxGshCw==">
 </head>
-    <body>
-<style>
-  body { background-color: #222; }
-  .video-hero, .video-overlay {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -1000;
-    overflow: hidden;
-  }
-</style>
-<main class="page">
-<nav class="topnav fade-in-second" id="topnav">
-<div class="topnav-container">
-<div class="topnav-mobile-menu"></div>
-<a class="topnav-logo" href="#">
-<div class="topnav-logo-img"></div>
-</a>
-<div class="topnav-links-container">
-<ul class="topnav-links">
-<li class="topnav-link-item">
-<a class="topnav-link" href="#work">Home</a>
-</li>
-<li class="topnav-link-item">
-<a class="topnav-link" href="#services">Services</a>
-</li>
-<li class="topnav-link-item">
-<a class="topnav-link" href="#products">Products</a>
-</li>
-<li class="topnav-link-item">
-<a class="topnav-link" href="#about">About Us</a>
-</li>
-<li class="topnav-link-item">
-<a class="topnav-link" href="#contact">Contact</a>
-</li>
-</ul>
-</div>
-</div>
-</nav>
-<header class="hero-fixed hero-home" id="hero">
-<script id="videoTemplate" type="text/template">
+
+<body>
+  <style>
+    body {
+      background-color: #222;
+    }
+
+    .video-hero,
+    .video-overlay {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1000;
+      overflow: hidden;
+    }
+  </style>
+  <main class="page">
+    <nav class="topnav fade-in-second" id="topnav">
+      <div class="topnav-container">
+        <div class="topnav-mobile-menu"></div>
+        <a class="topnav-logo" href="#">
+          <div class="topnav-logo-img"></div>
+        </a>
+        <div class="topnav-links-container">
+          <ul class="topnav-links">
+            <li class="topnav-link-item">
+              <a class="topnav-link" href="#work">Home</a>
+            </li>
+            <li class="topnav-link-item">
+              <a class="topnav-link" href="#services">Services</a>
+            </li>
+            <li class="topnav-link-item">
+              <a class="topnav-link" href="#products">Products</a>
+            </li>
+            <li class="topnav-link-item">
+              <a class="topnav-link" href="#about">About Us</a>
+            </li>
+            <li class="topnav-link-item">
+              <a class="topnav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <header class="hero-fixed hero-home" id="hero">
+      <script id="videoTemplate" type="text/template">
 <video autoplay class='video-hero video-js' id='homeVideo' loop muted preload='auto'>
 <source id='videoWebm' src='//d1a9fbb3yksxfz.cloudfront.net/assets/video/home-video.webm' type='video/webm'>
 <source id='videoMp4' src='//d1a9fbb3yksxfz.cloudfront.net/assets/video/home-video.mp4' type='video/mp4'>
 </video>
 </script><video autoplay="autoplay" class="video-hero video-js" id="homeVideo" loop="" muted="muted" preload="auto">
-<source id="videoMp4" src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
-</video>
-<div class="video-overlay" style="display: none;"></div>
-<div class="home-hero-text-container">
-<div class="container fade-in-first">
-<div class="home-hero-text">
-The Byte Pusher team will <strong>create something special</strong>.
-</div>
-</div>
-</div>
-<a class="icon-down-open-big hero-arrow" href="#top-section"></a>
-</header>
+        <source id="videoMp4" src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay" style="display: none;"></div>
+      <div class="home-hero-text-container">
+        <div class="container fade-in-first">
+          <div class="home-hero-text">
+            The Byte Pusher team will <strong>create something special</strong>.
+          </div>
+        </div>
+      </div>
+      <a class="icon-down-open-big hero-arrow" href="#top-section">
+          <i class="fal fa-chevron-double-down"></i>jj
+          </a>
+    </header>
 
-<div class="main-content-container" style="margin-top: 750px;">
+    <div class="main-content-container" style="margin-top: 750px;">
       <section class="full-width-section-gray" id="top-section">
         <div class="section-heading"></div>
         <div class="section-subheading home-subheading">
@@ -403,6 +413,7 @@ The Byte Pusher team will <strong>create something special</strong>.
         <a class="lets-talk-button" href="http://ovenbits.com/contact">Contact Us</a>
       </section>
     </div>
-</main>
-    </body>
+  </main>
+</body>
+
 </html>
