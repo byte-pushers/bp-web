@@ -3254,7 +3254,7 @@ screen and (max-height: 320px) {
 .topnav.topnav--scrolling .topnav-mobile-menu {
 	background-image: url(/assets/icon/menu-icon-6f6cf3d1c7ab4db5dd1ebf6f6b6d34c63dd710d7e95597049e3271f73e411bc2.svg);
 	margin-top: 0.55em;
-	height: 0.43em
+	height: 1em
 }
 
 @media screen and (max-height: 320px) {
@@ -3265,25 +3265,25 @@ screen and (max-height: 320px) {
 }
 
 .topnav.topnav--scrolling .topnav-logo-img {
-	margin-top: 0.55em;
+	/* margin-top: 0.55em; */
 	margin-bottom: 0.25em;
 	background: url(BytePushersLogo.png) no-repeat;
 	background-size: 88px;
 	width: 88px;
-	height: 50px
+	height: 80px
 }
 
 @media screen and (max-width: 320px),
 screen and (max-height: 320px) {
 	.topnav.topnav--scrolling .topnav-logo-img {
-		margin-top: 0.64em;
+		/* margin-top: 0.64em; */
 		background-size: 75px
 	}
 }
 
 @media only screen and (min-width: 768px) {
 	.topnav.topnav--scrolling .topnav-logo-img {
-		margin-top: 1em
+		/* margin-top: 1em */
 	}
 }
 
