@@ -63,7 +63,7 @@
 	width: 33.3%;
 	height: 300px;
 	float: left;
-	padding-top: 6%;
+	padding-top: 2%;
 	padding-left: 8%;
 	padding-bottom: 1%;
 	padding-right: 6%;
@@ -80,7 +80,7 @@ border-bottom: #c4c8cc solid 1px;
 	width: 33.3%;
 	height: 300px;
 	float: left;
-	padding-top: 6%;
+	padding-top: 2%;
 	padding-left: 8%;
 	padding-bottom: 1%;
 	padding-right: 8%;
@@ -6909,7 +6909,9 @@ ul.rrssb-buttons li {
 }
 
 .services-section {
-	margin-bottom: 3.5em
+	margin-bottom: 3.5em;
+	margin-left: 4em;
+	margin-right: 4em;
 }
 
 .services-section::after {
