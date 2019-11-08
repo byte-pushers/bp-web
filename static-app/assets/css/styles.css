@@ -58,6 +58,33 @@
 	cursor: url(grabbing.png) 8 8, move
 }
 
+.services-option-top {
+	display: inline-block;
+	width: 33.3%;
+	height: 300px;
+	float: left;
+	padding-top: 6%;
+	padding-left: 8%;
+	padding-bottom: 1%;
+	padding-right: 6%;
+border-bottom: #c4c8cc solid 1px;
+}
+.service-heading {
+	margin-top: 15px;
+	margin-left: 1px;
+	font-size: 24px;
+}
+
+.services-option-bottom {
+	display: inline-block;
+	width: 33.3%;
+	height: 300px;
+	float: left;
+	padding-top: 6%;
+	padding-left: 8%;
+	padding-bottom: 1%;
+	padding-right: 8%;
+}
 .owl-carousel .owl-wrapper,
 .owl-carousel .owl-item {
 	-webkit-backface-visibility: hidden;
@@ -2667,7 +2694,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
 .full-width-section-gray,
 .company-we-keep,
 .company-we-keep-small {
-	padding: 1.5em 0
+	padding: 3em
 }
 
 .background-gray,
@@ -2695,7 +2722,6 @@ article.cbp-so-side-right .cbp-so-contents::after {
 .home-work-grid-section,
 .services-stats {
 	margin-top: 5em;
-	margin-bottom: 5em
 }
 
 .lt-ie10 .fade-in-first,
@@ -3823,6 +3849,15 @@ article.cbp-so-side-right .cbp-so-contents {
 	line-height: 1.33em
 }
 
+.section-quote {
+	font-family: 'Archer SSm A', 'Archer SSm B', Georgia, Times, serif;
+	line-height: 1.33em;
+	text-align: center;
+	font-weight: 500;
+	font-style: italic;
+	font-size: 1.7em
+}
+
 html {
 	font: 100%/1.5 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif
 }
@@ -4024,17 +4059,13 @@ strong,
 
 .section-heading {
 	text-align: center;
-	margin-top: 74.25px;
-	margin-top: 4.125rem;
-	margin-left: 0.4em;
-	margin-right: 0.4em
+	margin-top: 1.3em;
 }
 
 .section-subheading {
 	font-size: 0.9em;
 	text-align: center;
-	margin-bottom: 74.25px;
-	margin-bottom: 4.125rem;
+	margin-bottom: 1.5em;
 	margin-left: 0.85em;
 	margin-right: 0.85em
 }
@@ -5412,15 +5443,15 @@ input[type="text"].footer-newsletter-input:-ms-input-placeholder {
 
 .lets-talk {
 	position: relative;
-	background: #201d1c url(/assets/office-2-755e0d8434c53962090c49f201c19f68f9486a69183402c2de37bc777e1d008b.jpg) no-repeat center;
+	background: url("/bp-web/static-app/assets/images/coffeePhoto.jpg") no-repeat center;
 	background-size: cover;
-	padding: 4em 1em
+	padding: 2.8em 8em
 }
 
 .lets-talk-heading {
 	color: #fff;
 	font-size: 2.7em;
-	text-align: center
+	text-align: left;
 }
 
 @media only screen and (min-width: 768px) {
@@ -5433,17 +5464,18 @@ input[type="text"].footer-newsletter-input:-ms-input-placeholder {
 	display: block;
 	font-size: 1.347em;
 	font-weight: 700;
-	background: #fff;
-	border: 2px solid transparent;
+
 	width: 12em;
-	margin: 2em auto 0;
-	padding: 0.9em 1.25em
+	padding: 0.9em 1.25em;
+	background: transparent;
+	border: 2px solid #fff;
+	color: #f5f5f5;
 }
 
 .lets-talk-button:hover {
-	background: transparent;
-	border: 2px solid #fff;
-	color: #f5f5f5
+	background: #fff;
+	border: 2px solid transparent;
+	color: #2e2e2e;
 }
 
 .pagination {
@@ -6877,7 +6909,7 @@ ul.rrssb-buttons li {
 }
 
 .services-section {
-	margin-bottom: 7.5em
+	margin-bottom: 3.5em
 }
 
 .services-section::after {
@@ -6888,7 +6920,17 @@ ul.rrssb-buttons li {
 
 .services-copy {
 	max-width: 828px;
-	max-width: 46rem
+	max-width: 46rem;
+	font-size: 14px;
+	margin-top: 15px;
+	color: gray;
+}
+.services-copy-link {
+	max-width: 828px;
+	max-width: 46rem;
+	font-size: 14px;
+	margin-top: 15px;
+text-decoration: underline;
 }
 
 .services-icon {
@@ -6924,12 +6966,13 @@ ul.rrssb-buttons li {
 }
 
 .hero-home {
-	background: #333 url(/assets/office-1-2f52c4eb73b19286cd55783b89fbe38c3d8a5d2e588229a57662d895dfcbc9d3.jpg) center no-repeat;
+	background: url("/bp-web/static-app/assets/images/servicesPage/bytePushersServicesBg.png") center no-repeat;
 	background-size: cover
 }
 
 .hero-home:not(.no-video) {
-	background: #191919
+	background: url("/bp-web/static-app/assets/images/servicesPage/bytePushersServicesBg.png") center no-repeat;
+	background-size: cover;
 }
 
 .featured-videos {
