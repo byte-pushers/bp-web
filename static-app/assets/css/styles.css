@@ -3148,7 +3148,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
 	left: 0;
 	right: 0;
 	z-index: 100;
-	padding-top: 2em;
+	padding-top: 1.56em;
 	background-color: rgba(255, 255, 255, 0);
 	-webkit-transform: translate3d(0, 0, 0);
 	-moz-transform: translate3d(0, 0, 0);
@@ -3178,7 +3178,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
 	-ms-transform: translate3d(0, -2em, 0);
 	-o-transform: translate3d(0, -2em, 0);
 	transform: translate3d(0, -2em, 0);
-	background-color: rgba(255, 255, 255, 0.96);
+	background-color: #ffffff;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1)
 }
 
@@ -4059,7 +4059,7 @@ strong,
 
 .section-heading {
 	text-align: center;
-	margin-top: 1.3em;
+	margin-top: 1.2em;
 }
 
 .section-subheading {
@@ -6923,16 +6923,19 @@ ul.rrssb-buttons li {
 .services-copy {
 	max-width: 828px;
 	max-width: 46rem;
-	font-size: 14px;
+	font-size: 16px;
 	margin-top: 15px;
 	color: gray;
+	font-kerning: normal;
+	line-height: 1.8em;
 }
 .services-copy-link {
 	max-width: 828px;
 	max-width: 46rem;
-	font-size: 14px;
+	font-size: 16px;
 	margin-top: 15px;
 text-decoration: underline;
+	line-height: 1em;
 }
 
 .services-icon {
