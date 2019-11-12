@@ -2691,6 +2691,10 @@ article.cbp-so-side-right .cbp-so-contents::after {
 	display: table
 }
 
+.gray-section-paragraph {
+	text-align: left;
+	font-size: 18px;
+}
 .full-width-section-gray,
 .company-we-keep,
 .company-we-keep-small {
