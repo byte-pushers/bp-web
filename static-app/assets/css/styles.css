@@ -3202,7 +3202,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
 }
 
 @media only screen and (min-width: 768px) {
-	.topnav.topnav--scrolling .topnav-link-button {
+	.topnav.topnav--scrolling.active .topnav-link-button {
 		border: 2px solid #201d1c;
 		color: #201d1c;
 		padding-top: 0.05em;
@@ -3297,9 +3297,9 @@ screen and (max-height: 320px) {
 .topnav.topnav--scrolling .topnav-logo-img {
 	/* margin-top: 0.55em; */
 	margin-bottom: 0.25em;
-	background: url(../images/BytePushersLogo.png) no-repeat;
-	background-size: 88px;
-	width: 88px;
+	background: url(../images/bytePushersLogoWithoutText.svg) no-repeat center;
+	background-size: 220px;
+	width: 220px;
 	height: 80px
 }
 
@@ -3351,32 +3351,31 @@ screen and (max-height: 320px) {
 	.topnav-logo {
 		position: static;
 		float: left;
-		margin-top: 1em;
 		margin-left: 0
 	}
 }
 
 .topnav-logo-img {
-	background: url(../images/BytePushersLogo.png) no-repeat center center #fff;
-	background-size: 110px;
-	width: 110px;
+	background: url(../images/bytePushersLogoWithText.svg) no-repeat center center;
+	background-size: 200px;
+	width: 200px;
     height: 110px;
-    border-radius: 50%;
+
 }
 
 @media only screen and (min-width: 768px) {
 	.topnav-logo-img {
-		background-image: url(../images/BytePushersLogo.png);
-		background-size: 6em;
-		width: 6em;
-		height: 6em
+		background-image: url(../images/bytePushersLogoWithText.svg);
+		background-size: 22em;
+		width: 22em;
+		height: 11em
 	}
 }
 
 .topnav-links-container {
 	display: none;
 	width: 100%;
-	margin-top: 0.6em;
+	margin-top: 2.5em;
 	margin-bottom: 1em;
 	float: right
 }
