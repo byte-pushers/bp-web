@@ -2186,9 +2186,7 @@ a {
 .section-subheading,
 .section-header-subheading {
 	font-weight: 500;
-	font-style: italic;
 	margin-top: -0.625em;
-	margin-bottom: 2em;
 	font-size: 1.1667em
 }
 
@@ -2694,7 +2692,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
 .full-width-section-gray,
 .company-we-keep,
 .company-we-keep-small {
-	padding: 3em
+	padding: 2em 2em 1em;
 }
 
 .background-gray,
@@ -4065,7 +4063,6 @@ strong,
 .section-subheading {
 	font-size: 0.9em;
 	text-align: center;
-	margin-bottom: 1.5em;
 	margin-left: 0.85em;
 	margin-right: 0.85em
 }
