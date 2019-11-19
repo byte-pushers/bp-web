@@ -6928,6 +6928,7 @@ ul.rrssb-buttons li {
 	color: gray;
 	font-kerning: normal;
 	line-height: 1.8em;
+    letter-spacing: .5px;
 }
 .services-copy-link {
 	max-width: 828px;
