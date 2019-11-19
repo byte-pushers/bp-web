@@ -2186,9 +2186,7 @@ a {
 .section-subheading,
 .section-header-subheading {
 	font-weight: 500;
-	font-style: italic;
 	margin-top: -0.625em;
-	margin-bottom: 2em;
 	font-size: 1.1667em
 }
 
@@ -2698,7 +2696,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
 .full-width-section-gray,
 .company-we-keep,
 .company-we-keep-small {
-	padding: 3em
+	padding: 3em;
 }
 
 .background-gray,
@@ -4068,7 +4066,6 @@ strong,
 .section-subheading {
 	font-size: 0.9em;
 	text-align: center;
-	margin-bottom: 1.5em;
 	margin-left: 0.85em;
 	margin-right: 0.85em
 }
@@ -5343,6 +5340,9 @@ input[type="text"].footer-newsletter-input:-ms-input-placeholder {
 .hero-text strong,
 .home-hero-text strong {
 	font-weight: 400
+}
+.home-hero-text strong, .home-hero-text font {
+	color: #62a3d9;
 }
 
 .hero-text em,
@@ -7983,3 +7983,51 @@ body {
 	box-sizing: border-box
 }
 
+
+.featuresSections {
+	background: url(../images/homePage/features-img.jpg) no-repeat left top;
+	background-size: cover;
+	width: 100%;
+	height: 700px;
+	margin: 30px 0 0 0;
+	transition:all 1s ease;  
+}
+.fadein-out-features {
+	background:rgba(0, 0, 0, 0.5);
+	width:100%;
+	height: 100%;
+	min-height: 100%;
+	opacity: 0;
+	transition:all 0.5s ease;    
+}
+.fadein-out-features:hover { 
+	opacity: 1;
+}
+.featuresContent {
+	color: #fff !important;
+	position: relative;
+	left: 100px;
+	top: 100px;
+	width: 50%;
+	max-width: 50%;
+	min-width: 10%;
+	font-size: 24px;
+}
+.featuresContent img {
+	margin: 0px auto;
+    width: 300px;
+    height: auto;
+}
+.featuresContent h2 {
+	font-size: 60px;
+	font-weight: 600;
+	margin:20px 0;
+}
+.featuresContent p {
+	line-height: 30px;
+}
+.featuresContent .learnMore {
+	font-size: 30px;
+	font-weight: 300;
+	text-decoration: underline;
+}
