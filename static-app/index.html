@@ -28,21 +28,22 @@
 
 <body>
   <style>
-    body {
-      background-color: #222;
+   
+    .homeBG {
+      background: url('assets/images/homePage/bytePushersHomePageSplashScreenBackground.jpg') no-repeat; 
+      background-size:cover;
+      width: 100%;
+      height: 100%;
+      float: left;
     }
-
-    .video-hero,
-    .video-overlay {
+    .black-overlay {
+      width: 100%;
+      height: 100%;
+      background: #000;
+      opacity: 0.8;
       position: absolute;
-      bottom: 0px;
-      right: 0px;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      z-index: -1000;
-      overflow: hidden;
+      left: 0px;
+      top: 0px;
     }
   </style>
   <main class="page">
@@ -74,41 +75,39 @@
       </div>
     </nav>
     <header class="hero-fixed hero-home" id="hero">
-      <script id="videoTemplate" type="text/template">
-<video autoplay class='video-hero video-js' id='homeVideo' loop muted preload='auto'>
-<source id='videoWebm' src='//d1a9fbb3yksxfz.cloudfront.net/assets/video/home-video.webm' type='video/webm'>
-<source id='videoMp4' src='//d1a9fbb3yksxfz.cloudfront.net/assets/video/home-video.mp4' type='video/mp4'>
-</video>
-</script><video autoplay="autoplay" class="video-hero video-js" id="homeVideo" loop="" muted="muted" preload="auto">
-        <source id="videoMp4" src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
-      </video>
-      <div class="video-overlay" style="display: none;"></div>
+      <div class="black-overlay"></div>
+      <div class="homeBG"></div>
       <div class="home-hero-text-container">
         <div class="container fade-in-first">
           <div class="home-hero-text">
-            The Byte Pusher team will <strong>create something special</strong>.
+            Creating Solutions to solve today and tomorrow's problems, <strong>bit</strong> by <strong>bit</strong>.
           </div>
         </div>
-      </div>
+      </div>          
       <a class="icon-down-open-big hero-arrow" href="#top-section">
-          jj
-          </a>
+        <img alt="caret "src="assets/images/caret.svg" style="width: 50px; height: 50px">
+        </a>
     </header>
 
     <div class="main-content-container" style="margin-top: 750px;">
       <section class="full-width-section-gray" id="top-section">
-        <div class="section-heading"></div>
-        <div class="section-subheading home-subheading">
-          We concept and craft <strong>remarkable experiences</strong>
-          <br>
-          for an every-screen-world.
+        <div class="gray-paragraph">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.
         </div>
       </section>
       <section class="home-work-grid-section">
-        <div class="section-heading">Featured Work</div>
-        <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
-          by<span class="br-mobile"></span> our labors of love.</div>
-        <div class="featured-videos section-subheading">
+        <div class="section-heading">Featured Projects</div>
+        <div class="section-subheading">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. </div>
+        <div class="featuresSections">
+          <div class="fadein-out-features">
+            <div class="featuresContent">
+              <img src="./assets/images/homePage/cp3logo.png" />
+              <h2 style="color: aliceblue; font-size: 40px;">Chuck's Pick 3</h2>
+            <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. </p>
+            <a href="#" class="learnMore">learn more</a></div>
+            
+          </div>
+      </div>
+        <!-- <div class="featured-videos section-subheading">
           <div class="featured-video">
             <video controls="controls" id="vogue-video"
               poster="https://d1a9fbb3yksxfz.cloudfront.net/assets/video/vogue-iphone-app-poster.jpg" preload="auto"
@@ -125,7 +124,7 @@
               <source src="assets/lush-iphone-app.mp4">
             </video>
           </div>
-        </div>
+        </div> -->
         <div class="work-grid">
           <a class="img-grid-img-1-3" href="http://www.myameriflex.com/"
             style="background-image: url(assets/images/place-holder.png)">
