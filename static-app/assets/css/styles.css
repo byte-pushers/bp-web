@@ -2696,7 +2696,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
 .full-width-section-gray,
 .company-we-keep,
 .company-we-keep-small {
-	padding: 2em 2em 1em;
+	padding: 3em;
 }
 
 .background-gray,
@@ -5340,6 +5340,9 @@ input[type="text"].footer-newsletter-input:-ms-input-placeholder {
 .hero-text strong,
 .home-hero-text strong {
 	font-weight: 400
+}
+.home-hero-text strong, .home-hero-text font {
+	color: #62a3d9;
 }
 
 .hero-text em,
