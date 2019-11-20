@@ -4051,7 +4051,34 @@ strong,
 		display: block
 	}
 }
+.about-us-section {
+	margin-top: 3em;
+	margin-bottom: 2em;
+}
+.about-us-icon {
+	display: block;
+}
+.about-section-heading {
+	text-align: center;
+	margin-top: .5em;
+	font-size: 28px;
+}
 
+.about-section-subheading {
+	font-size: 0.9em;
+	text-align: center;
+	margin-bottom: 1.5em;
+	margin-left: 0.85em;
+	margin-right: 0.85em
+}
+
+.about-section-paragraph {
+	margin-left: 3em;
+	margin-right: 3em;
+	font-size: 0.9em;
+	text-align: left;
+	margin-bottom: 1.5em;
+}
 .section-header,
 .top-section-header {
 	margin-top: 4.125em;
