@@ -4061,6 +4061,8 @@ strong,
 .section-heading {
 	text-align: center;
 	margin-top: 1.2em;
+	float: left;
+	width: 100%;
 }
 
 .section-subheading {
