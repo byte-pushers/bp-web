@@ -78,7 +78,8 @@
 .topnav.topnav--scrolling .topnav-link {
   color: #201d1c;
   text-shadow: none;
-  border-bottom-width: 2px
+  border-bottom-width: 2px;
+  margin-top: 8em;
 }
 
 .topnav.topnav--scrolling .topnav-link:hover,
@@ -92,7 +93,7 @@
 }
 
 .topnav.topnav--scrolling .topnav-links-container {
-  margin-top: 1em
+  margin-top: 2em
 }
 
 @media only screen and (min-width: 768px) {
@@ -131,7 +132,8 @@
 @media only screen and (min-width: 768px) {
   .topnav.topnav--scrolling .topnav-logo {
     margin-top: 0;
-    margin-left: 0
+    margin-left: 0;
+    margin-top: 1em;
   }
 }
 
@@ -210,7 +212,8 @@ screen and (max-height: 320px) {
   background: url(~src/assets/images/bytePushersLogoWithoutText.svg) no-repeat center;
   background-size: 220px;
   width: 220px;
-  height: 80px
+  height: 80px;
+  margin-top: 1em;
 }
 
 @media screen and (max-width: 320px),
