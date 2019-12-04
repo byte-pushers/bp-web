@@ -9,6 +9,7 @@ import { ServicesComponent } from './components/app-services/app-services.compon
 import { WorkComponent } from './components/app-work/app-work.component';
 import { AboutComponent } from './components/app-about/app-about.component';
 import { ContactComponent } from './components/app-contact/app-contact.component';
+import { PageScrollService} from "./utilities/pageScroll.service";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { ContactComponent } from './components/app-contact/app-contact.component
     ServicesComponent,
     WorkComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
