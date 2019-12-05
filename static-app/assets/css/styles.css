@@ -54,9 +54,9 @@
 	-webkit-tap-highlight-color: transparent
 }
 
-.grabbing {
+/*.grabbing {
 	cursor: url(grabbing.png) 8 8, move
-}
+}*/
 
 .services-option-top {
 	display: inline-block;
@@ -158,10 +158,10 @@ border-bottom: #c4c8cc solid 1px;
 	border-radius: 30px
 }
 
-.owl-item.loading {
+/*.owl-item.loading {
 	min-height: 150px;
 	background: url(AjaxLoader.gif) no-repeat center center
-}
+}*/
 
 .rrssb-buttons.large-format li a,
 .rrssb-buttons.large-format li a .text {
@@ -3280,7 +3280,7 @@ screen and (max-height: 320px) {
 }
 
 .topnav.topnav-scrolling .topnav-mobile-menu {
-	background-image: url(/assets/icon/menu-icon-6f6cf3d1c7ab4db5dd1ebf6f6b6d34c63dd710d7e95597049e3271f73e411bc2.svg);
+	/*background-image: url(/assets/icon/menu-icon-6f6cf3d1c7ab4db5dd1ebf6f6b6d34c63dd710d7e95597049e3271f73e411bc2.svg);*/
 	margin-top: 0.55em;
 	height: 1em
 }
@@ -3295,7 +3295,7 @@ screen and (max-height: 320px) {
 .topnav.topnav-scrolling .topnav-logo-img {
 	/* margin-top: 0.55em; */
 	margin-bottom: 0.25em;
-	background: url(../images/bytePushersLogoWithoutText.svg) no-repeat center;
+	background: url("~src/assets/images/bytePushersLogoWithoutText.svg") no-repeat center;
 	background-size: 220px;
 	width: 220px;
 	height: 80px
@@ -3315,7 +3315,7 @@ screen and (max-height: 320px) {
 }
 
 .topnav-mobile-menu {
-	background: url(/assets/icon/menu-icon-white-ae397ad5ee9b4541134afb4d3ce02244b0699bb14eeaf955e9759e69605f8470.svg) no-repeat top left;
+/*	background: url(/assets/icon/menu-icon-white-ae397ad5ee9b4541134afb4d3ce02244b0699bb14eeaf955e9759e69605f8470.svg) no-repeat top left;*/
 	background-size: 0.5em;
 	color: #fff;
 	font-size: 2.5em;
@@ -3354,7 +3354,7 @@ screen and (max-height: 320px) {
 }
 
 #topnav-logo-img {
-	background: url(../images/bytePushersLogoWithText.svg) no-repeat center center;
+	background: url("~src/assets/images/bytePushersLogoWithText.svg") no-repeat center center;
 	background-size: 200px;
 	width: 200px;
     height: 110px;
@@ -3363,7 +3363,7 @@ screen and (max-height: 320px) {
 
 @media only screen and (min-width: 768px) {
 	.topnav-logo-img {
-		background-image: url(../images/bytePushersLogoWithText.svg);
+		background-image: url("~src/assets/images/bytePushersLogoWithText.svg");
 		background-size: 22em;
 		width: 22em;
 		height: 8.4em
@@ -3390,7 +3390,7 @@ screen and (max-height: 320px) {
 		display: block
 	}
 	.topnav.expanded .topnav-logo-img {
-		background: url(/assets/logo/logo-large@2x-0efa3186d6fa51f01079ba70846fca83b667929c90b3a2b7711eebe01acf6786.png) no-repeat;
+		/*background: url(/assets/logo/logo-large@2x-0efa3186d6fa51f01079ba70846fca83b667929c90b3a2b7711eebe01acf6786.png) no-repeat;*/
 		background-size: 110px
 	}
 	.topnav.expanded .topnav-link {
@@ -3404,7 +3404,7 @@ screen and (max-height: 320px) {
 		margin-top: 0.75em
 	}
 	.topnav.expanded .topnav-mobile-menu {
-		background-image: url(/assets/icon/close-icon-6e088dc60f03bfc69de45934b1877d51136392611a4d922a3d2c732538cbe3d5.svg);
+		/*background-image: url(/assets/icon/close-icon-6e088dc60f03bfc69de45934b1877d51136392611a4d922a3d2c732538cbe3d5.svg);*/
 		font-size: 1.8em;
 		margin-top: 0.4em;
 		margin-bottom: 0.15em;
@@ -4825,17 +4825,17 @@ input[type="text"].footer-newsletter-input:-ms-input-placeholder {
 	opacity: 0.4
 }
 
-.icon-link-android {
+/*.icon-link-android {
 	background: url(/assets/icon/android-icon-b47c7112724552be9ccd454185518e8c58af75814100b509d4504172891cc10b.svg) no-repeat
-}
+}*/
 
 .icon-link-android:after {
 	content: 'ANDROID'
 }
 
-.icon-link-amazon {
+/*.icon-link-amazon {
 	background: url(/assets/icon/kindle-icon-0ae977744e3464a2e761d12ac603caac4d89367d3af8dae1baa3003849036426.svg) no-repeat
-}
+}*/
 
 .icon-link-amazon:after {
 	content: 'AMAZON'
@@ -4849,17 +4849,17 @@ input[type="text"].footer-newsletter-input:-ms-input-placeholder {
 	content: 'iOS'
 }
 
-.icon-link-kindle {
+/*.icon-link-kindle {
 	background: url(/assets/icon/kindle-icon-0ae977744e3464a2e761d12ac603caac4d89367d3af8dae1baa3003849036426.svg) no-repeat
-}
+}*/
 
 .icon-link-kindle:after {
 	content: 'KINDLE'
 }
 
-.icon-link-web {
+/*.icon-link-web {
 	background: url(/assets/icon/web-icon-249bef5493c10c5a607b5e0e9f9ae741bff8465cee52fc4d11eba7ac9f517fdf.svg) no-repeat
-}
+}*/
 
 .icon-link-web:after {
 	content: 'WEBSITE'
@@ -5205,7 +5205,7 @@ input[type="text"].footer-newsletter-input:-ms-input-placeholder {
 
 .hero,
 .hero-small {
-	background-image: url(/assets/2-bd9be9ad4a60aeecb61e9ed4448f2acb71c59e28c98424c25f0f2d0cf8b44c9b.jpg);
+/*	background-image: url(/assets/2-bd9be9ad4a60aeecb61e9ed4448f2acb71c59e28c98424c25f0f2d0cf8b44c9b.jpg);*/
 	position: relative
 }
 
@@ -5475,7 +5475,7 @@ input[type="text"].footer-newsletter-input:-ms-input-placeholder {
 
 .lets-talk {
 	position: relative;
-	background: url("/bp-web/static-app/assets/images/coffeePhoto.jpg") no-repeat center;
+	background: url("~src/assets/images/coffeePhoto.jpg") no-repeat center;
 	background-size: cover;
 	padding: 2.8em 8em
 }
@@ -5888,7 +5888,7 @@ input[type="text"].footer-newsletter-input:-ms-input-placeholder {
 	height: auto;
 	position: relative;
 	padding: 3em 0.7em 4em 0.7em;
-	background: #f8f8f8 url(/images/bkg_working.jpg) no-repeat top right;
+/*	background: #f8f8f8 url(/images/bkg_working.jpg) no-repeat top right;*/
 	background-size: auto 100%
 }
 
