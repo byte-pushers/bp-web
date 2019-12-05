@@ -9,6 +9,7 @@ import { ServicesComponent } from './components/app-services/app-services.compon
 import { WorkComponent } from './components/app-work/app-work.component';
 import { AboutComponent } from './components/app-about/app-about.component';
 import { ContactComponent } from './components/app-contact/app-contact.component';
+import { PageScrollingUtility} from "./utilities/page-scrolling.utility";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { ContactComponent } from './components/app-contact/app-contact.component
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    PageScrollingUtility
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
