@@ -6,7 +6,8 @@
 .topnav-container {
   margin: 0 auto;
   padding-left: 1em;
-  padding-right: 1em
+  padding-right: 1em;
+  margin-left: -15px;
 }
 
 .topnav-container::after,
@@ -193,9 +194,14 @@ screen and (max-height: 320px) {
 }
 @media only screen and (min-width: 321px) and (max-width: 767px) {
   .topnav.topnav-scrolling .topnav-mobile-menu {
-    background-image: url(~src/assets/images/bytePushersLogoWithoutText.svg);
+    background-image: url(~src/assets/images/hamburgerMenuBlack.svg);
     margin-top: 0.55em;
-    height: 1em
+    background-size: 0.5em;
+    color: #fff;
+    font-size: 2.5em;
+    width: .6em;
+    height: 1em;
+    margin-bottom: 0.4em
   }
 }
 
@@ -208,12 +214,12 @@ screen and (max-height: 320px) {
 
 .topnav.topnav-scrolling .topnav-logo-img {
   /* margin-top: 0.55em; */
-  margin-bottom: 0.25em;
   background: url(~src/assets/images/bytePushersLogoWithoutText.svg) no-repeat center;
   background-size: 220px;
   width: 220px;
   height: 80px;
-  margin-top: 1em;
+  margin-top: .5em;
+  margin-left: -2em;
 }
 
 @media screen and (max-width: 320px),
@@ -231,7 +237,7 @@ screen and (max-height: 320px) {
 }
 
 .topnav-mobile-menu {
-  background: url(~src/assets/images/bytePushersLogoWithoutText.svg) no-repeat top left;
+  background: url(~src/assets/images/hamburgerMenuWhite.svg) no-repeat top left;
   background-size: 0.5em;
   color: #fff;
   font-size: 2.5em;
@@ -239,7 +245,8 @@ screen and (max-height: 320px) {
   height: 1em;
   float: left;
   cursor: pointer;
-  margin-top: 0.15em;
+  margin-top: 1.1em;
+  margin-left: .4em;
   margin-bottom: 0.4em
 }
 
@@ -252,7 +259,7 @@ screen and (max-height: 320px) {
     display: block;
     position: absolute;
     left: 50%;
-    margin-left: -49.5px
+    margin-left: -10px;
   }
   .topnav-logo {
     position: static;
@@ -263,9 +270,10 @@ screen and (max-height: 320px) {
 
 .topnav-logo-img {
   background: url(~src/assets/images/bytePushersLogoWithText.svg) no-repeat center center;
-  background-size: 200px;
-  width: 200px;
-  height: 110px;
+  background-size: 130px;
+  width: 130px;
+  height: 130px;
+  margin: 0 auto;
 
 }
 @media only screen and (min-width: 768px) {
