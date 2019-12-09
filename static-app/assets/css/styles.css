@@ -3295,7 +3295,7 @@ screen and (max-height: 320px) {
 .topnav.topnav--scrolling .topnav-logo-img {
 	/* margin-top: 0.55em; */
 	margin-bottom: 0.25em;
-	background: url("~src/assets/images/bytePushersLogoWithoutText.svg") no-repeat center;
+	background: url("../images/bytePushersLogoWithoutText.svg") no-repeat center;
 	background-size: 220px;
 	width: 220px;
 	height: 80px
@@ -3364,7 +3364,7 @@ screen and (max-height: 320px) {
 @media only screen and (min-width: 768px) {
 	.topnav-logo-img {
 		background-image: url("../images/bytePushersLogoWithText.svg");
-		background-size: 22em;
+		background-size: contain;
 		width: 22em;
 		height: 8.4em
 	}
@@ -5307,7 +5307,7 @@ input[type="text"].footer-newsletter-input:-ms-input-placeholder {
 .hero-text-container,
 .home-hero-text-container {
 	position: absolute;
-	bottom: 15%;
+	bottom: 10%;
 	width: 100%;
 	padding: 0 0.6em
 }
@@ -8059,4 +8059,8 @@ body {
 	font-size: 30px;
 	font-weight: 300;
 	text-decoration: underline;
+}
+.gray-paragraph {
+	font-size: 24px;
+	line-height: 30px;
 }
