@@ -2140,7 +2140,9 @@ a {
 	.post-title,
 	.blog-list-post-title,
 	.team-grid-name {
-		font-size: 2.778em
+		font-size: 2.778em;
+		font-size: 48px;
+		color: #000;
 	}
 }
 
@@ -2704,7 +2706,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
 .company-we-keep,
 .company-we-keep-small,
 .contact-work-with-us {
-	background: #f8f8f8
+	background: #e1e1e1
 }
 
 .section-margin-top,
@@ -3295,7 +3297,7 @@ screen and (max-height: 320px) {
 .topnav.topnav--scrolling .topnav-logo-img {
 	/* margin-top: 0.55em; */
 	margin-bottom: 0.25em;
-	background: url("../images/bytePushersLogoWithoutText.svg") no-repeat center;
+	background: url("../images/bytePushersLogoWithoutText.svg") no-repeat center 42px;
 	background-size: 220px;
 	width: 220px;
 	height: 80px
@@ -3830,24 +3832,6 @@ article.cbp-so-side-right .cbp-so-contents {
 .large-content,
 .rrssb-buttons {
 	font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif
-}
-
-.subheading-large,
-.section-subheading,
-.section-header-subheading,
-.tagline,
-.services-tagline,
-.font-secondary,
-.quote,
-.quote-attr,
-.quote-attr-title,
-.img-list,
-.hero-text em,
-.home-hero-text em,
-.side-img-section-subheading,
-.side-img-section-content h2 {
-	font-family: 'Archer SSm A', 'Archer SSm B', Georgia, Times, serif;
-	line-height: 1.33em
 }
 
 .section-quote {
@@ -8017,7 +8001,7 @@ body {
 	background: url(../images/homePage/features-img.jpg) no-repeat left top;
 	background-size: cover;
 	width: 100%;
-	height: 700px;
+	height: 600px;
 	margin: 30px 0 0 0;
 	transition:all 1s ease;
 }
@@ -8036,7 +8020,7 @@ body {
 	color: #fff !important;
 	position: relative;
 	left: 100px;
-	top: 100px;
+	top: 50px;
 	width: 50%;
 	max-width: 50%;
 	min-width: 10%;
@@ -8044,7 +8028,7 @@ body {
 }
 .featuresContent img {
 	margin: 0px auto;
-    width: 300px;
+    width: 220px;
     height: auto;
 }
 .featuresContent h2 {
@@ -8054,13 +8038,24 @@ body {
 }
 .featuresContent p {
 	line-height: 30px;
+	font-weight: 100;
+	font-size: 26px;
+	margin-bottom: 15px;
 }
 .featuresContent .learnMore {
 	font-size: 30px;
 	font-weight: 300;
 	text-decoration: underline;
 }
+
 .gray-paragraph {
 	font-size: 24px;
 	line-height: 30px;
+	color: #000;
+}
+.slogan-para {
+	font-style: italic;
+	font-size: 22px !important;
+	font-weight: 600;
+	font-family: Arvo-Italic;
 }
