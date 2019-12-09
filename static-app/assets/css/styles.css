@@ -3363,8 +3363,8 @@ screen and (max-height: 320px) {
 
 @media only screen and (min-width: 768px) {
 	.topnav-logo-img {
-		background-image: url("~src/assets/images/bytePushersLogoWithText.svg");
-		background-size: 22em;
+		background-image: url("../images/bytePushersLogoWithText.svg");
+		background-size: contain;
 		width: 22em;
 		height: 8.4em
 	}
