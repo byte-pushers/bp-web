@@ -17,6 +17,7 @@
     data-turbolinks-track="true"></script>
   <script src="assets/js/application-095e2a3ef20967f00ed3d750f512b4e069535585d3a38e090.js"
     data-turbolinks-track="true"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
 
 
   <!--[if lte IE 9]>
@@ -27,59 +28,7 @@
 </head>
 
 <body>
-  <style>
-    .homeBG {
-      background: url('assets/images/homePage/bytePushersHomePageSplashScreenBackground.jpg') no-repeat;
-      background-size: cover;
-      width: 100%;
-      height: 100%;
-      float: left;
-    }
-
-    .black-overlay {
-      width: 100%;
-      height: 100%;
-      background: #000;
-      opacity: 0.8;
-      position: absolute;
-      left: 0px;
-      top: 0px;
-    }
-
-    .weCreate {
-      color: #000;
-    }
-    .containerProcess {
-      width: 100%;
-      margin: 0px auto;
-      }
-      .containerProcess .column40 {
-        width: 33.33333%;
-        float: left;
-        padding: 0px 15px;
-      }
-      .process {
-        width: 100%;
-        max-width: 400px;
-        margin: 30px auto;
-        font-size: 24px;
-        
-      }
-      .process p {
-        line-height: 30px;
-      }
-      .process h2 {
-        font-size:32px;
-        font-weight: 500;
-        color:midnightblue;
-        margin: 15px 0px;
-        padding: 0px;
-      }
-      .img-fluid {
-  max-width: 100%;
-  height: auto;
-}
-  </style>
+  
   <main class="page">
     <nav class="topnav fade-in-second" id="topnav">
       <div class="topnav-container">
@@ -119,7 +68,6 @@
           print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is
           thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.
         </div></div>
-        
       </section>
       <section class="home-work-grid-section">
         <div class="section-heading">Featured Projects</div>
@@ -139,20 +87,22 @@
           </div>
         </div>
         <section class="full-width-section-gray">
-          <div class="home-hero-text weCreate">
-            "We <strong>create</strong> and <strong>mold</strong> your ideas into something truly special."
-          </div>
+          <div class="container"><div class="home-hero-text weCreate">
+            "We <strong>create</strong> and <strong>mold</strong> your ideas into something truly <strong>special</strong>"
+          </div></div>
+          
         </section>
       </section>
 
 
-      <section class="home-work-grid-section" style="background: #eef3fa;">
+      <section class="home-work-grid-section">
         <div class="section-heading">Our Process</div>
-        <div class="section-subheading">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying
-          out print, graphic or web designs. </div>
-          <div class="containerProcess">
-              <div  class="column40">
-                <div class="process">
+        <div class="section-subheading"><p class="slogan-para">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying
+            out print, graphic or web designs. </p></div>
+          <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="process">
                   <img src="./assets/images/homePage/ideation.jpg" class="img-fluid" />
 
                   <h2>Ideation & Planning</h2>
@@ -160,10 +110,9 @@
                       out print, graphic or web designs. </p>
                       <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying
                           out print, graphic or web designs. </p>
-
                 </div>
               </div>
-              <div  class="column40">
+              <div class="col-sm">
                   <div class="process">
                     <img src="./assets/images/homePage/process-design.jpg" class="img-fluid" />
   
@@ -175,7 +124,7 @@
   
                   </div>
                 </div>
-                <div  class="column40">
+                <div class="col-sm">
                     <div class="process">
                       <img src="./assets/images/homePage/implementation.jpg" class="img-fluid" />
     
@@ -186,6 +135,7 @@
                               out print, graphic or web designs. </p>
     
                     </div>
+                  </div>
                   </div>
           </div>
       </section>
