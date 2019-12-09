@@ -13,7 +13,7 @@ export class AppHeaderComponent implements OnInit {
     window.onscroll = function() {navScroll()};
 
     function navScroll() {
-      if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+      if (document.body.scrollTop > 570 || document.documentElement.scrollTop > 570) {
         const scrollingNav =  document.getElementById("topnav");
         scrollingNav.classList.add("topnav-scrolling");
 
