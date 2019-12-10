@@ -1623,7 +1623,8 @@ body,
 	margin: 0;
 	padding: .5em 1em;
 	text-align: center;
-	text-decoration: none
+	text-decoration: none;
+
 }
 
 html {
@@ -3379,7 +3380,7 @@ screen and (max-height: 320px) {
 
 @media only screen and (min-width: 768px) {
 	.topnav-logo-img {
-		background-image: url("~src/assets/images/bytePushersLogoWithText.svg");
+		background-image: url("~src/assets/images/bytePushersLogoWithTextDesktop-01.svg");
 		background-size: 22em;
 		width: 22em;
 		height: 11em
@@ -5462,12 +5463,12 @@ input[type="text"].footer-newsletter-input:-ms-input-placeholder {
 	position: relative;
 	background: url(~src/assets/images/coffeePhoto.jpg) no-repeat center;
 	background-size: cover;
-	padding: 2.8em 8em
+	padding: 2.8em 3.2em
 }
 
 .lets-talk-heading {
 	color: #fff;
-	font-size: 2.7em;
+	font-size: 2.2em;
 	text-align: left;
 }
 
@@ -5481,8 +5482,7 @@ input[type="text"].footer-newsletter-input:-ms-input-placeholder {
 	display: block;
 	font-size: 1.347em;
 	font-weight: 700;
-
-	width: 12em;
+	width: 12.25em;
 	padding: 0.9em 1.25em;
 	background: transparent;
 	border: 2px solid #fff;
