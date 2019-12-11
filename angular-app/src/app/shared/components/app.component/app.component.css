@@ -192,7 +192,7 @@
 }
 
 .rrssb-buttons {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
   height: 36px;
   margin: 0;
   padding: 0;
@@ -778,7 +778,7 @@ table {
 .blog-post pre,
 .side-img-section-content pre {
   color: #383838;
-  font-family: Consolas, "Lucida Console", "DejaVu Sans Mono", Monaco, "Courier New", Courier, monospace;
+  /* font-family: Consolas, "Lucida Console", "DejaVu Sans Mono", Monaco, "Courier New", Courier, monospace; */
   font-size: .7em
 }
 
@@ -906,7 +906,7 @@ table {
 .blog-post h6,
 .side-img-section-content h6 {
   color: #343434;
-  font-family: Helvetica, Arial, "sans-serif";
+  /* font-family: Helvetica, Arial, "sans-serif"; */
   font-weight: bold
 }
 
@@ -1278,7 +1278,7 @@ body,
 .ul,
 .ol {
   color: #686868;
-  font-family: Georgia, Times, "Times New Roman", serif;
+  /* font-family: Georgia, Times, "Times New Roman", serif; */
   font-size: 1em
 }
 
@@ -1738,7 +1738,7 @@ body,
 .ul,
 .ol {
   color: #201d1c;
-  font-family: "Verlag A", "Verlag B", "Helvetica", "Arial", sans-serif;
+  /* font-family: "Verlag A", "Verlag B", "Helvetica", "Arial", sans-serif; */
   font-size: 1.1667em;
   font-weight: 300;
   letter-spacing: 0
@@ -1748,7 +1748,7 @@ a {
   text-decoration: none;
   font-style: inherit;
   color: inherit;
-  font-family: inherit
+  /* font-family: inherit */
 }
 
 .text-link,
@@ -2016,7 +2016,7 @@ a {
 .blog-post h6,
 .side-img-section-content h6 {
   color: #201d1c;
-  font-family: "Verlag A", "Verlag B", "Helvetica", "Arial", sans-serif;
+  /* font-family: "Verlag A", "Verlag B", "Helvetica", "Arial", sans-serif; */
   font-weight: normal
 }
 
@@ -2212,7 +2212,7 @@ a {
 .button-view-solutions,
 .button-view-articles,
 .button-about-us {
-  font-family: "Verlag A", "Verlag B", "Helvetica", "Arial", sans-serif;
+  /* font-family: "Verlag A", "Verlag B", "Helvetica", "Arial", sans-serif; */
   border-radius: 0.13889em;
   cursor: pointer;
   padding: 1.125em 2.75em;
@@ -3071,7 +3071,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
 }
 
 .ol-heading {
-  font-family: 'Archer SSm A', 'Archer SSm B', Georgia, Times, serif;
+  /* font-family: 'Archer SSm A', 'Archer SSm B', Georgia, Times, serif; */
   font-size: 1.95em;
   font-weight: 700;
   line-height: 1.2em;
@@ -3830,11 +3830,7 @@ article.cbp-so-side-right .cbp-so-contents {
   }
 }
 
-.font-primary,
-.large-content,
-.rrssb-buttons {
-  font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif
-}
+
 
 .subheading-large,
 .section-subheading,
@@ -3850,12 +3846,12 @@ article.cbp-so-side-right .cbp-so-contents {
 .home-hero-text em,
 .side-img-section-subheading,
 .side-img-section-content h2 {
-  font-family: 'Archer SSm A', 'Archer SSm B', Georgia, Times, serif;
+  /* font-family: 'Archer SSm A', 'Archer SSm B', Georgia, Times, serif; */
   line-height: 1.33em
 }
 
 .section-quote {
-  font-family: 'Archer SSm A', 'Archer SSm B', Georgia, Times, serif;
+  /* font-family: 'Archer SSm A', 'Archer SSm B', Georgia, Times, serif; */
   line-height: 1.33em;
   text-align: center;
   font-weight: 500;
@@ -4396,7 +4392,7 @@ textarea {
   width: 100%;
   border: none;
   border-bottom: 1px solid #201d1c;
-  font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif;
+  /* font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif; */
   font-weight: 400;
   color: #201d1c;
   padding: 0.7em 0.2em;
@@ -4409,7 +4405,7 @@ input[type="email"]::-webkit-input-placeholder,
 input[type="password"]::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
   color: #201d1c;
-  font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif;
+  /* font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif; */
   font-weight: 300
 }
 
@@ -4418,7 +4414,7 @@ input[type="email"]::-moz-placeholder,
 input[type="password"]::-moz-placeholder,
 textarea::-moz-placeholder {
   color: #201d1c;
-  font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif;
+  /* font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif; */
   font-weight: 300
 }
 
@@ -4427,7 +4423,7 @@ input[type="email"]:-moz-placeholder,
 input[type="password"]:-moz-placeholder,
 textarea:-moz-placeholder {
   color: #201d1c;
-  font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif;
+  /* font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif; */
   font-weight: 300
 }
 
@@ -4436,7 +4432,7 @@ input[type="email"]:-ms-input-placeholder,
 input[type="password"]:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
   color: #201d1c;
-  font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif;
+  /* font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif; */
   font-weight: 300
 }
 
@@ -5290,7 +5286,7 @@ input[type="text"].footer-newsletter-input:-ms-input-placeholder {
 
 .hero-intro-text {
   text-align: center;
-  font-family: "Archer";
+  /* font-family: "Archer"; */
   color: #fff;
   font-size: 1.8em;
   margin-bottom: 1.5em;
@@ -5667,7 +5663,7 @@ input[type="text"].footer-newsletter-input:-ms-input-placeholder {
 
 .page-footer-nav-prev:before {
   content: '\e812';
-  font-family: "fontello";
+  /* font-family: "fontello"; */
   font-size: 1.5em;
   position: absolute;
   top: 1em;
@@ -5698,7 +5694,7 @@ input[type="text"].footer-newsletter-input:-ms-input-placeholder {
 
 .page-footer-nav-next:after {
   content: '\e810';
-  font-family: "fontello";
+  /* font-family: "fontello"; */
   font-size: 1.5em;
   position: absolute;
   top: 1em;
@@ -7562,7 +7558,7 @@ body.private .main-content-container {
   font-size: 0.52em;
   font-weight: 500;
   font-style: italic;
-  font-family: 'Archer SSm A', 'Archer SSm B', Georgia, Times, serif;
+  /* font-family: 'Archer SSm A', 'Archer SSm B', Georgia, Times, serif; */
   color: #aaa
 }
 

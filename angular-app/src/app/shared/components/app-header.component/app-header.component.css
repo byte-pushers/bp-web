@@ -416,7 +416,7 @@ margin-top: .3em;
 
 .topnav-links {
   list-style-type: none;
-  font-family: "Museo Sans Rounded 300", sans-serif;
+  /* font-family: "Museo Sans Rounded 300", sans-serif; */
 }
 
 .topnav-link-item {
