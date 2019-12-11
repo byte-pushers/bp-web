@@ -3298,9 +3298,11 @@ screen and (max-height: 320px) {
 }
 
 .topnav.topnav-scrolling .topnav-mobile-menu {
-  background: url("~src/assets/images/bytePushersLogoWithoutText.svg") no-repeat center;
-  margin-top: 0.55em;
-	height: 1em
+  background: url("~src/assets/images/hamburgerMenuBlack.svg") no-repeat center;
+  margin-top: .1em;
+  margin-left: .1em;
+  margin-bottom: 0.4em;
+  height: .5em;
 }
 
 @media screen and (max-height: 320px) {
@@ -3358,8 +3360,8 @@ screen and (max-height: 320px) {
 .topnav-logo {
 	display: block;
 	position: absolute;
-	left: 50%;
-	margin-left: -49.5px
+	left: 45%;
+	margin-left: -43.5px
 }
 
 @media only screen and (min-width: 768px) {
@@ -5804,6 +5806,19 @@ input[type="text"].footer-newsletter-input:-ms-input-placeholder {
 		width: 50%;
 		height: 8em
 	}
+  .hero-arrow {
+    color: #fff;
+    position: absolute;
+    bottom: 1.5em;
+    display: block;
+    left: 46% !important;
+    font-size: 1em;
+    cursor: pointer;
+    z-index: 10;
+    -webkit-transition: color 100ms linear;
+    -moz-transition: color 100ms linear;
+    transition: color 100ms linear
+  }
 }
 
 .company-we-keep-small .company-we-keep-logo {
