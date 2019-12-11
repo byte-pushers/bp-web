@@ -1,4 +1,6 @@
-
+html, body {
+	font-family: 'Raleway', sans-serif;
+}
 
 .owl-carousel .owl-wrapper:after {
 	content: ".";
@@ -192,7 +194,7 @@ border-bottom: #c4c8cc solid 1px;
 }
 
 .rrssb-buttons {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	/* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
 	height: 36px;
 	margin: 0;
 	padding: 0;
@@ -778,7 +780,7 @@ table {
 .blog-post pre,
 .side-img-section-content pre {
 	color: #383838;
-	font-family: Consolas, "Lucida Console", "DejaVu Sans Mono", Monaco, "Courier New", Courier, monospace;
+	/* font-family: Consolas, "Lucida Console", "DejaVu Sans Mono", Monaco, "Courier New", Courier, monospace; */
 	font-size: .7em
 }
 
@@ -906,7 +908,7 @@ table {
 .blog-post h6,
 .side-img-section-content h6 {
 	color: #343434;
-	font-family: Helvetica, Arial, "sans-serif";
+	/* font-family: Helvetica, Arial, "sans-serif"; */
 	font-weight: bold
 }
 
@@ -926,7 +928,8 @@ table {
 .lets-talk-heading,
 .case-study-intro-title,
 .page-footer-nav-heading {
-	font-size: 3em
+	font-size: 3em;
+	line-height: 65px;
 }
 
 .heading-large,
@@ -1278,7 +1281,7 @@ body,
 .ul,
 .ol {
 	color: #686868;
-	font-family: Georgia, Times, "Times New Roman", serif;
+	/* font-family: Georgia, Times, "Times New Roman", serif; */
 	font-size: 1em
 }
 
@@ -1738,7 +1741,7 @@ body,
 .ul,
 .ol {
 	color: #201d1c;
-	font-family: "Verlag A", "Verlag B", "Helvetica", "Arial", sans-serif;
+	/* font-family: "Verlag A", "Verlag B", "Helvetica", "Arial", sans-serif; */
 	font-size: 1.1667em;
 	font-weight: 300;
 	letter-spacing: 0
@@ -1748,7 +1751,7 @@ a {
 	text-decoration: none;
 	font-style: inherit;
 	color: inherit;
-	font-family: inherit
+	/* font-family: inherit */
 }
 
 .text-link,
@@ -1923,7 +1926,7 @@ a {
 .sidebar-tweets .tweet-content a:visited:active {
 	color: #50b4d1
 }
-
+/* 
 .heading-xlarge,
 .text-block h1,
 .page-content h1,
@@ -2018,7 +2021,7 @@ a {
 	color: #201d1c;
 	font-family: "Verlag A", "Verlag B", "Helvetica", "Arial", sans-serif;
 	font-weight: normal
-}
+} */
 
 .heading-xlarge,
 .text-block h1,
@@ -2140,7 +2143,9 @@ a {
 	.post-title,
 	.blog-list-post-title,
 	.team-grid-name {
-		font-size: 2.778em
+		font-size: 2.778em;
+		font-size: 48px;
+		color: #000;
 	}
 }
 
@@ -2210,7 +2215,7 @@ a {
 .button-view-solutions,
 .button-view-articles,
 .button-about-us {
-	font-family: "Verlag A", "Verlag B", "Helvetica", "Arial", sans-serif;
+	/* font-family: "Verlag A", "Verlag B", "Helvetica", "Arial", sans-serif; */
 	border-radius: 0.13889em;
 	cursor: pointer;
 	padding: 1.125em 2.75em;
@@ -2618,7 +2623,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
 }
 
 .page {
-	background: #fff
+	/* background: #fff */
 }
 
 .content-container,
@@ -2704,7 +2709,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
 .company-we-keep,
 .company-we-keep-small,
 .contact-work-with-us {
-	background: #f8f8f8
+	background: #e1e1e1
 }
 
 .section-margin-top,
@@ -3069,7 +3074,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
 }
 
 .ol-heading {
-	font-family: 'Archer SSm A', 'Archer SSm B', Georgia, Times, serif;
+	/* font-family: 'Archer SSm A', 'Archer SSm B', Georgia, Times, serif; */
 	font-size: 1.95em;
 	font-weight: 700;
 	line-height: 1.2em;
@@ -3295,7 +3300,7 @@ screen and (max-height: 320px) {
 .topnav.topnav-scrolling .topnav-logo-img {
 	/* margin-top: 0.55em; */
 	margin-bottom: 0.25em;
-	background: url("~src/assets/images/bytePushersLogoWithoutText.svg") no-repeat center;
+	background: url("../images/bytePushersLogoWithoutText.svg") no-repeat center 42px;
 	background-size: 220px;
 	width: 220px;
 	height: 80px
@@ -3363,8 +3368,8 @@ screen and (max-height: 320px) {
 
 @media only screen and (min-width: 768px) {
 	.topnav-logo-img {
-		background-image: url("~src/assets/images/bytePushersLogoWithText.svg");
-		background-size: 22em;
+		background-image: url("../images/bytePushersLogoWithText.svg");
+		background-size: contain;
 		width: 22em;
 		height: 8.4em
 	}
@@ -3826,32 +3831,8 @@ article.cbp-so-side-right .cbp-so-contents {
 	}
 }
 
-.font-primary,
-.large-content,
-.rrssb-buttons {
-	font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif
-}
-
-.subheading-large,
-.section-subheading,
-.section-header-subheading,
-.tagline,
-.services-tagline,
-.font-secondary,
-.quote,
-.quote-attr,
-.quote-attr-title,
-.img-list,
-.hero-text em,
-.home-hero-text em,
-.side-img-section-subheading,
-.side-img-section-content h2 {
-	font-family: 'Archer SSm A', 'Archer SSm B', Georgia, Times, serif;
-	line-height: 1.33em
-}
-
 .section-quote {
-	font-family: 'Archer SSm A', 'Archer SSm B', Georgia, Times, serif;
+	/* font-family: 'Archer SSm A', 'Archer SSm B', Georgia, Times, serif; */
 	line-height: 1.33em;
 	text-align: center;
 	font-weight: 500;
@@ -4420,7 +4401,7 @@ textarea {
 	width: 100%;
 	border: none;
 	border-bottom: 1px solid #201d1c;
-	font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif;
+	/* font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif; */
 	font-weight: 400;
 	color: #201d1c;
 	padding: 0.7em 0.2em;
@@ -4433,7 +4414,7 @@ input[type="email"]::-webkit-input-placeholder,
 input[type="password"]::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
 	color: #201d1c;
-	font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif;
+	/* font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif; */
 	font-weight: 300
 }
 
@@ -4442,7 +4423,7 @@ input[type="email"]::-moz-placeholder,
 input[type="password"]::-moz-placeholder,
 textarea::-moz-placeholder {
 	color: #201d1c;
-	font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif;
+	/* font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif; */
 	font-weight: 300
 }
 
@@ -4451,7 +4432,7 @@ input[type="email"]:-moz-placeholder,
 input[type="password"]:-moz-placeholder,
 textarea:-moz-placeholder {
 	color: #201d1c;
-	font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif;
+	/* font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif; */
 	font-weight: 300
 }
 
@@ -4460,7 +4441,7 @@ input[type="email"]:-ms-input-placeholder,
 input[type="password"]:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
 	color: #201d1c;
-	font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif;
+	/* font-family: 'Verlag A', 'Verlag B', Helvetica, Arial, sans-serif; */
 	font-weight: 300
 }
 
@@ -5307,14 +5288,14 @@ input[type="text"].footer-newsletter-input:-ms-input-placeholder {
 .hero-text-container,
 .home-hero-text-container {
 	position: absolute;
-	bottom: 15%;
+	bottom: calc(1.5em + 70px);
 	width: 100%;
 	padding: 0 0.6em
 }
 
 .hero-intro-text {
 	text-align: center;
-	font-family: "Archer";
+	/* font-family: "Archer"; */
 	color: #fff;
 	font-size: 1.8em;
 	margin-bottom: 1.5em;
@@ -5694,7 +5675,7 @@ input[type="text"].footer-newsletter-input:-ms-input-placeholder {
 
 .page-footer-nav-prev:before {
 	content: '\e812';
-	font-family: "fontello";
+	/* font-family: "fontello"; */
 	font-size: 1.5em;
 	position: absolute;
 	top: 1em;
@@ -5725,7 +5706,7 @@ input[type="text"].footer-newsletter-input:-ms-input-placeholder {
 
 .page-footer-nav-next:after {
 	content: '\e810';
-	font-family: "fontello";
+	/* font-family: "fontello"; */
 	font-size: 1.5em;
 	position: absolute;
 	top: 1em;
@@ -7589,7 +7570,7 @@ body.private .main-content-container {
 	font-size: 0.52em;
 	font-weight: 500;
 	font-style: italic;
-	font-family: 'Archer SSm A', 'Archer SSm B', Georgia, Times, serif;
+	/* font-family: 'Archer SSm A', 'Archer SSm B', Georgia, Times, serif; */
 	color: #aaa
 }
 
@@ -8012,12 +7993,66 @@ body {
 	box-sizing: border-box
 }
 
+.homeBG {
+  background: url('../images/homePage/bytePushersHomePageSplashScreenBackground.jpg') no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+
+.black-overlay {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.8;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.weCreate {
+  color: #000;
+  font-weight: 300;
+}
+.containerProcess {
+  width: 100%;
+  margin: 0px auto;
+  }
+  .containerProcess .column40 {
+	width: 33.33333%;
+	float: left;
+	padding: 0px 15px;
+  }
+  .process {
+	width: 100%;
+	max-width: 400px;
+	margin: 30px auto;
+	font-size: 24px;
+	
+  }
+  .process p {
+	line-height: 30px;
+  }
+  .process h2 {
+	font-size:32px;
+	font-weight: 500;
+	color:midnightblue;
+	margin: 15px 0px;
+	padding: 0px;
+  }
+  .img-fluid {
+max-width: 100%;
+height: auto;
+}
+
+
 
 .featuresSections {
 	background: url(../images/homePage/features-img.jpg) no-repeat left top;
 	background-size: cover;
 	width: 100%;
-	height: 700px;
+	height: 600px;
 	margin: 30px 0 0 0;
 	transition:all 1s ease;
 }
@@ -8036,7 +8071,7 @@ body {
 	color: #fff !important;
 	position: relative;
 	left: 100px;
-	top: 100px;
+	top: 50px;
 	width: 50%;
 	max-width: 50%;
 	min-width: 10%;
@@ -8044,7 +8079,7 @@ body {
 }
 .featuresContent img {
 	margin: 0px auto;
-    width: 300px;
+    width: 220px;
     height: auto;
 }
 .featuresContent h2 {
@@ -8054,9 +8089,145 @@ body {
 }
 .featuresContent p {
 	line-height: 30px;
+	font-weight: 100;
+	font-size: 26px;
+	margin-bottom: 15px;
 }
 .featuresContent .learnMore {
 	font-size: 30px;
 	font-weight: 300;
+	text-decoration: underline;
+}
+
+.gray-paragraph {
+	font-size: 24px;
+	line-height: 30px;
+	color: #000;
+}
+.slogan-para {
+	font-style: italic;
+	font-size: 22px !important;
+	font-weight: 600;
+	/* font-family: Arvo-Italic; */
+}
+
+
+.carousel-item .process{
+	max-width: 100%;
+	text-align: center;
+}
+.carousel-indicators li {
+	width: 10px !important;
+	height: 10px !important;
+	border-radius: 5px !important;
+	background:#000 !important;
+	border: none !important;
+}
+.carousel-indicators li.active {
+	background:#1e4d8a !important;
+}
+.carousel-control-next, .carousel-control-prev {
+	font-size: 30px;color: #000 !important;
+	width: auto !important;
+}
+.carousel-control-next {
+    right: -15px !important;
+}
+.carousel-control-prev {
+    left: -15px !important;
+}
+
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
+	padding-top: 1.56em;
+	background-color: rgba(255, 255, 255, 0);
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	-o-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	-webkit-transition: -webkit-transform 0.4s, background 0.4s;
+	-moz-transition: -moz-transform 0.4s, background 0.4s;
+	-o-transition: -o-transform 0.4s, background 0.4s;
+	transition: transform 0.4s, background 0.4s
+}
+.navbar.topnav-scrolling {
+	-webkit-transform: translate(0, -2em);
+	-moz-transform: translate(0, -2em);
+	-ms-transform: translate(0, -2em);
+	-o-transform: translate(0, -2em);
+	transform: translate(0, -2em);
+	-webkit-transform: translate3d(0, -2em, 0);
+	-moz-transform: translate3d(0, -2em, 0);
+	-ms-transform: translate3d(0, -2em, 0);
+	-o-transform: translate3d(0, -2em, 0);
+	transform: translate3d(0, -2em, 0);
+	background-color: #ffffff;
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1)
+}
+
+.topnav.topnav-scrolling .topnav-link {
+	color: #201d1c;
+	text-shadow: none;
+	border-bottom-width: 2px
+}
+
+.topnav.topnav-scrolling .topnav-link:hover,
+.topnav.topnav-scrolling .topnav-link.active {
+	border-bottom-color: #201d1c
+}
+
+.topnav.topnav-scrolling .topnav-links-container {
+	margin-top: 1em
+}
+
+@media only screen and (min-width: 768px) {
+	.topnav.topnav-scrolling.active .topnav-link-button {
+		border: 2px solid #201d1c;
+		color: #201d1c;
+		padding-top: 0.05em;
+		padding-bottom: 0;
+		margin-top: -3px;
+		margin-bottom: -3px;
+		white-space: nowrap
+	}
+	.topnav.topnav-scrolling .topnav-link-button:hover {
+		background: #201d1c;
+		color: #fff
+	}
+}
+
+.topnav.topnav-scrolling .topnav-link-item {
+	margin-top: 0.3em
+}
+
+.topnav.topnav-scrolling .topnav-logo {
+	margin-top: 0;
+	margin-left: -37.5px
+}
+
+@media only screen and (min-width: 321px) {
+	.topnav.topnav-scrolling .topnav-logo {
+		margin-left: -42.6px
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.topnav.topnav-scrolling .topnav-logo {
+		margin-top: 0;
+		margin-left: 0
+	}
+}
+
+.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-nav .active>.nav-link {
+	color: #fff !important;
+	font-weight: 500;
+    text-transform: uppercase;
+}
+.navbar-light .navbar-nav .active>.nav-link {
 	text-decoration: underline;
 }
