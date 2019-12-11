@@ -7,7 +7,7 @@ import {WorkComponent} from "./app/components/app-work/app-work.component";
 import {ServicesComponent} from "./app/components/app-services/app-services.component";
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent},
