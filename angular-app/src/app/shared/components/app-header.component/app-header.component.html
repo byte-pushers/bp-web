@@ -1,12 +1,12 @@
 
 
 <nav class="topnav fade-in-second" id="topnav">
-  <div class="topnav-container">
+  <div class="topnav-container" (click)="openCloseMobileNav()">
     <div class="topnav-mobile-menu"></div>
-    <a class="topnav-logo" href="#">
+    <a class="topnav-logo" [routerLink]="'/home'" routerLinkActive="active">
       <div class="topnav-logo-img"></div>
     </a>
-    <div class="topnav-links-container">
+    <div class="topnav-links-container" id="topnav-mobile-links">
       <ul class="topnav-links">
         <li class="topnav-link-item">
           <a class="topnav-link active" [routerLink]="'/home'" routerLinkActive="active">Home</a>
