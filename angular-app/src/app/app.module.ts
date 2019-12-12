@@ -11,7 +11,6 @@ import { AboutComponent } from './components/app-about/app-about.component';
 import { ContactComponent } from './components/app-contact/app-contact.component';
 import { PageScrollingUtility} from "./utilities/page-scrolling.utility";
 import {Ng2PageScrollModule} from "ng2-page-scroll";
-
 @NgModule({
   declarations: [
     AppComponent,
