@@ -8138,7 +8138,7 @@ height: auto;
 }
 
 .navbar {
-	position: fixed;
+	position: fixed !important;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -8166,7 +8166,7 @@ height: auto;
 	-ms-transform: translate3d(0, -2em, 0);
 	-o-transform: translate3d(0, -2em, 0);
 	transform: translate3d(0, -2em, 0);
-	background-color: #ffffff;
+	background-color: #fff !important;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1)
 }
 
@@ -8223,11 +8223,27 @@ height: auto;
 	}
 }
 
-.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-nav .active>.nav-link {
+.navbar-dark .navbar-nav .nav-link, .navbar-dark .navbar-nav .active>.nav-link {
 	color: #fff !important;
 	font-weight: 500;
     text-transform: uppercase;
 }
-.navbar-light .navbar-nav .active>.nav-link {
+.navbar-dark .navbar-nav .active>.nav-link {
 	text-decoration: underline;
+}
+.navbar-light.topnav-scrolling .navbar-nav .nav-link, .navbar-light.topnav-scrolling .navbar-nav .active>.nav-link {
+	color: #000 !important;
+	font-weight: 500;
+    text-transform: uppercase;
+}
+.navbar-light.topnav-scrolling .navbar-nav .active>.nav-link {
+	text-decoration: underline;
+}
+.navbar-light.topnav-scrolling .topnav-logo-img {
+	/* margin-top: 0.55em; */
+	margin-bottom: 0.25em;
+	background: url("../images/bytePushersLogoWithoutText.svg") no-repeat center 42px;
+	background-size: 220px;
+	width: 220px;
+	height: 80px
 }
