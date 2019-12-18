@@ -28,7 +28,8 @@
               "src/assets/scss/fonts.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "apps": [
             {

@@ -1,8 +1,31 @@
 .about-content {
-display: inline-block;
+  display: inline-block;
 }
 
 .about-container {
   text-align: center;
   padding: 3em;
+}
+
+.row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  margin: 0 auto !important;
+  justify-content: center;
+  /* margin-right: -15px; */
+  /* margin-left: -15px; */
+}
+.carousel-control-prev-icon {
+  background-image: url("~src/assets/images/arrow_left-24px.svg");
+  height: 100px;
+  width: 100px;
+}
+.carousel-control-next-icon {
+  background-image: url("~src/assets/images/arrow_right-24px.svg");
+  height: 100px;
+  width: 100px;
+}
+
+.carousel-indicators li {
+  background-color: black;
 }
