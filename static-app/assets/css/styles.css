@@ -1,4 +1,7 @@
-html, body {
+html {
+	scroll-behavior: smooth;
+  }
+  html, body {
 	font-family: 'Raleway', sans-serif;
 }
 
@@ -2641,7 +2644,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
 }
 
 .main-content-container {
-	margin-top: 100em
+	margin-top: 100vh
 }
 
 .main-content-container:before,
@@ -3359,7 +3362,7 @@ screen and (max-height: 320px) {
 }
 
 #topnav-logo-img {
-	background: url("~src/assets/images/bytePushersLogoWithText.svg") no-repeat center center;
+	background: url("../images/bytePushersLogoWithText.svg") no-repeat center center;
 	background-size: 200px;
 	width: 200px;
     height: 110px;
@@ -3395,7 +3398,7 @@ screen and (max-height: 320px) {
 		display: block
 	}
 	.topnav.expanded .topnav-logo-img {
-		/*background: url(/assets/logo/logo-large@2x-0efa3186d6fa51f01079ba70846fca83b667929c90b3a2b7711eebe01acf6786.png) no-repeat;*/
+		background: url("../images/logo-large@2x-0efa3186d6fa51f01079ba70846fca83b667929c90b3a2b7711eebe01acf6786.png") no-repeat;
 		background-size: 110px
 	}
 	.topnav.expanded .topnav-link {
@@ -8247,3 +8250,9 @@ height: auto;
 	width: 220px;
 	height: 80px
 }
+.navbar-dark.navbar-toggler {
+	border-color: rgb(255,102,203) !important;
+  } 
+  #top-section {
+	  padding-top: 100px;
+  }
