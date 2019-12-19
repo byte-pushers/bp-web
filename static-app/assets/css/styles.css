@@ -8248,11 +8248,51 @@ height: auto;
 	background: url("../images/bytePushersLogoWithoutText.svg") no-repeat center 42px;
 	background-size: 220px;
 	width: 220px;
-	height: 80px
+	height: 60px
 }
+
 .navbar-dark.navbar-toggler {
 	border-color: rgb(255,102,203) !important;
   } 
   #top-section {
 	  padding-top: 100px;
   }
+
+  .navbar-dark .navbar-collapse, .navbar-light .navbar-collapse {
+	position: absolute;
+	top:140px;
+}
+.navbar-dark .navbar-collapse .navbar-nav {
+	text-align: left;
+}
+.navbar-light .navbar-collapse {
+	text-align: center;
+	width: 100%;
+	background: #fff;
+}
+  .navbar-light .navbar-brand {
+	margin: 20px 0px;
+  }
+  .navbar-dark .navbar-toggler, .navbar-light .navbar-toggler {
+    border: none !important;
+	color: #fff !important;
+	margin: 0 !important;
+	outline: none !important;
+}
+.navbar-light .navbar-toggler {
+	color: #000 !important;
+}
+.navbar-brand {
+	padding-bottom: 0px !important;
+}
+.navbar-light.topnav-scrolling .navbar-nav {
+	margin-top: 40px;
+}
+@media only screen and (max-width: 767px) {
+	.topnav-logo-img {
+		background: url("../images/bytePushersLogoMobile.svg") no-repeat left top;
+		width: 200px;
+		height: 190px;
+		margin: 10px 0px;
+	}
+}
