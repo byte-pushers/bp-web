@@ -2562,9 +2562,6 @@ article.cbp-so-side-right .cbp-so-contents::after {
 		margin-left: auto;
 		margin-right: auto
 	}
-}
-
-@media only screen and (min-width: 768px) {
 	.copy-wide {
 		max-width: 1026px;
 		max-width: 57rem;
@@ -8278,12 +8275,22 @@ height: auto;
 }
 .navbar-light .navbar-toggler {
 	color: #000 !important;
+	margin-top: 40px !important;
 }
 .navbar-brand {
 	padding-bottom: 0px !important;
 }
 .navbar-light.topnav-scrolling .navbar-nav {
 	margin-top: 40px;
+}
+@media only screen and (min-width: 768px) {
+	.columnCarousel {
+		display: none !important;
+	}
+	.columnBlocks {
+		display: block !important;
+	}
+	
 }
 @media only screen and (max-width: 767px) {
 	.topnav-logo-img {
@@ -8295,5 +8302,11 @@ height: auto;
 	.navbar-dark .navbar-collapse, .navbar-light .navbar-collapse {
 	position: absolute;
 	top:140px;
+}
+.columnCarousel {
+	display: block !important;
+}
+.columnBlocks {
+	display: none !important;
 }
 }
