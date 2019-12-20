@@ -8258,10 +8258,7 @@ height: auto;
 	  padding-top: 100px;
   }
 
-  .navbar-dark .navbar-collapse, .navbar-light .navbar-collapse {
-	position: absolute;
-	top:140px;
-}
+  
 .navbar-dark .navbar-collapse .navbar-nav {
 	text-align: left;
 }
@@ -8295,4 +8292,8 @@ height: auto;
 		height: 190px;
 		margin: 10px 0px;
 	}
+	.navbar-dark .navbar-collapse, .navbar-light .navbar-collapse {
+	position: absolute;
+	top:140px;
+}
 }
