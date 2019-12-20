@@ -646,7 +646,7 @@ video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
+	/* font-size: 100%; */
 	font: inherit;
 	vertical-align: baseline
 }
@@ -8028,16 +8028,16 @@ body {
 	width: 100%;
 	max-width: 400px;
 	margin: 30px auto;
-	font-size: 24px;
+	font-size: 18px;
 	
   }
   .process p {
-	line-height: 30px;
+	line-height: 26px;
   }
   .process h2 {
-	font-size:32px;
-	font-weight: 500;
-	color:midnightblue;
+	font-size:36px;
+	font-weight: 300;
+	color:#3466aa;
 	margin: 15px 0px;
 	padding: 0px;
   }
@@ -8282,6 +8282,11 @@ height: auto;
 }
 .navbar-light.topnav-scrolling .navbar-nav {
 	margin-top: 40px;
+}
+.homeServicesSec .columnBlocks .process img, .homeServicesSec .columnCarousel .process img {
+	max-width: 140px;
+    height: auto;
+    margin: 0px calc(50% - 70px) !important;
 }
 @media only screen and (min-width: 768px) {
 	.columnCarousel {
