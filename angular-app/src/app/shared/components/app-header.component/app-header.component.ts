@@ -38,7 +38,10 @@ export class AppHeaderComponent implements OnInit {
     } else {
       mobileNav.classList.add("expanded");
     }
-  }
 
+  }
+  public backToTop() {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+  }
 
 }

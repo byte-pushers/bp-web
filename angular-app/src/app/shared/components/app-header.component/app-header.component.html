@@ -9,19 +9,19 @@
     <div class="topnav-links-container" id="topnav-mobile-links">
       <ul class="topnav-links">
         <li class="topnav-link-item">
-          <a class="topnav-link active" [routerLink]="'/home'" routerLinkActive="active">Home</a>
+          <a class="topnav-link active" [routerLink]="'/home'" (click)="backToTop()" routerLinkActive="active">Home</a>
         </li>
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/services'" routerLinkActive="active">Services</a>
+          <a class="topnav-link" [routerLink]="'/services'" (click)="backToTop()" routerLinkActive="active">Services</a>
         </li>
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/work'" routerLinkActive="active">Work</a>
+          <a class="topnav-link" [routerLink]="'/work'" (click)="backToTop()" routerLinkActive="active">Work</a>
         </li>
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/about'" routerLinkActive="active">About Us</a>
+          <a class="topnav-link" [routerLink]="'/about'" (click)="backToTop()" routerLinkActive="active">About Us</a>
         </li>
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/contact'" routerLinkActive="active">Contact</a>
+          <a class="topnav-link" [routerLink]="'/contact'" (click)="backToTop()" routerLinkActive="active">Contact</a>
         </li>
       </ul>
     </div>
