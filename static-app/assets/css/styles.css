@@ -8256,14 +8256,8 @@ height: auto;
   }
 
   
-.navbar-dark .navbar-collapse .navbar-nav {
-	text-align: left;
-}
-.navbar-light .navbar-collapse {
-	text-align: center;
-	width: 100%;
-	background: #fff;
-}
+
+
   .navbar-light .navbar-brand {
 	margin: 20px 0px;
   }
@@ -8298,15 +8292,32 @@ height: auto;
 	
 }
 @media only screen and (max-width: 767px) {
+	.navbar-dark .navbar-nav .nav-link, .navbar-dark .navbar-nav .active>.nav-link {
+		color: #000 !important;
+	}
+	.navbar-light .navbar-collapse, .navbar-dark .navbar-collapse {
+	text-align: center;
+	width: 100%;
+	background: #fff;
+}
 	.topnav-logo-img {
 		background: url("../images/bytePushersLogoMobile.svg") no-repeat left top;
 		width: 200px;
 		height: 190px;
 		margin: 10px 0px;
 	}
-	.navbar-dark .navbar-collapse, .navbar-light .navbar-collapse {
-	position: absolute;
-	top:140px;
+	.navbar-light .navbar-collapse {
+		position: absolute;
+		top:135px;
+		left: 0;
+	}
+	.navbar-dark .navbar-collapse {
+		position: absolute;
+		top:220px;
+		left: 0;
+	}
+.navbar-light.topnav-scrolling .navbar-nav {
+	margin-top: 0px;
 }
 .columnCarousel {
 	display: block !important;
