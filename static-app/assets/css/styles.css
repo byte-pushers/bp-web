@@ -1,4 +1,7 @@
-html, body {
+html {
+	scroll-behavior: smooth;
+  }
+  html, body {
 	font-family: 'Raleway', sans-serif;
 }
 
@@ -643,7 +646,7 @@ video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
+	/* font-size: 100%; */
 	font: inherit;
 	vertical-align: baseline
 }
@@ -2559,9 +2562,6 @@ article.cbp-so-side-right .cbp-so-contents::after {
 		margin-left: auto;
 		margin-right: auto
 	}
-}
-
-@media only screen and (min-width: 768px) {
 	.copy-wide {
 		max-width: 1026px;
 		max-width: 57rem;
@@ -2641,7 +2641,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
 }
 
 .main-content-container {
-	margin-top: 100em
+	margin-top: 100vh
 }
 
 .main-content-container:before,
@@ -3359,7 +3359,7 @@ screen and (max-height: 320px) {
 }
 
 #topnav-logo-img {
-	background: url("~src/assets/images/bytePushersLogoWithText.svg") no-repeat center center;
+	background: url("../images/bytePushersLogoWithText.svg") no-repeat center center;
 	background-size: 200px;
 	width: 200px;
     height: 110px;
@@ -3395,7 +3395,7 @@ screen and (max-height: 320px) {
 		display: block
 	}
 	.topnav.expanded .topnav-logo-img {
-		/*background: url(/assets/logo/logo-large@2x-0efa3186d6fa51f01079ba70846fca83b667929c90b3a2b7711eebe01acf6786.png) no-repeat;*/
+		background: url("../images/logo-large@2x-0efa3186d6fa51f01079ba70846fca83b667929c90b3a2b7711eebe01acf6786.png") no-repeat;
 		background-size: 110px
 	}
 	.topnav.expanded .topnav-link {
@@ -8028,16 +8028,16 @@ body {
 	width: 100%;
 	max-width: 400px;
 	margin: 30px auto;
-	font-size: 24px;
+	font-size: 18px;
 	
   }
   .process p {
-	line-height: 30px;
+	line-height: 26px;
   }
   .process h2 {
-	font-size:32px;
-	font-weight: 500;
-	color:midnightblue;
+	font-size:36px;
+	font-weight: 300;
+	color:#3466aa;
 	margin: 15px 0px;
 	padding: 0px;
   }
@@ -8245,5 +8245,169 @@ height: auto;
 	background: url("../images/bytePushersLogoWithoutText.svg") no-repeat center 42px;
 	background-size: 220px;
 	width: 220px;
-	height: 80px
+	height: 60px
+}
+
+.navbar-dark.navbar-toggler {
+	border-color: rgb(255,102,203) !important;
+  } 
+  #top-section {
+	  padding-top: 100px;
+  }
+
+  
+
+
+  .navbar-light .navbar-brand {
+	margin: 20px 0px;
+  }
+  .navbar-dark .navbar-toggler, .navbar-light .navbar-toggler {
+    border: none !important;
+	color: #fff !important;
+	margin: 0 !important;
+	outline: none !important;
+}
+.navbar-light .navbar-toggler {
+	color: #000 !important;
+	margin-top: 40px !important;
+}
+.navbar-brand {
+	padding-bottom: 0px !important;
+}
+.navbar-light.topnav-scrolling .navbar-nav {
+	margin-top: 40px;
+}
+.homeServicesSec .columnBlocks .process img, .homeServicesSec .columnCarousel .process img {
+	max-width: 140px;
+    height: auto;
+    margin: 0px calc(50% - 70px) !important;
+}
+
+.companies {
+	background: #ebebeb;
+	padding: 50px 0;
+	text-align: center;
+	width: 100%;
+}
+.companies h2 {
+	color: #8c8c8c;
+	font-style: 48px;
+	font-weight: 400;
+	text-transform: uppercase;
+	padding: 0px;
+	margin: 0 0 40px 0;
+}
+.logoColumn {
+	margin-bottom: 40px;
+}
+.aviallLogo {
+	max-height: 100px !important;
+}
+.geLogo {
+	width: 40%;
+}
+.telecomLogo {
+	max-height: 140px !important;
+}
+.TRLogo {
+	max-height: 180px !important;
+}
+.tillsterLogo {
+	margin-top:20px;
+}
+.TiLogo {
+	max-height: 160px !important;
+}
+.llnlLogo {
+	max-height: 180px !important;
+}
+
+.workwithus {
+	background: #fff;
+	width: 100%;
+	padding: 70px 0;
+}
+.headContent {
+	padding: 70px 50px 70px 0;
+	margin: 0px;
+	width: 50%;
+	
+	float: left;
+}
+.headContent h3 {
+color: #3466aa;
+font-size: 42px;
+margin: 0 0 15px 0;
+padding: 0px;
+font-weight: 400;
+
+}
+.rightcontent {
+	float:right;
+	width: 50%;
+	padding: 70px 0px 70px 50px;
+	border-left: solid 1px #000;
+}
+.rightcontent button {
+	border: solid 2px #3466aa;
+	background: none;
+	padding: 10px 25px;
+	margin: 0px;
+	color: #3466aa;
+	outline: none;
+	border-radius: 4px;
+}
+.buildIdeaSec {
+	/* background: url(../images/coffeePhoto.jpg) no-repeat left top; 
+	background-size: cover;*/
+	width: 100%;
+}
+.footer {
+	background: #25201f;
+	height: 250px;
+border-top:solid 2px #fff;	width: 100%;
+}
+@media only screen and (min-width: 768px) {
+	.columnCarousel {
+		display: none !important;
+	}
+	.columnBlocks {
+		display: block;
+	}
+	
+}
+@media only screen and (max-width: 767px) {
+	.navbar-dark .navbar-nav .nav-link, .navbar-dark .navbar-nav .active>.nav-link {
+		color: #000 !important;
+	}
+	.navbar-light .navbar-collapse, .navbar-dark .navbar-collapse {
+	text-align: center;
+	width: 100%;
+	background: #fff;
+}
+	.topnav-logo-img {
+		background: url("../images/bytePushersLogoMobile.svg") no-repeat left top;
+		width: 200px;
+		height: 190px;
+		margin: 10px 0px;
+	}
+	.navbar-light .navbar-collapse {
+		position: absolute;
+		top:135px;
+		left: 0;
+	}
+	.navbar-dark .navbar-collapse {
+		position: absolute;
+		top:220px;
+		left: 0;
+	}
+.navbar-light.topnav-scrolling .navbar-nav {
+	margin-top: 0px;
+}
+.columnCarousel {
+	display: block !important;
+}
+.columnBlocks {
+	display: none !important;
+}
 }
