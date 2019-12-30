@@ -2980,6 +2980,19 @@ article.cbp-so-side-right .cbp-so-contents::after {
 	margin-top: 0.5em
 }
 
+@media only screen and (min-width: 768px) and (min-height: 1024px) {
+
+  .main-content-container {
+    margin-top: 1300px !important;
+  }
+}
+@media only screen and (min-width: 1024px) and (min-height: 1366px) {
+
+  .main-content-container {
+    margin-top: 1500px !important;
+  }
+}
+
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	.button-group-4 [class^='button'] {
 		width: calc(50% - 0.75em);
