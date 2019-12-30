@@ -2,6 +2,10 @@
   display: inline-block;
 }
 
+.col {
+  padding-left: 0px;
+  padding-right: 0px;
+}
 .about-container {
   text-align: center;
   padding: 3em;
