@@ -16,24 +16,25 @@ export class AboutComponent implements OnInit {
   ngOnInit() {
     console.log("ngOnInit()");
 
-
     $(document).ready(function(e) {
       const $prevButton = $(".left.carousel-control.carousel-control-prev");
       const $nextButton = $(".right.carousel-control.carousel-control-next");
 
-      $prevButton.click((event) => {
-        console.log("previous button clicked.");
-        $("slide.item.carousel-item").removeClass("left-right");
-        $("slide.item.carousel-item").addClass("right-left");
-      });
-
-      $nextButton.click((event) => {
-        console.log("next button clicked.");
-        $("slide.item.carousel-item").removeClass("right-left");
-        $("slide.item.carousel-item").addClass("left-right");
-      });
+      $prevButton.click(AboutComponent.previousButtonClickedEventHandler);
+      $nextButton.click(AboutComponent.nextButtonClickedEventHandler);
     });
+  }
 
+  private static previousButtonClickedEventHandler(event: Event): void {
+    const $nextButton = $("slide.item.carousel-item")
+    $nextButton.removeClass("left-right");
+    $nextButton.addClass("right-left");
+  }
+
+  private static nextButtonClickedEventHandler(event: Event): void {
+    const $previousButton = $("slide.item.carousel-item");
+    $previousButton.removeClass("right-left");
+    $previousButton.addClass("left-right");
   }
 
   public reverseAnimation() {
