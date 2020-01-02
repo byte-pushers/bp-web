@@ -14,7 +14,6 @@ export class AboutComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("ngOnInit()");
 
     $(document).ready(function(e) {
       const $prevButton = $(".left.carousel-control.carousel-control-prev");
@@ -26,7 +25,7 @@ export class AboutComponent implements OnInit {
   }
 
   private static previousButtonClickedEventHandler(event: Event): void {
-    const $nextButton = $("slide.item.carousel-item")
+    const $nextButton = $("slide.item.carousel-item");
     $nextButton.removeClass("left-right");
     $nextButton.addClass("right-left");
   }
@@ -37,7 +36,4 @@ export class AboutComponent implements OnInit {
     $previousButton.addClass("left-right");
   }
 
-  public reverseAnimation() {
-    const animation = document.getElementsByClassName('active');
-  }
 }
