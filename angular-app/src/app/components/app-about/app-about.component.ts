@@ -13,5 +13,8 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
   }
+public reverseAnimation () {
+  const animation = document.getElementsByClassName('active');
 
+}
 }
