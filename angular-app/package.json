@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
     "bootstrap": "4.1.1",
+    "jquery": "^3.4.1",
     "ng2-page-scroll": "^4.0.0-beta.12",
     "ng2-simple-page-scroll": "^2.0.0",
     "ngx-bootstrap": "^5.2.0",
