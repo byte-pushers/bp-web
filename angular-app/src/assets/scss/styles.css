@@ -1658,15 +1658,6 @@ carousel {
 
 }
 
-/*.carousel-item.rightActive{
-  z-index: 1;
-  opacity: 1;
-  transition-delay: .3s;
-  transform: none;
-  animation: slideFromLeft .3s;
-  animation-delay: .3s;
-}*/
-
 .carousel-item.active.left-right{
   z-index: 1;
   opacity: 1;
@@ -1675,14 +1666,7 @@ carousel {
   animation: slideToLeft .3s;
   animation-delay: .3s;
 }
-/*.carousel-item.leftActive{
-  z-index: 1;
-  opacity: 1;
-  transition-delay: .3s;
-  transform: none;
-  animation: slideFromRight .3s;
-  animation-delay: .3s;
-}*/
+
 
 .carousel-item.active.right-left{
   z-index: 1;
