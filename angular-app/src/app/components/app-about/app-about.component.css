@@ -36,3 +36,6 @@
   opacity: .1;
 }
 
+::ng-deep .carousel-inner {
+  height: 900px;
+}

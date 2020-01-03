@@ -46,3 +46,6 @@
 .carousel-inner {
   margin-bottom: 2em !important;
 }
+::ng-deep .carousel-inner {
+  height: 350px;
+}
