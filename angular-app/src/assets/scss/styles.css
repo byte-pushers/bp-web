@@ -1630,6 +1630,75 @@ body,
 html {
 	-webkit-font-smoothing: antialiased
 }
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+.featuresSections {
+  background: url("../../assets/images/homePage/bytePushersHomePageChucksPick3BlockBackground.jpg") no-repeat left top;
+  background-size: cover;
+  width: 100%;
+  height: 600px;
+  margin: 30px 0 0 0;
+  transition:all 1s ease;
+}
+.fadein-out-features {
+  background:rgba(0, 0, 0, 0.5);
+  width:100%;
+  height: 100%;
+  min-height: 100%;
+  opacity: 0;
+  transition:all 0.5s ease;
+}
+.fadein-out-features:hover {
+  opacity: 1;
+}
+.featuresContent {
+  color: #fff !important;
+  position: relative;
+  left: 100px;
+  top: 50px;
+  width: 50%;
+  max-width: 50%;
+  min-width: 10%;
+  font-size: 24px;
+}
+.featuresContent img {
+  margin: 0px auto;
+  width: 220px;
+  height: auto;
+}
+.featuresContent h2 {
+  font-size: 60px;
+  font-weight: 600;
+  margin:20px 0;
+}
+.featuresContent p {
+  line-height: 30px;
+  font-weight: 100;
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+.featuresContent .learnMore {
+  font-size: 30px;
+  font-weight: 300;
+  text-decoration: underline;
+}
+
+.gray-paragraph {
+  font-size: 24px;
+  line-height: 30px;
+  color: #000;
+}
+.slogan-para {
+  font-style: italic;
+  font-size: 22px !important;
+  font-weight: 600;
+  /* font-family: Arvo-Italic; */
+}
 
 .light-background {
 	background: #f8f8f8
@@ -5330,7 +5399,7 @@ input[type="text"].footer-newsletter-input:-ms-input-placeholder {
 .home-hero-text {
 	text-align: center;
 	font-size: 2.75em;
-	color: #fff;
+	color: #000000;
 	margin-top: 0;
 	margin-bottom: 0.125em
 }
