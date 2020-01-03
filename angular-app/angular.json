@@ -29,7 +29,9 @@
               "src/assets/scss/styles.css",
               "src/assets/scss/fonts.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js"
+            ]
           },
           "apps": [
             {
