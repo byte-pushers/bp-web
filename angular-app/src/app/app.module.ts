@@ -14,6 +14,7 @@ import { Ng2PageScrollModule } from "ng2-page-scroll";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 
+
 @NgModule({
   declarations: [
     AppComponent,
