@@ -1929,7 +1929,7 @@ a {
 .sidebar-tweets .tweet-content a:visited:active {
 	color: #50b4d1
 }
-/* 
+/*
 .heading-xlarge,
 .text-block h1,
 .page-content h1,
@@ -8012,7 +8012,7 @@ body {
 }
 
 .weCreate {
-  color: #000;
+  font-color: #000;
   font-weight: 300;
 }
 .containerProcess {
@@ -8029,7 +8029,7 @@ body {
 	max-width: 400px;
 	margin: 30px auto;
 	font-size: 18px;
-	
+
   }
   .process p {
 	line-height: 26px;
@@ -8250,12 +8250,12 @@ height: auto;
 
 .navbar-dark.navbar-toggler {
 	border-color: rgb(255,102,203) !important;
-  } 
+  }
   #top-section {
 	  padding-top: 100px;
   }
 
-  
+
 
 
   .navbar-light .navbar-brand {
@@ -8331,7 +8331,7 @@ height: auto;
 	padding: 70px 50px 70px 0;
 	margin: 0px;
 	width: 50%;
-	
+
 	float: left;
 }
 .headContent h3 {
@@ -8358,7 +8358,7 @@ font-weight: 400;
 	border-radius: 4px;
 }
 .buildIdeaSec {
-	/* background: url(../images/coffeePhoto.jpg) no-repeat left top; 
+	/* background: url(../images/coffeePhoto.jpg) no-repeat left top;
 	background-size: cover;*/
 	width: 100%;
 }
@@ -8374,7 +8374,7 @@ border-top:solid 2px #fff;	width: 100%;
 	.columnBlocks {
 		display: block;
 	}
-	
+
 }
 @media only screen and (max-width: 767px) {
 	.navbar-dark .navbar-nav .nav-link, .navbar-dark .navbar-nav .active>.nav-link {
