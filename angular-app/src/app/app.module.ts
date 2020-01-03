@@ -24,8 +24,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     ServicesComponent,
     WorkComponent,
     AboutComponent,
-    ContactComponent,
-
+    ContactComponent
   ],
   imports: [
     BrowserModule,
