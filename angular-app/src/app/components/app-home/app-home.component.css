@@ -1,5 +1,5 @@
 .about-container {
-  padding: 2em;
+  padding: 2.8em;
   text-align: center;
 }
 
@@ -39,15 +39,15 @@
 }
 
 .aviallLogo {
-  max-height: 100px !important;
+  max-height: 75px !important;
 }
 
 .geLogo {
-  width: 40%;
+ height: 100px;
 }
 
 .telecomLogo {
-  max-height: 140px !important;
+  max-height: 120px !important;
 }
 
 .TRLogo {
@@ -73,7 +73,7 @@
 }
 
 .headContent {
-  padding: 70px 50px 70px 0;
+  padding: 70px 50px 70px 25px;
   margin: 0px;
   width: 50%;
 
