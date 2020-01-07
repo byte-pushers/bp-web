@@ -2,7 +2,17 @@
   padding: 2.8em;
   text-align: center;
 }
-
+.about-container-mobile {
+  text-align: center;
+  display: inline-block;
+  padding: 0;
+  margin-bottom: 100px;
+}
+.service-container {
+  text-align: center;
+  padding: 3em;
+  margin-bottom: 2em;
+}
 .row {
   display: flex !important;
   flex-wrap: wrap !important;
@@ -175,4 +185,55 @@
   /* background: url(../images/coffeePhoto.jpg) no-repeat left top;
   background-size: cover;*/
   width: 100%;
+}
+.about-content {
+  display: inline-block;
+}
+
+.col {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.about-container {
+  text-align: center;
+  padding: 3em;
+}
+
+.row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  margin: 0 auto !important;
+  justify-content: center;
+  /* margin-right: -15px; */
+  /* margin-left: -15px; */
+}
+
+
+::ng-deep .carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='gray' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+
+::ng-deep .carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='gray' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+::ng-deep .carousel-indicators li {
+  background-color: rgba(72, 55, 55, 0.79);
+}
+
+
+::ng-deep .carousel-control-next:focus, .carousel-control-next:hover, .carousel-control-prev:focus, .carousel-control-prev:hover {
+  color: #1b1919;
+  text-decoration: none;
+  outline: 0;
+  opacity: .1;
+}
+
+.carousel-inner {
+  margin-bottom: 2em !important;
+}
+::ng-deep .carousel-inner {
+ height: 430px;
+  margin-bottom: 30px;
 }
