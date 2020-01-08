@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import * as $ from 'jquery';
 
 
 
@@ -14,6 +14,23 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    $(document).ready(function(e) {
+      const $prevButton = $(".left.carousel-control.carousel-control-prev");
+      const $nextButton = $(".right.carousel-control.carousel-control-next");
+
+      $prevButton.click(HomeComponent.previousButtonClickedEventHandler);
+      $nextButton.click(HomeComponent.nextButtonClickedEventHandler);
+    });
+  }
+  private static previousButtonClickedEventHandler(event: Event): void {
+    const $nextButton = $("slide.item.carousel-item");
+    $nextButton.removeClass("left-right");
+    $nextButton.addClass("right-left");
   }
 
+  private static nextButtonClickedEventHandler(event: Event): void {
+    const $previousButton = $("slide.item.carousel-item");
+    $previousButton.removeClass("right-left");
+    $previousButton.addClass("left-right");
+  }
 }
