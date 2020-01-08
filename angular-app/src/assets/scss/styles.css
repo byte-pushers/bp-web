@@ -1,7 +1,10 @@
 body {
   background-color: #222;
 }
-
+.section {
+  width: 100%;
+  padding: 3em;
+}
 .video-hero,
 .video-overlay {
   position: absolute;
@@ -1778,7 +1781,7 @@ html {
   text-decoration: underline;
 }
 
-.gray-paragraph p {
+.section-content p {
   text-align: left;
   font-size: 18px;
   line-height: 30px;
@@ -2849,9 +2852,18 @@ article.cbp-so-side-right .cbp-so-contents::after {
 .company-we-keep-large,
 .home-work-grid-section {
   width: 100%;
-  background: #fff
 }
 
+.gray-background {
+  background: #f8f8f8
+}
+
+.gray-paragraph {
+  text-align: left;
+  font-size: 18px;
+ line-height: 30px;
+
+}
 .full-width-section::after,
 .full-width-section-gray::after,
 .company-we-keep::after,
@@ -2899,18 +2911,8 @@ article.cbp-so-side-right .cbp-so-contents::after {
   margin-top: 5em
 }
 
-.section-margin-bottom,
-.case-study-stats {
-  margin-bottom: 5em
-}
 
-.section-margin,
-.section,
-.blog-post,
-.home-work-grid-section,
-.services-stats {
-  margin-top: 5em;
-}
+
 
 .lt-ie10 .fade-in-first,
 .lt-ie10 .fade-in-second,
@@ -4265,6 +4267,7 @@ strong,
     display: block
   }
 }
+
 
 .section-header,
 .top-section-header {
