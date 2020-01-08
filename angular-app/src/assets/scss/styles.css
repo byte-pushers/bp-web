@@ -1,9 +1,9 @@
 body {
   background-color: #222;
 }
-.section {
+section {
   width: 100%;
-  padding: 3em;
+  padding: 3em !important;
 }
 .video-hero,
 .video-overlay {
