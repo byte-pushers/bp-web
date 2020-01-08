@@ -18,7 +18,7 @@
   <div class="main-content-container" style="margin-top: 750px;" id="top-section">
     <section class="full-width-section-gray">
       <div class="container-fluid justify-content-center gray-paragraph">
-        <div class="row" style="text-align: left; font-size: 14px">
+        <div class="row" style="text-align: left; font-size: 18px">
           <p>&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore
             et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -28,8 +28,8 @@
       </div>
     </section>
     <section>
-      <div class="row section-heading">Featured Projects</div>
-      <div class="row section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best
+      <div class="section-heading">Our Services</div>
+      <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best
         represented
         by<span class="br-mobile"></span> our labors of love.
       </div>
@@ -102,10 +102,100 @@
         </div>
       </div>
     </section>
+    <carousel class="hidden-desktop" [interval]="false" [noWrap]="true" [singleSlideOffset]="true">
+      <ol class="carousel-indicators">
+        <li data-slide-to="0"></li>
+        <li data-slide-to="1"></li>
+        <li data-slide-to="2"></li>
+      </ol>
+      <slide>
+        <section class="container-fluid about-container-mobile">
+
+          <div class="row" style="margin: 0 auto;">
+            <img src="../../../assets/images/aboutPage/bytePushersAboutsPageIdeationIcon.svg"
+                 style="width: 100px; height: 100px;">
+          </div>
+          <div class="row" style="margin: 0 auto;"><strong style="color: #62a3d9; font-size: 1.5em;">Ideation &
+            Planning</strong></div>
+          <div class="section-subheading" style=" margin-top: 2%; margin-bottom: 2%;font-size: .8em;">Lorem ipsum dolor
+            sit
+            amet, consectetur adipiscing elit. Vestibulum id efficitur nulla, dictum
+            viverra ipsum.
+          </div>
+          <div class="row" style="text-align: left; margin: 0 auto;">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id efficitur nulla, dictum
+              viverra ipsum. Duis ultricies posuere leo eget rhoncus. Sed ornare ligula non egestas efficitur. Nam
+              eleifend est vehicula aliquam accumsan. Vivamus tincidunt risus sem, sit amet eleifend lacus
+              bibendum
+              eu. Pellentesque et posuere diam, ut porttitor augue.</p>
+          </div>
+
+
+        </section>
+      </slide>
+      <slide>
+        <section class="container-fluid about-container-mobile">
+
+          <div class="row" style="margin: 0 auto;">
+            <img src="../../../assets/images/aboutPage/bytePushersAboutsDesignIcon.svg"
+                 style="width: 100px; height: 100px;">
+          </div>
+          <div class="row"><strong style="color: #62a3d9; font-size: 1.5em; margin: 0 auto;">Process & Design</strong>
+          </div>
+          <div class="section-subheading" style=" margin-top: 2%; margin-bottom: 2%;font-size: .6em;">Lorem ipsum dolor
+            sit
+            amet, consectetur adipiscing elit. Vestibulum id efficitur nulla, dictum
+            viverra ipsum.
+          </div>
+          <div class="row" style="text-align: left; margin: 0 auto;">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id efficitur nulla, dictum
+              viverra ipsum. Duis ultricies posuere leo eget rhoncus. Sed ornare ligula non egestas efficitur. Nam
+              eleifend est vehicula aliquam accumsan. Vivamus tincidunt risus sem, sit amet eleifend lacus
+              bibendum
+              eu. Pellentesque et posuere diam, ut porttitor augue.</p>
+          </div>
+
+
+        </section>
+      </slide>
+      <slide>
+        <section class="container-fluid about-container-mobile">
+
+          <div class="row" style="margin: 0 auto;">
+            <img src="../../../assets/images/aboutPage/bytePushersAboutsPageCodeIcon.svg"
+                 style="width: 200px; height: 200px;">
+          </div>
+          <div class="row"><strong style="color: #62a3d9; font-size: 1.5em; margin: 0 auto;">Implementation</strong>
+          </div>
+          <div class="section-subheading" style=" margin-top: 2%; margin-bottom: 2%;font-size: .8em;">Lorem ipsum dolor
+            sit
+            amet, consectetur adipiscing elit. Vestibulum id efficitur nulla, dictum
+            viverra ipsum.
+          </div>
+          <div class="row" style="margin: 0 auto; text-align: left;">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id efficitur nulla, dictum
+              viverra ipsum. Duis ultricies posuere leo eget rhoncus. Sed ornare ligula non egestas efficitur. Nam
+              eleifend est vehicula aliquam accumsan. Vivamus tincidunt risus sem, sit amet eleifend lacus
+              bibendum
+              eu. Pellentesque et posuere diam, ut porttitor augue.</p>
+          </div>
+
+
+        </section>
+      </slide>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </carousel>
     <section>
       <img class="full-width" src="../../../assets/images/aboutPage/bytePushersAboutPageSplashScreenBackground.png"
-           alt="Office 3"
-      style="height: 620px">
+           alt="Office 3">
     </section>
     <section class="full-width-section-gray">
       <div class="section-heading"></div>
@@ -174,46 +264,233 @@
         </div>
       </div>
     </section>
-    <section class="companies">
+    <carousel class="hidden-desktop" [interval]="false" [noWrap]="true" style="margin-bottom: 2em;">
+      <div class="section-heading">Our Services</div>
+      <ol class="carousel-indicators">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ol>
+      <slide>
+        <section class="container-fluid service-container">
+
+
+          <div class="row"><img src="assets/images/servicesPage/bytePushersServicesPageITConsultingIcon.svg"
+                                style="height: 50px; width: 50px;">
+          </div>
+          <div class="row" style="margin: 10px !important;">
+            <h2><strong>IT Consulting</strong></h2>
+          </div>
+          <div class="row" style="margin: 10px !important;">
+            <p>Is this specific to web based apps? Or mobile as well? All EDI (X12, ATA Spec 2000)</p>
+          </div>
+          <div class="row" style="margin: 10px !important;">
+            <a><strong>Read More</strong></a>
+          </div>
+
+
+        </section>
+      </slide>
+      <slide active>
+        <section class="container-fluid about-container">
+
+
+          <div class="row"><img src="assets/images/servicesPage/bytePushersServicesPageAppDevIcon.svg"
+                                style="height: 50px; width: 50px;">
+          </div>
+          <div class="row" style="margin: 10px !important;">
+            <h2><strong>Custom App Development</strong></h2>
+          </div>
+          <div class="row" style="margin: 10px !important;">
+            <p>Is this specific to web based apps? Or mobile as well? All EDI (X12, ATA Spec 2000)</p>
+          </div>
+          <div class="row" style="margin: 10px !important;">
+            <a><strong>Read More</strong></a>
+          </div>
+
+        </section>
+      </slide>
+      <slide>
+        <section class="container-fluid about-container">
+
+          <div class="row"><img src="assets/images/servicesPage/bytePushersServicesPageDataDrivenIcon.svg"
+                                style="height: 50px; width: 50px;">
+          </div>
+          <div class="row" style="margin: 10px !important;">
+            <h2><strong>Data Driven Services</strong></h2>
+          </div>
+          <div class="row" style="margin: 10px !important;">
+            <p>Is this specific to web based apps? Or mobile as well? All EDI (X12, ATA Spec 2000)</p>
+          </div>
+          <div class="row" style="margin: 10px !important;">
+            <a><strong>Read More</strong></a>
+          </div>
+
+        </section>
+      </slide>
+      <slide>
+        <section class="container-fluid about-container">
+
+          <div class="row"><img src="assets/images/servicesPage/bytePushersServicesPageDataMiningIcon.svg"
+                                style="height: 50px; width: 50px;">
+          </div>
+          <div class="row" style="margin: 10px !important;">
+            <h2><strong>Data Mining/Aggregation</strong></h2>
+          </div>
+          <div class="row" style="margin: 10px !important;">
+            <p>Is this specific to web based apps? Or mobile as well? All EDI (X12, ATA Spec 2000)</p>
+          </div>
+          <div class="row" style="margin: 10px !important;">
+            <a><strong>Read More</strong></a>
+          </div>
+
+        </section>
+      </slide>
+      <slide>
+        <section class="container-fluid about-container">
+
+          <div class="row"><img src="assets/images/servicesPage/bytePushersServicesPageMobileDevIcon.svg"
+                                style="height: 50px; width: 50px;">
+          </div>
+          <div class="row" style="margin: 10px !important;">
+            <h2><strong>Custom Mobile Development</strong></h2>
+          </div>
+          <div class="row" style="margin: 10px !important;">
+            <p>Is this specific to web based apps? Or mobile as well? All EDI (X12, ATA Spec 2000)</p>
+          </div>
+          <div class="row" style="margin: 10px !important;">
+            <a><strong>Read More</strong></a>
+          </div>
+
+        </section>
+      </slide>
+      <slide>
+        <section class="container-fluid about-container">
+
+          <div class="row"><img src="assets/images/servicesPage/bytePushersServicesPageBatchProcessingIcon.svg"
+                                style="height: 50px; width: 50px;">
+          </div>
+          <div class="row" style="margin: 10px !important;">
+            <h2><strong>Batch Processing</strong></h2>
+          </div>
+          <div class="row" style="margin: 10px !important;">
+            <p>Is this specific to web based apps? Or mobile as well? All EDI (X12, ATA Spec 2000)</p>
+          </div>
+          <div class="row" style="margin: 10px !important;">
+            <a><strong>Read More</strong></a>
+          </div>
+
+        </section>
+      </slide>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </carousel>
+    <section class="companies hidden-mobile hidden-mobile-450 hidden-mobile-768">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
             <h2 style="font-size: 24px"><strong>Companies We Keep</strong></h2>
           </div>
         </div>
-          <div class="row logoColumn">
-            <div class="col-sm-4">
-              <img src="../../../assets/images/homePage/bytePushersHomePageAviallLogo.svg" style="height:100px">
-            </div>
-            <div class="col-sm-4 ">
-              <img src="../../../assets/images/homePage/bytePushersHomePageGELogo.svg" style="height:100px">
-            </div>
-            <div class="col-sm-4">
-              <img src="../../../assets/images/homePage/bytePushersHomePageTelecomLogo.svg" style="height:100px">
-            </div>
-          </div>
-          <div class="row logoColumn">
-            <div class="col-sm-4">
-              <img src="../../../assets/images/homePage/bytePushersHomePageThomsonReutersLogo.svg" style="height:100px">
-            </div>
-            <div class="col-sm-4">
-              <img src="../../../assets/images/homePage/bytePushersHomePageTilsterLogo.svg" style="height:70px">
-            </div>
-            <div class="col-sm-4">
-              <img src="../../../assets/images/homePage/texas-instruments.svg" style="height:100px">
-            </div>
-          </div>
         <div class="row">
-          <div class="col-sm-6">
-            <img src="../../../assets/images/homePage/bytePushersHomePageVALogo.svg" style="height:100px">
+          <div class="col-sm-4 logoColumn">
+            <img src="../../../assets/images/homePage/bytePushersHomePageAviallLogo.svg" style="height:100px">
           </div>
-          <div class="col-sm-6">
-            <img src="../../../assets/images/homePage/bytePushersHomePageZynxHealthLogo.svg" style="height:100px">
+          <div class="col-sm-4 logoColumn ">
+            <img src="../../../assets/images/homePage/bytePushersHomePageGELogo.svg" style="height:100px">
+          </div>
+          <div class="col-sm-4 logoColumn">
+            <img src="../../../assets/images/homePage/bytePushersHomePageTelecomLogo.svg" style="height:100px">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 logoColumn">
+            <img src="../../../assets/images/homePage/bytePushersHomePageThomsonReutersLogo.svg" style="height:100px">
+          </div>
+          <div class="col-sm-4 logoColumn">
+            <img src="../../../assets/images/homePage/bytePushersHomePageTilsterLogo.svg" style="height:70px">
+          </div>
+          <div class="col-sm-4 logoColumn">
+            <img src="../../../assets/images/homePage/texas-instruments.svg" style="height:100px">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 logoColumn">
+            <img src="../../../assets/images/homePage/bytePushersHomePageVALogo.svg" style="height:60px">
+          </div>
+          <div class="col-sm-6 logoColumn">
+            <img src="../../../assets/images/homePage/bytePushersHomePageZynxHealthLogo.svg" style="height:70px">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 logoColumn">
+            <img src="../../../assets/images/homePage/bytePushersHomePageLLNLLogo.svg" style="height:70px">
           </div>
         </div>
       </div>
     </section>
-    <section class="workwithus">
+    <section class="companies-mobile hidden-desktop">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 style="font-size: 24px"><strong>Companies We Keep</strong></h2>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-6 logoColumn ">
+            <img src="../../../assets/images/homePage/bytePushersHomePageGELogo.svg" style="height:80px">
+          </div>
+          <div class="col-6 logoColumn">
+            <img src="../../../assets/images/homePage/bytePushersHomePageTelecomLogo.svg" style="height:80px">
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-12 logoColumn">
+            <img src="../../../assets/images/homePage/bytePushersHomePageAviallLogo.svg" style="height:80px">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 logoColumn">
+            <img src="../../../assets/images/homePage/bytePushersHomePageThomsonReutersLogo.svg" style="height:80px">
+          </div>
+          <div class="col-6 logoColumn">
+            <img src="../../../assets/images/homePage/texas-instruments.svg" style="height:80px">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 logoColumn">
+            <img src="../../../assets/images/homePage/bytePushersHomePageVALogo.svg" style="height:60px">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 logoColumn">
+            <img src="../../../assets/images/homePage/bytePushersHomePageTilsterLogo.svg" style="height:50px">
+          </div>
+          <div class="col-6 logoColumn">
+            <img src="../../../assets/images/homePage/bytePushersHomePageLLNLLogo.svg" style="height:50px">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 logoColumn">
+            <img src="../../../assets/images/homePage/bytePushersHomePageZynxHealthLogo.svg" style="height:70px">
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section class="workwithus hidden-mobile hidden-mobile-450 hidden-mobile-768 ">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -232,6 +509,27 @@
         </div>
       </div>
     </section>
+    <section class="workwithus-mobile hidden-desktop">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 headContent-mobile">
+            <h3>Work With Us</h3>
+            <p>We're always looking for amazing people to join our team..</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 rightcontent-mobile">
+            <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or
+              web designs. Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,
+              graphic or
+              web designs.</p>
+            <button type="button" style="margin-top: 1em">Come Work With Us</button>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="lets-talk">
       <div class="lets-talk-heading">Like what you see? <br> Let’s talk.</div>
       <a class="lets-talk-button" href="http://bytepushers.com/contact">Contact Us</a>
