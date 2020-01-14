@@ -31,18 +31,7 @@ export class AppHeaderComponent implements OnInit {
 
   }
 
-  public openCloseMobileNav() {
-    const mobileNav = document.getElementById('topnav');
 
-    if (mobileNav.classList.contains('expanded')) {
-      mobileNav.classList.remove("expanded");
-    } else {
-      mobileNav.classList.add("expanded");
-    }
 
-  }
-  public backToTop() {
-    document.body.scrollTop = document.documentElement.scrollTop = 0;
-  }
 
 }
