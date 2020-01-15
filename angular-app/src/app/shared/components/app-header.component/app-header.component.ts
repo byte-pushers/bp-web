@@ -10,7 +10,6 @@ export class AppHeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-
     window.onscroll = function () {
       navScroll()
     };
@@ -31,7 +30,15 @@ export class AppHeaderComponent implements OnInit {
 
   }
 
+  public openCloseMobileNav() {
+    const mobileNav = document.getElementById('topnav');
 
+    if (mobileNav.classList.contains('expanded')) {
+      mobileNav.classList.remove("expanded");
+    } else {
+      mobileNav.classList.add("expanded");
+    }
+  }
 
 
 }
