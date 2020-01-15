@@ -26,7 +26,7 @@
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
-              "src/assets/scss/styles.css",
+              "src/assets/scss/new-styles.css",
               "src/assets/scss/fonts.css"
             ],
             "scripts": [
@@ -55,7 +55,7 @@
               "testTsconfig": "tsconfig.spec.json",
               "prefix": "app",
               "styles": [
-                "styles.scss"
+                "new-styles.scss"
               ],
               "scripts": [],
               "environmentSource": "environments/environment.ts",
@@ -85,7 +85,7 @@
               "testTsconfig": "tsconfig.spec.json",
               "prefix": "app",
               "styles": [
-                "styles.scss"
+                "new-styles.scss"
               ],
               "scripts": [],
               "environmentSource": "environments/environment.ts",
@@ -158,7 +158,7 @@
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
-              "src/assets/scss/styles.css"
+              "src/assets/scss/new-styles.css"
             ],
             "scripts": []
           }
