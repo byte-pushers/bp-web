@@ -2529,7 +2529,6 @@ article.cbp-so-side-right .cbp-so-contents::after {
 }
 
 .topnav.topnav-scrolling .topnav-logo-img {
-  /* margin-top: 0.55em; */
   margin-bottom: 0.25em;
   background: url("~src/assets/images/bytePushersLogoWithoutText.svg") no-repeat center;
   background-size: 220px;
@@ -2543,11 +2542,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
   }
 }
 
-@media only screen and (min-width: 768px) {
-  .topnav.topnav-scrolling .topnav-logo-img {
-    /* margin-top: 1em */
-  }
-}
+
 
 .topnav-mobile-menu {
   background: url("~src/assets/images/bytePushersLogoWithoutText.svg") no-repeat center;
@@ -2651,8 +2646,8 @@ article.cbp-so-side-right .cbp-so-contents::after {
 }
 
 .topnav-links {
-  list-style-type: none
-}
+   list-style-type: none
+ }
 
 .topnav-link-item {
   text-align: center;
