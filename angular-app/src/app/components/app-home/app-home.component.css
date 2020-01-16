@@ -46,16 +46,6 @@
   height: 800px;
 }
 
-/*
------------READY TO BE REMOVED
-.full-width-section-gray {
-  display: inline-block;
-}*/
-.aesthetic-image {
-
-  width: 100%;
-  height: 550px;
-}
 
 .companies h2 {
   color: #8c8c8c;
@@ -187,8 +177,6 @@
 }
 
 .buildIdeaSec {
-  /* background: url(../images/coffeePhoto.jpg) no-repeat left top;
-  background-size: cover;*/
   width: 100%;
 }
 
@@ -196,10 +184,6 @@
   display: inline-block;
 }
 
-.col {
-  padding-left: 0px;
-  padding-right: 0px;
-}
 
 .about-container {
   text-align: center;
@@ -211,29 +195,17 @@
   flex-wrap: wrap !important;
   margin: 0 auto !important;
   justify-content: center;
-  /* margin-right: -15px; */
-  /* margin-left: -15px; */
 }
 
 
-::ng-deep .carousel-control-next-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='gray' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
-}
-
-
-::ng-deep .carousel-control-prev-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='gray' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
-}
-
-::ng-deep .carousel-indicators li {
-  background-color: rgba(72, 55, 55, 0.79);
-}
 .methodology-carousel {
   height: 430px
 }
+
 .services-carousel {
   height: 300px
 }
+
 ::ng-deep .carousel-item {
   padding: 10px 0px 0px 0px;
   opacity: 0;
