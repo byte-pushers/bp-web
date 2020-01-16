@@ -1020,7 +1020,7 @@ html {
   background: url("../../assets/images/homePage/bytePushersHomePageChucksPick3BlockBackground.jpg") no-repeat left top;
   background-size: cover;
   width: 100%;
-  height: 500px;
+  height: 400px;
   transition: all 1s ease;
 }
 
@@ -1040,13 +1040,24 @@ html {
 .featuresContent {
   color: #fff !important;
   position: relative;
-  left: 90px;
-  top: 50px;
+  padding-left: 90px;
+  padding-top: 50px;
   width: 50%;
   max-width: 50%;
-  font-size: 24px;
+  font-size: 18px;
 }
-
+@media only screen and (max-width: 600px) {
+  .featuresContent {
+    color: #fff !important;
+    position: relative;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 30px;
+    width: 100%;
+    max-width: 100%;
+    font-size: 14px;
+  }
+}
 .featuresContent img {
   margin: 0px auto;
   width: 130px;
@@ -3162,7 +3173,9 @@ body {
 ::ng-deep .carousel-indicators li {
   background-color: rgba(72, 55, 55, 0.79);
 }
-
+.about-content {
+  display: inline-block;
+}
 
 ::ng-deep .carousel-control-next:focus, .carousel-control-next:hover, .carousel-control-prev:focus, .carousel-control-prev:hover {
   color: #1b1919;
