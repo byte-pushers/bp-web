@@ -19,10 +19,7 @@
 .row {
   display: flex !important;
   flex-wrap: wrap !important;
-
   justify-content: center;
-  /* margin-right: -15px; */
-  /* margin-left: -15px; */
 }
 
 .overview-title {
@@ -107,7 +104,6 @@
   padding: 70px 50px 70px 25px;
   margin: 0px;
   width: 50%;
-
   float: left;
 }
 
@@ -117,7 +113,6 @@
   margin: 0 0 15px 0;
   padding: 0px;
   font-weight: 400;
-
 }
 
 .rightcontent {
@@ -156,7 +151,6 @@
   margin: 0 0 15px 0;
   padding: 0px;
   font-weight: 400;
-
 }
 
 .rightcontent-mobile {
