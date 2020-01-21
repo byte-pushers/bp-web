@@ -1,16 +1,21 @@
 body {
   background-color: #222;
 }
-
+label {
+  font-size: 22px !important;
+  font-weight: bolder;
+  margin-bottom: 5px !important;
+}
 .section-image {
   padding: 0 !important;
 }
-
 section {
   width: 100%;
   padding: 3em !important;
 }
-
+.inner-form-section {
+  margin-bottom: 2%;
+}
 .video-hero,
 .video-overlay {
   position: absolute;
