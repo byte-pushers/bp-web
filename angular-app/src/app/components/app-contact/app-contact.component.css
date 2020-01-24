@@ -25,5 +25,7 @@
 }
 
 .alert {
+  padding-top: 15px;
+  padding-left: 15px !important ;
   margin-bottom: 0px !important;
 }

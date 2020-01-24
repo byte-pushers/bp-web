@@ -141,29 +141,26 @@
         <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
           by<span class="br-mobile"></span> our labors of love.
         </div>
+        <div><p style=" text-align: center; font-size: 10px; margin-bottom: 10px;">* is optional</p> </div>
         <div class=" row inner-form-section new-business">
 
           <div class="col-6 custom-radio business-radio">
           <label>
-            <input type="radio" value="new" formControlName="venture">
-            <span>New Business</span>
+            <input type="checkbox">
+            <span>*New Business</span>
           </label>
           </div>
           <div class=" col-6 custom-radio">
           <label>
-            <input type="radio" value="established" formControlName="venture">
-            <span>Existing Business</span>
+            <input type="checkbox">
+            <span>*Existing Business</span>
           </label>
-            <div class="alert alert-danger"
-                 *ngIf="venture.errors && (venture.dirty || venture.touched)">
-              <div *ngIf="venture.errors.required">Please select a state.</div>
-            </div>
           </div>
         </div>
           <div class="form-row inner-form-section">
           <div class="col-6">
             <div class="col">
-              <label>Business Name</label>
+              <label>*Business Name</label>
             </div>
             <div class="col-8">
               <input
@@ -173,17 +170,15 @@
                 class="form-control"
                 type="text"
               >
-              <div class="alert alert-danger"
-                   *ngIf="businessName.errors && (businessName.dirty || businessName.touched)">
-                <div *ngIf="businessName.errors.required">First name is required.</div>
+              <div class="alert alert-danger" *ngIf="businessName.errors">
                 <div *ngIf="businessName.errors.minlength">A minimum of 2 letters are required.</div>
-                <div *ngIf="businessName.errors.pattern">First name is not valid.</div>
+                <div *ngIf="businessName.errors.pattern">Business name is not valid.</div>
               </div>
             </div>
           </div>
           <div class="col-6">
             <div class="col">
-              <label>Business URL</label>
+              <label>*Business URL</label>
             </div>
             <div class="col-8">
               <input
@@ -193,8 +188,7 @@
                 class="form-control"
                 type="text"
               >
-              <div class="alert alert-danger" *ngIf="businessURL.errors && (businessURL.dirty || businessURL.touched)">
-                <div *ngIf="businessURL.errors.required">URL is required.</div>
+              <div class="alert alert-danger" *ngIf="businessURL.errors">
                 <div *ngIf="businessURL.errors.minlength">A minimum of 2 letters are required.</div>
                 <div *ngIf="businessURL.errors.pattern">URL is not valid.</div>
               </div>
@@ -212,10 +206,6 @@
                 <option *ngFor="let projectType of Projects" (change)="changeProjectType($event)"
                         [ngValue]="projectType">{{projectType}}</option>
               </select>
-              <div class="alert alert-danger"
-                   *ngIf="projectType.errors && (projectType.dirty || projectType.touched)">
-                <div *ngIf="projectType.errors.required">Please select a project.</div>
-              </div>
             </div>
           </div>
           <div class="col-6">
@@ -228,10 +218,6 @@
                 <option *ngFor="let businessType of BusinessTypes" (change)="changeBusinessType($event)"
                         [ngValue]="businessType">{{businessType}}</option>
               </select>
-              <div class="alert alert-danger"
-                   *ngIf="businessType.errors && (businessType.dirty || businessType.touched)">
-                <div *ngIf="businessType.errors.required">Please select a business.</div>
-              </div>
             </div>
           </div>
         </div>
