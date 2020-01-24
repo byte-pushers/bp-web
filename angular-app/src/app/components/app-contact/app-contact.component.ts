@@ -83,8 +83,9 @@ export class ContactComponent implements OnInit {
       state: new FormControl('', Validators.required),
       /**------Business Form -----**/
       venture: new FormControl(''),
-      businessName: new FormControl(''),
-      businessURL: new FormControl(''),
+      businessName: new FormControl('', [
+        Validators.min(2), Validators.pattern(/^[a-zA-Z]*$/)]),
+      businessURL: new FormControl('', [ Validators.min(2), Validators.pattern(/^((ftp|http|https):\/\/)?www\.([A-z]+)\.([A-z]{2,})/)]),
       projectType: new FormControl(''),
       businessType: new FormControl(''),
       budget: new FormControl('', Validators.required),
