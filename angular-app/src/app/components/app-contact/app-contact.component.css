@@ -5,7 +5,9 @@
 .description-height {
   height: 400px;
 }
-
+.business-radio {
+  text-align: right;
+}
 .contact-button {
   width: 30%;
   background-color: white;
@@ -16,4 +18,12 @@
 
 .project-description {
   width: 100%;
+}
+
+.mobile-row {
+  margin-bottom: 10px;
+}
+
+.alert {
+  margin-bottom: 0px !important;
 }

@@ -14,7 +14,8 @@ import {Ng2PageScrollModule} from "ng2-page-scroll";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CarouselModule} from 'ngx-bootstrap/carousel';
 import {NgBootstrapFormValidationModule} from 'ng-bootstrap-form-validation';
-import {FormsModule} from "@angular/forms";
+import {ReactiveFormsModule, FormsModule} from "@angular/forms";
+
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {FormsModule} from "@angular/forms";
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
     NgBootstrapFormValidationModule.forRoot(),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     PageScrollingUtility
