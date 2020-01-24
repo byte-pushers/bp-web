@@ -1,7 +1,7 @@
 <main class="page">
 
   <header class="hero-fixed hero-home" id="hero"
-          style="background: url('~src/assets/images/contactPage/contactPageSplashBackground.jpg') center no-repeat; background-size: cover;">
+          style="background: url('../../../assets/images/contactPage/contactPageSplashBackground.jpg') center no-repeat; background-size: cover;">
     <div class="video-overlay" style="display: none;"></div>
     <div class="home-hero-text-container">
       <div class="container fade-in-first">
@@ -10,17 +10,17 @@
       </div>
     </div>
     <a class="icon-down-open-big hero-arrow" pageScroll pageScrollOffset="80" href="#top-section">
-      <img alt="caret " src="assets/images/caret.svg" style="width: 50px; height: 50px">
+      <img alt="caret" src="assets/images/caret.svg" style="width: 50px; height: 50px">
     </a>
   </header>
 
-  <div class="main-content-container" style="margin-top: 750px;">
-    <section class="personal-info">
+  <div class="main-content-container" style="margin-top: 750px;" id="top-section">
+    <section class="contact-info-desktop hidden-mobile hidden-mobile-450 hidden-mobile-768">
       <div class="section-heading">Personal Information</div>
       <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
         by<span class="br-mobile"></span> our labors of love.
       </div>
-      <ng-form class="align-items-center">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="align-items-center">
         <div class="form-row inner-form-section">
           <div class="col-6">
             <div class="col">
@@ -28,12 +28,18 @@
             </div>
             <div class="col-8">
               <input
-                name="firstName"
+                id="firstName"
+                formControlName="firstName"
                 placeholder="First Name"
                 type="text"
-                minlength="2"
                 class="form-control"
               >
+              <div class="alert alert-danger" *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+                <div *ngIf="firstName.errors.required">First name is required.</div>
+                <div *ngIf="firstName.errors.minlength">A minimum of 2 letters are required.</div>
+                <div *ngIf="firstName.errors.pattern">First name is not valid.</div>
+              </div>
+
             </div>
           </div>
           <div class="col-6">
@@ -42,11 +48,17 @@
             </div>
             <div class="col-8">
               <input
-                name="lastName"
+                id="lastName"
+                formControlName="lastName"
                 placeholder="Last Name"
-                class="form-control"
                 type="text"
-                minlength="2">
+                class="form-control"
+              >
+              <div class="alert alert-danger" *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
+                <div *ngIf="lastName.errors.required">Last name is required.</div>
+                <div *ngIf="lastName.errors.minlength">A minimum of 2 letters are required.</div>
+                <div *ngIf="lastName.errors.pattern">Last name is not valid.</div>
+              </div>
             </div>
           </div>
         </div>
@@ -57,12 +69,16 @@
             </div>
             <div class="col-8">
               <input
-                name="email"
-                placeholder="Email"
-                type="text"
-                minlength="2"
+                id="email"
+                formControlName="email"
+                placeholder="yourName@bytepushers.software"
+                type="email"
                 class="form-control"
               >
+              <div class="alert alert-danger" *ngIf="email.errors && (email.dirty || email.touched)">
+                <div *ngIf="email.errors.required">Email is required.</div>
+                <div *ngIf="email.errors.invalidEmail">Email is not valid.</div>
+              </div>
             </div>
           </div>
           <div class="col-6">
@@ -71,12 +87,15 @@
             </div>
             <div class="col-8">
               <input
-                name="number"
-                placeholder="Phone Number
-"
-                class="form-control"
+                id="number"
+                formControlName="number"
+                placeholder="(555) 555-5555"
                 type="text"
-                minlength="2">
+                class="form-control">
+              <div class="alert alert-danger" *ngIf="number.errors && (number.dirty || number.touched)">
+                <div *ngIf="number.errors.required">Phone number is required.</div>
+                <div *ngIf="number.errors.invalidNumber">Phone number is not valid.</div>
+              </div>
             </div>
           </div>
         </div>
@@ -87,12 +106,17 @@
             </div>
             <div class="col-8">
               <input
-                name="firstName"
+                id="city"
+                formControlName="city"
                 placeholder="City"
                 type="text"
-                minlength="2"
                 class="form-control"
               >
+              <div class="alert alert-danger" *ngIf="city.errors && (city.dirty || city.touched)">
+                <div *ngIf="city.errors.required">City name is required.</div>
+                <div *ngIf="city.errors.minlength">A minimum of 2 letters are required.</div>
+                <div *ngIf="city.errors.pattern">City name is not valid.</div>
+              </div>
             </div>
           </div>
           <div class="col-6">
@@ -100,87 +124,61 @@
               <label>State</label>
             </div>
             <div class="col-8">
-              <select
-                name="stateDropDownInputName"
-                class="custom-select" id="stateDropDownId"
-                required ngModel>
-                <option value="" selected>Select A State</option>
-                <option value="Alabama">Alabama</option>
-                <option value="Alaska">Alaska</option>
-                <option value="Arizona">Arizona</option>
-                <option value="Arkansas">Arkansas</option>
-                <option value="5">California</option>
-                <option value="6">Colorado</option>
-                <option value="7">Connecticut</option>
-                <option value="8">Delaware</option>
-                <option value="1">District Of Columbia</option>
-                <option value="1">Florida</option>
-                <option value="1">Georgia</option>
-                <option value="1">Hawaii</option>
-                <option value="1">Idaho</option>
-                <option value="1">Illinois</option>
-                <option value="1">Indiana</option>
-                <option value="1">Iowa</option>
-                <option value="1">Kansas</option>
-                <option value="1">Kentucky</option>
-                <option value="1">Louisiana</option>
-                <option value="1">Maine</option>
-                <option value="1">Maryland</option>
-                <option value="1">Massachusetts</option>
-                <option value="1">Michigan</option>
-                <option value="1">Minnesota</option>
-                <option value="1">Mississippi</option>
-                <option value="1">Missouri</option>
-                <option value="1">Montana</option>
-                <option value="1">Nebraska</option>
-                <option value="1">Nevada</option>
-                <option value="1">New Hampshire</option>
-                <option value="1">New Jersey</option>
-                <option value="1">New Mexico</option>
-                <option value="1">New York</option>
-                <option value="1">North Carolina</option>
-                <option value="1">North Dakota</option>
-                <option value="1">Ohio</option>
-                <option value="1">Oklahoma</option>
-                <option value="1">Oregon</option>
-                <option value="1">Pennsylvania</option>
-                <option value="1">Rhode Island</option>
-                <option value="1">South Carolina</option>
-                <option value="1">South Dakota</option>
-                <option value="1">Tennessee</option>
-                <option value="1">Texas</option>
-                <option value="1">Utah</option>
-                <option value="1">Vermont</option>
-                <option value="1">Virginia</option>
-                <option value="1">Washington</option>
-                <option value="1">West Virginia</option>
-                <option value="1">Wisconsin</option>
-                <option value="1">Wyoming</option>
+              <select class="custom-select" formControlName="state">
+                <option value="" disabled>Select Your State</option>
+                <option *ngFor="let state of States" (change)="changeState($event)" [ngValue]="state">{{state}}</option>
               </select>
+              <div class="alert alert-danger"
+                   *ngIf="state.errors && (state.dirty || state.touched)">
+                <div *ngIf="state.errors.required">Please select a state.</div>
+              </div>
             </div>
           </div>
         </div>
-      </ng-form>
-    </section>
-    <section class="business-info">
-      <div class="section-heading">Business Information</div>
-      <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
-        by<span class="br-mobile"></span> our labors of love.
-      </div>
-      <ng-form>
-        <div class="form-row inner-form-section">
+
+
+        <div class="section-heading">Business Information</div>
+        <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
+          by<span class="br-mobile"></span> our labors of love.
+        </div>
+        <div class=" row inner-form-section new-business">
+
+          <div class="col-6 custom-radio business-radio">
+          <label>
+            <input type="radio" value="new" formControlName="venture">
+            <span>New Business</span>
+          </label>
+          </div>
+          <div class=" col-6 custom-radio">
+          <label>
+            <input type="radio" value="established" formControlName="venture">
+            <span>Existing Business</span>
+          </label>
+            <div class="alert alert-danger"
+                 *ngIf="venture.errors && (venture.dirty || venture.touched)">
+              <div *ngIf="venture.errors.required">Please select a state.</div>
+            </div>
+          </div>
+        </div>
+          <div class="form-row inner-form-section">
           <div class="col-6">
             <div class="col">
               <label>Business Name</label>
             </div>
             <div class="col-8">
               <input
-                name="businessName"
+                id="businessName"
+                formControlName="businessName"
                 placeholder="Business Name"
-                type="text"
-                minlength="2"
                 class="form-control"
+                type="text"
               >
+              <div class="alert alert-danger"
+                   *ngIf="businessName.errors && (businessName.dirty || businessName.touched)">
+                <div *ngIf="businessName.errors.required">First name is required.</div>
+                <div *ngIf="businessName.errors.minlength">A minimum of 2 letters are required.</div>
+                <div *ngIf="businessName.errors.pattern">First name is not valid.</div>
+              </div>
             </div>
           </div>
           <div class="col-6">
@@ -189,11 +187,17 @@
             </div>
             <div class="col-8">
               <input
-                name="businessUrl"
-                placeholder="www.yourbusiness.com"
+                id="businessURL"
+                formControlName="businessURL"
+                placeholder="www.business.url"
                 class="form-control"
                 type="text"
-                minlength="2">
+              >
+              <div class="alert alert-danger" *ngIf="businessURL.errors && (businessURL.dirty || businessURL.touched)">
+                <div *ngIf="businessURL.errors.required">URL is required.</div>
+                <div *ngIf="businessURL.errors.minlength">A minimum of 2 letters are required.</div>
+                <div *ngIf="businessURL.errors.pattern">URL is not valid.</div>
+              </div>
             </div>
           </div>
         </div>
@@ -203,15 +207,15 @@
               <label>Type of Project</label>
             </div>
             <div class="col-8">
-              <select
-                name="projectTypeDropDownInputName"
-                class="custom-select" id="projectTypeDropDownId"
-                required ngModel>
-                <option value="" selected>Type of Project</option>
-                <option value="Alabama">Option</option>
-                <option value="Alaska">Option</option>
-                <option value="Arizona">Option</option>
+              <select class="custom-select" formControlName="projectType">
+                <option value="" disabled>Type of Project</option>
+                <option *ngFor="let projectType of Projects" (change)="changeProjectType($event)"
+                        [ngValue]="projectType">{{projectType}}</option>
               </select>
+              <div class="alert alert-danger"
+                   *ngIf="projectType.errors && (projectType.dirty || projectType.touched)">
+                <div *ngIf="projectType.errors.required">Please select a project.</div>
+              </div>
             </div>
           </div>
           <div class="col-6">
@@ -219,15 +223,15 @@
               <label>What Kind Of Business Are You</label>
             </div>
             <div class="col-8">
-              <select
-                name="businessTypeDropDownInputName"
-                class="custom-select" id="businessTypeDropDownId"
-                required ngModel>
-                <option value="" selected>Type of Business</option>
-                <option value="Alabama">Option</option>
-                <option value="Alaska">Option</option>
-                <option value="Arizona">Option</option>
+              <select class="custom-select" formControlName="businessType">
+                <option value="" disabled>Type of Business</option>
+                <option *ngFor="let businessType of BusinessTypes" (change)="changeBusinessType($event)"
+                        [ngValue]="businessType">{{businessType}}</option>
               </select>
+              <div class="alert alert-danger"
+                   *ngIf="businessType.errors && (businessType.dirty || businessType.touched)">
+                <div *ngIf="businessType.errors.required">Please select a business.</div>
+              </div>
             </div>
           </div>
         </div>
@@ -237,15 +241,15 @@
               <label>Budget</label>
             </div>
             <div class="col-8">
-              <select
-                name="budgetDropDownInputName"
-                class="custom-select" id="budgetDropDownId"
-                required ngModel>
-                <option value="" selected>Budget</option>
-                <option value="Alabama">Small</option>
-                <option value="Alaska">Medium</option>
-                <option value="Arizona">Large</option>
+              <select class="custom-select" formControlName="budget">
+                <option value="" disabled>Budget amount</option>
+                <option *ngFor="let budget of Budgets" (change)="changeBudget($event)"
+                        [ngValue]="budget">{{budget}}</option>
               </select>
+              <div class="alert alert-danger"
+                   *ngIf="budget.errors && (budget.dirty || budget.touched)">
+                <div *ngIf="budget.errors.required">Please select a budget.</div>
+              </div>
             </div>
           </div>
           <div class="col-6">
@@ -253,15 +257,15 @@
               <label>Timeline</label>
             </div>
             <div class="col-8">
-              <select
-                name="timelineDropDownInputName"
-                class="custom-select" id="timelineDropDownId"
-                required ngModel>
-                <option value="" selected>TimeLine</option>
-                <option value="Alabama">Short</option>
-                <option value="Alaska">Medium</option>
-                <option value="Arizona">Long Term</option>
+              <select class="custom-select" formControlName="timeline">
+                <option value="" disabled>Timeline duration</option>
+                <option *ngFor="let timeline of Timelines" (change)="changeTimeline($event)"
+                        [ngValue]="timeline">{{timeline}}</option>
               </select>
+              <div class="alert alert-danger"
+                   *ngIf="timeline.errors && (timeline.dirty || timeline.touched)">
+                <div *ngIf="timeline.errors.required">Please select a timeline.</div>
+              </div>
             </div>
           </div>
         </div>
@@ -271,12 +275,272 @@
               <label>Project Description</label>
             </div>
             <div class="col-12">
-              <textarea class="form-control" id="projectDescriptionTextArea" rows="3"></textarea>
+              <textarea class="form-control" id="projectDescriptionTextArea" rows="3"
+                        id="projectDescription"
+                        formControlName="projectDescription"
+                        placeholder="Describe your project."></textarea>
+              <div class="alert alert-danger"
+                   *ngIf="projectDescription.errors && (projectDescription.dirty || projectDescription.touched)">
+                <div *ngIf="projectDescription.errors.required">Please describe your project.</div>
+              </div>
             </div>
           </div>
         </div>
-        <button class="contact-button btn btn-block btn-sm"> Submit</button>
-      </ng-form>
+        <button type="submit" [disabled]="!contactForm.valid" class="contact-button btn btn-block btn-sm"> Submit
+        </button>
+      </form>
+    </section>
+    <section class="contact-info-desktop hidden-desktop">
+      <div class="section-heading">Personal Information</div>
+      <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
+        by<span class="br-mobile"></span> our labors of love.
+      </div>
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="align-items-center">
+
+
+        <div class="col-12">
+          <label>First Name</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <input
+            id="firstNameMobile"
+            formControlName="firstName"
+            placeholder="First Name"
+            type="text"
+            class="form-control"
+          >
+          <div class="alert alert-danger" *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+            <div *ngIf="firstName.errors.required">First name is required.</div>
+            <div *ngIf="firstName.errors.minlength">A minimum of 2 letters are required.</div>
+            <div *ngIf="firstName.errors.pattern">First name is not valid.</div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label>Last Name</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <input
+            id="lastNameMobile"
+            formControlName="lastName"
+            placeholder="Last Name"
+            type="text"
+            class="form-control"
+          >
+          <div class="alert alert-danger" *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
+            <div *ngIf="lastName.errors.required">Last name is required.</div>
+            <div *ngIf="lastName.errors.minlength">A minimum of 2 letters are required.</div>
+            <div *ngIf="lastName.errors.pattern">Last name is not valid.</div>
+          </div>
+        </div>
+
+
+        <div class="col-12">
+          <label>Email</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <input
+            id="emailMobile"
+            formControlName="email"
+            placeholder="yourName@bytepushers.software"
+            type="email"
+            class="form-control"
+          >
+          <div class="alert alert-danger" *ngIf="email.errors && (email.dirty || email.touched)">
+            <div *ngIf="email.errors.required">Email is required.</div>
+            <div *ngIf="email.errors.invalidEmail">Email is not valid.</div>
+          </div>
+        </div>
+
+
+        <div class="col-12">
+          <label>Phone Number</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <input
+            id="numberMobile"
+            formControlName="number"
+            placeholder="(555) 555-5555"
+            type="text"
+            class="form-control">
+          <div class="alert alert-danger" *ngIf="number.errors && (number.dirty || number.touched)">
+            <div *ngIf="number.errors.required">Phone number is required.</div>
+            <div *ngIf="number.errors.invalidNumber">Phone number is not valid.</div>
+          </div>
+        </div>
+
+
+        <div class="col-12">
+          <label>City</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <input
+            id="cityMobile"
+            formControlName="city"
+            placeholder="City"
+            type="text"
+            class="form-control"
+          >
+          <div class="alert alert-danger" *ngIf="city.errors && (city.dirty || city.touched)">
+            <div *ngIf="city.errors.required">City name is required.</div>
+            <div *ngIf="city.errors.minlength">A minimum of 2 letters are required.</div>
+            <div *ngIf="city.errors.pattern">City name is not valid.</div>
+          </div>
+        </div>
+
+
+        <div class="col-12">
+          <label>State</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <select class="custom-select" formControlName="state">
+            <option value="" disabled>Select Your State</option>
+            <option *ngFor="let state of States" (change)="changeState($event)" [ngValue]="state">{{state}}</option>
+          </select>
+          <div class="alert alert-danger"
+               *ngIf="state.errors && (state.dirty || state.touched)">
+            <div *ngIf="state.errors.required">Please select a state.</div>
+          </div>
+        </div>
+
+
+        <div class="section-heading">Business Information</div>
+        <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
+          by<span class="br-mobile"></span> our labors of love.
+        </div>
+        <div class="col-12 mobile-row">
+        <label>
+          <input type="radio" value="new" formControlName="venture">
+          <span> New Business</span>
+        </label>
+        </div>
+        <div class="col-12 mobile-row">
+        <label>
+          <input type="radio" value="established" formControlName="venture">
+          <span> Established Business</span>
+        </label>
+        </div>
+
+        <div class="col-12">
+          <label>Business Name</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <input
+            id="businessNameMobile"
+            formControlName="businessName"
+            placeholder="Business Name"
+            class="form-control"
+            type="text"
+          >
+          <div class="alert alert-danger"
+               *ngIf="businessName.errors && (businessName.dirty || businessName.touched)">
+            <div *ngIf="businessName.errors.required">First name is required.</div>
+            <div *ngIf="businessName.errors.minlength">A minimum of 2 letters are required.</div>
+            <div *ngIf="businessName.errors.pattern">First name is not valid.</div>
+          </div>
+        </div>
+
+
+        <div class="col-12">
+          <label>Business URL</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <input
+            id="businessURLMobile"
+            formControlName="businessURL"
+            placeholder="www.business.url"
+            class="form-control"
+            type="text"
+          >
+          <div class="alert alert-danger" *ngIf="businessURL.errors && (businessURL.dirty || businessURL.touched)">
+            <div *ngIf="businessURL.errors.required">URL is required.</div>
+            <div *ngIf="businessURL.errors.minlength">A minimum of 2 letters are required.</div>
+            <div *ngIf="businessURL.errors.pattern">URL is not valid.</div>
+          </div>
+        </div>
+
+
+        <div class="col-12">
+          <label>Type of Project</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <select class="custom-select" formControlName="projectType">
+            <option value="" disabled>Type of Project</option>
+            <option *ngFor="let projectType of Projects" (change)="changeProjectType($event)"
+                    [ngValue]="projectType">{{projectType}}</option>
+          </select>
+          <div class="alert alert-danger"
+               *ngIf="projectType.errors && (projectType.dirty || projectType.touched)">
+            <div *ngIf="projectType.errors.required">Please select a project.</div>
+          </div>
+        </div>
+
+
+        <div class="col-12">
+          <label>What Kind Of Business Are You</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <select class="custom-select" formControlName="businessType">
+            <option value="" disabled>Type of Business</option>
+            <option *ngFor="let businessType of BusinessTypes" (change)="changeBusinessType($event)"
+                    [ngValue]="businessType">{{businessType}}</option>
+          </select>
+          <div class="alert alert-danger"
+               *ngIf="businessType.errors && (businessType.dirty || businessType.touched)">
+            <div *ngIf="businessType.errors.required">Please select a business.</div>
+          </div>
+        </div>
+
+
+        <div class="col-12">
+          <label>Budget</label>
+        </div>
+        <div class="col-12">
+          <select class="custom-select mobile-row" formControlName="budget">
+            <option value="" disabled>Budget amount</option>
+            <option *ngFor="let budget of Budgets" (change)="changeBudget($event)"
+                    [ngValue]="budget">{{budget}}</option>
+          </select>
+          <div class="alert alert-danger"
+               *ngIf="budget.errors && (budget.dirty || budget.touched)">
+            <div *ngIf="budget.errors.required">Please select a budget.</div>
+          </div>
+        </div>
+
+
+        <div class="col-12">
+          <label>Timeline</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <select class="custom-select" formControlName="timeline">
+            <option value="" disabled>Timeline duration</option>
+            <option *ngFor="let timeline of Timelines" (change)="changeTimeline($event)"
+                    [ngValue]="timeline">{{timeline}}</option>
+          </select>
+          <div class="alert alert-danger"
+               *ngIf="timeline.errors && (timeline.dirty || timeline.touched)">
+            <div *ngIf="timeline.errors.required">Please select a timeline.</div>
+          </div>
+        </div>
+
+
+        <div class="col-12">
+          <label>Project Description</label>
+        </div>
+        <div class="col-12 mobile-row">
+              <textarea class="form-control" rows="3"
+                        id="projectDescriptionMobile"
+                        formControlName="projectDescription"
+                        placeholder="Describe your project."></textarea>
+          <div class="alert alert-danger"
+               *ngIf="projectDescription.errors && (projectDescription.dirty || projectDescription.touched)">
+            <div *ngIf="projectDescription.errors.required">Please describe your project.</div>
+          </div>
+        </div>
+
+        <button type="submit" [disabled]="!contactForm.valid" class="contact-button btn btn-block"> Submit
+        </button>
+      </form>
     </section>
   </div>
 </main>
