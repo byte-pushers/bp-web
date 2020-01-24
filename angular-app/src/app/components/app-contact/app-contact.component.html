@@ -141,20 +141,19 @@
         <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
           by<span class="br-mobile"></span> our labors of love.
         </div>
-        <div><p style=" text-align: center; font-size: 10px; margin-bottom: 15px;">* is optional</p> </div>
+        <div><p style=" text-align: center; font-size: 10px; margin-bottom: 10px;">* is optional</p> </div>
         <div class=" row inner-form-section new-business">
 
-          <div class="col-6 custom-checkbox business-radio">
-            *
+          <div class="col-6 custom-radio business-radio">
           <label>
             <input type="checkbox">
-            <span>New Business</span>
+            <span>*New Business</span>
           </label>
           </div>
-          <div class=" col-6 custom-checkbox">
+          <div class=" col-6 custom-radio">
           <label>
             <input type="checkbox">
-            <span>Existing Business</span>
+            <span>*Existing Business</span>
           </label>
           </div>
         </div>
@@ -171,6 +170,10 @@
                 class="form-control"
                 type="text"
               >
+              <div class="alert alert-danger" *ngIf="businessName.errors">
+                <div *ngIf="businessName.errors.minlength">A minimum of 2 letters are required.</div>
+                <div *ngIf="businessName.errors.pattern">Business name is not valid.</div>
+              </div>
             </div>
           </div>
           <div class="col-6">
@@ -185,13 +188,17 @@
                 class="form-control"
                 type="text"
               >
+              <div class="alert alert-danger" *ngIf="businessURL.errors">
+                <div *ngIf="businessURL.errors.minlength">A minimum of 2 letters are required.</div>
+                <div *ngIf="businessURL.errors.pattern">URL is not valid.</div>
+              </div>
             </div>
           </div>
         </div>
         <div class="form-row inner-form-section">
           <div class="col-6">
             <div class="col">
-              <label>*Type of Project</label>
+              <label>Type of Project</label>
             </div>
             <div class="col-8">
               <select class="custom-select" formControlName="projectType">
@@ -203,11 +210,11 @@
           </div>
           <div class="col-6">
             <div class="col">
-              <label>*What Kind Of Business Are You</label>
+              <label>What Kind Of Business Are You</label>
             </div>
             <div class="col-8">
               <select class="custom-select" formControlName="businessType">
-                <option value="" disabled>*Type of Business</option>
+                <option value="" disabled>Type of Business</option>
                 <option *ngFor="let businessType of BusinessTypes" (change)="changeBusinessType($event)"
                         [ngValue]="businessType">{{businessType}}</option>
               </select>
