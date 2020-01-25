@@ -1,7 +1,15 @@
 .form-row {
   margin-left: 15% ;
 }
+.budget-slider {
+  width: 92%;
+  margin-left: 5%;
+}
 
+.range-field {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
 .description-height {
   height: 400px;
 }
