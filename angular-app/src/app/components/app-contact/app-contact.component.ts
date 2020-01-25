@@ -63,8 +63,8 @@ export class ContactComponent implements OnInit {
     'Wyoming'];
   Projects: any = ['Option 1', 'Option 2', 'Option 3'];
   BusinessTypes: any = ['Option 1', 'Option 2', 'Option 3'];
-  Budgets: any = ['Small', 'Medium', 'Large'];
-  Timelines: any = ['1-3 Months', '3-6 Months', '6+ Months'];
+  Budgets: any = ['Small: 3,000 - 5,000', 'Medium: 6,000 - 15,000', 'Large: 16,000 +'];
+  Timelines: any = ['1-3 Months', '4-7 Months', '8+ Months'];
 
   constructor() {
   }
@@ -189,4 +189,10 @@ export class ContactComponent implements OnInit {
       console.log("Success!")
     }
   }
+
+  var slider = new Slider('#ex1', {
+  formatter: function(value) {
+    return 'Current value: ' + value;
+  }
+
 }
