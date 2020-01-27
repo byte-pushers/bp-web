@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, FormArray, Validators, FormBuilder} from "@angular/forms";
 import {phoneNumberValidator} from "../../services/phone-validator.service";
 import {emailValidator} from "../../services/email-validator.service";
+import {SliderType} from "igniteui-angular";
 
 @Component({
   selector: 'app-contact',
@@ -9,6 +10,9 @@ import {emailValidator} from "../../services/email-validator.service";
   styleUrls: ['./app-contact.component.css']
 })
 export class ContactComponent implements OnInit {
+  public sliderType = SliderType;
+  public priceRange: PriceRange = new PriceRange(200, 800);
+
   isSubmitted = false;
   contactForm: FormGroup;
   States: any = ['Alabama',
@@ -85,13 +89,15 @@ export class ContactComponent implements OnInit {
       venture: new FormControl(''),
       businessName: new FormControl('', [
         Validators.min(2), Validators.pattern(/^[a-zA-Z]*$/)]),
-      businessURL: new FormControl('', [ Validators.min(2), Validators.pattern(/^((ftp|http|https):\/\/)?www\.([A-z]+)\.([A-z]{2,})/)]),
+      businessURL: new FormControl('', [Validators.min(2), Validators.pattern(/^((ftp|http|https):\/\/)?www\.([A-z]+)\.([A-z]{2,})/)]),
       projectType: new FormControl(''),
       businessType: new FormControl(''),
       budget: new FormControl('', Validators.required),
       timeline: new FormControl('', Validators.required),
       projectDescription: new FormControl('', Validators.required)
     })
+
+
   }
 
   get firstName() {
@@ -190,9 +196,13 @@ export class ContactComponent implements OnInit {
     }
   }
 
-  var slider = new Slider('#ex1', {
-  formatter: function(value) {
-    return 'Current value: ' + value;
-  }
 
+}
+
+class PriceRange {
+  constructor(
+    public lower: number,
+    public upper: number
+  ) {
+  }
 }
