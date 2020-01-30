@@ -214,7 +214,7 @@ export class ContactComponent implements OnInit {
   }
 
   public changeTimelineOnScrollLarge() {
-    this.timeline.setValue(this.Timelines[2]);
+    this.timeline.setValue(this.Timelines[2);
   }
 
   public change() {
