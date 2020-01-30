@@ -15,6 +15,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CarouselModule} from 'ngx-bootstrap/carousel';
 import {NgBootstrapFormValidationModule} from 'ng-bootstrap-form-validation';
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
+import {NgxBootstrapSliderModule} from "ngx-bootstrap-slider";
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {ReactiveFormsModule, FormsModule} from "@angular/forms";
     CarouselModule.forRoot(),
     NgBootstrapFormValidationModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxBootstrapSliderModule
   ],
   providers: [
     PageScrollingUtility
