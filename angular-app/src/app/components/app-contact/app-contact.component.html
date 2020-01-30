@@ -141,23 +141,23 @@
         <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
           by<span class="br-mobile"></span> our labors of love.
         </div>
-        <div><p style=" text-align: center; font-size: 10px; margin-bottom: 10px;">* is optional</p> </div>
+        <div><p style=" text-align: center; font-size: 10px; margin-bottom: 10px;">* is optional</p></div>
         <div class=" row inner-form-section new-business">
 
           <div class="col-6 custom-radio business-radio">
-          <label>
-            <input type="checkbox">
-            <span>*New Business</span>
-          </label>
+            <label>
+              <input type="checkbox">
+              <span>*New Business</span>
+            </label>
           </div>
           <div class=" col-6 custom-radio">
-          <label>
-            <input type="checkbox">
-            <span>*Existing Business</span>
-          </label>
+            <label>
+              <input type="checkbox">
+              <span>*Existing Business</span>
+            </label>
           </div>
         </div>
-          <div class="form-row inner-form-section">
+        <div class="form-row inner-form-section">
           <div class="col-6">
             <div class="col">
               <label>*Business Name</label>
@@ -215,7 +215,7 @@
             <div class="col-8">
               <select class="custom-select" formControlName="businessType">
                 <option value="" disabled>Type of Business</option>
-                <option *ngFor="let businessType of BusinessTypes" (change)="changeBusinessType($event)"
+                <option *ngFor="let businessType of BusinessTypes" (change)="change()"
                         [ngValue]="businessType">{{businessType}}</option>
               </select>
             </div>
@@ -227,7 +227,7 @@
               <label>Budget</label>
             </div>
             <div class="col-8">
-              <select class="custom-select" formControlName="budget">
+              <select class="custom-select" id="budget" formControlName="budget" [compareWith]="">
                 <option value="" disabled>Budget amount</option>
                 <option *ngFor="let budget of Budgets" (change)="changeBudget($event)"
                         [ngValue]="budget">{{budget}}</option>
@@ -255,6 +255,20 @@
             </div>
           </div>
         </div>
+        <div class="form-row">
+          <div class="col-6">
+            <b>€ 10</b>
+            <div class="tooltip tooltip-top" role="tooltip">
+              <div class="tooltip-inner">Tooltip on the top</div>
+            </div>
+            <mv-slider id="range" range="true" tooltip="show" [(value)]="value" [min]="5" [max]="100" [enabled]="enabled"
+                       (change)="change()">
+
+            </mv-slider>
+            <b>€ 1000</b>
+          </div>
+        </div>
+
         <div class="form-row inner-form-section">
           <div class="col-10">
             <div class="col-10">
@@ -395,16 +409,16 @@
           by<span class="br-mobile"></span> our labors of love.
         </div>
         <div class="col-12 mobile-row">
-        <label>
-          <input type="radio" value="new" formControlName="venture">
-          <span> New Business</span>
-        </label>
+          <label>
+            <input type="radio" value="new" formControlName="venture">
+            <span> New Business</span>
+          </label>
         </div>
         <div class="col-12 mobile-row">
-        <label>
-          <input type="radio" value="established" formControlName="venture">
-          <span> Established Business</span>
-        </label>
+          <label>
+            <input type="radio" value="established" formControlName="venture">
+            <span> Established Business</span>
+          </label>
         </div>
 
         <div class="col-12">

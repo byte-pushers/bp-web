@@ -1,13 +1,21 @@
 .form-row {
-  margin-left: 15% ;
+  margin-left: 15%;
 }
+
+.slider.slider-horizontal:hover, .slider.slider-vertical:hover,
+.tooltip.tooltip-main {
+  opacity: 1 !important;
+}
+
 
 .description-height {
   height: 400px;
 }
+
 .business-radio {
   text-align: right;
 }
+
 .contact-button {
   width: 30%;
   background-color: white;
@@ -26,6 +34,6 @@
 
 .alert {
   padding-top: 15px;
-  padding-left: 15px !important ;
+  padding-left: 15px !important;
   margin-bottom: 0px !important;
 }

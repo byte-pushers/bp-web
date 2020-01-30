@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, FormArray, Validators, FormBuilder} from "@angular/forms";
 import {phoneNumberValidator} from "../../services/phone-validator.service";
 import {emailValidator} from "../../services/email-validator.service";
+import {NgxBootstrapSliderService} from "ngx-bootstrap-slider";
 
 @Component({
   selector: 'app-contact',
@@ -65,6 +66,7 @@ export class ContactComponent implements OnInit {
   BusinessTypes: any = ['Option 1', 'Option 2', 'Option 3'];
   Budgets: any = ['Small', 'Medium', 'Large'];
   Timelines: any = ['1-3 Months', '3-6 Months', '6+ Months'];
+  value: any = [5, 100];
 
   constructor() {
   }
@@ -85,7 +87,7 @@ export class ContactComponent implements OnInit {
       venture: new FormControl(''),
       businessName: new FormControl('', [
         Validators.min(2), Validators.pattern(/^[a-zA-Z]*$/)]),
-      businessURL: new FormControl('', [ Validators.min(2), Validators.pattern(/^((ftp|http|https):\/\/)?www\.([A-z]+)\.([A-z]{2,})/)]),
+      businessURL: new FormControl('', [Validators.min(2), Validators.pattern(/^((ftp|http|https):\/\/)?www\.([A-z]+)\.([A-z]{2,})/)]),
       projectType: new FormControl(''),
       businessType: new FormControl(''),
       budget: new FormControl('', Validators.required),
@@ -164,7 +166,8 @@ export class ContactComponent implements OnInit {
   changeBudget(e) {
     this.Budgets.setValue(e.target.value, {
       onlySelf: true
-    })
+    });
+
   }
 
   get timeline() {
@@ -189,4 +192,48 @@ export class ContactComponent implements OnInit {
       console.log("Success!")
     }
   }
+
+  public changeBudgetOnScrollSmall() {
+    this.budget.setValue(this.Budgets[0]);
+  }
+
+  public changeBudgetOnScrollMedium() {
+    this.budget.setValue(this.Budgets[1]);
+  }
+
+  public changeBudgetOnScrollLarge() {
+    this.budget.setValue(this.Budgets[2]);
+  }
+
+  public changeTimelineOnScrollSmall() {
+    this.timeline.setValue(this.Timelines[0]);
+  }
+
+  public changeTimelineOnScrollMedium() {
+    this.timeline.setValue(this.Timelines[1]);
+  }
+
+  public changeTimelineOnScrollLarge() {
+    this.timeline.setValue(this.Timelines[2]);
+  }
+
+  public change() {
+    if (this.value[0] <= 30) {
+      this.changeBudgetOnScrollSmall();
+      this.changeTimelineOnScrollSmall();
+    } else if (this.value[0] > 30 && this.value[1] < 60) {
+      this.changeBudgetOnScrollMedium();
+      this.changeTimelineOnScrollMedium();
+    } else if (this.value[1] > 70) {
+      this.changeBudgetOnScrollLarge();
+      this.changeTimelineOnScrollLarge();
+    }
+  }
+
+  /*
+    compareFn(c1: any, c2: any): boolean {
+      return c1 && c2 ? c1.id === c2.id : c1 === c2;
+    }
+  */
+
 }
