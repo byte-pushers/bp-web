@@ -14,7 +14,7 @@ import {concat} from "rxjs";
 export class ContactComponent implements OnInit {
   isSubmitted = false;
   contactForm: FormGroup;
-  States: any = ['Alabama',
+  states: any = ['Alabama',
     'Alaska',
     'Arizona',
     'Arkansas',
@@ -64,14 +64,14 @@ export class ContactComponent implements OnInit {
     'West Virginia',
     'Wisconsin',
     'Wyoming'];
-  Projects: any = ['Option 1', 'Option 2', 'Option 3'];
-  BusinessTypes: any = ['Option 1', 'Option 2', 'Option 3'];
+  projects: any = ['Option 1', 'Option 2', 'Option 3'];
+  businessTypes: any = ['Option 1', 'Option 2', 'Option 3'];
   value: any = [5, 100];
-  Budgets: any = [
+  budgets: any = [
     'Small',
     'Medium',
     'Large'];
-  Timelines: any = ['1-3 Months', '3-6 Months', '6+ Months'];
+  timelines: any = ['1-3 Months', '3-6 Months', '6+ Months'];
 
 
   constructor() {
@@ -131,7 +131,7 @@ export class ContactComponent implements OnInit {
   }
 
   changeState(e) {
-    this.States.setValue(e.target.value, {
+    this.states.setValue(e.target.value, {
       onlySelf: true
     })
   }
@@ -150,7 +150,7 @@ export class ContactComponent implements OnInit {
   }
 
   changeProjectType(e) {
-    this.Projects.setValue(e.target.value, {
+    this.projects.setValue(e.target.value, {
       onlySelf: true
     })
   }
@@ -160,7 +160,7 @@ export class ContactComponent implements OnInit {
   }
 
   changeBusinessType(e) {
-    this.BusinessTypes.setValue(e.target.value, {
+    this.businessTypes.setValue(e.target.value, {
       onlySelf: true
     })
   }
@@ -170,7 +170,7 @@ export class ContactComponent implements OnInit {
   }
 
   changeBudget(e) {
-    this.Budgets.setValue(e.target.value, {
+    this.budgets.setValue(e.target.value, {
       onlySelf: true
     });
 
@@ -181,7 +181,7 @@ export class ContactComponent implements OnInit {
   }
 
   changeTimeline(e) {
-    this.Timelines.setValue(e.target.value, {
+    this.timelines.setValue(e.target.value, {
       onlySelf: true
     })
   }
@@ -201,40 +201,52 @@ export class ContactComponent implements OnInit {
 
   public changeBudgetOnScrollSmall() {
     const newSmall = 'Small'.concat(this.value[0]);
-    this.Budgets.splice(0,1, newSmall)
+    this.budgets.splice(0, 1, newSmall)
 
   }
 
 
   public changeBudgetOnScrollMedium() {
-    this.budget.setValue(this.Budgets[1]);
+    this.budget.setValue(this.budgets[1]);
   }
 
   public changeBudgetOnScrollLarge() {
-    this.budget.setValue(this.Budgets[2]);
+    this.budget.setValue(this.budgets[2]);
   }
 
   public changeTimelineOnScrollSmall() {
-    this.timeline.setValue(this.Timelines[0]);
+    this.timeline.setValue(this.timelines[0]);
   }
 
   public changeTimelineOnScrollMedium() {
-    this.timeline.setValue(this.Timelines[1]);
+    this.timeline.setValue(this.timelines[1]);
   }
 
   public changeTimelineOnScrollLarge() {
-    this.timeline.setValue(this.Timelines[2]);
+    this.timeline.setValue(this.timelines[2]);
   }
 
-  public change() {
+  public change(){
+    this.changeBudgetDropdown();
+    this.changeTimelineDropdown();
+  }
+
+  public changeBudgetDropdown() {
     if (this.value[0] <= 30) {
       this.changeBudgetOnScrollSmall();
-      this.changeTimelineOnScrollSmall();
     } else if (this.value[0] > 30 && this.value[1] < 60) {
       this.changeBudgetOnScrollMedium();
-      this.changeTimelineOnScrollMedium();
     } else if (this.value[1] > 70) {
       this.changeBudgetOnScrollLarge();
+    }
+  }
+
+  public changeTimelineDropdown() {
+    if (this.value[0] <= 30) {
+      this.changeTimelineOnScrollSmall();
+    } else if (this.value[0] > 30 && this.value[1] < 60) {
+      this.changeTimelineOnScrollMedium();
+    } else if (this.value[1] > 70) {
       this.changeTimelineOnScrollLarge();
     }
   }
