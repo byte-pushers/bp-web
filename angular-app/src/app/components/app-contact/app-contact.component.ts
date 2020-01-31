@@ -3,6 +3,8 @@ import {FormControl, FormGroup, FormArray, Validators, FormBuilder} from "@angul
 import {phoneNumberValidator} from "../../services/phone-validator.service";
 import {emailValidator} from "../../services/email-validator.service";
 import {NgxBootstrapSliderService} from "ngx-bootstrap-slider";
+import {concat} from "rxjs";
+
 
 @Component({
   selector: 'app-contact',
@@ -64,9 +66,13 @@ export class ContactComponent implements OnInit {
     'Wyoming'];
   Projects: any = ['Option 1', 'Option 2', 'Option 3'];
   BusinessTypes: any = ['Option 1', 'Option 2', 'Option 3'];
-  Budgets: any = ['Small', 'Medium', 'Large'];
-  Timelines: any = ['1-3 Months', '3-6 Months', '6+ Months'];
   value: any = [5, 100];
+  Budgets: any = [
+    'Small',
+    'Medium',
+    'Large'];
+  Timelines: any = ['1-3 Months', '3-6 Months', '6+ Months'];
+
 
   constructor() {
   }
@@ -194,8 +200,11 @@ export class ContactComponent implements OnInit {
   }
 
   public changeBudgetOnScrollSmall() {
-    this.budget.setValue(this.Budgets[0]);
+    const newSmall = 'Small'.concat(this.value[0]);
+    this.Budgets.splice(0,1, newSmall)
+
   }
+
 
   public changeBudgetOnScrollMedium() {
     this.budget.setValue(this.Budgets[1]);
@@ -214,7 +223,7 @@ export class ContactComponent implements OnInit {
   }
 
   public changeTimelineOnScrollLarge() {
-    this.timeline.setValue(this.Timelines[2);
+    this.timeline.setValue(this.Timelines[2]);
   }
 
   public change() {
