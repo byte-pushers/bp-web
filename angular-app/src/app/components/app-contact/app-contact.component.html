@@ -489,37 +489,48 @@
         </div>
 
 
-        <div class="col-12">
-          <label>Budget</label>
-        </div>
-        <div class="col-12">
-          <select class="custom-select mobile-row" formControlName="budget">
-            <option value="" disabled>Budget amount</option>
-            <option *ngFor="let budget of budgets" (change)="changeBudget($event)"
-                    [ngValue]="budget">{{budget}}</option>
-          </select>
-          <div class="alert alert-danger"
-               *ngIf="budget.errors && (budget.dirty || budget.touched)">
-            <div *ngIf="budget.errors.required">Please select a budget.</div>
+
+            <div class="col-12">
+              <label>Budget</label>
+            </div>
+            <div class="col-12 mobile-row">
+              <select class="custom-select"  formControlName="budget">
+                <option value="" disabled *ngFor="let budget of budgets" (change)="changeBudget($event)"
+                        [ngValue]="budget">{{budget}}</option>
+              </select>
+              <div class="alert alert-danger"
+                   *ngIf="budget.errors && (budget.dirty || budget.touched)">
+                <div *ngIf="budget.errors.required">Please select a budget.</div>
+              </div>
+            </div>
+
+
+            <div class="col-12 mobile-row">
+              <label>Timeline</label>
+            </div>
+            <div class="col-12 mobile-row">
+              <select class="custom-select" formControlName="timeline">
+                <option value="" disabled>Timeline duration</option>
+                <option *ngFor="let timeline of timelines" (change)="changeTimeline($event)"
+                        [ngValue]="timeline">{{timeline}}</option>
+              </select>
+              <div class="alert alert-danger"
+                   *ngIf="timeline.errors && (timeline.dirty || timeline.touched)">
+                <div *ngIf="timeline.errors.required">Please select a timeline.</div>
+              </div>
+            </div>
+
+
+
+          <div class="col-12">
+            <b>$ 0</b>
+
+            <mv-slider id="range"  range="true"  [(value)]="value" [min]="0" [max]="100000" [enabled]="enabled"
+                       (change)="change()">
+
+            </mv-slider>
+            <b>$ 100000</b>
           </div>
-        </div>
-
-
-        <div class="col-12">
-          <label>Timeline</label>
-        </div>
-        <div class="col-12 mobile-row">
-          <select class="custom-select" formControlName="timeline">
-            <option value="" disabled>Timeline duration</option>
-            <option *ngFor="let timeline of timelines" (change)="changeTimeline($event)"
-                    [ngValue]="timeline">{{timeline}}</option>
-          </select>
-          <div class="alert alert-danger"
-               *ngIf="timeline.errors && (timeline.dirty || timeline.touched)">
-            <div *ngIf="timeline.errors.required">Please select a timeline.</div>
-          </div>
-        </div>
-
 
         <div class="col-12">
           <label>Project Description</label>
