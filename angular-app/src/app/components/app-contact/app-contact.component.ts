@@ -66,11 +66,8 @@ export class ContactComponent implements OnInit {
     'Wyoming'];
   projects: any = ['Option 1', 'Option 2', 'Option 3'];
   businessTypes: any = ['Option 1', 'Option 2', 'Option 3'];
-  value: any = [5, 100];
-  budgets: any = [
-    'Small',
-    'Medium',
-    'Large'];
+  value: any = [0, 100000];
+  budgets: any  = ['Slide for budget amount'];
   timelines: any = ['1-3 Months', '3-6 Months', '6+ Months'];
 
 
@@ -200,18 +197,20 @@ export class ContactComponent implements OnInit {
   }
 
   public changeBudgetOnScrollSmall() {
-    const newSmall = 'Small'.concat(this.value[0]);
+    const newSmall = 'Small'.concat((': ') + this.value[0] + (' - $30,000' ));
     this.budgets.splice(0, 1, newSmall)
 
   }
 
 
   public changeBudgetOnScrollMedium() {
-    this.budget.setValue(this.budgets[1]);
+    const newMed = 'Medium'.concat((': ') + this.value[0] + (' - $60,000' ));
+    this.budgets.splice(0, 1, newMed)
   }
 
   public changeBudgetOnScrollLarge() {
-    this.budget.setValue(this.budgets[2]);
+    const newLarge = 'Large'.concat((': ') + this.value[0] + (' - $100,000' ));
+    this.budgets.splice(0, 1, newLarge)
   }
 
   public changeTimelineOnScrollSmall() {
@@ -232,23 +231,24 @@ export class ContactComponent implements OnInit {
   }
 
   public changeBudgetDropdown() {
-    if (this.value[0] <= 30) {
+    if (this.value[0] <= 30000) {
       this.changeBudgetOnScrollSmall();
-    } else if (this.value[0] > 30 && this.value[1] < 60) {
+    } else if (this.value[0] > 30 && this.value[1] < 60000) {
       this.changeBudgetOnScrollMedium();
-    } else if (this.value[1] > 70) {
+    } else if (this.value[1] > 60000) {
       this.changeBudgetOnScrollLarge();
     }
   }
 
   public changeTimelineDropdown() {
-    if (this.value[0] <= 30) {
+    if (this.value[0] <= 30000) {
       this.changeTimelineOnScrollSmall();
-    } else if (this.value[0] > 30 && this.value[1] < 60) {
+    } else if (this.value[0] > 30000 && this.value[1] < 60000) {
       this.changeTimelineOnScrollMedium();
-    } else if (this.value[1] > 70) {
+    } else if (this.value[1] > 60000) {
       this.changeTimelineOnScrollLarge();
     }
   }
+
 
 }

@@ -2,9 +2,11 @@
   margin-left: 15%;
 }
 
+::ng-deep .slider-handle:hover::before {
+display: none;
+}
 
-
-::ng-deep .slider-handle::after{
+::ng-deep .slider-handle:hover::after{
   content: attr(aria-valuenow);
   position: absolute;
   bottom: calc(100% + 0.5em);

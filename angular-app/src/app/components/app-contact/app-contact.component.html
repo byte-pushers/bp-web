@@ -228,8 +228,7 @@
             </div>
             <div class="col-8">
               <select class="custom-select" id="budget" formControlName="budget">
-                <option value="" disabled>Budget amount</option>
-                <option *ngFor="let budget of budgets" (change)="changeBudget($event)"
+                <option value="" disabled *ngFor="let budget of budgets" (change)="changeBudget($event)"
                         [ngValue]="budget">{{budget}}</option>
               </select>
               <div class="alert alert-danger"
@@ -257,13 +256,13 @@
         </div>
         <div class="form-row">
           <div class="col-6">
-            <b>€ 10</b>
+            <b>$ 0</b>
 
-            <mv-slider id="range"  range="true"  [(value)]="value" [min]="5" [max]="100" [enabled]="enabled"
+            <mv-slider id="range"  range="true"  [(value)]="value" [min]="0" [max]="100000" [enabled]="enabled"
                        (change)="change()">
 
             </mv-slider>
-            <b>€ 1000</b>
+            <b>$ 100000</b>
           </div>
         </div>
 
