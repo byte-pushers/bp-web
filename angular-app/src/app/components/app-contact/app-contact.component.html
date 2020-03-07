@@ -141,23 +141,23 @@
         <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
           by<span class="br-mobile"></span> our labors of love.
         </div>
-        <div><p style=" text-align: center; font-size: 10px; margin-bottom: 10px;">* is optional</p> </div>
+        <div><p style=" text-align: center; font-size: 10px; margin-bottom: 10px;">* is optional</p></div>
         <div class=" row inner-form-section new-business">
 
           <div class="col-6 custom-radio business-radio">
-          <label>
-            <input type="checkbox">
-            <span>*New Business</span>
-          </label>
+            <label>
+              <input type="checkbox">
+              <span>*New Business</span>
+            </label>
           </div>
           <div class=" col-6 custom-radio">
-          <label>
-            <input type="checkbox">
-            <span>*Existing Business</span>
-          </label>
+            <label>
+              <input type="checkbox">
+              <span>*Existing Business</span>
+            </label>
           </div>
         </div>
-          <div class="form-row inner-form-section">
+        <div class="form-row inner-form-section">
           <div class="col-6">
             <div class="col">
               <label>*Business Name</label>
@@ -254,6 +254,10 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="form-row inner-form-section">
+          <igx-slider class="col-4 slidecontainer" id="slider" [type]="sliderType.RANGE" [minValue]="0" [maxValue]="1000" [(ngModel)]="priceRange"
+                      [lowerBound]="100" [upperBound]="900"></igx-slider>
         </div>
         <div class="form-row inner-form-section">
           <div class="col-10">
@@ -395,16 +399,16 @@
           by<span class="br-mobile"></span> our labors of love.
         </div>
         <div class="col-12 mobile-row">
-        <label>
-          <input type="radio" value="new" formControlName="venture">
-          <span> New Business</span>
-        </label>
+          <label>
+            <input type="radio" value="new" formControlName="venture">
+            <span> New Business</span>
+          </label>
         </div>
         <div class="col-12 mobile-row">
-        <label>
-          <input type="radio" value="established" formControlName="venture">
-          <span> Established Business</span>
-        </label>
+          <label>
+            <input type="radio" value="established" formControlName="venture">
+            <span> Established Business</span>
+          </label>
         </div>
 
         <div class="col-12">
