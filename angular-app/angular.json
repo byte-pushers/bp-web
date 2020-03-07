@@ -24,12 +24,10 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/minireset.css/minireset.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/assets/scss/new-styles.css",
-              "src/assets/scss/fonts.css",
-              "node_modules/igniteui-angular/styles/igniteui-angular.css"
+              "src/assets/scss/fonts.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js"
@@ -160,8 +158,7 @@
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
-              "src/assets/scss/new-styles.css",
-              "node_modules/igniteui-angular/styles/igniteui-angular.css"
+              "src/assets/scss/new-styles.css"
             ],
             "scripts": []
           }
