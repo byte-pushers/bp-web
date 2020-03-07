@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, FormArray, Validators, FormBuilder} from "@angular/forms";
 import {phoneNumberValidator} from "../../services/phone-validator.service";
 import {emailValidator} from "../../services/email-validator.service";
-import {SliderType} from "igniteui-angular";
 
 @Component({
   selector: 'app-contact',
@@ -10,9 +9,6 @@ import {SliderType} from "igniteui-angular";
   styleUrls: ['./app-contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  public sliderType = SliderType;
-  public priceRange: PriceRange = new PriceRange(200, 800);
-
   isSubmitted = false;
   contactForm: FormGroup;
   States: any = ['Alabama',
@@ -67,8 +63,8 @@ export class ContactComponent implements OnInit {
     'Wyoming'];
   Projects: any = ['Option 1', 'Option 2', 'Option 3'];
   BusinessTypes: any = ['Option 1', 'Option 2', 'Option 3'];
-  Budgets: any = ['Small: 3,000 - 5,000', 'Medium: 6,000 - 15,000', 'Large: 16,000 +'];
-  Timelines: any = ['1-3 Months', '4-7 Months', '8+ Months'];
+  Budgets: any = ['Small', 'Medium', 'Large'];
+  Timelines: any = ['1-3 Months', '3-6 Months', '6+ Months'];
 
   constructor() {
   }
@@ -89,15 +85,13 @@ export class ContactComponent implements OnInit {
       venture: new FormControl(''),
       businessName: new FormControl('', [
         Validators.min(2), Validators.pattern(/^[a-zA-Z]*$/)]),
-      businessURL: new FormControl('', [Validators.min(2), Validators.pattern(/^((ftp|http|https):\/\/)?www\.([A-z]+)\.([A-z]{2,})/)]),
+      businessURL: new FormControl('', [ Validators.min(2), Validators.pattern(/^((ftp|http|https):\/\/)?www\.([A-z]+)\.([A-z]{2,})/)]),
       projectType: new FormControl(''),
       businessType: new FormControl(''),
       budget: new FormControl('', Validators.required),
       timeline: new FormControl('', Validators.required),
       projectDescription: new FormControl('', Validators.required)
     })
-
-
   }
 
   get firstName() {
@@ -194,15 +188,5 @@ export class ContactComponent implements OnInit {
     } else {
       console.log("Success!")
     }
-  }
-
-
-}
-
-class PriceRange {
-  constructor(
-    public lower: number,
-    public upper: number
-  ) {
   }
 }
