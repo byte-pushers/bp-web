@@ -3,6 +3,8 @@ import {FormControl, FormGroup, FormArray, Validators, FormBuilder} from "@angul
 import {phoneNumberValidator} from "../../services/phone-validator.service";
 import {emailValidator} from "../../services/email-validator.service";
 import {NgxBootstrapSliderService} from "ngx-bootstrap-slider";
+import {concat} from "rxjs";
+
 
 @Component({
   selector: 'app-contact',
@@ -12,7 +14,7 @@ import {NgxBootstrapSliderService} from "ngx-bootstrap-slider";
 export class ContactComponent implements OnInit {
   isSubmitted = false;
   contactForm: FormGroup;
-  States: any = ['Alabama',
+  states: any = ['Alabama',
     'Alaska',
     'Arizona',
     'Arkansas',
@@ -62,11 +64,12 @@ export class ContactComponent implements OnInit {
     'West Virginia',
     'Wisconsin',
     'Wyoming'];
-  Projects: any = ['Option 1', 'Option 2', 'Option 3'];
-  BusinessTypes: any = ['Option 1', 'Option 2', 'Option 3'];
-  Budgets: any = ['Small', 'Medium', 'Large'];
-  Timelines: any = ['1-3 Months', '3-6 Months', '6+ Months'];
-  value: any = [5, 100];
+  projects: any = ['Option 1', 'Option 2', 'Option 3'];
+  businessTypes: any = ['Option 1', 'Option 2', 'Option 3'];
+  value: any = [0, 100000];
+  budgets: any  = ['Slide for budget amount'];
+  timelines: any = ['1-3 Months', '3-6 Months', '6+ Months'];
+
 
   constructor() {
   }
@@ -125,7 +128,7 @@ export class ContactComponent implements OnInit {
   }
 
   changeState(e) {
-    this.States.setValue(e.target.value, {
+    this.states.setValue(e.target.value, {
       onlySelf: true
     })
   }
@@ -144,7 +147,7 @@ export class ContactComponent implements OnInit {
   }
 
   changeProjectType(e) {
-    this.Projects.setValue(e.target.value, {
+    this.projects.setValue(e.target.value, {
       onlySelf: true
     })
   }
@@ -154,7 +157,7 @@ export class ContactComponent implements OnInit {
   }
 
   changeBusinessType(e) {
-    this.BusinessTypes.setValue(e.target.value, {
+    this.businessTypes.setValue(e.target.value, {
       onlySelf: true
     })
   }
@@ -164,7 +167,7 @@ export class ContactComponent implements OnInit {
   }
 
   changeBudget(e) {
-    this.Budgets.setValue(e.target.value, {
+    this.budgets.setValue(e.target.value, {
       onlySelf: true
     });
 
@@ -175,7 +178,7 @@ export class ContactComponent implements OnInit {
   }
 
   changeTimeline(e) {
-    this.Timelines.setValue(e.target.value, {
+    this.timelines.setValue(e.target.value, {
       onlySelf: true
     })
   }
@@ -194,46 +197,58 @@ export class ContactComponent implements OnInit {
   }
 
   public changeBudgetOnScrollSmall() {
-    this.budget.setValue(this.Budgets[0]);
+    const newSmall = 'Small'.concat((': ') + this.value[0] + (' - $30,000' ));
+    this.budgets.splice(0, 1, newSmall)
+
   }
 
+
   public changeBudgetOnScrollMedium() {
-    this.budget.setValue(this.Budgets[1]);
+    const newMed = 'Medium'.concat((': ') + this.value[0] + (' - $60,000' ));
+    this.budgets.splice(0, 1, newMed)
   }
 
   public changeBudgetOnScrollLarge() {
-    this.budget.setValue(this.Budgets[2]);
+    const newLarge = 'Large'.concat((': ') + this.value[0] + (' - $100,000' ));
+    this.budgets.splice(0, 1, newLarge)
   }
 
   public changeTimelineOnScrollSmall() {
-    this.timeline.setValue(this.Timelines[0]);
+    this.timeline.setValue(this.timelines[0]);
   }
 
   public changeTimelineOnScrollMedium() {
-    this.timeline.setValue(this.Timelines[1]);
+    this.timeline.setValue(this.timelines[1]);
   }
 
   public changeTimelineOnScrollLarge() {
-    this.timeline.setValue(this.Timelines[2]);
+    this.timeline.setValue(this.timelines[2]);
   }
 
-  public change() {
-    if (this.value[0] <= 30) {
+  public change(){
+    this.changeBudgetDropdown();
+    this.changeTimelineDropdown();
+  }
+
+  public changeBudgetDropdown() {
+    if (this.value[0] <= 30000) {
       this.changeBudgetOnScrollSmall();
-      this.changeTimelineOnScrollSmall();
-    } else if (this.value[0] > 30 && this.value[1] < 60) {
+    } else if (this.value[0] > 30 && this.value[1] < 60000) {
       this.changeBudgetOnScrollMedium();
-      this.changeTimelineOnScrollMedium();
-    } else if (this.value[1] > 70) {
+    } else if (this.value[1] > 60000) {
       this.changeBudgetOnScrollLarge();
+    }
+  }
+
+  public changeTimelineDropdown() {
+    if (this.value[0] <= 30000) {
+      this.changeTimelineOnScrollSmall();
+    } else if (this.value[0] > 30000 && this.value[1] < 60000) {
+      this.changeTimelineOnScrollMedium();
+    } else if (this.value[1] > 60000) {
       this.changeTimelineOnScrollLarge();
     }
   }
 
-  /*
-    compareFn(c1: any, c2: any): boolean {
-      return c1 && c2 ? c1.id === c2.id : c1 === c2;
-    }
-  */
 
 }
