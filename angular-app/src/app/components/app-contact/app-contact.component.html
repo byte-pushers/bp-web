@@ -126,7 +126,7 @@
             <div class="col-8">
               <select class="custom-select" formControlName="state">
                 <option value="" disabled>Select Your State</option>
-                <option *ngFor="let state of States" (change)="changeState($event)" [ngValue]="state">{{state}}</option>
+                <option *ngFor="let state of states" (change)="changeState($event)" [ngValue]="state">{{state}}</option>
               </select>
               <div class="alert alert-danger"
                    *ngIf="state.errors && (state.dirty || state.touched)">
@@ -203,7 +203,7 @@
             <div class="col-8">
               <select class="custom-select" formControlName="projectType">
                 <option value="" disabled>Type of Project</option>
-                <option *ngFor="let projectType of Projects" (change)="changeProjectType($event)"
+                <option *ngFor="let projectType of projects" (change)="changeProjectType($event)"
                         [ngValue]="projectType">{{projectType}}</option>
               </select>
             </div>
@@ -215,7 +215,7 @@
             <div class="col-8">
               <select class="custom-select" formControlName="businessType">
                 <option value="" disabled>Type of Business</option>
-                <option *ngFor="let businessType of BusinessTypes" (change)="change()"
+                <option *ngFor="let businessType of businessTypes" (change)="change()"
                         [ngValue]="businessType">{{businessType}}</option>
               </select>
             </div>
@@ -227,9 +227,8 @@
               <label>Budget</label>
             </div>
             <div class="col-8">
-              <select class="custom-select" id="budget" formControlName="budget" [compareWith]="">
-                <option value="" disabled>Budget amount</option>
-                <option *ngFor="let budget of Budgets" (change)="changeBudget($event)"
+              <select class="custom-select" id="budget" formControlName="budget">
+                <option value="" disabled *ngFor="let budget of budgets" (change)="changeBudget($event)"
                         [ngValue]="budget">{{budget}}</option>
               </select>
               <div class="alert alert-danger"
@@ -245,7 +244,7 @@
             <div class="col-8">
               <select class="custom-select" formControlName="timeline">
                 <option value="" disabled>Timeline duration</option>
-                <option *ngFor="let timeline of Timelines" (change)="changeTimeline($event)"
+                <option *ngFor="let timeline of timelines" (change)="changeTimeline($event)"
                         [ngValue]="timeline">{{timeline}}</option>
               </select>
               <div class="alert alert-danger"
@@ -257,15 +256,13 @@
         </div>
         <div class="form-row">
           <div class="col-6">
-            <b>€ 10</b>
-            <div class="tooltip tooltip-top" role="tooltip">
-              <div class="tooltip-inner">Tooltip on the top</div>
-            </div>
-            <mv-slider id="range" range="true" tooltip="show" [(value)]="value" [min]="5" [max]="100" [enabled]="enabled"
+            <b>$ 0</b>
+
+            <mv-slider id="range"  range="true"  [(value)]="value" [min]="0" [max]="100000" [enabled]="enabled"
                        (change)="change()">
 
             </mv-slider>
-            <b>€ 1000</b>
+            <b>$ 100000</b>
           </div>
         </div>
 
@@ -395,7 +392,7 @@
         <div class="col-12 mobile-row">
           <select class="custom-select" formControlName="state">
             <option value="" disabled>Select Your State</option>
-            <option *ngFor="let state of States" (change)="changeState($event)" [ngValue]="state">{{state}}</option>
+            <option *ngFor="let state of states" (change)="changeState($event)" [ngValue]="state">{{state}}</option>
           </select>
           <div class="alert alert-danger"
                *ngIf="state.errors && (state.dirty || state.touched)">
@@ -466,7 +463,7 @@
         <div class="col-12 mobile-row">
           <select class="custom-select" formControlName="projectType">
             <option value="" disabled>Type of Project</option>
-            <option *ngFor="let projectType of Projects" (change)="changeProjectType($event)"
+            <option *ngFor="let projectType of projects" (change)="changeProjectType($event)"
                     [ngValue]="projectType">{{projectType}}</option>
           </select>
           <div class="alert alert-danger"
@@ -482,7 +479,7 @@
         <div class="col-12 mobile-row">
           <select class="custom-select" formControlName="businessType">
             <option value="" disabled>Type of Business</option>
-            <option *ngFor="let businessType of BusinessTypes" (change)="changeBusinessType($event)"
+            <option *ngFor="let businessType of businessTypes" (change)="changeBusinessType($event)"
                     [ngValue]="businessType">{{businessType}}</option>
           </select>
           <div class="alert alert-danger"
@@ -492,37 +489,48 @@
         </div>
 
 
-        <div class="col-12">
-          <label>Budget</label>
-        </div>
-        <div class="col-12">
-          <select class="custom-select mobile-row" formControlName="budget">
-            <option value="" disabled>Budget amount</option>
-            <option *ngFor="let budget of Budgets" (change)="changeBudget($event)"
-                    [ngValue]="budget">{{budget}}</option>
-          </select>
-          <div class="alert alert-danger"
-               *ngIf="budget.errors && (budget.dirty || budget.touched)">
-            <div *ngIf="budget.errors.required">Please select a budget.</div>
+
+            <div class="col-12">
+              <label>Budget</label>
+            </div>
+            <div class="col-12 mobile-row">
+              <select class="custom-select"  formControlName="budget">
+                <option value="" disabled *ngFor="let budget of budgets" (change)="changeBudget($event)"
+                        [ngValue]="budget">{{budget}}</option>
+              </select>
+              <div class="alert alert-danger"
+                   *ngIf="budget.errors && (budget.dirty || budget.touched)">
+                <div *ngIf="budget.errors.required">Please select a budget.</div>
+              </div>
+            </div>
+
+
+            <div class="col-12 mobile-row">
+              <label>Timeline</label>
+            </div>
+            <div class="col-12 mobile-row">
+              <select class="custom-select" formControlName="timeline">
+                <option value="" disabled>Timeline duration</option>
+                <option *ngFor="let timeline of timelines" (change)="changeTimeline($event)"
+                        [ngValue]="timeline">{{timeline}}</option>
+              </select>
+              <div class="alert alert-danger"
+                   *ngIf="timeline.errors && (timeline.dirty || timeline.touched)">
+                <div *ngIf="timeline.errors.required">Please select a timeline.</div>
+              </div>
+            </div>
+
+
+
+          <div class="col-12">
+            <b>$ 0</b>
+
+            <mv-slider id="range"  range="true"  [(value)]="value" [min]="0" [max]="100000" [enabled]="enabled"
+                       (change)="change()">
+
+            </mv-slider>
+            <b>$ 100000</b>
           </div>
-        </div>
-
-
-        <div class="col-12">
-          <label>Timeline</label>
-        </div>
-        <div class="col-12 mobile-row">
-          <select class="custom-select" formControlName="timeline">
-            <option value="" disabled>Timeline duration</option>
-            <option *ngFor="let timeline of Timelines" (change)="changeTimeline($event)"
-                    [ngValue]="timeline">{{timeline}}</option>
-          </select>
-          <div class="alert alert-danger"
-               *ngIf="timeline.errors && (timeline.dirty || timeline.touched)">
-            <div *ngIf="timeline.errors.required">Please select a timeline.</div>
-          </div>
-        </div>
-
 
         <div class="col-12">
           <label>Project Description</label>
