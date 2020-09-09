@@ -11,7 +11,10 @@ export class AppHeaderComponent implements OnInit {
 
   ngOnInit() {
     window.onscroll = function () {
-      navScroll()
+      navScroll();
+      if (window.innerWidth < 800) {
+        showCp3Desc();
+      }
     };
 
     function navScroll() {
@@ -28,6 +31,19 @@ export class AppHeaderComponent implements OnInit {
       }
     }
 
+    function showCp3Desc() {
+      const showCp3Desc = document.getElementById('cp3Desc');
+      if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+
+        showCp3Desc.classList.add("activate");
+
+
+      } else {
+        showCp3Desc.classList.remove("activate");
+
+      }
+
+    }
   }
 
   public openCloseMobileNav() {
