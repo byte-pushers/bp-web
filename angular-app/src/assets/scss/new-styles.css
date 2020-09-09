@@ -1038,7 +1038,7 @@ html {
   transition: all 0.5s ease;
 }
 
-.fadein-out-features:hover {
+.activate, .fadein-out-features:hover {
   opacity: 1;
 }
 
