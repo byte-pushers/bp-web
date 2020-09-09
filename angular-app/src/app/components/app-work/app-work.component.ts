@@ -10,6 +10,8 @@ export class WorkComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+
   }
 
 }
