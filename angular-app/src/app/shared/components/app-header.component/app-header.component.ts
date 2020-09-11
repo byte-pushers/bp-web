@@ -12,9 +12,7 @@ export class AppHeaderComponent implements OnInit {
   ngOnInit() {
     window.onscroll = function () {
       navScroll();
-      if (window.innerWidth < 800) {
-        showCp3Desc();
-      }
+      showCp3Desc();
     };
 
     function navScroll() {
