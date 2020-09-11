@@ -826,13 +826,12 @@ margin-left: 1em;
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
   .topnav-logo-img {
     background-image: url(~src/assets/images/bytePushersLogoWithText.svg) no-repeat center;
-    background-size: 22em;
-    width: 22em;
+    background-size: 14em;
+    width: 14em;
     height: 11em;
-    margin-left: 1em;
   }
 }
 
