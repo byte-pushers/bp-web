@@ -46,7 +46,15 @@ export class AppHeaderComponent implements OnInit {
     }
   }
 
-  public openCloseMobileNav() {
+  public checkMobileNav() {
+  const windowCheck = window.innerWidth;
+    if (windowCheck <= 480) {
+      this.openCloseMobileNav();
+    }
+
+  }
+
+  private openCloseMobileNav() {
     const mobileNav = document.getElementById('topnav');
 
     if (mobileNav.classList.contains('expanded')) {
@@ -55,6 +63,5 @@ export class AppHeaderComponent implements OnInit {
       mobileNav.classList.add("expanded");
     }
   }
-
 
 }
