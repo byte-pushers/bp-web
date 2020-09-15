@@ -5,15 +5,17 @@ import {AboutComponent} from "./app/components/app-about/app-about.component";
 import {ContactComponent} from "./app/components/app-contact/app-contact.component";
 import {WorkComponent} from "./app/components/app-work/app-work.component";
 import {ServicesComponent} from "./app/components/app-services/app-services.component";
+import {InfoComponent} from "./app/components/app-info/app-info.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'about', component: AboutComponent},
-  {path: 'contact', component: ContactComponent},
+  {path: 'contact', component: InfoComponent},
   {path: 'work', component: WorkComponent},
   {path: 'services', component: ServicesComponent}
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

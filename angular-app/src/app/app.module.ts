@@ -16,6 +16,7 @@ import {CarouselModule} from 'ngx-bootstrap/carousel';
 import {NgBootstrapFormValidationModule} from 'ng-bootstrap-form-validation';
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {NgxBootstrapSliderModule} from "ngx-bootstrap-slider";
+import { InfoComponent } from './components/app-info/app-info.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {NgxBootstrapSliderModule} from "ngx-bootstrap-slider";
     ServicesComponent,
     WorkComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
