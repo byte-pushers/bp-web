@@ -12,4 +12,10 @@ export class InfoComponent implements OnInit {
   ngOnInit() {
   }
 
+  public toFeaturesSection () {
+    window.scrollTo(0, 900);
+
+
+  }
+
 }
