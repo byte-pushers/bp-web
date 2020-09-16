@@ -31,7 +31,7 @@ export class AppHeaderComponent implements OnInit {
 
     function checkCp3Desc() {
       const checkCP3 = document.getElementById('cp3Desc');
-      if (checkCP3 != null && checkCP3 != undefined) {
+      if (checkCP3 !== null && checkCP3 !== undefined) {
         showCp3Desc();
       }
     }
