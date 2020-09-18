@@ -1,14 +1,9 @@
-import {QuoteDomain} from "./quote.domain";
-import {PersonDomain} from "./person.domain";
-import {CompanyDomain} from "./company.domain";
+import {Person} from "./person";
+import {Company} from "./company";
 
-export class QuoteDomainModel implements QuoteDomain {
-  contact: PersonDomain;
-  company: CompanyDomain;
-
-  constructor(config: QuoteDomain) {
-    this.contact = (config !== null && config !== undefined) ? config.contact : undefined;
-    this.company = (config !== null && config !== undefined) ? config.company : undefined;
-
-  }
+export interface Quote {
+  setContact(contact: Person);
+  getContact();
+  setCompany(company: Company);
+  getCompany();
 }
