@@ -12,40 +12,35 @@ export class PersonDomain implements Person {
     return this.firstName;
   }
 
-  setFirstName(firstName: string) {
+  setFirstName(firstName: string): void {
     this.firstName = firstName;
-    return firstName;
   }
 
   getLastName() {
     return this.lastName
   }
-  setLastName(lastName: string) {
+  setLastName(lastName: string): void {
     this.lastName = lastName;
-    return lastName;
   }
 
   getEmail() {
     return this.email;
   }
-  setEmail(email: string) {
+  setEmail(email: string): void {
     this.email = email;
-    return email;
   }
 
   getPhoneNumber() {
     return this.phoneNumber;
   }
-  setPhoneNumber(phoneNumber: string) {
+  setPhoneNumber(phoneNumber: string): void {
     this.phoneNumber = phoneNumber;
-    return phoneNumber;
   }
 
 getAddress() {
     return this.address;
 }
-  setAddress(address: Address) {
+  setAddress(address: Address): void {
     this.address = address;
-    return address;
 }
 }

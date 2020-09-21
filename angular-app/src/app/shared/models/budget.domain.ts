@@ -7,18 +7,16 @@ export class BudgetDomain implements Budget{
   getMax() {
     return this.max;
   }
-  setMax(max: number) {
+  setMax(max: number): void {
     this.max = max;
-    return max;
   }
 
   getMin() {
     return this.min;
   }
 
-  setMin(min: number) {
+  setMin(min: number): void {
     this.min = min;
-    return min;
   }
 
 }

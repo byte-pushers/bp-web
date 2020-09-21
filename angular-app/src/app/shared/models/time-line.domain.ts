@@ -7,17 +7,15 @@ export class TimeLineDomain implements TimeLine {
   getTimelineMax() {
     return this.max;
   }
-  setTimelineMax(max: Date) {
+  setTimelineMax(max: Date): void {
     this.max = max;
-    return max;
   }
 
   getTimelineMin() {
     return this.min;
   }
-  setTimelineMin(min: Date) {
+  setTimelineMin(min: Date): void {
     this.min = min;
-    return min;
   }
 
 

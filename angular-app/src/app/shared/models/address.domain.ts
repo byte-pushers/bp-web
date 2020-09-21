@@ -10,9 +10,8 @@ export class AddressDomain implements Address {
   getStreet() {
     return this.street;
   }
-  setStreet(street: [string]) {
+  setStreet(street: [string]): void {
     this.street = street;
-    return street;
   }
 
 
@@ -20,32 +19,29 @@ export class AddressDomain implements Address {
     return this.city;
   }
 
-  setCity(city: string) {
+  setCity(city: string): void {
     this.city = city;
-    return city;
   }
 
   getState() {
     return this.state;
   }
-  setState(state: string) {
+  setState(state: string): void {
     this.state = state;
-    return state;
   }
 
   getZip() {
     return this.zip;
   }
-  setZip(zip: string) {
+  setZip(zip: string): void {
     this.zip = zip;
   }
 
   getCounty() {
     return this.county
   }
-  setCounty(county: string) {
+  setCounty(county: string): void {
     this.county = county;
-    return county;
   }
 
 

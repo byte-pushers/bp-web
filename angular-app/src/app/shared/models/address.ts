@@ -1,12 +1,12 @@
 export interface Address {
-setStreet(street: [string]);
+setStreet(street: [string]): void;
 getStreet();
-setCity(city: string);
+setCity(city: string): void;
 getCity();
-setState(state: string);
+setState(state: string): void;
 getState();
-setZip(zip: string);
+setZip(zip: string): void;
 getZip();
-setCounty(county: string);
+setCounty(county: string): void;
 getCounty();
 }
