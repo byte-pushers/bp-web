@@ -2,8 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, FormArray, Validators, FormBuilder} from "@angular/forms";
 import {phoneNumberValidator} from "../../services/phone-validator.service";
 import {emailValidator} from "../../services/email-validator.service";
+import {QuoteService} from "../../shared/services/quote.service";
 import {NgxBootstrapSliderService} from "ngx-bootstrap-slider";
 import {concat} from "rxjs";
+import {Quote} from "../../shared/models/quote";
 
 
 @Component({
@@ -12,6 +14,7 @@ import {concat} from "rxjs";
   styleUrls: ['./app-contact.component.css']
 })
 export class ContactComponent implements OnInit {
+  public newQuote: Quote = null;
   isSubmitted = false;
   contactForm: FormGroup;
   states: any = ['Alabama',
@@ -71,7 +74,7 @@ export class ContactComponent implements OnInit {
   timelines: any = ['1-3 Months', '3-6 Months', '6+ Months'];
 
 
-  constructor() {
+  constructor(public quoteService: QuoteService) {
   }
 
   ngOnInit() {
@@ -97,6 +100,12 @@ export class ContactComponent implements OnInit {
       timeline: new FormControl('', Validators.required),
       projectDescription: new FormControl('', Validators.required)
     })
+  }
+
+  public createQuote(newQuote){
+    if (newQuote !== null && newQuote !== undefined){
+      this.quoteService.createQuote(newQuote);
+    }
   }
 
   get firstName() {

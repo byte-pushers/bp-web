@@ -17,6 +17,7 @@ import {NgBootstrapFormValidationModule} from 'ng-bootstrap-form-validation';
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {NgxBootstrapSliderModule} from "ngx-bootstrap-slider";
 import { InfoComponent } from './components/app-info/app-info.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -40,7 +41,9 @@ import { InfoComponent } from './components/app-info/app-info.component';
     NgBootstrapFormValidationModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
-    NgxBootstrapSliderModule
+    NgxBootstrapSliderModule,
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [
     PageScrollingUtility
