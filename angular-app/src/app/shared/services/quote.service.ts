@@ -39,6 +39,7 @@ export class QuoteService implements Quote {
     const quoteID = {
       id: this.generateId()
     };
+    console.log(quote);
 return this.http.post<Quote>(this.quoteURL, quote[this.generateId()]);
 
   }
