@@ -18,6 +18,7 @@ import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {NgxBootstrapSliderModule} from "ngx-bootstrap-slider";
 import { InfoComponent } from './components/app-info/app-info.component';
 import {HttpClientModule} from "@angular/common/http";
+import {QuoteService} from "./shared/services/quote.service";
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import {HttpClientModule} from "@angular/common/http";
     HttpClientModule
   ],
   providers: [
-    PageScrollingUtility
+    PageScrollingUtility,
+    QuoteService
   ],
   bootstrap: [AppComponent]
 })

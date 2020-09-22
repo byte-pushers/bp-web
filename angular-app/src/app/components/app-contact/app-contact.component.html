@@ -231,10 +231,10 @@
                 <option value="" disabled *ngFor="let budget of budgets" (change)="changeBudget($event)"
                         [ngValue]="budget">{{budget}}</option>
               </select>
-              <div class="alert alert-danger"
+          <!--    <div class="alert alert-danger"
                    *ngIf="budget.errors && (budget.dirty || budget.touched)">
                 <div *ngIf="budget.errors.required">Please select a budget.</div>
-              </div>
+              </div>-->
             </div>
           </div>
           <div class="col-6">
@@ -546,7 +546,7 @@
           </div>
         </div>
 
-        <button type="submit" [disabled]="!contactForm.valid" (click)="createQuote(newQuote)" class="contact-button btn btn-block"> Submit
+        <button type="submit" [disabled]="!contactForm.valid" (click)="onSubmit()" class="contact-button btn btn-block"> Submit
         </button>
       </form>
     </section>

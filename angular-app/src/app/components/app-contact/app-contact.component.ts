@@ -96,7 +96,7 @@ export class ContactComponent implements OnInit {
       businessURL: new FormControl('', [Validators.min(2), Validators.pattern(/^((ftp|http|https):\/\/)?www\.([A-z]+)\.([A-z]{2,})/)]),
       projectType: new FormControl(''),
       businessType: new FormControl(''),
-      budget: new FormControl('', Validators.required),
+      budget: new FormControl(''),
       timeline: new FormControl('', Validators.required),
       projectDescription: new FormControl('', Validators.required)
     })
@@ -105,6 +105,7 @@ export class ContactComponent implements OnInit {
   public createQuote(newQuote){
     if (newQuote !== null && newQuote !== undefined){
       this.quoteService.createQuote(newQuote);
+      console.log(this.contactForm);
     }
   }
 
@@ -201,7 +202,7 @@ export class ContactComponent implements OnInit {
     if (!this.contactForm.valid) {
       return false;
     } else {
-      console.log("Success!")
+     this.createQuote(this.contactForm);
     }
   }
 
