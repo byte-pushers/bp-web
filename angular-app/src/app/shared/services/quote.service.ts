@@ -25,10 +25,10 @@ export class QuoteService implements Quote {
   getContact() {
   }
 
-  setCompany(company: Company) {
+  setCompany(company: Company): void {
   }
 
-  setContact(contact: Person) {
+  setContact(contact: Person): void {
   }
 
   constructor(private http: HttpClient) {

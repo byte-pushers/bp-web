@@ -2,18 +2,18 @@ import {Budget} from "./budget";
 import {TimeLine} from "./time-line";
 
 export interface Company {
-setCompanyName(companyName: string);
+setCompanyName(companyName: string): void;
 getCompanyName();
-setCompanyType(companyType: string);
+setCompanyType(companyType: string): void;
 getCompanyType();
-setCompanyBudget(companyBudget: Budget);
+setCompanyBudget(companyBudget: Budget): void;
 getCompanyBudget();
-setCompanyURL(companyURL: string);
+setCompanyURL(companyURL: string): void;
 getCompanyURL();
-setCompanyTimeline(companyTimeline: TimeLine);
+setCompanyTimeline(companyTimeline: TimeLine): void;
 getCompanyTimeline();
-setCompanyDesc(companyDesc: string);
+setCompanyDesc(companyDesc: string): void;
 getCompanyDesc();
-setCompanyEst(companyEst: boolean);
+setCompanyEst(companyEst: boolean): void;
 getCompanyEst();
 }
