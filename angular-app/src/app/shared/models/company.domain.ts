@@ -2,7 +2,7 @@ import {Company} from "./company";
 import {TimeLine} from "./time-line";
 import {Budget} from "./budget";
 
-export class CompanyDomain implements Company{
+export class CompanyDomain implements Company {
   private companyName: string;
   private companyType: string;
   private companyBudget: Budget;
@@ -12,58 +12,60 @@ export class CompanyDomain implements Company{
   private companyEst: boolean;
 
   getCompanyName() {
-    return this.companyName
+    return this.companyName;
   }
-  setCompanyName(companyName: string) {
+
+  setCompanyName(companyName: string): void {
     this.companyName = companyName;
-    return companyName;
   }
 
   getCompanyType() {
     return this.companyType;
   }
-  setCompanyType(companyType: string) {
+
+  setCompanyType(companyType: string): void {
     this.companyType = companyType;
-    return companyType;
   }
 
   getCompanyBudget() {
     return this.companyBudget;
   }
-  setCompanyBudget(companyBudget: Budget) {
+
+  setCompanyBudget(companyBudget: Budget): void {
     this.companyBudget = companyBudget;
-    return this.companyBudget;
   }
 
   getCompanyEst() {
     return this.companyEst;
   }
-  setCompanyEst(companyEst: boolean) {
+
+  setCompanyEst(companyEst: boolean): void {
     this.companyEst = false;
-    return companyEst;
   }
 
   getCompanyURL() {
     return this.companyURL;
   }
-  setCompanyURL(companyURL: string) {
+
+  setCompanyURL(companyURL: string): void {
     this.companyURL = companyURL;
-    return companyURL;
   }
 
   getCompanyTimeline() {
     return this.companyTimeline;
   }
-  setCompanyTimeline(companyTimeline: TimeLine) {
+
+  setCompanyTimeline(companyTimeline: TimeLine): void {
     this.companyTimeline = companyTimeline;
-    return companyTimeline;
+
   }
 
   getCompanyDesc() {
     return this.companyDesc;
   }
-  setCompanyDesc(companyDesc: string) {
+
+  setCompanyDesc(companyDesc: string): void {
     this.companyDesc = companyDesc;
-    return this.companyDesc;
   }
 }
+

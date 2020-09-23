@@ -9,16 +9,14 @@ export class QuoteDomain implements Quote {
   getContact() {
     return this.contact;
   }
-  setContact(contact: Person) {
+  setContact(contact: Person): void {
     this.contact = contact;
-    return contact;
   }
 
   getCompany() {
     return this.company;
   }
-  setCompany(company: Company) {
+  setCompany(company: Company): void {
     this.company = company;
-    return company;
   }
 }
