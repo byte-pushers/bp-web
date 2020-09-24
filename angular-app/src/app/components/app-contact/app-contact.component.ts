@@ -104,7 +104,11 @@ export class ContactComponent implements OnInit {
 
   public createQuote(newQuote){
     if (newQuote !== null && newQuote !== undefined){
-      this.quoteService.createQuote(newQuote);
+      this.quoteService.createQuote(newQuote).subscribe(newlyCreatedQuote => {
+        // TODO should have a new object with IDs populated through out the object graph.
+      }, error => {
+        // TODO should display error message at top of quote page.
+      });
       console.log(this.contactForm);
     }
   }
