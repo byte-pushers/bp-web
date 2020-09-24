@@ -2,7 +2,7 @@ import {Company} from "./company";
 import {TimeLine} from "./time-line";
 import {Budget} from "./budget";
 
-export class CompanyDomain implements Company{
+export class CompanyDomain implements Company {
   private companyName: string;
   private companyType: string;
   private companyBudget: Budget;
@@ -12,8 +12,9 @@ export class CompanyDomain implements Company{
   private companyEst: boolean;
 
   getCompanyName() {
-    return this.companyName
+    return this.companyName;
   }
+
   setCompanyName(companyName: string): void {
     this.companyName = companyName;
   }
@@ -21,6 +22,7 @@ export class CompanyDomain implements Company{
   getCompanyType() {
     return this.companyType;
   }
+
   setCompanyType(companyType: string): void {
     this.companyType = companyType;
   }
@@ -28,6 +30,7 @@ export class CompanyDomain implements Company{
   getCompanyBudget() {
     return this.companyBudget;
   }
+
   setCompanyBudget(companyBudget: Budget): void {
     this.companyBudget = companyBudget;
   }
@@ -35,6 +38,7 @@ export class CompanyDomain implements Company{
   getCompanyEst() {
     return this.companyEst;
   }
+
   setCompanyEst(companyEst: boolean): void {
     this.companyEst = false;
   }
@@ -42,6 +46,7 @@ export class CompanyDomain implements Company{
   getCompanyURL() {
     return this.companyURL;
   }
+
   setCompanyURL(companyURL: string): void {
     this.companyURL = companyURL;
   }
@@ -49,6 +54,7 @@ export class CompanyDomain implements Company{
   getCompanyTimeline() {
     return this.companyTimeline;
   }
+
   setCompanyTimeline(companyTimeline: TimeLine): void {
     this.companyTimeline = companyTimeline;
 
@@ -57,7 +63,9 @@ export class CompanyDomain implements Company{
   getCompanyDesc() {
     return this.companyDesc;
   }
+
   setCompanyDesc(companyDesc: string): void {
     this.companyDesc = companyDesc;
   }
 }
+
