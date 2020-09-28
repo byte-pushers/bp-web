@@ -3,6 +3,7 @@ package software.bytepushers.bpweb.model.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -27,6 +28,7 @@ public class PersonDto extends AbstractDto {
     @NotEmpty(message = "{person.phone.required}")
     private String phone;
 
+    @Valid
     @NotNull(message = "{person.address.details.required}")
     private AddressDto address;
 
