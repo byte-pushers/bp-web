@@ -7,7 +7,7 @@ import software.bytepushers.bpweb.model.dto.ApiResponse;
 /**
  * The abstract controller for general implementation for all controllers
  */
-public class AbstractController {
+public abstract class AbstractController {
 
     public ResponseEntity<?> sendResponse(Object data, HttpStatus status) {
         ApiResponse response = new ApiResponse(data, status);

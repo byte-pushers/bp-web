@@ -1,5 +1,6 @@
 package software.bytepushers.bpweb.utils;
 
+import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import software.bytepushers.bpweb.exceptions.MalformedRequestException;
 
@@ -9,6 +10,7 @@ import java.util.Optional;
 /**
  * Utility methods of the application
  */
+@Log4j2
 public class ApplicationUtils {
 
     /**
@@ -30,6 +32,7 @@ public class ApplicationUtils {
                                     !context.getMapping().getLastDestinationProperty().getName().equals(field))));
             return modelMapper.map(source, destinationType);
         } catch (Exception e) {
+            log.error("Error on copying properties. {}", e.getMessage(), e);
             throw new MalformedRequestException("Something went wrong");
         }
     }
