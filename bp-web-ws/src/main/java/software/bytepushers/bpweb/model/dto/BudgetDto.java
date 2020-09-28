@@ -13,10 +13,10 @@ import javax.validation.constraints.NotNull;
 @Setter
 public class BudgetDto {
 
-    @NotNull(groups = {CreateRequest.class}, message = "{company.min.budget.required}")
+    @NotNull(message = "{company.min.budget.required}")
     private Long minBudget;
 
-    @NotNull(groups = {CreateRequest.class}, message = "{company.max.budget.required}")
+    @NotNull(message = "{company.max.budget.required}")
     private Long maxBudget;
 
 }
