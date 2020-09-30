@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, FormArray, Validators, FormBuilder} from "@angular/forms";
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {phoneNumberValidator} from "../../services/phone-validator.service";
 import {emailValidator} from "../../services/email-validator.service";
 import {QuoteService} from "../../shared/services/quote.service";
@@ -14,7 +14,7 @@ import {Quote} from "../../shared/models/quote";
   styleUrls: ['./app-contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  public newQuote: Quote = null;
+  public quote: Quote = null;
   isSubmitted = false;
   contactForm: FormGroup;
   states: any = ['Alabama',
@@ -75,6 +75,7 @@ export class ContactComponent implements OnInit {
 
 
   constructor(public quoteService: QuoteService) {
+
   }
 
   ngOnInit() {
@@ -100,14 +101,21 @@ export class ContactComponent implements OnInit {
       timeline: new FormControl('', Validators.required),
       projectDescription: new FormControl('', Validators.required)
     })
+
   }
 
   public createQuote(newQuote){
+    newQuote = this.contactForm.value;
     if (newQuote !== null && newQuote !== undefined){
       this.quoteService.createQuote(newQuote).subscribe(newlyCreatedQuote => {
         // TODO should have a new object with IDs populated through out the object graph.
+        console.log('newly created quote: ' + newlyCreatedQuote, newlyCreatedQuote);
+        console.log(newQuote.firstName)
+        alert('Sucessfully submitted quote');
+
       }, error => {
         // TODO should display error message at top of quote page.
+        console.log('error: ' + error, error);
       });
       console.log(this.contactForm);
     }
@@ -206,7 +214,7 @@ export class ContactComponent implements OnInit {
     if (!this.contactForm.valid) {
       return false;
     } else {
-     this.createQuote(this.contactForm);
+     this.createQuote(this.quote);
     }
   }
 
