@@ -19,7 +19,8 @@ export class QuoteService {
 
   createQuote(quote: Quote): Observable<Quote>{
     console.log(quote);
-    const header: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
+    const header: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json')
+      .set('Accept','application/json');
 
     return this.http.post<Quote>(environment.QUOTE_SERVICE.API.HOST, quote, {
       headers: header,
