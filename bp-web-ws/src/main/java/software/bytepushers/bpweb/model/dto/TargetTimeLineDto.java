@@ -1,7 +1,6 @@
 package software.bytepushers.bpweb.model.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import software.bytepushers.bpweb.model.dto.AbstractDto.CreateRequest;
 
 import javax.validation.constraints.NotEmpty;
@@ -11,6 +10,9 @@ import javax.validation.constraints.NotEmpty;
  */
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class TargetTimeLineDto {
 
     @NotEmpty(groups = {CreateRequest.class}, message = "{company.min.timeline.required}")

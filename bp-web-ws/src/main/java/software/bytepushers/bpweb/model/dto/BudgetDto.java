@@ -1,8 +1,6 @@
 package software.bytepushers.bpweb.model.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-import software.bytepushers.bpweb.model.dto.AbstractDto.CreateRequest;
+import lombok.*;
 
 import javax.validation.constraints.NotNull;
 
@@ -11,6 +9,9 @@ import javax.validation.constraints.NotNull;
  */
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class BudgetDto {
 
     @NotNull(message = "{company.min.budget.required}")
