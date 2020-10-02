@@ -6,14 +6,14 @@ export class BudgetModel implements Budget{
   private _min: number;
   private _max: number;
 
-  static readonly DEFAULT_CONFIG: BudgetModel = {
+  static readonly DEFAULT_CONFIG: any = {
     min: null,
     max: null
   };
 
   constructor(private budgetConfig: BudgetModel) {
-    this._min = null;
-    this._max = null;
+    this._min = (budgetConfig !== null && budgetConfig !== undefined) ? budgetConfig.min : null;
+    this._max = (budgetConfig !== null && budgetConfig !== undefined) ? budgetConfig.max : null;
   }
   get max() {
     return this._max;

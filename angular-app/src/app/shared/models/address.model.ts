@@ -19,11 +19,11 @@ export class AddressModel implements Address {
   };
 
   constructor(private addressModelConfig: AddressModel) {
-    this._street = null;
-    this._city = null;
-    this._state = null;
-    this._zip = null;
-    this._county = null;
+    this._street = (addressModelConfig !== null && addressModelConfig !== undefined) ? addressModelConfig.street : null;
+    this._city = (addressModelConfig !== null && addressModelConfig !== undefined) ? addressModelConfig.city : null;
+    this._state = (addressModelConfig !== null && addressModelConfig !== undefined) ? addressModelConfig.state : null;
+    this._zip = (addressModelConfig !== null && addressModelConfig !== undefined) ? addressModelConfig.zip : null;
+    this._county = (addressModelConfig !== null && addressModelConfig !== undefined) ? addressModelConfig.county : null;
   };
 
   get street() {

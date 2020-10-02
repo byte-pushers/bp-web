@@ -5,14 +5,14 @@ import {CompanyModel} from "./company.model";
 export class TimeLineModel implements TimeLine {
   private _min: Date;
   private _max: Date;
-  static readonly DEFAULT_CONFIG: TimeLineModel = {
+  static readonly DEFAULT_CONFIG: any = {
     min: null,
     max: null
   };
 
   constructor(private timelineConfig: TimeLineModel) {
-    this._min = null;
-    this._max = null;
+    this._min = (timelineConfig !== null && timelineConfig !== undefined) ? timelineConfig.min : null;
+    this._max = (timelineConfig !== null && timelineConfig !== undefined) ? timelineConfig.max : null;
 
   }
 
