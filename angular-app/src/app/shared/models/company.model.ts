@@ -14,7 +14,7 @@ export class CompanyModel implements Company {
   private _desc: string;
   private _est: boolean;
 
-  static readonly DEFAULT_CONFIG: CompanyModel = {
+  static readonly DEFAULT_CONFIG: any = {
     name: null,
     type: null,
     budget: new BudgetModel(BudgetModel.DEFAULT_CONFIG),

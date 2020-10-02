@@ -9,7 +9,7 @@ export class QuoteModel extends BaseEntityModel implements Quote {
   private _contact: Person;
   private _company: Company;
 
-  static readonly DEFAULT_CONFIG: QuoteModel = {
+  static readonly DEFAULT_CONFIG: any = {
     id: null,
     contact: new PersonModel(PersonModel.DEFAULT_CONFIG),
     company: new CompanyModel(CompanyModel.DEFAULT_CONFIG)

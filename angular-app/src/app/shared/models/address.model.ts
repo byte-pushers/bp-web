@@ -9,7 +9,7 @@ export class AddressModel implements Address {
   private _zip: string;
   private _county: string;
 
-  static readonly DEFAULT_CONFIG: AddressModel = {
+  static readonly DEFAULT_CONFIG: any = {
     street: [null],
     city: null,
     state: null,
