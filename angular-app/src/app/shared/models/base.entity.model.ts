@@ -2,7 +2,7 @@ export class BaseEntityModel {
   private _id: number;
 
   constructor(private baseEntityModelConfig: BaseEntityModel){
-    this.id = null;
+    this.id = (baseEntityModelConfig !== null && baseEntityModelConfig !== undefined)? baseEntityModelConfig.id : null;
   };
 
   get id(){
