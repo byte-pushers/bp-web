@@ -3,7 +3,7 @@ import {Address} from "./address";
 import {CompanyModel} from "./company.model";
 import {AddressModel} from "./address.model";
 
-export class PersonModel extends AddressModel implements Person {
+export class PersonModel  implements Person {
 
   private _firstName: string;
   private _lastName: string;
@@ -11,7 +11,7 @@ export class PersonModel extends AddressModel implements Person {
   private _phoneNumber: string;
   private _address: Address;
 
-  static readonly DEFAULT_CONFIG: PersonModel = {
+  static readonly DEFAULT_CONFIG: any = {
    firstName: null,
    lastName: null,
     email: null,
@@ -19,7 +19,6 @@ export class PersonModel extends AddressModel implements Person {
    address: new AddressModel(AddressModel.DEFAULT_CONFIG)
   };
   constructor(private personModelConfig: PersonModel){
-    super(personModelConfig);
     this._firstName = null;
     this._lastName = null;
     this._email = null;
