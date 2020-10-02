@@ -19,11 +19,11 @@ export class PersonModel  implements Person {
    address: new AddressModel(AddressModel.DEFAULT_CONFIG)
   };
   constructor(private personModelConfig: PersonModel){
-    this._firstName = null;
-    this._lastName = null;
-    this._email = null;
-    this._phoneNumber = null;
-    this._address = null;
+    this._firstName = (personModelConfig !== null && personModelConfig !== undefined) ? personModelConfig.firstName: null;
+    this._lastName = (personModelConfig !== null && personModelConfig !== undefined) ? personModelConfig.lastName: null;
+    this._email = (personModelConfig !== null && personModelConfig !== undefined) ? personModelConfig.email: null;
+    this._phoneNumber = (personModelConfig !== null && personModelConfig !== undefined) ? personModelConfig.phoneNumber: null;
+    this._address = (personModelConfig !== null && personModelConfig !== undefined) ? personModelConfig.address: null;
   };
 
   get firstName() {

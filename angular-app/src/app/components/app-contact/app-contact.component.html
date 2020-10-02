@@ -51,6 +51,7 @@
               <input
                 id="lastName"
                 formControlName="lastName"
+                [(ngModel)]="quote.contact.lastName"
                 placeholder="Last Name"
                 type="text"
                 class="form-control"
@@ -72,6 +73,7 @@
               <input
                 id="email"
                 formControlName="email"
+                [(ngModel)]="quote.contact.email"
                 placeholder="yourName@bytepushers.software"
                 type="email"
                 class="form-control"
@@ -90,6 +92,7 @@
               <input
                 id="number"
                 formControlName="number"
+                [(ngModel)]="quote.contact.phoneNumber"
                 placeholder="(555) 555-5555"
                 type="text"
                 class="form-control">
@@ -109,6 +112,7 @@
               <input
                 id="city"
                 formControlName="city"
+                [(ngModel)]="quote.contact.address.city"
                 placeholder="City"
                 type="text"
                 class="form-control"
@@ -125,7 +129,9 @@
               <label>State</label>
             </div>
             <div class="col-8">
-              <select class="custom-select" formControlName="state">
+              <select class="custom-select"
+                      [(ngModel)]="quote.contact.address.state"
+                      formControlName="state">
                 <option value="" disabled>Select Your State</option>
                 <option *ngFor="let state of states" (change)="changeState($event)" [value]="state">{{state}}</option>
               </select>
@@ -167,6 +173,7 @@
               <input
                 id="businessName"
                 formControlName="businessName"
+                [(ngModel)]="quote.company.name"
                 placeholder="Business Name"
                 class="form-control"
                 type="text"
@@ -185,6 +192,7 @@
               <input
                 id="businessURL"
                 formControlName="businessURL"
+                [(ngModel)]="quote.company.url"
                 placeholder="www.business.url"
                 class="form-control"
                 type="text"
@@ -202,7 +210,9 @@
               <label>Type of Project</label>
             </div>
             <div class="col-8">
-              <select class="custom-select" formControlName="projectType">
+              <select class="custom-select"
+                      [(ngModel)]="quote.company.type"
+                      formControlName="projectType">
                 <option value="" disabled>Type of Project</option>
                 <option *ngFor="let projectType of projects" (change)="changeProjectType($event)"
                         [ngValue]="projectType">{{projectType}}</option>
@@ -214,7 +224,9 @@
               <label>What Kind Of Business Are You</label>
             </div>
             <div class="col-8">
-              <select class="custom-select" formControlName="businessType">
+              <select class="custom-select"
+                      [(ngModel)]="quote.company.est"
+                      formControlName="businessType">
                 <option value="" disabled>Type of Business</option>
                 <option *ngFor="let businessType of businessTypes" (change)="change()"
                         [ngValue]="businessType">{{businessType}}</option>
@@ -228,7 +240,9 @@
               <label>Budget</label>
             </div>
             <div class="col-8">
-              <select class="custom-select" id="budget" formControlName="budget">
+              <select class="custom-select" id="budget"
+                      [(ngModel)]="quote.company.budget"
+                      formControlName="budget">
                 <option value="" disabled *ngFor="let budget of budgets" (change)="changeBudget($event)"
                         [ngValue]="budget">{{budget}}</option>
               </select>
@@ -243,7 +257,9 @@
               <label>Timeline</label>
             </div>
             <div class="col-8">
-              <select class="custom-select" formControlName="timeline">
+              <select class="custom-select"
+                      [(ngModel)]="quote.company.timeline"
+                      formControlName="timeline">
                 <option value="" disabled>Timeline duration</option>
                 <option *ngFor="let timeline of timelines" (change)="changeTimeline($event)"
                         [ngValue]="timeline">{{timeline}}</option>
@@ -275,6 +291,7 @@
             <div class="col-12">
               <textarea class="form-control" id="projectDescriptionTextArea" rows="3"
                         id="projectDescription"
+                        [(ngModel)]="quote.company.desc"
                         formControlName="projectDescription"
                         placeholder="Describe your project."></textarea>
               <div class="alert alert-danger"

@@ -21,17 +21,17 @@ export class CompanyModel implements Company {
     url: null,
     timeline: new TimeLineModel(TimeLineModel.DEFAULT_CONFIG),
     desc: null,
-    est: null
+    est: false
 
   };
   constructor(private companyModelConfig: CompanyModel){
-   this._name = null;
-   this._type = null;
-   this._budget = null;
-   this._url = null;
-   this._timeline = null;
-   this._desc = null;
-   this._est = null;
+   this._name = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.name : null;
+   this._type = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.type :  null;
+   this._budget = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.budget : null;
+   this._url = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.url : null;
+   this._timeline = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.timeline : null;
+   this._desc = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.desc : null;
+   this._est = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.est : false;
   };
 
   get name() {
