@@ -6,6 +6,8 @@ import {QuoteService} from "../../shared/services/quote.service";
 import {NgxBootstrapSliderService} from "ngx-bootstrap-slider";
 import {concat} from "rxjs";
 import {Quote} from "../../shared/models/quote";
+import {QuoteModel} from "../../shared/models/quote.model";
+
 
 
 @Component({
@@ -14,8 +16,9 @@ import {Quote} from "../../shared/models/quote";
   styleUrls: ['./app-contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  public quote: Quote = null;
-  isSubmitted = false;
+
+  quote: Quote = new QuoteModel(QuoteModel.DEFAULT_CONFIG);
+  isSubmitted: boolean = false;
   contactForm: FormGroup;
   states: any = ['Alabama',
     'Alaska',
@@ -70,7 +73,7 @@ export class ContactComponent implements OnInit {
   projects: any = ['Option 1', 'Option 2', 'Option 3'];
   businessTypes: any = ['Option 1', 'Option 2', 'Option 3'];
   value: any = [0, 100000];
-  budgets: any  = ['Slide for budget amount'];
+  budgets: any = ['Slide for budget amount'];
   timelines: any = ['1-3 Months', '3-6 Months', '6+ Months'];
 
 
@@ -104,13 +107,13 @@ export class ContactComponent implements OnInit {
 
   }
 
-  public createQuote(newQuote){
+  public createQuote(newQuote) {
     newQuote = this.contactForm.value;
-    if (newQuote !== null && newQuote !== undefined){
+    if (newQuote !== null && newQuote !== undefined) {
       this.quoteService.createQuote(newQuote).subscribe(newlyCreatedQuote => {
         // TODO should have a new object with IDs populated through out the object graph.
         console.log('newly created quote: ' + newlyCreatedQuote, newlyCreatedQuote);
-        console.log(newQuote.firstName)
+        console.log(newQuote.firstName);
         alert('Sucessfully submitted quote');
 
       }, error => {
@@ -214,24 +217,24 @@ export class ContactComponent implements OnInit {
     if (!this.contactForm.valid) {
       return false;
     } else {
-     this.createQuote(this.quote);
+      this.createQuote(this.quote);
     }
   }
 
   public changeBudgetOnScrollSmall() {
-    const newSmall = 'Small'.concat((': ') + this.value[0] + (' - $30,000' ));
+    const newSmall = 'Small'.concat((': ') + this.value[0] + (' - $30,000'));
     this.budgets.splice(0, 1, newSmall)
 
   }
 
 
   public changeBudgetOnScrollMedium() {
-    const newMed = 'Medium'.concat((': ') + this.value[0] + (' - $60,000' ));
+    const newMed = 'Medium'.concat((': ') + this.value[0] + (' - $60,000'));
     this.budgets.splice(0, 1, newMed)
   }
 
   public changeBudgetOnScrollLarge() {
-    const newLarge = 'Large'.concat((': ') + this.value[0] + (' - $100,000' ));
+    const newLarge = 'Large'.concat((': ') + this.value[0] + (' - $100,000'));
     this.budgets.splice(0, 1, newLarge)
   }
 
@@ -247,7 +250,7 @@ export class ContactComponent implements OnInit {
     this.timeline.setValue(this.timelines[2]);
   }
 
-  public change(){
+  public change() {
     this.changeBudgetDropdown();
     this.changeTimelineDropdown();
   }

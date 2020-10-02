@@ -29,6 +29,7 @@
             <div class="col-8">
               <input
                 id="firstName"
+                [(ngModel)]="quote.contact.firstName"
                 formControlName="firstName"
                 placeholder="First Name"
                 type="text"
@@ -126,7 +127,7 @@
             <div class="col-8">
               <select class="custom-select" formControlName="state">
                 <option value="" disabled>Select Your State</option>
-                <option *ngFor="let state of states" (change)="changeState($event)" [ngValue]="state">{{state}}</option>
+                <option *ngFor="let state of states" (change)="changeState($event)" [value]="state">{{state}}</option>
               </select>
               <div class="alert alert-danger"
                    *ngIf="state.errors && (state.dirty || state.touched)">
