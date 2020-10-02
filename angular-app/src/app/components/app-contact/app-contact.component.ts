@@ -77,7 +77,7 @@ export class ContactComponent implements OnInit {
   timelines: any = ['1-3 Months', '3-6 Months', '6+ Months'];
 
 
-  constructor(public quoteService: QuoteService) {
+  constructor(private quoteService: QuoteService) {
 
   }
 
