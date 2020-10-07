@@ -1,4 +1,6 @@
-export class BaseEntityModel {
+
+
+export class BaseEntityModel  {
   private _id: number;
 
   constructor(private baseEntityModelConfig: BaseEntityModel){

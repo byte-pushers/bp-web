@@ -1,8 +1,9 @@
 import {Budget} from "./budget";
 import {PersonModel} from "./person.model";
 import {CompanyModel} from "./company.model";
+import {BaseEntityModel} from "./base.entity.model";
 
-export class BudgetModel implements Budget{
+export class BudgetModel extends BaseEntityModel implements Budget{
   private _min: number;
   private _max: number;
 
@@ -12,6 +13,7 @@ export class BudgetModel implements Budget{
   };
 
   constructor(private budgetConfig: BudgetModel) {
+    super(budgetConfig);
     this._min = (budgetConfig !== null && budgetConfig !== undefined) ? budgetConfig.min : null;
     this._max = (budgetConfig !== null && budgetConfig !== undefined) ? budgetConfig.max : null;
   }

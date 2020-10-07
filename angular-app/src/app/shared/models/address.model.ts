@@ -1,8 +1,9 @@
 import {Address} from "./address";
 import {PersonModel} from "./person.model";
 import {CompanyModel} from "./company.model";
+import {BaseEntityModel} from "./base.entity.model";
 
-export class AddressModel implements Address {
+export class AddressModel extends BaseEntityModel implements Address {
   private _street: [string];
   private _city: string;
   private _state: string;
@@ -19,6 +20,7 @@ export class AddressModel implements Address {
   };
 
   constructor(private addressModelConfig: AddressModel) {
+    super(addressModelConfig);
     this._street = (addressModelConfig !== null && addressModelConfig !== undefined) ? addressModelConfig.street : null;
     this._city = (addressModelConfig !== null && addressModelConfig !== undefined) ? addressModelConfig.city : null;
     this._state = (addressModelConfig !== null && addressModelConfig !== undefined) ? addressModelConfig.state : null;

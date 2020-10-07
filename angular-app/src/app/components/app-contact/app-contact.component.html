@@ -20,7 +20,7 @@
       <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
         by<span class="br-mobile"></span> our labors of love.
       </div>
-      <form [formGroup]="contactForm"  (ngSubmit)="onSubmit()" class="align-items-center">
+      <form [formGroup]="contactForm"   (ngSubmit)="onSubmit()" class="align-items-center">
         <div class="form-row inner-form-section">
           <div class="col-6">
             <div class="col">
@@ -241,15 +241,14 @@
             </div>
             <div class="col-8">
               <select class="custom-select" id="budget"
-                      [(ngModel)]="quote.company.budget"
                       formControlName="budget">
                 <option value="" disabled *ngFor="let budget of budgets" (change)="changeBudget($event)"
                         [ngValue]="budget">{{budget}}</option>
               </select>
-          <!--    <div class="alert alert-danger"
+              <div class="alert alert-danger"
                    *ngIf="budget.errors && (budget.dirty || budget.touched)">
                 <div *ngIf="budget.errors.required">Please select a budget.</div>
-              </div>-->
+              </div>
             </div>
           </div>
           <div class="col-6">

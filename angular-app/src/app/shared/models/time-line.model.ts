@@ -1,8 +1,9 @@
 import {TimeLine} from "./time-line";
 import {PersonModel} from "./person.model";
 import {CompanyModel} from "./company.model";
+import {BaseEntityModel} from "./base.entity.model";
 
-export class TimeLineModel implements TimeLine {
+export class TimeLineModel extends BaseEntityModel implements TimeLine {
   private _min: Date;
   private _max: Date;
   static readonly DEFAULT_CONFIG: any = {
@@ -11,6 +12,7 @@ export class TimeLineModel implements TimeLine {
   };
 
   constructor(private timelineConfig: TimeLineModel) {
+    super(timelineConfig);
     this._min = (timelineConfig !== null && timelineConfig !== undefined) ? timelineConfig.min : null;
     this._max = (timelineConfig !== null && timelineConfig !== undefined) ? timelineConfig.max : null;
 

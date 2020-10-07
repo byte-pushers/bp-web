@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   QUOTE_SERVICE: {
     API: {
-      HOST: 'https://5f6cd40060cf97001641a455.mockapi.io/api/v1/quotes',
+      HOST: 'https://5f6cd40060cf97001641a455.mockapi.io/api/v1/quote',
       EXT: '.json'
     }
   }
