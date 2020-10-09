@@ -1,0 +1,191 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: BytePusher Web AWS Serverless Spring API
+Outputs:
+  AwsApiGatewayBpWebApi:
+    Description: Root URL for application
+    Export:
+      Name: AwsApiGatewayBpWebApi
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/
+Resources:
+  BpWebVpcExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service:
+                - "lambda.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      Description: "BpWeb VPC Execution Role"
+      Path: "/"
+      Policies: [
+        {
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Sid": "WpWebInlinePolicyLambdaToLambdaInvocation",
+                "Effect": "Allow",
+                "Action": "lambda:InvokeFunction",
+                "Resource": "*"
+              }
+            ]
+          },
+          "PolicyName": "LambdaToLambdaInvocationPolicy"
+        }
+      ]
+      ManagedPolicyArns: [
+          "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole",
+          "arn:aws:iam::aws:policy/AmazonRDSFullAccess"
+      ]
+      RoleName: "bp-web-vpc-role-ws"
+      Tags:
+        - Key: Name
+          Value: BpWebVpcExecutionRole
+
+  BpWebWSVpc:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 192.168.0.0/16
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      Tags:
+        - Key: Name
+          Value: BpWebWSVpc
+  BpWebPrivateSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId:
+        Ref: BpWebWSVpc
+      CidrBlock: 192.168.1.0/24
+      AvailabilityZone: "us-east-2a"
+      Tags:
+        - Key: Name
+          Value: BpWebPrivateSubnet1-ws
+  BpWebPrivateSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId:
+        Ref: BpWebWSVpc
+      CidrBlock: 192.168.2.0/24
+      AvailabilityZone: "us-east-2b"
+      Tags:
+        - Key: Name
+          Value: BpWebPrivateSubnet2-ws
+  BpWebRdsDBSubnetGroup:
+    Type: "AWS::RDS::DBSubnetGroup"
+    Properties:
+      DBSubnetGroupDescription: Subnets for RDS
+      SubnetIds:
+        - Ref: BpWebPrivateSubnet1
+        - Ref: BpWebPrivateSubnet2
+      Tags:
+        - Key: Name
+          Value: BpWebRdsDBSubnetGroup
+  BpWebRdsSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow RDS Connections
+      VpcId:
+        Ref: BpWebWSVpc
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 3306
+          ToPort: 3306
+          CidrIp: 192.168.0.0/16
+      Tags:
+        - Key: Name
+          Value: BpWebRDSSecurityGroup
+  BpWebLambdaSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow RDS Connections
+      VpcId:
+        Ref: BpWebWSVpc
+      SecurityGroupEgress:
+        - IpProtocol: tcp
+          FromPort: 3306
+          ToPort: 3306
+          CidrIp: 192.168.0.0/16
+        - IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: BpWebLambdaSecurityGroup
+
+  BpWebRdsDBInstance:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      AllocatedStorage: 20
+      AllowMajorVersionUpgrade: false
+      AutoMinorVersionUpgrade: false
+      BackupRetentionPeriod: 7
+      DBInstanceClass: db.t2.micro
+      DBInstanceIdentifier: BpWebRds
+      DBName: bpwebdb
+      DBSubnetGroupName:
+        Ref: BpWebRdsDBSubnetGroup
+      Engine: MySQL
+      EngineVersion: 5.7.22
+      MasterUsername: bpwebrds123
+      MasterUserPassword: bpwebrds123
+      MultiAZ: false
+      Port: 3306
+      PubliclyAccessible: false
+      StorageType: gp2
+      Tags:
+        - Key: Name
+          Value: BpWebRds
+      VPCSecurityGroups:
+        - Ref: BpWebRdsSecurityGroup
+
+  BpWebWSLambdaLogGroup:
+    Type: AWS::Logs::LogGroup
+    DependsOn:
+      - AwsApiGatewayBpWebFunction
+    Properties:
+      RetentionInDays: 7
+      LogGroupName:
+        !Join ['', ['/aws/lambda/', !Ref AwsApiGatewayBpWebFunction]]
+
+  AwsApiGatewayBpWebFunction:
+    Type: AWS::Serverless::Function
+    DependsOn:
+      - BpWebVpcExecutionRole
+    Properties:
+      CodeUri: s3://com.bytepushers.bpweb.webservice/bytepushers-bpweb-lambda-jar
+      Description: BytePusher Web AWS Serverless Spring API
+      FunctionName: bytepushers-bpweb-ws
+      Events:
+        GetResource:
+          Properties:
+            Method: any
+            Path: /{proxy+}
+          Type: Api
+      Handler: software.bytepushers.bpweb.StreamLambdaHandler::handleRequest
+      MemorySize: 1024
+      Role:
+        Fn::GetAtt: [ BpWebVpcExecutionRole, Arn ]
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - Statement:
+            - Effect: Allow
+              Action:
+                - 'lambda:InvokeFunction'
+              Resource:
+                - 'arn:aws:lambda:*:*:function:*'
+      Runtime: java11
+      Timeout: 30
+      VpcConfig:
+        SecurityGroupIds:
+          - !Ref BpWebLambdaSecurityGroup
+        SubnetIds:
+          - !Ref BpWebPrivateSubnet1
+          - !Ref BpWebPrivateSubnet2
