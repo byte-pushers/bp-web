@@ -1,11 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {phoneNumberValidator} from "../../services/phone-validator.service";
-import {emailValidator} from "../../services/email-validator.service";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from "@angular/forms";
 import {QuoteService} from "../../shared/services/quote.service";
-import {NgxBootstrapSliderService} from "ngx-bootstrap-slider";
-import {concat} from "rxjs";
 import {Quote} from "../../shared/models/quote";
+import {QuoteModel} from "../../shared/models/quote.model";
 
 
 @Component({
@@ -14,9 +11,10 @@ import {Quote} from "../../shared/models/quote";
   styleUrls: ['./app-contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  public quote: Quote = null;
+  // @ts-ignore
+  @ViewChild('quoteForm') quoteForm: any;
+  public quote: Quote = new QuoteModel(QuoteModel.DEFAULT_CONFIG);
   isSubmitted = false;
-  contactForm: FormGroup;
   states: any = ['Alabama',
     'Alaska',
     'Arizona',
@@ -73,204 +71,36 @@ export class ContactComponent implements OnInit {
   budgets: any  = ['Slide for budget amount'];
   timelines: any = ['1-3 Months', '3-6 Months', '6+ Months'];
 
-
-  constructor(public quoteService: QuoteService) {
+  constructor(private quoteService: QuoteService) {
 
   }
 
   ngOnInit() {
-    this.contactForm = new FormGroup({
-      /**------Personal Form -----**/
-      firstName: new FormControl('', [
-        Validators.required, Validators.min(2), Validators.pattern(/^[a-zA-Z]*$/)]),
-      lastName: new FormControl('', [
-        Validators.required, Validators.min(2), Validators.pattern(/^[a-zA-Z]*$/)]),
-      email: new FormControl('', [Validators.required, emailValidator]),
-      number: new FormControl('', [Validators.required, phoneNumberValidator]),
-      city: new FormControl('', [
-        Validators.required, Validators.min(2), Validators.pattern(/^[a-z\sA-Z]*$/)]),
-      state: new FormControl('', Validators.required),
-      /**------Business Form -----**/
-      venture: new FormControl(''),
-      businessName: new FormControl('', [
-        Validators.min(2), Validators.pattern(/^[a-zA-Z]*$/)]),
-      businessURL: new FormControl('', [Validators.min(2), Validators.pattern(/^((ftp|http|https):\/\/)?www\.([A-z]+)\.([A-z]{2,})/)]),
-      projectType: new FormControl(''),
-      businessType: new FormControl(''),
-      budget: new FormControl(''),
-      timeline: new FormControl('', Validators.required),
-      projectDescription: new FormControl('', Validators.required)
-    })
 
-  }
-
-  public createQuote(newQuote){
-    newQuote = this.contactForm.value;
-    if (newQuote !== null && newQuote !== undefined){
-      this.quoteService.createQuote(newQuote).subscribe(newlyCreatedQuote => {
-        // TODO should have a new object with IDs populated through out the object graph.
-        console.log('newly created quote: ' + newlyCreatedQuote, newlyCreatedQuote);
-        console.log(newQuote.firstName)
-        alert('Sucessfully submitted quote');
-
-      }, error => {
-        // TODO should display error message at top of quote page.
-        console.log('error: ' + error, error);
-      });
-      console.log(this.contactForm);
-    }
-  }
-
-  get firstName() {
-    return this.contactForm.get('firstName')
-  }
-
-  get lastName() {
-    return this.contactForm.get('lastName')
-  }
-
-  get number() {
-    return this.contactForm.get('number')
-  }
-
-  get email() {
-    return this.contactForm.get('email')
-  }
-
-  get venture() {
-    return this.contactForm.get('venture')
-  }
-
-  get city() {
-    return this.contactForm.get('city')
-  }
-
-  get state() {
-    return this.contactForm.get('state')
-  }
-
-  changeState(e) {
-    this.states.setValue(e.target.value, {
-      onlySelf: true
-    })
-  }
-
-
-  get businessName() {
-    return this.contactForm.get('businessName')
-  }
-
-  get businessURL() {
-    return this.contactForm.get('businessURL')
-  }
-
-  get projectType() {
-    return this.contactForm.get('projectType')
-  }
-
-  changeProjectType(e) {
-    this.projects.setValue(e.target.value, {
-      onlySelf: true
-    })
-  }
-
-  get businessType() {
-    return this.contactForm.get('businessType')
-  }
-
-  changeBusinessType(e) {
-    this.businessTypes.setValue(e.target.value, {
-      onlySelf: true
-    })
-  }
-
-  get budget() {
-    return this.contactForm.get('budget')
-  }
-
-  changeBudget(e) {
-    this.budgets.setValue(e.target.value, {
-      onlySelf: true
-    });
-
-  }
-
-  get timeline() {
-    return this.contactForm.get('timeline')
-  }
-
-  changeTimeline(e) {
-    this.timelines.setValue(e.target.value, {
-      onlySelf: true
-    })
-  }
-
-  get projectDescription() {
-    return this.contactForm.get('projectDescription')
   }
 
   public onSubmit(): boolean {
     this.isSubmitted = true;
-    if (!this.contactForm.valid) {
+    if (!this.quoteForm.valid) {
       return false;
     } else {
-     this.createQuote(this.quote);
+      this.saveQuote();
     }
   }
 
-  public changeBudgetOnScrollSmall() {
-    const newSmall = 'Small'.concat((': ') + this.value[0] + (' - $30,000' ));
-    this.budgets.splice(0, 1, newSmall)
-
+  public reset(form: NgForm)  {
+    form.resetForm();
   }
 
-
-  public changeBudgetOnScrollMedium() {
-    const newMed = 'Medium'.concat((': ') + this.value[0] + (' - $60,000' ));
-    this.budgets.splice(0, 1, newMed)
-  }
-
-  public changeBudgetOnScrollLarge() {
-    const newLarge = 'Large'.concat((': ') + this.value[0] + (' - $100,000' ));
-    this.budgets.splice(0, 1, newLarge)
-  }
-
-  public changeTimelineOnScrollSmall() {
-    this.timeline.setValue(this.timelines[0]);
-  }
-
-  public changeTimelineOnScrollMedium() {
-    this.timeline.setValue(this.timelines[1]);
-  }
-
-  public changeTimelineOnScrollLarge() {
-    this.timeline.setValue(this.timelines[2]);
-  }
-
-  public change(){
-    this.changeBudgetDropdown();
-    this.changeTimelineDropdown();
-  }
-
-  public changeBudgetDropdown() {
-    if (this.value[0] <= 30000) {
-      this.changeBudgetOnScrollSmall();
-    } else if (this.value[0] > 30 && this.value[1] < 60000) {
-      this.changeBudgetOnScrollMedium();
-    } else if (this.value[1] > 60000) {
-      this.changeBudgetOnScrollLarge();
+  private saveQuote(){
+    if (this.quote !== null && this.quote !== undefined){
+      this.quoteService.createQuote(this.quote).subscribe(newlyCreatedQuote => {
+        // TODO should have a new object with IDs populated through out the object graph.
+        console.log('newly created quote: ' + newlyCreatedQuote, newlyCreatedQuote);
+      }, error => {
+        // TODO should display error message at top of quote page.
+        console.log('error: ' + error, error);
+      })
     }
   }
-
-  public changeTimelineDropdown() {
-    if (this.value[0] <= 30000) {
-      this.changeTimelineOnScrollSmall();
-    } else if (this.value[0] > 30000 && this.value[1] < 60000) {
-      this.changeTimelineOnScrollMedium();
-    } else if (this.value[1] > 60000) {
-      this.changeTimelineOnScrollLarge();
-    }
-  }
-
-
 }
