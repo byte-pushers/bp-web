@@ -16,6 +16,7 @@ export class CompanyModel extends BaseEntityModel implements Company {
   private _est: boolean;
 
   static readonly DEFAULT_CONFIG: any = {
+    id: null,
     name: null,
     type: null,
     budget: new BudgetModel(BudgetModel.DEFAULT_CONFIG),
