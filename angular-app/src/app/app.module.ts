@@ -14,7 +14,7 @@ import {Ng2PageScrollModule} from "ng2-page-scroll";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CarouselModule} from 'ngx-bootstrap/carousel';
 import {NgBootstrapFormValidationModule} from 'ng-bootstrap-form-validation';
-import {ReactiveFormsModule, FormsModule} from "@angular/forms";
+import {FormsModule} from "@angular/forms";
 import {NgxBootstrapSliderModule} from "ngx-bootstrap-slider";
 import { InfoComponent } from './components/app-info/app-info.component';
 import {HttpClientModule} from "@angular/common/http";
@@ -41,7 +41,6 @@ import {QuoteService} from "./shared/services/quote.service";
     CarouselModule.forRoot(),
     NgBootstrapFormValidationModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule,
     NgxBootstrapSliderModule,
     BrowserModule,
     HttpClientModule
