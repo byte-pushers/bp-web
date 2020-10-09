@@ -11,6 +11,7 @@ export class AddressModel extends BaseEntityModel implements Address {
   private _county: string;
 
   static readonly DEFAULT_CONFIG: any = {
+    id: null,
     street: [null],
     city: null,
     state: null,
