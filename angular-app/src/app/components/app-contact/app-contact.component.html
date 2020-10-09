@@ -20,22 +20,28 @@
       <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
         by<span class="br-mobile"></span> our labors of love.
       </div>
-      <form [formGroup]="quoteForm" (ngSubmit)="onSubmit()" class="align-items-center">
+      <form #quoteForm="ngForm" (ngSubmit)="onSubmit()" class="align-items-center">
         <div formGroupName="contact">
           <div class="form-row inner-form-section">
             <div class="col-6">
               <div class="col">
-                <label>First Name</label>
+                <label for="firstName">First Name</label>
               </div>
               <div class="col-8">
                 <input
                   id="firstName"
                   formControlName="firstName"
                   placeholder="First Name"
+                  [(ngModel)]="quote.contact.firstName"
+                  name="firstName"
                   type="text"
                   class="form-control"
+                  #firstName="ngModel"
+                  required
+                  minlength="2"
+                  pattern="/^[a-zA-Z]*$/)]"
                 >
-                <div class="alert alert-danger" *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+                <div class="alert alert-danger" [hidden]="firstName.valid || firstName.pristine">
                   <div *ngIf="firstName.errors.required">First name is required.</div>
                   <div *ngIf="firstName.errors.minlength">A minimum of 2 letters are required.</div>
                   <div *ngIf="firstName.errors.pattern">First name is not valid.</div>
