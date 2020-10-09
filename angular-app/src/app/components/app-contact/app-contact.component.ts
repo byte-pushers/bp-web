@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormControl, FormGroup, ReactiveFormsModule, FormsModule, Validators} from "@angular/forms";
 import {phoneNumberValidator} from "../../services/phone-validator.service";
 import {emailValidator} from "../../services/email-validator.service";
 import {QuoteService} from "../../shared/services/quote.service";
@@ -19,7 +19,7 @@ export class ContactComponent implements OnInit {
 
   quote: Quote = new QuoteModel(QuoteModel.DEFAULT_CONFIG);
   isSubmitted: boolean = false;
-  contactForm: FormGroup;
+  quoteForm: FormGroup;
   states: any = ['Alabama',
     'Alaska',
     'Arizona',
@@ -78,11 +78,7 @@ export class ContactComponent implements OnInit {
 
 
   constructor(private quoteService: QuoteService) {
-
-  }
-
-  ngOnInit() {
-    this.contactForm = new FormGroup({
+    this.quoteForm = new FormGroup({
       /**------Personal Form -----**/
       firstName: new FormControl('', [
         Validators.required, Validators.min(2), Validators.pattern(/^[a-zA-Z]*$/)]),
@@ -100,10 +96,14 @@ export class ContactComponent implements OnInit {
       businessURL: new FormControl('', [Validators.min(2), Validators.pattern(/^((ftp|http|https):\/\/)?www\.([A-z]+)\.([A-z]{2,})/)]),
       projectType: new FormControl(''),
       businessType: new FormControl(''),
-      budget: new FormControl(''),
+      budget: new FormControl('', Validators.required),
       timeline: new FormControl('', Validators.required),
       projectDescription: new FormControl('', Validators.required)
     })
+  }
+
+  ngOnInit() {
+
 
   }
 
@@ -119,36 +119,18 @@ export class ContactComponent implements OnInit {
         // TODO should display error message at top of quote page.
         console.log('error: ' + error, error);
       });
-      console.log(this.contactForm);
+      console.log(this.quoteForm);
     }
   }
 
-  get firstName() {
-    return this.contactForm.get('firstName')
-  }
 
-  get lastName() {
-    return this.contactForm.get('lastName')
-  }
 
   get number() {
-    return this.contactForm.get('number')
-  }
-
-  get email() {
-    return this.contactForm.get('email')
-  }
-
-  get venture() {
-    return this.contactForm.get('venture')
-  }
-
-  get city() {
-    return this.contactForm.get('city')
+    return this.quoteForm.get('number')
   }
 
   get state() {
-    return this.contactForm.get('state')
+    return this.quoteForm.get('state')
   }
 
   changeState(e) {
@@ -157,37 +139,16 @@ export class ContactComponent implements OnInit {
     })
   }
 
-
-  get businessName() {
-    return this.contactForm.get('businessName')
-  }
-
-  get businessURL() {
-    return this.contactForm.get('businessURL')
-  }
-
-  get projectType() {
-    return this.contactForm.get('projectType')
-  }
-
   changeProjectType(e) {
     this.projects.setValue(e.target.value, {
       onlySelf: true
     })
   }
 
-  get businessType() {
-    return this.contactForm.get('businessType')
-  }
 
-  changeBusinessType(e) {
-    this.businessTypes.setValue(e.target.value, {
-      onlySelf: true
-    })
-  }
 
   get budget() {
-    return this.contactForm.get('budget')
+    return this.quoteForm.get('budget')
   }
 
   changeBudget(e) {
@@ -198,7 +159,7 @@ export class ContactComponent implements OnInit {
   }
 
   get timeline() {
-    return this.contactForm.get('timeline')
+    return this.quoteForm.get('timeline')
   }
 
   changeTimeline(e) {
@@ -207,13 +168,9 @@ export class ContactComponent implements OnInit {
     })
   }
 
-  get projectDescription() {
-    return this.contactForm.get('projectDescription')
-  }
-
   public onSubmit(): boolean {
     this.isSubmitted = true;
-    if (!this.contactForm.valid) {
+    if (!this.quoteForm.valid) {
       return false;
     } else {
       this.createQuote(this.quote);
