@@ -5,20 +5,20 @@ import {PersonModel} from "./person.model";
 import {CompanyModel} from "./company.model";
 import {BaseEntityModel} from "./base.entity.model";
 
-export class QuoteModel  implements Quote {
+export class QuoteModel extends BaseEntityModel implements Quote {
   private _contact: Person;
   private _company: Company;
 
   static readonly DEFAULT_CONFIG: any = {
-
+    id: null,
     contact: new PersonModel(PersonModel.DEFAULT_CONFIG),
     company: new CompanyModel(CompanyModel.DEFAULT_CONFIG)
   };
 
   constructor(private quoteConfig: QuoteModel) {
-
-    this._contact = (quoteConfig !== null && quoteConfig !== undefined) ? quoteConfig.contact : null;
-    this._company = (quoteConfig !== null && quoteConfig !== undefined) ? quoteConfig.company : null;
+    super(quoteConfig);
+    this._contact = null;
+    this._company = null;
   }
 
   get contact() {
