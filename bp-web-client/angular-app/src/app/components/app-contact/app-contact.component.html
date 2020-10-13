@@ -59,7 +59,7 @@
                   type="text"
                   class="form-control"
                   minlength="2"
-                  pattern="^[a-zA-Z]*$"
+                  pattern="^[a-zA-Z ]*$"
                   required
                   #lastName="ngModel">
                 <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
@@ -106,14 +106,13 @@
                   type="email"
                   class="form-control"
                   minlength="2"
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   email
                   required
                   #email="ngModel">
                 <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
                   <div *ngIf="email.errors.required">Email is required.</div>
                   <div *ngIf="email.errors.minlength">A minimum of 2 letters are required.</div>
-                  <div *ngIf="email.errors.pattern">Last name is not valid.</div>
+                  <div *ngIf="email.errors.email">Email is not valid.</div>
                 </div>
               </div>
             </div>
@@ -132,7 +131,7 @@
                   type="text"
                   class="form-control"
                   minlength="2"
-                  pattern="^[a-zA-Z]*$"
+                  pattern="^[a-zA-Z ]*$"
                   required
                   #city="ngModel">
                 <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
@@ -147,8 +146,9 @@
                 <label>State</label>
               </div>
               <div class="col-5">
-                <select class="form-control" id="state" required>
-                  <option *ngFor="let state of states" [value]="state">{{state}}</option>
+                <select class="form-control"  id="state" required>
+                  <option *ngFor="let state of states" [value]="state">{{state}}
+                  </option>
                 </select>
               </div>
             </div>
@@ -171,7 +171,7 @@
                   type="text"
                   class="form-control"
                   minlength="2"
-                  pattern="^[a-zA-Z]*$"
+                  pattern="^[a-zA-Z ]*$"
                   required
                   #name="ngModel">
                 <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
@@ -194,13 +194,14 @@
                   type="text"
                   class="form-control"
                   minlength="2"
-                  pattern="^[a-zA-Z]*$"
+
+                  pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$"
                   required
                   #url="ngModel">
                 <div *ngIf="url.invalid && (url.dirty || url.touched)" class="alert alert-danger">
                   <div *ngIf="url.errors.required">URL is required.</div>
                   <div *ngIf="url.errors.minlength">A minimum of 2 letters are required.</div>
-                  <div *ngIf="url.errors.pattern">Last name is not valid.</div>
+                  <div *ngIf="url.errors.pattern">URL is not valid.</div>
                 </div>
               </div>
             </div>
