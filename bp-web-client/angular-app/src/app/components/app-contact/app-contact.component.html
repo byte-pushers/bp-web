@@ -230,48 +230,40 @@
           <div class="form-row inner-form-section">
             <div class="col-6">
               <div class="col-1">
-                <label>Budget</label>
+                <label>Budget:</label>
               </div>
+              <b>$0       </b>
+
+              <mv-slider id="range"  range="true"  [(value)]="value" [min]="0" [max]="100000" [enabled]="enabled"
+                         (change)="changeBudget()" style="
+    margin-left: 5px;
+    margin-right: 5px;
+">
+              </mv-slider>
+              <b>    $100k</b>
               <div class="col-5">
-                <select class="form-control" id="budget" required>
-                  <option *ngFor="let budget of budgets" [value]="budget">{{budgets}}</option>
-                </select>
+                <input class="form-control" id="timeline" *ngFor="let budget of budgets" [value]="budget" placeholder="{{budget}}" required disabled>
               </div>
             </div>
             <div class="col-6">
               <div class="col-1">
-                <label>Timeline</label>
+                <label>Timeline:</label>
               </div>
-              <div class="col-5">
-                <select class="form-control" id="timeline" required>
-                  <option *ngFor="let timeline of timelines" [value]="timeline">{{timeline}}</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="col-6">
-              <b>$ 0</b>
-
-              <mv-slider id="range"  range="true"  [(value)]="value" [min]="0" [max]="100000" [enabled]="enabled"
-                         (change)="changeBudget()">
-
-              </mv-slider>
-              <b>$ 100000</b>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="col-6">
-              <b>Timeline: Short</b>
+              <b>Short </b>
 
               <mv-slider id="rangeA"  range="false"  [(value)]="timeframe" [min]="1" [max]="36" [enabled]="enabled"
-                         (change)="changeTimeline()">
+                         (change)="changeTimeline()" style="
+    margin-left: 5px;
+    margin-right: 5px;
+">
 
               </mv-slider>
               <b>Longer</b>
+              <div class="col-5">
+                <input class="form-control" id="timeline" *ngFor="let timeline of timelines" [value]="timeline" placeholder="{{timeline}}" required disabled>
+              </div>
             </div>
           </div>
-
         </div>
         <button type="submit" [disabled]="!quoteForm.valid" class="contact-button btn btn-block btn-sm"> Submit
         </button>
