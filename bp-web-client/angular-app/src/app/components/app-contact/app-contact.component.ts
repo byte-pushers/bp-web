@@ -70,7 +70,7 @@ export class ContactComponent implements OnInit {
   value: any = [0, 100000];
   budgets: any  = ['Slide for budget amount'];
   timelines: any = ['Slide for time frame'];
-  timeframe: any = [1, 36];
+  timeframe: any = [0, 35];
 
   constructor(private quoteService: QuoteService) {
 
@@ -123,8 +123,10 @@ export class ContactComponent implements OnInit {
       this.changeBudgetOnScrollSmall();
     } else if (this.value[0] > 30 && this.value[1] < 60000) {
       this.changeBudgetOnScrollMedium();
-    } else if (this.value[1] > 60000) {
+    } else if (this.value[1] > 60000 && this.value[1] < 95000) {
       this.changeBudgetOnScrollLarge();
+    } else if (this.value[1] === 100000) {
+      this.changeBudgetNoLimit();
     }
   }
   public changeBudgetOnScrollSmall() {
@@ -135,19 +137,18 @@ export class ContactComponent implements OnInit {
 
 
   public changeBudgetOnScrollMedium() {
-    const newMed = 'Medium'.concat((': ') + this.value[0] + (' - $60,000' ));
+    const newMed = 'Medium'.concat((': ') + this.value[0] + (' - $60k' ));
     this.budgets.splice(0, 1, newMed);
   }
 
   public changeBudgetOnScrollLarge() {
-    const newLarge = 'Large'.concat((': ') + this.value[0] + (' - $100,000' ));
+    const newLarge = 'Large'.concat((': ') + this.value[0] + (' - $80k' ));
     this.budgets.splice(0, 1, newLarge);
   }
 
-  public changeTimelineOnScrollSmall() {
-    const newMonth = 'Small'.concat( this.value[0] + (' Months') + this.value[1] + (' Months' ));
-    this.timelines.splice(0, 1, newMonth);
+  public changeBudgetNoLimit() {
+    const noLimit = 'Range'.concat((': ') + this.value[0] + (' - $100k and up' ));
+    this.budgets.splice(0, 1, noLimit);
   }
-
 
 }
