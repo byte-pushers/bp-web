@@ -24,10 +24,10 @@
         <div class="form-group">
           <div class="form-row inner-form-section">
             <div class="col-6">
-              <div class="col-1">
+              <div class="col-8">
                 <label for="firstName">First Name</label>
               </div>
-              <div class="col-5">
+              <div class="col-8">
                 <input
                   id="firstName"
                   name="firstName"
@@ -47,10 +47,10 @@
               </div>
             </div>
             <div class="col-6">
-              <div class="col-1">
+              <div class="col-8">
                 <label for="lastName">Last Name</label>
               </div>
-              <div class="col-5">
+              <div class="col-8">
                 <input
                   id="lastName"
                   name="lastName"
@@ -72,10 +72,10 @@
           </div>
           <div class="form-row inner-form-section">
             <div class="col-6">
-              <div class="col-1">
+              <div class="col-8">
                 <label for="phoneNumber">Phone Number</label>
               </div>
-              <div class="col-5">
+              <div class="col-8">
                 <input
                   id="phoneNumber"
                   name="phoneNumber"
@@ -94,10 +94,10 @@
               </div>
             </div>
             <div class="col-6">
-              <div class="col-1">
+              <div class="col-8">
                 <label for="email">Email</label>
               </div>
-              <div class="col-5">
+              <div class="col-8">
                 <input
                   id="email"
                   name="email"
@@ -120,10 +120,10 @@
           </div>
           <div class="form-row inner-form-section">
             <div class="col-6">
-              <div class="col-1">
+              <div class="col-8">
                 <label for="city">City</label>
               </div>
-              <div class="col-5">
+              <div class="col-8">
                 <input
                   id="city"
                   name="city"
@@ -143,10 +143,10 @@
               </div>
             </div>
             <div class="col-6">
-              <div class="col-1">
+              <div class="col-8">
                 <label>State</label>
               </div>
-              <div class="col-5">
+              <div class="col-8">
                 <select class="form-control" id="state" required>
                   <option *ngFor="let state of states" [value]="state">{{state}}</option>
                 </select>
@@ -159,10 +159,10 @@
           </div>
           <div class="form-row inner-form-section">
             <div class="col-6">
-              <div class="col-1">
+              <div class="col-8">
                 <label for="name">Business Name</label>
               </div>
-              <div class="col-5">
+              <div class="col-8">
                 <input
                   id="name"
                   name="name"
@@ -182,10 +182,10 @@
               </div>
             </div>
             <div class="col-6">
-              <div class="col-1">
+              <div class="col-8">
                 <label for="url">Business URL</label>
               </div>
-              <div class="col-5">
+              <div class="col-8">
                 <input
                   id="url"
                   name="url"
@@ -207,20 +207,20 @@
           </div>
           <div class="form-row inner-form-section">
             <div class="col-6">
-              <div class="col-1">
+              <div class="col-8">
                 <label>Project Type</label>
               </div>
-              <div class="col-5">
+              <div class="col-8">
                 <select class="form-control" id="type" required>
                   <option *ngFor="let type of projects" [value]="type">{{type}}</option>
                 </select>
               </div>
             </div>
             <div class="col-6">
-              <div class="col-1">
+              <div class="col-8">
                 <label>Business Type</label>
               </div>
-              <div class="col-5">
+              <div class="col-8">
                 <select class="form-control" id="est" required>
                   <option *ngFor="let est of businessTypes" [value]="est">{{est}}</option>
                 </select>
@@ -229,37 +229,43 @@
           </div>
           <div class="form-row inner-form-section">
             <div class="col-6">
-              <div class="col-1">
+              <div class="col-8">
                 <label>Budget:</label>
               </div>
+              <div class="col-8">
               <b>$0       </b>
 
               <mv-slider id="range"  range="true"  [(value)]="value" [min]="0" [max]="100000" [enabled]="enabled"
                          (change)="changeBudget()" style="
     margin-left: 5px;
     margin-right: 5px;
+    margin-bottom: 5px;
 ">
               </mv-slider>
               <b>    $100k</b>
-              <div class="col-5">
+              </div>
+              <div class="col-8">
                 <input class="form-control" id="budget" *ngFor="let budget of budgets" [value]="budget" placeholder="{{budget}}" required disabled>
               </div>
             </div>
             <div class="col-6">
-              <div class="col-1">
+              <div class="col-8">
                 <label>Timeline:</label>
               </div>
+              <div class="col-8">
               <b>Short </b>
 
               <mv-slider id="rangeA"  range="false"  [(value)]="timeframe" [min]="1" [max]="36" [enabled]="enabled"
                          (change)="changeTimeline()" style="
     margin-left: 5px;
     margin-right: 5px;
+    margin-bottom: 5px;
 ">
 
               </mv-slider>
-              <b>Longer</b>
-              <div class="col-5">
+              <b>Long</b>
+              </div>
+              <div class="col-8">
                 <input class="form-control" id="timeline" *ngFor="let timeline of timelines" [value]="timeline" placeholder="{{timeline}}" required disabled>
               </div>
             </div>
