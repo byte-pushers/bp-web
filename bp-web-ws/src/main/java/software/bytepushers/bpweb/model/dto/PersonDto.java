@@ -2,7 +2,6 @@ package software.bytepushers.bpweb.model.dto;
 
 import lombok.*;
 
-import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -17,21 +16,20 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class PersonDto extends AbstractDto {
 
-    @NotEmpty(message = "{person.firstname.required}")
+    @NotEmpty(groups = CreateRequest.class, message = "{person.firstname.required}")
     private String firstName;
 
-    @NotEmpty(message = "{person.lastname.required}")
+    @NotEmpty(groups = CreateRequest.class, message = "{person.lastname.required}")
     private String lastName;
 
-    @NotEmpty(message = "{person.email.required}")
-    @Email(message = "{person.email.invalid}")
+    @NotEmpty(groups = CreateRequest.class, message = "{person.email.required}")
+    @Email(groups = {CreateRequest.class, UpdateRequest.class}, message = "{person.email.invalid}")
     private String email;
 
-    @NotEmpty(message = "{person.phone.required}")
+    @NotEmpty(groups = CreateRequest.class, message = "{person.phone.required}")
     private String phone;
 
-    @Valid
-    @NotNull(message = "{person.address.details.required}")
+    @NotNull(groups = CreateRequest.class, message = "{person.address.details.required}")
     private AddressDto address;
 
 }
