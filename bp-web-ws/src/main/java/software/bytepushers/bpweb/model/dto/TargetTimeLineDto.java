@@ -15,10 +15,10 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 public class TargetTimeLineDto {
 
-    @NotEmpty(groups = {CreateRequest.class}, message = "{company.min.timeline.required}")
+    @NotEmpty(groups = CreateRequest.class, message = "{company.min.timeline.required}")
     private String minTimeLine;
 
-    @NotEmpty(groups = {CreateRequest.class}, message = "{company.max.timeline.required}")
+    @NotEmpty(groups = CreateRequest.class, message = "{company.max.timeline.required}")
     private String maxTimeLine;
 
 }
