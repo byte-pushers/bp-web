@@ -43,7 +43,7 @@
                 <div *ngIf="firstName.errors.pattern">First name is not valid.</div>
               </div>
             </div>
-            <div class="col-md-2"></div>
+            <div class="col-md-2"><!--space--></div>
             <div class="form-group col-md-4">
 
               <label for="lastName">Last Name</label>
@@ -67,87 +67,75 @@
 
           </div>
           <div class="form-row inner-form-section">
-            <div class="col-6">
-              <div class="col-1">
-                <label for="phoneNumber">Phone Number</label>
+            <div class="form-group col-md-4">
+              <label for="phoneNumber">Phone Number</label>
+              <input
+                id="phoneNumber"
+                name="phoneNumber"
+                placeholder="Phone Number"
+                [(ngModel)]="quote.contact.phoneNumber"
+                type="number"
+                class="form-control"
+                maxlength="10"
+                pattern="^(0|[1-9][0-9]*)"
+                required
+                #phoneNumber="ngModel">
+              <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)"
+                   class="alert alert-danger">
+                <div *ngIf="phoneNumber.errors.required">Phone number is required.</div>
+                <div *ngIf="phoneNumber.errors.pattern">Phone number is not valid.</div>
               </div>
-              <div class="col-5">
-                <input
-                  id="phoneNumber"
-                  name="phoneNumber"
-                  placeholder="Phone Number"
-                  [(ngModel)]="quote.contact.phoneNumber"
-                  type="number"
-                  class="form-control"
-                  maxlength="10"
-                  pattern="^(0|[1-9][0-9]*)"
-                  required
-                  #phoneNumber="ngModel">
-                <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)"
-                     class="alert alert-danger">
-                  <div *ngIf="phoneNumber.errors.required">Phone number is required.</div>
-                  <div *ngIf="phoneNumber.errors.pattern">Phone number is not valid.</div>
-                </div>
-              </div>
+
             </div>
-            <div class="col-6">
-              <div class="col-1">
-                <label for="email">Email</label>
-              </div>
-              <div class="col-5">
-                <input
-                  id="email"
-                  name="email"
-                  placeholder="Email"
-                  [(ngModel)]="quote.contact.email"
-                  type="email"
-                  class="form-control"
-                  minlength="2"
-                  email
-                  required
-                  #email="ngModel">
-                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
-                  <div *ngIf="email.errors.required">Email is required.</div>
-                  <div *ngIf="email.errors.minlength">A minimum of 2 letters are required.</div>
-                  <div *ngIf="email.errors.email">Email is not valid.</div>
-                </div>
+            <div class="col-md-2"><!--space--></div>
+            <div class="form-group col-md-4">
+              <label for="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                placeholder="Email"
+                [(ngModel)]="quote.contact.email"
+                type="email"
+                class="form-control"
+                minlength="2"
+                email
+                required
+                #email="ngModel">
+              <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                <div *ngIf="email.errors.required">Email is required.</div>
+                <div *ngIf="email.errors.minlength">A minimum of 2 letters are required.</div>
+                <div *ngIf="email.errors.email">Email is not valid.</div>
               </div>
             </div>
           </div>
+
           <div class="form-row inner-form-section">
-            <div class="col-6">
-              <div class="col-1">
-                <label for="city">City</label>
-              </div>
-              <div class="col-5">
-                <input
-                  id="city"
-                  name="city"
-                  placeholder="City"
-                  [(ngModel)]="quote.contact.address.city"
-                  type="text"
-                  class="form-control"
-                  minlength="2"
-                  pattern="^[a-zA-Z ]*$"
-                  required
-                  #city="ngModel">
-                <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
-                  <div *ngIf="city.errors.required">City is required.</div>
-                  <div *ngIf="city.errors.minlength">A minimum of 2 letters are required.</div>
-                  <div *ngIf="city.errors.pattern">City is not valid.</div>
-                </div>
+            <div class="form-group col-md-4">
+              <label for="city">City</label>
+              <input
+                id="city"
+                name="city"
+                placeholder="City"
+                [(ngModel)]="quote.contact.address.city"
+                type="text"
+                class="form-control"
+                minlength="2"
+                pattern="^[a-zA-Z ]*$"
+                required
+                #city="ngModel">
+              <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
+                <div *ngIf="city.errors.required">City is required.</div>
+                <div *ngIf="city.errors.minlength">A minimum of 2 letters are required.</div>
+                <div *ngIf="city.errors.pattern">City is not valid.</div>
               </div>
             </div>
-            <div class="col-6">
-              <div class="col-1">
-                <label>State</label>
-              </div>
-              <div class="col-5">
-                <select class="form-control" id="state" required>
-                  <option *ngFor="let state of states" [value]="state">{{state}}
-                  </option>
-                </select>
-              </div>
+            <div class="col-md-2"><!--space--></div>
+            <div class="form-group col-md-4">
+              <label>State</label>
+              <select class="form-control" id="state" required>
+                <option *ngFor="let state of states" [value]="state">{{state}}
+                </option>
+              </select>
             </div>
           </div>
           <div class="section-heading">Business Information</div>
@@ -155,12 +143,10 @@
             represented
             by<span class="br-mobile"></span> our labors of love.
           </div>
-          <div class="form-row inner-form-section">
-            <div class="col-6">
-              <div class="col-1">
+          <div class="form-group">
+            <div class="form-row inner-form-section">
+              <div class="form-group col-md-4">
                 <label for="name">Business Name</label>
-              </div>
-              <div class="col-5">
                 <input
                   id="name"
                   name="name"
@@ -178,12 +164,9 @@
                   <div *ngIf="name.errors.pattern">Business name is not valid.</div>
                 </div>
               </div>
-            </div>
-            <div class="col-6">
-              <div class="col-1">
+              <div class="col-md-2"><!--space--></div>
+              <div class="form-group col-md-4">
                 <label for="url">Business URL</label>
-              </div>
-              <div class="col-5">
                 <input
                   id="url"
                   name="url"
@@ -202,63 +185,50 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="form-row inner-form-section">
-            <div class="col-6">
-              <div class="col-1">
+            <div class="form-row inner-form-section">
+              <div class="form-group col-md-4">
                 <label>Project Type</label>
-              </div>
-              <div class="col-5">
                 <select class="form-control" id="type" required>
                   <option *ngFor="let type of projects" [value]="type">{{type}}</option>
                 </select>
               </div>
-            </div>
-            <div class="col-6">
-              <div class="col-1">
+              <div class="col-md-2"><!--space--></div>
+              <div class="form-group col-md-4">
                 <label>Business Type</label>
-              </div>
-              <div class="col-5">
                 <select class="form-control" id="est" required>
                   <option *ngFor="let est of businessTypes" [value]="est">{{est}}</option>
                 </select>
               </div>
             </div>
-          </div>
-          <div class="form-row inner-form-section">
-            <div class="col-6">
-              <div class="col-1">
-                <label>Budget:</label>
-              </div>
-              <b>$0 </b>
-
-              <mv-slider id="range" range="true" [(value)]="value" [min]="0" [max]="100000" [enabled]="enabled"
-                         (change)="changeBudget()" style="
+            <div class="form-row inner-form-section">
+              <div class="col-md-4">
+                <div class="row-1">
+                  <label>Budget:</label>
+                </div>
+                <b>$0 </b>
+                <mv-slider id="range" range="true" [(value)]="value" [min]="0" [max]="100000" [enabled]="enabled"
+                           (change)="changeBudget()" style="
     margin-left: 5px;
     margin-right: 5px;
 ">
-              </mv-slider>
-              <b> $100k</b>
-              <div class="col-5">
+                </mv-slider>
+                <b> $100k</b>
                 <input class="form-control" id="budget" *ngFor="let budget of budgets" [value]="budget"
                        placeholder="{{budget}}" required disabled>
               </div>
-            </div>
-            <div class="col-6">
-              <div class="col-1">
-                <label>Timeline:</label>
-              </div>
-              <b>Short </b>
-
-              <mv-slider id="rangeA" range="false" [(value)]="timeframe" [min]="1" [max]="36" [enabled]="enabled"
-                         (change)="changeTimeline()" style="
+              <div class="col-md-2"><!--space--></div>
+              <div class="form-group col-md-4">
+                <div class="row-1">
+                  <label>Timeline:</label>
+                </div>
+                <b>Short </b>
+                <mv-slider id="rangeA" range="false" [(value)]="timeframe" [min]="1" [max]="36" [enabled]="enabled"
+                           (change)="changeTimeline()" style="
     margin-left: 5px;
     margin-right: 5px;
 ">
-
-              </mv-slider>
-              <b>Longer</b>
-              <div class="col-5">
+                </mv-slider>
+                <b>Longer</b>
                 <input class="form-control" id="timeline" *ngFor="let timeline of timelines" [value]="timeline"
                        placeholder="{{timeline}}" required disabled>
               </div>
