@@ -15,7 +15,7 @@
   </header>
 
   <div class="main-content-container" style="margin-top: 750px;" id="top-section">
-    <section class="contact-info-desktop hidden-mobile hidden-mobile-450 hidden-mobile-768">
+    <section *ngIf="!isMobileResolution()" class="contact-info-desktop hidden-mobile hidden-mobile-450 hidden-mobile-768">
       <div class="section-heading">Personal Information</div>
       <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
         by<span class="br-mobile"></span> our labors of love.
@@ -257,14 +257,12 @@
         </button>
       </form>
     </section>
-    <section class="contact-info-desktop hidden-desktop">
+    <section *ngIf="isMobileResolution()" class="contact-info-desktop hidden-desktop">
        <div class="section-heading">Personal Information</div>
        <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
          by<span class="br-mobile"></span> our labors of love.
        </div>
-       <form #quoteFormMobile="ngForm"  (ngSubmit)="onSubmit()" class="align-items-center">
-
-
+       <form #quoteForm="ngForm"  (ngSubmit)="onSubmit()" class="align-items-center">
          <div class="col-12">
            <label>First Name</label>
          </div>
