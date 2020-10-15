@@ -73,6 +73,8 @@ export class ContactComponent implements OnInit {
   budgets: any  = ['Slide for budget amount'];
   timelines: any = ['Slide for time frame'];
   timeframe: any = [0, 35];
+// @ts-ignore
+  @ViewChild('quoteFormMobile') quoteForm: any;
 
   constructor(private quoteService: QuoteService) {
 
