@@ -15,7 +15,9 @@ export class ContactComponent implements OnInit {
   @ViewChild('quoteForm') quoteForm: any;
   public quote: Quote = new QuoteModel(QuoteModel.DEFAULT_CONFIG);
   isSubmitted = false;
-  states: any = ['Alabama',
+  states: any = [
+    'Select A State',
+    'Alabama',
     'Alaska',
     'Arizona',
     'Arkansas',
@@ -65,8 +67,8 @@ export class ContactComponent implements OnInit {
     'West Virginia',
     'Wisconsin',
     'Wyoming'];
-  projects: any = ['Option 1', 'Option 2', 'Option 3'];
-  businessTypes: any = ['Option 1', 'Option 2', 'Option 3'];
+  projects: any = ['Select An Option', 'Option 1', 'Option 2', 'Option 3'];
+  businessTypes: any = ['Select An Option', 'Option 1', 'Option 2', 'Option 3'];
   value: any = [0, 100000];
   budgets: any  = ['Slide for budget amount'];
   timelines: any = ['Slide for time frame'];
