@@ -4,6 +4,9 @@ import org.fluttercode.datafactory.impl.DataFactory;
 import software.bytepushers.bpweb.model.dto.*;
 import software.bytepushers.bpweb.model.entity.Quote;
 
+import java.time.LocalDateTime;
+import java.util.UUID;
+
 /**
  * Model/Dto class object generator
  */
@@ -12,7 +15,7 @@ public class ModelUtils {
     public static QuoteDto quoteDto() {
         DataFactory df = new DataFactory();
         AddressDto addressDto = AddressDto.builder()
-                .street1(df.getStreetName()).city(df.getCity()).zip(df.getRandomWord(6))
+                .street1(df.getStreetName()).street2(df.getStreetName()).city(df.getCity()).zip(df.getRandomWord(6))
                 .state(df.getRandomWord(5)).country(df.getRandomChars(3)).build();
         PersonDto personDto = PersonDto.builder().firstName(df.getFirstName()).lastName(df.getLastName())
                 .phone(df.getRandomWord(1)).email(df.getEmailAddress()).address(addressDto)
@@ -27,8 +30,17 @@ public class ModelUtils {
                 .build();
     }
 
+    public static QuoteDto updateQuoteDto() {
+        QuoteDto quoteDto = quoteDto();
+        quoteDto.setId(UUID.randomUUID());
+        return quoteDto;
+    }
+
     public static Quote quoteEntity() {
-        return ApplicationUtils.copyProperties(quoteDto(), Quote.class);
+        Quote quote = ApplicationUtils.copyProperties(quoteDto(), Quote.class);
+        quote.setCreatedDate(LocalDateTime.now());
+        quote.setUpdatedDate(LocalDateTime.now());
+        return quote;
     }
 
 

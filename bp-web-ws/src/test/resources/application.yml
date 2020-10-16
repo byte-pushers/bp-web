@@ -1,0 +1,13 @@
+spring.profiles.active: in-memory
+
+config:
+  numPlaysToPredict: 10
+errors:
+  winNumber:
+    past: "winDate must be in the past."
+  futureDrawDate:
+    future: "futureDrawDate must be in the future."
+
+spring:
+  messages:
+    basename: ValidationMessages

@@ -31,7 +31,7 @@ public class QuoteController extends AbstractController {
      * @return the all quote details.
      */
     @GetMapping
-    public ResponseEntity<?> create() {
+    public ResponseEntity<?> getAll() {
         log.info("Request to fetch all quotes");
         List<QuoteDto> createdQuotes = this.quoteServiceImpl.getAll();
         log.info("All quotes fetched successfully");
