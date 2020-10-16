@@ -115,12 +115,20 @@ export class ContactComponent implements OnInit {
       }, error => {
         // TODO should display error message at top of quote page.
         console.log('error: ' + error, error);
-      })
+      });
     }
   }
 
   public changeBudget() {
-    this.changeBudgetDropdown();
+    this.changeBudgetOnScroll();
+
+    if (this.value[1] > 80000) {
+      this.addNoCap();
+    }
+  }
+  private addNoCap() {
+    this.value[1].concat('and up');
+    return this.value[1]
   }
 
   public changeTimeline() {
@@ -132,36 +140,25 @@ export class ContactComponent implements OnInit {
       this.timelines.splice(0, 1, newMonth);
     }
   }
-  public changeBudgetDropdown() {
-    if (this.value[0] <= 30000) {
-      this.changeBudgetOnScrollSmall();
-    } else if (this.value[0] > 30 && this.value[1] < 60000) {
-      this.changeBudgetOnScrollMedium();
-    } else if (this.value[1] > 60000 && this.value[1] < 95000) {
-      this.changeBudgetOnScrollLarge();
-    } else if (this.value[1] === 100000) {
-      this.changeBudgetNoLimit();
-    }
-  }
-  public changeBudgetOnScrollSmall() {
-    const newSmall = 'Small'.concat((': ') + this.value[0] + " - " + this.value[1]);
-    this.budgets.splice(0, 1, newSmall);
-
-  }
-
-
-  public changeBudgetOnScrollMedium() {
-    const newMed = 'Medium'.concat((': ') + this.value[0] +  " - " + this.value[1]);
-    this.budgets.splice(0, 1, newMed);
-  }
-
-  public changeBudgetOnScrollLarge() {
-    const newLarge = 'Large'.concat((': ') + this.value[0] +  " - " + this.value[1]);
-    this.budgets.splice(0, 1, newLarge);
+  public changeBudgetOnScroll() {
+    const formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    });
+    const budgetMin = this.value[0];
+    const budgetMax = this.value[1];
+    const newBudget = 'Range'.concat((': ') + formatter.format(budgetMin) + ' - ' + formatter.format(budgetMax));
+    this.budgets.splice(0, 1, newBudget);
   }
 
   public changeBudgetNoLimit() {
-    const noLimit = 'Range'.concat((': ') + this.value[0] +  " - " + this.value[1]);
+    const formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    });
+    const budgetMin = this.value[0];
+    const budgetMax = this.value[1];
+    const noLimit = 'Range'.concat((': ') + formatter.format(budgetMin) + ' - ' + formatter.format(budgetMax) + 'and up');
     this.budgets.splice(0, 1, noLimit);
   }
 
