@@ -15,7 +15,8 @@
   </header>
 
   <div class="main-content-container" style="margin-top: 750px;" id="top-section">
-    <section *ngIf="!isMobileResolution()" class="contact-info-desktop hidden-mobile hidden-mobile-450 hidden-mobile-768">
+    <section *ngIf="!isMobileResolution()"
+             class="contact-info-desktop hidden-mobile hidden-mobile-450 hidden-mobile-768">
       <div class="section-heading">Personal Information</div>
       <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
         by<span class="br-mobile"></span> our labors of love.
@@ -144,24 +145,22 @@
             <div class="form-row inner-form-section">
               <div class="form-group col-md-4">
                 <label for="name">Business Name</label>
+              <input
+                id="name"
+                name="name"
+                placeholder="Business Name"
+                [(ngModel)]="quote.company.name"
+                type="text"
+                class="form-control"
+                minlength="2"
+                pattern="^[a-zA-Z ]*$"
+                required
+                #name="ngModel">
+              <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                <div *ngIf="name.errors.required">Business name is required.</div>
+                <div *ngIf="name.errors.minlength">A minimum of 2 letters are required.</div>
+                <div *ngIf="name.errors.pattern">Business name is not valid.</div>
               </div>
-              <div class="col-8">
-                <input
-                  id="name"
-                  name="name"
-                  placeholder="Business Name"
-                  [(ngModel)]="quote.company.name"
-                  type="text"
-                  class="form-control"
-                  minlength="2"
-                  pattern="^[a-zA-Z ]*$"
-                  required
-                  #name="ngModel">
-                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
-                  <div *ngIf="name.errors.required">Business name is required.</div>
-                  <div *ngIf="name.errors.minlength">A minimum of 2 letters are required.</div>
-                  <div *ngIf="name.errors.pattern">Business name is not valid.</div>
-                </div>
               </div>
               <div class="col-md-2"><!--space--></div>
               <div class="form-group col-md-4">
@@ -237,7 +236,7 @@
         </div>
         <div class="form-row inner-form-section">
           <div class="col-10">
-              <textarea  rows="3"
+              <textarea rows="3"
                         id="projectDesc"
                         name="desc"
                         [(ngModel)]="quote.company.desc"
@@ -258,256 +257,257 @@
       </form>
     </section>
     <section *ngIf="isMobileResolution()" class="contact-info-desktop hidden-desktop">
-       <div class="section-heading">Personal Information</div>
-       <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
-         by<span class="br-mobile"></span> our labors of love.
-       </div>
-       <form #quoteForm="ngForm"  (ngSubmit)="onSubmit()" class="align-items-center">
-         <div class="col-12">
-           <label>First Name</label>
-         </div>
-         <div class="col-12 mobile-row">
-           <input
-             id="firstNameMobile"
-             name="firstName"
-             placeholder="First Name"
-             [(ngModel)]="quote.contact.firstName"
-             type="text"
-             class="form-control"
-             minlength="2"
-             pattern="^[a-zA-Z]*$"
-             required
-             #firstName="ngModel">
-           <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger">
-             <div *ngIf="firstName.errors.required">First name is required.</div>
-             <div *ngIf="firstName.errors.minlength">A minimum of 2 letters are required.</div>
-             <div *ngIf="firstName.errors.pattern">First name is not valid.</div>
-           </div>
-         </div>
+      <div class="section-heading">Personal Information</div>
+      <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
+        by<span class="br-mobile"></span> our labors of love.
+      </div>
+      <form #quoteForm="ngForm" (ngSubmit)="onSubmit()" class="align-items-center">
+        <div class="col-12">
+          <label>First Name</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <input
+            id="firstNameMobile"
+            name="firstName"
+            placeholder="First Name"
+            [(ngModel)]="quote.contact.firstName"
+            type="text"
+            class="form-control"
+            minlength="2"
+            pattern="^[a-zA-Z]*$"
+            required
+            #firstName="ngModel">
+          <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger">
+            <div *ngIf="firstName.errors.required">First name is required.</div>
+            <div *ngIf="firstName.errors.minlength">A minimum of 2 letters are required.</div>
+            <div *ngIf="firstName.errors.pattern">First name is not valid.</div>
+          </div>
+        </div>
 
-         <div class="col-12">
-           <label>Last Name</label>
-         </div>
-         <div class="col-12 mobile-row">
-           <input
-             id="lastNameMobile"
-             name="lastName"
-             placeholder="Last Name"
-             [(ngModel)]="quote.contact.lastName"
-             type="text"
-             class="form-control"
-             minlength="2"
-             pattern="^[a-zA-Z]*$"
-             required
-             #lastName="ngModel">
-           <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
-             <div *ngIf="lastName.errors.required">Last name is required.</div>
-             <div *ngIf="lastName.errors.minlength">A minimum of 2 letters are required.</div>
-             <div *ngIf="lastName.errors.pattern">Last name is not valid.</div>
-           </div>
-         </div>
-
-
-         <div class="col-12">
-           <label>Email</label>
-         </div>
-         <div class="col-12 mobile-row">
-           <input
-             id="emailMobile"
-             name="email"
-             placeholder="Email"
-             [(ngModel)]="quote.contact.email"
-             type="email"
-             class="form-control"
-             minlength="2"
-             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-             email
-             required
-             #email="ngModel">
-           <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
-             <div *ngIf="email.errors.required">Email is required.</div>
-             <div *ngIf="email.errors.minlength">A minimum of 2 letters are required.</div>
-             <div *ngIf="email.errors.pattern">Last name is not valid.</div>
-           </div>
-         </div>
+        <div class="col-12">
+          <label>Last Name</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <input
+            id="lastNameMobile"
+            name="lastName"
+            placeholder="Last Name"
+            [(ngModel)]="quote.contact.lastName"
+            type="text"
+            class="form-control"
+            minlength="2"
+            pattern="^[a-zA-Z]*$"
+            required
+            #lastName="ngModel">
+          <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
+            <div *ngIf="lastName.errors.required">Last name is required.</div>
+            <div *ngIf="lastName.errors.minlength">A minimum of 2 letters are required.</div>
+            <div *ngIf="lastName.errors.pattern">Last name is not valid.</div>
+          </div>
+        </div>
 
 
-         <div class="col-12">
-           <label>Phone Number</label>
-         </div>
-         <div class="col-12 mobile-row">
-           <input
-             id="phoneNumberMobile"
-             name="phoneNumber"
-             placeholder="Phone Number"
-             [(ngModel)]="quote.contact.phoneNumber"
-             type="number"
-             class="form-control"
-             maxlength="10"
-             pattern="^(0|[1-9][0-9]*)"
-             required
-             #phoneNumber="ngModel">
-           <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="alert alert-danger">
-             <div *ngIf="phoneNumber.errors.required">Phone number is required.</div>
-             <div *ngIf="phoneNumber.errors.pattern">Phone number is not valid.</div>
-           </div>
-         </div>
+        <div class="col-12">
+          <label>Email</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <input
+            id="emailMobile"
+            name="email"
+            placeholder="Email"
+            [(ngModel)]="quote.contact.email"
+            type="email"
+            class="form-control"
+            minlength="2"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            email
+            required
+            #email="ngModel">
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+            <div *ngIf="email.errors.required">Email is required.</div>
+            <div *ngIf="email.errors.minlength">A minimum of 2 letters are required.</div>
+            <div *ngIf="email.errors.pattern">Last name is not valid.</div>
+          </div>
+        </div>
 
 
-         <div class="col-12">
-           <label>City</label>
-         </div>
-         <div class="col-12 mobile-row">
-           <input
-             id="cityMobile"
-             name="city"
-             placeholder="City"
-             [(ngModel)]="quote.contact.address.city"
-             type="text"
-             class="form-control"
-             minlength="2"
-             pattern="^[a-zA-Z]*$"
-             required
-             #city="ngModel">
-           <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
-             <div *ngIf="city.errors.required">City is required.</div>
-             <div *ngIf="city.errors.minlength">A minimum of 2 letters are required.</div>
-             <div *ngIf="city.errors.pattern">City is not valid.</div>
-           </div>
-         </div>
+        <div class="col-12">
+          <label>Phone Number</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <input
+            id="phoneNumberMobile"
+            name="phoneNumber"
+            placeholder="Phone Number"
+            [(ngModel)]="quote.contact.phoneNumber"
+            type="number"
+            class="form-control"
+            maxlength="10"
+            pattern="^(0|[1-9][0-9]*)"
+            required
+            #phoneNumber="ngModel">
+          <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="alert alert-danger">
+            <div *ngIf="phoneNumber.errors.required">Phone number is required.</div>
+            <div *ngIf="phoneNumber.errors.pattern">Phone number is not valid.</div>
+          </div>
+        </div>
 
 
-         <div class="col-12">
-           <label>State</label>
-         </div>
-         <div class="col-12 mobile-row">
-           <select class="form-control" id="stateMobile" required>
-             <option *ngFor="let state of states" [value]="state">{{state}}</option>
-           </select>
-         </div>
+        <div class="col-12">
+          <label>City</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <input
+            id="cityMobile"
+            name="city"
+            placeholder="City"
+            [(ngModel)]="quote.contact.address.city"
+            type="text"
+            class="form-control"
+            minlength="2"
+            pattern="^[a-zA-Z]*$"
+            required
+            #city="ngModel">
+          <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
+            <div *ngIf="city.errors.required">City is required.</div>
+            <div *ngIf="city.errors.minlength">A minimum of 2 letters are required.</div>
+            <div *ngIf="city.errors.pattern">City is not valid.</div>
+          </div>
+        </div>
 
 
-         <div class="section-heading">Business Information</div>
-         <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
-           by<span class="br-mobile"></span> our labors of love.
-         </div>
-         <div class="col-12 mobile-row">
-
-         </div>
-
-         <div class="col-12">
-           <label>Business Name</label>
-         </div>
-         <div class="col-12 mobile-row">
-           <input
-             id="nameMobile"
-             name="name"
-             placeholder="Business Name"
-             [(ngModel)]="quote.company.name"
-             type="text"
-             class="form-control"
-             minlength="2"
-             pattern="^[a-zA-Z]*$"
-             required
-             #name="ngModel">
-           <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
-             <div *ngIf="name.errors.required">Business name is required.</div>
-             <div *ngIf="name.errors.minlength">A minimum of 2 letters are required.</div>
-             <div *ngIf="name.errors.pattern">Business name is not valid.</div>
-           </div>
-
-         </div>
+        <div class="col-12">
+          <label>State</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <select class="form-control" id="stateMobile" required>
+            <option *ngFor="let state of states" [value]="state">{{state}}</option>
+          </select>
+        </div>
 
 
-         <div class="col-12">
-           <label>Business URL</label>
-         </div>
-         <div class="col-12 mobile-row">
-           <input
-             id="urlMobile"
-             name="url"
-             placeholder="URL"
-             [(ngModel)]="quote.company.url"
-             type="text"
-             class="form-control"
-             minlength="2"
-             pattern="^[a-zA-Z]*$"
-             required
-             #url="ngModel">
-           <div *ngIf="url.invalid && (url.dirty || url.touched)" class="alert alert-danger">
-             <div *ngIf="url.errors.required">URL is required.</div>
-             <div *ngIf="url.errors.minlength">A minimum of 2 letters are required.</div>
-             <div *ngIf="url.errors.pattern">Last name is not valid.</div>
-           </div>
-         </div>
+        <div class="section-heading">Business Information</div>
+        <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
+          by<span class="br-mobile"></span> our labors of love.
+        </div>
+        <div class="col-12 mobile-row">
+
+        </div>
+
+        <div class="col-12">
+          <label>Business Name</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <input
+            id="nameMobile"
+            name="name"
+            placeholder="Business Name"
+            [(ngModel)]="quote.company.name"
+            type="text"
+            class="form-control"
+            minlength="2"
+            pattern="^[a-zA-Z]*$"
+            required
+            #name="ngModel">
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+            <div *ngIf="name.errors.required">Business name is required.</div>
+            <div *ngIf="name.errors.minlength">A minimum of 2 letters are required.</div>
+            <div *ngIf="name.errors.pattern">Business name is not valid.</div>
+          </div>
+
+        </div>
 
 
-         <div class="col-12">
-           <label>Type of Project</label>
-         </div>
-         <div class="col-12 mobile-row">
-           <select class="form-control" id="typeMobile" required>
-             <option *ngFor="let type of projects" [value]="type">{{type}}</option>
-           </select>
+        <div class="col-12">
+          <label>Business URL</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <input
+            id="urlMobile"
+            name="url"
+            placeholder="URL"
+            [(ngModel)]="quote.company.url"
+            type="text"
+            class="form-control"
+            minlength="2"
+            pattern="^[a-zA-Z]*$"
+            required
+            #url="ngModel">
+          <div *ngIf="url.invalid && (url.dirty || url.touched)" class="alert alert-danger">
+            <div *ngIf="url.errors.required">URL is required.</div>
+            <div *ngIf="url.errors.minlength">A minimum of 2 letters are required.</div>
+            <div *ngIf="url.errors.pattern">Last name is not valid.</div>
+          </div>
+        </div>
 
-         </div>
+
+        <div class="col-12">
+          <label>Type of Project</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <select class="form-control" id="typeMobile" required>
+            <option *ngFor="let type of projects" [value]="type">{{type}}</option>
+          </select>
+
+        </div>
 
 
-         <div class="col-12">
-           <label>What Kind Of Business Are You</label>
-         </div>
-         <div class="col-12 mobile-row">
-           <select class="form-control" id="estMobile" required>
-             <option *ngFor="let est of businessTypes" [value]="est">{{est}}</option>
-           </select>
-         </div>
+        <div class="col-12">
+          <label>What Kind Of Business Are You</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <select class="form-control" id="estMobile" required>
+            <option *ngFor="let est of businessTypes" [value]="est">{{est}}</option>
+          </select>
+        </div>
 
 
+        <div class="col-12">
+          <label>Budget: </label>
+        </div>
+        <div class="col-12 mobile-row">
+          <b>$0 </b>
 
-             <div class="col-12">
-               <label>Budget: </label>
-             </div>
-             <div class="col-12 mobile-row">
-               <b>$0       </b>
-
-               <mv-slider id="rangeMobile"  range="true"  [(value)]="value" [min]="0" [max]="100000" [enabled]="enabled"
-                          (change)="changeBudget()" style="
+          <mv-slider id="rangeMobile" range="true" [(value)]="value" [min]="0" [max]="100000" [enabled]="enabled"
+                     (change)="changeBudget()" style="
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 5px;
 ">
-               </mv-slider>
-               <b>    $100k</b>
-             </div>
-<div class="col-12 mobile-row">
-  <input class="form-control" id="budgetMobile" *ngFor="let budget of budgets" [value]="budget" placeholder="{{budget}}" required disabled>
-</div>
+          </mv-slider>
+          <b> $100k</b>
+        </div>
+        <div class="col-12 mobile-row">
+          <input class="form-control" id="budgetMobile" *ngFor="let budget of budgets" [value]="budget"
+                 placeholder="{{budget}}" required disabled>
+        </div>
 
-             <div class="col-12 mobile-row">
-               <label>Timeline</label>
-             </div>
-             <div class="col-12 mobile-row">
-               <b>Short </b>
+        <div class="col-12 mobile-row">
+          <label>Timeline</label>
+        </div>
+        <div class="col-12 mobile-row">
+          <b>Short </b>
 
-               <mv-slider id="rangeAMobile"  range="false"  [(value)]="timeframe" [min]="1" [max]="36" [enabled]="enabled"
-                          (change)="changeTimeline()" style="
+          <mv-slider id="rangeAMobile" range="false" [(value)]="timeframe" [min]="1" [max]="36" [enabled]="enabled"
+                     (change)="changeTimeline()" style="
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 5px;
 ">
 
-               </mv-slider>
-               <b>Long</b>
-             </div>
-         <div class="col-12 mobile-row">
-           <input class="form-control" id="timelineMobile" *ngFor="let timeline of timelines" [value]="timeline" placeholder="{{timeline}}" required disabled>
-         </div>
+          </mv-slider>
+          <b>Long</b>
+        </div>
+        <div class="col-12 mobile-row">
+          <input class="form-control" id="timelineMobile" *ngFor="let timeline of timelines" [value]="timeline"
+                 placeholder="{{timeline}}" required disabled>
+        </div>
 
 
-         <div class="col-12">
-           <label>Project Description</label>
-         </div>
-         <div class="col-12 mobile-row">
+        <div class="col-12">
+          <label>Project Description</label>
+        </div>
+        <div class="col-12 mobile-row">
                <textarea class="form-control" rows="3"
                          id="projectDescMobile"
                          name="desc"
@@ -518,16 +518,17 @@
                          required
                          #desc="ngModel"
                          placeholder="Describe your project."></textarea>
-           <div class="alert alert-danger"
-                *ngIf="desc.errors && (desc.dirty || desc.touched)">
-             <div *ngIf="desc.errors.required">Please describe your project.</div>
-           </div>
-         </div>
+          <div class="alert alert-danger"
+               *ngIf="desc.errors && (desc.dirty || desc.touched)">
+            <div *ngIf="desc.errors.required">Please describe your project.</div>
+          </div>
+        </div>
 
-         <button type="submit" [disabled]="!quoteForm.valid" (click)="onSubmit()" class="contact-button btn btn-block"> Submit
-         </button>
-       </form>
-     </section>
+        <button type="submit" [disabled]="!quoteForm.valid" (click)="onSubmit()" class="contact-button btn btn-block">
+          Submit
+        </button>
+      </form>
+    </section>
   </div>
 </main>
 
