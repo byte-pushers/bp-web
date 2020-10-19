@@ -204,14 +204,20 @@
                 <div class="row-1">
                   <label>Budget:</label>
                 </div>
+                <div class="slider-min">
                 <b>$0 </b>
+                </div>
+                <div class="slider-content">
                 <mv-slider id="range" range="true" [(value)]="value" [min]="0" [max]="100000" [enabled]="enabled"
                            (change)="changeBudget()" style="
     margin-left: 5px;
     margin-right: 5px;
 ">
                 </mv-slider>
+                </div>
+              <div class="slider-max">
                 <b> $100k</b>
+              </div>
                 <input class="form-control" id="budget" *ngFor="let budget of budgets" [value]="budget"
                        placeholder="{{budget}}" required disabled>
               </div>
