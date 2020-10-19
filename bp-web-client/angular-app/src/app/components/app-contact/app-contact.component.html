@@ -203,14 +203,17 @@
                 <div class="row-1">
                   <label>Budget:</label>
                 </div>
+                <div class="slider-min">
                 <b>$0 </b>
+                </div>
+                <div class="slider-max">
+                  <b> $100k</b>
+                </div>
+                <div class="slider-content">
                 <mv-slider id="range" range="true" [(value)]="value" [min]="0" [max]="100000" [enabled]="enabled"
-                           (change)="changeBudgetOnScroll()" style="
-    margin-left: 5px;
-    margin-right: 5px;
-">
+                           (change)="changeBudgetOnScroll()">
                 </mv-slider>
-                <b> $100k</b>
+                </div>
                 <input class="form-control" id="budget" *ngFor="let budget of budgets" [value]="budget"
                        placeholder="{{budget}}" required disabled>
               </div>
@@ -219,15 +222,17 @@
                 <div class="row-1">
                   <label>Timeline:</label>
                 </div>
-                <b>Short </b>
+                <div class="slider-min"><b>Short </b></div>
+
+                <div class="slider-max">
+                  <b>Longer</b>
+                </div>
+                <div class="slider-content">
                 <mv-slider id="rangeA" range="false" [(value)]="timeframe" [min]="1" [max]="36" [enabled]="enabled"
-                           (change)="changeTimeline()" style="
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-">
+                           (change)="changeTimeline()">
                 </mv-slider>
-                <b>Longer</b>
+                </div>
+
                 <input class="form-control" id="timeline" *ngFor="let timeline of timelines" [value]="timeline"
                        placeholder="{{timeline}}" required disabled>
               </div>
@@ -465,43 +470,46 @@
         <div class="col-12">
           <label>Budget: </label>
         </div>
-        <div class="col-12 mobile-row">
+        <div class="col-12 mobile-slider">
+          <div class="slider-min">
           <b>$0 </b>
-
-          <mv-slider id="rangeMobile" range="true" [(value)]="value" [min]="0" [max]="100000" [enabled]="enabled"
-                     (change)="changeBudget()" style="
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-">
-          </mv-slider>
+          </div>
+          <div class="slider-max">
           <b> $100k</b>
+          </div>
+<div class="slider-content">
+          <mv-slider id="rangeMobile" range="true" [(value)]="value" [min]="0" [max]="100000" [enabled]="enabled"
+                     (change)="changeBudgetOnScroll()">
+          </mv-slider>
+</div>
         </div>
-        <div class="col-12 mobile-row">
+<div class="mobile-row col-12">
           <input class="form-control" id="budgetMobile" *ngFor="let budget of budgets" [value]="budget"
                  placeholder="{{budget}}" required disabled>
-        </div>
+</div>
+
 
         <div class="col-12 mobile-row">
           <label>Timeline</label>
         </div>
-        <div class="col-12 mobile-row">
+        <div class="col-12 mobile-slider">
+          <div class="slider-min">
           <b>Short </b>
+          </div>
 
+          <div class="slider-max">
+<b>Longer</b>
+          </div>
+          <div class="slider-content">
           <mv-slider id="rangeAMobile" range="false" [(value)]="timeframe" [min]="1" [max]="36" [enabled]="enabled"
-                     (change)="changeTimeline()" style="
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-">
-
+                     (change)="changeTimeline()" style="margin-bottom: 20px">
           </mv-slider>
-          <b>Long</b>
+          </div>
         </div>
-        <div class="col-12 mobile-row">
-          <input class="form-control" id="timelineMobile" *ngFor="let timeline of timelines" [value]="timeline"
-                 placeholder="{{timeline}}" required disabled>
-        </div>
+<div class="col-12 mobile-row">
+          <input class="form-control col-12 mobile-row" id="timelineMobile" *ngFor="let timeline of timelines" [value]="timeline"
+                 placeholder="{{timeline}}" required disabled style="margin-bottom: 20px">
+</div>
 
 
         <div class="col-12">
