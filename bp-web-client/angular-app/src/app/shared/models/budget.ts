@@ -1,4 +1,7 @@
 export interface Budget {
-  min: number;
- max: number;
+  getMin(): number;
+  setMin(min: number): void;
+
+  getMax(): number;
+  setMax(max: number): void;
 }

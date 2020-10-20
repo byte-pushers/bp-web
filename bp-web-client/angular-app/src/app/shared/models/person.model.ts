@@ -14,19 +14,19 @@ export class PersonModel extends BaseEntityModel implements Person {
 
   static readonly DEFAULT_CONFIG: any = {
     id: null,
-   firstName: null,
-   lastName: null,
+    firstName: null,
+    lastName: null,
     email: null,
-   phoneNumber: null,
-   address: new AddressModel(AddressModel.DEFAULT_CONFIG)
+    phoneNumber: null,
+    address: AddressModel.DEFAULT_CONFIG
   };
-  constructor(private personModelConfig: PersonModel){
+  constructor(private personModelConfig: Person){
     super(personModelConfig);
-    this._firstName = (personModelConfig !== null && personModelConfig !== undefined) ? personModelConfig.firstName: null;
-    this._lastName = (personModelConfig !== null && personModelConfig !== undefined) ? personModelConfig.lastName: null;
-    this._email = (personModelConfig !== null && personModelConfig !== undefined) ? personModelConfig.email: null;
-    this._phoneNumber = (personModelConfig !== null && personModelConfig !== undefined) ? personModelConfig.phoneNumber: null;
-    this._address = (personModelConfig !== null && personModelConfig !== undefined) ? personModelConfig.address: null;
+    this._firstName = (personModelConfig !== null && personModelConfig !== undefined) ? personModelConfig.firstName : null;
+    this._lastName = (personModelConfig !== null && personModelConfig !== undefined) ? personModelConfig.lastName : null;
+    this._email = (personModelConfig !== null && personModelConfig !== undefined) ? personModelConfig.email : null;
+    this._phoneNumber = (personModelConfig !== null && personModelConfig !== undefined) ? personModelConfig.phoneNumber : null;
+    this._address = (personModelConfig !== null && personModelConfig !== undefined) ? new AddressModel(personModelConfig.address) : null;
   };
 
   get firstName() {

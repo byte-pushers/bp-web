@@ -17,10 +17,9 @@ export class AddressModel extends BaseEntityModel implements Address {
     state: null,
     zip: null,
     county: null
-
   };
 
-  constructor(private addressModelConfig: AddressModel) {
+  constructor(private addressModelConfig: Address) {
     super(addressModelConfig);
     this._street = (addressModelConfig !== null && addressModelConfig !== undefined) ? addressModelConfig.street : null;
     this._city = (addressModelConfig !== null && addressModelConfig !== undefined) ? addressModelConfig.city : null;
