@@ -1,4 +1,6 @@
-export interface Address {
+import {BaseEntity} from "./base.entity";
+
+export interface Address extends BaseEntity {
   getStreet(): [string];
   setStreet(street: [string]): void;
 
