@@ -40,11 +40,23 @@ export class CompanyModel extends BaseEntityModel implements Company {
     return this._name;
   }
 
+  getName() {
+    return this._name;
+  }
+
   set name(name: string) {
     this._name = name;
   }
 
-  getCompanyType() {
+  setName(name: string) {
+    this._name = name;
+  }
+
+  get Type() {
+    return this._type;
+  }
+
+  getType() {
     return this._type;
   }
 
@@ -52,7 +64,15 @@ export class CompanyModel extends BaseEntityModel implements Company {
     this._type = type;
   }
 
+  setType(type: string) {
+    this._type = type;
+  }
+
   get budget() {
+    return this._budget;
+  }
+
+  getBudget() {
     return this._budget;
   }
 
@@ -60,15 +80,31 @@ export class CompanyModel extends BaseEntityModel implements Company {
     this._budget = budget;
   }
 
+  setBudget(budget: Budget) {
+    this._budget = budget;
+  }
+
   get est() {
     return this._est;
   }
 
+  isEstablishedCompany() {
+    return this._est;
+  }
+
   set est(est: boolean) {
-    this._est = false;
+    this._est = est;
+  }
+
+  setEstablishedCompany(establishedCompany: boolean) {
+    this._est = establishedCompany;
   }
 
   get url() {
+    return this._url;
+  }
+
+  getUrl() {
     return this._url;
   }
 
@@ -76,7 +112,15 @@ export class CompanyModel extends BaseEntityModel implements Company {
     this._url = url;
   }
 
+  setUrl(url: string) {
+    this._url = url;
+  }
+
   get timeline() {
+    return this._timeline;
+  }
+
+  getTimeline() {
     return this._timeline;
   }
 
@@ -85,12 +129,25 @@ export class CompanyModel extends BaseEntityModel implements Company {
 
   }
 
+  setTimeline(timeline: TimeLine) {
+    this._timeline = timeline;
+
+  }
+
   get desc() {
+    return this._desc;
+  }
+
+  getDescription() {
     return this._desc;
   }
 
   set desc(desc: string) {
     this._desc = desc;
+  }
+
+  setDescription(description: string) {
+    this._desc = description;
   }
 }
 
