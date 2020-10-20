@@ -24,16 +24,28 @@ export class QuoteModel extends BaseEntityModel implements Quote {
   get contact() {
     return this._contact;
   }
+  getContact() {
+    return this._contact;
+  }
 
   set contact(contact: Person) {
+    this._contact = contact;
+  }
+  setContact(contact: Person) {
     this._contact = contact;
   }
 
   get company() {
     return this._company;
   }
+  getCompany() {
+    return this._company;
+  }
 
   set company(company: Company) {
+    this._company = company;
+  }
+  setCompany(company: Company) {
     this._company = company;
   }
 }

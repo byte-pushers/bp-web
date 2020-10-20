@@ -19,14 +19,26 @@ export class TimeLineModel extends BaseEntityModel implements TimeLine {
   get max() {
     return this._max;
   }
+  getMax() {
+    return this._max;
+  }
   set max(max: Date) {
+    this._max = max;
+  }
+  setMax(max: Date) {
     this._max = max;
   }
 
   get min() {
     return this._min;
   }
+  getMin() {
+    return this._min;
+  }
   set min(min: Date) {
+    this._min = min;
+  }
+  setMin(min: Date) {
     this._min = min;
   }
 
