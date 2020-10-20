@@ -4,7 +4,7 @@ export class BaseEntityModel implements BaseEntity {
 
   private _id: number;
 
-  constructor(private baseEntityModelConfig: BaseEntityModel) {
+  constructor(private baseEntityModelConfig: any) {
     this.id = (baseEntityModelConfig !== null && baseEntityModelConfig !== undefined) ? baseEntityModelConfig.id : null;
   };
 

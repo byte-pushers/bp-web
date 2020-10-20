@@ -1,7 +1,8 @@
 import {Budget} from "./budget";
 import {TimeLine} from "./time-line";
+import {BaseEntity} from "./base.entity";
 
-export interface Company {
+export interface Company extends BaseEntity {
   getName(): string;
   setName(name: string): void;
 
