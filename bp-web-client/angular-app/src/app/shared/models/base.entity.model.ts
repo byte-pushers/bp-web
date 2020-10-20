@@ -1,10 +1,9 @@
 import {BaseEntity} from "./base.entity";
 
 export class BaseEntityModel implements BaseEntity {
-
   private _id: number;
 
-  constructor(private baseEntityModelConfig: any) {
+  constructor(baseEntityModelConfig: any) {
     this.id = (baseEntityModelConfig !== null && baseEntityModelConfig !== undefined) ? baseEntityModelConfig.id : null;
   };
 
