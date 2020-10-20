@@ -12,12 +12,12 @@ export class BaseEntityModel implements BaseEntity {
     return this._id;
   }
 
-  set id(id: number) {
-    this._id = id;
-  }
-
   getId(): number {
     return this._id;
+  }
+
+  set id(id: number) {
+    this._id = id;
   }
 
   setId(id: number): void {
