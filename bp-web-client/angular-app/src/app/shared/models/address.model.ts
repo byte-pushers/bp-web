@@ -4,6 +4,7 @@ import {CompanyModel} from "./company.model";
 import {BaseEntityModel} from "./base.entity.model";
 
 export class AddressModel extends BaseEntityModel implements Address {
+
   private _street: [string];
   private _city: string;
   private _state: string;
@@ -17,10 +18,9 @@ export class AddressModel extends BaseEntityModel implements Address {
     state: null,
     zip: null,
     county: null
-
   };
 
-  constructor(private addressModelConfig: AddressModel) {
+  constructor(addressModelConfig: any) {
     super(addressModelConfig);
     this._street = (addressModelConfig !== null && addressModelConfig !== undefined) ? addressModelConfig.street : null;
     this._city = (addressModelConfig !== null && addressModelConfig !== undefined) ? addressModelConfig.city : null;
@@ -33,12 +33,23 @@ export class AddressModel extends BaseEntityModel implements Address {
     return this._street;
   }
 
+  getStreet(): [string] {
+    return this._street;
+  }
+
   set street(street: [string]) {
     this._street = street;
   }
 
+  setStreet(street: [string]): void {
+    this._street = street;
+  }
 
   get city() {
+    return this._city;
+  }
+
+  getCity(): string {
     return this._city;
   }
 
@@ -46,7 +57,15 @@ export class AddressModel extends BaseEntityModel implements Address {
     this._city = city;
   }
 
+  setCity(city: string) {
+    this._city = city;
+  }
+
   get state() {
+    return this._state;
+  }
+
+  getState() {
     return this._state;
   }
 
@@ -54,7 +73,15 @@ export class AddressModel extends BaseEntityModel implements Address {
     this._state = state;
   }
 
+  setState(state: string) {
+    this._state = state;
+  }
+
   get zip() {
+    return this._zip;
+  }
+
+  getZip() {
     return this._zip;
   }
 
@@ -62,7 +89,15 @@ export class AddressModel extends BaseEntityModel implements Address {
     this._zip = zip;
   }
 
+  setZip(zip: string) {
+    this._zip = zip;
+  }
+
   get county() {
+    return this._county;
+  }
+
+  getCounty() {
     return this._county;
   }
 
@@ -70,5 +105,7 @@ export class AddressModel extends BaseEntityModel implements Address {
     this._county = county;
   }
 
-
+  setCounty(county: string) {
+    this._county = county;
+  }
 }
