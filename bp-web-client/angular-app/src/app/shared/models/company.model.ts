@@ -25,7 +25,7 @@ export class CompanyModel extends BaseEntityModel implements Company {
     desc: null,
     est: false
   };
-  constructor(private companyModelConfig: CompanyModel){
+  constructor(private companyModelConfig: CompanyModel) {
     super(companyModelConfig);
    this._name = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.name : null;
    this._type = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.type :  null;
