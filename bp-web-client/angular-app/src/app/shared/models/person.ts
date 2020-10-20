@@ -1,6 +1,7 @@
 import {Address} from "./address";
+import {BaseEntity} from "./base.entity";
 
-export interface Person {
+export interface Person extends BaseEntity {
   getFirstName(): string;
   setFirstName(firstName: string): void;
 
@@ -15,6 +16,4 @@ export interface Person {
 
   getAddress(): Address;
   setAddress(address: Address): void;
-
-
 }

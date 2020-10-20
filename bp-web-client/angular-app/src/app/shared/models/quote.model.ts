@@ -15,7 +15,7 @@ export class QuoteModel extends BaseEntityModel implements Quote {
     company: CompanyModel.DEFAULT_CONFIG
   };
 
-  constructor(private quoteConfig: QuoteModel) {
+  constructor(private quoteConfig: any) {
     super(quoteConfig);
     this._contact = (quoteConfig !== null && quoteConfig !== undefined) ? new PersonModel(quoteConfig.contact) : null;
     this._company = (quoteConfig !== null && quoteConfig !== undefined) ? new CompanyModel(quoteConfig.company) : null;
@@ -24,6 +24,7 @@ export class QuoteModel extends BaseEntityModel implements Quote {
   get contact() {
     return this._contact;
   }
+
   getContact() {
     return this._contact;
   }
@@ -31,6 +32,7 @@ export class QuoteModel extends BaseEntityModel implements Quote {
   set contact(contact: Person) {
     this._contact = contact;
   }
+
   setContact(contact: Person) {
     this._contact = contact;
   }
@@ -38,6 +40,7 @@ export class QuoteModel extends BaseEntityModel implements Quote {
   get company() {
     return this._company;
   }
+
   getCompany() {
     return this._company;
   }
@@ -45,6 +48,7 @@ export class QuoteModel extends BaseEntityModel implements Quote {
   set company(company: Company) {
     this._company = company;
   }
+
   setCompany(company: Company) {
     this._company = company;
   }

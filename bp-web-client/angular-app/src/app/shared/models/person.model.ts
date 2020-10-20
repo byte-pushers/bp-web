@@ -21,7 +21,7 @@ export class PersonModel extends BaseEntityModel implements Person {
     address: AddressModel.DEFAULT_CONFIG
   };
 
-  constructor(private personModelConfig: Person) {
+  constructor(private personModelConfig: any) {
     super(personModelConfig);
     this._firstName = (personModelConfig !== null && personModelConfig !== undefined) ? personModelConfig.firstName : null;
     this._lastName = (personModelConfig !== null && personModelConfig !== undefined) ? personModelConfig.lastName : null;
