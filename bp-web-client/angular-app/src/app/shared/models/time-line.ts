@@ -1,4 +1,6 @@
-export interface TimeLine {
+import {BaseEntity} from "./base.entity";
+
+export interface TimeLine extends BaseEntity {
   getMin(): Date;
   setMin(min: Date): void;
 
