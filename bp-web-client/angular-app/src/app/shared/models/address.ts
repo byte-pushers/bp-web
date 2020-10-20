@@ -1,6 +1,6 @@
 export interface Address {
   getStreet(): [string];
-  setString(street: [string]): void;
+  setStreet(street: [string]): void;
 
   getCity(): string;
   setCity(city: string): void;
