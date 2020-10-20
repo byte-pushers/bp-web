@@ -15,7 +15,7 @@ export class QuoteModel extends BaseEntityModel implements Quote {
     company: CompanyModel.DEFAULT_CONFIG
   };
 
-  constructor(private quoteConfig: any) {
+  constructor(quoteConfig: any) {
     super(quoteConfig);
     this._contact = (quoteConfig !== null && quoteConfig !== undefined) ? new PersonModel(quoteConfig.contact) : null;
     this._company = (quoteConfig !== null && quoteConfig !== undefined) ? new CompanyModel(quoteConfig.company) : null;

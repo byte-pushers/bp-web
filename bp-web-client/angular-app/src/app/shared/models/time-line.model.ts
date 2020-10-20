@@ -10,7 +10,7 @@ export class TimeLineModel extends BaseEntityModel implements TimeLine {
     _max: null
   };
 
-  constructor(private timelineConfig: any) {
+  constructor(timelineConfig: any) {
     super(timelineConfig);
     this._min = (timelineConfig !== null && timelineConfig !== undefined) ? timelineConfig.min : null;
     this._max = (timelineConfig !== null && timelineConfig !== undefined) ? timelineConfig.max : null;
