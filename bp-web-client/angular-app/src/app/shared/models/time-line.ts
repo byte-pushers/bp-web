@@ -1,4 +1,7 @@
 export interface TimeLine {
-min: Date;
-max: Date;
+  getMin(): Date;
+  setMin(min: Date): void;
+
+  getMax(): Date;
+  setMax(max: Date): void;
 }
