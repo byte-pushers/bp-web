@@ -131,13 +131,10 @@ export class ContactComponent implements OnInit {
   }
 
   public changeBudgetOnScroll() {
-    const formatter = new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-    });
+
     const budgetMin = this.value[0];
     const budgetMax = this.value[1];
-    const newBudget = 'Range'.concat((': ') + formatter.format(budgetMin) + ' - ' + formatter.format(budgetMax) + ' and up');
+    const newBudget = 'Range'.concat((': ') + ('$ ') + budgetMin + ' - ' + ('$ ') + budgetMax + ' and up');
     this.budgets.splice(0, 1, newBudget);
   }
 
