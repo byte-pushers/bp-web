@@ -21,5 +21,5 @@ export interface Company {
   setDescription(description: string): void;
 
   isEstablishedCompany(): boolean;
-  setEstablishedCompany(establishedCompany : boolean): void;
+  setEstablishedCompany(establishedCompany: boolean): void;
 }
