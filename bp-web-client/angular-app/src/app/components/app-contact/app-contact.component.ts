@@ -3,6 +3,7 @@ import {NgForm} from "@angular/forms";
 import {QuoteService} from "../../shared/services/quote.service";
 import {Quote} from "../../shared/models/quote";
 import {QuoteModel} from "../../shared/models/quote.model";
+import {add} from "ngx-bootstrap/chronos";
 
 
 @Component({
@@ -11,11 +12,18 @@ import {QuoteModel} from "../../shared/models/quote.model";
   styleUrls: ['./app-contact.component.css']
 })
 export class ContactComponent implements OnInit {
+
+  constructor(private quoteService: QuoteService) {
+
+  }
+
   // @ts-ignore
   @ViewChild('quoteForm') quoteForm: any;
   public quote: Quote = new QuoteModel(QuoteModel.DEFAULT_CONFIG);
   isSubmitted = false;
-  states: any = ['Alabama',
+  states: any = [
+    'Select A State',
+    'Alabama',
     'Alaska',
     'Arizona',
     'Arkansas',
@@ -65,18 +73,28 @@ export class ContactComponent implements OnInit {
     'West Virginia',
     'Wisconsin',
     'Wyoming'];
-  projects: any = ['Option 1', 'Option 2', 'Option 3'];
-  businessTypes: any = ['Option 1', 'Option 2', 'Option 3'];
+  projects: any = ['Select An Option', 'Option 1', 'Option 2', 'Option 3'];
+  businessTypes: any = ['Select An Option', 'Option 1', 'Option 2', 'Option 3'];
   value: any = [0, 100000];
-  budgets: any  = ['Slide for budget amount'];
-  timelines: any = ['1-3 Months', '3-6 Months', '6+ Months'];
+  budgets: any = ['Slide for budget amount'];
+  timelines: any = ['Slide for time frame'];
+  timeframe: any = [0, 35];
 
-  constructor(private quoteService: QuoteService) {
-
-  }
 
   ngOnInit() {
 
+  }
+
+  public isMobileResolution(): boolean {
+    let isMobileResolution: boolean = false;
+
+    if (window.innerWidth < 768) {
+      isMobileResolution = true;
+    } else {
+      isMobileResolution = false;
+    }
+
+    return isMobileResolution;
   }
 
   public onSubmit(): boolean {
@@ -88,19 +106,37 @@ export class ContactComponent implements OnInit {
     }
   }
 
-  public reset(form: NgForm)  {
+  public reset(form: NgForm) {
     form.resetForm();
   }
 
-  private saveQuote(){
-    if (this.quote !== null && this.quote !== undefined){
+  private saveQuote() {
+    if (this.quote !== null && this.quote !== undefined) {
       this.quoteService.createQuote(this.quote).subscribe(newlyCreatedQuote => {
         // TODO should have a new object with IDs populated through out the object graph.
         console.log('newly created quote: ' + newlyCreatedQuote, newlyCreatedQuote);
       }, error => {
         // TODO should display error message at top of quote page.
         console.log('error: ' + error, error);
-      })
+      });
     }
   }
+
+
+  public changeTimeline() {
+    if (this.timeframe !== null && this.timeframe !== undefined) {
+      const newMonth = 'Range: '.concat(this.timeframe[0] + (' Months - ') + this.timeframe[1] + (' Months'));
+      this.timelines.splice(0, 1, newMonth);
+    }
+  }
+
+  public changeBudgetOnScroll() {
+
+    const budgetMin = this.value[0];
+    const budgetMax = this.value[1];
+    const newBudget = 'Range'.concat((': ') + ('$ ') + budgetMin + ' - ' + ('$ ') + budgetMax + ' and up');
+    this.budgets.splice(0, 1, newBudget);
+  }
+
+
 }
