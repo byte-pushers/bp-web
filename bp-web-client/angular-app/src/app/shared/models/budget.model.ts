@@ -12,15 +12,25 @@ export class BudgetModel extends BaseEntityModel implements Budget{
     max: null
   };
 
-  constructor(private budgetConfig: BudgetModel) {
+  constructor(budgetConfig: any) {
     super(budgetConfig);
     this._min = (budgetConfig !== null && budgetConfig !== undefined) ? budgetConfig.min : null;
     this._max = (budgetConfig !== null && budgetConfig !== undefined) ? budgetConfig.max : null;
   }
+
   get max() {
     return this._max;
   }
+
+  getMax() {
+    return this._max;
+  }
+
   set max(max: number) {
+    this._max = max;
+  }
+
+  setMax(max: number) {
     this._max = max;
   }
 
@@ -28,8 +38,15 @@ export class BudgetModel extends BaseEntityModel implements Budget{
     return this._min;
   }
 
+  getMin() {
+    return this._min;
+  }
+
   set min(min: number) {
     this._min = min;
   }
 
+  setMin(min: number) {
+    this._min = min;
+  }
 }

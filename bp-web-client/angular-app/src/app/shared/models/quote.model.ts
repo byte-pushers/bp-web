@@ -11,17 +11,21 @@ export class QuoteModel extends BaseEntityModel implements Quote {
 
   static readonly DEFAULT_CONFIG: any = {
     id: null,
-    contact: new PersonModel(PersonModel.DEFAULT_CONFIG),
-    company: new CompanyModel(CompanyModel.DEFAULT_CONFIG)
+    contact: PersonModel.DEFAULT_CONFIG,
+    company: CompanyModel.DEFAULT_CONFIG
   };
 
-  constructor(private quoteConfig: QuoteModel) {
+  constructor(quoteConfig: any) {
     super(quoteConfig);
-    this._contact = (quoteConfig !== null && quoteConfig !== undefined) ? quoteConfig.contact : null;
-    this._company = (quoteConfig !== null && quoteConfig !== undefined) ? quoteConfig.company : null;
+    this._contact = (quoteConfig !== null && quoteConfig !== undefined) ? new PersonModel(quoteConfig.contact) : null;
+    this._company = (quoteConfig !== null && quoteConfig !== undefined) ? new CompanyModel(quoteConfig.company) : null;
   }
 
   get contact() {
+    return this._contact;
+  }
+
+  getContact() {
     return this._contact;
   }
 
@@ -29,11 +33,23 @@ export class QuoteModel extends BaseEntityModel implements Quote {
     this._contact = contact;
   }
 
+  setContact(contact: Person) {
+    this._contact = contact;
+  }
+
   get company() {
     return this._company;
   }
 
+  getCompany() {
+    return this._company;
+  }
+
   set company(company: Company) {
+    this._company = company;
+  }
+
+  setCompany(company: Company) {
     this._company = company;
   }
 }

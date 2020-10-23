@@ -19,25 +19,28 @@ export class CompanyModel extends BaseEntityModel implements Company {
     id: null,
     name: null,
     type: null,
-    budget: new BudgetModel(BudgetModel.DEFAULT_CONFIG),
+    budget: BudgetModel.DEFAULT_CONFIG,
     url: null,
-    timeline: new TimeLineModel(TimeLineModel.DEFAULT_CONFIG),
+    timeline: TimeLineModel.DEFAULT_CONFIG,
     desc: null,
     est: false
-
   };
-  constructor(private companyModelConfig: CompanyModel){
+  constructor(companyModelConfig: any){
     super(companyModelConfig);
-   this._name = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.name : null;
-   this._type = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.type :  null;
-   this._budget = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.budget : null;
-   this._url = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.url : null;
-   this._timeline = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.timeline : null;
-   this._desc = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.desc : null;
-   this._est = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.est : null;
+    this._name = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.name : null;
+    this._type = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.type :  null;
+    this._budget = (companyModelConfig !== null && companyModelConfig !== undefined) ? new BudgetModel(companyModelConfig.budget) : null;
+    this._url = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.url : null;
+    this._timeline = (companyModelConfig !== null && companyModelConfig !== undefined) ? new TimeLineModel(companyModelConfig.timeline) : null;
+    this._desc = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.desc : null;
+    this._est = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.est : null;
   };
 
   get name() {
+    return this._name;
+  }
+
+  getName() {
     return this._name;
   }
 
@@ -45,7 +48,15 @@ export class CompanyModel extends BaseEntityModel implements Company {
     this._name = name;
   }
 
-  getCompanyType() {
+  setName(name: string) {
+    this._name = name;
+  }
+
+  get Type() {
+    return this._type;
+  }
+
+  getType() {
     return this._type;
   }
 
@@ -53,7 +64,15 @@ export class CompanyModel extends BaseEntityModel implements Company {
     this._type = type;
   }
 
+  setType(type: string) {
+    this._type = type;
+  }
+
   get budget() {
+    return this._budget;
+  }
+
+  getBudget() {
     return this._budget;
   }
 
@@ -61,15 +80,31 @@ export class CompanyModel extends BaseEntityModel implements Company {
     this._budget = budget;
   }
 
+  setBudget(budget: Budget) {
+    this._budget = budget;
+  }
+
   get est() {
     return this._est;
   }
 
+  isEstablishedCompany() {
+    return this._est;
+  }
+
   set est(est: boolean) {
-    this._est = false;
+    this._est = est;
+  }
+
+  setEstablishedCompany(establishedCompany: boolean) {
+    this._est = establishedCompany;
   }
 
   get url() {
+    return this._url;
+  }
+
+  getUrl() {
     return this._url;
   }
 
@@ -77,7 +112,15 @@ export class CompanyModel extends BaseEntityModel implements Company {
     this._url = url;
   }
 
+  setUrl(url: string) {
+    this._url = url;
+  }
+
   get timeline() {
+    return this._timeline;
+  }
+
+  getTimeline() {
     return this._timeline;
   }
 
@@ -86,12 +129,25 @@ export class CompanyModel extends BaseEntityModel implements Company {
 
   }
 
+  setTimeline(timeline: TimeLine) {
+    this._timeline = timeline;
+
+  }
+
   get desc() {
+    return this._desc;
+  }
+
+  getDescription() {
     return this._desc;
   }
 
   set desc(desc: string) {
     this._desc = desc;
+  }
+
+  setDescription(description: string) {
+    this._desc = description;
   }
 }
 
