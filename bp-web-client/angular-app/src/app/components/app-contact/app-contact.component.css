@@ -77,3 +77,12 @@ display: none;
   padding-left: 15px !important;
   margin-bottom: 0px !important;
 }
+
+.radio-inline {
+  margin-left: 10px;
+  margin-bottom: 20px;
+  font-size:  18px !important;
+}
+.col-12 {
+  text-align: center;
+}
