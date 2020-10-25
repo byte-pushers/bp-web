@@ -1,6 +1,7 @@
 package software.bytepushers.bpweb.model.dto;
 
 import lombok.*;
+import software.bytepushers.bpweb.model.dto.AbstractDto.CreateRequest;
 
 import javax.validation.constraints.NotNull;
 
@@ -14,10 +15,10 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class BudgetDto {
 
-    @NotNull(message = "{company.min.budget.required}")
+    @NotNull(groups = CreateRequest.class, message = "{company.min.budget.required}")
     private Long minBudget;
 
-    @NotNull(message = "{company.max.budget.required}")
+    @NotNull(groups = CreateRequest.class, message = "{company.max.budget.required}")
     private Long maxBudget;
 
 }
