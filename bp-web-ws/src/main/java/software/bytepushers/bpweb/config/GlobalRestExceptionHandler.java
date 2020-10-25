@@ -55,11 +55,4 @@ public class GlobalRestExceptionHandler {
         ApiResponse error = new ApiResponse(errors, INVALID_REQUEST, HttpStatus.BAD_REQUEST);
         return new ResponseEntity<>(error, error.getStatus());
     }
-
-    @ExceptionHandler({MethodArgumentConversionNotSupportedException.class})
-    public ResponseEntity<Object> handleMethodArgumentTypeMismatch(MethodArgumentConversionNotSupportedException ex, WebRequest request) {
-        String error = ex.getName() + " should be of type " + ex.getRequiredType().getName();
-        ApiResponse apiError = new ApiResponse(error, ex.getLocalizedMessage(), HttpStatus.BAD_REQUEST);
-        return new ResponseEntity<>(apiError, new HttpHeaders(), apiError.getStatus());
-    }
 }
