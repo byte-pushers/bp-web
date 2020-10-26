@@ -22,9 +22,18 @@ export class QuoteService {
     const header: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json')
       .set('Accept','application/json');
 
-    return this.http.post<Quote>(environment.QUOTE_SERVICE.API.HOST, quote, {
+    return this.http.post<Quote>(environment.QUOTE_SERVICE.API.HOST, this.transformKeys(quote), {
       headers: header,
       responseType: 'json'
     });
+  }
+
+  private transformKeys(obj) {
+    return Object.keys(obj).reduce(function(o, prop) {
+      var value = obj[prop];
+      var newProp = prop.replace('_', '');
+      o[newProp] = value;
+      return o;
+    }, {});
   }
 }
