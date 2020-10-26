@@ -22,4 +22,13 @@ export class BaseEntityModel implements BaseEntity {
   setId(id: number): void {
     this._id = id;
   }
+
+  public transformKeys(): any {
+    return Object.keys(this).reduce(function(o, prop) {
+      const value = (this[prop].hasOwnProperty('transformKeys'))? this[prop].transformKeys() : this[prop];
+      const newProp = prop.replace('_', '');
+      o[newProp] = value;
+      return o;
+    }, {});
+  }
 }
