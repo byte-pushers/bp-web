@@ -2,9 +2,11 @@ package software.bytepushers.bpweb.model.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import software.bytepushers.bpweb.model.entity.ValidatorModel.CreateRequest;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
 
 /**
  * The budget embedded entity model.
@@ -15,8 +17,10 @@ import javax.persistence.Entity;
 public class Budget extends AbstractEntity {
 
     @Column
+    @NotNull(groups = CreateRequest.class, message = "{company.min.budget.required}")
     private long min;
 
     @Column
+    @NotNull(groups = CreateRequest.class, message = "{company.max.budget.required}")
     private long max;
 }

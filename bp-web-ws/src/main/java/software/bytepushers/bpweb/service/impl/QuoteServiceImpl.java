@@ -3,17 +3,14 @@ package software.bytepushers.bpweb.service.impl;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import software.bytepushers.bpweb.exceptions.MalformedRequestException;
-import software.bytepushers.bpweb.model.dto.QuoteDto;
 import software.bytepushers.bpweb.model.entity.Quote;
 import software.bytepushers.bpweb.repository.QuoteRepository;
 import software.bytepushers.bpweb.service.QuoteService;
+import software.bytepushers.bpweb.utils.ApplicationUtils;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.stream.Collectors;
-
-import static software.bytepushers.bpweb.utils.ApplicationUtils.copyProperties;
 
 /**
  * The service layer implementation for the quote operations.
@@ -32,37 +29,36 @@ public class QuoteServiceImpl implements QuoteService {
      * {@inheritDoc}
      */
     @Override
-    public QuoteDto create(QuoteDto quoteDto) {
+    public Quote create(Quote quote) {
         log.info("Create quote");
-        Quote quote = copyProperties(quoteDto, Quote.class);
+        if (quote == null) {
+            throw new MalformedRequestException("Quote must be required to create");
+        }
         Quote createdQuote = this.quoteRepository.save(quote);
         log.info("Quote created");
-        return copyProperties(createdQuote, QuoteDto.class);
+        return createdQuote;
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public QuoteDto update(QuoteDto quoteDto) {
-        UUID quoteId = quoteDto.getId();
+    public Quote update(Quote quote) {
+        UUID quoteId = quote.getId();
         log.info("Update quote. Id: {}", quoteId);
-        Optional<Quote> quoteOptional = this.quoteRepository.findByIdAndDisabledFalse(quoteId);
-        if (quoteOptional.isEmpty()) {
-            throw new MalformedRequestException("Quote not found");
-        }
-        Quote quoteToUpdate = quoteOptional.get();
-        copyProperties(quoteDto, quoteToUpdate, "id");
-        Quote updatedQuote = this.quoteRepository.save(quoteToUpdate);
+        Quote existingQuote = this.quoteRepository.findByIdAndDisabledFalse(quoteId)
+                .orElseThrow(() -> new MalformedRequestException("Quote not found"));
+        ApplicationUtils.copyProperties(quote, existingQuote);
+        Quote updatedQuote = this.quoteRepository.save(existingQuote);
         log.info("Quote updated");
-        return copyProperties(updatedQuote, QuoteDto.class);
+        return updatedQuote;
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public QuoteDto getById(UUID quoteId) {
+    public Quote getById(UUID quoteId) {
         log.info("Get quote. Id: {}", quoteId);
         Optional<Quote> quoteOptional = this.quoteRepository.findByIdAndDisabledFalse(quoteId);
         if (quoteOptional.isEmpty()) {
@@ -70,7 +66,7 @@ public class QuoteServiceImpl implements QuoteService {
         }
         Quote quoteToReturn = quoteOptional.get();
         log.info("Quote found. Id: {}", quoteId);
-        return copyProperties(quoteToReturn, QuoteDto.class);
+        return quoteToReturn;
     }
 
     /**
@@ -93,10 +89,9 @@ public class QuoteServiceImpl implements QuoteService {
      * {@inheritDoc}
      */
     @Override
-    public List<QuoteDto> getAll() {
+    public List<Quote> getAll() {
         log.info("Fetch. All quotes.");
-        List<Quote> quotes = this.quoteRepository.findAllByDisabledFalse();
-        return quotes.stream().map(quote -> copyProperties(quote, QuoteDto.class)).collect(Collectors.toList());
+        return this.quoteRepository.findAllByDisabledFalse();
     }
 
 }

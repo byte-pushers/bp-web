@@ -2,9 +2,11 @@ package software.bytepushers.bpweb.model.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import software.bytepushers.bpweb.model.entity.ValidatorModel.CreateRequest;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.constraints.NotEmpty;
 
 /**
  * The phone dto model.
@@ -15,9 +17,11 @@ import javax.persistence.Entity;
 public class Phone extends AbstractEntity {
 
     @Column
-    private String phoneNumber;
+    @NotEmpty(groups = CreateRequest.class, message = "{person.phone.number.required}")
+    private String number;
 
     @Column
-    private String phoneYype;
+    @NotEmpty(groups = CreateRequest.class, message = "{person.phone.type.required}")
+    private String type;
 
 }

@@ -1,8 +1,7 @@
 package software.bytepushers.bpweb.utils;
 
 import org.fluttercode.datafactory.impl.DataFactory;
-import software.bytepushers.bpweb.model.dto.*;
-import software.bytepushers.bpweb.model.entity.Quote;
+import software.bytepushers.bpweb.model.entity.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -13,38 +12,86 @@ import java.util.UUID;
  */
 public class ModelUtils {
 
-    public static QuoteDto quoteDto() {
+    public static Quote quoteDto() {
         DataFactory df = new DataFactory();
-        PhoneDto phoneDto = PhoneDto.builder().number(df.getRandomWord(1)).type("string").build();
-        AddressDto addressDto = AddressDto.builder()
-                .street(List.of(df.getStreetName(), df.getStreetName())).city(df.getCity()).zip(df.getRandomWord(6))
-                .state(df.getRandomWord(5)).country(df.getRandomChars(3)).county(df.getRandomChars(3)).build();
-        PersonDto personDto = PersonDto.builder().firstName(df.getFirstName()).lastName(df.getLastName())
-                .phone(phoneDto).email(df.getEmailAddress()).address(addressDto)
-                .build();
-        BudgetDto budgetDto = BudgetDto.builder().max(2000L).min(200L).build();
-        TargetTimeLineDto targetTimeLineDto = TargetTimeLineDto.builder().max(df.getRandomWord(5))
-                .min(df.getRandomWord(5)).build();
-        CompanyDto companyDto = CompanyDto.builder().budget(budgetDto).timeline(targetTimeLineDto).description(df.getRandomWord(10))
-                .name(df.getBusinessName()).type(df.getRandomWord(1)).establishedYear(2014).url("https://www.google.com").build();
-        return QuoteDto.builder()
-                .company(companyDto).contact(personDto)
-                .projectPlatform(df.getRandomWord()).projectType(df.getRandomWord())
-                .build();
+        Quote quote = new Quote();
+        quote.setCompany(company());
+        quote.setProjectPlatform(df.getRandomWord(5));
+        quote.setProjectType(df.getRandomWord(5));
+        quote.setContact(person());
+        return quote;
     }
 
-    public static QuoteDto updateQuoteDto() {
-        QuoteDto quoteDto = quoteDto();
+    public static Phone phone() {
+        DataFactory df = new DataFactory();
+        Phone phone = new Phone();
+        phone.setNumber(df.getRandomWord(1));
+        phone.setType("home");
+        return phone;
+    }
+
+    public static Address address() {
+        DataFactory df = new DataFactory();
+        Address address = new Address();
+        address.setStreet(List.of(df.getStreetName(), df.getStreetName()));
+        address.setCity(df.getCity());
+        address.setCountry(df.getRandomChars(3));
+        address.setState(df.getRandomWord(5));
+        address.setZip(df.getRandomWord(6));
+        address.setCounty(df.getRandomChars(3));
+        return address;
+    }
+
+    public static Person person() {
+        DataFactory df = new DataFactory();
+        Person person = new Person();
+        person.setFirstName(df.getFirstName());
+        person.setLastName(df.getLastName());
+        person.setPhone(phone());
+        person.setEmail(df.getEmailAddress());
+        person.setAddress(address());
+        return person;
+    }
+
+    public static Company company() {
+        DataFactory df = new DataFactory();
+        Company company = new Company();
+        company.setDescription(df.getRandomWord(10));
+        company.setEstablishedYear(2014);
+        company.setName(df.getBusinessName());
+        company.setType(df.getRandomWord(1));
+        company.setUrl("https://www.google.com");
+        company.setBudget(budget());
+        company.setTimeline(timeline());
+        return company;
+    }
+
+    private static TargetTimeLine timeline() {
+        DataFactory df = new DataFactory();
+        TargetTimeLine targetTimeLine = new TargetTimeLine();
+        targetTimeLine.setMax(df.getRandomWord(5));
+        targetTimeLine.setMin(df.getRandomWord(5));
+        return targetTimeLine;
+    }
+
+    private static Budget budget() {
+        Budget budget = new Budget();
+        budget.setMax(2000L);
+        budget.setMin(200L);
+        return budget;
+    }
+
+    public static Quote updateQuoteEntity() {
+        Quote quoteDto = quoteEntity();
         quoteDto.setId(UUID.randomUUID());
         return quoteDto;
     }
 
     public static Quote quoteEntity() {
-        Quote quote = ApplicationUtils.copyProperties(quoteDto(), Quote.class);
+        Quote quote = quoteDto();
         quote.setCreatedDate(LocalDateTime.now());
         quote.setUpdatedDate(LocalDateTime.now());
         return quote;
     }
-
 
 }
