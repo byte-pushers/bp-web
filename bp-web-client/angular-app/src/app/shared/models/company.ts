@@ -22,5 +22,7 @@ export interface Company extends BaseEntity {
   setDescription(description: string): void;
 
   isEstablishedCompany(): boolean;
-  setEstablishedCompany(establishedCompany: boolean): void;
+
+  getEstablishedYear(): number;
+  setEstablishedYear(establishedYear: number): void;
 }

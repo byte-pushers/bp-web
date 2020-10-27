@@ -147,7 +147,7 @@
             <label class="radio-inline">
               <input type="radio" name="est"
                      [(ngModel)]="quote.company.est" value="New Business" required
-                     #est="ngModel">New Business
+                     #establishedYear="ngModel">New Business
             </label>
             <label class="radio-inline">
               <input type="radio" name="est"
@@ -207,7 +207,7 @@
               <div class="form-group col-md-4">
                 <label>Business Type</label>
                 <select class="form-control" id="est" required>
-                  <option *ngFor="let est of businessTypes" [value]="est">{{est}}</option>
+                  <option *ngFor="let establishedYear of businessTypes" [value]="est">{{est}}</option>
                 </select>
               </div>
             </div>
@@ -262,7 +262,7 @@
                         class="form-control"
                         minlength="2"
                         required
-                        #desc="ngModel"
+                        #description="ngModel"
                         placeholder="Describe your project."></textarea>
             <div class="alert alert-danger"
                  *ngIf="desc.errors && (desc.dirty || desc.touched)">
@@ -417,7 +417,7 @@
   <label class="radio-inline">
     <input type="radio" name="est"
            [(ngModel)]="quote.company.est" value="New Business" required
-           #est="ngModel">New Business
+           #establishedYear="ngModel">New Business
   </label>
   <label class="radio-inline">
     <input type="radio" name="est"
@@ -486,7 +486,7 @@
         </div>
         <div class="col-12 mobile-row">
           <select class="form-control" id="estMobile" required>
-            <option *ngFor="let est of businessTypes" [value]="est">{{est}}</option>
+            <option *ngFor="let establishedYear of businessTypes" [value]="est">{{est}}</option>
           </select>
         </div>
 
@@ -548,7 +548,7 @@
                          class="form-control"
                          minlength="2"
                          required
-                         #desc="ngModel"
+                         #description="ngModel"
                          placeholder="Describe your project."></textarea>
           <div class="alert alert-danger"
                *ngIf="desc.errors && (desc.dirty || desc.touched)">
