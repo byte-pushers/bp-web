@@ -9,4 +9,9 @@ export interface Quote extends BaseEntity {
   getCompany(): Company;
   setCompany(company: Company): void;
 
+  getProjectPlatform(): string;
+  setProjectPlatform(projectPlatform: string): void;
+
+  getProjectType(): string;
+  setProjectType(projectType: string): void;
 }
