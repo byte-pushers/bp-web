@@ -3,9 +3,7 @@ package software.bytepushers.bpweb.model.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 /**
  * The company entity model.
@@ -27,10 +25,15 @@ public class Company extends AbstractEntity {
     @Column
     private String description;
 
-    @Embedded
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "budget_id", referencedColumnName = "id", nullable = false)
     private Budget budget;
 
-    @Embedded
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "timeline_id", referencedColumnName = "id", nullable = false)
     private TargetTimeLine timeline;
+
+    @Column
+    private Integer establishedYear;
 
 }

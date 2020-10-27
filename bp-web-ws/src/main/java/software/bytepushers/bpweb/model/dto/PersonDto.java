@@ -26,8 +26,8 @@ public class PersonDto extends AbstractDto {
     @Email(groups = {CreateRequest.class, UpdateRequest.class}, message = "{person.email.invalid}")
     private String email;
 
-    @NotEmpty(groups = CreateRequest.class, message = "{person.phone.required}")
-    private String phone;
+    @NotNull(groups = CreateRequest.class, message = "{person.phone.required}")
+    private PhoneDto phone;
 
     @NotNull(groups = CreateRequest.class, message = "{person.address.details.required}")
     private AddressDto address;

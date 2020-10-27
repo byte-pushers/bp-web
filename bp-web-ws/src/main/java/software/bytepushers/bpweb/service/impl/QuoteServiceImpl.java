@@ -52,7 +52,7 @@ public class QuoteServiceImpl implements QuoteService {
             throw new MalformedRequestException("Quote not found");
         }
         Quote quoteToUpdate = quoteOptional.get();
-        copyProperties(quoteDto, quoteToUpdate);
+        copyProperties(quoteDto, quoteToUpdate, "id");
         Quote updatedQuote = this.quoteRepository.save(quoteToUpdate);
         log.info("Quote updated");
         return copyProperties(updatedQuote, QuoteDto.class);

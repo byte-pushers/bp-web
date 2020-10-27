@@ -27,6 +27,9 @@ public class CompanyDto extends AbstractDto {
     @NotEmpty(groups = CreateRequest.class, message = "{company.description.required}")
     private String description;
 
+    @NotNull(groups = CreateRequest.class, message = "{company.established.year.required}")
+    private Integer establishedYear;
+
     @NotNull(groups = CreateRequest.class, message = "{company.budget.required}")
     private BudgetDto budget;
 

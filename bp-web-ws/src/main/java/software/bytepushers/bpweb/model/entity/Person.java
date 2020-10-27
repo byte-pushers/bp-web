@@ -3,9 +3,7 @@ package software.bytepushers.bpweb.model.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 /**
  * The person entity model.
@@ -24,10 +22,13 @@ public class Person extends AbstractEntity {
     @Column
     private String email;
 
-    @Column
-    private String phone;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "phone_id", referencedColumnName = "id", nullable = false)
+    private Phone phone;
 
-    @Embedded
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "id", nullable = false)
     private Address address;
+
 
 }
