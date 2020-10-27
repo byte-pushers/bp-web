@@ -22,6 +22,12 @@ public class Quote extends AbstractEntity {
     private Company company;
 
     @Column
+    private String projectPlatform;
+
+    @Column
+    private String projectType;
+
+    @Column
     private boolean disabled = false;
 
 }

@@ -4,21 +4,20 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import java.util.List;
 
 /**
  * The Address entity which would embedded to some other entity.
  */
 @Getter
 @Setter
-@Embeddable
-public class Address {
+@Entity(name = "T_ADDRESS")
+public class Address extends AbstractEntity {
 
-    @Column
-    private String street1;
-
-    @Column
-    private String street2;
+    @ElementCollection
+    private List<String> street;
 
     @Column
     private String city;
@@ -31,4 +30,7 @@ public class Address {
 
     @Column
     private String country;
+
+    @Column
+    private String county;
 }

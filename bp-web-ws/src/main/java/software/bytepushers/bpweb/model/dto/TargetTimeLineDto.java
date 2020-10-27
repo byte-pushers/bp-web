@@ -1,7 +1,6 @@
 package software.bytepushers.bpweb.model.dto;
 
 import lombok.*;
-import software.bytepushers.bpweb.model.dto.AbstractDto.CreateRequest;
 
 import javax.validation.constraints.NotEmpty;
 
@@ -13,12 +12,12 @@ import javax.validation.constraints.NotEmpty;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TargetTimeLineDto {
+public class TargetTimeLineDto extends AbstractDto {
 
     @NotEmpty(groups = CreateRequest.class, message = "{company.min.timeline.required}")
-    private String minTimeLine;
+    private String min;
 
     @NotEmpty(groups = CreateRequest.class, message = "{company.max.timeline.required}")
-    private String maxTimeLine;
+    private String max;
 
 }

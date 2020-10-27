@@ -7,16 +7,17 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 /**
- * The budget embedded entity model.
+ * The phone dto model.
  */
 @Getter
 @Setter
-@Entity(name = "T_BUDGET")
-public class Budget extends AbstractEntity {
+@Entity(name = "T_PHONE")
+public class Phone extends AbstractEntity {
 
     @Column
-    private long min;
+    private String phoneNumber;
 
     @Column
-    private long max;
+    private String phoneYype;
+
 }

@@ -3,6 +3,7 @@ package software.bytepushers.bpweb.model.dto;
 import lombok.*;
 import software.bytepushers.bpweb.validator.ApplicationValidator;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
@@ -25,4 +26,10 @@ public class QuoteDto extends AbstractDto {
 
     @NotNull(groups = CreateRequest.class, message = "{company.details.required}")
     private CompanyDto company;
+
+    @NotEmpty(groups = CreateRequest.class, message = "{project.platform.required}")
+    private String projectPlatform;
+
+    @NotEmpty(groups = CreateRequest.class, message = "{project.type.required}")
+    private String projectType;
 }
