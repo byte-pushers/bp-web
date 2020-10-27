@@ -3,6 +3,8 @@ package software.bytepushers.bpweb.model.entity;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import software.bytepushers.bpweb.model.entity.ValidatorModel.CreateRequest;
 import software.bytepushers.bpweb.model.entity.ValidatorModel.UpdateRequest;
 import software.bytepushers.bpweb.validator.ApplicationValidator;
@@ -10,6 +12,7 @@ import software.bytepushers.bpweb.validator.ApplicationValidator;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 /**
@@ -27,6 +30,14 @@ public class Quote extends AbstractEntity {
     @Column(columnDefinition = "BINARY(16)")
     @NotNull(groups = UpdateRequest.class, message = "{id.required}")
     private UUID id;
+
+    @Column
+    @CreatedDate
+    private LocalDateTime createdDate;
+
+    @Column
+    @LastModifiedDate
+    private LocalDateTime updatedDate;
 
     @NotNull(groups = CreateRequest.class, message = "{person.details.required}")
     @OneToOne(cascade = CascadeType.ALL)
