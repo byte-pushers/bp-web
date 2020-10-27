@@ -1,5 +1,6 @@
-import {Address} from "./address";
-import {BaseEntity} from "./base.entity";
+import {Address} from './address';
+import {BaseEntity} from './base.entity';
+import {Phone} from "./phone";
 
 export interface Person extends BaseEntity {
   getFirstName(): string;
@@ -11,9 +12,9 @@ export interface Person extends BaseEntity {
   getEmail(): string;
   setEmail(email: string): void;
 
-  getPhoneNumber(): string;
-  setPhoneNumber(phoneNumber: string): void;
-
   getAddress(): Address;
   setAddress(address: Address): void;
+
+  getPhone(): Phone;
+  setPhone(phone: Phone): void;
 }
