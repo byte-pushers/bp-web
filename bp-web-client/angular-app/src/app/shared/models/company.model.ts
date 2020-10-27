@@ -30,10 +30,6 @@ export class CompanyModel extends BaseEntityModel implements Company {
   private _description: string;
   // tslint:disable-next-line:variable-name
   private _establishedYear: number;
-  // tslint:disable-next-line:variable-name
-  private _projectPlatform: string;
-  // tslint:disable-next-line:variable-name
-  private _projectType: string;
 
   constructor(companyModelConfig: any) {
     super(companyModelConfig);
@@ -44,9 +40,7 @@ export class CompanyModel extends BaseEntityModel implements Company {
     this._timeline = (companyModelConfig !== null && companyModelConfig !== undefined) ? new TimeLineModel(companyModelConfig.timeline) : null;
     this._description = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.description : null;
     this._establishedYear = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.establishedYear : null;
-    this._projectPlatform = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.projectPlatform : null;
-    this._projectType = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.projectType : null;
-  }
+      }
 
   getName() {
     return this._name;
@@ -166,31 +160,6 @@ export class CompanyModel extends BaseEntityModel implements Company {
   setDescription(description: string) {
     this._description = description;
   }
-
- getProjectPlatform() {
-    return this._projectPlatform;
- }
- get projectPlatform() {
-    return this._projectPlatform;
- }
- set projectPlatform(projectPlatform: string) {
-    this._projectPlatform = projectPlatform;
- }
- setProjectPlatform(projectPlatform: string) {
-   this._projectPlatform = projectPlatform;
- }
- getProjectType() {
-    return this._projectType;
- }
- get projectType() {
-    return this._projectType;
- }
- set projectType(projectType: string) {
-    this._projectType = projectType;
- }
- setProjectType(projectType: string) {
-    this._projectType = projectType;
- }
 
 }
 

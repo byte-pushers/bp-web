@@ -25,10 +25,4 @@ export interface Company extends BaseEntity {
 
   getEstablishedYear(): number;
   setEstablishedYear(establishedYear: number): void;
-
-  getProjectPlatform(): string;
-  setProjectPlatform(projectPlatform: string): void;
-
-  getProjectType(): string;
-  setProjectType(projectType: string): void;
 }
