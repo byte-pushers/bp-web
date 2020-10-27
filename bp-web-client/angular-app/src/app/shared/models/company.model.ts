@@ -1,20 +1,11 @@
-import {Company} from "./company";
-import {TimeLine} from "./time-line";
-import {Budget} from "./budget";
-import {AddressModel} from "./address.model";
-import {TimeLineModel} from "./time-line.model";
-import {BudgetModel} from "./budget.model";
-import {BaseEntityModel} from "./base.entity.model";
+import {Company} from './company';
+import {TimeLine} from './time-line';
+import {Budget} from './budget';
+import {TimeLineModel} from './time-line.model';
+import {BudgetModel} from './budget.model';
+import {BaseEntityModel} from './base.entity.model';
 
 export class CompanyModel extends BaseEntityModel implements Company {
-  private _name: string;
-  private _type: string;
-  private _budget: Budget;
-  private _url: string;
-  private _timeline: TimeLine;
-  private _desc: string;
-  private _est: boolean;
-
   static readonly DEFAULT_CONFIG: any = {
     id: null,
     name: null,
@@ -22,28 +13,48 @@ export class CompanyModel extends BaseEntityModel implements Company {
     budget: BudgetModel.DEFAULT_CONFIG,
     url: null,
     timeline: TimeLineModel.DEFAULT_CONFIG,
-    desc: null,
-    est: false
+    description: null,
+    establishedYear: null
   };
-  constructor(companyModelConfig: any){
+  // tslint:disable-next-line:variable-name
+  private _name: string;
+  // tslint:disable-next-line:variable-name
+  private _type: string;
+  // tslint:disable-next-line:variable-name
+  private _budget: Budget;
+  // tslint:disable-next-line:variable-name
+  private _url: string;
+  // tslint:disable-next-line:variable-name
+  private _timeline: TimeLine;
+  // tslint:disable-next-line:variable-name
+  private _description: string;
+  // tslint:disable-next-line:variable-name
+  private _establishedYear: number;
+  // tslint:disable-next-line:variable-name
+  private _projectPlatform: string;
+  // tslint:disable-next-line:variable-name
+  private _projectType: string;
+
+  constructor(companyModelConfig: any) {
     super(companyModelConfig);
     this._name = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.name : null;
     this._type = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.type :  null;
     this._budget = (companyModelConfig !== null && companyModelConfig !== undefined) ? new BudgetModel(companyModelConfig.budget) : null;
     this._url = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.url : null;
     this._timeline = (companyModelConfig !== null && companyModelConfig !== undefined) ? new TimeLineModel(companyModelConfig.timeline) : null;
-    this._desc = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.desc : null;
-    this._est = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.est : null;
-  };
-
-  get name() {
-    return this._name;
+    this._description = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.description : null;
+    this._establishedYear = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.establishedYear : null;
+    this._projectPlatform = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.projectPlatform : null;
+    this._projectType = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.projectType : null;
   }
 
   getName() {
     return this._name;
   }
 
+  get name() {
+    return this._name;
+  }
   set name(name: string) {
     this._name = name;
   }
@@ -56,15 +67,7 @@ export class CompanyModel extends BaseEntityModel implements Company {
     return this._type;
   }
 
-  getType() {
-    return this._type;
-  }
-
   set type(type: string) {
-    this._type = type;
-  }
-
-  setType(type: string) {
     this._type = type;
   }
 
@@ -72,39 +75,33 @@ export class CompanyModel extends BaseEntityModel implements Company {
     return this._budget;
   }
 
-  getBudget() {
-    return this._budget;
-  }
-
   set budget(budget: Budget) {
     this._budget = budget;
   }
 
-  setBudget(budget: Budget) {
-    this._budget = budget;
+  getEstablishedYear(): number {
+    return this._establishedYear;
   }
 
-  get est() {
-    return this._est;
+  get establishedYear() {
+    return this._establishedYear;
   }
 
-  isEstablishedCompany() {
-    return this._est;
+  set establishedYear(establishedYear: number) {
+    this._establishedYear = establishedYear;
   }
 
-  set est(est: boolean) {
-    this._est = est;
+  setEstablishedYear(establishedYear: number): void {
+    this._establishedYear = establishedYear;
   }
 
-  setEstablishedCompany(establishedCompany: boolean) {
-    this._est = establishedCompany;
+  isEstablishedCompany(): boolean {
+    // TODO add check for establishedYear(number) that will see if company is established, then if company exceeds minimum of 5 years return true
+    // TODO add logic that determines if establishedYear is less or equal to 5 years from todays date. If true return true otherwise return false.
+    return false;
   }
 
   get url() {
-    return this._url;
-  }
-
-  getUrl() {
     return this._url;
   }
 
@@ -112,15 +109,7 @@ export class CompanyModel extends BaseEntityModel implements Company {
     this._url = url;
   }
 
-  setUrl(url: string) {
-    this._url = url;
-  }
-
   get timeline() {
-    return this._timeline;
-  }
-
-  getTimeline() {
     return this._timeline;
   }
 
@@ -129,25 +118,79 @@ export class CompanyModel extends BaseEntityModel implements Company {
 
   }
 
+  get description() {
+    return this._description;
+  }
+
+  set description(desc: string) {
+    this._description = desc;
+  }
+
+  getType() {
+    return this._type;
+  }
+
+  setType(type: string) {
+    this._type = type;
+  }
+
+  getBudget() {
+    return this._budget;
+  }
+
+  setBudget(budget: Budget) {
+    this._budget = budget;
+  }
+
+  getUrl() {
+    return this._url;
+  }
+
+  setUrl(url: string) {
+    this._url = url;
+  }
+
+  getTimeline() {
+    return this._timeline;
+  }
+
   setTimeline(timeline: TimeLine) {
     this._timeline = timeline;
 
   }
 
-  get desc() {
-    return this._desc;
-  }
-
   getDescription() {
-    return this._desc;
-  }
-
-  set desc(desc: string) {
-    this._desc = desc;
+    return this._description;
   }
 
   setDescription(description: string) {
-    this._desc = description;
+    this._description = description;
   }
+
+ getProjectPlatform() {
+    return this._projectPlatform;
+ }
+ get projectPlatform() {
+    return this._projectPlatform;
+ }
+ set projectPlatform(projectPlatform: string) {
+    this._projectPlatform = projectPlatform;
+ }
+ setProjectPlatform(projectPlatform: string) {
+   this._projectPlatform = projectPlatform;
+ }
+ getProjectType() {
+    return this._projectType;
+ }
+ get projectType() {
+    return this._projectType;
+ }
+ set projectType(projectType: string) {
+    this._projectType = projectType;
+ }
+ setProjectType(projectType: string) {
+    this._projectType = projectType;
+ }
+
 }
 

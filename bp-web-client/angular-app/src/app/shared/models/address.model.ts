@@ -1,7 +1,5 @@
-import {Address} from "./address";
-import {PersonModel} from "./person.model";
-import {CompanyModel} from "./company.model";
-import {BaseEntityModel} from "./base.entity.model";
+import {Address} from './address';
+import {BaseEntityModel} from './base.entity.model';
 
 export class AddressModel extends BaseEntityModel implements Address {
 
@@ -10,6 +8,7 @@ export class AddressModel extends BaseEntityModel implements Address {
   private _state: string;
   private _zip: string;
   private _county: string;
+  private _country: string;
 
   static readonly DEFAULT_CONFIG: any = {
     id: null,
@@ -17,7 +16,8 @@ export class AddressModel extends BaseEntityModel implements Address {
     city: null,
     state: null,
     zip: null,
-    county: null
+    county: null,
+    country: null
   };
 
   constructor(addressModelConfig: any) {
@@ -27,7 +27,8 @@ export class AddressModel extends BaseEntityModel implements Address {
     this._state = (addressModelConfig !== null && addressModelConfig !== undefined) ? addressModelConfig.state : null;
     this._zip = (addressModelConfig !== null && addressModelConfig !== undefined) ? addressModelConfig.zip : null;
     this._county = (addressModelConfig !== null && addressModelConfig !== undefined) ? addressModelConfig.county : null;
-  };
+    this._country = (addressModelConfig !== null && addressModelConfig !== undefined) ? addressModelConfig.country : null;
+  }
 
   get street() {
     return this._street;
@@ -64,13 +65,11 @@ export class AddressModel extends BaseEntityModel implements Address {
   get state() {
     return this._state;
   }
-
-  getState() {
-    return this._state;
-  }
-
   set state(state: string) {
     this._state = state;
+  }
+  getState() {
+    return this._state;
   }
 
   setState(state: string) {
@@ -80,15 +79,12 @@ export class AddressModel extends BaseEntityModel implements Address {
   get zip() {
     return this._zip;
   }
-
-  getZip() {
-    return this._zip;
-  }
-
   set zip(zip: string) {
     this._zip = zip;
   }
-
+  getZip() {
+    return this._zip;
+  }
   setZip(zip: string) {
     this._zip = zip;
   }
@@ -96,16 +92,26 @@ export class AddressModel extends BaseEntityModel implements Address {
   get county() {
     return this._county;
   }
-
-  getCounty() {
-    return this._county;
-  }
-
   set county(county: string) {
     this._county = county;
   }
-
+  getCounty() {
+    return this._county;
+  }
   setCounty(county: string) {
     this._county = county;
+  }
+
+  get country() {
+    return this._country;
+  }
+  set country(country: string) {
+    this._county = country;
+  }
+  getCountry() {
+    return this._country;
+  }
+  setCountry(country: string) {
+    this._country = country;
   }
 }
