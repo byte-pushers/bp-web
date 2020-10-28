@@ -141,21 +141,6 @@
             represented
             by<span class="br-mobile"></span> our labors of love.
           </div>
-          <div class="col-12">
-            <label for="est">Are You A:</label>
-            <br>
-            <label class="radio-inline">
-              <input type="radio" name="est"
-                     [(ngModel)]="quote.company.est" value="New Business" required
-                     #establishedYear="ngModel">New Business
-            </label>
-            <label class="radio-inline">
-              <input type="radio" name="est"
-                     [(ngModel)]="quote.company.est" value="Established Business" required>Established Business
-            </label>
-            <div *ngIf="est.errors?.required">Please specify business</div>
-
-          </div>
           <div class="form-group">
             <div class="form-row inner-form-section">
               <div class="form-group col-md-4">
@@ -193,6 +178,31 @@
                   <div *ngIf="url.errors.required">URL is required.</div>
                   <div *ngIf="url.errors.minlength">A minimum of 2 letters are required.</div>
                   <div *ngIf="url.errors.pattern">URL is not valid.</div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row inner-form-section">
+              <div class="form-group col-md-4">
+                <label>Year Established</label>
+                <select class="form-control" id="year" required>
+                  <option *ngFor="let year of years" [value]="year">{{year}}</option>
+                </select>
+              </div>
+              <div class="col-md-2"><!--space--></div>
+              <div class="form-group col-md-4">
+                <label>Project Type</label>
+                <div class="row">
+                <label class="radio-inline">
+                  <input type="radio" name="est"
+                         [(ngModel)]="quote.company.establishedYear" value="New Business" required
+                         #establishedYear="ngModel">New Business
+                </label>
+                </div>
+                <div class="row">
+                <label class="radio-inline">
+                  <input type="radio" name="est"
+                         [(ngModel)]="quote.company.establishedYear" value="Established Business" required>Established Business
+                </label>
                 </div>
               </div>
             </div>
@@ -256,8 +266,8 @@
           <div class="col-10">
               <textarea rows="3"
                         id="projectDesc"
-                        name="desc"
-                        [(ngModel)]="quote.company.desc"
+                        name="description"
+                        [(ngModel)]="quote.company.description"
                         type="text"
                         class="form-control"
                         minlength="2"
@@ -265,9 +275,9 @@
                         #description="ngModel"
                         placeholder="Describe your project."></textarea>
             <div class="alert alert-danger"
-                 *ngIf="desc.errors && (desc.dirty || desc.touched)">
-              <div *ngIf="desc.errors.required">Please describe your project.</div>
-              <div *ngIf="desc.errors.minlength">Minimum length is not valid.</div>
+                 *ngIf="description.errors && (description.dirty || description.touched)">
+              <div *ngIf="description.errors.required">Please describe your project.</div>
+              <div *ngIf="description.errors.minlength">Minimum length is not valid.</div>
             </div>
           </div>
         </div>
