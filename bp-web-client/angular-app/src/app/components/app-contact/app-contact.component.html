@@ -184,8 +184,8 @@
             <div class="form-row inner-form-section">
               <div class="form-group col-md-4">
                 <label>Year Established</label>
-                <select class="form-control" id="year" required>
-                  <option *ngFor="let year of years" [value]="year">{{year}}</option>
+                <select (change)="changeEstablishedBusiness()" class="form-control" id="year" required>
+                  <option  *ngFor="let year of years"   [value]="year">{{year}}</option>
                 </select>
               </div>
               <div class="col-md-2"><!--space--></div>
@@ -193,15 +193,14 @@
                 <label>Project Type</label>
                 <div class="row">
                 <label class="radio-inline">
-                  <input type="radio" name="est"
-                         [(ngModel)]="quote.company.establishedYear" value="New Business" required
-                         #establishedYear="ngModel">New Business
+                  <input type="radio" disabled name="newBusiness" id="newBusiness"
+                          value="newBusiness" required >  New Business
                 </label>
                 </div>
                 <div class="row">
                 <label class="radio-inline">
-                  <input type="radio" name="est"
-                         [(ngModel)]="quote.company.establishedYear" value="Established Business" required>Established Business
+                  <input type="radio" disabled name="est" id="establishedBusiness"
+                          value="establishedBusiness" required>  Established Business
                 </label>
                 </div>
               </div>
@@ -217,7 +216,7 @@
               <div class="form-group col-md-4">
                 <label>Business Type</label>
                 <select class="form-control" id="est" required>
-                  <option *ngFor="let establishedYear of businessTypes" [value]="est">{{est}}</option>
+                  <option *ngFor="let businessType of businessTypes" [value]="businessType">{{businessType}}</option>
                 </select>
               </div>
             </div>
