@@ -195,7 +195,7 @@
                         required
                         [(ngModel)]="quote.company.foundation" name="foundation"
                         #foundation="ngModel">
-                  <option [ngValue]="null" [disabled]="true">Please Select An Option</option>
+                  <option [value]="foundation.label" disabled selected="selected">Please Select An Option</option>
                   <option *ngFor="let foundation of foundations" [value]="foundation">{{foundation}}</option>
                 </select>
               </div>
