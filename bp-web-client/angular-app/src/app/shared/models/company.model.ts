@@ -16,7 +16,8 @@ export class CompanyModel extends BaseEntityModel implements Company {
     timeline: TimeLineModel.DEFAULT_CONFIG,
     description: null,
     establishedYear: null,
-    isEstablished: false
+    isEstablished: false,
+    foundation: null
   };
   // tslint:disable-next-line:variable-name
   private _name: string;
@@ -34,6 +35,8 @@ export class CompanyModel extends BaseEntityModel implements Company {
   private _establishedYear: number;
   // tslint:disable-next-line:variable-name
   private _isEstablished: boolean;
+  // tslint:disable-next-line:variable-name
+  private _foundation: string;
 
   constructor(companyModelConfig: any) {
     super(companyModelConfig);
@@ -45,6 +48,7 @@ export class CompanyModel extends BaseEntityModel implements Company {
     this._description = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.description : null;
     this._establishedYear = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.establishedYear : null;
     this._isEstablished = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.isEstablished : null;
+    this._foundation = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.foundation : null;
       }
 
   getName() {
@@ -168,5 +172,17 @@ if (this.establishedYear <= year - 5 ) {
     this._description = description;
   }
 
+  getFoundation() {
+    return this._foundation;
+  }
+  setFoundation(foundation: string) {
+    this._foundation = foundation;
+  }
+  get foundation() {
+    return this._foundation;
+  }
+  set foundation(foundation: string) {
+    this._foundation = foundation;
+  }
 }
 

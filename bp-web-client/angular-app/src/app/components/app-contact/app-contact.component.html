@@ -190,19 +190,13 @@
               </div>
               <div class="col-md-2"><!--space--></div>
               <div class="form-group col-md-4">
-                <label>Project Type</label>
-                <div class="row">
-                <label class="radio-inline">
-                  <input type="radio" disabled name="newBusiness" id="newBusiness"
-                          value="newBusiness" required >  New Business
-                </label>
-                </div>
-                <div class="row">
-                <label class="radio-inline">
-                  <input type="radio" disabled name="est" id="establishedBusiness"
-                          value="establishedBusiness" required>  Established Business
-                </label>
-                </div>
+                <label>Is Your Business A(n)</label>
+                <select class="form-control" id="foundation"
+                        required
+                        [(ngModel)]="quote.foundation" name="foundation"
+                        #foundation="ngModel">
+                  <option *ngFor="let foundation of foundations" [value]="foundation">{{foundation}}</option>
+                </select>
               </div>
             </div>
             <div class="form-row inner-form-section">
