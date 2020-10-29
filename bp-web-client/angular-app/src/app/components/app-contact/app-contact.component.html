@@ -193,8 +193,9 @@
                 <label>Is Your Business A(n)</label>
                 <select class="form-control" id="foundation"
                         required
-                        [(ngModel)]="quote.foundation" name="foundation"
+                        [(ngModel)]="quote.company.foundation" name="foundation"
                         #foundation="ngModel">
+                  <option [ngValue]="null" [disabled]="true">Please Select An Option</option>
                   <option *ngFor="let foundation of foundations" [value]="foundation">{{foundation}}</option>
                 </select>
               </div>
