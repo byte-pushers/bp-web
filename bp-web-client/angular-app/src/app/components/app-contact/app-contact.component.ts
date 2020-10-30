@@ -86,7 +86,7 @@ export class ContactComponent implements OnInit {
     this.years.push('Older than 1980');
   }
 
-  public calculateYears(yearList, yearsSpan): any {
+  public calculateYears(yearList, yearsSpan): any []{
     const yearArray = [];
     yearArray.push(yearList);
     for (let i = 1; i < yearsSpan; i++) {
