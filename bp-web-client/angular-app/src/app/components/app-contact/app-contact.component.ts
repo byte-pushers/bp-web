@@ -79,18 +79,20 @@ export class ContactComponent implements OnInit {
   timelines: any = ['Slide for time frame'];
   timeframe: any = [0, 35];
   years = [];
- foundations: any = ['New Business', 'Existing Business'];
+  foundations: any = ['New Business', 'Existing Business'];
+
   ngOnInit() {
     this.years = this.calculateYears(new Date().getFullYear(), 40);
     this.years.push('Older than 1980');
   }
-  calculateYears(yearList, yearsSpan) {
-const yearArray = [];
-yearArray.push(yearList);
-for (let i = 1; i < yearsSpan; i++) {
+
+  public calculateYears(yearList, yearsSpan): any {
+    const yearArray = [];
+    yearArray.push(yearList);
+    for (let i = 1; i < yearsSpan; i++) {
       yearArray.push(yearList - i);
     }
-return yearArray;
+    return yearArray;
   }
 
   public isMobileResolution(): boolean {
