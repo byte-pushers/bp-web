@@ -22,9 +22,11 @@ export class QuoteService {
     const header: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json')
       .set('Accept','application/json');
 
-    return this.http.post<Quote>(environment.QUOTE_SERVICE.API.HOST, quote, {
+    return this.http.post<Quote>(environment.QUOTE_SERVICE.API.HOST, quote.transformKeys(), {
       headers: header,
       responseType: 'json'
     });
   }
+
+
 }

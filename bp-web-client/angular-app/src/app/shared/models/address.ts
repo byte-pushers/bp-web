@@ -10,9 +10,12 @@ export interface Address extends BaseEntity {
   getState(): string;
   setState(state: string): void;
 
-  getZip() : string;
+  getZip(): string;
   setZip(zip: string): void;
 
   getCounty(): string;
   setCounty(county: string): void;
+
+  getCountry(): string;
+  setCountry(country: string): void;
 }
