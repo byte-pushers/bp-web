@@ -1,6 +1,6 @@
-import {Budget} from "./budget";
-import {TimeLine} from "./time-line";
-import {BaseEntity} from "./base.entity";
+import {Budget} from './budget';
+import {TimeLine} from './time-line';
+import {BaseEntity} from './base.entity';
 
 export interface Company extends BaseEntity {
   getName(): string;
@@ -25,4 +25,7 @@ export interface Company extends BaseEntity {
 
   getEstablishedYear(): number;
   setEstablishedYear(establishedYear: number): void;
+
+  getFoundation(): string;
+  setFoundation(foundation: string): void;
 }
