@@ -83,13 +83,16 @@ export class ContactComponent implements OnInit {
   years = [];
 
   ngOnInit() {
-    const yearList = new Date().getFullYear();
-    const yearArray = this.years;
-    yearArray.push(yearList);
-    for (let i = 1; i < 40; i++) {
+    this.years = this.calculateYears(new Date().getFullYear(), 40);
+    this.years.push('Older than 1980');
+  }
+  calculateYears(yearList, yearsSpan) {
+const yearArray = [];
+yearArray.push(yearList);
+for (let i = 1; i < yearsSpan; i++) {
       yearArray.push(yearList - i);
     }
-    yearArray.push('Older than 1980');
+return yearArray;
   }
 
 
