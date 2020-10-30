@@ -3,8 +3,6 @@ import {NgForm} from '@angular/forms';
 import {QuoteService} from '../../shared/services/quote.service';
 import {Quote} from '../../shared/models/quote';
 import {QuoteModel} from '../../shared/models/quote.model';
-import {add} from 'ngx-bootstrap/chronos';
-import {$} from 'protractor';
 
 
 @Component({
@@ -81,7 +79,7 @@ export class ContactComponent implements OnInit {
   timelines: any = ['Slide for time frame'];
   timeframe: any = [0, 35];
   years = [];
-
+ foundations: any = ['New Business', 'Existing Business'];
   ngOnInit() {
     this.years = this.calculateYears(new Date().getFullYear(), 40);
     this.years.push('Older than 1980');
@@ -95,9 +93,8 @@ for (let i = 1; i < yearsSpan; i++) {
 return yearArray;
   }
 
-
   public isMobileResolution(): boolean {
-    let isMobileResolution = false;
+    let isMobileResolution: boolean = false;
 
     if (window.innerWidth < 768) {
       isMobileResolution = true;
