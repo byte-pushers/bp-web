@@ -12,6 +12,9 @@
         <module>bp-web-ws</module>
     </modules>
 
+    <name>bp-web</name>
+    <url>http://maven.apache.org</url>
+
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
