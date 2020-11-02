@@ -82,11 +82,11 @@ export class ContactComponent implements OnInit {
   foundations: any = ['New Business', 'Existing Business'];
 
   ngOnInit() {
-    this.years = this.calculateYears(new Date().getFullYear(), 40);
+    this.years = this.calculateYears(+new Date().getFullYear(), 40);
     this.years.push('Older than 1980');
   }
 
-  public calculateYears(yearList, yearsSpan): any []{
+  public calculateYears(yearList: number, yearsSpan: number): any [] {
     const yearArray = [];
     yearArray.push(yearList);
     for (let i = 1; i < yearsSpan; i++) {
