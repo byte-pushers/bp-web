@@ -38,5 +38,5 @@
 }
 
 ::ng-deep .carousel-inner {
-  height: 350px;
+  height: 350px !important;
 }

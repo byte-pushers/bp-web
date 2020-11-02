@@ -941,7 +941,7 @@ carousel {
 }
 
 .carousel-item {
-  padding: 40px 55px;
+/* left commented out due to nature of feature  padding: 40px 55px;*/
   opacity: 0;
   transition: opacity .3s ease-in-out;
   position: absolute;
