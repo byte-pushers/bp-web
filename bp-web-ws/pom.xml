@@ -26,7 +26,7 @@
         <log4j.version>2.8.2</log4j.version>
         <mysql.version>8.0.18</mysql.version>
         <org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
-        <surefireAndFailsafeReport.dir>target/test-report</surefireAndFailsafeReport.dir>
+        <surefireAndFailsafeReport.dir>target/retrieveTimeframe-report</surefireAndFailsafeReport.dir>
         <skipTests>false</skipTests>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jwt.version>0.11.2</jwt.version>
@@ -118,21 +118,21 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+            <artifactId>spring-boot-starter-retrieveTimeframe</artifactId>
             <exclusions>
                 <exclusion>
                     <groupId>org.junit.vintage</groupId>
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
-            <scope>test</scope>
+            <scope>retrieveTimeframe</scope>
         </dependency>
 
         <dependency>
             <groupId>org.fluttercode.datafactory</groupId>
             <artifactId>datafactory</artifactId>
             <version>0.8</version>
-            <scope>test</scope>
+            <scope>retrieveTimeframe</scope>
         </dependency>
 
 
@@ -152,7 +152,7 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
-            <scope>test</scope>
+            <scope>retrieveTimeframe</scope>
         </dependency>
 
     </dependencies>
@@ -176,7 +176,7 @@
                 <executions>
                     <execution>
                         <goals>
-                            <goal>integration-test</goal>
+                            <goal>integration-retrieveTimeframe</goal>
                             <goal>verify</goal>
                         </goals>
                     </execution>
@@ -501,8 +501,8 @@
                                 </configuration>
                             </execution>
                             <execution>
-                                <id>exec-pre-integration-test</id>
-                                <phase>pre-integration-test</phase>
+                                <id>exec-pre-integration-retrieveTimeframe</id>
+                                <phase>pre-integration-retrieveTimeframe</phase>
                                 <goals>
                                     <goal>run</goal>
                                 </goals>
@@ -591,7 +591,7 @@
                             </execution>
                             <execution>
                                 <id>coverage-report</id>
-                                <phase>post-integration-test</phase>
+                                <phase>post-integration-retrieveTimeframe</phase>
                                 <goals>
                                     <goal>report</goal>
                                 </goals>
