@@ -3,7 +3,7 @@ package software.bytepushers.bpweb.controller;
 import org.hibernate.validator.internal.engine.ConstraintViolationImpl;
 import org.junit.Test;
 import org.mockito.Mockito;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.retrieveTimeframe.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
@@ -19,10 +19,10 @@ import java.util.Collections;
 import java.util.UUID;
 
 import static java.util.Collections.emptyMap;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.retrieveTimeframe.web.servlet.request.MockMvcRequestBuilders.*;
 
 /**
- * The test case implementation fro the quotes
+ * The retrieveTimeframe case implementation fro the quotes
  */
 public class QuoteControllerTest extends AbstractControllerTest {
 
@@ -32,7 +32,7 @@ public class QuoteControllerTest extends AbstractControllerTest {
     private QuoteService quoteServiceImpl;
 
     /**
-     * The test case implementation is responsible for validating the fetching operation of quote.
+     * The retrieveTimeframe case implementation is responsible for validating the fetching operation of quote.
      *
      * @throws Exception if something went wrong on request mapping.
      */
@@ -48,7 +48,7 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the case while incorrect endpoint is hit by the end user.
+     * The retrieveTimeframe case implementation is responsible for validating the case while incorrect endpoint is hit by the end user.
      *
      * @throws Exception if something went wrong on request mapping.
      */
@@ -62,7 +62,7 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the create/save/add rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the create/save/add rest operation
      * of the quote with request mapping.
      *
      * @throws Exception if something went wrong on request mapping.
@@ -79,7 +79,7 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the create/save/add rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the create/save/add rest operation
      * of the quote with missing request body.
      *
      * @throws Exception if something went wrong on request mapping.
@@ -99,7 +99,7 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the create/save/add rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the create/save/add rest operation
      * of the quote with invalid request body.
      *
      * @throws Exception if something went wrong on request mapping.
@@ -118,7 +118,7 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the update rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the update rest operation
      * of the quote with invalid request body.
      *
      * @throws Exception if something went wrong on request mapping.
@@ -137,7 +137,7 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the update rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the update rest operation
      * of the quote with missing id of the quote.
      *
      * @throws Exception if something went wrong on request mapping.
@@ -155,7 +155,7 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the update rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the update rest operation
      * of the quote with missing data of the quote. It should just ignore those fields which are not supplied.
      *
      * @throws Exception if something went wrong on request mapping.
@@ -176,7 +176,7 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the update rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the update rest operation
      * of the quote with invalid data.
      *
      * @throws Exception if something went wrong on request mapping.
@@ -196,7 +196,7 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the get by id rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the get by id rest operation
      * of the quote.
      *
      * @throws Exception if something went wrong on request mapping.
@@ -213,7 +213,7 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the get by id rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the get by id rest operation
      * of the quote with invalid quote if.
      *
      * @throws Exception if something went wrong on request mapping.
@@ -228,7 +228,7 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the get by id rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the get by id rest operation
      * of the quote while quote is nto found with specified id invalid quote if.
      *
      * @throws Exception if something went wrong on request mapping.
@@ -242,7 +242,7 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the delete by id rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the delete by id rest operation
      * of the quote.
      *
      * @throws Exception if something went wrong on request mapping.
@@ -257,7 +257,7 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the delete by id rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the delete by id rest operation
      * of the quote with invalid quote if.
      *
      * @throws Exception if something went wrong on request mapping.
@@ -272,7 +272,7 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for calidating the database errors handling process.
+     * The retrieveTimeframe case implementation is responsible for calidating the database errors handling process.
      *
      * @throws Exception if something went wrong on request mapping.
      */

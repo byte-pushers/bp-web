@@ -2,7 +2,7 @@ import {TimeLine} from "./time-line";
 import {BaseEntityModel} from "./base.entity.model";
 
 export class TimeLineModel extends BaseEntityModel implements TimeLine {
-  private _min: Date;
+  private _min: any;
   private _max: Date;
 
   static readonly DEFAULT_CONFIG: any = {
@@ -35,13 +35,11 @@ export class TimeLineModel extends BaseEntityModel implements TimeLine {
   get min() {
     return this._min;
   }
-
+  set min(min: any) {
+    this._min = min.concat('months');
+  }
   getMin() {
     return this._min;
-  }
-
-  set min(min: Date) {
-    this._min = min;
   }
 
   setMin(min: Date) {

@@ -1,10 +1,10 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {NgForm} from "@angular/forms";
-import {QuoteService} from "../../shared/services/quote.service";
-import {Quote} from "../../shared/models/quote";
-import {QuoteModel} from "../../shared/models/quote.model";
-import {add} from "ngx-bootstrap/chronos";
-import {$} from "protractor";
+import {NgForm} from '@angular/forms';
+import {QuoteService} from '../../shared/services/quote.service';
+import {Quote} from '../../shared/models/quote';
+import {QuoteModel} from '../../shared/models/quote.model';
+import {add} from 'ngx-bootstrap/chronos';
+import {$} from 'protractor';
 
 
 @Component({
@@ -87,7 +87,7 @@ foundations: any = ['New Business', 'Existing Business'];
   }
 
   public isMobileResolution(): boolean {
-    let isMobileResolution: boolean = false;
+    let isMobileResolution = false;
 
     if (window.innerWidth < 768) {
       isMobileResolution = true;
@@ -109,6 +109,20 @@ foundations: any = ['New Business', 'Existing Business'];
 
   public reset(form: NgForm) {
     form.resetForm();
+  }
+
+  public retrieveTimeframe(timeframe: number) {
+    if (timeframe !== null && timeframe !== undefined) {
+      this.quote.company.timeline.setMin(timeframe[0]);
+      this.quote.company.timeline.setMax(timeframe[1]);
+    }
+  }
+
+  public retrieveBudget(value: number) {
+    if (value !== null && value !== undefined) {
+      this.quote.company.budget.setMin(value[0]);
+      this.quote.company.budget.setMax(value[1]);
+    }
   }
 
   private saveQuote() {
