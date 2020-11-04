@@ -3,8 +3,6 @@ import {NgForm} from '@angular/forms';
 import {QuoteService} from '../../shared/services/quote.service';
 import {Quote} from '../../shared/models/quote';
 import {QuoteModel} from '../../shared/models/quote.model';
-import {add} from 'ngx-bootstrap/chronos';
-import {$} from 'protractor';
 
 
 @Component({
@@ -80,14 +78,25 @@ export class ContactComponent implements OnInit {
   budgets: any = ['Slide for budget amount'];
   timelines: any = ['Slide for time frame'];
   timeframe: any = [0, 35];
-  years: any = ['1980 and older', 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020];
-foundations: any = ['New Business', 'Existing Business'];
-  ngOnInit() {
+  years = [];
+  foundations: any = ['New Business', 'Existing Business'];
 
+  ngOnInit() {
+    this.years = this.calculateYears(+new Date().getFullYear(), 40);
+    this.years.push('Older than 1980');
+  }
+
+  public calculateYears(yearList: number, yearsSpan: number): any [] {
+    const yearArray = [];
+    yearArray.push(yearList);
+    for (let i = 1; i < yearsSpan; i++) {
+      yearArray.push(yearList - i);
+    }
+    return yearArray;
   }
 
   public isMobileResolution(): boolean {
-    let isMobileResolution = false;
+    let isMobileResolution: boolean = false;
 
     if (window.innerWidth < 768) {
       isMobileResolution = true;
@@ -151,19 +160,6 @@ foundations: any = ['New Business', 'Existing Business'];
     const budgetMax = this.value[1];
     const newBudget = 'Range'.concat((': ') + ('$ ') + budgetMin + ' - ' + ('$ ') + budgetMax + ' and up');
     this.budgets.splice(0, 1, newBudget);
-  }
-
-  public changeEstablishedBusiness() {
-    const yearValue = (document.getElementById('year') as HTMLSelectElement).value;
-    if (yearValue <= this.years[34]) {
-      document.getElementById('newBusiness').setAttribute('checked', 'checked');
-      document.getElementById('establishedBusiness').setAttribute('checked', '');
-      document.getElementById('establishedBusiness').removeAttribute('checked');
-       } else {
-      document.getElementById('establishedBusiness').setAttribute('checked', 'checked');
-      document.getElementById('newBusiness').setAttribute('checked', '');
-      document.getElementById('newBusiness').removeAttribute('checked');
-    }
   }
 
 }

@@ -333,7 +333,7 @@ public class DeployToAwsLambda {
     private static boolean cloudFormationStackExists(AmazonCloudFormation cloudFormationClient, String stackName) {
         ListStacksResult listStacks = cloudFormationClient.listStacks();
         return listStacks.getStackSummaries().stream().anyMatch((stack) -> stack.getStackName().equals(stackName) &&
-            stack.getDeletionTime() == null);
+                stack.getDeletionTime() == null);
     }
 
     private static boolean lambdaFunctionExistsAndUsesJava8Runtime(AWSLambda client, String functionName) {
