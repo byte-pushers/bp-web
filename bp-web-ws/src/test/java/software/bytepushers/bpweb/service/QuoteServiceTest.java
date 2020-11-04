@@ -7,7 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.retrieveTimeframe.context.junit.jupiter.SpringExtension;
 import software.bytepushers.bpweb.exceptions.MalformedRequestException;
 import software.bytepushers.bpweb.model.entity.Company;
 import software.bytepushers.bpweb.model.entity.Person;
@@ -22,7 +22,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 /**
- * The quote service test cases
+ * The quote service retrieveTimeframe cases
  */
 @ExtendWith(SpringExtension.class)
 public class QuoteServiceTest {
@@ -39,7 +39,7 @@ public class QuoteServiceTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the save operation of the quote service.
+     * The retrieveTimeframe case implementation is responsible for validating the save operation of the quote service.
      */
     @Test
     public void testSaveQuote() {
@@ -51,7 +51,7 @@ public class QuoteServiceTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the null input of the save operation
+     * The retrieveTimeframe case implementation is responsible for validating the null input of the save operation
      */
     @Test(expected = MalformedRequestException.class)
     public void testNullQuoteSave() {
@@ -59,7 +59,7 @@ public class QuoteServiceTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the update operation of the quote service.
+     * The retrieveTimeframe case implementation is responsible for validating the update operation of the quote service.
      */
     @Test
     public void testUpdateQuote() {
@@ -76,7 +76,7 @@ public class QuoteServiceTest {
     }
 
     /**
-     * The test case implementation is responsible for validating
+     * The retrieveTimeframe case implementation is responsible for validating
      * the update operation of the quote service while quote is not found.
      */
     @Test(expected = MalformedRequestException.class)
@@ -87,7 +87,7 @@ public class QuoteServiceTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the delete operation
+     * The retrieveTimeframe case implementation is responsible for validating the delete operation
      * of the quote service.
      */
     @Test
@@ -100,7 +100,7 @@ public class QuoteServiceTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the delete operation
+     * The retrieveTimeframe case implementation is responsible for validating the delete operation
      * of the quote service while quote is not found.
      */
     @Test(expected = MalformedRequestException.class)
@@ -111,7 +111,7 @@ public class QuoteServiceTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the fetching all operation
+     * The retrieveTimeframe case implementation is responsible for validating the fetching all operation
      * of the quote service.
      */
     @Test
@@ -123,7 +123,7 @@ public class QuoteServiceTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the quote by fetching the id
+     * The retrieveTimeframe case implementation is responsible for validating the quote by fetching the id
      * of the quote service.
      */
     @Test
@@ -135,7 +135,7 @@ public class QuoteServiceTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the quote by fetching the
+     * The retrieveTimeframe case implementation is responsible for validating the quote by fetching the
      * id of the quote service while quote is not found with specified id.
      */
     @Test(expected = MalformedRequestException.class)
