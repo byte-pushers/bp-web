@@ -4,7 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import software.bytepushers.bpweb.model.dto.AbstractDto;
+import software.bytepushers.bpweb.model.entity.ValidatorModel;
 
 import javax.validation.*;
 import java.lang.reflect.Field;
@@ -25,10 +25,10 @@ public class ApplicationValidatorImpl implements ConstraintValidator<Application
         if (httpMethodType != null) {
             switch (httpMethodType) {
                 case POST:
-                    classType = AbstractDto.CreateRequest.class;
+                    classType = ValidatorModel.CreateRequest.class;
                     break;
                 case PUT:
-                    classType = AbstractDto.UpdateRequest.class;
+                    classType = ValidatorModel.UpdateRequest.class;
                     break;
             }
             if (classType != null) {
