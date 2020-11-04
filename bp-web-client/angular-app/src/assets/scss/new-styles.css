@@ -941,7 +941,7 @@ carousel {
 }
 
 .carousel-item {
-  padding: 40px 55px;
+/* left commented out due to nature of feature  padding: 40px 55px;*/
   opacity: 0;
   transition: opacity .3s ease-in-out;
   position: absolute;
@@ -2224,12 +2224,12 @@ article.cbp-so-side-right .cbp-so-contents::after {
   -webkit-animation-fill-mode: forwards;
   -moz-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
-  -webkit-animation-duration: 0.5s;
-  -moz-animation-duration: 0.5s;
-  animation-duration: 0.5s;
-  -webkit-animation-delay: 0.5s;
-  -moz-animation-delay: 0.5s;
-  animation-delay: 0.5s
+  -webkit-animation-duration: 0.2s;
+  -moz-animation-duration: 0.2s;
+  animation-duration: 0.2s;
+  -webkit-animation-delay: 0.2s;
+  -moz-animation-delay: 0.2s;
+  animation-delay: 0.2s;
 }
 
 .fade-in-second {

@@ -9,7 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
 import software.bytepushers.bpweb.exceptions.MalformedRequestException;
 import software.bytepushers.bpweb.model.dto.ApiResponse;
-import software.bytepushers.bpweb.model.dto.QuoteDto;
+import software.bytepushers.bpweb.model.entity.Quote;
 import software.bytepushers.bpweb.service.QuoteService;
 import software.bytepushers.bpweb.utils.ModelUtils;
 
@@ -38,8 +38,8 @@ public class QuoteControllerTest extends AbstractControllerTest {
      */
     @Test
     public void testGetAll() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        Mockito.when(this.quoteServiceImpl.getAll()).thenReturn(Collections.singletonList(quoteDto));
+        Quote quote = ModelUtils.quoteEntity();
+        Mockito.when(this.quoteServiceImpl.getAll()).thenReturn(Collections.singletonList(quote));
         MockHttpServletResponse response = mvc.perform(get(QUOTE_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.OK.value() : "Get all endpoint must return the ok status";
@@ -54,8 +54,8 @@ public class QuoteControllerTest extends AbstractControllerTest {
      */
     @Test
     public void testGetAllQuoteWithWrongEndpointRequest() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        Mockito.when(this.quoteServiceImpl.getAll()).thenReturn(Collections.singletonList(quoteDto));
+        Quote quote = ModelUtils.quoteEntity();
+        Mockito.when(this.quoteServiceImpl.getAll()).thenReturn(Collections.singletonList(quote));
         MockHttpServletResponse response = mvc.perform(get(QUOTE_ENDPOINT.concat("invalid"))
                 .contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.NOT_FOUND.value() : "Incorrect endpoint won't acceptable";
@@ -69,9 +69,9 @@ public class QuoteControllerTest extends AbstractControllerTest {
      */
     @Test
     public void createQuoteTest() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        String requestBody = this.objectMapper.writeValueAsString(quoteDto);
-        Mockito.when(this.quoteServiceImpl.create(Mockito.any())).thenReturn(quoteDto);
+        Quote quote = ModelUtils.quoteEntity();
+        String requestBody = this.objectMapper.writeValueAsString(quote);
+        Mockito.when(this.quoteServiceImpl.create(Mockito.any())).thenReturn(quote);
         MockHttpServletResponse response = mvc.perform(post(QUOTE_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON).content(requestBody)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.CREATED.value() : "Quote must be created with valid" +
@@ -86,11 +86,11 @@ public class QuoteControllerTest extends AbstractControllerTest {
      */
     @Test
     public void createQuoteWithMissingRequestTest() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        quoteDto.setCompany(null);
-        quoteDto.setContact(null);
-        String requestBody = this.objectMapper.writeValueAsString(quoteDto);
-        Mockito.when(this.quoteServiceImpl.create(Mockito.any())).thenReturn(quoteDto);
+        Quote quote = ModelUtils.quoteEntity();
+        quote.setCompany(null);
+        quote.setContact(null);
+        String requestBody = this.objectMapper.writeValueAsString(quote);
+        Mockito.when(this.quoteServiceImpl.create(Mockito.any())).thenReturn(quote);
         MockHttpServletResponse response = mvc.perform(post(QUOTE_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON).content(requestBody)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.BAD_REQUEST.value() : "Missing data must be thrown as bad request";
@@ -106,10 +106,10 @@ public class QuoteControllerTest extends AbstractControllerTest {
      */
     @Test
     public void createQuoteWithInvalidRequestTest() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        quoteDto.getContact().setEmail("invalid email");
-        String requestBody = this.objectMapper.writeValueAsString(quoteDto);
-        Mockito.when(this.quoteServiceImpl.create(Mockito.any())).thenReturn(quoteDto);
+        Quote quote = ModelUtils.quoteEntity();
+        quote.getContact().setEmail("invalid email");
+        String requestBody = this.objectMapper.writeValueAsString(quote);
+        Mockito.when(this.quoteServiceImpl.create(Mockito.any())).thenReturn(quote);
         MockHttpServletResponse response = mvc.perform(post(QUOTE_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON).content(requestBody)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.BAD_REQUEST.value() : "Invalid data must be thrown as bad request";
@@ -125,10 +125,10 @@ public class QuoteControllerTest extends AbstractControllerTest {
      */
     @Test
     public void updateQuoteSuccessTest() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        quoteDto.setId(UUID.randomUUID());
-        String requestBody = this.objectMapper.writeValueAsString(quoteDto);
-        Mockito.when(this.quoteServiceImpl.update(Mockito.any())).thenReturn(quoteDto);
+        Quote quote = ModelUtils.quoteEntity();
+        quote.setId(UUID.randomUUID());
+        String requestBody = this.objectMapper.writeValueAsString(quote);
+        Mockito.when(this.quoteServiceImpl.update(Mockito.any())).thenReturn(quote);
         MockHttpServletResponse response = mvc.perform(put(QUOTE_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON).content(requestBody)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.OK.value() : "Quote must be updated successfully";
@@ -144,9 +144,9 @@ public class QuoteControllerTest extends AbstractControllerTest {
      */
     @Test
     public void updateQuoteWhileMissingIdTest() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        String requestBody = this.objectMapper.writeValueAsString(quoteDto);
-        Mockito.when(this.quoteServiceImpl.update(Mockito.any())).thenReturn(quoteDto);
+        Quote quote = ModelUtils.quoteEntity();
+        String requestBody = this.objectMapper.writeValueAsString(quote);
+        Mockito.when(this.quoteServiceImpl.update(Mockito.any())).thenReturn(quote);
         MockHttpServletResponse response = mvc.perform(put(QUOTE_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON).content(requestBody)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.BAD_REQUEST.value() : "Quote must be thrown as a bad request";
@@ -162,12 +162,12 @@ public class QuoteControllerTest extends AbstractControllerTest {
      */
     @Test
     public void updateQuoteWhileMissingDataTest() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        quoteDto.setId(UUID.randomUUID());
-        quoteDto.setContact(null);
-        quoteDto.setCompany(null);
-        String requestBody = this.objectMapper.writeValueAsString(quoteDto);
-        Mockito.when(this.quoteServiceImpl.update(Mockito.any())).thenReturn(quoteDto);
+        Quote quote = ModelUtils.quoteEntity();
+        quote.setId(UUID.randomUUID());
+        quote.setContact(null);
+        quote.setCompany(null);
+        String requestBody = this.objectMapper.writeValueAsString(quote);
+        Mockito.when(this.quoteServiceImpl.update(Mockito.any())).thenReturn(quote);
         MockHttpServletResponse response = mvc.perform(put(QUOTE_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON).content(requestBody)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.OK.value() : "Quote must be updated successfully";
@@ -183,11 +183,11 @@ public class QuoteControllerTest extends AbstractControllerTest {
      */
     @Test
     public void updateQuoteWithInvalidRequestTest() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        quoteDto.setId(UUID.randomUUID());
-        quoteDto.getContact().setEmail("invalid email");
-        String requestBody = this.objectMapper.writeValueAsString(quoteDto);
-        Mockito.when(this.quoteServiceImpl.create(Mockito.any())).thenReturn(quoteDto);
+        Quote quote = ModelUtils.quoteEntity();
+        quote.setId(UUID.randomUUID());
+        quote.getContact().setEmail("invalid email");
+        String requestBody = this.objectMapper.writeValueAsString(quote);
+        Mockito.when(this.quoteServiceImpl.create(Mockito.any())).thenReturn(quote);
         MockHttpServletResponse response = mvc.perform(put(QUOTE_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON).content(requestBody)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.BAD_REQUEST.value() : "Invalid data must be thrown as bad request";
@@ -203,8 +203,8 @@ public class QuoteControllerTest extends AbstractControllerTest {
      */
     @Test
     public void getByIdQuoteTest() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        Mockito.when(this.quoteServiceImpl.getById(Mockito.any())).thenReturn(quoteDto);
+        Quote quote = ModelUtils.quoteEntity();
+        Mockito.when(this.quoteServiceImpl.getById(Mockito.any())).thenReturn(quote);
         MockHttpServletResponse response = mvc.perform(get(QUOTE_ENDPOINT + "/" + UUID.randomUUID().toString())
                 .contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.OK.value() : "Valid ID request must return data with status ok";
@@ -220,8 +220,8 @@ public class QuoteControllerTest extends AbstractControllerTest {
      */
     @Test
     public void getByIdQuoteTestWithInvalidId() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        Mockito.when(this.quoteServiceImpl.getById(Mockito.any())).thenReturn(quoteDto);
+        Quote quote = ModelUtils.quoteEntity();
+        Mockito.when(this.quoteServiceImpl.getById(Mockito.any())).thenReturn(quote);
         MockHttpServletResponse response = mvc.perform(get(QUOTE_ENDPOINT + "/invalidId")
                 .contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.BAD_REQUEST.value() : "Invalid ID request must thrown as bad request";
@@ -249,7 +249,6 @@ public class QuoteControllerTest extends AbstractControllerTest {
      */
     @Test
     public void deleteByIdQuoteTest() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
         UUID quoteId = UUID.randomUUID();
         MockHttpServletResponse response = mvc.perform(delete(QUOTE_ENDPOINT + "/" + quoteId.toString())
                 .contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
@@ -264,8 +263,8 @@ public class QuoteControllerTest extends AbstractControllerTest {
      */
     @Test
     public void deleteByIdQuoteTestWithInvalidId() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        Mockito.when(this.quoteServiceImpl.getById(Mockito.any())).thenReturn(quoteDto);
+        Quote quote = ModelUtils.quoteEntity();
+        Mockito.when(this.quoteServiceImpl.getById(Mockito.any())).thenReturn(quote);
         MockHttpServletResponse response = mvc.perform(delete(QUOTE_ENDPOINT + "/invalidId")
                 .contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.BAD_REQUEST.value() : "Invalid ID request must thrown as bad request";

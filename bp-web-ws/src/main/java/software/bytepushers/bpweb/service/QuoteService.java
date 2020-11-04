@@ -1,6 +1,6 @@
 package software.bytepushers.bpweb.service;
 
-import software.bytepushers.bpweb.model.dto.QuoteDto;
+import software.bytepushers.bpweb.model.entity.Quote;
 
 import java.util.List;
 import java.util.UUID;
@@ -16,15 +16,15 @@ public interface QuoteService {
      * @param quote to create
      * @return the created quote details.
      */
-    QuoteDto create(QuoteDto quote);
+    Quote create(Quote quote);
 
     /**
      * The method implementation is responsible for updating the quote based on provided details
      *
-     * @param quoteDto to update
+     * @param quote to update
      * @return the updated quote details
      */
-    QuoteDto update(QuoteDto quoteDto);
+    Quote update(Quote quote);
 
     /**
      * The method implementation is responsible for returning the quote details based on the id.
@@ -32,7 +32,7 @@ public interface QuoteService {
      * @param quoteId to return the details of quote
      * @return the quote details
      */
-    QuoteDto getById(UUID quoteId);
+    Quote getById(UUID quoteId);
 
     /**
      * The method implementation is responsible deleting the quote details based on the id.
@@ -46,5 +46,5 @@ public interface QuoteService {
      *
      * @return the list of quote details
      */
-    List<QuoteDto> getAll();
+    List<Quote> getAll();
 }
