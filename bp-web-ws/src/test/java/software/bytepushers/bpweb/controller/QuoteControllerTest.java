@@ -3,13 +3,13 @@ package software.bytepushers.bpweb.controller;
 import org.hibernate.validator.internal.engine.ConstraintViolationImpl;
 import org.junit.Test;
 import org.mockito.Mockito;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.retrieveTimeframe.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
 import software.bytepushers.bpweb.exceptions.MalformedRequestException;
 import software.bytepushers.bpweb.model.dto.ApiResponse;
-import software.bytepushers.bpweb.model.dto.QuoteDto;
+import software.bytepushers.bpweb.model.entity.Quote;
 import software.bytepushers.bpweb.service.QuoteService;
 import software.bytepushers.bpweb.utils.ModelUtils;
 
@@ -19,10 +19,10 @@ import java.util.Collections;
 import java.util.UUID;
 
 import static java.util.Collections.emptyMap;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.retrieveTimeframe.web.servlet.request.MockMvcRequestBuilders.*;
 
 /**
- * The test case implementation fro the quotes
+ * The retrieveTimeframe case implementation fro the quotes
  */
 public class QuoteControllerTest extends AbstractControllerTest {
 
@@ -32,14 +32,14 @@ public class QuoteControllerTest extends AbstractControllerTest {
     private QuoteService quoteServiceImpl;
 
     /**
-     * The test case implementation is responsible for validating the fetching operation of quote.
+     * The retrieveTimeframe case implementation is responsible for validating the fetching operation of quote.
      *
      * @throws Exception if something went wrong on request mapping.
      */
     @Test
     public void testGetAll() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        Mockito.when(this.quoteServiceImpl.getAll()).thenReturn(Collections.singletonList(quoteDto));
+        Quote quote = ModelUtils.quoteEntity();
+        Mockito.when(this.quoteServiceImpl.getAll()).thenReturn(Collections.singletonList(quote));
         MockHttpServletResponse response = mvc.perform(get(QUOTE_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.OK.value() : "Get all endpoint must return the ok status";
@@ -48,30 +48,30 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the case while incorrect endpoint is hit by the end user.
+     * The retrieveTimeframe case implementation is responsible for validating the case while incorrect endpoint is hit by the end user.
      *
      * @throws Exception if something went wrong on request mapping.
      */
     @Test
     public void testGetAllQuoteWithWrongEndpointRequest() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        Mockito.when(this.quoteServiceImpl.getAll()).thenReturn(Collections.singletonList(quoteDto));
+        Quote quote = ModelUtils.quoteEntity();
+        Mockito.when(this.quoteServiceImpl.getAll()).thenReturn(Collections.singletonList(quote));
         MockHttpServletResponse response = mvc.perform(get(QUOTE_ENDPOINT.concat("invalid"))
                 .contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.NOT_FOUND.value() : "Incorrect endpoint won't acceptable";
     }
 
     /**
-     * The test case implementation is responsible for validating the create/save/add rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the create/save/add rest operation
      * of the quote with request mapping.
      *
      * @throws Exception if something went wrong on request mapping.
      */
     @Test
     public void createQuoteTest() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        String requestBody = this.objectMapper.writeValueAsString(quoteDto);
-        Mockito.when(this.quoteServiceImpl.create(Mockito.any())).thenReturn(quoteDto);
+        Quote quote = ModelUtils.quoteEntity();
+        String requestBody = this.objectMapper.writeValueAsString(quote);
+        Mockito.when(this.quoteServiceImpl.create(Mockito.any())).thenReturn(quote);
         MockHttpServletResponse response = mvc.perform(post(QUOTE_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON).content(requestBody)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.CREATED.value() : "Quote must be created with valid" +
@@ -79,18 +79,18 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the create/save/add rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the create/save/add rest operation
      * of the quote with missing request body.
      *
      * @throws Exception if something went wrong on request mapping.
      */
     @Test
     public void createQuoteWithMissingRequestTest() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        quoteDto.setCompany(null);
-        quoteDto.setContact(null);
-        String requestBody = this.objectMapper.writeValueAsString(quoteDto);
-        Mockito.when(this.quoteServiceImpl.create(Mockito.any())).thenReturn(quoteDto);
+        Quote quote = ModelUtils.quoteEntity();
+        quote.setCompany(null);
+        quote.setContact(null);
+        String requestBody = this.objectMapper.writeValueAsString(quote);
+        Mockito.when(this.quoteServiceImpl.create(Mockito.any())).thenReturn(quote);
         MockHttpServletResponse response = mvc.perform(post(QUOTE_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON).content(requestBody)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.BAD_REQUEST.value() : "Missing data must be thrown as bad request";
@@ -99,17 +99,17 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the create/save/add rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the create/save/add rest operation
      * of the quote with invalid request body.
      *
      * @throws Exception if something went wrong on request mapping.
      */
     @Test
     public void createQuoteWithInvalidRequestTest() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        quoteDto.getContact().setEmail("invalid email");
-        String requestBody = this.objectMapper.writeValueAsString(quoteDto);
-        Mockito.when(this.quoteServiceImpl.create(Mockito.any())).thenReturn(quoteDto);
+        Quote quote = ModelUtils.quoteEntity();
+        quote.getContact().setEmail("invalid email");
+        String requestBody = this.objectMapper.writeValueAsString(quote);
+        Mockito.when(this.quoteServiceImpl.create(Mockito.any())).thenReturn(quote);
         MockHttpServletResponse response = mvc.perform(post(QUOTE_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON).content(requestBody)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.BAD_REQUEST.value() : "Invalid data must be thrown as bad request";
@@ -118,17 +118,17 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the update rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the update rest operation
      * of the quote with invalid request body.
      *
      * @throws Exception if something went wrong on request mapping.
      */
     @Test
     public void updateQuoteSuccessTest() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        quoteDto.setId(UUID.randomUUID());
-        String requestBody = this.objectMapper.writeValueAsString(quoteDto);
-        Mockito.when(this.quoteServiceImpl.update(Mockito.any())).thenReturn(quoteDto);
+        Quote quote = ModelUtils.quoteEntity();
+        quote.setId(UUID.randomUUID());
+        String requestBody = this.objectMapper.writeValueAsString(quote);
+        Mockito.when(this.quoteServiceImpl.update(Mockito.any())).thenReturn(quote);
         MockHttpServletResponse response = mvc.perform(put(QUOTE_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON).content(requestBody)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.OK.value() : "Quote must be updated successfully";
@@ -137,16 +137,16 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the update rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the update rest operation
      * of the quote with missing id of the quote.
      *
      * @throws Exception if something went wrong on request mapping.
      */
     @Test
     public void updateQuoteWhileMissingIdTest() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        String requestBody = this.objectMapper.writeValueAsString(quoteDto);
-        Mockito.when(this.quoteServiceImpl.update(Mockito.any())).thenReturn(quoteDto);
+        Quote quote = ModelUtils.quoteEntity();
+        String requestBody = this.objectMapper.writeValueAsString(quote);
+        Mockito.when(this.quoteServiceImpl.update(Mockito.any())).thenReturn(quote);
         MockHttpServletResponse response = mvc.perform(put(QUOTE_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON).content(requestBody)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.BAD_REQUEST.value() : "Quote must be thrown as a bad request";
@@ -155,19 +155,19 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the update rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the update rest operation
      * of the quote with missing data of the quote. It should just ignore those fields which are not supplied.
      *
      * @throws Exception if something went wrong on request mapping.
      */
     @Test
     public void updateQuoteWhileMissingDataTest() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        quoteDto.setId(UUID.randomUUID());
-        quoteDto.setContact(null);
-        quoteDto.setCompany(null);
-        String requestBody = this.objectMapper.writeValueAsString(quoteDto);
-        Mockito.when(this.quoteServiceImpl.update(Mockito.any())).thenReturn(quoteDto);
+        Quote quote = ModelUtils.quoteEntity();
+        quote.setId(UUID.randomUUID());
+        quote.setContact(null);
+        quote.setCompany(null);
+        String requestBody = this.objectMapper.writeValueAsString(quote);
+        Mockito.when(this.quoteServiceImpl.update(Mockito.any())).thenReturn(quote);
         MockHttpServletResponse response = mvc.perform(put(QUOTE_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON).content(requestBody)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.OK.value() : "Quote must be updated successfully";
@@ -176,18 +176,18 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the update rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the update rest operation
      * of the quote with invalid data.
      *
      * @throws Exception if something went wrong on request mapping.
      */
     @Test
     public void updateQuoteWithInvalidRequestTest() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        quoteDto.setId(UUID.randomUUID());
-        quoteDto.getContact().setEmail("invalid email");
-        String requestBody = this.objectMapper.writeValueAsString(quoteDto);
-        Mockito.when(this.quoteServiceImpl.create(Mockito.any())).thenReturn(quoteDto);
+        Quote quote = ModelUtils.quoteEntity();
+        quote.setId(UUID.randomUUID());
+        quote.getContact().setEmail("invalid email");
+        String requestBody = this.objectMapper.writeValueAsString(quote);
+        Mockito.when(this.quoteServiceImpl.create(Mockito.any())).thenReturn(quote);
         MockHttpServletResponse response = mvc.perform(put(QUOTE_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON).content(requestBody)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.BAD_REQUEST.value() : "Invalid data must be thrown as bad request";
@@ -196,15 +196,15 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the get by id rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the get by id rest operation
      * of the quote.
      *
      * @throws Exception if something went wrong on request mapping.
      */
     @Test
     public void getByIdQuoteTest() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        Mockito.when(this.quoteServiceImpl.getById(Mockito.any())).thenReturn(quoteDto);
+        Quote quote = ModelUtils.quoteEntity();
+        Mockito.when(this.quoteServiceImpl.getById(Mockito.any())).thenReturn(quote);
         MockHttpServletResponse response = mvc.perform(get(QUOTE_ENDPOINT + "/" + UUID.randomUUID().toString())
                 .contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.OK.value() : "Valid ID request must return data with status ok";
@@ -213,22 +213,22 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the get by id rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the get by id rest operation
      * of the quote with invalid quote if.
      *
      * @throws Exception if something went wrong on request mapping.
      */
     @Test
     public void getByIdQuoteTestWithInvalidId() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        Mockito.when(this.quoteServiceImpl.getById(Mockito.any())).thenReturn(quoteDto);
+        Quote quote = ModelUtils.quoteEntity();
+        Mockito.when(this.quoteServiceImpl.getById(Mockito.any())).thenReturn(quote);
         MockHttpServletResponse response = mvc.perform(get(QUOTE_ENDPOINT + "/invalidId")
                 .contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.BAD_REQUEST.value() : "Invalid ID request must thrown as bad request";
     }
 
     /**
-     * The test case implementation is responsible for validating the get by id rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the get by id rest operation
      * of the quote while quote is nto found with specified id invalid quote if.
      *
      * @throws Exception if something went wrong on request mapping.
@@ -242,14 +242,13 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the delete by id rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the delete by id rest operation
      * of the quote.
      *
      * @throws Exception if something went wrong on request mapping.
      */
     @Test
     public void deleteByIdQuoteTest() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
         UUID quoteId = UUID.randomUUID();
         MockHttpServletResponse response = mvc.perform(delete(QUOTE_ENDPOINT + "/" + quoteId.toString())
                 .contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
@@ -257,22 +256,22 @@ public class QuoteControllerTest extends AbstractControllerTest {
     }
 
     /**
-     * The test case implementation is responsible for validating the delete by id rest operation
+     * The retrieveTimeframe case implementation is responsible for validating the delete by id rest operation
      * of the quote with invalid quote if.
      *
      * @throws Exception if something went wrong on request mapping.
      */
     @Test
     public void deleteByIdQuoteTestWithInvalidId() throws Exception {
-        QuoteDto quoteDto = ModelUtils.quoteDto();
-        Mockito.when(this.quoteServiceImpl.getById(Mockito.any())).thenReturn(quoteDto);
+        Quote quote = ModelUtils.quoteEntity();
+        Mockito.when(this.quoteServiceImpl.getById(Mockito.any())).thenReturn(quote);
         MockHttpServletResponse response = mvc.perform(delete(QUOTE_ENDPOINT + "/invalidId")
                 .contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.BAD_REQUEST.value() : "Invalid ID request must thrown as bad request";
     }
 
     /**
-     * The test case implementation is responsible for calidating the database errors handling process.
+     * The retrieveTimeframe case implementation is responsible for calidating the database errors handling process.
      *
      * @throws Exception if something went wrong on request mapping.
      */

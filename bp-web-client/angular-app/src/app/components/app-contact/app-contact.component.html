@@ -184,7 +184,7 @@
             <div class="form-row inner-form-section">
               <div class="form-group col-md-4">
                 <label>Year Established</label>
-                <select (change)="changeEstablishedBusiness()" class="form-control" id="year" required>
+                <select class="form-control" id="year" required>
                   <option  *ngFor="let year of years"   [value]="year">{{year}}</option>
                 </select>
               </div>
@@ -227,7 +227,7 @@
                   <b> $100k</b>
                 </div>
                 <div class="slider-content">
-                <mv-slider id="range" range="true" [(value)]="value" [min]="0" [max]="100000" [enabled]="enabled"
+                <mv-slider id="range" range="true" (change)="retrieveBudget(value)" [(value)]="value" [min]="0" [max]="100000" [enabled]="enabled"
                            (change)="changeBudgetOnScroll()">
                 </mv-slider>
                 </div>
@@ -245,7 +245,7 @@
                   <b>Longer</b>
                 </div>
                 <div class="slider-content">
-                <mv-slider id="rangeA" range="false" [(value)]="timeframe" [min]="1" [max]="36" [enabled]="enabled"
+                <mv-slider id="rangeA" range="false" (change)="retrieveTimeframe(timeframe)" [(value)]="timeframe" [min]="1" [max]="36" [enabled]="enabled"
                            (change)="changeTimeline()">
                 </mv-slider>
                 </div>
