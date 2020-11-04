@@ -4,7 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import software.bytepushers.bpweb.model.dto.QuoteDto;
+import software.bytepushers.bpweb.model.entity.Quote;
 import software.bytepushers.bpweb.service.QuoteService;
 
 import javax.validation.Valid;
@@ -33,7 +33,7 @@ public class QuoteController extends AbstractController {
     @GetMapping
     public ResponseEntity<?> getAll() {
         log.info("Request to fetch all quotes");
-        List<QuoteDto> createdQuotes = this.quoteServiceImpl.getAll();
+        List<Quote> createdQuotes = this.quoteServiceImpl.getAll();
         log.info("All quotes fetched successfully");
         return sendOkResponse(createdQuotes);
     }
@@ -45,9 +45,9 @@ public class QuoteController extends AbstractController {
      * @return the created quote details.
      */
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody @Valid QuoteDto quote) {
+    public ResponseEntity<?> create(@RequestBody @Valid Quote quote) {
         log.info("Request to create quote");
-        QuoteDto createdQuote = this.quoteServiceImpl.create(quote);
+        Quote createdQuote = this.quoteServiceImpl.create(quote);
         log.info("Create quote request served successfully");
         return sendResponse(createdQuote, HttpStatus.CREATED);
     }
@@ -59,9 +59,9 @@ public class QuoteController extends AbstractController {
      * @return the updated quote details.
      */
     @PutMapping
-    public ResponseEntity<?> update(@RequestBody @Valid QuoteDto quote) {
+    public ResponseEntity<?> update(@RequestBody @Valid Quote quote) {
         log.info("Request to update quote");
-        QuoteDto updatedQuote = this.quoteServiceImpl.update(quote);
+        Quote updatedQuote = this.quoteServiceImpl.update(quote);
         log.info("Update quote request served successfully");
         return sendOkResponse(updatedQuote);
     }
@@ -75,9 +75,9 @@ public class QuoteController extends AbstractController {
     @GetMapping("/{quoteId}")
     public ResponseEntity<?> getQuote(@PathVariable UUID quoteId) {
         log.info("Request to get quote");
-        QuoteDto quoteDto = this.quoteServiceImpl.getById(quoteId);
+        Quote quote = this.quoteServiceImpl.getById(quoteId);
         log.info("Get quote request served successfully");
-        return sendOkResponse(quoteDto);
+        return sendOkResponse(quote);
     }
 
     /**
