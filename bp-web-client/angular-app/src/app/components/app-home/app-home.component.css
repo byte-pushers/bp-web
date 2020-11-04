@@ -204,11 +204,12 @@
 
 
 .methodology-carousel {
-  height: 430px
+  height: 430px !important;
 }
 
 .services-carousel {
-  height: 300px
+  height: 300px !important;
+
 }
 
 ::ng-deep .carousel-item {
@@ -230,5 +231,7 @@
   outline: 0;
   opacity: .1;
 }
+
+
 
 
