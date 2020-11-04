@@ -297,7 +297,7 @@
             type="text"
             class="form-control"
             minlength="2"
-            pattern="^[a-zA-Z]*$"
+            pattern="^[^0-9]+$"
             required
             #firstName="ngModel">
           <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger">
@@ -319,7 +319,7 @@
             type="text"
             class="form-control"
             minlength="2"
-            pattern="^[a-zA-Z]*$"
+            pattern="^[^0-9]+$"
             required
             #lastName="ngModel">
           <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
@@ -335,7 +335,7 @@
         </div>
         <div class="col-12 mobile-row">
           <input
-            id="emailMobile"
+            id="email"
             name="email"
             placeholder="Email"
             [(ngModel)]="quote.contact.email"
@@ -358,14 +358,14 @@
         </div>
         <div class="col-12 mobile-row">
           <input
-            id="phoneNumberMobile"
+            id="phoneNumber"
             name="phoneNumber"
             placeholder="Phone Number"
             [(ngModel)]="quote.contact.phoneNumber"
             type="number"
             class="form-control"
             maxlength="10"
-            pattern="^[^0-9]+$"
+            pattern="^(0|[1-9][0-9]*)"
             required
             #phoneNumber="ngModel">
           <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="alert alert-danger">
@@ -380,7 +380,7 @@
         </div>
         <div class="col-12 mobile-row">
           <input
-            id="cityMobile"
+            id="city"
             name="city"
             placeholder="City"
             [(ngModel)]="quote.contact.address.city"
@@ -412,23 +412,7 @@
         <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
           by<span class="br-mobile"></span> our labors of love.
         </div>
-        <div class="col-12 mobile-row">
 
-        </div>
-<div class="col-12 mobile-row">
-  <label for="est" >Are You A:</label>
-  <br>
-  <label class="radio-inline">
-    <input type="radio" name="est"
-           [(ngModel)]="quote.company.est" value="New Business" required
-           #establishedYear="ngModel">New Business
-  </label>
-  <label class="radio-inline">
-    <input type="radio" name="est"
-           [(ngModel)]="quote.company.est" value="Established Business" required>Established Business
-  </label>
-  <div *ngIf="est.errors?.required">Please specify business</div>
-</div>
         <div class="col-12">
           <label>Business Name</label>
         </div>
@@ -456,7 +440,7 @@
         </div>
         <div class="col-12 mobile-row">
           <input
-            id="urlMobile"
+            id="url"
             name="url"
             placeholder="URL"
             [(ngModel)]="quote.company.url"
@@ -472,10 +456,26 @@
             <div *ngIf="url.errors.pattern">URL is not valid.</div>
           </div>
         </div>
+        <div class="col-12 mobile-row">
+          <label>Year Established</label>
+          <select (change)="changeEstablishedBusiness()" class="form-control"  required>
+            <option  *ngFor="let year of years"   [value]="year">{{year}}</option>
+          </select>
+        </div>
+        <div class="col-12 mobile-row">
+          <label>Is Your Business A(n)</label>
+          <select class="form-control" id="foundationMobile"
+                  required
+                  [(ngModel)]="quote.company.foundation" name="foundation"
+                  #foundation="ngModel">
+            <option [value]="foundation.label" disabled selected="selected">Please Select An Option</option>
+            <option *ngFor="let foundation of foundations" [value]="foundation">{{foundation}}</option>
+          </select>
+        </div>
 
 
         <div class="col-12">
-          <label>Type of Project</label>
+          <label>Project Type</label>
         </div>
         <div class="col-12 mobile-row">
           <select class="form-control" id="typeMobile" required>
@@ -486,11 +486,11 @@
 
 
         <div class="col-12">
-          <label>What Kind Of Business Are You</label>
+          <label>Business Type</label>
         </div>
         <div class="col-12 mobile-row">
-          <select class="form-control" id="estMobile" required>
-            <option *ngFor="let establishedYear of businessTypes" [value]="est">{{est}}</option>
+          <select class="form-control"  id="establishedYearMobile" required>
+            <option *ngFor="let establishedYear of businessTypes" [value]="establishedYear">{{establishedYear}}</option>
           </select>
         </div>
 
@@ -506,7 +506,7 @@
           <b> $100k</b>
           </div>
 <div class="slider-content">
-          <mv-slider id="rangeMobile" range="true" [(value)]="value" [min]="0" [max]="100000" [enabled]="enabled"
+          <mv-slider id="rangeMobile" (change)="retrieveBudget(value)" range="true" [(value)]="value" [min]="0" [max]="100000" [enabled]="enabled"
                      (change)="changeBudgetOnScroll()">
           </mv-slider>
 </div>
@@ -529,7 +529,7 @@
 <b>Longer</b>
           </div>
           <div class="slider-content">
-          <mv-slider id="rangeAMobile" range="false" [(value)]="timeframe" [min]="1" [max]="36" [enabled]="enabled"
+          <mv-slider id="rangeAMobile" range="false" (change)="retrieveTimeframe(timeframe)"  [(value)]="timeframe" [min]="1" [max]="36" [enabled]="enabled"
                      (change)="changeTimeline()" style="margin-bottom: 20px">
           </mv-slider>
           </div>
@@ -546,8 +546,8 @@
         <div class="col-12 mobile-row">
                <textarea class="form-control" rows="3"
                          id="projectDescMobile"
-                         name="desc"
-                         [(ngModel)]="quote.company.desc"
+                         name="description"
+                         [(ngModel)]="quote.company.description"
                          type="text"
                          class="form-control"
                          minlength="2"
@@ -555,9 +555,9 @@
                          #description="ngModel"
                          placeholder="Describe your project."></textarea>
           <div class="alert alert-danger"
-               *ngIf="desc.errors && (desc.dirty || desc.touched)">
-            <div *ngIf="desc.errors.required">Please describe your project.</div>
-            <div *ngIf="desc.errors.minlength">Minimum length is not valid</div>
+               *ngIf="description.errors && (description.dirty || description.touched)">
+            <div *ngIf="description.errors.required">Please describe your project.</div>
+            <div *ngIf="description.errors.minlength">Minimum length is not valid</div>
           </div>
         </div>
 
