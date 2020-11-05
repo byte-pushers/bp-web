@@ -130,7 +130,9 @@
             <div class="col-md-2"><!--space--></div>
             <div class="form-group col-md-4">
               <label>State</label>
-              <select class="form-control" id="state" required>
+              <select class="form-control"
+                      name="state" [(ngModel)]="quote.contact.address.state"
+                      id="state" required>
                 <option *ngFor="let state of states" [value]="state">{{state}}
                 </option>
               </select>
@@ -145,20 +147,20 @@
             <div class="form-row inner-form-section">
               <div class="form-group col-md-4">
                 <label for="name">Business Name</label>
-              <input
-                id="name"
-                name="name"
-                placeholder="Business Name"
-                [(ngModel)]="quote.company.name"
-                type="text"
-                class="form-control"
-                minlength="2"
-                required
-                #name="ngModel">
-              <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
-                <div *ngIf="name.errors.required">Business name is required.</div>
-                <div *ngIf="name.errors.minlength">A minimum of 2 letters are required.</div>
-              </div>
+                <input
+                  id="name"
+                  name="name"
+                  placeholder="Business Name"
+                  [(ngModel)]="quote.company.name"
+                  type="text"
+                  class="form-control"
+                  minlength="2"
+                  required
+                  #name="ngModel">
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                  <div *ngIf="name.errors.required">Business name is required.</div>
+                  <div *ngIf="name.errors.minlength">A minimum of 2 letters are required.</div>
+                </div>
               </div>
               <div class="col-md-2"><!--space--></div>
               <div class="form-group col-md-4">
@@ -184,8 +186,13 @@
             <div class="form-row inner-form-section">
               <div class="form-group col-md-4">
                 <label>Year Established</label>
-                <select class="form-control" id="year" required>
-                  <option  *ngFor="let year of years"   [value]="year">{{year}}</option>
+                <select class="form-control"
+                        id="establishedYear"
+                        [(ngModel)]="quote.company.establishedYear"
+                        name="establishedYear"
+                        required
+                        #establishedYear='ngModel'>
+                  <option *ngFor="let establishedYear of years" [value]="establishedYear">{{establishedYear}}</option>
                 </select>
               </div>
               <div class="col-md-2"><!--space--></div>
@@ -203,14 +210,19 @@
             <div class="form-row inner-form-section">
               <div class="form-group col-md-4">
                 <label>Project Type</label>
-                <select class="form-control" id="type" required>
+                <select class="form-control"
+                        [(ngModel)]="quote.projectType"
+                        id="projectType"
+                        name="projectType" required
+                        #projectType='ngModel'>
                   <option *ngFor="let type of projects" [value]="type">{{type}}</option>
                 </select>
               </div>
               <div class="col-md-2"><!--space--></div>
               <div class="form-group col-md-4">
                 <label>Business Type</label>
-                <select class="form-control" id="est" required>
+                <select class="form-control" id="projectPlatform" name="projectPlatform"
+                        [(ngModel)]="quote.projectPlatform" required #projectPlatform='ngModel'>
                   <option *ngFor="let businessType of businessTypes" [value]="businessType">{{businessType}}</option>
                 </select>
               </div>
@@ -221,15 +233,16 @@
                   <label>Budget:</label>
                 </div>
                 <div class="slider-min">
-                <b>$0 </b>
+                  <b>$0 </b>
                 </div>
                 <div class="slider-max">
                   <b> $100k</b>
                 </div>
                 <div class="slider-content">
-                <mv-slider id="range" range="true" (change)="retrieveBudget(value)" [(value)]="value" [min]="0" [max]="100000" [enabled]="enabled"
-                           (change)="changeBudgetOnScroll()">
-                </mv-slider>
+                  <mv-slider id="range" range="true" (change)="retrieveBudget(value)" [(value)]="value" [min]="0"
+                             [max]="100000" [enabled]="enabled"
+                             (change)="changeBudgetOnScroll()">
+                  </mv-slider>
                 </div>
                 <input class="form-control" id="budget" *ngFor="let budget of budgets" [value]="budget"
                        placeholder="{{budget}}" required disabled>
@@ -245,9 +258,10 @@
                   <b>Longer</b>
                 </div>
                 <div class="slider-content">
-                <mv-slider id="rangeA" range="false" (change)="retrieveTimeframe(timeframe)" [(value)]="timeframe" [min]="1" [max]="36" [enabled]="enabled"
-                           (change)="changeTimeline()">
-                </mv-slider>
+                  <mv-slider id="rangeA" range="false" (change)="retrieveTimeframe(timeframe)" [(value)]="timeframe"
+                             [min]="1" [max]="36" [enabled]="enabled"
+                             (change)="changeTimeline()">
+                  </mv-slider>
                 </div>
 
                 <input class="form-control" id="timeline" *ngFor="let timeline of timelines" [value]="timeline"
@@ -335,7 +349,7 @@
         </div>
         <div class="col-12 mobile-row">
           <input
-            id="email"
+            id="emailMobile"
             name="email"
             placeholder="Email"
             [(ngModel)]="quote.contact.email"
@@ -402,7 +416,9 @@
           <label>State</label>
         </div>
         <div class="col-12 mobile-row">
-          <select class="form-control" id="stateMobile" required>
+          <select class="form-control"
+                  name="state" [(ngModel)]="quote.contact.address.state"
+                  id="stateMobile" required>
             <option *ngFor="let state of states" [value]="state">{{state}}</option>
           </select>
         </div>
@@ -458,8 +474,13 @@
         </div>
         <div class="col-12 mobile-row">
           <label>Year Established</label>
-          <select (change)="changeEstablishedBusiness()" class="form-control"  required>
-            <option  *ngFor="let year of years"   [value]="year">{{year}}</option>
+          <select class="form-control"
+                  id="establishedYear"
+                  [(ngModel)]="quote.company.establishedYear"
+                  name="establishedYear"
+                  required
+                  #establishedYear='ngModel'>
+            <option *ngFor="let establishedYear of years" [value]="establishedYear">{{establishedYear}}</option>
           </select>
         </div>
         <div class="col-12 mobile-row">
@@ -478,7 +499,11 @@
           <label>Project Type</label>
         </div>
         <div class="col-12 mobile-row">
-          <select class="form-control" id="typeMobile" required>
+          <select class="form-control"
+                  [(ngModel)]="quote.projectType"
+                  id="projectType"
+                  name="projectType" required
+                  #projectType='ngModel'>
             <option *ngFor="let type of projects" [value]="type">{{type}}</option>
           </select>
 
@@ -489,7 +514,8 @@
           <label>Business Type</label>
         </div>
         <div class="col-12 mobile-row">
-          <select class="form-control"  id="establishedYearMobile" required>
+        <select class="form-control" id="projectPlatform" name="projectPlatform"
+             [(ngModel)]="quote.projectPlatform" required #projectPlatform='ngModel'>
             <option *ngFor="let establishedYear of businessTypes" [value]="establishedYear">{{establishedYear}}</option>
           </select>
         </div>
@@ -500,21 +526,22 @@
         </div>
         <div class="col-12 mobile-slider">
           <div class="slider-min">
-          <b>$0 </b>
+            <b>$0 </b>
           </div>
           <div class="slider-max">
-          <b> $100k</b>
+            <b> $100k</b>
           </div>
-<div class="slider-content">
-          <mv-slider id="rangeMobile" (change)="retrieveBudget(value)" range="true" [(value)]="value" [min]="0" [max]="100000" [enabled]="enabled"
-                     (change)="changeBudgetOnScroll()">
-          </mv-slider>
-</div>
+          <div class="slider-content">
+            <mv-slider id="rangeMobile" (change)="retrieveBudget(value)" range="true" [(value)]="value" [min]="0"
+                       [max]="100000" [enabled]="enabled"
+                       (change)="changeBudgetOnScroll()">
+            </mv-slider>
+          </div>
         </div>
-<div class="mobile-row col-12">
+        <div class="mobile-row col-12">
           <input class="form-control" id="budgetMobile" *ngFor="let budget of budgets" [value]="budget"
                  placeholder="{{budget}}" required disabled>
-</div>
+        </div>
 
 
         <div class="col-12 mobile-row">
@@ -522,22 +549,24 @@
         </div>
         <div class="col-12 mobile-slider">
           <div class="slider-min">
-          <b>Short </b>
+            <b>Short </b>
           </div>
 
           <div class="slider-max">
-<b>Longer</b>
+            <b>Longer</b>
           </div>
           <div class="slider-content">
-          <mv-slider id="rangeAMobile" range="false" (change)="retrieveTimeframe(timeframe)"  [(value)]="timeframe" [min]="1" [max]="36" [enabled]="enabled"
-                     (change)="changeTimeline()" style="margin-bottom: 20px">
-          </mv-slider>
+            <mv-slider id="rangeAMobile" range="false" (change)="retrieveTimeframe(timeframe)" [(value)]="timeframe"
+                       [min]="1" [max]="36" [enabled]="enabled"
+                       (change)="changeTimeline()" style="margin-bottom: 20px">
+            </mv-slider>
           </div>
         </div>
-<div class="col-12 mobile-row">
-          <input class="form-control col-12 mobile-row" id="timelineMobile" *ngFor="let timeline of timelines" [value]="timeline"
+        <div class="col-12 mobile-row">
+          <input class="form-control col-12 mobile-row" id="timelineMobile" *ngFor="let timeline of timelines"
+                 [value]="timeline"
                  placeholder="{{timeline}}" required disabled style="margin-bottom: 20px">
-</div>
+        </div>
 
 
         <div class="col-12">
