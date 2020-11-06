@@ -21,7 +21,6 @@ export class ContactComponent implements OnInit {
   public quote: Quote = new QuoteModel(QuoteModel.DEFAULT_CONFIG);
   isSubmitted = false;
   states: any = [
-    'Select A State',
     'Alabama',
     'Alaska',
     'Arizona',
