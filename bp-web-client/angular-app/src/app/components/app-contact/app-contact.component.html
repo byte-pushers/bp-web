@@ -130,11 +130,12 @@
             <div class="col-md-2"><!--space--></div>
             <div class="form-group col-md-4">
               <label>State</label>
-              <select class="form-control"
-                      name="state" [(ngModel)]="quote.contact.address.state"
-                      id="state" required>
-                <option *ngFor="let state of states" [value]="state">{{state}}
-                </option>
+              <select class="form-control" id="state"
+                      required
+                      [(ngModel)]="quote.contact.address.state" name="state"
+                      #state="ngModel">
+                <option [value]="state.label" disabled selected="selected">Please Select A State</option>
+                <option *ngFor="let state of states" [value]="state">{{state}}</option>
               </select>
             </div>
           </div>
