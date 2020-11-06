@@ -131,11 +131,17 @@
             <div class="form-group col-md-4">
               <label>State</label>
               <select class="form-control"
-                      name="state" [(ngModel)]="quote.contact.address.state"
-                      id="state" required>
-                <option *ngFor="let state of states" [value]="state">{{state}}
-                </option>
+                      id="state"
+                      required
+                      [(ngModel)]="quote.contact.address.state"
+                      name="state"
+                      #state="ngModel">
+                <option [ngValue]="null">Please Select A State</option>
+                <option *ngFor="let state of states" [value]="state">{{state}}</option>
               </select>
+              <div *ngIf="state.invalid && (state.dirty || state.touched)" class="alert alert-danger">
+                <div *ngIf="state.errors.required">Please select a state</div>
+              </div>
             </div>
           </div>
           <div class="section-heading">Business Information</div>
@@ -192,8 +198,12 @@
                         name="establishedYear"
                         required
                         #establishedYear='ngModel'>
+                  <option [ngValue]="null">Please Select A Year</option>
                   <option *ngFor="let establishedYear of years" [value]="establishedYear">{{establishedYear}}</option>
                 </select>
+                <div *ngIf="establishedYear.invalid && (establishedYear.dirty || establishedYear.touched)" class="alert alert-danger">
+                  <div *ngIf="establishedYear.errors.required">Please select a year</div>
+                </div>
               </div>
               <div class="col-md-2"><!--space--></div>
               <div class="form-group col-md-4">
@@ -202,9 +212,12 @@
                         required
                         [(ngModel)]="quote.company.foundation" name="foundation"
                         #foundation="ngModel">
-                  <option [value]="foundation.label" disabled selected="selected">Please Select An Option</option>
+                  <option [ngValue]="null">Please Specify Your Establishment</option>
                   <option *ngFor="let foundation of foundations" [value]="foundation">{{foundation}}</option>
                 </select>
+                <div *ngIf="foundation.invalid && (foundation.dirty || foundation.touched)" class="alert alert-danger">
+                  <div *ngIf="foundation.errors.required">Please select a foundation</div>
+                </div>
               </div>
             </div>
             <div class="form-row inner-form-section">
@@ -215,16 +228,24 @@
                         id="projectType"
                         name="projectType" required
                         #projectType='ngModel'>
-                  <option *ngFor="let type of projects" [value]="type">{{type}}</option>
+                  <option [ngValue]="null">Please Select A Project Type</option>
+                  <option *ngFor="let projectType of projects" [value]="projectType">{{projectType}}</option>
                 </select>
+                <div *ngIf="projectType.invalid && (projectType.dirty || projectType.touched)" class="alert alert-danger">
+                  <div *ngIf="projectType.errors.required">Please select a project type</div>
+                </div>
               </div>
               <div class="col-md-2"><!--space--></div>
               <div class="form-group col-md-4">
-                <label>Business Type</label>
+                <label>Project Platform</label>
                 <select class="form-control" id="projectPlatform" name="projectPlatform"
                         [(ngModel)]="quote.projectPlatform" required #projectPlatform='ngModel'>
-                  <option *ngFor="let businessType of businessTypes" [value]="businessType">{{businessType}}</option>
+                  <option [ngValue]="null">Please Select A Platform</option>
+                  <option *ngFor="let projectPlatform of projectPlatforms" [value]="projectPlatform">{{projectPlatform}}</option>
                 </select>
+                <div *ngIf="projectPlatform.invalid && (projectPlatform.dirty || projectPlatform.touched)" class="alert alert-danger">
+                  <div *ngIf="projectPlatform.errors.required">Please select a platform</div>
+                </div>
               </div>
             </div>
             <div class="form-row inner-form-section">
@@ -238,8 +259,8 @@
                 <div class="slider-max">
                   <b> $100k</b>
                 </div>
-                <div class="slider-content">
-                  <mv-slider id="range" range="true" (change)="retrieveBudget(value)" [(value)]="value" [min]="0"
+                <div class="slider-content" >
+                  <mv-slider id="range" range="true" (change)="retrieveBudget(value)"  [(value)]="value" [min]="0"
                              [max]="100000" [enabled]="enabled"
                              (change)="changeBudgetOnScroll()">
                   </mv-slider>
@@ -372,7 +393,7 @@
         </div>
         <div class="col-12 mobile-row">
           <input
-            id="phoneNumber"
+            id="phoneNumberMobile"
             name="phoneNumber"
             placeholder="Phone Number"
             [(ngModel)]="quote.contact.phoneNumber"
@@ -394,7 +415,7 @@
         </div>
         <div class="col-12 mobile-row">
           <input
-            id="city"
+            id="cityMobile"
             name="city"
             placeholder="City"
             [(ngModel)]="quote.contact.address.city"
@@ -418,9 +439,13 @@
         <div class="col-12 mobile-row">
           <select class="form-control"
                   name="state" [(ngModel)]="quote.contact.address.state"
-                  id="stateMobile" required>
+                  id="stateMobile" required #state='ngModel'>
+            <option [ngValue]="null">Please Select A State</option>
             <option *ngFor="let state of states" [value]="state">{{state}}</option>
           </select>
+          <div *ngIf="state.invalid && (state.dirty || state.touched)" class="alert alert-danger">
+            <div *ngIf="state.errors.required">Please select a state</div>
+          </div>
         </div>
 
 
@@ -456,7 +481,7 @@
         </div>
         <div class="col-12 mobile-row">
           <input
-            id="url"
+            id="urlMobile"
             name="url"
             placeholder="URL"
             [(ngModel)]="quote.company.url"
@@ -475,13 +500,17 @@
         <div class="col-12 mobile-row">
           <label>Year Established</label>
           <select class="form-control"
-                  id="establishedYear"
+                  id="establishedYearMobile"
                   [(ngModel)]="quote.company.establishedYear"
                   name="establishedYear"
                   required
                   #establishedYear='ngModel'>
+            <option [ngValue]="null">Please Select A Year</option>
             <option *ngFor="let establishedYear of years" [value]="establishedYear">{{establishedYear}}</option>
           </select>
+          <div *ngIf="establishedYear.invalid && (establishedYear.dirty || establishedYear.touched)" class="alert alert-danger">
+            <div *ngIf="establishedYear.errors.required">Please select a year</div>
+          </div>
         </div>
         <div class="col-12 mobile-row">
           <label>Is Your Business A(n)</label>
@@ -489,9 +518,12 @@
                   required
                   [(ngModel)]="quote.company.foundation" name="foundation"
                   #foundation="ngModel">
-            <option [value]="foundation.label" disabled selected="selected">Please Select An Option</option>
+            <option [ngValue]="null">Please Specify Your Establishment</option>
             <option *ngFor="let foundation of foundations" [value]="foundation">{{foundation}}</option>
           </select>
+          <div *ngIf="foundation.invalid && (foundation.dirty || foundation.touched)" class="alert alert-danger">
+            <div *ngIf="foundation.errors.required">Please select a foundation</div>
+          </div>
         </div>
 
 
@@ -501,23 +533,32 @@
         <div class="col-12 mobile-row">
           <select class="form-control"
                   [(ngModel)]="quote.projectType"
-                  id="projectType"
+                  id="projectTypeMobile"
                   name="projectType" required
                   #projectType='ngModel'>
+            <option [ngValue]="null">Please Select A Project Type</option>
             <option *ngFor="let type of projects" [value]="type">{{type}}</option>
           </select>
+          <div *ngIf="projectType.invalid && (projectType.dirty || projectType.touched)" class="alert alert-danger">
+            <div *ngIf="projectType.errors.required">Please select a project type</div>
+          </div>
 
         </div>
 
 
         <div class="col-12">
-          <label>Business Type</label>
+          <label>Project Platform</label>
         </div>
         <div class="col-12 mobile-row">
-        <select class="form-control" id="projectPlatform" name="projectPlatform"
+        <select class="form-control" id="projectPlatformMobile" name="projectPlatform"
              [(ngModel)]="quote.projectPlatform" required #projectPlatform='ngModel'>
-            <option *ngFor="let establishedYear of businessTypes" [value]="establishedYear">{{establishedYear}}</option>
+          <option [ngValue]="null">Please Select A Platform</option>
+            <option *ngFor="let projectPlatform of projectPlatforms" [value]="projectPlatform">{{projectPlatform}}</option>
           </select>
+          <div *ngIf="projectPlatform.invalid && (projectPlatform.dirty || projectPlatform.touched)" class="alert alert-danger">
+            <div *ngIf="projectPlatform.errors.required">Please select a platform</div>
+          </div>
+
         </div>
 
 
