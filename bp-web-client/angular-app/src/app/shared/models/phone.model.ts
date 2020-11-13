@@ -2,7 +2,7 @@ import {BaseEntityModel} from './base.entity.model';
 import {Phone} from './phone';
 
 export class PhoneModel extends BaseEntityModel implements Phone {
-  _number: string;
+  _number: number;
   _type: string;
 
   static readonly DEFAULT_CONFIG: any = {
@@ -19,13 +19,15 @@ export class PhoneModel extends BaseEntityModel implements Phone {
   get Number() {
     return this._number;
   }
-  set Number(number: string) {
+  // tslint:disable-next-line:variable-name
+  set Number(number: number) {
     this._number = number;
   }
-  getNumber(): string {
+  getNumber(): number {
     return this._number;
   }
-  setNumber(number: string): void {
+  // tslint:disable-next-line:variable-name
+  setNumber(number: number): void {
     this._number = number;
   }
 

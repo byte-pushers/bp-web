@@ -1,9 +1,12 @@
 import {BaseEntity} from "./base.entity";
 
 export interface Budget extends BaseEntity {
-  getMin(): number;
-  setMin(min: number): void;
+  getMinBudget(): number;
+  setMinBudget(minBudget: number): void;
 
   getMax(): number;
-  setMax(max: number): void;
+  setMaxBudget(maxBudget: number): void;
+
+  getIsMaxFinite(): boolean;
+  setIsMaxFinite(isMaxFinite: boolean): void;
 }
