@@ -2,47 +2,65 @@ import {TimeLine} from "./time-line";
 import {BaseEntityModel} from "./base.entity.model";
 
 export class TimeLineModel extends BaseEntityModel implements TimeLine {
-  private _min: any;
-  private _max: Date;
-
+  private _minTimeline: number;
+  private _maxTimeline: number;
+  private _isMaxFinite: boolean;
   static readonly DEFAULT_CONFIG: any = {
-    _min: null,
-    _max: null
+    minTimeline: null,
+    maxTimeline: null,
+    isMaxFinite: false
   };
 
   constructor(timelineConfig: any) {
     super(timelineConfig);
-    this._min = (timelineConfig !== null && timelineConfig !== undefined) ? timelineConfig.min : null;
-    this._max = (timelineConfig !== null && timelineConfig !== undefined) ? timelineConfig.max : null;
+    this._minTimeline = (timelineConfig !== null && timelineConfig !== undefined) ? timelineConfig.minTimeline : null;
+    this._maxTimeline = (timelineConfig !== null && timelineConfig !== undefined) ? timelineConfig.maxTimeline : null;
+    this._isMaxFinite = (timelineConfig !== null && timelineConfig !== undefined) ? timelineConfig.isMaxFinite : null;
   }
 
-  get max() {
-    return this._max;
+  get maxTimeline() {
+    return this._maxTimeline;
   }
 
-  getMax() {
-    return this._max;
+  getMaxTimeline() {
+    return this._maxTimeline;
   }
 
-  set max(max: Date) {
-    this._max = max;
+  set maxTimeline(maxTimeline: number) {
+    this._maxTimeline = maxTimeline;
   }
 
-  setMax(max: Date) {
-    this._max = max;
+  setMaxTimeline(maxTimeline: number) {
+    this._maxTimeline = maxTimeline;
   }
 
-  get min() {
-    return this._min;
+  get minTimeline() {
+    return this._minTimeline;
   }
-  set min(min: any) {
-    this._min = min.concat('months');
+  set minTimeline(minTimeline: number) {
+    this._minTimeline = minTimeline;
   }
-  getMin() {
-    return this._min;
+  getMinTimeline() {
+    return this._minTimeline;
   }
 
-  setMin(min: Date) {
-    this._min = min;
+  setMinTimeline(minTimeline: number) {
+    this._minTimeline = minTimeline;
+  }
+  get isMaxFinite() {
+    return this._isMaxFinite;
+  }
+  set isMaxFinite(isMaxFinite: boolean) {
+    this._isMaxFinite = isMaxFinite;
+  }
+
+  getIsMaxFinite() {
+    return this._isMaxFinite;
+  }
+  setIsMaxFinite(isMaxFinite: boolean) {
+    if (this.maxTimeline >= 30) {
+      this._isMaxFinite = true;
+      this._isMaxFinite = isMaxFinite;
+    }
   }
 }

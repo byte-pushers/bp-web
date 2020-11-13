@@ -121,15 +121,15 @@ export class ContactComponent implements OnInit {
 
   public retrieveTimeframe(timeframe: number) {
     if (timeframe !== null && timeframe !== undefined) {
-      this.quote.getCompany().getTimeline().setMin(timeframe[0]);
-      this.quote.getCompany().getTimeline().setMax(timeframe[1]);
+      this.quote.getCompany().getTimeline().setMinTimeline(timeframe[0]);
+      this.quote.getCompany().getTimeline().setMaxTimeline(timeframe[1]);
     }
   }
 
   public retrieveBudget(value: number) {
     if (value !== null && value !== undefined) {
-      this.quote.getCompany().getBudget().setMin(value[0]);
-      this.quote.getCompany().getBudget().setMax(value[1]);
+      this.quote.getCompany().getBudget().setMinBudget(value[0]);
+      this.quote.getCompany().getBudget().setMaxBudget(value[1]);
     }
   }
 
