@@ -62,6 +62,8 @@ public class ModelUtils {
         company.setType(df.getRandomWord(1));
         company.setUrl("https://www.google.com");
         company.setBudget(budget());
+        company.setFoundation(df.getBusinessName());
+        company.setIsEstablished(true);
         company.setTimeline(timeline());
         return company;
     }
@@ -69,8 +71,9 @@ public class ModelUtils {
     private static TargetTimeLine timeline() {
         DataFactory df = new DataFactory();
         TargetTimeLine targetTimeLine = new TargetTimeLine();
-        targetTimeLine.setMax((long) df.getNumber());
-        targetTimeLine.setMin((long) df.getNumber());
+        targetTimeLine.setMax((long) df.getNumberBetween(0, 1000));
+        targetTimeLine.setMin((long) df.getNumberBetween(0, 1000));
+        targetTimeLine.setIsMaxFinite(true);
         return targetTimeLine;
     }
 
@@ -78,6 +81,7 @@ public class ModelUtils {
         Budget budget = new Budget();
         budget.setMax(2000L);
         budget.setMin(200L);
+        budget.setIsMaxFinite(true);
         return budget;
     }
 
