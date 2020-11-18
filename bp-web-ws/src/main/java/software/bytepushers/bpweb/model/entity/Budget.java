@@ -18,9 +18,13 @@ public class Budget extends AbstractEntity {
 
     @Column
     @NotNull(groups = CreateRequest.class, message = "{company.min.budget.required}")
-    private long min;
+    private Long min;
 
     @Column
     @NotNull(groups = CreateRequest.class, message = "{company.max.budget.required}")
-    private long max;
+    private Long max;
+
+    @Column
+    @NotNull(groups = CreateRequest.class, message = "{company.budget.isMaxFinite.required}")
+    private Boolean isMaxFinite;
 }

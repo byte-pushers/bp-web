@@ -69,8 +69,8 @@ public class ModelUtils {
     private static TargetTimeLine timeline() {
         DataFactory df = new DataFactory();
         TargetTimeLine targetTimeLine = new TargetTimeLine();
-        targetTimeLine.setMax(df.getRandomWord(5));
-        targetTimeLine.setMin(df.getRandomWord(5));
+        targetTimeLine.setMax((long) df.getNumber());
+        targetTimeLine.setMin((long) df.getNumber());
         return targetTimeLine;
     }
 
