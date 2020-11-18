@@ -6,7 +6,7 @@ import software.bytepushers.bpweb.model.entity.ValidatorModel.CreateRequest;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 /**
  * The target timeline embedded model
@@ -17,11 +17,15 @@ import javax.validation.constraints.NotEmpty;
 public class TargetTimeLine extends AbstractEntity {
 
     @Column
-    @NotEmpty(groups = CreateRequest.class, message = "{company.min.timeline.required}")
-    private String min;
+    @NotNull(groups = CreateRequest.class, message = "{company.min.timeline.required}")
+    private Long min;
 
     @Column
-    @NotEmpty(groups = CreateRequest.class, message = "{company.max.timeline.required}")
-    private String max;
+    @NotNull(groups = CreateRequest.class, message = "{company.max.timeline.required}")
+    private Long max;
+
+    @Column
+    @NotNull(groups = CreateRequest.class, message = "{company.timeline.isMaxFinite.required}")
+    private Boolean isMaxFinite;
 
 }

@@ -32,10 +32,6 @@ public class Company extends AbstractEntity {
     @NotEmpty(groups = CreateRequest.class, message = "{company.description.required}")
     private String description;
 
-    @Column
-    @NotNull(groups = CreateRequest.class, message = "{company.established.year.required}")
-    private Integer establishedYear;
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "budget_id", referencedColumnName = "id", nullable = false)
     @NotNull(groups = CreateRequest.class, message = "{company.budget.required}")
@@ -45,5 +41,17 @@ public class Company extends AbstractEntity {
     @JoinColumn(name = "timeline_id", referencedColumnName = "id", nullable = false)
     @NotNull(groups = CreateRequest.class, message = "{company.timeline.required}")
     private TargetTimeLine timeline;
+
+    @Column
+    @NotNull(groups = CreateRequest.class, message = "{company.is.established.check.required}")
+    private Boolean isEstablished;
+
+    @Column
+    @NotNull(groups = CreateRequest.class, message = "{company.established.year.required}")
+    private Integer establishedYear;
+
+    @Column
+    @NotNull(groups = CreateRequest.class, message = "{company.foundation.required}")
+    private String foundation;
 
 }
