@@ -21,6 +21,7 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.Bucket;
 import com.amazonaws.services.s3.model.BucketVersioningConfiguration;
 import com.amazonaws.services.s3.model.SetBucketVersioningConfigurationRequest;
+import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 
 import java.io.File;
@@ -47,7 +48,12 @@ public class DeployToAwsLambda {
     public static void main(String[] args) {
         final AmazonS3 s3Client = buildS3Client();
 
-        final String bucketName = System.getProperty(PROP_BUCKET_NAME);
+        final String bucketName = System.getenv().get(PROP_BUCKET_NAME);
+        if (StringUtils.isBlank(bucketName)) {
+            String errorMessage = String.format("Bucket name not found in Environment Variable: '%s'", PROP_BUCKET_NAME);
+            throw new IllegalArgumentException(errorMessage);
+        }
+
         String objectName = System.getProperty(PROP_OBJECT_NAME);
 
         if (!s3BucketExists(s3Client, bucketName)) {
