@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+
+
     $(document).ready(function(e) {
       const $prevButton = $(".left.carousel-control.carousel-control-prev");
       const $nextButton = $(".right.carousel-control.carousel-control-next");
