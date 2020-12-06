@@ -76,7 +76,7 @@ export class ContactComponent implements OnInit {
   value: any = [0, 100000];
   budgets: any = ['Slide for budget amount'];
   timelines: any = ['Slide for time frame'];
-  timeframe: any = [0, 35];
+  timeframe: any = [0, 36];
   years = [];
   foundations: any = ['New Business', 'Existing Business'];
 

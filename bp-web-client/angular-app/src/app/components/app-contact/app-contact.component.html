@@ -562,7 +562,7 @@
         </div>
 
 
-        <div class="col-12">
+        <div class="col-12 mobile-row">
           <label>Budget: </label>
         </div>
         <div class="col-12 mobile-slider">
@@ -574,8 +574,8 @@
           </div>
           <div class="slider-content">
             <mv-slider id="rangeMobile" (change)="retrieveBudget(value)" range="true" [(value)]="value" [min]="0"
-                       [max]="100000" [enabled]="enabled"
-                       (change)="changeBudgetOnScroll()">
+                       [max]="10000" [enabled]="enabled"
+                       (change)="changeBudgetOnScroll()" style="margin-bottom: 20px; padding-left: 1%">
             </mv-slider>
           </div>
         </div>
@@ -586,7 +586,7 @@
 
 
         <div class="col-12 mobile-row">
-          <label>Timeline</label>
+          <label>Timeline: </label>
         </div>
         <div class="col-12 mobile-slider">
           <div class="slider-min">
@@ -597,16 +597,16 @@
             <b>Longer</b>
           </div>
           <div class="slider-content">
-            <mv-slider id="rangeAMobile" range="false" (change)="retrieveTimeframe(timeframe)" [(value)]="timeframe"
+            <mv-slider id="rangeAMobile" range="true" (change)="retrieveTimeframe(timeframe)" [(value)]="timeframe"
                        [min]="1" [max]="36" [enabled]="enabled"
-                       (change)="changeTimeline()" style="margin-bottom: 20px">
+                       (change)="changeTimeline()" style="margin-bottom: 20px; padding-left: 1%">
             </mv-slider>
           </div>
         </div>
         <div class="col-12 mobile-row">
           <input class="form-control col-12 mobile-row" id="timelineMobile" *ngFor="let timeline of timelines"
                  [value]="timeline"
-                 placeholder="{{timeline}}" required disabled style="margin-bottom: 20px">
+                 placeholder="{{timeline}}" required disabled style="margin-bottom: 20px;">
         </div>
 
 
