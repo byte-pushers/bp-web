@@ -1,28 +1,29 @@
 import {Budget} from "./budget";
-import {PersonModel} from "./person.model";
-import {CompanyModel} from "./company.model";
 import {BaseEntityModel} from "./base.entity.model";
 
-export class BudgetModel extends BaseEntityModel implements Budget{
+export class BudgetModel extends BaseEntityModel implements Budget {
   private _min: number;
   private _max: number;
+  private _isMaxFinite: boolean;
 
   static readonly DEFAULT_CONFIG: any = {
     min: null,
-    max: null
+    max: null,
+    isMaxFinite: false
   };
 
   constructor(budgetConfig: any) {
     super(budgetConfig);
     this._min = (budgetConfig !== null && budgetConfig !== undefined) ? budgetConfig.min : null;
     this._max = (budgetConfig !== null && budgetConfig !== undefined) ? budgetConfig.max : null;
+    this._isMaxFinite = (budgetConfig !== null && budgetConfig !== undefined) ? budgetConfig.isMaxFinite : null;
   }
 
   get max() {
     return this._max;
   }
 
-  getMax() {
+  getMaxBudget() {
     return this._max;
   }
 
@@ -30,7 +31,7 @@ export class BudgetModel extends BaseEntityModel implements Budget{
     this._max = max;
   }
 
-  setMax(max: number) {
+  setMaxBudget(max: number) {
     this._max = max;
   }
 
@@ -38,7 +39,7 @@ export class BudgetModel extends BaseEntityModel implements Budget{
     return this._min;
   }
 
-  getMin() {
+  getMinBudget() {
     return this._min;
   }
 
@@ -46,7 +47,25 @@ export class BudgetModel extends BaseEntityModel implements Budget{
     this._min = min;
   }
 
-  setMin(min: number) {
+  setMinBudget(min: number) {
     this._min = min;
   }
+
+  get isMaxFinite() {
+    return this._isMaxFinite;
+  }
+  set isMaxFinite(isMaxFinite: boolean) {
+    this._isMaxFinite = isMaxFinite;
+  }
+
+  getIsMaxFinite() {
+    return this._isMaxFinite;
+  }
+  setIsMaxFinite(isMaxFinite: boolean) {
+    if (this.max >= 90000) {
+      this._isMaxFinite = true;
+      this._isMaxFinite = isMaxFinite;
+    }
+  }
+
 }

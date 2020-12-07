@@ -2,47 +2,65 @@ import {TimeLine} from "./time-line";
 import {BaseEntityModel} from "./base.entity.model";
 
 export class TimeLineModel extends BaseEntityModel implements TimeLine {
-  private _min: any;
-  private _max: Date;
-
+  private _min: number;
+  private _max: number;
+  private _isMaxFinite: boolean;
   static readonly DEFAULT_CONFIG: any = {
-    _min: null,
-    _max: null
+    min: null,
+    max: null,
+    isMaxFinite: false
   };
 
   constructor(timelineConfig: any) {
     super(timelineConfig);
     this._min = (timelineConfig !== null && timelineConfig !== undefined) ? timelineConfig.min : null;
     this._max = (timelineConfig !== null && timelineConfig !== undefined) ? timelineConfig.max : null;
+    this._isMaxFinite = (timelineConfig !== null && timelineConfig !== undefined) ? timelineConfig.isMaxFinite : null;
   }
 
   get max() {
     return this._max;
   }
 
-  getMax() {
+  getMaxTimeline() {
     return this._max;
   }
 
-  set max(max: Date) {
+  set max(max: number) {
     this._max = max;
   }
 
-  setMax(max: Date) {
+  setMaxTimeline(max: number) {
     this._max = max;
   }
 
   get min() {
     return this._min;
   }
-  set min(min: any) {
-    this._min = min.concat('months');
+  set min(min: number) {
+    this._min = min;
   }
-  getMin() {
+  getMinTimeline() {
     return this._min;
   }
 
-  setMin(min: Date) {
+  setMinTimeline(min: number) {
     this._min = min;
+  }
+  get isMaxFinite() {
+    return this._isMaxFinite;
+  }
+  set isMaxFinite(isMaxFinite: boolean) {
+    this._isMaxFinite = isMaxFinite;
+  }
+
+  getIsMaxFinite() {
+    return this._isMaxFinite;
+  }
+  setIsMaxFinite(isMaxFinite: boolean) {
+    if (this.max >= 30) {
+      this._isMaxFinite = true;
+      this._isMaxFinite = isMaxFinite;
+    }
   }
 }

@@ -1,9 +1,12 @@
 import {BaseEntity} from "./base.entity";
 
 export interface TimeLine extends BaseEntity {
-  getMin(): Date;
-  setMin(min: Date): void;
+  getMinTimeline(): number;
+  setMinTimeline(min: number): void;
 
-  getMax(): Date;
-  setMax(max: Date): void;
+  getMaxTimeline(): number;
+  setMaxTimeline(max: number): void;
+
+  getIsMaxFinite(): boolean;
+  setIsMaxFinite(isMaxFinite: boolean): void;
 }

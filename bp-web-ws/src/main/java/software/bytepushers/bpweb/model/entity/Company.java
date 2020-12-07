@@ -21,7 +21,6 @@ public class Company extends AbstractEntity {
     private String name;
 
     @Column
-    @NotEmpty(groups = CreateRequest.class, message = "{company.type.required}")
     private String type;
 
     @Column

@@ -19,7 +19,6 @@ import java.util.List;
 public class Address extends AbstractEntity {
 
     @ElementCollection
-    @NotEmpty(groups = CreateRequest.class, message = "{person.address.street1.required}")
     private List<String> street;
 
     @Column
@@ -31,14 +30,11 @@ public class Address extends AbstractEntity {
     private String state;
 
     @Column
-    @NotEmpty(groups = CreateRequest.class, message = "{person.address.zip.required}")
     private String zip;
 
     @Column
-    @NotEmpty(groups = CreateRequest.class, message = "{person.address.country.required}")
     private String country;
 
     @Column
-    @NotEmpty(groups = CreateRequest.class, message = "{person.address.county.required}")
     private String county;
 }
