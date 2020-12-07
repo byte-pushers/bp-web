@@ -2,53 +2,53 @@ import {Budget} from "./budget";
 import {BaseEntityModel} from "./base.entity.model";
 
 export class BudgetModel extends BaseEntityModel implements Budget {
-  private _minBudget: number;
-  private _maxBudget: number;
+  private _min: number;
+  private _max: number;
   private _isMaxFinite: boolean;
 
   static readonly DEFAULT_CONFIG: any = {
-    minBudget: null,
+    min: null,
     max: null,
     isMaxFinite: false
   };
 
   constructor(budgetConfig: any) {
     super(budgetConfig);
-    this._minBudget = (budgetConfig !== null && budgetConfig !== undefined) ? budgetConfig.minBudget : null;
-    this._maxBudget = (budgetConfig !== null && budgetConfig !== undefined) ? budgetConfig.maxBudget : null;
+    this._min = (budgetConfig !== null && budgetConfig !== undefined) ? budgetConfig.min : null;
+    this._max = (budgetConfig !== null && budgetConfig !== undefined) ? budgetConfig.max : null;
     this._isMaxFinite = (budgetConfig !== null && budgetConfig !== undefined) ? budgetConfig.isMaxFinite : null;
   }
 
-  get maxBudget() {
-    return this._maxBudget;
+  get max() {
+    return this._max;
   }
 
-  getMax() {
-    return this._maxBudget;
+  getMaxBudget() {
+    return this._max;
   }
 
-  set maxBudget(maxBudget: number) {
-    this._maxBudget = maxBudget;
+  set max(max: number) {
+    this._max = max;
   }
 
-  setMaxBudget(maxBudget: number) {
-    this._maxBudget = maxBudget;
+  setMaxBudget(max: number) {
+    this._max = max;
   }
 
-  get minBudget() {
-    return this._minBudget;
+  get min() {
+    return this._min;
   }
 
   getMinBudget() {
-    return this._minBudget;
+    return this._min;
   }
 
-  set minBudget(minBudget: number) {
-    this._minBudget = minBudget;
+  set min(min: number) {
+    this._min = min;
   }
 
-  setMinBudget(minBudget: number) {
-    this._minBudget = minBudget;
+  setMinBudget(min: number) {
+    this._min = min;
   }
 
   get isMaxFinite() {
@@ -62,7 +62,7 @@ export class BudgetModel extends BaseEntityModel implements Budget {
     return this._isMaxFinite;
   }
   setIsMaxFinite(isMaxFinite: boolean) {
-    if (this.maxBudget >= 90000) {
+    if (this.max >= 90000) {
       this._isMaxFinite = true;
       this._isMaxFinite = isMaxFinite;
     }
