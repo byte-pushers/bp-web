@@ -21,7 +21,6 @@ public class Phone extends AbstractEntity {
     private String number;
 
     @Column
-    @NotEmpty(groups = CreateRequest.class, message = "{person.phone.type.required}")
     private String type;
 
 }
