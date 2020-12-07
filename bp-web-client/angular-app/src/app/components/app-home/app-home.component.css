@@ -193,7 +193,7 @@
 
 .about-container {
   text-align: center;
-  padding: 2.5em 2.5em 0em 2.5em;
+  padding: 0em 2.5em 0em 2.5em;
 }
 
 .row {
@@ -206,6 +206,7 @@
 
 .methodology-carousel {
   height: 500px !important;
+  margin-top: 15%;
 }
 
 .services-carousel {
@@ -217,7 +218,7 @@
   padding: 10px 0px 0px 0px;
   opacity: 0;
   transition: opacity .3s ease-in-out;
-  position: absolute;
+  position: relative;
   left: 0;
   top: 0;
   right: 0;

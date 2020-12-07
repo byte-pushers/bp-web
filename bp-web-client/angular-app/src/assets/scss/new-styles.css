@@ -1538,7 +1538,6 @@ a {
 .page-footer-nav-label,
 .side-img-section-subheading,
 .statsgrid-heading,
-.section-heading,
 .section-header-heading,
 .blog-list-item-heading,
 .boxgrid-heading,
@@ -1633,8 +1632,8 @@ a {
   font-weight: 700
 }
 
+.section,
 .subheading-large,
-.section-subheading,
 .section-header-subheading {
   font-weight: 500;
   font-style: italic;
@@ -2511,6 +2510,10 @@ article.cbp-so-side-right .cbp-so-contents {
   line-height: 1.33em
 }
 
+.section {
+  font-family: 'Archer SSm A', 'Archer SSm B', Georgia, Times, serif;
+}
+
 .section-quote {
   font-family: 'Archer SSm A', 'Archer SSm B', Georgia, Times, serif;
   line-height: 1.33em;
@@ -2592,12 +2595,14 @@ strong,
 
 .section-heading {
   text-align: center;
+  margin-top: 1.25%;
+  margin-bottom: 1%;
 }
 
 .section-subheading {
   font-size: 0.9em;
   text-align: center;
-  margin-bottom: 1.5em;
+  margin-bottom: 8%;
   margin-left: 0.85em;
   margin-right: 0.85em
 }
