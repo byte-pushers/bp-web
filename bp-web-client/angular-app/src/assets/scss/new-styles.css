@@ -943,6 +943,7 @@ carousel {
 .carousel-inner {
   overflow: visible;
   height: 100%;
+  width: 100%;
 }
 
 .carousel-item {
