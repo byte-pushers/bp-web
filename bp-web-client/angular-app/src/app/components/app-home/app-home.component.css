@@ -27,6 +27,9 @@
   background-color: rgba(72, 55, 55, 0.79);
 }
 
+/*.carousel-inner {
+  height: 100% !important;
+}*/
 .row {
   display: flex !important;
   flex-wrap: wrap !important;
@@ -214,7 +217,7 @@
 
 }
 
-::ng-deep .carousel-item {
+/*::ng-deep .carousel-item {
   padding: 10px 0px 0px 0px;
   opacity: 0;
   transition: opacity .3s ease-in-out;
@@ -225,7 +228,7 @@
   bottom: 0;
   z-index: 0;
   display: block !important;
-}
+}*/
 
 ::ng-deep .carousel-control-next:focus, .carousel-control-next:hover, .carousel-control-prev:focus, .carousel-control-prev:hover {
   color: #1b1919;
