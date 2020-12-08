@@ -1,21 +1,26 @@
 body {
   background-color: #222;
 }
+
 label {
   font-size: 22px !important;
   font-weight: bolder;
   margin-bottom: 5px !important;
 }
+
 .section-image {
   padding: 0 !important;
 }
+
 section {
   width: 100%;
   padding: 3em !important;
 }
+
 .inner-form-section {
   margin-bottom: 2%;
 }
+
 .video-hero,
 .video-overlay {
   position: absolute;
@@ -941,7 +946,7 @@ carousel {
 }
 
 .carousel-item {
-/* left commented out due to nature of feature  padding: 40px 55px;*/
+  /* left commented out due to nature of feature  padding: 40px 55px;*/
   opacity: 0;
   transition: opacity .3s ease-in-out;
   position: absolute;
@@ -1051,6 +1056,7 @@ html {
   max-width: 50%;
   font-size: 18px;
 }
+
 @media only screen and (max-width: 600px) {
   .featuresContent {
     color: #fff !important;
@@ -1076,6 +1082,7 @@ html {
   -moz-transition: border-bottom-color 50ms linear;
   transition: border-bottom-color 50ms linear
 }
+
 .featuresContent img {
   margin: 0px auto;
   width: 130px;
@@ -1090,7 +1097,7 @@ html {
 
 .featuresContent p {
   line-height: 20px;
-
+  letter-spacing: .75px;
   font-size: 18px;
   margin-bottom: 15px;
 }
@@ -2441,7 +2448,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
   text-decoration: none;
   font-weight: normal;
   text-transform: uppercase;
-  border-bottom: 2px solid #fff!important;
+  border-bottom: 2px solid #fff !important;
   padding-bottom: 0.125em;
 
 }
@@ -2875,6 +2882,7 @@ strong,
   font-size: 1.347em;
   font-weight: 700;
   width: 12.25em;
+  max-width: 100%;
   padding: 0.9em 1.25em;
   background: transparent;
   border: 2px solid #fff;
@@ -3206,6 +3214,7 @@ body {
 ::ng-deep .carousel-indicators li {
   background-color: rgba(72, 55, 55, 0.79);
 }
+
 .about-content {
   display: inline-block;
 }
