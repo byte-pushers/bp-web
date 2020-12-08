@@ -933,17 +933,9 @@ body,
   max-width: 100%
 }
 
-
 carousel {
   width: inherit;
   height: inherit;
-}
-
-
-.carousel-inner {
-  overflow: visible;
-  height: 100%;
-  width: 100%;
 }
 
 .carousel-item {
