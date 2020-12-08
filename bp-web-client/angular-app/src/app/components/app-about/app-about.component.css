@@ -31,6 +31,10 @@
   opacity: .1;
 }
 
-::ng-deep .carousel-inner {
+/*::ng-deep .carousel-inner {
+  height: 700px !important;
+}*/
+
+.about-carousel {
   height: 700px !important;
 }
