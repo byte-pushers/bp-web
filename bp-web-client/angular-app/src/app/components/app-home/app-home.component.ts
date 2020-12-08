@@ -24,6 +24,10 @@ export class HomeComponent implements OnInit {
       $nextButton.click(HomeComponent.nextButtonClickedEventHandler);
     });
   }
+  public backToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
   private static previousButtonClickedEventHandler(event: Event): void {
     const $nextButton = $("slide.item.carousel-item");
     $nextButton.removeClass("left-right");

@@ -7,7 +7,6 @@
   text-align: center;
   display: inline-block;
   padding: 0;
-  margin-bottom: 100px;
 }
 
 .service-container {
@@ -27,6 +26,9 @@
   background-color: rgba(72, 55, 55, 0.79);
 }
 
+/*.carousel-inner {
+  height: 100% !important;
+}*/
 .row {
   display: flex !important;
   flex-wrap: wrap !important;
@@ -192,7 +194,7 @@
 
 .about-container {
   text-align: center;
-  padding: 2.5em 2.5em 0em 2.5em;
+  padding: 0em 2.5em 0em 2.5em;
 }
 
 .row {
@@ -204,7 +206,8 @@
 
 
 .methodology-carousel {
-  height: 500px !important;
+  height: 425px !important;
+  margin-top: 15%;
 }
 
 .services-carousel {
@@ -212,18 +215,18 @@
 
 }
 
-::ng-deep .carousel-item {
+/*::ng-deep .carousel-item {
   padding: 10px 0px 0px 0px;
   opacity: 0;
   transition: opacity .3s ease-in-out;
-  position: absolute;
+  position: relative;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
   z-index: 0;
   display: block !important;
-}
+}*/
 
 ::ng-deep .carousel-control-next:focus, .carousel-control-next:hover, .carousel-control-prev:focus, .carousel-control-prev:hover {
   color: #1b1919;
