@@ -34,7 +34,7 @@
 }
 
 .services-carousel {
-  height: 300px !important;
+  height: 235px !important;
   margin-bottom: 2em !important;
 }
 
@@ -42,3 +42,8 @@
 /*::ng-deep .carousel-inner {
   height: 350px !important;
 }*/
+
+.services-carousel-title {
+  margin-top: 10px !important;
+  text-align: center;
+}
