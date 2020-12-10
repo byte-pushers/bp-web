@@ -207,12 +207,12 @@
 
 
 .methodology-carousel {
-  height: 425px !important;
-  margin-top: 15%;
+  height: 420px !important;
+
 }
 
 .services-carousel {
-  height: 300px !important;
+  height: 320px !important;
 
 }
 
@@ -236,6 +236,34 @@
   opacity: .1;
 }
 
+::ng-deep .carousel-indicators li {
+  position: relative;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 3px;
+  margin-left: 3px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
+
+.fluid-ratio-resize {
+  max-width: 5697px; /* actual img width */
+  *height: 3184px; /* actual img height - IE7 */
+  background-image: url(../../../assets/images/aboutPage/bytePushersAboutPageSplashScreenBackground.png);
+  background-size: cover;
+  background-position: center;
+}
+.fluid-ratio-resize:after {
+  content: " ";
+  display: block;
+  width: 100%;
+  padding-top: 66.307%; /* slope */
+  height: 744px; /* start height */
+}
 
 

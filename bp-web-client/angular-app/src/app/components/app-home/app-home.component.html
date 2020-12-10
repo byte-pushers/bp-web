@@ -118,7 +118,7 @@
               <section class="about-container-mobile" >
                 <div style="margin: 0 auto;">
                   <img src="../../../assets/images/aboutPage/bytePushersAboutsPageIdeationIcon.svg"
-                       style="margin-top: 10px; width: 100px; height: 100px;">
+                       style=" width: 100px; height: 100px;">
                 </div>
                 <div style="margin: 0 auto;">
                   <strong style="color: #62a3d9; font-size: 1.5em;">Domain-Driven Design (DDD)</strong>
@@ -126,7 +126,7 @@
                 <div class="section-subheading-carousel-mobile">
                   &nbsp;
                 </div>
-                <div style="text-align: left; margin: 0 auto;">
+                <div style="text-align: center; margin: 0 auto;">
                   <p>
                     DDD is an approach to software development that centers the development on
                     programming a domain model that has a rich understanding of the processes and rules of a domain.
@@ -145,7 +145,7 @@
                 <div class="section-subheading-carousel-mobile">
                   &nbsp;
                 </div>
-                <div style="text-align: left; margin: 0 auto;">
+                <div style="text-align: center; margin: 0 auto;">
                   <p>
                     BDD is a test-first approach that tests the actual behavior of the system from the
                     end users perspective.
@@ -164,7 +164,7 @@
                 <div class="section-subheading-carousel-mobile">
                   &nbsp;
                 </div>
-                <div style="margin: 0 auto; text-align: left;">
+                <div style="margin: 0 auto; text-align: center;">
                   <p>
                     CD is a software development discipline where you build software in such a way that the
                     software can be released to production at any time.
@@ -185,9 +185,9 @@
         </div>
       </carousel>
     </section>
-    <section class="section-image">
-      <img class="full-width" src="../../../assets/images/aboutPage/bytePushersAboutPageSplashScreenBackground.png"
-           alt="Office 3">
+    <section class="fluid-ratio-resize">
+  <!--    <img class="full-width" src="../../../assets/images/aboutPage/bytePushersAboutPageSplashScreenBackground.png"
+           alt="Office 3">-->
     </section>
     <section class="gray-background">
       <div class="section">
@@ -255,9 +255,9 @@
       </div>
     </section>
     <section class="hidden-desktop">
+      <div class="section-heading">Our Services</div>
       <carousel class="hidden-desktop" [interval]="false" [noWrap]="true" style="margin-bottom: 2em;">
         <div class="services-carousel">
-          <div class="section-heading">Our Services</div>
           <div class="services-carousel">
             <ol class="carousel-indicators">
               <li></li>
@@ -269,13 +269,13 @@
                 <div >
                   <img src="assets/images/servicesPage/bytePushersServicesPageITConsultingIcon.svg" style="height: 50px; width: 50px;">
                 </div>
-                <div style="margin: 10px !important;">
+                <div class="carousel-title">
                   <h2><strong>IT Consulting</strong></h2>
                 </div>
-                <div style="margin: 10px !important;">
+                <div class="carousel-text">
                   <p>No matter if you are doing <i>B2B integrations</i> or <i>B2C applications</i>, let us help you build something great!</p>
                 </div>
-                <div style="margin: 10px !important;">
+                <div class="carousel-text">
                   <a class="webpage-link" [routerLink]="'/services'" (click)="backToTop()" routerLinkActive="active"><strong>Read More</strong></a>
                 </div>
               </section>
@@ -285,13 +285,13 @@
                 <div >
                   <img src="assets/images/servicesPage/bytePushersServicesPageAppDevIcon.svg" style="height: 50px; width: 50px;">
                 </div>
-                <div style="margin: 10px !important;">
+                <div class="carousel-title">
                   <h2><strong>Custom App Development</strong></h2>
                 </div>
-                <div style="margin: 10px !important;">
+                <div class="carousel-text">
                   <p>We focus on building custom <i>mobile-first</i> apps to reach more customers.  We can do the same for you!</p>
                 </div>
-                <div style="margin: 10px !important;">
+                <div class="carousel-text">
                   <a class="webpage-link" [routerLink]="'/services'" (click)="backToTop()" routerLinkActive="active"><strong>Read More</strong></a>
                 </div>
               </section>
@@ -301,13 +301,13 @@
                 <div>
                   <img src="assets/images/servicesPage/bytePushersServicesPageDataDrivenIcon.svg" style="height: 50px; width: 50px;">
                 </div>
-                <div style="margin: 10px !important;">
+                <div class="carousel-title">
                   <h2><strong>Big Data Analytics</strong></h2>
                 </div>
-                <div style="margin: 10px !important;">
+                <div class="carousel-text">
                   <p>Need to crunch the numbers?  We've got you covered! We can build amazing dash boards to help you visualize and act on your data!</p>
                 </div>
-                <div style="margin: 10px !important;">
+                <div class="carousel-text">
                   <a class="webpage-link" [routerLink]="'/services'" (click)="backToTop()" routerLinkActive="active"><strong>Read More</strong></a>
                 </div>
               </section>
