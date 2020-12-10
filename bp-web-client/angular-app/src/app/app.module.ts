@@ -47,7 +47,8 @@ import {QuoteService} from "./shared/services/quote.service";
   ],
   providers: [
     PageScrollingUtility,
-    QuoteService
+    QuoteService,
+    { provide: Window, useValue: window }
   ],
   bootstrap: [AppComponent]
 })
