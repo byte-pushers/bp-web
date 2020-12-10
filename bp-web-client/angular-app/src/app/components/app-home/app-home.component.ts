@@ -55,10 +55,14 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
   }
 
   private resizeImage(win: any, imageRef: ElementRef): void {
-    const width = win.innerWidth;
-    const height = (win.innerWidth * 3184)/5697;
+    const imageWidth = imageRef.nativeElement.getAttribute('width');
+    const imageHeight = imageRef.nativeElement.getAttribute('height')
+    const windowWidth = win.innerWidth;
+    //const windowHeight = win.innerHeight;
 
-    imageRef.nativeElement.setAttribute('width', width);
+    const height = (imageHeight * windowWidth)/imageWidth;
+
+    imageRef.nativeElement.setAttribute('width', windowWidth);
     imageRef.nativeElement.setAttribute('height', height);
   }
 }
