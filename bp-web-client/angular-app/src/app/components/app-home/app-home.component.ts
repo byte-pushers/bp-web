@@ -12,10 +12,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
   resizeSubscription$: Subscription;
   @ViewChild("homeBackgroundWorkImg", {static: false}) divView: ElementRef;
 
+
   constructor(private window: Window) {
   }
 
   ngOnInit() {
+
     $(document).ready(function(e) {
       const $prevButton = $(".left.carousel-control.carousel-control-prev");
       const $nextButton = $(".right.carousel-control.carousel-control-next");
