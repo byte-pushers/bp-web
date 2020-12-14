@@ -40,6 +40,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
   }
 
 
+
+
   public backToTop() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
