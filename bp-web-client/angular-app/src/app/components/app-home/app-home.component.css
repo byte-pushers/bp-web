@@ -255,7 +255,6 @@
 }
 
 
-
 ::ng-deep .carousel-indicators li {
   position: relative;
   -ms-flex: 0 1 auto;
@@ -276,16 +275,17 @@
 
 }
 
-::ng-deep .left.carousel-control.carousel-control-prev.disabled span{
+::ng-deep .left.carousel-control.carousel-control-prev.disabled span {
   visibility: hidden;
 
 }
 
-::ng-deep .right.carousel-control.carousel-control-next.disabled{
+::ng-deep .right.carousel-control.carousel-control-next.disabled {
   background-color: white;
   opacity: inherit;
 }
-::ng-deep .right.carousel-control.carousel-control-next.disabled span{
+
+::ng-deep .right.carousel-control.carousel-control-next.disabled span {
   visibility: hidden;
 }
 
