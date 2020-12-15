@@ -122,8 +122,8 @@ export class ContactComponent implements OnInit {
   }
 
   public onSubmitBackToTop() {
-    document.body.scrollTop = 80; // For Safari
-    document.documentElement.scrollTop = 80; // For Chrome, Firefox, IE and Opera
+    document.body.scrollTop = 1005; // For Safari
+    document.documentElement.scrollTop = 1005; // For Chrome, Firefox, IE and Opera
   }
 
 
