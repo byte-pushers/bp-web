@@ -958,43 +958,6 @@ carousel {
 
 }
 
-.carousel-item.active.left-right {
-  z-index: 1;
-  opacity: 1;
-  transition-delay: .3s;
-  transform: none;
-  animation: slideToLeft .3s;
-  animation-delay: .3s;
-}
-
-
-.carousel-item.active.right-left {
-  z-index: 1;
-  opacity: 1;
-  transition-delay: .3s;
-  transform: none;
-  animation: slideToRight .3s;
-  animation-delay: .3s;
-}
-
-@keyframes slideToLeft {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: none;
-  }
-}
-
-@keyframes slideToRight {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: none;
-  }
-}
-
 
 .carousel-control-prev {
   z-index: 20;
@@ -2858,6 +2821,40 @@ strong,
   padding: 2.8em 3.2em
 }
 
+.lets-talk-work {
+  position: relative;
+  background: url(~src/assets/images/worksPage/byePushersWorkCalenderContactImage.jpg) no-repeat center;
+  background-size: cover;
+  padding: 2.8em 3.2em;
+  background-color: rgba(0, 0, 0, 0.6);
+background-blend-mode: multiply;
+
+
+}
+
+.lets-talk-about {
+  position: relative;
+  background: url(~src/assets/images/aboutPage/bytePushersAboutUsContactImage.jpg) no-repeat center;
+  background-position: 25% 25%;
+  background-size: cover;
+  padding: 2.8em 3.2em;
+  background-color: rgba(0, 0, 0, 0.50);
+  background-blend-mode: multiply;
+
+
+}
+
+.lets-talk-services {
+  position: relative;
+  background: url(~src/assets/images/servicesPage/bytePushersServicesContactImage.jpg) no-repeat center;
+  background-size: cover;
+  padding: 2.8em 3.2em;
+  background-color: rgba(0, 0, 0, 0.6);
+  background-blend-mode: multiply;
+
+
+}
+
 .lets-talk-heading {
   color: #fff;
   font-size: 2.2em;
@@ -3231,3 +3228,4 @@ body {
   margin: 10px !important;
   text-align: center;
 }
+
