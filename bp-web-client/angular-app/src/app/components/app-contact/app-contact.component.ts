@@ -73,7 +73,7 @@ export class ContactComponent implements OnInit {
     'Wisconsin',
     'Wyoming'];
   projects: any = ['Option 1', 'Option 2', 'Option 3'];
-  projectPlatforms: any = [ 'Option 1', 'Option 2', 'Option 3'];
+  projectPlatforms: any = ['Option 1', 'Option 2', 'Option 3'];
   value: any = [0, 100000];
   budgets: any = ['Slide for budget amount'];
   timelines: any = ['Slide for time frame'];
@@ -96,7 +96,6 @@ export class ContactComponent implements OnInit {
   }
 
 
-
   public isMobileResolution(): boolean {
     let isMobileResolution: boolean = false;
 
@@ -110,20 +109,25 @@ export class ContactComponent implements OnInit {
   }
 
   public onSubmit(): boolean {
-    const confirmed = document.getElementById('topSectionSubmitted');
     this.isSubmitted = true;
     if (!this.quoteForm.valid) {
       return false;
     } else {
       this.saveQuote();
       this.showConfirmation = true;
-      this.onSubmitBackToTop();
+
     }
   }
 
-  public onSubmitBackToTop() {
+  public onSubmitBackToTopDesktop() {
     document.body.scrollTop = 1005; // For Safari
     document.documentElement.scrollTop = 1005; // For Chrome, Firefox, IE and Opera
+  }
+
+  public onSubmitBackToTopMobile() {
+
+    document.body.scrollTop = 824; // For Safari
+    document.documentElement.scrollTop = 824; // For Chrome, Firefox, IE and Opera
   }
 
 
