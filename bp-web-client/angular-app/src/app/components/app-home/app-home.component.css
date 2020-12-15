@@ -15,13 +15,24 @@
 }
 
 ::ng-deep .carousel-control-next-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='gray' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 }
 
 
 ::ng-deep .carousel-control-prev-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='gray' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+
 }
+
+::ng-deep .carousel-control-next-icon:focus {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+
+::ng-deep .carousel-control-prev-icon:focus {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
 
 ::ng-deep .carousel-indicators li {
   background-color: rgba(72, 55, 55, 0.79);
@@ -229,10 +240,18 @@
 }*/
 
 ::ng-deep .carousel-control-next:focus, .carousel-control-next:hover, .carousel-control-prev:focus, .carousel-control-prev:hover {
-  color: #1b1919;
+  color: #ffffff !important;
   text-decoration: none;
   outline: 0;
-  opacity: .1;
+  opacity: .0;
+
+}
+
+::ng-deep .carousel-control-prev:focus, .carousel-control-prev:hover {
+  color: #ffffff !important;
+  text-decoration: none;
+  outline: 0;
+  opacity: .0;
 }
 
 
@@ -248,5 +267,25 @@
   text-indent: -999px;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+::ng-deep .left.carousel-control.carousel-control-prev.disabled {
+  background-color: white;
+  opacity: inherit;
+
+}
+
+::ng-deep .left.carousel-control.carousel-control-prev.disabled span {
+  visibility: hidden;
+
+}
+
+::ng-deep .right.carousel-control.carousel-control-next.disabled {
+  background-color: white;
+  opacity: inherit;
+}
+
+::ng-deep .right.carousel-control.carousel-control-next.disabled span {
+  visibility: hidden;
 }
 

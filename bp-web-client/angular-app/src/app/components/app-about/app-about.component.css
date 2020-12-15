@@ -38,3 +38,37 @@
 .about-carousel {
   height: 700px !important;
 }
+::ng-deep .left.carousel-control.carousel-control-prev.disabled {
+  background-color: white;
+  opacity: inherit;
+
+}
+
+::ng-deep .left.carousel-control.carousel-control-prev.disabled span{
+  visibility: hidden;
+
+}
+
+::ng-deep .right.carousel-control.carousel-control-next.disabled{
+  background-color: white;
+  opacity: inherit;
+}
+::ng-deep .right.carousel-control.carousel-control-next.disabled span{
+  visibility: hidden;
+}
+
+
+
+::ng-deep .carousel-indicators li {
+  position: relative;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 3px;
+  margin-left: 3px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+}
