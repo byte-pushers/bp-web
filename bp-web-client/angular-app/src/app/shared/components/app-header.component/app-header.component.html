@@ -1,6 +1,6 @@
 <nav class="topnav fade-in-second" id="topnav">
-  <div class="topnav-container" (click)="checkMobileNav()">
-    <div class="topnav-mobile-menu"></div>
+  <div class="topnav-container">
+    <div class="topnav-mobile-menu" (click)="checkMobileNav()"></div>
     <a class="topnav-logo" [routerLink]="'/home'" routerLinkActive="active">
       <div class="topnav-logo-img" (click)="backToTop()"></div>
     </a>
@@ -8,19 +8,19 @@
 
       <ul class="topnav-links">
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/home'" (click)="backToTop()" routerLinkActive="active">Home</a>
+          <a class="topnav-link" [routerLink]="'/home'" (click)="backToTop(); openCloseMobileNav()" routerLinkActive="active">Home</a>
         </li>
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/services'" (click)="backToTop()" routerLinkActive="active">Services</a>
+          <a class="topnav-link" [routerLink]="'/services'" (click)="backToTop(); openCloseMobileNav()" routerLinkActive="active">Services</a>
         </li>
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/work'" (click)="backToTop()" routerLinkActive="active">Work</a>
+          <a class="topnav-link" [routerLink]="'/work'" (click)="backToTop(); openCloseMobileNav()" routerLinkActive="active">Work</a>
         </li>
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/about'" (click)="backToTop()" routerLinkActive="active">About Us</a>
+          <a class="topnav-link" [routerLink]="'/about'" (click)="backToTop(); openCloseMobileNav()" routerLinkActive="active">About Us</a>
         </li>
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/contact'" (click)="backToTop()" routerLinkActive="active">Contact</a>
+          <a class="topnav-link" [routerLink]="'/contact'" (click)="backToTop(); openCloseMobileNav()" routerLinkActive="active">Contact</a>
         </li>
       </ul>
     </div>
