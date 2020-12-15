@@ -110,15 +110,21 @@ export class ContactComponent implements OnInit {
   }
 
   public onSubmit(): boolean {
+    const confirmed = document.getElementById('topSectionSubmitted');
     this.isSubmitted = true;
     if (!this.quoteForm.valid) {
       return false;
     } else {
       this.saveQuote();
       this.showConfirmation = true;
+      this.onSubmitBackToTop();
     }
   }
 
+  public onSubmitBackToTop() {
+    document.body.scrollTop = 80; // For Safari
+    document.documentElement.scrollTop = 80; // For Chrome, Firefox, IE and Opera
+  }
 
 
   public reset(form: NgForm) {
