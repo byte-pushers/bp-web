@@ -11,6 +11,7 @@ import {QuoteModel} from '../../shared/models/quote.model';
   styleUrls: ['./app-contact.component.css']
 })
 export class ContactComponent implements OnInit {
+  public showConfirmation = false;
 
   constructor(private quoteService: QuoteService) {
 
@@ -94,6 +95,8 @@ export class ContactComponent implements OnInit {
     return yearArray;
   }
 
+
+
   public isMobileResolution(): boolean {
     let isMobileResolution: boolean = false;
 
@@ -112,8 +115,11 @@ export class ContactComponent implements OnInit {
       return false;
     } else {
       this.saveQuote();
+      this.showConfirmation = true;
     }
   }
+
+
 
   public reset(form: NgForm) {
     form.resetForm();
