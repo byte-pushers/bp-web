@@ -91,3 +91,67 @@ div[disabled] {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+.companies {
+  background: #ebebeb;
+  padding: 80px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.companies-mobile {
+  background: #ebebeb;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 12% !important;
+}
+
+
+.companies h2 {
+  color: #8c8c8c;
+  font-style: 48px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 0px;
+  margin: 0 0 40px 0;
+}
+
+.companies-mobile h2 {
+  color: #8c8c8c;
+  font-style: 48px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 0px;
+  margin: 0 0 40px 0;
+}
+
+.logoColumn {
+  margin-bottom: 2%;
+
+  filter: opacity(50%) !important;
+}
+
+.tech-icons {
+  height: 14vh;
+  vertical-align: auto;
+padding-top: auto;
+  padding-bottom: auto;
+}
+.tech-icons-mobile {
+  height: 12vh;
+  vertical-align: auto;
+  padding-top: auto;
+  padding-bottom: 2vh;
+}
+.tech-text {
+  font-size: 6vh;
+  text-align: center !important;
+
+
+}
+.tech-text-mobile {
+  font-size: 3vh;
+  padding-bottom: 2vh;
+
+}
