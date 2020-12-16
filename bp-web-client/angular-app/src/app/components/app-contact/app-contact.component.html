@@ -1,4 +1,4 @@
-<main class="page">
+<main class="page" (scroll)="test()">
 
   <header class="hero-fixed hero-home" id="hero"
           style="background: url('../../../assets/images/contactPage/contactPageSplashBackground.jpg') center no-repeat; background-size: cover;">
@@ -14,14 +14,14 @@
     </a>
   </header>
 
-  <div class="main-content-container" id="top-section">
+  <div class="main-content-container" id="top-section" *ngIf="showConfirmation === false">
     <section *ngIf="!isMobileResolution()"
              class="contact-info-desktop hidden-mobile hidden-mobile-450 hidden-mobile-768">
       <div class="section-heading">Personal Information</div>
       <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
         by<span class="br-mobile"></span> our labors of love.
       </div>
-      <form #quoteForm="ngForm" (ngSubmit)="onSubmit()" class="align-items-center">
+      <form #quoteForm="ngForm" (ngSubmit)="onSubmit(); onSubmitBackToTopDesktop();" class="align-items-center">
         <div class="form-group">
           <div class="form-row inner-form-section">
             <div class="form-group col-md-4">
@@ -201,7 +201,8 @@
                   <option [ngValue]="null">Please Select A Year</option>
                   <option *ngFor="let establishedYear of years" [value]="establishedYear">{{establishedYear}}</option>
                 </select>
-                <div *ngIf="establishedYear.invalid && (establishedYear.dirty || establishedYear.touched)" class="alert alert-danger">
+                <div *ngIf="establishedYear.invalid && (establishedYear.dirty || establishedYear.touched)"
+                     class="alert alert-danger">
                   <div *ngIf="establishedYear.errors.required">Please select a year</div>
                 </div>
               </div>
@@ -231,7 +232,8 @@
                   <option [ngValue]="null">Please Select A Project Type</option>
                   <option *ngFor="let projectType of projects" [value]="projectType">{{projectType}}</option>
                 </select>
-                <div *ngIf="projectType.invalid && (projectType.dirty || projectType.touched)" class="alert alert-danger">
+                <div *ngIf="projectType.invalid && (projectType.dirty || projectType.touched)"
+                     class="alert alert-danger">
                   <div *ngIf="projectType.errors.required">Please select a project type</div>
                 </div>
               </div>
@@ -241,9 +243,11 @@
                 <select class="form-control" id="projectPlatform" name="projectPlatform"
                         [(ngModel)]="quote.projectPlatform" required #projectPlatform='ngModel'>
                   <option [ngValue]="null">Please Select A Platform</option>
-                  <option *ngFor="let projectPlatform of projectPlatforms" [value]="projectPlatform">{{projectPlatform}}</option>
+                  <option *ngFor="let projectPlatform of projectPlatforms"
+                          [value]="projectPlatform">{{projectPlatform}}</option>
                 </select>
-                <div *ngIf="projectPlatform.invalid && (projectPlatform.dirty || projectPlatform.touched)" class="alert alert-danger">
+                <div *ngIf="projectPlatform.invalid && (projectPlatform.dirty || projectPlatform.touched)"
+                     class="alert alert-danger">
                   <div *ngIf="projectPlatform.errors.required">Please select a platform</div>
                 </div>
               </div>
@@ -259,8 +263,8 @@
                 <div class="slider-max">
                   <b> $100k</b>
                 </div>
-                <div class="slider-content" >
-                  <mv-slider id="range" range="true" (change)="retrieveBudget(value)"  [(value)]="value" [min]="0"
+                <div class="slider-content">
+                  <mv-slider id="range" range="true" (change)="retrieveBudget(value)" [(value)]="value" [min]="0"
                              [max]="100000" [enabled]="enabled"
                              (change)="changeBudgetOnScroll()">
                   </mv-slider>
@@ -319,7 +323,7 @@
       <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
         by<span class="br-mobile"></span> our labors of love.
       </div>
-      <form #quoteForm="ngForm" (ngSubmit)="onSubmit()" class="align-items-center">
+      <form #quoteForm="ngForm" (ngSubmit)="onSubmit(); onSubmitBackToTopMobile(); " class="align-items-center">
         <div class="col-12">
           <label>First Name</label>
         </div>
@@ -508,7 +512,8 @@
             <option [ngValue]="null">Please Select A Year</option>
             <option *ngFor="let establishedYear of years" [value]="establishedYear">{{establishedYear}}</option>
           </select>
-          <div *ngIf="establishedYear.invalid && (establishedYear.dirty || establishedYear.touched)" class="alert alert-danger">
+          <div *ngIf="establishedYear.invalid && (establishedYear.dirty || establishedYear.touched)"
+               class="alert alert-danger">
             <div *ngIf="establishedYear.errors.required">Please select a year</div>
           </div>
         </div>
@@ -550,12 +555,14 @@
           <label>Project Platform</label>
         </div>
         <div class="col-12 mobile-row">
-        <select class="form-control" id="projectPlatformMobile" name="projectPlatform"
-             [(ngModel)]="quote.projectPlatform" required #projectPlatform='ngModel'>
-          <option [ngValue]="null">Please Select A Platform</option>
-            <option *ngFor="let projectPlatform of projectPlatforms" [value]="projectPlatform">{{projectPlatform}}</option>
+          <select class="form-control" id="projectPlatformMobile" name="projectPlatform"
+                  [(ngModel)]="quote.projectPlatform" required #projectPlatform='ngModel'>
+            <option [ngValue]="null">Please Select A Platform</option>
+            <option *ngFor="let projectPlatform of projectPlatforms"
+                    [value]="projectPlatform">{{projectPlatform}}</option>
           </select>
-          <div *ngIf="projectPlatform.invalid && (projectPlatform.dirty || projectPlatform.touched)" class="alert alert-danger">
+          <div *ngIf="projectPlatform.invalid && (projectPlatform.dirty || projectPlatform.touched)"
+               class="alert alert-danger">
             <div *ngIf="projectPlatform.errors.required">Please select a platform</div>
           </div>
 
@@ -631,11 +638,60 @@
           </div>
         </div>
 
-        <button type="submit" [disabled]="!quoteForm.valid" (click)="onSubmit()" class="contact-button btn btn-block">
+        <button type="submit" [disabled]="!quoteForm.valid" class="contact-button btn btn-block">
           Submit
         </button>
       </form>
     </section>
   </div>
+  <div class=" main-content-container" *ngIf="showConfirmation === true">
+    <section>
+    </section>
+    <section class="workwithus hidden-mobile hidden-mobile-450 hidden-mobile-768 ">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="headContent">
+              <div class="section-heading">Submission Successful</div>
+              <div class="section-subheading">We look forward to speaking with you!<span class="br-mobile"></span>If you have any questions,
+                by<span class="br-mobile"></span> feel free to reach out to us in the email provided.
+              </div>
+            </div>
+            <div class="rightcontent">
+              <h3><a href="mailto:info@bytepushers.software">info@bytepushers.software</a></h3>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="workwithus-mobile hidden-desktop">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 headContent-mobile">
+            <div class="section-heading">Personal Information</div>
+            <div class="section-subheading">We look forward to speaking with you!<span class="br-mobile"></span>If you have any questions,
+              by<span class="br-mobile"></span> feel free to reach out to us in the email provided.
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 rightcontent-mobile">
+            <h3><a href="mailto:info@bytepushers.software">info@bytepushers.software</a></h3>
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+
+    </section>
+    <section class="lets-talk">
+      <div class="lets-talk-heading">Take some time <br> to view our work.</div>
+      <a class="lets-talk-button" [routerLink]="'/work'" (click)="backToTop()" routerLinkActive="active">View Work</a>
+    </section>
+  </div>
 </main>
+
 
