@@ -11,6 +11,7 @@ import {QuoteModel} from '../../shared/models/quote.model';
   styleUrls: ['./app-contact.component.css']
 })
 export class ContactComponent implements OnInit {
+  public showConfirmation = false;
 
   constructor(private quoteService: QuoteService) {
 
@@ -72,7 +73,7 @@ export class ContactComponent implements OnInit {
     'Wisconsin',
     'Wyoming'];
   projects: any = ['Option 1', 'Option 2', 'Option 3'];
-  projectPlatforms: any = [ 'Option 1', 'Option 2', 'Option 3'];
+  projectPlatforms: any = ['Option 1', 'Option 2', 'Option 3'];
   value: any = [0, 100000];
   budgets: any = ['Slide for budget amount'];
   timelines: any = ['Slide for time frame'];
@@ -94,6 +95,7 @@ export class ContactComponent implements OnInit {
     return yearArray;
   }
 
+
   public isMobileResolution(): boolean {
     let isMobileResolution: boolean = false;
 
@@ -112,8 +114,22 @@ export class ContactComponent implements OnInit {
       return false;
     } else {
       this.saveQuote();
+      this.showConfirmation = true;
+
     }
   }
+
+  public onSubmitBackToTopDesktop() {
+    document.body.scrollTop = 1005; // For Safari
+    document.documentElement.scrollTop = 1005; // For Chrome, Firefox, IE and Opera
+  }
+
+  public onSubmitBackToTopMobile() {
+
+    document.body.scrollTop = 824; // For Safari
+    document.documentElement.scrollTop = 824; // For Chrome, Firefox, IE and Opera
+  }
+
 
   public reset(form: NgForm) {
     form.resetForm();
