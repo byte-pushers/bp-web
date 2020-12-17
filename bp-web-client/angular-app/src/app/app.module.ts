@@ -19,6 +19,7 @@ import {NgxBootstrapSliderModule} from "ngx-bootstrap-slider";
 import { InfoComponent } from './components/app-info/app-info.component';
 import {HttpClientModule} from "@angular/common/http";
 import {QuoteService} from "./shared/services/quote.service";
+import { AppFooterComponent } from './shared/components/app-footer/app-footer.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {QuoteService} from "./shared/services/quote.service";
     WorkComponent,
     AboutComponent,
     ContactComponent,
-    InfoComponent
+    InfoComponent,
+    AppFooterComponent
   ],
   imports: [
     BrowserModule,
