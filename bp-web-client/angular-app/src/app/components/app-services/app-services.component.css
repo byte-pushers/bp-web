@@ -125,11 +125,18 @@ div[disabled] {
   padding: 0px;
   margin: 0 0 40px 0;
 }
-
+.icon-text {
+  padding-top: 10%;
+  font-size: 24px;
+}
+.icon-text-mobile {
+  padding-top: 10%;
+  font-size: 18px;
+}
 .logoColumn {
   margin-bottom: 2%;
 
-  filter: opacity(50%) !important;
+
 }
 
 .tech-icons {
@@ -138,17 +145,26 @@ div[disabled] {
 padding-top: auto;
   padding-bottom: auto;
 }
+
 .tech-icons-mobile {
   height: 12vh;
   vertical-align: auto;
   padding-top: auto;
   padding-bottom: 2vh;
 }
+
+
 .tech-text {
   font-size: 6vh;
   text-align: center !important;
+}
 
-
+.icon {
+  display: inline-block;
+  filter: opacity(50%) !important;
+}
+.icon:hover {
+  filter: unset !important;
 }
 .tech-text-mobile {
   font-size: 3vh;
