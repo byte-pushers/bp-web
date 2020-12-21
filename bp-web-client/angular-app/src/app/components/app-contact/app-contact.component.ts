@@ -74,10 +74,10 @@ export class ContactComponent implements OnInit {
     'Wyoming'];
   projects: any = ['Option 1', 'Option 2', 'Option 3'];
   projectPlatforms: any = ['Option 1', 'Option 2', 'Option 3'];
-  value: any = [0, 100000];
+  value: any = [0, 105000];
   budgets: any = ['Slide for budget amount'];
   timelines: any = ['Slide for time frame'];
-  timeframe: any = [0, 36];
+  timeframe: any = [0, 39];
   years = [];
   foundations: any = ['New Business', 'Existing Business'];
 
@@ -163,18 +163,34 @@ export class ContactComponent implements OnInit {
 
 
   public changeTimeline() {
-    if (this.timeframe !== null && this.timeframe !== undefined) {
-      const newMonth = 'Range: '.concat(this.timeframe[0] + (' Months - ') + this.timeframe[1] + (' Months'));
-      this.timelines.splice(0, 1, newMonth);
+
+    const timeFrameMin = this.timeframe[0];
+    const timeFrameMax = this.timeframe[1];
+    const newBudget = 'Range: '.concat( timeFrameMin + (' Months - ') + timeFrameMax + (' Months'));
+    const newBudgetTop = 'Range: '.concat( timeFrameMin + (' Months - ') + timeFrameMax + (' Months and up'));
+    if (timeFrameMax <= 32){
+      this.timelines.splice(0, 1, newBudget);
+    } else {
+      this.timelines.splice(0, 1, newBudgetTop);
     }
+   /* const newMonth = 'Range: '.concat(this.timeframe[0] + (' Months - ') + this.timeframe[1] + (' Months'));
+    const newTop = 'Range: '.concat(this.timeframe[0] + (' Months - ') + this.timeframe[1] + (' Months'));
+    if (this.timeframe !== null && this.timeframe !== undefined) {
+
+      this.timelines.splice(0, 1, newMonth);
+    }*/
   }
 
   public changeBudgetOnScroll() {
-
     const budgetMin = this.value[0];
     const budgetMax = this.value[1];
-    const newBudget = 'Range'.concat((': ') + ('$ ') + budgetMin + ' - ' + ('$ ') + budgetMax + ' and up');
-    this.budgets.splice(0, 1, newBudget);
-  }
+    const newBudget = 'Range: '.concat( ('$ ') + budgetMin + ' - ' + ('$ ') + budgetMax);
+    const newBudgetTop = 'Range: '.concat(('$ ') + budgetMin + ' - ' + ('$ ') + budgetMax + (' and up'));
+    if (budgetMax <= 97000){
+      this.budgets.splice(0, 1, newBudget);
+    } else {
+      this.budgets.splice(0, 1, newBudgetTop);
+    }
+    }
 
 }
