@@ -91,3 +91,100 @@ div[disabled] {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+.companies {
+  background: white;
+  padding: 80px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.companies-mobile {
+  background: white;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 12% !important;
+}
+
+
+.companies h2 {
+  color: #000000;
+  font-style: 48px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 0px;
+  margin: 0 0 40px 0;
+}
+
+.companies-mobile h2 {
+  color: #000000;
+  font-style: 48px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 0px;
+  margin: 0 0 40px 0;
+}
+.icon-text {
+  padding-top: 10%;
+  font-size: 24px;
+}
+.icon-text-mobile {
+  padding-top: 10%;
+  font-size: 14px;
+  filter: opacity(50%) !important;
+}
+.logoColumn {
+  margin-bottom: 2%;
+
+
+}
+
+.tech-icons-1 {
+  height: 14vh;
+  vertical-align: auto;
+padding-top: auto;
+  padding-bottom: auto;
+}
+
+.tech-icons-2 {
+  height: 8vh;
+  vertical-align: auto;
+  padding-top: auto;
+  padding-bottom: auto;
+}
+
+.tech-icons-mobile-1 {
+  height: 12vh;
+  vertical-align: auto;
+  padding-top: auto;
+  padding-bottom: 2vh;
+}
+.tech-icons-mobile-2 {
+  height: 8vh;
+  vertical-align: auto;
+  padding-top: auto;
+  padding-bottom: 2vh;
+}
+
+.tech-text {
+  font-size: 6vh;
+  text-align: center !important;
+}
+
+.icon {
+  display: inline-block;
+  filter: opacity(50%) !important;
+}
+.icon:hover {
+  filter: unset !important;
+  text-decoration: none;
+}
+.tech-text-mobile {
+  font-size: 3vh;
+  padding-bottom: 2vh;
+
+}
+strong:hover {
+  color: black;
+}
