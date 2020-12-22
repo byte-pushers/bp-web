@@ -217,10 +217,6 @@
                                     <value>us-east-2</value>
                                 </systemProperty>
                                 <systemProperty>
-                                    <key>bytepushers.deploy.s3BucketName</key>
-                                    <value>com.bytepushers.bpweb.webservice</value>
-                                </systemProperty>
-                                <systemProperty>
                                     <key>bytepushers.deploy.s3ObjectName</key>
                                     <value>bytepushers-bpweb-lambda-jar</value>
                                 </systemProperty>
@@ -432,6 +428,8 @@
             <properties>
                 <!--<spring.profiles.active>aws</spring.profiles.active>-->
                 <maven.install.skip>true</maven.install.skip>
+                <!--suppress UnresolvedMavenProperty -->
+                <datasource.url>${env.DATASOURCE_URL}</datasource.url>
                 <!--suppress UnresolvedMavenProperty -->
                 <datasource.username>${env.DATASOURCE_USERNAME}</datasource.username>
                 <!--suppress UnresolvedMavenProperty -->
