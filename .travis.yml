@@ -6,10 +6,14 @@ matrix:
         directories:
           - "$HOME/.m2"
       deploy:
-        provider: script
-        script: mvn clean deploy -P aws
-        on:
-          branch: develop
+        - provider: script
+          script: mvn clean deploy -P aws
+          on:
+            branch: develop
+        - provider: script
+          script: mvn clean deploy -P aws
+          on:
+            branch: master
 notifications:
   email:
     recipients:
