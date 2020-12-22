@@ -33,7 +33,7 @@
 
   <div class="container-fluid hidden-desktop">
     <div class="row">
-      <div class="col-sm-4 footer-links" style=" height: 120px;">
+      <div class="col-sm-4 mobile-footer-links" style=" height: 120px;">
 
         <ul>
           <li><h1 class="mobile">Contact Us</h1></li>
@@ -51,14 +51,18 @@
         <ul>
           <li><h1 class="mobile">Let's Work Together!</h1></li>
           <li style="margin-top: 5%">
-            <a class="lets-talk-button" [routerLink]="'/contact'" (click)="backToTop()" routerLinkActive="active">Request A Quote</a>
+            <a class="lets-talk-button" [routerLink]="'/contact'" (click)="backToTop()" routerLinkActive="active" style="width: 100%">Request A Quote</a>
           </li>
         </ul>
       </div>
     </div>
 
   </div>
-  <div class="row copyright">
+  <div class="row copyright hidden-desktop">
     <p class="mobile-copyright"> Copyright &#169; 2020 BytePushers Inc.</p>
+  </div>
+
+  <div class="row copyright hidden-mobile hidden-mobile-450 hidden-mobile-768">
+    <p class="copyright"> Copyright &#169; 2020 BytePushers Inc.</p>
   </div>
 </section>
