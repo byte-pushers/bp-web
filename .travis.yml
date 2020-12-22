@@ -6,15 +6,14 @@ matrix:
         directories:
           - "$HOME/.m2"
       deploy:
-        provider: script
-        script: mvn clean deploy -P aws
-        on:
-          branch: develop
-      env:
-        - secure: oPW0+VwyBxZ7HdZ2Jmvil75Ux+PA4sfykabKWVa2aAYzd9WDu6xshewOwfpTo58H14IKKWSCCibciTAi7rQgN4lrWP3drD07011IbW+oEoPIeif4v7Aplvz7uZlF1eroNOh5HPO+Ol7IrCv3jjacZNelE4O7hU1f8JpE/dwclNKiG+q3YpgsdOV81Oxli1+dZYw0smyZE3MFOcbCROReaah/vrwK0j54nAjoT0lfJWCgua1XzeSatooksaFtrDywakpcaSP1CQnCOUFv4QrFRDhzV8qUbKTnO785aXwx1SQ0oFw5wwqOn5TcbvDvAajvG8nMaNQKQ3rXUweCREQjUBUqLMW3tKbUG1Z/FlX3n/KHEFSYDbPP5r1iUpcZJ2oTPp11P6ccHhj8geeTaeCyluZt92kPCoGkMwuTdkHZnlelu2P36ZAKsW5js1VRPnEXFn6XU89Fvk8C9EQL7/A7WxikcBjS7AYvSJ0uOVWxWufWW2Xqep1XVH2KghEjMuwbbg3CutsOxf9MfM3fdmkqu2k9x5ub13BR4yvz+NenXQSLv9wWeNJT8JkLzfzEyJq+nMG9TL78qMqiZ2WzXNR9uUgyuZPAyttIxCsVQCbx/LBLO0AHV44FhDdbfQiYkfXGY1QiVi4k9or5vld0/LZyjC3ORJ5byvPn1IBlljIOpj8=
-        - secure: c44XXzRTSSpf9sF2AUpfcMZm2LfdZrHugYPyJLPOJMQ4XKMH88O1OzsHWceoEKIMVthW76u1wMOxHpZNnTLqv0CZ/jrehH6N3wsfUDhuRdf1KtVr8R8aGgdex9RYakItFWQgWkNsC6dC97VrjSfUKCCpU7eale85oTgLRNaB8Mmd5dpNQoNUkgQaGEJ8++H/EGdCwXEcst2brqAcYeISJ+PLwiHI68mVZz95GmyaK8nZdbQ5LLbR7w+7+ldRh23Ynin1B5c+AW45Orxp53MLVmiLKJhE1dIhj34otd30xiDrLxVCsbNIn8GUXw7UhC2notqEZ/URJ3j1BsAbFokSjMT1YmsOoxKrVd1HPd4i3vHVc3P12VLjoglb6bjYArdY7s8QpHn+6jhYNbBWa8l72tSxVOBW/rFRhV8LjxW6SiW20v8jI9M+tZb+nzeZlWuZSYlbC/D3csT6OBYE2V8U2SzciUkCwrh5g9ECZBTXvD9bLb6VcFoBX8pnA/eth7VM0P6152HTP08atne3GXPlemyEDNAHxmQqEXA0hjyYml7Coar8UTogdnSknMKn1dinqPod/kbZgHZXHWnttL2MuqxuibHAATy6+RBf5Fq8Al+WvjEriVa7dGa4CTGOnjNZ21zR8Wbhjd3oAnj3+Mua8Wzj3hRuJyE64KmzNyKTSrg=
-        - secure: FuLSvzcH/7Sjx0LMzn1JTAjKdig+CFpGjJNXNKq09y23NYbWkrHT2HVmEg1Sfx8ZZoKzgawSpeZCH7PgbYzKI1hcbq16jyJFhCszklEPVuyMj0+OmZTCum5+tCxK2nLnwRPpcRjRrgUEDRqQz8lvLyuwZA2IOvuHvtD+3+LP+XvaaKF9+CYamvtgNARb5fsTlmAsQT2jostBSpC46/ipMJpoDsWsgubHcpNED9I6DrtdIX3xK0AiG4EUIlpHiXEj++qFVyynLQnakKZfHjQ1I+BZqON/OPex1ivPUsqSaT2izvYUqWwUMmL38MOG1tcQpAN5dGza3tIaScW+Sjw70GpjEHyg3IWvWDr0eJnyP4x0d8uRnw6kJZvJvPXFBWiLubDRhQ2SA3/SDQNfUnnEqcgRhB+K51Rf7Z4YUfqpKqei86gG0jTZw7AhAnsJwpjGN51YJv0saNC0/i1MUkWi3Tr9q1jT39RE03bYhVSRoEhDvNZUGsMwY5sCOMvy2/9LZGKXJZOqaRKxrpQkjWkhKkwQ/Dy5feETVHKICYsabPujhUtDWgOZgXkprDrkP+fzWoWz6y2ehNKgPHrGk2hmcwZHAAOtEUwcdQoMo3iAMLM3uHu1ja4fd/lwgDBdYiAPVli4UvuXG1GJpaHmDukjYIpt9riSlm3+XEVLNsJJGGo=
-        - secure: edZdifT3gNEWUL56bI6RJ+QaIgR01Kh3ZjGWYD47hdnN4v64ArqhMeyYLxpm6g0DjvM4CEkDdVADk6W1Gx9quM12EoYaeF7r4j9DKDgMP+GQuL0VPULDHYEkHnYD4d2hTFbN1naWhHAzrRTppmuGY5XUOL9IXiExqXhfBUxsT59EuuaL+oawW1C+YooTOrm1l1cS9KJWDt0aykf1lIFYf9sOr7l/N9OTGfpYoru4D9SXveRhNcf+SfEr+P+rwBg8XBNY6K/GXDhri6MXMc5XNvb7L+1glyIxz6qhmKQwlEV+j/wSKT9bDWVnkEOTzyUdOXG7UMDsuuW6H2U2aSw4FNRXYTs4JgeSngbYoLcCaUs8dCy76zlpdw7BjxuJ4c5XojNMXE+hRd6k31LTOEckXjKyJNCnFEB2co3+eIyiyZvlSim5dLgqumuVY5caZqKlovbPyog26sE14hVH8lwBA1aXQ9Zd82QuqpSctY3e5JMcdkeJod3pvmfrzKVyWGJh69dTZk+RFlTM5uTP/+1c2aHitph8kae1Mk9gxii/hSHHImqqBIQE11LT79yq2csFH+dqfEiUIx7lNh98BadponJ8g+uiPVjPWBfy8VpltmZZg3VBKAteZ+qoNHv78oj0uLzT9Oyk5l+igt8gHivs22ZmmY+NSrFsOHWdrExPxJs=
+        - provider: script
+          script: mvn clean deploy -P aws
+          on:
+            branch: develop
+        - provider: script
+          script: mvn clean deploy -P aws
+          on:
+            branch: master
 notifications:
   email:
     recipients:
