@@ -9,7 +9,11 @@ matrix:
         - provider: script
           script: mvn clean deploy -P aws
           on:
-            branch: feature/production-deployment
+            branch: develop
+        - provider: script
+          script: mvn clean deploy -P aws
+          on:
+            branch: master
 notifications:
   email:
     recipients:
