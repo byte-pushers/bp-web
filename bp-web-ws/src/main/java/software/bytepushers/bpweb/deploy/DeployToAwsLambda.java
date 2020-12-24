@@ -48,7 +48,7 @@ public class DeployToAwsLambda {
     public static void main(String[] args) {
         final AmazonS3 s3Client = buildS3Client();
 
-        final String bucketName = System.getenv(PROP_BUCKET_NAME);
+        final String bucketName = System.getProperty(PROP_BUCKET_NAME);
         if (StringUtils.isBlank(bucketName)) {
             String errorMessage = String.format("Bucket name not found in Environment Variable: '%s'", PROP_BUCKET_NAME);
             throw new IllegalArgumentException(errorMessage);
