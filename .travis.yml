@@ -11,8 +11,6 @@ matrix:
           secret_access_key: ${AWS_SECRET_ACCESS_KEY}
           template: cloud-formation-template.yaml
           stack_name: bytepushers-bp-web-ws
-          on:
-            branch: develop
 notifications:
   email:
     recipients:
