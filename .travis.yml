@@ -20,7 +20,7 @@ matrix:
         - provider: script
           script: mvn clean deploy -P aws
           on:
-            branch: master
+            branch: develop
 notifications:
   email:
     recipients:

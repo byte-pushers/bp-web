@@ -233,14 +233,6 @@
                                     <key>bytepushers.deploy.lambdaFunctionName</key>
                                     <value>bytepushers-bpweb-ws</value>
                                 </systemProperty>
-                                <systemProperty>
-                                    <key>bytepushers.deploy.cloudFormationTemplate</key>
-                                    <value>${project.basedir}/cloud-formation-template.yaml</value>
-                                </systemProperty>
-                                <systemProperty>
-                                    <key>bytepushers.deploy.cloudFormationStackName</key>
-                                    <value>bytepushers-bp-web-ws</value>
-                                </systemProperty>
                             </systemProperties>
                         </configuration>
                     </execution>
