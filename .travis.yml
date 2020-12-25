@@ -11,7 +11,7 @@ matrix:
           secret_access_key: ${AWS_SECRET_ACCESS_KEY}
           template: bp-web-ws/cloud-formation-template.yaml
           stack_name: bytepushers-bp-web-ws
-          capabilities: CAPABILITY_AUTO_EXPAND
+          capabilities: [CAPABILITY_NAMED_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND]
           edge: true
           on:
             branch: develop
