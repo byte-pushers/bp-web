@@ -10,12 +10,17 @@ matrix:
           access_key_id: ${AWS_ACCESS_KEY_ID}
           secret_access_key: ${AWS_SECRET_ACCESS_KEY}
           region: us-east-2
+          wait: true
           template: bp-web-ws/cloud-formation-template.yaml
           stack_name: bytepushers-bp-web-ws
           capabilities: [CAPABILITY_NAMED_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND]
           edge: true
           on:
             branch: develop
+        - provider: script
+          script: mvn clean deploy -P aws
+          on:
+            branch: master
 notifications:
   email:
     recipients:
