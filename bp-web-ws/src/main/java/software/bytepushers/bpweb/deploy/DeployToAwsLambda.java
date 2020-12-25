@@ -5,8 +5,6 @@ import com.amazonaws.AmazonWebServiceResult;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.client.builder.AwsSyncClientBuilder;
 import com.amazonaws.services.cloudformation.AmazonCloudFormation;
-import com.amazonaws.services.cloudformation.AmazonCloudFormationClient;
-import com.amazonaws.services.cloudformation.AmazonCloudFormationClientBuilder;
 import com.amazonaws.services.cloudformation.model.*;
 import com.amazonaws.services.lambda.AWSLambda;
 import com.amazonaws.services.lambda.AWSLambdaClient;
@@ -42,8 +40,6 @@ public class DeployToAwsLambda {
     private static final String PROP_OBJECT_NAME = "bytepushers.deploy.s3ObjectName";
     private static final String PROP_PAYLOAD_LOCAL_PATH = "bytepushers.deploy.payloadLocalPath";
     private static final String PROP_LAMBDA_FUNCTION_NAME = "bytepushers.deploy.lambdaFunctionName";
-    private static final String PROP_CLOUDFORMATION_TEMPLATE = "bytepushers.deploy.cloudFormationTemplate";
-    private static final String PROP_CLOUDFORMATION_STACK_NAME = "bytepushers.deploy.cloudFormationStackName";
 
     public static void main(String[] args) {
         final AmazonS3 s3Client = buildS3Client();
@@ -74,19 +70,11 @@ public class DeployToAwsLambda {
         sendPayloadToS3(s3Client, bucketName, objectName, file);
 
         final AWSLambda lambdaClient = buildLambdaClient();
-        final AmazonCloudFormation cloudFormationClient = buildCloudFormationClient();
         final String functionName = System.getProperty(PROP_LAMBDA_FUNCTION_NAME);
-        final String stackName = System.getProperty(PROP_CLOUDFORMATION_STACK_NAME);
 
-        if (!cloudFormationStackExists(cloudFormationClient, stackName)) {
-            // Create a new cloud formation stack using the specified SAM template.
-            createCloudFormationStack(cloudFormationClient, bucketName, objectName);
-            System.out.println("Created a new cloud formation stack using the specified SAM template.");
-        } else {
-            // Attempt to update the existing lambda function.
-            updateAndPublishLambdaFunction(lambdaClient, functionName, bucketName, objectName, fileName);
-            System.out.println("Updated the existing lambda function (" + functionName + ").");
-        }
+        // Attempt to update the existing lambda function.
+        updateAndPublishLambdaFunction(lambdaClient, functionName, bucketName, objectName, fileName);
+        System.out.println("Updated the existing lambda function (" + functionName + ").");
     }
 
     private static void createS3Bucket(AmazonS3 client, String bucketName) {
@@ -95,66 +83,6 @@ public class DeployToAwsLambda {
                 new BucketVersioningConfiguration().withStatus("ENABLED")));
 
         System.out.println("!!!IMPORTANT!!! Created new S3 Bucket " + bucketName + ". Configure bucket management via console");
-    }
-
-    private static void createCloudFormationStack(AmazonCloudFormation cloudFormationClient, String bucketName,
-                                                  String objectName) {
-        final String stackName = System.getProperty(PROP_CLOUDFORMATION_STACK_NAME);
-        final String templateFile = System.getProperty(PROP_CLOUDFORMATION_TEMPLATE);
-        final String functionName = System.getProperty(PROP_LAMBDA_FUNCTION_NAME);
-
-        final String templateBody =
-                readCloudFormationTemplateAndSubstituteProperties(templateFile, bucketName, objectName, functionName);
-
-        // Note: We cannot create a new stack using SAM templates, since templates containing transform directives
-        // must be introduced via change sets.
-        final String changeSetName = "createFromInitialSamTransform";
-
-        CreateChangeSetResult changeSetResult = cloudFormationClient.createChangeSet(new CreateChangeSetRequest()
-                .withStackName(stackName)
-                .withChangeSetName(changeSetName)
-                .withChangeSetType(ChangeSetType.CREATE)
-                .withTemplateBody(templateBody)
-                .withCapabilities(Capability.CAPABILITY_IAM, Capability.CAPABILITY_NAMED_IAM));
-
-        ChangeSetStatus status = monitorChangeSetCreationStatus(cloudFormationClient, stackName, changeSetName);
-        if (status != ChangeSetStatus.CREATE_COMPLETE) {
-            throw new RuntimeException("ChangeSet creation failed for stack " + stackName + ". Last status was: " + status);
-        }
-
-        checkForErrors(changeSetResult, "create new change set");
-
-        ExecuteChangeSetResult executeChangeSetResult = cloudFormationClient.executeChangeSet(new ExecuteChangeSetRequest()
-                .withStackName(stackName)
-                .withChangeSetName(changeSetName));
-
-        try {
-            ExecutionStatus execStatus = monitorChangeSetExecutionStatus(cloudFormationClient, stackName, changeSetName);
-            if (execStatus != ExecutionStatus.EXECUTE_COMPLETE) {
-                throw new RuntimeException("ChangeSet execution failed for stack " + stackName + ". Last status was: " + execStatus);
-            }
-        } catch (ChangeSetNotFoundException e) {
-            // This could be good. It could mean that our change set completed! But only if the stack exists...
-            DescribeStacksResult result = cloudFormationClient.describeStacks(new DescribeStacksRequest().withStackName(stackName));
-        }
-
-        StackStatus stackStatus = monitorStackCreationStatus(cloudFormationClient, stackName);
-        if (stackStatus != StackStatus.CREATE_COMPLETE) {
-            throw new RuntimeException("Attempt to create stack failed for stack " + stackName);
-        }
-
-        checkForErrors(executeChangeSetResult, "execute change set");
-
-        System.out.println("Created new CloudFormation stack with ID: " + changeSetResult.getStackId());
-
-        Stack stack =
-                cloudFormationClient.describeStacks(new DescribeStacksRequest().withStackName(stackName)).getStacks().get(0);
-
-        System.out.println("\nStack outputs:");
-        for (Output output : stack.getOutputs()) {
-            System.out.println("  " + output.getOutputKey() + ":   " + output.getOutputValue());
-        }
-        System.out.println();
     }
 
 
@@ -358,14 +286,6 @@ public class DeployToAwsLambda {
 
     private static AmazonS3 buildS3Client() {
         AmazonS3ClientBuilder builder = AmazonS3Client.builder();
-
-        setCommonProperties(builder);
-
-        return builder.build();
-    }
-
-    private static AmazonCloudFormation buildCloudFormationClient() {
-        AmazonCloudFormationClientBuilder builder = AmazonCloudFormationClient.builder();
 
         setCommonProperties(builder);
 
