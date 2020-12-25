@@ -9,7 +9,7 @@ matrix:
         - provider: cloudformation
           access_key_id: ${AWS_ACCESS_KEY_ID}
           secret_access_key: ${AWS_SECRET_ACCESS_KEY}
-          template: cloud-formation-template.yaml
+          template: bp-web-ws/cloud-formation-template.yaml
           stack_name: bytepushers-bp-web-ws
           edge: true
           on:
