@@ -48,6 +48,14 @@ matrix:
           skip_cleanup: true
           on:
             branch: develop
+        - provider: lambda
+          function_name: bytepushers-bpweb-ws
+          region: us-east-2
+          runtime: java11
+          zip: bytepushers-bpweb-lambda-jar
+          skip_cleanup: true
+          on:
+            branch: develop
         - provider: script
           script: mvn clean deploy -P aws -DskipTests
           on:
