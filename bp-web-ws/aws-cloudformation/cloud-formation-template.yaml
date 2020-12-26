@@ -166,7 +166,8 @@ Resources:
       - BpWebVpcExecutionRole
     Properties:
       CodeUri:
-        !Join ['', ['s3://', !Ref BucketName, '/bytepushers-bpweb-lambda-jar']]
+        Bucket: !Ref BucketName
+        Key: bytepushers-bpweb-lambda-jar
       Description: BytePusher Web AWS Serverless Spring API
       FunctionName: bytepushers-bpweb-ws
       Events:
