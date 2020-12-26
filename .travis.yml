@@ -12,7 +12,7 @@ matrix:
       install:
         - mvn clean install -P aws -DskipTests
       before_deploy:
-        - cp -Rf 'bp-web-ws/target/bp-web-ws.jar' bytepushers-bpweb-lambda-jar
+        - cp -Rf 'bp-web-ws/target/bp-web-ws.jar' ${S3_DEPLOYMENT_OBJECT_NAME}
       deploy:
         - provider: cloudformation
           access_key_id: ${AWS_ACCESS_KEY_ID}
@@ -34,7 +34,7 @@ matrix:
           bucket: ${S3_DEPLOYMENT_BUCKET}
           region: us-east-2
           skip_cleanup: true
-          glob: 'bytepushers-bpweb-lambda-jar'
+          glob: ${S3_DEPLOYMENT_OBJECT_NAME}
           edge: true
           on:
             branch: develop
@@ -47,13 +47,14 @@ matrix:
           stack_name: bytepushers-bp-web-ws
           parameters:
             - BucketName=${S3_DEPLOYMENT_BUCKET}
+            - ObjectName=${S3_DEPLOYMENT_OBJECT_NAME}
           capabilities: [CAPABILITY_NAMED_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND]
           edge: true
           skip_cleanup: true
           on:
             branch: develop
         - provider: script
-          script:  aws lambda update-function-code --publish --function-name bytepushers-bpweb-ws --s3-bucket com.bytepushers.bpweb.ws --s3-key bytepushers-bpweb-lambda-jar --region us-east-2
+          script:  aws lambda update-function-code --publish --function-name bytepushers-bpweb-ws --s3-bucket ${S3_DEPLOYMENT_BUCKET} --s3-key ${S3_DEPLOYMENT_OBJECT_NAME} --region us-east-2
           on:
             branch: develop
         - provider: script
