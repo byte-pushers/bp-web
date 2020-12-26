@@ -5,6 +5,10 @@ matrix:
       cache:
         directories:
           - "$HOME/.m2"
+      before_install:
+        - pyenv global 3.7.1
+        - pip install -U pip
+        - pip install awscli
       install:
         - mvn clean install -P aws -DskipTests
       before_deploy:
@@ -48,12 +52,8 @@ matrix:
           skip_cleanup: true
           on:
             branch: develop
-        - provider: lambda
-          function_name: bytepushers-bpweb-ws
-          region: us-east-2
-          runtime: java11
-          zip: bytepushers-bpweb-lambda-jar
-          skip_cleanup: true
+        - provider: script
+          script: aws lambda update-function-code --function-name bytepushers-bpweb-ws --s3-bucket ${S3_DEPLOYMENT_BUCKET} --s3-key bytepushers-bpweb-lambda-jar --publish
           on:
             branch: develop
         - provider: script
