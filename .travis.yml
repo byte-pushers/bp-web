@@ -25,11 +25,11 @@ matrix:
         - provider: s3
           access_key_id: ${AWS_ACCESS_KEY_ID}
           secret_access_key: ${AWS_SECRET_ACCESS_KEY}
-          bucket: ${S3_DEPLOYMENT_BUCKET}
+          bucket: com.bytepushers.bpweb.ws
           region: us-east-2
           skip_cleanup: true
           glob: 'bytepushers-bpweb-lambda-jar'
-          edge: true # opt in to dpl v2
+          edge: true
           on:
             branch: develop
         - provider: script

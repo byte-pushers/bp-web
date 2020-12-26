@@ -119,6 +119,12 @@ Resources:
       Tags:
         - Key: Name
           Value: BpWebLambdaSecurityGroup
+  BpWebServiceS3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: com.bytepushers.bpweb.ws
+      VersioningConfiguration:
+        Status: 'Enabled'
 
   BpWebRdsDBInstance:
     Type: AWS::RDS::DBInstance
@@ -160,7 +166,7 @@ Resources:
     DependsOn:
       - BpWebVpcExecutionRole
     Properties:
-      CodeUri: s3://com.bytepushers.bpweb.webservice/bytepushers-bpweb-lambda-jar
+      CodeUri: s3://com.bytepushers.bpweb.ws/bytepushers-bpweb-lambda-jar
       Description: BytePusher Web AWS Serverless Spring API
       FunctionName: bytepushers-bpweb-ws
       Events:
