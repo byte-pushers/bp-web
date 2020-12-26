@@ -57,10 +57,6 @@ matrix:
           script:  aws lambda update-function-code --publish --function-name bytepushers-bpweb-ws --s3-bucket ${S3_DEPLOYMENT_BUCKET} --s3-key ${S3_DEPLOYMENT_OBJECT_NAME} --region us-east-2
           on:
             branch: develop
-        - provider: script
-          script: mvn clean deploy -P aws -DskipTests
-          on:
-            branch: master
 notifications:
   email:
     recipients:

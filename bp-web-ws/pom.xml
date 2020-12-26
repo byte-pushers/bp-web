@@ -199,46 +199,6 @@
             </plugin>
 
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.6.0</version>
-                <executions>
-                    <execution>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>
-                        <configuration>
-                            <cleanupDaemonThreads>false</cleanupDaemonThreads>
-                            <mainClass>software.bytepushers.bpweb.deploy.DeployToAwsLambda</mainClass>
-                            <systemProperties>
-                                <systemProperty>
-                                    <key>bytepushers.deploy.awsRegion</key>
-                                    <value>us-east-2</value>
-                                </systemProperty>
-                                <systemProperty>
-                                    <key>bytepushers.deploy.s3BucketName</key>
-                                    <!--suppress UnresolvedMavenProperty -->
-                                    <value>${env.S3_DEPLOYMENT_BUCKET}</value>
-                                </systemProperty>
-                                <systemProperty>
-                                    <key>bytepushers.deploy.s3ObjectName</key>
-                                    <value>bytepushers-bpweb-lambda.jar</value>
-                                </systemProperty>
-                                <systemProperty>
-                                    <key>bytepushers.deploy.payloadLocalPath</key>
-                                    <value>${project.build.directory}/${project.build.finalName}.jar</value>
-                                </systemProperty>
-                                <systemProperty>
-                                    <key>bytepushers.deploy.lambdaFunctionName</key>
-                                    <value>bytepushers-bpweb-ws</value>
-                                </systemProperty>
-                            </systemProperties>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-help-plugin</artifactId>
                 <version>3.2.0</version>
@@ -318,7 +278,7 @@
                                     <artifactSet>
                                         <excludes>
                                             <exclude>org.apache.tomcat.embed:*</exclude>
-                                            <exclude>software.bytepushers.pick3.deploy:*</exclude>
+                                            <!--<exclude>software.bytepushers.pick3.deploy:*</exclude>-->
                                             <exclude>application-*.properties</exclude>
                                         </excludes>
                                     </artifactSet>
@@ -376,7 +336,7 @@
                                     <artifactSet>
                                         <excludes>
                                             <exclude>org.apache.tomcat.embed:*</exclude>
-                                            <exclude>software.bytepushers.pick3.deploy:*</exclude>
+                                            <!--<exclude>software.bytepushers.pick3.deploy:*</exclude>-->
                                             <!--<exclude>application-*.properties</exclude>-->
                                         </excludes>
                                     </artifactSet>
@@ -572,7 +532,7 @@
                             <excludes>
                                 <exclude>**/bpweb/StreamLambdaHandler.**</exclude>
                                 <exclude>**/bpweb/BpWebWsApplication.**</exclude>
-                                <exclude>**/bpweb/deploy/*</exclude>
+                                <!--<exclude>**/bpweb/deploy/*</exclude>-->
                             </excludes>
                         </configuration>
                         <executions>
