@@ -28,7 +28,7 @@ matrix:
           bucket: ${S3_DEPLOYMENT_BUCKET}
           region: us-east-2
           skip_cleanup: true
-          glob: 'bp-web-ws.jar'
+          glob: 'bytepushers-bpweb-lambda-jar'
           edge: true # opt in to dpl v2
           on:
             branch: develop
