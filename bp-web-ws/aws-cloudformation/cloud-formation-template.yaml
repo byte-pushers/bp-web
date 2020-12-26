@@ -119,12 +119,6 @@ Resources:
       Tags:
         - Key: Name
           Value: BpWebLambdaSecurityGroup
-  BpWebServiceS3Bucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: com.bytepushers.bpweb.ws
-      VersioningConfiguration:
-        Status: 'Enabled'
 
   BpWebRdsDBInstance:
     Type: AWS::RDS::DBInstance
