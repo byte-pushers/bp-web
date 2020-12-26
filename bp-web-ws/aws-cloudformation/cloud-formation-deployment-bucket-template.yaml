@@ -1,9 +1,14 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: BytePusher Webservice Deployment Bucket
+Parameters:
+  BucketName:
+    Type: String
+    Description: "AWS Lambda deployment bucket"
+    Default: ""
 Resources:
   BpWebServiceS3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: com.bytepushers.bpweb.ws
+      BucketName: !Ref BucketName
       VersioningConfiguration:
         Status: 'Enabled'
