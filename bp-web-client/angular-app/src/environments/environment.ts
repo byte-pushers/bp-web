@@ -6,11 +6,10 @@ export const environment = {
   production: false,
   QUOTE_SERVICE: {
     API: {
-      HOST: 'https://vpox0yhky6.execute-api.us-east-2.amazonaws.com/Prod/api/v1/quotes',
+      HOST: 'https://api-dev.bytepushers.io/Prod/api/v1/quotes',
       EXT: '.json'
     }
   }
-
 };
 
 /*
