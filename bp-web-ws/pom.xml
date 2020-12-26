@@ -223,7 +223,7 @@
                                 </systemProperty>
                                 <systemProperty>
                                     <key>bytepushers.deploy.s3ObjectName</key>
-                                    <value>bytepushers-bpweb-lambda-jar</value>
+                                    <value>bytepushers-bpweb-lambda.jar</value>
                                 </systemProperty>
                                 <systemProperty>
                                     <key>bytepushers.deploy.payloadLocalPath</key>
