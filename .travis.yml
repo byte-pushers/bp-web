@@ -53,7 +53,7 @@ matrix:
           on:
             branch: develop
         - provider: script
-          script: aws lambda update-function-code --function-name bytepushers-bpweb-ws --s3-bucket ${S3_DEPLOYMENT_BUCKET} --s3-key bytepushers-bpweb-lambda-jar --publish
+          script: aws lambda update-function-code --function-name bytepushers-bpweb-ws --s3-bucket ${S3_DEPLOYMENT_BUCKET} --s3-key bytepushers-bpweb-lambda-jar --publish true
           on:
             branch: develop
         - provider: script
