@@ -8,6 +8,15 @@ Outputs:
       Name: AwsApiGatewayBpWebApi
     Value:
       Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/
+Parameters:
+  BucketName:
+    Type: String
+    Description: "AWS Lambda deployment bucket"
+    Default: ""
+  ObjectName:
+    Type: String
+    Description: "AWS Lambda code file name from s3 bucket"
+    Default: ""
 Resources:
   BpWebVpcExecutionRole:
     Type: AWS::IAM::Role
@@ -160,7 +169,9 @@ Resources:
     DependsOn:
       - BpWebVpcExecutionRole
     Properties:
-      CodeUri: s3://com.bytepushers.bpweb.webservice/bytepushers-bpweb-lambda-jar
+      CodeUri:
+        Bucket: !Ref BucketName
+        Key: !Ref ObjectName
       Description: BytePusher Web AWS Serverless Spring API
       FunctionName: bytepushers-bpweb-ws
       Events:
