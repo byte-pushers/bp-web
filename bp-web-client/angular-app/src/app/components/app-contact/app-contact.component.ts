@@ -17,8 +17,7 @@ export class ContactComponent implements OnInit {
 
   }
 
-  // @ts-ignore
-  @ViewChild('quoteForm') quoteForm: any;
+  @ViewChild('quoteForm', {static: false}) quoteForm: any;
   public quote: Quote = new QuoteModel(QuoteModel.DEFAULT_CONFIG);
   isSubmitted = false;
   states: any = [
@@ -114,8 +113,6 @@ export class ContactComponent implements OnInit {
       return false;
     } else {
       this.saveQuote();
-      this.showConfirmation = true;
-
     }
   }
 
@@ -154,6 +151,7 @@ export class ContactComponent implements OnInit {
       this.quoteService.createQuote(this.quote).subscribe(newlyCreatedQuote => {
         // TODO should have a new object with IDs populated through out the object graph.
         console.log('newly created quote: ' + newlyCreatedQuote, newlyCreatedQuote);
+        this.showConfirmation = true;
       }, error => {
         // TODO should display error message at top of quote page.
         console.log('error: ' + error, error);
@@ -161,19 +159,19 @@ export class ContactComponent implements OnInit {
     }
   }
 
-
   public changeTimeline() {
-
     const timeFrameMin = this.timeframe[0];
     const timeFrameMax = this.timeframe[1];
     const newBudget = 'Range: '.concat( timeFrameMin + (' Months - ') + timeFrameMax + (' Months'));
     const newBudgetTop = 'Range: '.concat( timeFrameMin + (' Months - ') + timeFrameMax + (' Months and up'));
+
     if (timeFrameMax <= 32){
       this.timelines.splice(0, 1, newBudget);
     } else {
       this.timelines.splice(0, 1, newBudgetTop);
     }
-   /* const newMonth = 'Range: '.concat(this.timeframe[0] + (' Months - ') + this.timeframe[1] + (' Months'));
+
+    /* const newMonth = 'Range: '.concat(this.timeframe[0] + (' Months - ') + this.timeframe[1] + (' Months'));
     const newTop = 'Range: '.concat(this.timeframe[0] + (' Months - ') + this.timeframe[1] + (' Months'));
     if (this.timeframe !== null && this.timeframe !== undefined) {
 
@@ -186,11 +184,11 @@ export class ContactComponent implements OnInit {
     const budgetMax = this.value[1];
     const newBudget = 'Range: '.concat( ('$ ') + budgetMin + ' - ' + ('$ ') + budgetMax);
     const newBudgetTop = 'Range: '.concat(('$ ') + budgetMin + ' - ' + ('$ ') + budgetMax + (' and up'));
-    if (budgetMax <= 97000){
+
+    if (budgetMax <= 97000) {
       this.budgets.splice(0, 1, newBudget);
     } else {
       this.budgets.splice(0, 1, newBudgetTop);
     }
-    }
-
+  }
 }
