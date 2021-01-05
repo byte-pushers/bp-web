@@ -1,9 +1,9 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {NgForm} from '@angular/forms';
-import {QuoteService} from '../../shared/services/quote.service';
-import {Quote} from '../../shared/models/quote';
-import {QuoteModel} from '../../shared/models/quote.model';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { QuoteService } from '../../shared/services/quote.service';
+import { Quote } from '../../shared/models/quote';
+import { QuoteModel } from '../../shared/models/quote.model';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-contact',
@@ -13,7 +13,7 @@ import {QuoteModel} from '../../shared/models/quote.model';
 export class ContactComponent implements OnInit {
   public showConfirmation = false;
 
-  constructor(private quoteService: QuoteService) {
+  constructor(private quoteService: QuoteService, private spinner: NgxSpinnerService) {
 
   }
 
@@ -94,7 +94,6 @@ export class ContactComponent implements OnInit {
     return yearArray;
   }
 
-
   public isMobileResolution(): boolean {
     let isMobileResolution: boolean = false;
 
@@ -122,7 +121,6 @@ export class ContactComponent implements OnInit {
   }
 
   public onSubmitBackToTopMobile() {
-
     document.body.scrollTop = 824; // For Safari
     document.documentElement.scrollTop = 824; // For Chrome, Firefox, IE and Opera
   }
@@ -147,14 +145,17 @@ export class ContactComponent implements OnInit {
   }
 
   private saveQuote() {
+    this.spinner.show();
     if (this.quote !== null && this.quote !== undefined) {
       this.quoteService.createQuote(this.quote).subscribe(newlyCreatedQuote => {
         // TODO should have a new object with IDs populated through out the object graph.
         console.log('newly created quote: ' + newlyCreatedQuote, newlyCreatedQuote);
         this.showConfirmation = true;
+        this.spinner.hide();
       }, error => {
         // TODO should display error message at top of quote page.
         console.log('error: ' + error, error);
+        this.spinner.hide();
       });
     }
   }
