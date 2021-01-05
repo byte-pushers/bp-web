@@ -21,6 +21,6 @@ public class HealthController extends AbstractController {
      */
     @GetMapping
     public ResponseEntity<?> getAll() {
-        return sendOkResponse("Up and Running");
+        return sendOkResponse("Up and Running.");
     }
 }
