@@ -6,8 +6,8 @@ export const environment = {
   production: false,
   QUOTE_SERVICE: {
     API: {
-      HOST: 'https://api-dev.bytepushers.io/Prod/api/v1/quotes',
-      EXT: '.json'
+      HOST: null,
+      EXT: null
     }
   }
 };
