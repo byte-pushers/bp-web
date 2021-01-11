@@ -1,9 +1,9 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {NgForm} from '@angular/forms';
-import {QuoteService} from '../../shared/services/quote.service';
-import {Quote} from '../../shared/models/quote';
-import {QuoteModel} from '../../shared/models/quote.model';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { QuoteService } from '../../shared/services/quote.service';
+import { Quote } from '../../shared/models/quote';
+import { QuoteModel } from '../../shared/models/quote.model';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-contact',
@@ -13,12 +13,11 @@ import {QuoteModel} from '../../shared/models/quote.model';
 export class ContactComponent implements OnInit {
   public showConfirmation = false;
 
-  constructor(private quoteService: QuoteService) {
+  constructor(private quoteService: QuoteService, private spinner: NgxSpinnerService) {
 
   }
 
-  // @ts-ignore
-  @ViewChild('quoteForm') quoteForm: any;
+  @ViewChild('quoteForm', {static: false}) quoteForm: any;
   public quote: Quote = new QuoteModel(QuoteModel.DEFAULT_CONFIG);
   isSubmitted = false;
   states: any = [
@@ -95,7 +94,6 @@ export class ContactComponent implements OnInit {
     return yearArray;
   }
 
-
   public isMobileResolution(): boolean {
     let isMobileResolution: boolean = false;
 
@@ -114,8 +112,6 @@ export class ContactComponent implements OnInit {
       return false;
     } else {
       this.saveQuote();
-      this.showConfirmation = true;
-
     }
   }
 
@@ -125,7 +121,6 @@ export class ContactComponent implements OnInit {
   }
 
   public onSubmitBackToTopMobile() {
-
     document.body.scrollTop = 824; // For Safari
     document.documentElement.scrollTop = 824; // For Chrome, Firefox, IE and Opera
   }
@@ -150,30 +145,34 @@ export class ContactComponent implements OnInit {
   }
 
   private saveQuote() {
+    this.spinner.show();
     if (this.quote !== null && this.quote !== undefined) {
       this.quoteService.createQuote(this.quote).subscribe(newlyCreatedQuote => {
         // TODO should have a new object with IDs populated through out the object graph.
         console.log('newly created quote: ' + newlyCreatedQuote, newlyCreatedQuote);
+        this.showConfirmation = true;
+        this.spinner.hide();
       }, error => {
         // TODO should display error message at top of quote page.
         console.log('error: ' + error, error);
+        this.spinner.hide();
       });
     }
   }
 
-
   public changeTimeline() {
-
     const timeFrameMin = this.timeframe[0];
     const timeFrameMax = this.timeframe[1];
     const newBudget = 'Range: '.concat( timeFrameMin + (' Months - ') + timeFrameMax + (' Months'));
     const newBudgetTop = 'Range: '.concat( timeFrameMin + (' Months - ') + timeFrameMax + (' Months and up'));
+
     if (timeFrameMax <= 32){
       this.timelines.splice(0, 1, newBudget);
     } else {
       this.timelines.splice(0, 1, newBudgetTop);
     }
-   /* const newMonth = 'Range: '.concat(this.timeframe[0] + (' Months - ') + this.timeframe[1] + (' Months'));
+
+    /* const newMonth = 'Range: '.concat(this.timeframe[0] + (' Months - ') + this.timeframe[1] + (' Months'));
     const newTop = 'Range: '.concat(this.timeframe[0] + (' Months - ') + this.timeframe[1] + (' Months'));
     if (this.timeframe !== null && this.timeframe !== undefined) {
 
@@ -186,11 +185,11 @@ export class ContactComponent implements OnInit {
     const budgetMax = this.value[1];
     const newBudget = 'Range: '.concat( ('$ ') + budgetMin + ' - ' + ('$ ') + budgetMax);
     const newBudgetTop = 'Range: '.concat(('$ ') + budgetMin + ' - ' + ('$ ') + budgetMax + (' and up'));
-    if (budgetMax <= 97000){
+
+    if (budgetMax <= 97000) {
       this.budgets.splice(0, 1, newBudget);
     } else {
       this.budgets.splice(0, 1, newBudgetTop);
     }
-    }
-
+  }
 }
