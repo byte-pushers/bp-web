@@ -71,8 +71,8 @@ export class ContactComponent implements OnInit {
     'West Virginia',
     'Wisconsin',
     'Wyoming'];
-  projects: any = ['Option 1', 'Option 2', 'Option 3'];
-  projectPlatforms: any = ['Option 1', 'Option 2', 'Option 3'];
+  projects: any = ['Business To Business (B2B)', 'Business To Consumer (B2C)', 'Custom App Development', 'Other'];
+  projectPlatforms: any = ['Mobile', 'Desktop', 'Cloud', 'Web', 'Other'];
   value: any = [0, 105000];
   budgets: any = ['Slide for budget amount'];
   timelines: any = ['Slide for time frame'];
