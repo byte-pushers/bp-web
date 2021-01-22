@@ -1,5 +1,5 @@
 export const environment = {
-  production: true,
+  production: false,
   QUOTE_SERVICE: {
     API: {
       HOST: 'https://api-dev.bytepushers.io/api/v1/quotes',
