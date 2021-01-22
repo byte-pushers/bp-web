@@ -45,7 +45,6 @@ public class QuoteController extends AbstractController {
      * @return the created quote details.
      */
     @PostMapping
-    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> create(@RequestBody @Valid Quote quote) {
         log.info("Request to create quote");
         Quote createdQuote = this.quoteServiceImpl.create(quote);
