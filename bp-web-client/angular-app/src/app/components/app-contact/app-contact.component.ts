@@ -20,6 +20,7 @@ export class ContactComponent implements OnInit {
   @ViewChild('quoteForm', {static: false}) quoteForm: any;
   public quote: Quote = new QuoteModel(QuoteModel.DEFAULT_CONFIG);
   isSubmitted = false;
+  public errorMessage: string;
   states: any = [
     'Alabama',
     'Alaska',
@@ -109,9 +110,10 @@ export class ContactComponent implements OnInit {
   public onSubmit(): boolean {
     this.isSubmitted = true;
     if (!this.quoteForm.valid) {
+      this.errorMessage = 'Form was not processed, internal error.';
       return false;
     } else {
-      this.saveQuote();
+      this.saveQuote()
     }
   }
 

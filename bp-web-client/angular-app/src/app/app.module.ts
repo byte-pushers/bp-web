@@ -22,6 +22,7 @@ import { QuoteService } from "./shared/services/quote.service";
 import { AppFooterComponent } from './shared/components/app-footer/app-footer.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
+
 @NgModule({
   declarations: [
     AppComponent,
