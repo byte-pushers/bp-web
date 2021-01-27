@@ -21,7 +21,9 @@ import { HttpClientModule } from "@angular/common/http";
 import { QuoteService } from "./shared/services/quote.service";
 import { AppFooterComponent } from './shared/components/app-footer/app-footer.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
-
+import { AppAlertOverlayModalComponent } from './shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.component';
+import { MatCardModule } from '@angular/material/card';
+import {OverlayModule} from "@angular/cdk/overlay";
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AboutComponent,
     ContactComponent,
     InfoComponent,
-    AppFooterComponent
+    AppFooterComponent,
+    AppAlertOverlayModalComponent
   ],
   imports: [
     BrowserModule,
@@ -47,12 +50,19 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     NgxBootstrapSliderModule,
     BrowserModule,
     HttpClientModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    OverlayModule,
+    MatCardModule
   ],
   providers: [
     PageScrollingUtility,
     QuoteService,
     { provide: Window, useValue: window }
+  ],
+  entryComponents: [
+    // Needs to be added here because otherwise we can't
+    // dynamically render this component at runtime
+    AppAlertOverlayModalComponent
   ],
   bootstrap: [AppComponent]
 })

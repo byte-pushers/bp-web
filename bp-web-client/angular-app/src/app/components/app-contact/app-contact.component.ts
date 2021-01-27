@@ -1,9 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { QuoteService } from '../../shared/services/quote.service';
-import { Quote } from '../../shared/models/quote';
-import { QuoteModel } from '../../shared/models/quote.model';
-import { NgxSpinnerService } from 'ngx-spinner';
+import {Component, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import {NgForm} from '@angular/forms';
+import {QuoteService} from '../../shared/services/quote.service';
+import {Quote} from '../../shared/models/quote';
+import {QuoteModel} from '../../shared/models/quote.model';
+import {NgxSpinnerService} from 'ngx-spinner';
+import {Overlay} from '@angular/cdk/overlay';
+import {AppAlertOverlayModalService} from "../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.service";
+
 
 @Component({
   selector: 'app-contact',
@@ -13,7 +16,9 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class ContactComponent implements OnInit {
   public showConfirmation = false;
 
-  constructor(private quoteService: QuoteService, private spinner: NgxSpinnerService) {
+  constructor(private quoteService: QuoteService, private spinner: NgxSpinnerService,
+              private overlay: Overlay,  private viewContainerRef: ViewContainerRef,private appAlertOverlayModalService: AppAlertOverlayModalService
+  ) {
 
   }
 
@@ -108,7 +113,6 @@ export class ContactComponent implements OnInit {
   }
 
   public onSubmit(): boolean {
-    this.isSubmitted = true;
     if (!this.quoteForm.valid) {
       this.errorMessage = 'Form was not processed, internal error.';
       return false;
@@ -156,19 +160,26 @@ export class ContactComponent implements OnInit {
         this.spinner.hide();
       }, error => {
         // TODO should display error message at top of quote page.
-        console.log('error: ' + error, error);
+        this.errorMessage = 'Account was not created, internal error.';
+        console.log(this.errorMessage + ': ' + error);
+        this.showOverlayModal(this.errorMessage);
         this.spinner.hide();
       });
     }
   }
 
+  public showOverlayModal(message?: string) {
+    this.appAlertOverlayModalService.setMessage(message);
+    this.appAlertOverlayModalService.open();
+  }
+
   public changeTimeline() {
     const timeFrameMin = this.timeframe[0];
     const timeFrameMax = this.timeframe[1];
-    const newBudget = 'Range: '.concat( timeFrameMin + (' Months - ') + timeFrameMax + (' Months'));
-    const newBudgetTop = 'Range: '.concat( timeFrameMin + (' Months - ') + timeFrameMax + (' Months and up'));
+    const newBudget = 'Range: '.concat(timeFrameMin + (' Months - ') + timeFrameMax + (' Months'));
+    const newBudgetTop = 'Range: '.concat(timeFrameMin + (' Months - ') + timeFrameMax + (' Months and up'));
 
-    if (timeFrameMax <= 32){
+    if (timeFrameMax <= 32) {
       this.timelines.splice(0, 1, newBudget);
     } else {
       this.timelines.splice(0, 1, newBudgetTop);
@@ -185,7 +196,7 @@ export class ContactComponent implements OnInit {
   public changeBudgetOnScroll() {
     const budgetMin = this.value[0];
     const budgetMax = this.value[1];
-    const newBudget = 'Range: '.concat( ('$ ') + budgetMin + ' - ' + ('$ ') + budgetMax);
+    const newBudget = 'Range: '.concat(('$ ') + budgetMin + ' - ' + ('$ ') + budgetMax);
     const newBudgetTop = 'Range: '.concat(('$ ') + budgetMin + ' - ' + ('$ ') + budgetMax + (' and up'));
 
     if (budgetMax <= 97000) {
