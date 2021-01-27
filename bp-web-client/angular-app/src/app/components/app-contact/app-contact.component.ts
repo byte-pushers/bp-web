@@ -4,6 +4,7 @@ import { QuoteService } from '../../shared/services/quote.service';
 import { Quote } from '../../shared/models/quote';
 import { QuoteModel } from '../../shared/models/quote.model';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-contact',
