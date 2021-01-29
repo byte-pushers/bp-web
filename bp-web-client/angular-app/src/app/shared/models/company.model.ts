@@ -4,7 +4,7 @@ import {Budget} from './budget';
 import {TimeLineModel} from './time-line.model';
 import {BudgetModel} from './budget.model';
 import {BaseEntityModel} from './base.entity.model';
-import {getFullYear} from "ngx-bootstrap";
+
 
 export class CompanyModel extends BaseEntityModel implements Company {
   static readonly DEFAULT_CONFIG: any = {
