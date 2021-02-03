@@ -107,13 +107,14 @@ export class ContactComponent implements OnInit {
     return isMobileResolution;
   }
 
-  public onSubmit(): boolean {
+  public onSubmit(): void {
     this.isSubmitted = true;
-    if (!this.quoteForm.valid) {
+
+    /*if (!this.quoteForm.valid) {
       return false;
-    } else {
+    } else {*/
       this.saveQuote();
-    }
+    //}
   }
 
   public onSubmitBackToTopDesktop() {
@@ -157,6 +158,12 @@ export class ContactComponent implements OnInit {
         console.log('newly created quote: ' + newlyCreatedQuote, newlyCreatedQuote);
         this.showConfirmation = true;
         this.spinner.hide();
+
+        if (this.isMobileResolution()) {
+          this.onSubmitBackToTopMobile();
+        } else {
+          this.onSubmitBackToTopDesktop();
+        }
       }, error => {
         // TODO should display error message at top of quote page.
         console.log('error: ' + error, error);
