@@ -23,8 +23,6 @@
     "ng-bootstrap-form-validation": "^9.0.0",
     "ngx-bootstrap": "^5.2.0",
     "ngx-bootstrap-slider": "^1.9.0",
-    "ngx-page-scroll": "^7.0.3",
-    "ngx-page-scroll-core": "^7.0.3",
     "ngx-spinner": "^10.0.1",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0",

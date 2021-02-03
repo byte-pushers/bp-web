@@ -20,8 +20,6 @@ import { HttpClientModule } from "@angular/common/http";
 import { QuoteService } from "./shared/services/quote.service";
 import { AppFooterComponent } from './shared/components/app-footer/app-footer.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
-import { NgxPageScrollModule } from "ngx-page-scroll/public-api";
 
 @NgModule({
   declarations: [
@@ -46,9 +44,7 @@ import { NgxPageScrollModule } from "ngx-page-scroll/public-api";
     NgxBootstrapSliderModule,
     BrowserModule,
     HttpClientModule,
-    NgxSpinnerModule,
-    NgxPageScrollCoreModule,
-    NgxPageScrollModule,
+    NgxSpinnerModule
   ],
   providers: [
     PageScrollingUtility,
