@@ -10,7 +10,6 @@ import { WorkComponent } from './components/app-work/app-work.component';
 import { AboutComponent } from './components/app-about/app-about.component';
 import { ContactComponent } from './components/app-contact/app-contact.component';
 import { PageScrollingUtility } from "./utilities/page-scrolling.utility";
-import { Ng2PageScrollModule } from "ng2-page-scroll";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
@@ -21,6 +20,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { QuoteService } from "./shared/services/quote.service";
 import { AppFooterComponent } from './shared/components/app-footer/app-footer.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import { NgxPageScrollModule } from "ngx-page-scroll/public-api";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    Ng2PageScrollModule,
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
     NgBootstrapFormValidationModule.forRoot(),
@@ -46,7 +46,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     NgxBootstrapSliderModule,
     BrowserModule,
     HttpClientModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgxPageScrollModule,
+    NgxPageScrollCoreModule
   ],
   providers: [
     PageScrollingUtility,
