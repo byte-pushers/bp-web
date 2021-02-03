@@ -22,7 +22,7 @@
     "jquery": "^3.4.1",
     "ng-bootstrap-form-validation": "^9.0.0",
     "ngx-bootstrap": "^5.2.0",
-    "ngx-bootstrap-slider": "^1.7.0",
+    "ngx-bootstrap-slider": "^1.9.0",
     "ngx-page-scroll": "^7.0.3",
     "ngx-page-scroll-core": "^7.0.3",
     "ngx-spinner": "^8.1.0",
