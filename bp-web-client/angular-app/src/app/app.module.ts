@@ -47,8 +47,8 @@ import { NgxPageScrollModule } from "ngx-page-scroll/public-api";
     BrowserModule,
     HttpClientModule,
     NgxSpinnerModule,
+    NgxPageScrollCoreModule,
     NgxPageScrollModule,
-    NgxPageScrollCoreModule
   ],
   providers: [
     PageScrollingUtility,
