@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from "../app-routing.module";
+import { HttpClientModule } from "@angular/common/http";
+import { OverlayModule } from '@angular/cdk/overlay';
+import { AppRoutingModule } from "src/app/app-routing.module";
 import { AppComponent } from './shared/components/app.component/app.component';
 import { AppHeaderComponent } from './shared/components/app-header.component/app-header.component';
 import { AppBodyComponent } from './shared/components/app-body.component/app-body.component';
@@ -16,10 +18,11 @@ import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
 import { FormsModule } from "@angular/forms";
 import { NgxBootstrapSliderModule } from "ngx-bootstrap-slider";
 import { InfoComponent } from './components/app-info/app-info.component';
-import { HttpClientModule } from "@angular/common/http";
 import { QuoteService } from "./shared/services/quote.service";
 import { AppFooterComponent } from './shared/components/app-footer/app-footer.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { MatCardModule } from "@angular/material/card";
+import { AppAlertOverlayModalComponent } from './shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AboutComponent,
     ContactComponent,
     InfoComponent,
-    AppFooterComponent
+    AppFooterComponent,
+    AppAlertOverlayModalComponent
   ],
   imports: [
     BrowserModule,
@@ -44,12 +48,19 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     NgxBootstrapSliderModule,
     BrowserModule,
     HttpClientModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    MatCardModule,
+    OverlayModule
   ],
   providers: [
     PageScrollingUtility,
     QuoteService,
     { provide: Window, useValue: window }
+  ],
+  entryComponents: [
+    // Needs to be added here because otherwise we can't
+    // dynamically render this component at runtime
+    AppAlertOverlayModalComponent
   ],
   bootstrap: [AppComponent]
 })
