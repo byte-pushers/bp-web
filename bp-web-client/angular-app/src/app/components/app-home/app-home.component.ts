@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit/*, ViewChild*/} from '@angular/core';
 import * as $ from 'jquery';
 import {fromEvent, Observable, Subscription} from "rxjs";
 
@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
   //@ViewChild("homeBackgroundWorkImg") divView: ElementRef;
 
 
-  constructor(private window: Window) {
+  constructor(/*private window: Window*/) {
   }
 
   ngOnInit() {
@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
       $prevButton.click(HomeComponent.previousButtonClickedEventHandler);
       $nextButton.click(HomeComponent.nextButtonClickedEventHandler);
     });
-    this.resizeObservable$ = fromEvent(window, 'resize')
+    //this.resizeObservable$ = fromEvent(window, 'resize')
     this.resizeSubscription$ = this.resizeObservable$.subscribe( evt => {
       //this.resizeImage(evt.currentTarget, this.divView);
     });
