@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit/*, ViewChild*/} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import * as $ from 'jquery';
 import {fromEvent, Observable, Subscription} from "rxjs";
 
@@ -10,10 +10,10 @@ import {fromEvent, Observable, Subscription} from "rxjs";
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
   resizeObservable$: Observable<Event>;
   resizeSubscription$: Subscription;
-  //@ViewChild("homeBackgroundWorkImg") divView: ElementRef;
+  @ViewChild("homeBackgroundWorkImg") divView: ElementRef;
 
 
-  constructor(/*private window: Window*/) {
+  constructor(private window: Window) {
   }
 
   ngOnInit() {
@@ -25,18 +25,18 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
       $prevButton.click(HomeComponent.previousButtonClickedEventHandler);
       $nextButton.click(HomeComponent.nextButtonClickedEventHandler);
     });
-    /*this.resizeObservable$ = fromEvent(window, 'resize');
+    this.resizeObservable$ = fromEvent(window, 'resize');
     this.resizeSubscription$ = this.resizeObservable$.subscribe( evt => {
       this.resizeImage(evt.currentTarget, this.divView);
-    });*/
+    });
   }
 
   ngOnDestroy() {
-    //this.resizeSubscription$.unsubscribe();
+    this.resizeSubscription$.unsubscribe();
   }
 
   ngAfterViewInit() {
-    //this.resizeImage(this.window, this.divView);
+    this.resizeImage(this.window, this.divView);
   }
 
   public backToTop() {
@@ -59,7 +59,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
     const imageWidth = imageRef.nativeElement.getAttribute('width');
     const imageHeight = imageRef.nativeElement.getAttribute('height')
     const windowWidth = win.innerWidth;
-    //const windowHeight = win.innerHeight;
 
     const height = (imageHeight * windowWidth)/imageWidth;
 
