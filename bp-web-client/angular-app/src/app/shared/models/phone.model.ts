@@ -16,11 +16,11 @@ export class PhoneModel extends BaseEntityModel implements Phone {
 
   }
 
-  get Number() {
+  get number() {
     return this._number;
   }
   // tslint:disable-next-line:variable-name
-  set Number(number: number) {
+  set number(number: number) {
     this._number = number;
   }
   getNumber(): number {
@@ -31,10 +31,10 @@ export class PhoneModel extends BaseEntityModel implements Phone {
     this._number = number;
   }
 
-  get Type() {
+  get type() {
     return this._type;
   }
-  set Type(type: string) {
+  set type(type: string) {
     this._type = type;
   }
   getType(): string {

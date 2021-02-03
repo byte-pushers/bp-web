@@ -18,7 +18,7 @@ export class ContactComponent implements OnInit {
 
   }
 
-  @ViewChild('quoteForm', {static: false}) quoteForm: any;
+  @ViewChild('quoteForm') quoteForm: any;
   public quote: Quote = new QuoteModel(QuoteModel.DEFAULT_CONFIG);
   isSubmitted = false;
   states: any = [
@@ -126,6 +126,10 @@ export class ContactComponent implements OnInit {
     document.documentElement.scrollTop = 824; // For Chrome, Firefox, IE and Opera
   }
 
+  public backToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
 
   public reset(form: NgForm) {
     form.resetForm();
