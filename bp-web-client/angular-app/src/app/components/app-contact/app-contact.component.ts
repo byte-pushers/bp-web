@@ -5,6 +5,7 @@ import { Quote } from '../../shared/models/quote';
 import { QuoteModel } from '../../shared/models/quote.model';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Subscription } from 'rxjs';
+import { AppAlertOverlayModalService } from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.service';
 
 @Component({
   selector: 'app-contact',
@@ -12,9 +13,12 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./app-contact.component.css']
 })
 export class ContactComponent implements OnInit {
+  public errorMessage: string;
   public showConfirmation = false;
 
-  constructor(private quoteService: QuoteService, private spinner: NgxSpinnerService) {
+  constructor(private quoteService: QuoteService,
+              private spinner: NgxSpinnerService,
+              private appAlertOverlayModalService: AppAlertOverlayModalService) {
 
   }
 
@@ -167,9 +171,16 @@ export class ContactComponent implements OnInit {
       }, error => {
         // TODO should display error message at top of quote page.
         console.log('error: ' + error, error);
+        this.errorMessage = 'Account was not created, internal error.';
+        this.showOverlayModal(this.errorMessage);
         this.spinner.hide();
       });
     }
+  }
+
+  public showOverlayModal(message?: string) {
+    this.appAlertOverlayModalService.setMessage(message);
+    this.appAlertOverlayModalService.open();
   }
 
   public changeTimeline() {
