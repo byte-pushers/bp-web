@@ -3,6 +3,12 @@ import {BaseEntity} from './base.entity';
 import {Phone} from "./phone";
 
 export interface Person extends BaseEntity {
+  firstName: string;
+  lastName: string;
+  email: string;
+  address: Address;
+  phone: Phone;
+
   getFirstName(): string;
   setFirstName(firstName: string): void;
 

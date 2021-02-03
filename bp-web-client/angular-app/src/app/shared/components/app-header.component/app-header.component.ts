@@ -65,7 +65,7 @@ export class AppHeaderComponent implements OnInit {
     document.documentElement.scrollTop = 0;
   }
 
-  private openCloseMobileNav() {
+  public openCloseMobileNav() {
     const windowCheck = window.innerWidth;
     if (windowCheck <= 480) {
       const mobileNav = document.getElementById('topnav');

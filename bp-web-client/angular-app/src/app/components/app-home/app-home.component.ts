@@ -10,7 +10,7 @@ import {fromEvent, Observable, Subscription} from "rxjs";
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
   resizeObservable$: Observable<Event>;
   resizeSubscription$: Subscription;
-  @ViewChild("homeBackgroundWorkImg", {static: false}) divView: ElementRef;
+  @ViewChild("homeBackgroundWorkImg") divView: ElementRef;
 
 
   constructor(private window: Window) {
@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
       $prevButton.click(HomeComponent.previousButtonClickedEventHandler);
       $nextButton.click(HomeComponent.nextButtonClickedEventHandler);
     });
-    this.resizeObservable$ = fromEvent(window, 'resize')
+    this.resizeObservable$ = fromEvent(window, 'resize');
     this.resizeSubscription$ = this.resizeObservable$.subscribe( evt => {
       this.resizeImage(evt.currentTarget, this.divView);
     });
@@ -38,9 +38,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
   ngAfterViewInit() {
     this.resizeImage(this.window, this.divView);
   }
-
-
-
 
   public backToTop() {
     document.body.scrollTop = 0;
@@ -62,7 +59,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
     const imageWidth = imageRef.nativeElement.getAttribute('width');
     const imageHeight = imageRef.nativeElement.getAttribute('height')
     const windowWidth = win.innerWidth;
-    //const windowHeight = win.innerHeight;
 
     const height = (imageHeight * windowWidth)/imageWidth;
 
