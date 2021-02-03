@@ -22,7 +22,7 @@ export class QuoteService {
       responseType: 'json'
     }).pipe(
       DelayedRetryOperator.operate(1000, 3),
-      catchError(() => EMPTY),
+      // catchError(() => EMPTY), // Not Sure why this line works for CP3 but not here.
       shareReplay()
     );
   }
