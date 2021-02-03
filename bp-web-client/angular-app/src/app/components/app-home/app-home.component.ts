@@ -25,22 +25,19 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
       $prevButton.click(HomeComponent.previousButtonClickedEventHandler);
       $nextButton.click(HomeComponent.nextButtonClickedEventHandler);
     });
-    //this.resizeObservable$ = fromEvent(window, 'resize')
+    /*this.resizeObservable$ = fromEvent(window, 'resize');
     this.resizeSubscription$ = this.resizeObservable$.subscribe( evt => {
-      //this.resizeImage(evt.currentTarget, this.divView);
-    });
+      this.resizeImage(evt.currentTarget, this.divView);
+    });*/
   }
 
   ngOnDestroy() {
-    this.resizeSubscription$.unsubscribe();
+    //this.resizeSubscription$.unsubscribe();
   }
 
   ngAfterViewInit() {
     //this.resizeImage(this.window, this.divView);
   }
-
-
-
 
   public backToTop() {
     document.body.scrollTop = 0;
