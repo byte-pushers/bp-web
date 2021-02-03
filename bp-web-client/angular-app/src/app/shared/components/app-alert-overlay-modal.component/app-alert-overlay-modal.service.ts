@@ -28,7 +28,7 @@ export class AppAlertOverlayModalService {
       backdropClass: (Object.isDefinedAndNotNull(config) && Object.isDefinedAndNotNull(config.backdropClass)) ? config.backdropClass : 'dark-backdrop',
       panelClass: (Object.isDefinedAndNotNull(config) && Object.isDefinedAndNotNull(config.panelClass)) ? config.panelClass : 'tm-file-preview-dialog-panel',
       scrollStrategy: this.overlay.scrollStrategies.block(),
-      positionStrategy
+      positionStrategy: positionStrategy
     });
 
     return overlayConfig;

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
 import { OverlayModule } from '@angular/cdk/overlay';
-import { AppRoutingModule } from "src/app/app-routing.module";
+import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from './shared/components/app.component/app.component';
 import { AppHeaderComponent } from './shared/components/app-header.component/app-header.component';
 import { AppBodyComponent } from './shared/components/app-body.component/app-body.component';
