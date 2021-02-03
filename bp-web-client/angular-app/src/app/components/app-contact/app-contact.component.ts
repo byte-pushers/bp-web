@@ -18,7 +18,7 @@ export class ContactComponent implements OnInit {
 
   }
 
-  @ViewChild('quoteForm') quoteForm: any;
+  @ViewChild('quoteForm', {static: false}) quoteForm: any;
   public quote: Quote = new QuoteModel(QuoteModel.DEFAULT_CONFIG);
   isSubmitted = false;
   states: any = [
