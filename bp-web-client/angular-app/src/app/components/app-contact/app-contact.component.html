@@ -294,7 +294,7 @@
                 </div>
                 <div class="slider-content">
                   <mv-slider id="range" range="true" (change)="retrieveBudget(value)" [(value)]="value" [min]="0"
-                             [max]="100000" [enabled]="enabled"
+                             [max]="100000"
                              (change)="changeBudgetOnScroll()">
                   </mv-slider>
                 </div>
@@ -313,7 +313,7 @@
                 </div>
                 <div class="slider-content">
                   <mv-slider id="rangeA" range="false" (change)="retrieveTimeframe(timeframe)" [(value)]="timeframe"
-                             [min]="1" [max]="36" [enabled]="enabled"
+                             [min]="1" [max]="36"
                              (change)="changeTimeline()">
                   </mv-slider>
                 </div>
@@ -639,7 +639,7 @@
           </div>
           <div class="slider-content">
             <mv-slider id="rangeMobile" (change)="retrieveBudget(value)" range="true" [(value)]="value" [min]="0"
-                       [max]="10000" [enabled]="enabled"
+                       [max]="10000"
                        (change)="changeBudgetOnScroll()" style="margin-bottom: 20px; padding-left: 1%">
             </mv-slider>
           </div>
@@ -663,7 +663,7 @@
           </div>
           <div class="slider-content">
             <mv-slider id="rangeAMobile" range="true" (change)="retrieveTimeframe(timeframe)" [(value)]="timeframe"
-                       [min]="1" [max]="36" [enabled]="enabled"
+                       [min]="1" [max]="36"
                        (change)="changeTimeline()" style="margin-bottom: 20px; padding-left: 1%">
             </mv-slider>
           </div>
