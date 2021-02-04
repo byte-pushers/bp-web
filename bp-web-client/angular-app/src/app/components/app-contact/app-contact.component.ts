@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { QuoteService } from '../../shared/services/quote.service';
 import { Quote } from '../../shared/models/quote';
@@ -6,6 +6,7 @@ import { QuoteModel } from '../../shared/models/quote.model';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Subscription } from 'rxjs';
 import { AppAlertOverlayModalService } from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.service';
+import * as BytePushers from 'bytepushers-js-core';
 
 @Component({
   selector: 'app-contact',
@@ -15,6 +16,7 @@ import { AppAlertOverlayModalService } from '../../shared/components/app-alert-o
 export class ContactComponent implements OnInit {
   public errorMessage: string;
   public showConfirmation = false;
+  public phone: {number: string} = {number: ""};
 
   constructor(private quoteService: QuoteService,
               private spinner: NgxSpinnerService,
@@ -23,6 +25,7 @@ export class ContactComponent implements OnInit {
   }
 
   @ViewChild('quoteForm') quoteForm: any;
+  @ViewChild('phoneNumber') phoneNumber: ElementRef;
   public quote: Quote = new QuoteModel(QuoteModel.DEFAULT_CONFIG);
   isSubmitted = false;
   states: any = [
@@ -157,6 +160,7 @@ export class ContactComponent implements OnInit {
   private saveQuote() {
     this.spinner.show();
     if (this.quote !== null && this.quote !== undefined) {
+      this.quote.contact.phone.number = this.phoneNumber.control.value;
       this.quoteService.createQuote(this.quote).subscribe(newlyCreatedQuote => {
         // TODO should have a new object with IDs populated through out the object graph.
         console.log('newly created quote: ' + newlyCreatedQuote, newlyCreatedQuote);
@@ -214,5 +218,10 @@ export class ContactComponent implements OnInit {
     } else {
       this.budgets.splice(0, 1, newBudgetTop);
     }
+  }
+
+  public formatPhoneNumber($event): void {
+    const element = $event.currentTarget;
+    element.value = BytePushers.PhoneNumberUtility.formatPhoneNumber(element);
   }
 }
