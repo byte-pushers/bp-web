@@ -16,6 +16,7 @@ import {ScrollService} from '../../services/scroll.service';
 })
 export class ContactComponent implements OnInit {
   public errorMessage: string;
+  public errorMessages: [string?] = [];
   public showConfirmation = false;
   public phone: {number: string} = {number: ""};
 
@@ -120,7 +121,7 @@ export class ContactComponent implements OnInit {
     this.isSubmitted = true;
 
     /*if (!this.quoteForm.valid) {
-      return false;
+      this.isSubmitted = false;
     } else {*/
       this.saveQuote();
     //}
@@ -165,6 +166,7 @@ export class ContactComponent implements OnInit {
         this.showConfirmation = true;
         this.spinner.hide();
 
+        //TODO: Maybe we don't need this logic.
         if (this.isMobileResolution()) {
           this.onSubmitBackToTopMobile();
         } else {
@@ -173,8 +175,12 @@ export class ContactComponent implements OnInit {
       }, error => {
         // TODO should display error message at top of quote page.
         console.log('error: ' + error, error);
-        this.errorMessage = 'Account was not created, internal error.';
-        this.showOverlayModal(this.errorMessage);
+        this.errorMessages.push('Account was not created, internal error.');
+
+        if (this.isMobileResolution()) {
+          this.showOverlayModal(this.errorMessages[0]);
+        }
+
         this.spinner.hide();
       });
     }
@@ -220,6 +226,12 @@ export class ContactComponent implements OnInit {
 
   public formatPhoneNumber($event): void {
     const element = $event.currentTarget;
-    element.value = BytePushers.PhoneNumberUtility.formatPhoneNumber(element);
+    const formattedNumber = BytePushers.PhoneNumberUtility.formatPhoneNumber(element);
+
+    if (formattedNumber === undefined) {
+      // TODO: SHOW INVALID PHONE NUMBER ERROR.
+    } else {
+      element.value = formattedNumber;
+    }
   }
 }
