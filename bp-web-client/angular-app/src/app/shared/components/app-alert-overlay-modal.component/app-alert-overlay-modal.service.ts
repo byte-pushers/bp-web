@@ -22,6 +22,7 @@ export class AppAlertOverlayModalService {
       .centerHorizontally()
       .centerVertically();
 
+    //const overlayConfig = null;
     const overlayConfig = new OverlayConfig({
       hasBackdrop: (Object.isDefinedAndNotNull(config) && Object.isDefinedAndNotNull(config.hasBackdrop)) ? config.hasBackdrop : true,
       // tslint:disable-next-line:max-line-length
