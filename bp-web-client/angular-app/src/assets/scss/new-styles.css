@@ -2423,7 +2423,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
 }
 
 .topnav-link:hover,
-.topnav-link.active {
+.topnav-link-active {
   border-bottom-color: #fff
 }
 
