@@ -1,6 +1,8 @@
 import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import * as $ from 'jquery';
 import {fromEvent, Observable, Subscription} from "rxjs";
+import {ScrollService} from '../../services/scroll.service';
+
 
 @Component({
   selector: 'app-home',
@@ -13,7 +15,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
   @ViewChild("homeBackgroundWorkImg") divView: ElementRef;
 
 
-  constructor(private window: Window) {
+  constructor(private window: Window,
+              public scrollTo: ScrollService) {
   }
 
   ngOnInit() {
@@ -39,10 +42,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
     this.resizeImage(this.window, this.divView);
   }
 
-  public backToTop() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  }
+
   private static previousButtonClickedEventHandler(event: Event): void {
     const $nextButton = $("slide.item.carousel-item");
     $nextButton.removeClass("left-right");
