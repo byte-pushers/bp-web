@@ -7,6 +7,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { Subscription } from 'rxjs';
 import { AppAlertOverlayModalService } from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.service';
 import * as BytePushers from 'bytepushers-js-core';
+import {ScrollService} from '../../services/scroll.service';
 
 @Component({
   selector: 'app-contact',
@@ -20,7 +21,8 @@ export class ContactComponent implements OnInit {
 
   constructor(private quoteService: QuoteService,
               private spinner: NgxSpinnerService,
-              private appAlertOverlayModalService: AppAlertOverlayModalService) {
+              private appAlertOverlayModalService: AppAlertOverlayModalService,
+              public scrollTo: ScrollService) {
 
   }
 
@@ -134,11 +136,6 @@ export class ContactComponent implements OnInit {
     document.documentElement.scrollTop = 824; // For Chrome, Firefox, IE and Opera
   }
 
-  public backToTop() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  }
-
   public reset(form: NgForm) {
     form.resetForm();
   }
@@ -160,6 +157,7 @@ export class ContactComponent implements OnInit {
   private saveQuote() {
     this.spinner.show();
     if (this.quote !== null && this.quote !== undefined) {
+      // @ts-ignore
       this.quote.contact.phone.number = this.phoneNumber.control.value;
       this.quoteService.createQuote(this.quote).subscribe(newlyCreatedQuote => {
         // TODO should have a new object with IDs populated through out the object graph.

@@ -2,25 +2,25 @@
   <div class="topnav-container">
     <div class="topnav-mobile-menu" (click)="checkMobileNav()"></div>
     <a class="topnav-logo" [routerLink]="'/home'" routerLinkActive="active">
-      <div class="topnav-logo-img" (click)="backToTop()"></div>
+      <div class="topnav-logo-img" (click)="scrollTo.backToTop()"></div>
     </a>
     <div class="topnav-links-container" id="topnav-mobile-links">
 
       <ul class="topnav-links">
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/home'" (click)="backToTop(); openCloseMobileNav()" routerLinkActive="active">Home</a>
+          <a class="topnav-link" [routerLink]="'/home'" (click)="scrollTo.backToTop(); openCloseMobileNav()" routerLinkActive="active">Home</a>
         </li>
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/services'" (click)="backToTop(); openCloseMobileNav()" routerLinkActive="active">Services</a>
+          <a class="topnav-link" [routerLink]="'/services'" (click)="scrollTo.backToTop(); openCloseMobileNav()" routerLinkActive="active">Services</a>
         </li>
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/work'" (click)="backToTop(); openCloseMobileNav()" routerLinkActive="active">Work</a>
+          <a class="topnav-link" [routerLink]="'/work'" (click)="scrollTo.backToTop(); openCloseMobileNav()" routerLinkActive="active">Work</a>
         </li>
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/about'" (click)="backToTop(); openCloseMobileNav()" routerLinkActive="active">About Us</a>
+          <a class="topnav-link" [routerLink]="'/about'" (click)="scrollTo.backToTop(); openCloseMobileNav()" routerLinkActive="active">About Us</a>
         </li>
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/contact'" (click)="backToTop(); openCloseMobileNav()" routerLinkActive="active">Contact</a>
+          <a class="topnav-link" [routerLink]="'/contact'" (click)="scrollTo.backToTop(); openCloseMobileNav()" routerLinkActive="active">Contact</a>
         </li>
       </ul>
     </div>
