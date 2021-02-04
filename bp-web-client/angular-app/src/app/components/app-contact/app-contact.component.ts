@@ -16,9 +16,9 @@ import {ScrollService} from '../../services/scroll.service';
 })
 export class ContactComponent implements OnInit {
   public errorMessage: string;
-  public errorMessages: [string?] = [];
+  public errorMessages: [string?] = ['Phone number is invalid.'];
   public showConfirmation = false;
-  public phone: {number: string} = {number: ""};
+  public phone: {number: string} = {number: ''};
 
   constructor(private quoteService: QuoteService,
               private spinner: NgxSpinnerService,
@@ -106,7 +106,7 @@ export class ContactComponent implements OnInit {
   }
 
   public isMobileResolution(): boolean {
-    let isMobileResolution: boolean = false;
+    let isMobileResolution = false;
 
     if (window.innerWidth < 768) {
       isMobileResolution = true;
@@ -123,8 +123,8 @@ export class ContactComponent implements OnInit {
     /*if (!this.quoteForm.valid) {
       this.isSubmitted = false;
     } else {*/
-      this.saveQuote();
-    //}
+    this.saveQuote();
+    // }
   }
 
   public onSubmitBackToTopDesktop() {
@@ -166,12 +166,12 @@ export class ContactComponent implements OnInit {
         this.showConfirmation = true;
         this.spinner.hide();
 
-        //TODO: Maybe we don't need this logic.
-        if (this.isMobileResolution()) {
+        // TODO: Maybe we don't need this logic.
+      /*  if (this.isMobileResolution()) {
           this.onSubmitBackToTopMobile();
         } else {
           this.onSubmitBackToTopDesktop();
-        }
+        }*/
       }, error => {
         // TODO should display error message at top of quote page.
         console.log('error: ' + error, error);
@@ -230,7 +230,11 @@ export class ContactComponent implements OnInit {
 
     if (formattedNumber === undefined) {
       // TODO: SHOW INVALID PHONE NUMBER ERROR.
+      document.getElementById('phoneNumberValidError').classList.add('alert', 'alert-danger');
+      document.getElementById('phoneNumberValidError').innerHTML = this.errorMessages[0];
     } else {
+      document.getElementById('phoneNumberValidError').innerHTML = '';
+      document.getElementById('phoneNumberValidError').classList.remove('alert', 'alert-danger');
       element.value = formattedNumber;
     }
   }
