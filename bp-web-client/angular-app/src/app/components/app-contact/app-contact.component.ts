@@ -1,13 +1,15 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { QuoteService } from '../../shared/services/quote.service';
-import { Quote } from '../../shared/models/quote';
-import { QuoteModel } from '../../shared/models/quote.model';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { Subscription } from 'rxjs';
-import { AppAlertOverlayModalService } from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.service';
+import {NgForm} from '@angular/forms';
+import {QuoteService} from '../../shared/services/quote.service';
+import {Quote} from '../../shared/models/quote';
+import {QuoteModel} from '../../shared/models/quote.model';
+import {NgxSpinnerService} from 'ngx-spinner';
+import {Subscription} from 'rxjs';
+import {AppAlertOverlayModalService} from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.service';
 import * as BytePushers from 'bytepushers-js-core';
 import {ScrollService} from '../../services/scroll.service';
+import {phoneNumberValidator} from "../../services/phone-validator.service";
+import {element} from "protractor";
 
 @Component({
   selector: 'app-contact',
@@ -18,7 +20,7 @@ export class ContactComponent implements OnInit {
   public errorMessage: string;
   public errorMessages: [string?] = ['Phone number is invalid.'];
   public showConfirmation = false;
-  public phone: {number: string} = {number: ''};
+  public phone: { number: string } = {number: ''};
 
   constructor(private quoteService: QuoteService,
               private spinner: NgxSpinnerService,
@@ -167,11 +169,11 @@ export class ContactComponent implements OnInit {
         this.spinner.hide();
 
         // TODO: Maybe we don't need this logic.
-      /*  if (this.isMobileResolution()) {
-          this.onSubmitBackToTopMobile();
-        } else {
-          this.onSubmitBackToTopDesktop();
-        }*/
+        /*  if (this.isMobileResolution()) {
+            this.onSubmitBackToTopMobile();
+          } else {
+            this.onSubmitBackToTopDesktop();
+          }*/
       }, error => {
         // TODO should display error message at top of quote page.
         console.log('error: ' + error, error);
@@ -194,10 +196,10 @@ export class ContactComponent implements OnInit {
   public changeTimeline() {
     const timeFrameMin = this.timeframe[0];
     const timeFrameMax = this.timeframe[1];
-    const newBudget = 'Range: '.concat( timeFrameMin + (' Months - ') + timeFrameMax + (' Months'));
-    const newBudgetTop = 'Range: '.concat( timeFrameMin + (' Months - ') + timeFrameMax + (' Months and up'));
+    const newBudget = 'Range: '.concat(timeFrameMin + (' Months - ') + timeFrameMax + (' Months'));
+    const newBudgetTop = 'Range: '.concat(timeFrameMin + (' Months - ') + timeFrameMax + (' Months and up'));
 
-    if (timeFrameMax <= 32){
+    if (timeFrameMax <= 32) {
       this.timelines.splice(0, 1, newBudget);
     } else {
       this.timelines.splice(0, 1, newBudgetTop);
@@ -214,7 +216,7 @@ export class ContactComponent implements OnInit {
   public changeBudgetOnScroll() {
     const budgetMin = this.value[0];
     const budgetMax = this.value[1];
-    const newBudget = 'Range: '.concat( ('$ ') + budgetMin + ' - ' + ('$ ') + budgetMax);
+    const newBudget = 'Range: '.concat(('$ ') + budgetMin + ' - ' + ('$ ') + budgetMax);
     const newBudgetTop = 'Range: '.concat(('$ ') + budgetMin + ' - ' + ('$ ') + budgetMax + (' and up'));
 
     if (budgetMax <= 97000) {
@@ -227,15 +229,13 @@ export class ContactComponent implements OnInit {
   public formatPhoneNumber($event): void {
     const element = $event.currentTarget;
     const formattedNumber = BytePushers.PhoneNumberUtility.formatPhoneNumber(element);
-
     if (formattedNumber === undefined) {
-      // TODO: SHOW INVALID PHONE NUMBER ERROR.
-      document.getElementById('phoneNumberValidError').classList.add('alert', 'alert-danger');
-      document.getElementById('phoneNumberValidError').innerHTML = this.errorMessages[0];
+      phoneNumberValidator($event);
+
     } else {
-      document.getElementById('phoneNumberValidError').innerHTML = '';
-      document.getElementById('phoneNumberValidError').classList.remove('alert', 'alert-danger');
+
       element.value = formattedNumber;
     }
   }
+
 }
