@@ -16,7 +16,7 @@ import java.util.UUID;
  */
 @Log4j2
 @RestController
-@RequestMapping("/quotes")
+@RequestMapping("/api/v1/quotes")
 public class QuoteController extends AbstractController {
 
     private final QuoteService quoteServiceImpl;
