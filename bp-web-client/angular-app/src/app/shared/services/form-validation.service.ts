@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import * as BytePushers from 'bytepushers-js-core';
 
 @Injectable({
   providedIn: 'root'
@@ -152,10 +153,20 @@ export class FormValidationService {
     return NameIsValid;
   }
 
-  public isPhoneNumberValid(input: string): boolean {
+  public isNumberValid(input: string): boolean {
     let NumberisValid = false;
     if (this.hasData(input)) {
       NumberisValid = this.isNumeric(input);
+    }
+    return NumberisValid;
+  }
+
+  public isPhoneNumberValid(input: string): boolean {
+    let NumberisValid = false;
+
+    if (this.hasData(input)) {
+      NumberisValid = this.isNumeric(input);
+
     }
     return NumberisValid;
   }
