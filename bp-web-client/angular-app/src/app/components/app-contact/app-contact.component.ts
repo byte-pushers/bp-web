@@ -6,10 +6,9 @@ import {QuoteModel} from '../../shared/models/quote.model';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {Subscription} from 'rxjs';
 import {AppAlertOverlayModalService} from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.service';
-import * as BytePushers from 'bytepushers-js-core';
 import {ScrollService} from '../../services/scroll.service';
-import {phoneNumberValidator} from "../../services/phone-validator.service";
-import {element} from "protractor";
+import {PhoneNumberValidator} from "../../directives/phone-number-validator";
+
 
 @Component({
   selector: 'app-contact',
@@ -25,7 +24,8 @@ export class ContactComponent implements OnInit {
   constructor(private quoteService: QuoteService,
               private spinner: NgxSpinnerService,
               private appAlertOverlayModalService: AppAlertOverlayModalService,
-              public scrollTo: ScrollService) {
+              public scrollTo: ScrollService,
+              private numberDirective: PhoneNumberValidator) {
 
   }
 
@@ -226,16 +226,12 @@ export class ContactComponent implements OnInit {
     }
   }
 
-  public formatPhoneNumber($event): void {
-    const element = $event.currentTarget;
-    const formattedNumber = BytePushers.PhoneNumberUtility.formatPhoneNumber(element);
-    if (formattedNumber === undefined) {
-      phoneNumberValidator($event);
-
-    } else {
-
-      element.value = formattedNumber;
-    }
+  /*changePhoneOnReturn is intended to communicate with the phone number validator directive and pass
+  * the input into the replacePhoneNumber method in order to dynamically change the value
+  * the user had input.*/
+  public changePhoneNumberOnReturn($event) {
+    this.numberDirective.replacePhoneNumber(null, $event);
   }
+
 
 }

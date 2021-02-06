@@ -83,25 +83,25 @@
                 </div>
               <input
                 id="phoneNumber"
+                #phoneNumber
                 name="phoneNumber"
                 placeholder="Phone Number"
                 [(ngModel)]="phone.number"
-                (change)="formatPhoneNumber($event);"
                 onfocus="this.value=''"
+                (change)="changePhoneNumberOnReturn($event)"
                 type="text"
-                maxlength="10"
                 class="form-control"
                 #phoneNumber="ngModel"
                 required
                 ngModel
-                numberValidator>
+                phoneNumberValidator>
                 <!-- type="number"  pattern="^(0|[1-9][0-9]*)" //-->
               </div>
               <div id="phoneNumberValidError"></div>
               <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)"
                    class="alert alert-danger">
                 <div *ngIf="phoneNumber.errors.required">Phone number is required.</div>
-                <div *ngIf="phoneNumber.errors.numberValidator">Phone number is not valid.</div>
+                <div *ngIf="phoneNumber.errors.phoneNumberValidator">Phone number is not valid.</div>
               </div>
             </div>
             <div class="col-md-2"><!--space--></div>
@@ -457,20 +457,18 @@
             name="phoneNumber"
             placeholder="Phone Number"
             [(ngModel)]="phone.number"
-            (change)="formatPhoneNumber($event);"
             onfocus="this.value = ''; "
             type="text"
             class="form-control"
             #phoneNumber="ngModel"
-            maxlength="10"
             required
             ngModel
-          numberValidator>
+          phoneNumberValidator>
             <!-- type="number" maxlength="10" pattern="^(0|[1-9][0-9]*)" //-->
           </div>
           <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="alert alert-danger">
             <div *ngIf="phoneNumber.errors.required">Phone number is required.</div>
-            <div *ngIf="phoneNumber.errors.numberValidator">Phone number is not valid.</div>
+            <div *ngIf="phoneNumber.errors.phoneNumberValidator">Phone number is not valid.</div>
           </div>
         </div>
 

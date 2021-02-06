@@ -27,6 +27,7 @@ import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { NgxPageScrollModule } from 'ngx-page-scroll';
 import {NumberValidator} from './directives/number-validator.directive';
 import {FormValidationService} from './shared/services/form-validation.service';
+import {PhoneNumberValidator} from './directives/phone-number-validator';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {FormValidationService} from './shared/services/form-validation.service';
     InfoComponent,
     AppFooterComponent,
     AppAlertOverlayModalComponent,
-    NumberValidator
+    NumberValidator,
+    PhoneNumberValidator
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ import {FormValidationService} from './shared/services/form-validation.service';
     QuoteService,
     { provide: Window, useValue: window },
     NumberValidator,
-    FormValidationService
+    FormValidationService,
+    PhoneNumberValidator
   ],
   entryComponents: [
     // Needs to be added here because otherwise we can't

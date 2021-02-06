@@ -26,7 +26,7 @@ export class NumberValidator implements Validator {
 
   public numberValidator(): ValidatorFn {
     return (c: FormControl) => {
-      if (this.formValidationService.isPhoneNumberValid(c.value)) {
+      if (this.formValidationService.isNumberValid(c.value)) {
         return null;
       } else {
         return {
