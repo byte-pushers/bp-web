@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
  */
 public class QuoteControllerTest extends AbstractControllerTest {
 
-    private final static String QUOTE_ENDPOINT = "/quotes";
+    private final static String QUOTE_ENDPOINT = "/api/v1/quotes";
 
     @MockBean
     private QuoteService quoteServiceImpl;
