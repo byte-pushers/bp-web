@@ -180,14 +180,6 @@ Resources:
             Method: any
             Path: /{proxy+}
           Type: Api
-        CorsConfig:
-          Properties:
-            Method: options
-            Path: /{proxy+}
-            ResponseParameters:
-              - method.response.header.Access-Control-Allow-Origin: '*'
-              - method.response.header.Access-Control-Allow-Headers: '*'
-              - method.response.header.Access-Control-Allow-Credentials: true
       Handler: software.bytepushers.bpweb.StreamLambdaHandler::handleRequest
       MemorySize: 1024
       Role:
