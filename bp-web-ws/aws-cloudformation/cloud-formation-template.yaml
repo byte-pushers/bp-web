@@ -181,6 +181,7 @@ Resources:
             Path: /{proxy+}
           Type: Api
         CorsConfig:
+          Type: Api
           Properties:
             Method: options
             Path: /{proxy+}
