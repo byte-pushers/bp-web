@@ -28,7 +28,6 @@ export class PhoneNumberValidator implements Validator {
   public phoneNumberValidator(): ValidatorFn {
     return (c: FormControl) => {
       const invalidPhoneNumberResult = {
-        phoneNumberInvalid: true,
         phoneNumberValidator: {
           valid: false,
           value: c.value
