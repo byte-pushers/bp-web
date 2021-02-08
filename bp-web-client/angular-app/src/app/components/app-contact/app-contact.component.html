@@ -23,7 +23,7 @@
       </div>
       <!-- General Form API Errors go here //-->
 
-      <form #quoteForm="ngForm" (ngSubmit)="onSubmit();" class="align-items-center">
+      <form #quoteForm="ngForm" (ngSubmit)="onSubmit();" class="align-items-center needs-validation">
         <div class="form-group">
           <div class="form-row inner-form-section">
             <div class="form-group col-md-4">
@@ -99,8 +99,6 @@
                    class="alert alert-danger">
                 <div *ngIf="phoneNumber.errors.required">Phone number is required.</div>
                 <div *ngIf="phoneNumber.errors.phoneNumberValidator">Phone number is not valid.</div>
-                <div *ngIf="phoneNumber.errors.phoneNumberInvalid">Phone number is not valid.</div>
-                <div *ngIf="phoneNumber.errors?.phoneNumberInvalid">Phone number is not valid.</div>
               </div>
             </div>
             <div class="col-md-2"><!--space--></div>
