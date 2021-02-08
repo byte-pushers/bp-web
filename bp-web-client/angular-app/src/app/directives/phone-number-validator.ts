@@ -4,7 +4,6 @@ import { FormValidationService } from '../shared/services/form-validation.servic
 import * as BytePushers from 'bytepushers-js-core';
 
 @Directive({
-  // tslint:disable-next-line:directive-selector
   selector: '[phoneNumberValidator]',
   providers: [
     {
@@ -33,21 +32,14 @@ export class PhoneNumberValidator implements Validator {
           value: c.value
         }
       };
-      const validPhoneNumberResult = {
-        phoneNumberValidator: {
-          valid: true,
-          value: c.value
-        }
-      };
       let isValid = false;
 
       if (this.formValidationService.isPhoneNumberValid(c.value)) {
         const formattedNumber = BytePushers.PhoneNumberUtility.formatPhoneNumber({value: c.value});
 
         if (formattedNumber !== undefined) {
-          validPhoneNumberResult.phoneNumberValidator.value = formattedNumber;
+          c.setValue(formattedNumber);
           isValid = true;
-          // this.replacePhoneNumber(object.value, null);
         } else {
           isValid = false;
         }
@@ -56,21 +48,10 @@ export class PhoneNumberValidator implements Validator {
       }
 
       if (isValid) {
-        return  validPhoneNumberResult.phoneNumberValidator.value; // validPhoneNumberResult;
+        return null;
       } else {
         return invalidPhoneNumberResult;
       }
     };
   }
-
- /* replacePhoneNumberMethod is intended to bring both the value created
-  from the formatter as well as the value from the the input here itll replace the value from the input
-    with our newly created one.*/
-
-  public replacePhoneNumber(formattedValue, $event): void {
-    document.body.innerHTML = document.body.innerHTML.replace($event, formattedValue);
-    return $event;
-  }
-
-
 }
