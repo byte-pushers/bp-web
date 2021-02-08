@@ -91,7 +91,6 @@
                 #phoneNumber="ngModel"
                 required
                 phoneNumberValidator>
-                <!-- ngModel onfocus="this.value=''" (change)="changePhoneNumberOnReturn($event)" type="number"  pattern="^(0|[1-9][0-9]*)" //-->
               </div>
               <div id="phoneNumberValidError"></div>
               <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)"
@@ -458,7 +457,6 @@
             #phoneNumber="ngModel"
             required
             phoneNumberValidator>
-            <!--  ngModel onfocus="this.value = ''; " type="number" maxlength="10" pattern="^(0|[1-9][0-9]*)" //-->
           </div>
           <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="alert alert-danger">
             <div *ngIf="phoneNumber.errors.required">Phone number is required.</div>
