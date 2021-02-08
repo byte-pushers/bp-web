@@ -1,6 +1,6 @@
 import {NG_VALIDATORS, FormControl, ValidatorFn, Validator} from '@angular/forms';
-import {FormValidationService} from 'src/app/services/form-validation.service';
 import {Directive} from '@angular/core';
+import {FormValidationService} from '../shared/services/form-validation.service';
 
 @Directive({
   // tslint:disable-next-line:directive-selector

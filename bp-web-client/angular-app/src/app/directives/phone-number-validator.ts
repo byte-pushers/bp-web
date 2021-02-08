@@ -1,12 +1,11 @@
-import {NG_VALIDATORS, FormControl, ValidatorFn, Validator} from '@angular/forms';
-import {Directive} from '@angular/core';
-import {FormValidationService} from '../shared/services/form-validation.service';
+import { NG_VALIDATORS, FormControl, ValidatorFn, Validator } from '@angular/forms';
+import { Directive } from '@angular/core';
+import { FormValidationService } from '../shared/services/form-validation.service';
 import * as BytePushers from 'bytepushers-js-core';
-import {QuoteService} from '../shared/services/quote.service';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
-  selector: '[phoneNumberValidator] [ngModel]',
+  selector: '[phoneNumberValidator]',
   providers: [
     {
       provide: NG_VALIDATORS,
@@ -22,28 +21,45 @@ export class PhoneNumberValidator implements Validator {
     this.validator = this.phoneNumberValidator();
   }
 
-  validate(c: FormControl) {
+  validate(c: FormControl): {[key: string]: any} | null {
     return this.validator(c);
   }
 
   public phoneNumberValidator(): ValidatorFn {
-
     return (c: FormControl) => {
-      if (this.formValidationService.isPhoneNumberValid(c.value)) {
-        const object = {
+      const invalidPhoneNumberResult = {
+        phoneNumberInvalid: true,
+        phoneNumberValidator: {
+          valid: false,
           value: c.value
-        };
-        const formattedNumber = BytePushers.PhoneNumberUtility.formatPhoneNumber(object);
-        object.value = formattedNumber;
-        this.replacePhoneNumber(object.value, null);
-        return object.value;
+        }
+      };
+      const validPhoneNumberResult = {
+        phoneNumberValidator: {
+          valid: true,
+          value: c.value
+        }
+      };
+      let isValid = false;
 
+      if (this.formValidationService.isPhoneNumberValid(c.value)) {
+        const formattedNumber = BytePushers.PhoneNumberUtility.formatPhoneNumber({value: c.value});
+
+        if (formattedNumber !== undefined) {
+          validPhoneNumberResult.phoneNumberValidator.value = formattedNumber;
+          isValid = true;
+          //this.replacePhoneNumber(object.value, null);
+        } else {
+          isValid = false;
+        }
       } else {
-        return {
-          phoneNumberValidator: {
-            valid: false
-          }
-        };
+        isValid = false;
+      }
+
+      if (isValid) {
+        return null; // validPhoneNumberResult;
+      } else {
+        return invalidPhoneNumberResult;
       }
     };
   }
