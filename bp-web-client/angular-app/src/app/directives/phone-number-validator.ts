@@ -16,12 +16,12 @@ import * as BytePushers from 'bytepushers-js-core';
 })
 export class PhoneNumberValidator implements Validator {
   public validator: ValidatorFn;
-
   constructor(private formValidationService: FormValidationService) {
     this.validator = this.phoneNumberValidator();
   }
 
   validate(c: FormControl): {[key: string]: any} | null {
+
     return this.validator(c);
   }
 
@@ -47,7 +47,7 @@ export class PhoneNumberValidator implements Validator {
         if (formattedNumber !== undefined) {
           validPhoneNumberResult.phoneNumberValidator.value = formattedNumber;
           isValid = true;
-          //this.replacePhoneNumber(object.value, null);
+          // this.replacePhoneNumber(object.value, null);
         } else {
           isValid = false;
         }
@@ -56,7 +56,7 @@ export class PhoneNumberValidator implements Validator {
       }
 
       if (isValid) {
-        return null; // validPhoneNumberResult;
+        return  validPhoneNumberResult.phoneNumberValidator.value; // validPhoneNumberResult;
       } else {
         return invalidPhoneNumberResult;
       }

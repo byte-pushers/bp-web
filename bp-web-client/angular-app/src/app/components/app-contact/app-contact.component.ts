@@ -230,7 +230,7 @@ export class ContactComponent implements OnInit {
   * the input into the replacePhoneNumber method in order to dynamically change the value
   * the user had input.*/
   public changePhoneNumberOnReturn($event) {
-    this.numberDirective.replacePhoneNumber(null, $event);
+    console.log($event);
   }
 
 
