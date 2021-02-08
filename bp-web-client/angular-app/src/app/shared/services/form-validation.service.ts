@@ -14,12 +14,14 @@ export class FormValidationService {
 
   private hasData(input: string): boolean {
     let hasDataResult = false;
+
     if (input !== null && input !== undefined) {
       input = input.trim();
       if (input.length > 0) {
         hasDataResult = true;
       }
     }
+
     return hasDataResult;
   }
 
@@ -27,6 +29,7 @@ export class FormValidationService {
     let numeric = false;
     const numChars = '0123456789-'.split('');
     const numArray = input.replace(/ /g, '').split('');
+
     for (const numbers of numArray) {
       if (numChars.includes(numbers)) {
         numeric = true;
@@ -35,6 +38,7 @@ export class FormValidationService {
         break;
       }
     }
+
     return numeric;
   }
 
@@ -43,6 +47,7 @@ export class FormValidationService {
     let alphabetical = false;
     const alphaChars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     const charactersArray = input.replace(/ /g, '').split('');
+
     for (const character of charactersArray) {
       if (alphaChars.includes(character)) {
         alphabetical = true;
@@ -52,6 +57,7 @@ export class FormValidationService {
         break;
       }
     }
+
     return alphabetical;
   }
 
@@ -59,6 +65,7 @@ export class FormValidationService {
     let lowercase = false;
     const alphaChars = 'abcdefghijklmnopqrstuvwxyz'.split('');
     const charactersArray = input.split('');
+
     for (const character of charactersArray) {
       if (alphaChars.includes(character)) {
         lowercase = true;
@@ -68,6 +75,7 @@ export class FormValidationService {
         break;
       }
     }
+
     return lowercase;
   }
 
@@ -75,6 +83,7 @@ export class FormValidationService {
     let uppercase = false;
     const alphaChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     const charactersArray = input.split('');
+
     for (const character of charactersArray) {
       if (alphaChars.includes(character)) {
         uppercase = true;
@@ -84,12 +93,14 @@ export class FormValidationService {
         break;
       }
     }
+
     return uppercase;
   }
 
   public hasSpecialCharacters(input: string): boolean {
     let special = false;
     const specialChars = '!@#$%^&*()_+=-[]{}\"|/?.>,<';
+
     if (input !== null && input !== undefined) {
       for (const character of input) {
         if (specialChars.includes(character)) {
@@ -101,12 +112,14 @@ export class FormValidationService {
         }
       }
     }
+
     return special;
   }
 
   public hasInvalidSpace(input: string): boolean {
     let spaceInvalid = false;
     const spaceChar = ' ';
+
     if (input !== null && input !== undefined) {
       if (spaceChar.includes(input)) {
         spaceInvalid = false;
@@ -114,6 +127,7 @@ export class FormValidationService {
         spaceInvalid = true;
       }
     }
+
     return spaceInvalid;
   }
 
@@ -121,6 +135,7 @@ export class FormValidationService {
   private isAlphaNumeric(input: string): boolean {
     let alphaNumeric = false;
     const alphaChars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+
     for (const character of input) {
       if (alphaChars.includes(character)) {
         alphaNumeric = true;
@@ -130,6 +145,7 @@ export class FormValidationService {
         break;
       }
     }
+
     return alphaNumeric;
   }
 
@@ -144,31 +160,42 @@ export class FormValidationService {
   }
 
   public isUserNameValid(input: string): boolean {
-    let NameIsValid = false;
+    let userNameIsValid = false;
 
     if (this.hasData(input)) {
-      NameIsValid = this.isAlphaNumeric(input);
+      userNameIsValid = this.isAlphaNumeric(input);
     }
 
-    return NameIsValid;
+    return userNameIsValid;
   }
 
   public isNumberValid(input: string): boolean {
-    let NumberisValid = false;
+    let numberIsValid = false;
+
     if (this.hasData(input)) {
-      NumberisValid = this.isNumeric(input);
+      numberIsValid = this.isNumeric(input);
     }
-    return NumberisValid;
+
+    return numberIsValid;
   }
 
   public isPhoneNumberValid(input: string): boolean {
-    let NumberisValid = false;
+    let phoneNumberIsValid = false;
+    let formattedNumber;
 
     if (this.hasData(input)) {
-      NumberisValid = this.isNumeric(input);
+      phoneNumberIsValid = this.isNumeric(input);
 
+      if (!phoneNumberIsValid) {
+        formattedNumber = BytePushers.PhoneNumberUtility.formatPhoneNumber({value: input})
+
+        if (formattedNumber) {
+          phoneNumberIsValid = true;
+        }
+      }
     }
-    return NumberisValid;
+
+    return phoneNumberIsValid;
   }
 
   public isPasswordValid(input: string) {
