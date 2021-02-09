@@ -25,6 +25,8 @@ import { MatCardModule } from '@angular/material/card';
 import { AppAlertOverlayModalComponent } from './shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.component';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { NgxPageScrollModule } from 'ngx-page-scroll';
+import { PhoneNumberValidator } from './directives/phone-number-validator';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,8 @@ import { NgxPageScrollModule } from 'ngx-page-scroll';
     ContactComponent,
     InfoComponent,
     AppFooterComponent,
-    AppAlertOverlayModalComponent
+    AppAlertOverlayModalComponent,
+    PhoneNumberValidator
   ],
   imports: [
     BrowserModule,
@@ -58,6 +61,7 @@ import { NgxPageScrollModule } from 'ngx-page-scroll';
   providers: [
     PageScrollingUtility,
     QuoteService,
+    PhoneNumberValidator,
     { provide: Window, useValue: window }
   ],
   entryComponents: [
