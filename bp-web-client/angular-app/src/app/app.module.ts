@@ -7,7 +7,6 @@ import { AppHeaderComponent } from './shared/components/app-header.component/app
 import { AppBodyComponent } from './shared/components/app-body.component/app-body.component';
 import { HomeComponent } from './components/app-home/app-home.component';
 import { ContactComponent } from './components/app-contact/app-contact.component';
-import { PageScrollingUtility } from './utilities/page-scrolling.utility';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
@@ -43,6 +42,14 @@ import { PhoneNumberValidator } from './directives/phone-number-validator';
     PhoneNumberValidator
   ],
   imports: [
+    RouterModule.forRoot([
+      {path: '', redirectTo: '/home', pathMatch: 'full'},
+      {path: 'home', component: HomeComponent},
+      {path: 'about', component: AboutComponent},
+      {path: 'contact', component: ContactComponent},
+      {path: 'work', component: WorkComponent},
+      {path: 'services', component: ServicesComponent}
+    ]),
     BrowserModule,
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
@@ -55,22 +62,13 @@ import { PhoneNumberValidator } from './directives/phone-number-validator';
     MatCardModule,
     OverlayModule,
     NgxPageScrollCoreModule.forRoot({ /* custom settings here */ }),
-    NgxPageScrollModule,
-    RouterModule.forRoot(  [
-      {path: '', redirectTo: '/home', pathMatch: 'full'},
-      {path: 'home', component: HomeComponent},
-      {path: 'about', component: AboutComponent},
-      {path: 'contact', component: ContactComponent},
-      {path: 'work', component: WorkComponent},
-      {path: 'services', component: ServicesComponent}
-  ])
+    NgxPageScrollModule
   ],
   providers: [
-    PageScrollingUtility,
+    RouterLinkActive,
     QuoteService,
     PhoneNumberValidator,
-    { provide: Window, useValue: window },
-    RouterLinkActive
+    { provide: Window, useValue: window }
   ],
   entryComponents: [
     // Needs to be added here because otherwise we can't

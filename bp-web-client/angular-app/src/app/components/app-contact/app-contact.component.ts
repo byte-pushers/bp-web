@@ -8,6 +8,8 @@ import {Subscription} from 'rxjs';
 import {AppAlertOverlayModalService} from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.service';
 import {ScrollService} from '../../services/scroll.service';
 import {PhoneNumberValidator} from "../../directives/phone-number-validator";
+import {AppAlertOverlayModalComponent} from "../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.component";
+import {ComponentType} from "@angular/cdk/portal/portal";
 
 
 @Component({
@@ -189,8 +191,9 @@ export class ContactComponent implements OnInit {
   }
 
   public showOverlayModal(message?: string) {
+    const component: ComponentType<AppAlertOverlayModalComponent> = AppAlertOverlayModalComponent;
     this.appAlertOverlayModalService.setMessage(message);
-    this.appAlertOverlayModalService.open();
+    this.appAlertOverlayModalService.open(component);
   }
 
   public changeTimeline() {
