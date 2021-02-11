@@ -23,7 +23,7 @@
       </div>
       <!-- General Form API Errors go here //-->
 
-      <form #quoteForm="ngForm" (ngSubmit)="onSubmit();" class="align-items-center">
+      <form #quoteForm="ngForm" (ngSubmit)="onSubmit();" class="align-items-center needs-validation">
         <div class="form-group">
           <div class="form-row inner-form-section">
             <div class="form-group col-md-4">
@@ -86,17 +86,17 @@
                 name="phoneNumber"
                 placeholder="Phone Number"
                 [(ngModel)]="phone.number"
-                (change)="formatPhoneNumber($event)"
                 type="text"
                 class="form-control"
+                #phoneNumber="ngModel"
                 required
-                #phoneNumber="ngModel">
-                <!-- type="number" maxlength="10" pattern="^(0|[1-9][0-9]*)" //-->
+                phoneNumberValidator>
               </div>
+              <div id="phoneNumberValidError"></div>
               <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)"
                    class="alert alert-danger">
                 <div *ngIf="phoneNumber.errors.required">Phone number is required.</div>
-                <div *ngIf="phoneNumber.errors.pattern">Phone number is not valid.</div>
+                <div *ngIf="phoneNumber.errors.phoneNumberValidator">Phone number is not valid.</div>
               </div>
             </div>
             <div class="col-md-2"><!--space--></div>
@@ -452,16 +452,15 @@
             name="phoneNumber"
             placeholder="Phone Number"
             [(ngModel)]="phone.number"
-            (change)="formatPhoneNumber($event)"
             type="text"
             class="form-control"
+            #phoneNumber="ngModel"
             required
-            #phoneNumber="ngModel">
-            <!-- type="number" maxlength="10" pattern="^(0|[1-9][0-9]*)" //-->
+            phoneNumberValidator>
           </div>
           <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="alert alert-danger">
             <div *ngIf="phoneNumber.errors.required">Phone number is required.</div>
-            <div *ngIf="phoneNumber.errors.pattern">Phone number is not valid.</div>
+            <div *ngIf="phoneNumber.errors.phoneNumberValidator">Phone number is not valid.</div>
           </div>
         </div>
 
