@@ -7,7 +7,7 @@ import {NgxSpinnerService} from 'ngx-spinner';
 import {Subscription} from 'rxjs';
 import {AppAlertOverlayModalService} from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.service';
 import {ScrollService} from '../../services/scroll.service';
-import {PhoneNumberValidator} from "../../directives/phone-number-validator";
+import {PhoneNumberValidator} from '../../directives/phone-number-validator';
 
 
 @Component({
@@ -20,6 +20,9 @@ export class ContactComponent implements OnInit {
   public errorMessages: [string?] = ['Phone number is invalid.'];
   public showConfirmation = false;
   public phone: { number: string } = {number: ''};
+
+  /*I muted any references to the phone number validator in order to keep the contact page working,After double checking the spinner service
+    the .length error is coming from bytepushers.core I believe it to be a conflict with the length that the code may be providing.*/
 
   constructor(private quoteService: QuoteService,
               private spinner: NgxSpinnerService,

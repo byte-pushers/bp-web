@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import * as BytePushers from 'bytepushers-js-core';
+/*import * as BytePushers from 'bytepushers-js-core';*/
 
 @Injectable({
   providedIn: 'root'
@@ -186,8 +186,13 @@ export class FormValidationService {
     if (this.hasData(input)) {
       phoneNumberIsValid = this.isNumeric(input);
 
+      /* Muted references to bytepushers modules in order to bypass error, it is somehow conflicting with the .length and in turn
+      affecting the router.*/
+
       if (!phoneNumberIsValid) {
-        formattedNumber = BytePushers.PhoneNumberUtility.formatPhoneNumber({value: input})
+        /*    formattedNumber = BytePushers.PhoneNumberUtility.formatPhoneNumber({value: input})*/
+        /* formattedNumber = this.formatPhoneNumber({value: input});*/
+        formattedNumber = this.formatPhoneNumber(input);
 
         if (formattedNumber) {
           phoneNumberIsValid = true;
@@ -213,6 +218,19 @@ export class FormValidationService {
       }
     }
     return passwordIsValid;
+  }
+
+  public formatPhoneNumber(phoneNumber: string): string {
+    const phoneNumberArray = (phoneNumber) ? phoneNumber.replace(/\D/g, '').split('') : [];
+    let formatPhoneNumber;
+
+    if (Array.isArray(phoneNumberArray) && phoneNumberArray.length === 10) {
+      formatPhoneNumber = '(' + phoneNumberArray[0] + phoneNumberArray[1] + phoneNumberArray[2] + ') ' + phoneNumberArray[3] +
+        phoneNumberArray[4] + phoneNumberArray[5] + '-' + phoneNumberArray[6] + phoneNumberArray[7] + phoneNumberArray[8] +
+        phoneNumberArray[9];
+    }
+
+    return formatPhoneNumber;
   }
 }
 
