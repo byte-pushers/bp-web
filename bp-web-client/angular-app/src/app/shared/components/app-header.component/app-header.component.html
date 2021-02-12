@@ -8,21 +8,21 @@
 
       <ul class="topnav-links">
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/home'" (click)="scrollTo.backToTop(); openCloseMobileNav()">
+          <a class="topnav-link" [routerLink]="'/home'" routerLinkActive="active"  (click)="scrollTo.backToTop(); openCloseMobileNav()">
             Home
           </a>
         </li>
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/services'" (click)="scrollTo.backToTop(); openCloseMobileNav()" >Services</a>
+          <a class="topnav-link" [routerLink]="'/services'" routerLinkActive="active" (click)="scrollTo.backToTop(); openCloseMobileNav()" >Services</a>
         </li>
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/work'" (click)="scrollTo.backToTop(); openCloseMobileNav()" >Work</a>
+          <a class="topnav-link" [routerLink]="'/work'" routerLinkActive="active"  (click)="scrollTo.backToTop(); openCloseMobileNav()" >Work</a>
         </li>
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/about'" (click)="scrollTo.backToTop(); openCloseMobileNav()" >About Us</a>
+          <a class="topnav-link" [routerLink]="'/about'" routerLinkActive="active"  (click)="scrollTo.backToTop(); openCloseMobileNav()" >About Us</a>
         </li>
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/contact'" (click)="scrollTo.backToTop(); openCloseMobileNav()" >Contact</a>
+          <a class="topnav-link" [routerLink]="'/contact'"  routerLinkActive="active" (click)="scrollTo.backToTop(); openCloseMobileNav()" >Contact</a>
         </li>
       </ul>
     </div>
