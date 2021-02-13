@@ -23,7 +23,6 @@ public class Person extends AbstractEntity {
     private String firstName;
 
     @Column
-    @NotEmpty(groups = CreateRequest.class, message = "{person.lastname.required}")
     private String lastName;
 
     @Column
