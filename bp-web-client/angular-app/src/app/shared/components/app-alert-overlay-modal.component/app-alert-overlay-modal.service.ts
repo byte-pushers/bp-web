@@ -1,10 +1,10 @@
-import {Inject, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Overlay, OverlayConfig} from '@angular/cdk/overlay';
 import {ComponentPortal} from '@angular/cdk/portal';
-import {AppAlertOverlayModalComponent} from './app-alert-overlay-modal.component';
 import {AppAlertOverlayModalConfig, AppAlertOverlayModalRef} from './app-alert-overlay-modal-ref';
 /*import * as Object from 'bytepushers-js-obj-extensions';*/
 import {BehaviorSubject, Observable} from 'rxjs';
+import {ComponentType} from "@angular/cdk/portal/portal";
 
 @Injectable({
   providedIn: 'root'
@@ -44,11 +44,11 @@ export class AppAlertOverlayModalService {
     return this.overlay.create(overlayConfig);
   }
 
-  open(overlayConfig: AppAlertOverlayModalConfig = null): AppAlertOverlayModalRef {
+  open(component: ComponentType<any>, overlayConfig: AppAlertOverlayModalConfig = null): AppAlertOverlayModalRef {
     const overlayRef = this.createOverlay(overlayConfig);
 
     // Create ComponentPortal that can be attached to a PortalHost
-    const filePreviewPortal = new ComponentPortal(AppAlertOverlayModalComponent);
+    const filePreviewPortal = new ComponentPortal(component);
 
     // Attach ComponentPortal to PortalHost
     overlayRef.attach(filePreviewPortal);
