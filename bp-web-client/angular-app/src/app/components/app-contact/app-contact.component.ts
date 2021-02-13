@@ -8,6 +8,8 @@ import {Subscription} from 'rxjs';
 import {AppAlertOverlayModalService} from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.service';
 import {ScrollService} from '../../services/scroll.service';
 import {PhoneNumberValidator} from '../../directives/phone-number-validator';
+import {AppAlertOverlayModalComponent} from "../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.component";
+import {ComponentType} from "@angular/cdk/portal/portal";
 
 
 @Component({
@@ -27,13 +29,12 @@ export class ContactComponent implements OnInit {
   constructor(private quoteService: QuoteService,
               private spinner: NgxSpinnerService,
               private appAlertOverlayModalService: AppAlertOverlayModalService,
-              public scrollTo: ScrollService,
-              private numberDirective: PhoneNumberValidator) {
+              public scrollTo: ScrollService) {
 
   }
 
   @ViewChild('quoteForm') quoteForm: any;
-  @ViewChild('phoneNumber') phoneNumber: ElementRef;
+  @ViewChild('phoneNumber') phoneNumber: any;
   public quote: Quote = new QuoteModel(QuoteModel.DEFAULT_CONFIG);
   hidePersonal = false;
   hidePersonalBtn = true;
@@ -129,11 +130,11 @@ export class ContactComponent implements OnInit {
   public onSubmit(): void {
     this.isSubmitted = true;
 
-    /*if (!this.quoteForm.valid) {
+    if (!this.quoteForm.valid) {
       this.isSubmitted = false;
-    } else {*/
+    } else {
     this.saveQuote();
-    // }
+    }
   }
 
   public onSubmitBackToTopDesktop() {
@@ -167,6 +168,7 @@ export class ContactComponent implements OnInit {
   private saveQuote() {
     this.spinner.show();
     if (this.quote !== null && this.quote !== undefined) {
+      this.quote.contact.phone.number = this.phoneNumber.control.value;
       this.quoteService.createQuote(this.quote).subscribe(newlyCreatedQuote => {
         // TODO should have a new object with IDs populated through out the object graph.
         console.log('newly created quote: ' + newlyCreatedQuote, newlyCreatedQuote);
@@ -194,8 +196,9 @@ export class ContactComponent implements OnInit {
   }
 
   public showOverlayModal(message?: string) {
+    const component: ComponentType<AppAlertOverlayModalComponent> = AppAlertOverlayModalComponent;
     this.appAlertOverlayModalService.setMessage(message);
-    this.appAlertOverlayModalService.open();
+    this.appAlertOverlayModalService.open(component);
   }
 
   public changeTimeline() {
@@ -231,14 +234,7 @@ export class ContactComponent implements OnInit {
     }
   }
 
-  /*changePhoneOnReturn is intended to communicate with the phone number validator directive and pass
-  * the input into the replacePhoneNumber method in order to dynamically change the value
-  * the user had input.*/
-  public changePhoneNumberOnReturn($event) {
-    console.log($event);
-  }
-  togglePersonal() {
-
+  public togglePersonal(): void {
     if (this.hidePersonal === true) {
       this.hidePersonal = false;
       this.hidePersonalBtn = true;
@@ -248,8 +244,7 @@ export class ContactComponent implements OnInit {
     }
   }
 
-  toggleBusiness() {
-
+  public toggleBusiness(): void {
     if (this.hideBusiness === true) {
       this.hideBusiness = false;
       this.hideBusinessBtn = true;
@@ -258,5 +253,4 @@ export class ContactComponent implements OnInit {
       this.hideBusinessBtn = false;
     }
   }
-
 }
