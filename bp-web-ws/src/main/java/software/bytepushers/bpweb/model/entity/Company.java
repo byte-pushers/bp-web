@@ -46,11 +46,9 @@ public class Company extends AbstractEntity {
     private Boolean isEstablished;
 
     @Column
-    @NotNull(groups = CreateRequest.class, message = "{company.established.year.required}")
     private Integer establishedYear;
 
     @Column
-    @NotNull(groups = CreateRequest.class, message = "{company.foundation.required}")
     private String foundation;
 
 }

@@ -35,6 +35,10 @@ export class ContactComponent implements OnInit {
   @ViewChild('quoteForm') quoteForm: any;
   @ViewChild('phoneNumber') phoneNumber: ElementRef;
   public quote: Quote = new QuoteModel(QuoteModel.DEFAULT_CONFIG);
+  hidePersonal = false;
+  hidePersonalBtn = true;
+  hideBusiness = false;
+  hideBusinessBtn = true;
   isSubmitted = false;
   states: any = [
     'Alabama',
@@ -163,8 +167,6 @@ export class ContactComponent implements OnInit {
   private saveQuote() {
     this.spinner.show();
     if (this.quote !== null && this.quote !== undefined) {
-      // @ts-ignore
-      this.quote.contact.phone.number = this.phoneNumber.control.value;
       this.quoteService.createQuote(this.quote).subscribe(newlyCreatedQuote => {
         // TODO should have a new object with IDs populated through out the object graph.
         console.log('newly created quote: ' + newlyCreatedQuote, newlyCreatedQuote);
@@ -235,6 +237,26 @@ export class ContactComponent implements OnInit {
   public changePhoneNumberOnReturn($event) {
     console.log($event);
   }
+  togglePersonal() {
 
+    if (this.hidePersonal === true) {
+      this.hidePersonal = false;
+      this.hidePersonalBtn = true;
+    } else {
+      this.hidePersonal = true;
+      this.hidePersonalBtn = false;
+    }
+  }
+
+  toggleBusiness() {
+
+    if (this.hideBusiness === true) {
+      this.hideBusiness = false;
+      this.hideBusinessBtn = true;
+    } else {
+      this.hideBusiness = true;
+      this.hideBusinessBtn = false;
+    }
+  }
 
 }
