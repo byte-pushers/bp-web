@@ -17,15 +17,12 @@ import javax.validation.constraints.NotNull;
 public class TargetTimeLine extends AbstractEntity {
 
     @Column
-    @NotNull(groups = CreateRequest.class, message = "{company.min.timeline.required}")
     private Long min;
 
     @Column
-    @NotNull(groups = CreateRequest.class, message = "{company.max.timeline.required}")
     private Long max;
 
     @Column
-    @NotNull(groups = CreateRequest.class, message = "{company.timeline.isMaxFinite.required}")
     private Boolean isMaxFinite;
 
 }
