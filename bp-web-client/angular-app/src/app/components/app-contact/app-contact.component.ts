@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {QuoteService} from '../../shared/services/quote.service';
 import {Quote} from '../../shared/models/quote';
@@ -6,8 +6,9 @@ import {QuoteModel} from '../../shared/models/quote.model';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {AppAlertOverlayModalService} from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.service';
 import {ScrollService} from '../../services/scroll.service';
-import {AppAlertOverlayModalComponent} from "../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.component";
-import {ComponentType} from "@angular/cdk/portal/portal";
+import {AppAlertOverlayModalComponent} from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.component';
+import {ComponentType} from '@angular/cdk/portal/portal';
+import {ContactButtonService} from '../../services/contact-button.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ import {ComponentType} from "@angular/cdk/portal/portal";
   templateUrl: './app-contact.component.html',
   styleUrls: ['./app-contact.component.css']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, OnDestroy {
   public errorMessage: string;
   public errorMessages: [string?] = ['Phone number is invalid.'];
   public showConfirmation = false;
@@ -27,7 +28,8 @@ export class ContactComponent implements OnInit {
   constructor(private quoteService: QuoteService,
               private spinner: NgxSpinnerService,
               private appAlertOverlayModalService: AppAlertOverlayModalService,
-              public scrollTo: ScrollService) {
+              public scrollTo: ScrollService,
+              public onContact: ContactButtonService) {
 
   }
 
@@ -102,6 +104,11 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
     this.years = this.calculateYears(+new Date().getFullYear(), 40);
     this.years.push('Older than 1980');
+    this.onContact.notOnContact = false;
+  }
+
+  ngOnDestroy() {
+    this.onContact.notOnContact = true;
   }
 
   public calculateYears(yearList: number, yearsSpan: number): any [] {
@@ -174,11 +181,11 @@ export class ContactComponent implements OnInit {
         this.spinner.hide();
 
         // TODO: Maybe we don't need this logic.
-        /*  if (this.isMobileResolution()) {
+        if (this.isMobileResolution()) {
             this.onSubmitBackToTopMobile();
           } else {
             this.onSubmitBackToTopDesktop();
-          }*/
+          }
       }, error => {
         // TODO should display error message at top of quote page.
         console.log('error: ' + error, error);
@@ -202,13 +209,13 @@ export class ContactComponent implements OnInit {
   public changeTimeline() {
     const timeFrameMin = this.timeframe[0];
     const timeFrameMax = this.timeframe[1];
-    const newBudget = 'Range: '.concat(timeFrameMin + (' Months - ') + timeFrameMax + (' Months'));
-    const newBudgetTop = 'Range: '.concat(timeFrameMin + (' Months - ') + timeFrameMax + (' Months and up'));
+    const newTimeline = 'Range: '.concat(timeFrameMin + (' mo - ') + timeFrameMax + (' mo'));
+    const newTimelineTop = 'Range: '.concat(timeFrameMin + (' mo - ') + timeFrameMax + (' mo or longer'));
 
     if (timeFrameMax <= 32) {
-      this.timelines.splice(0, 1, newBudget);
+      this.timelines.splice(0, 1, newTimeline);
     } else {
-      this.timelines.splice(0, 1, newBudgetTop);
+      this.timelines.splice(0, 1, newTimelineTop);
     }
 
     /* const newMonth = 'Range: '.concat(this.timeframe[0] + (' Months - ') + this.timeframe[1] + (' Months'));

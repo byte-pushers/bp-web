@@ -1,4 +1,4 @@
-<section class="footer">
+<section class="footer hidden-mobile hidden-mobile-450 hidden-mobile-768">
   <div class="container-fluid hidden-mobile hidden-mobile-450 hidden-mobile-768">
     <div class="row">
       <div class="col-sm-2" style=" height: 120px;">
@@ -17,7 +17,7 @@
     </ul>
 
       </div>
-      <div class="col-sm-4 footer-quote" style=" height: 120px;">
+      <div class="col-sm-4 footer-quote" style=" height: 120px;" *ngIf="this.isOnContact.notOnContact">
         <ul>
           <li><h1>Let's Work Together!</h1></li>
           <li>
@@ -30,7 +30,8 @@
       </div>
     </div>
   </div>
-
+</section>
+  <section class="footer-mobile hidden-desktop" >
   <div class="container-fluid hidden-desktop">
     <div class="row">
       <div class="col-sm-4 mobile-footer-links" style=" height: 120px;">
@@ -47,7 +48,7 @@
         </ul>
 
       </div>
-      <div class="col-sm-4 footer-quote-mobile" style=" height: 120px;">
+      <div class="col-sm-4 footer-quote-mobile" style=" height: 120px;" *ngIf="this.isOnContact.notOnContact">
         <ul>
           <li><h1 class="mobile">Let's Work Together!</h1></li>
           <li style="margin-top: 5%">
@@ -56,7 +57,9 @@
         </ul>
       </div>
     </div>
-
+    <div class="row copyright hidden-desktop">
+      <p class="copyright"> Copyright &#169; 2020 BytePushers Inc.</p>
+    </div>
   </div>
 
   <div class="row copyright hidden-mobile hidden-mobile-450 hidden-mobile-768">

@@ -4442,14 +4442,14 @@ body {
   margin: 0px calc(50% - 70px) !important;
 }
 
-.companies {
+.selection-logos {
   background: #ebebeb;
   padding: 50px 0;
   text-align: center;
   width: 100%;
 }
 
-.companies h2 {
+.selection-logos h2 {
   color: #8c8c8c;
   font-style: 48px;
   font-weight: 400;

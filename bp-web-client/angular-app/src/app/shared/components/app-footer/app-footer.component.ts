@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ContactButtonService} from '../../../services/contact-button.service';
+
 
 @Component({
   selector: 'app-footer',
@@ -7,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppFooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(public isOnContact: ContactButtonService) { }
 
   ngOnInit() {
   }
+
   public backToTop() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
@@ -21,11 +24,13 @@ export class AppFooterComponent implements OnInit {
       const mobileNav = document.getElementById('topnav');
 
       if (mobileNav.classList.contains('expanded')) {
-        mobileNav.classList.remove("expanded");
+        mobileNav.classList.remove('expanded');
       } else {
-        mobileNav.classList.add("expanded");
+        mobileNav.classList.add('expanded');
       }
     }
   }
+
+
 
 }

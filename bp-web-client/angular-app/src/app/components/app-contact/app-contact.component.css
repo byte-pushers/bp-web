@@ -80,7 +80,11 @@ display: none;
 }
 
 .mobile-row {
-  margin-bottom: 20px;
+  margin-bottom: 1.7em;
+}
+
+.desktop-row {
+  margin-bottom: 2.3em;
 }
 
 .alert {

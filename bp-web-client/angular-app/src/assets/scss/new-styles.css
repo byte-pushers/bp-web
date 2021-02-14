@@ -21,6 +21,8 @@ section {
   margin-bottom: 2%;
 }
 
+
+
 .video-hero,
 .video-overlay {
   position: absolute;
@@ -1079,45 +1081,45 @@ html {
 
 @media only screen and (min-width: 768px) {
   .hidden-desktop {
-    display: none
+    display: none !important;
   }
 }
 
 @media only screen and (min-width: 0) and (max-width: 320px) {
   .hidden-mobile {
-    display: none
+    display: none !important;
   }
 }
 
 .visible-mobile {
-  display: none
+  display: none !important;
 }
 
 @media only screen and (min-width: 0) and (max-width: 320px) {
   .visible-mobile {
-    display: block
+    display: block !important;
   }
 }
 
 @media only screen and (min-width: 0) and (max-width: 449px) {
   .hidden-mobile-450 {
-    display: none
+    display: none !important;
   }
 }
 
 @media only screen and (min-width: 0) and (max-width: 767px) {
   .hidden-mobile-768 {
-    display: none
+    display: none !important;
   }
 }
 
 .visible-mobile-450 {
-  display: none
+  display: none !important;
 }
 
 @media only screen and (min-width: 0) and (max-width: 449px) {
   .visible-mobile-450 {
-    display: block
+    display: block !important;
   }
 }
 

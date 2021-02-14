@@ -26,6 +26,8 @@ import {WorkComponent} from './components/app-work/app-work.component';
 import {ServicesComponent} from './components/app-services/app-services.component';
 import {PhoneNumberDirective} from './directives/phone-number.directive';
 import {AppRoutingModule} from './app-routing.module';
+import { CommonModule } from '@angular/common';
+import {ContactButtonService} from './services/contact-button.service';
 
 @NgModule({
   declarations: [
@@ -56,12 +58,14 @@ import {AppRoutingModule} from './app-routing.module';
     MatCardModule,
     OverlayModule,
     NgxPageScrollCoreModule.forRoot({ /* custom settings here */}),
-    NgxPageScrollModule
+    NgxPageScrollModule,
+    CommonModule
   ],
   providers: [
     RouterLinkActive,
     QuoteService,
-    {provide: Window, useValue: window}
+    {provide: Window, useValue: window},
+    ContactButtonService
   ],
   entryComponents: [
     // Needs to be added here because otherwise we can't
