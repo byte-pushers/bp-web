@@ -4,10 +4,8 @@ import {QuoteService} from '../../shared/services/quote.service';
 import {Quote} from '../../shared/models/quote';
 import {QuoteModel} from '../../shared/models/quote.model';
 import {NgxSpinnerService} from 'ngx-spinner';
-import {Subscription} from 'rxjs';
 import {AppAlertOverlayModalService} from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.service';
 import {ScrollService} from '../../services/scroll.service';
-import {PhoneNumberValidator} from '../../directives/phone-number-validator';
 import {AppAlertOverlayModalComponent} from "../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.component";
 import {ComponentType} from "@angular/cdk/portal/portal";
 

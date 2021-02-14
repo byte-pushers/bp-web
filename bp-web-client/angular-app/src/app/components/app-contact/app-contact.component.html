@@ -90,13 +90,13 @@
                 class="form-control"
                 #phoneNumber="ngModel"
                 required
-                phoneNumberValidator>
+                phoneNumber>
               </div>
               <div id="phoneNumberValidError"></div>
               <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)"
                    class="alert alert-danger">
                 <div *ngIf="phoneNumber.errors.required">Phone number is required.</div>
-                <div *ngIf="phoneNumber.errors.phoneNumberValidator">Phone number is not valid.</div>
+                <div *ngIf="phoneNumber.errors.phoneNumber">Phone number is not valid.</div>
               </div>
             </div>
             <div class="col-md-2"><!--space--></div>
@@ -447,11 +447,11 @@
             class="form-control"
             #phoneNumber="ngModel"
             required
-            phoneNumberValidator>
+            phoneNumber>
           </div>
           <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="alert alert-danger">
             <div *ngIf="phoneNumber.errors.required">Phone number is required.</div>
-            <div *ngIf="phoneNumber.errors.phoneNumberValidator">Phone number is not valid.</div>
+            <div *ngIf="phoneNumber.errors.phoneNumber">Phone number is not valid.</div>
           </div>
         </div>
           <button class="btn btn-outline-primary mobile-row  col-12"  *ngIf="hidePersonalBtn" (click)="togglePersonal()">Show More</button>
