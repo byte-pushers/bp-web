@@ -24,7 +24,7 @@ import {InfoComponent} from './components/app-info/app-info.component';
 import {AboutComponent} from './components/app-about/app-about.component';
 import {WorkComponent} from './components/app-work/app-work.component';
 import {ServicesComponent} from './components/app-services/app-services.component';
-import {PhoneNumberValidator} from './directives/phone-number-validator';
+import {PhoneNumberDirective} from './directives/phone-number.directive';
 import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
@@ -40,7 +40,7 @@ import {AppRoutingModule} from './app-routing.module';
     InfoComponent,
     AppFooterComponent,
     AppAlertOverlayModalComponent,
-    PhoneNumberValidator
+    PhoneNumberDirective
   ],
   imports: [
     AppRoutingModule,
@@ -61,7 +61,6 @@ import {AppRoutingModule} from './app-routing.module';
   providers: [
     RouterLinkActive,
     QuoteService,
-    PhoneNumberValidator,
     {provide: Window, useValue: window}
   ],
   entryComponents: [
