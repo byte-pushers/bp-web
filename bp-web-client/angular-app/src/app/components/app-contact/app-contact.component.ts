@@ -174,11 +174,11 @@ export class ContactComponent implements OnInit {
         this.spinner.hide();
 
         // TODO: Maybe we don't need this logic.
-        /*  if (this.isMobileResolution()) {
+          if (this.isMobileResolution()) {
             this.onSubmitBackToTopMobile();
           } else {
             this.onSubmitBackToTopDesktop();
-          }*/
+          }
       }, error => {
         // TODO should display error message at top of quote page.
         console.log('error: ' + error, error);
