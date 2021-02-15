@@ -136,13 +136,11 @@ export class ContactComponent implements OnInit {
   }
 
   public onSubmitBackToTopDesktop() {
-    document.body.scrollTop = 1005; // For Safari
-    document.documentElement.scrollTop = 1005; // For Chrome, Firefox, IE and Opera
+    document.getElementById('successTop').scrollIntoView();
   }
 
   public onSubmitBackToTopMobile() {
-    document.body.scrollTop = 824; // For Safari
-    document.documentElement.scrollTop = 824; // For Chrome, Firefox, IE and Opera
+    document.getElementById('successTop').scrollIntoView();
   }
 
   public reset(form: NgForm) {
