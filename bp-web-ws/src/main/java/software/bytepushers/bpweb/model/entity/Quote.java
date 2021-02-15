@@ -50,11 +50,9 @@ public class Quote extends AbstractEntity {
     private Company company;
 
     @Column
-    @NotEmpty(groups = CreateRequest.class, message = "{project.platform.required}")
     private String projectPlatform;
 
     @Column
-    @NotEmpty(groups = CreateRequest.class, message = "{project.type.required}")
     private String projectType;
 
     @Column
