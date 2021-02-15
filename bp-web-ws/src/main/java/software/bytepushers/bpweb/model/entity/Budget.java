@@ -17,14 +17,11 @@ import javax.validation.constraints.NotNull;
 public class Budget extends AbstractEntity {
 
     @Column
-    @NotNull(groups = CreateRequest.class, message = "{company.min.budget.required}")
     private Long min;
 
     @Column
-    @NotNull(groups = CreateRequest.class, message = "{company.max.budget.required}")
     private Long max;
 
     @Column
-    @NotNull(groups = CreateRequest.class, message = "{company.budget.isMaxFinite.required}")
     private Boolean isMaxFinite;
 }

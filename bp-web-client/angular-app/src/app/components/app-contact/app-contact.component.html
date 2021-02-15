@@ -23,7 +23,7 @@
       </div>
       <!-- General Form API Errors go here //-->
 
-      <form #quoteForm="ngForm" (ngSubmit)="onSubmit();" class="align-items-center">
+      <form #quoteForm="ngForm" (ngSubmit)="onSubmit();" class="align-items-center needs-validation">
         <div class="form-group">
           <div class="form-row inner-form-section">
             <div class="form-group col-md-4">
@@ -86,17 +86,17 @@
                 name="phoneNumber"
                 placeholder="Phone Number"
                 [(ngModel)]="phone.number"
-                (change)="formatPhoneNumber($event)"
                 type="text"
                 class="form-control"
+                #phoneNumber="ngModel"
                 required
-                #phoneNumber="ngModel">
-                <!-- type="number" maxlength="10" pattern="^(0|[1-9][0-9]*)" //-->
+                phoneNumber>
               </div>
+              <div id="phoneNumberValidError"></div>
               <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)"
                    class="alert alert-danger">
                 <div *ngIf="phoneNumber.errors.required">Phone number is required.</div>
-                <div *ngIf="phoneNumber.errors.pattern">Phone number is not valid.</div>
+                <div *ngIf="phoneNumber.errors.phoneNumber">Phone number is not valid.</div>
               </div>
             </div>
             <div class="col-md-2"><!--space--></div>
@@ -130,6 +130,9 @@
             </div>
           </div>
           <div class="form-row inner-form-section">
+              <button class="btn btn-outline-primary col-3"  *ngIf="hidePersonalBtn" (click)="togglePersonal()">Show More</button>
+          </div>
+          <div class="form-row inner-form-section" *ngIf="hidePersonal">
             <div class="form-group col-md-4">
               <label for="city">City</label>
               <input
@@ -141,30 +144,24 @@
                 class="form-control"
                 minlength="2"
                 pattern="^[^0-9]+$"
-                required
                 #city="ngModel">
-              <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
-                <div *ngIf="city.errors.required">City is required.</div>
-                <div *ngIf="city.errors.minlength">A minimum of 2 letters are required.</div>
-                <div *ngIf="city.errors.pattern">City is not valid.</div>
-              </div>
+
             </div>
             <div class="col-md-2"><!--space--></div>
             <div class="form-group col-md-4">
               <label>State</label>
               <select class="form-control"
                       id="state"
-                      required
                       [(ngModel)]="quote.contact.address.state"
                       name="state"
                       #state="ngModel">
                 <option [ngValue]="null">Please Select A State</option>
                 <option *ngFor="let state of states" [value]="state">{{state}}</option>
               </select>
-              <div *ngIf="state.invalid && (state.dirty || state.touched)" class="alert alert-danger">
-                <div *ngIf="state.errors.required">Please select a state</div>
-              </div>
             </div>
+          </div>
+          <div class="form-row inner-form-section">
+            <button class="btn btn-outline-primary col-3"  *ngIf="hidePersonal" (click)="togglePersonal()">Show Less</button>
           </div>
           <div class="section-heading">Business Information</div>
           <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best
@@ -209,7 +206,7 @@
                   type="text"
                   class="form-control"
                   minlength="2"
-                  pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,99}(:[0-9])?(\/.*)?$"
+                  pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-zA-Z0-9]+([\-\.]{1}[a-zA-Z0-9]+)*\.[a-z]{2,99}(:[0-9])?(\/.*)?$"
                   required
                   #url="ngModel">
                 </div>
@@ -221,35 +218,33 @@
               </div>
             </div>
             <div class="form-row inner-form-section">
+              <button class="btn btn-outline-primary col-3"  *ngIf="hideBusinessBtn" (click)="toggleBusiness()">Show More</button>
+            </div>
+            <div *ngIf="hideBusiness">
+            <div class="form-row inner-form-section">
               <div class="form-group col-md-4">
                 <label>Year Established</label>
                 <select class="form-control"
                         id="establishedYear"
                         [(ngModel)]="quote.company.establishedYear"
                         name="establishedYear"
-                        required
+
                         #establishedYear='ngModel'>
                   <option [ngValue]="null">Please Select A Year</option>
                   <option *ngFor="let establishedYear of years" [value]="establishedYear">{{establishedYear}}</option>
                 </select>
-                <div *ngIf="establishedYear.invalid && (establishedYear.dirty || establishedYear.touched)"
-                     class="alert alert-danger">
-                  <div *ngIf="establishedYear.errors.required">Please select a year</div>
-                </div>
+
               </div>
               <div class="col-md-2"><!--space--></div>
               <div class="form-group col-md-4">
                 <label>Is Your Business A(n)</label>
                 <select class="form-control" id="foundation"
-                        required
+
                         [(ngModel)]="quote.company.foundation" name="foundation"
                         #foundation="ngModel">
                   <option [ngValue]="null">Please Specify Your Establishment</option>
                   <option *ngFor="let foundation of foundations" [value]="foundation">{{foundation}}</option>
                 </select>
-                <div *ngIf="foundation.invalid && (foundation.dirty || foundation.touched)" class="alert alert-danger">
-                  <div *ngIf="foundation.errors.required">Please select a foundation</div>
-                </div>
               </div>
             </div>
             <div class="form-row inner-form-section">
@@ -258,29 +253,21 @@
                 <select class="form-control"
                         [(ngModel)]="quote.projectType"
                         id="projectType"
-                        name="projectType" required
+                        name="projectType"
                         #projectType='ngModel'>
                   <option [ngValue]="null">Please Select A Project Type</option>
                   <option *ngFor="let projectType of projects" [value]="projectType">{{projectType}}</option>
                 </select>
-                <div *ngIf="projectType.invalid && (projectType.dirty || projectType.touched)"
-                     class="alert alert-danger">
-                  <div *ngIf="projectType.errors.required">Please select a project type</div>
-                </div>
               </div>
               <div class="col-md-2"><!--space--></div>
               <div class="form-group col-md-4">
                 <label>Project Platform</label>
                 <select class="form-control" id="projectPlatform" name="projectPlatform"
-                        [(ngModel)]="quote.projectPlatform" required #projectPlatform='ngModel'>
+                        [(ngModel)]="quote.projectPlatform"  #projectPlatform='ngModel'>
                   <option [ngValue]="null">Please Select A Platform</option>
                   <option *ngFor="let projectPlatform of projectPlatforms"
                           [value]="projectPlatform">{{projectPlatform}}</option>
                 </select>
-                <div *ngIf="projectPlatform.invalid && (projectPlatform.dirty || projectPlatform.touched)"
-                     class="alert alert-danger">
-                  <div *ngIf="projectPlatform.errors.required">Please select a platform</div>
-                </div>
               </div>
             </div>
             <div class="form-row inner-form-section">
@@ -301,7 +288,7 @@
                   </mv-slider>
                 </div>
                 <input class="form-control" id="budget" *ngFor="let budget of budgets" [value]="budget"
-                       placeholder="{{budget}}" required disabled>
+                       placeholder="{{budget}}"  disabled>
               </div>
               <div class="col-md-2"><!--space--></div>
               <div class="form-group col-md-4">
@@ -321,8 +308,12 @@
                 </div>
 
                 <input class="form-control" id="timeline" *ngFor="let timeline of timelines" [value]="timeline"
-                       placeholder="{{timeline}}" required disabled>
+                       placeholder="{{timeline}}" disabled>
               </div>
+            </div>
+            </div>
+            <div class="form-row inner-form-section">
+              <button class="btn btn-outline-primary col-3"  *ngIf="hideBusiness" (click)="toggleBusiness()">Show Less</button>
             </div>
           </div>
         </div>
@@ -452,20 +443,19 @@
             name="phoneNumber"
             placeholder="Phone Number"
             [(ngModel)]="phone.number"
-            (change)="formatPhoneNumber($event)"
             type="text"
             class="form-control"
+            #phoneNumber="ngModel"
             required
-            #phoneNumber="ngModel">
-            <!-- type="number" maxlength="10" pattern="^(0|[1-9][0-9]*)" //-->
+            phoneNumber>
           </div>
           <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="alert alert-danger">
             <div *ngIf="phoneNumber.errors.required">Phone number is required.</div>
-            <div *ngIf="phoneNumber.errors.pattern">Phone number is not valid.</div>
+            <div *ngIf="phoneNumber.errors.phoneNumber">Phone number is not valid.</div>
           </div>
         </div>
-
-
+          <button class="btn btn-outline-primary mobile-row  col-12"  *ngIf="hidePersonalBtn" (click)="togglePersonal()">Show More</button>
+<div *ngIf="hidePersonal">
         <div class="col-12">
           <label>City</label>
         </div>
@@ -479,13 +469,7 @@
             class="form-control"
             minlength="2"
             pattern="^[^0-9]+$"
-            required
             #city="ngModel">
-          <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
-            <div *ngIf="city.errors.required">City is required.</div>
-            <div *ngIf="city.errors.minlength">A minimum of 2 letters are required.</div>
-            <div *ngIf="city.errors.pattern">City is not valid.</div>
-          </div>
         </div>
 
 
@@ -495,14 +479,13 @@
         <div class="col-12 mobile-row">
           <select class="form-control"
                   name="state" [(ngModel)]="quote.contact.address.state"
-                  id="stateMobile" required #state='ngModel'>
+                  id="stateMobile"  #state='ngModel'>
             <option [ngValue]="null">Please Select A State</option>
             <option *ngFor="let state of states" [value]="state">{{state}}</option>
           </select>
-          <div *ngIf="state.invalid && (state.dirty || state.touched)" class="alert alert-danger">
-            <div *ngIf="state.errors.required">Please select a state</div>
-          </div>
         </div>
+</div>
+        <button class="btn btn-outline-primary mobile-row  col-12"  *ngIf="hidePersonal" (click)="togglePersonal()">Show Less</button>
 
 
         <div class="section-heading">Business Information</div>
@@ -562,6 +545,9 @@
             <div *ngIf="url.errors.pattern">URL is not valid.</div>
           </div>
         </div>
+        <button class="btn btn-outline-primary mobile-row  col-12"  *ngIf="hideBusinessBtn" (click)="toggleBusiness()">Show More</button>
+
+        <div *ngIf="hideBusiness">
         <div class="col-12 mobile-row">
           <label>Year Established</label>
           <select class="form-control"
@@ -581,15 +567,11 @@
         <div class="col-12 mobile-row">
           <label>Is Your Business A(n)</label>
           <select class="form-control" id="foundationMobile"
-                  required
                   [(ngModel)]="quote.company.foundation" name="foundation"
                   #foundation="ngModel">
             <option [ngValue]="null">Please Specify Your Establishment</option>
             <option *ngFor="let foundation of foundations" [value]="foundation">{{foundation}}</option>
           </select>
-          <div *ngIf="foundation.invalid && (foundation.dirty || foundation.touched)" class="alert alert-danger">
-            <div *ngIf="foundation.errors.required">Please select a foundation</div>
-          </div>
         </div>
 
 
@@ -600,14 +582,11 @@
           <select class="form-control"
                   [(ngModel)]="quote.projectType"
                   id="projectTypeMobile"
-                  name="projectType" required
+                  name="projectType"
                   #projectType='ngModel'>
             <option [ngValue]="null">Please Select A Project Type</option>
             <option *ngFor="let type of projects" [value]="type">{{type}}</option>
           </select>
-          <div *ngIf="projectType.invalid && (projectType.dirty || projectType.touched)" class="alert alert-danger">
-            <div *ngIf="projectType.errors.required">Please select a project type</div>
-          </div>
 
         </div>
 
@@ -617,15 +596,11 @@
         </div>
         <div class="col-12 mobile-row">
           <select class="form-control" id="projectPlatformMobile" name="projectPlatform"
-                  [(ngModel)]="quote.projectPlatform" required #projectPlatform='ngModel'>
+                  [(ngModel)]="quote.projectPlatform" #projectPlatform='ngModel'>
             <option [ngValue]="null">Please Select A Platform</option>
             <option *ngFor="let projectPlatform of projectPlatforms"
                     [value]="projectPlatform">{{projectPlatform}}</option>
           </select>
-          <div *ngIf="projectPlatform.invalid && (projectPlatform.dirty || projectPlatform.touched)"
-               class="alert alert-danger">
-            <div *ngIf="projectPlatform.errors.required">Please select a platform</div>
-          </div>
 
         </div>
 
@@ -674,8 +649,10 @@
         <div class="col-12 mobile-row">
           <input class="form-control col-12 mobile-row" id="timelineMobile" *ngFor="let timeline of timelines"
                  [value]="timeline"
-                 placeholder="{{timeline}}" required disabled style="margin-bottom: 20px;">
+                 placeholder="{{timeline}}" disabled style="margin-bottom: 20px;">
         </div>
+        </div>
+        <button class="btn btn-outline-primary mobile-row col-12"  *ngIf="hideBusiness" (click)="toggleBusiness()">Show Less</button>
 
 
         <div class="col-12">
