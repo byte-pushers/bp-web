@@ -119,7 +119,7 @@ matrix:
       deploy:
         - provider: script
           skip_cleanup: true
-          script: gulp deploy --user $FTP_USER --password $FTP_PASSWORD && aws s3 sync dist/* ${STATIC_WEBSITE_S3_BUCKET_URL} && aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
+          script: aws s3 sync dist/* ${STATIC_WEBSITE_S3_BUCKET_URL} && aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
           on:
             branch: develop
         - provider: script
