@@ -103,6 +103,10 @@ matrix:
             branch: master
 
     - language: node_js
+      addons:
+        apt:
+          packages:
+            - lftp
       node_js:
         - “12”
       cache:
@@ -111,7 +115,6 @@ matrix:
       before_install:
         - pyenv global 3.7.1
         - pip install -U pip
-        - apt-get install lftp
         - pip install awscli
         - cd bp-web-client/angular-app/
       install:
