@@ -26,6 +26,7 @@ import {WorkComponent} from './components/app-work/app-work.component';
 import {ServicesComponent} from './components/app-services/app-services.component';
 import {PhoneNumberDirective} from './directives/phone-number.directive';
 import {AppRoutingModule} from './app-routing.module';
+import {AppRoutingService} from './shared/services/app-routing.service';
 import { CommonModule } from '@angular/common';
 import {ContactButtonService} from './services/contact-button.service';
 
@@ -65,7 +66,9 @@ import {ContactButtonService} from './services/contact-button.service';
     RouterLinkActive,
     QuoteService,
     {provide: Window, useValue: window},
-    ContactButtonService
+    ContactButtonService,
+    {provide: Window, useValue: window},
+    AppRoutingService
   ],
   entryComponents: [
     // Needs to be added here because otherwise we can't

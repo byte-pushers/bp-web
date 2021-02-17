@@ -1,8 +1,8 @@
 import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import * as $ from 'jquery';
-import {fromEvent, Observable, Subscription} from "rxjs";
+import {fromEvent, Observable, Subscription} from 'rxjs';
 import {ScrollService} from '../../services/scroll.service';
-
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +10,7 @@ import {ScrollService} from '../../services/scroll.service';
   styleUrls: ['./app-home.component.css']
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
+  public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
   resizeObservable$: Observable<Event>;
   resizeSubscription$: Subscription;
   @ViewChild("homeBackgroundWorkImg") divView: ElementRef;

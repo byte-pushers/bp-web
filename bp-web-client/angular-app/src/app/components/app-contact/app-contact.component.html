@@ -13,7 +13,7 @@
       <img alt="caret" src="assets/images/caret.svg" style="width: 50px; height: 50px">
     </a>
   </header>
-
+  <div id="successTop" fragment="successTop"></div>
   <div class="main-content-container" id="top-section" *ngIf="showConfirmation === false">
     <section *ngIf="!isMobileResolution()"
              class="contact-info-desktop hidden-mobile hidden-mobile-450 hidden-mobile-768">
@@ -722,15 +722,14 @@
   <div class=" main-content-container" *ngIf="showConfirmation === true">
     <section>
     </section>
-    <section class="workwithus hidden-mobile hidden-mobile-450 hidden-mobile-768 ">
+    <section class="workwithus hidden-mobile hidden-mobile-450 hidden-mobile-768 " id="desktopSuccess">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="headContent">
-              <div class="section-heading">Submission Successful</div>
-              <div class="section-subheading">We look forward to speaking with you!<span class="br-mobile"></span>If you
-                have any questions,
-                by<span class="br-mobile"></span> feel free to reach out to us in the email provided.
+              <div class="section-heading">Thank You!</div><br><br>
+              <div class="section-subheading">We look forward to speaking with you!<span class="br-mobile"></span>If you have any questions,
+                <span class="br-mobile"></span> feel free to reach out to us in the email provided.
               </div>
             </div>
             <div class="rightcontent">
@@ -741,14 +740,13 @@
         </div>
       </div>
     </section>
-    <section class="workwithus-mobile hidden-desktop">
+    <section class="workwithus-mobile hidden-desktop" id="mobileSuccess">
       <div class="container">
         <div class="row">
           <div class="col-12 headContent-mobile">
-            <div class="section-heading">Personal Information</div>
-            <div class="section-subheading">We look forward to speaking with you!<span class="br-mobile"></span>If you
-              have any questions,
-              by<span class="br-mobile"></span> feel free to reach out to us in the email provided.
+            <div class="section-heading">Thank You!</div><br><br>
+            <div class="section-subheading">We look forward to speaking with you!<span class="br-mobile"></span> If you have any questions,
+              <span class="br-mobile"></span> feel free to reach out to us in the email provided.
             </div>
           </div>
         </div>
