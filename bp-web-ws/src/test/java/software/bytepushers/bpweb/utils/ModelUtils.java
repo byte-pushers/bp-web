@@ -15,6 +15,7 @@ public class ModelUtils {
     public static Quote quoteDto() {
         DataFactory df = new DataFactory();
         Quote quote = new Quote();
+        quote.setDescription(df.getRandomWord(10));
         quote.setCompany(company());
         quote.setProjectPlatform(df.getRandomWord(5));
         quote.setProjectType(df.getRandomWord(5));
@@ -56,7 +57,6 @@ public class ModelUtils {
     public static Company company() {
         DataFactory df = new DataFactory();
         Company company = new Company();
-        company.setDescription(df.getRandomWord(10));
         company.setEstablishedYear(2014);
         company.setName(df.getBusinessName());
         company.setType(df.getRandomWord(1));
