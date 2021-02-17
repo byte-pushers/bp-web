@@ -156,7 +156,7 @@
                       name="state"
                       #state="ngModel">
                 <option [ngValue]="null">Please Select A State</option>
-                <option *ngFor="let state of states" [value]="state">{{state}}</option>
+                <option *ngFor="let state of list.states" [value]="state">{{state}}</option>
               </select>
             </div>
           </div>
@@ -481,7 +481,7 @@
                   name="state" [(ngModel)]="quote.contact.address.state"
                   id="stateMobile"  #state='ngModel'>
             <option [ngValue]="null">Please Select A State</option>
-            <option *ngFor="let state of states" [value]="state">{{state}}</option>
+            <option *ngFor="let state of list.states" [value]="state">{{state}}</option>
           </select>
         </div>
 </div>

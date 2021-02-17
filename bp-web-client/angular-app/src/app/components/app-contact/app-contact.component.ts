@@ -6,8 +6,9 @@ import {QuoteModel} from '../../shared/models/quote.model';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {AppAlertOverlayModalService} from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.service';
 import {ScrollService} from '../../services/scroll.service';
-import {AppAlertOverlayModalComponent} from "../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.component";
-import {ComponentType} from "@angular/cdk/portal/portal";
+import {AppAlertOverlayModalComponent} from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.component';
+import {ComponentType} from '@angular/cdk/portal/portal';
+import {StateListService} from '../../services/state-list.service';
 
 
 @Component({
@@ -27,7 +28,8 @@ export class ContactComponent implements OnInit {
   constructor(private quoteService: QuoteService,
               private spinner: NgxSpinnerService,
               private appAlertOverlayModalService: AppAlertOverlayModalService,
-              public scrollTo: ScrollService) {
+              public scrollTo: ScrollService,
+              public list: StateListService) {
 
   }
 
@@ -39,57 +41,7 @@ export class ContactComponent implements OnInit {
   hideBusiness = false;
   hideBusinessBtn = true;
   isSubmitted = false;
-  states: any = [
-    'Alabama',
-    'Alaska',
-    'Arizona',
-    'Arkansas',
-    'California',
-    'Colorado',
-    'Connecticut',
-    'Delaware',
-    'Florida',
-    'Georgia',
-    'Hawaii',
-    'Idaho',
-    'Illinois',
-    'Indiana',
-    'Iowa',
-    'Kansas',
-    'Kentucky',
-    'Louisiana',
-    'Maine',
-    'Maryland',
-    'Massachusetts',
-    'Michigan',
-    'Minnesota',
-    'Mississippi',
-    'Missouri',
-    'Montana',
-    'Nebraska',
-    'Nevada',
-    'New Hampshire',
-    'New Jersey',
-    'New Mexico',
-    'New York',
-    'North Carolina',
-    'North Dakota',
-    'Ohio',
-    'Oklahoma',
-    'Oregon',
-    'Pennsylvania',
-    'Rhode Island',
-    'South Carolina',
-    'South Dakota',
-    'Tennessee',
-    'Texas',
-    'Utah',
-    'Vermont',
-    'Virginia',
-    'Washington',
-    'West Virginia',
-    'Wisconsin',
-    'Wyoming'];
+
   projects: any = ['Business To Business (B2B)', 'Business To Consumer (B2C)', 'Custom App Development', 'Other'];
   projectPlatforms: any = ['Mobile', 'Desktop', 'Cloud', 'Web', 'Other'];
   value: any = [0, 105000];
