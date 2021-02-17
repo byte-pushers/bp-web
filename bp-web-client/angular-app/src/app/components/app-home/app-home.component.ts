@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
   public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
   resizeObservable$: Observable<Event>;
   resizeSubscription$: Subscription;
-  @ViewChild("homeBackgroundWorkImg") divView: ElementRef;
+  @ViewChild('homeBackgroundWorkImg') divView: ElementRef;
 
 
   constructor(private window: Window,

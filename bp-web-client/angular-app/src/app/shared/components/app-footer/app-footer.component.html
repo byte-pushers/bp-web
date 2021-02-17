@@ -13,7 +13,7 @@
         </ul>
     <ul>
       <li><h1>Our Recent Projects</h1></li>
-      <li><h3><a href="https://www.chuckspick3.com">www.chuckspick3.com</a></h3></li>
+      <li><h3><a href="{{chucksPick3Url}}">www.chuckspick3.com</a></h3></li>
     </ul>
 
       </div>
@@ -22,6 +22,15 @@
           <li><h1>Let's Work Together!</h1></li>
           <li>
             <a class="lets-talk-button" [routerLink]="'/contact'" (click)="backToTop()" >Request A Quote</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-4 footer-quote" style=" height: 120px;" *ngIf="this.isOnContact.onContact">
+        <ul>
+          <li style="margin-top:auto; margin-bottom: auto">
+            <a class="topnav-link" [routerLink]="'/home'" routerLinkActive="active"  (click)="scrollTo.backToTop(); openCloseMobileNav()">
+            <img style="height: 5.5em" src="assets/images/bytePushersLogoMobile.svg">
+            </a>
           </li>
         </ul>
       </div>
@@ -44,7 +53,7 @@
         </ul>
         <ul>
           <li><h1 class="mobile">Our Recent Projects</h1></li>
-          <li><h3><a href="https://www.chuckspick3.com" class="mobile">www.chuckspick3.com</a></h3></li>
+          <li><h3><a href="{{chucksPick3Url}}" class="mobile">www.chuckspick3.com</a></h3></li>
         </ul>
 
       </div>
@@ -53,6 +62,15 @@
           <li><h1 class="mobile">Let's Work Together!</h1></li>
           <li style="margin-top: 5%">
             <a class="lets-talk-button" [routerLink]="'/contact'" (click)="backToTop()"  style="width: 100%">Request A Quote</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-4 footer-quote-mobile" style=" height: 120px;" *ngIf="this.isOnContact.onContact">
+        <ul>
+          <li style="margin-top: 5%">
+            <a class="topnav-link" [routerLink]="'/home'" routerLinkActive="active"  (click)="scrollTo.backToTop(); openCloseMobileNav()">
+            <img style="height: 6em" src="assets/images/bytePushersLogoMobile.svg">
+            </a>
           </li>
         </ul>
       </div>

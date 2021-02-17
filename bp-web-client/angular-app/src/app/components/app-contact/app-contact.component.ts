@@ -105,10 +105,12 @@ export class ContactComponent implements OnInit, OnDestroy {
     this.years = this.calculateYears(+new Date().getFullYear(), 40);
     this.years.push('Older than 1980');
     this.onContact.notOnContact = false;
+    this.onContact.onContact = true;
   }
 
   ngOnDestroy() {
     this.onContact.notOnContact = true;
+    this.onContact.onContact = false;
   }
 
   public calculateYears(yearList: number, yearsSpan: number): any [] {
