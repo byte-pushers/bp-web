@@ -103,6 +103,10 @@ matrix:
             branch: master
 
     - language: node_js
+      addons:
+        apt:
+          packages:
+            - lftp
       node_js:
         - “12”
       cache:
@@ -119,14 +123,14 @@ matrix:
       deploy:
         - provider: script
           skip_cleanup: true
-          script: cd dist/angular-app && find . -type f -exec curl -u ${FTP_USER}:${FTP_PASSWORD} --ftp-create-dirs -T {} ftp://www.bytepushers.software/{} \;
+          script: rm -Rf dist/angular-app/assets/stock\ video/* && cd dist/angular-app/ && find . -type f -exec curl -k sftp://www.bytepushers.software/public_html/{} --user ${FTP_USER1}:${FTP_PASSWORD1} -T {} --ftp-create-dirs \;
           on:
             branch: develop
         - provider: script
           skip_cleanup: true
-          script: ${FTP_USER},${FTP_PASSWORD} www.bytepushers.software && aws s3 sync dist/* ${STATIC_WEBSITE_S3_BUCKET_URL} && aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
+          script: aws s3 sync dist/* ${STATIC_WEBSITE_S3_BUCKET_URL} && aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
           on:
-            branch: develop
+            branch: master
         - provider: script
           skip_cleanup: true
           script: aws s3 sync dist/* ${STATIC_WEBSITE_S3_BUCKET_URL} && aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
