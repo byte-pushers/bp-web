@@ -29,7 +29,7 @@ export class ContactComponent implements OnInit, OnDestroy {
               private spinner: NgxSpinnerService,
               private appAlertOverlayModalService: AppAlertOverlayModalService,
               public scrollTo: ScrollService,
-              public onContact: ContactButtonService) {
+              private contactButtonService: ContactButtonService) {
 
   }
 
@@ -104,15 +104,16 @@ export class ContactComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.years = this.calculateYears(+new Date().getFullYear(), 40);
     this.years.push('Older than 1980');
-    this.onContact.notOnContact = false;
-    this.onContact.onContact = true;
+    this.setOnContactView(false);
+
   }
 
   ngOnDestroy() {
-    this.onContact.notOnContact = true;
-    this.onContact.onContact = false;
+    this.setOnContactView(true);
   }
-
+  public setOnContactView(setView): void {
+    this.contactButtonService.isOnContactView(setView);
+  }
   public calculateYears(yearList: number, yearsSpan: number): any [] {
     const yearArray = [];
     yearArray.push(yearList);

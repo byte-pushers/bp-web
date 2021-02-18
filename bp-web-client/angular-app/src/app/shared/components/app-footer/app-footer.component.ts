@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ContactButtonService} from '../../../services/contact-button.service';
 import {environment} from '../../../../environments/environment';
 import {ScrollService} from '../../../services/scroll.service';
@@ -10,16 +10,27 @@ import {ScrollService} from '../../../services/scroll.service';
 })
 export class AppFooterComponent implements OnInit {
   public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
-  constructor(public isOnContact: ContactButtonService,
-              public scrollTo: ScrollService) { }
+
+  constructor(private contactButtonService: ContactButtonService,
+              public scrollTo: ScrollService) {
+  }
 
   ngOnInit() {
+  }
+
+  public showBPLogo() {
+    return this.contactButtonService.getShowBpLogo();
+  }
+
+  public showContactButton() {
+    return this.contactButtonService.getShowContactButton();
   }
 
   public backToTop() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }
+
   public openCloseMobileNav() {
     const windowCheck = window.innerWidth;
     if (windowCheck <= 480) {
@@ -32,7 +43,6 @@ export class AppFooterComponent implements OnInit {
       }
     }
   }
-
 
 
 }
