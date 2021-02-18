@@ -1,8 +1,8 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import * as $ from 'jquery';
-import {fromEvent, Observable, Subscription} from 'rxjs';
-import {ScrollService} from '../../services/scroll.service';
-import {environment} from '../../../environments/environment';
+import { fromEvent, Observable, Subscription } from 'rxjs';
+import { ScrollService } from '../../services/scroll.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-home',
