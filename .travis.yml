@@ -119,7 +119,7 @@ matrix:
       deploy:
         - provider: script
           skip_cleanup: true
-          script: rm -Rf dist/angular-app/assets/stock\ video/* && node ftp.js
+          script: rm -Rf dist/angular-app/assets/stock\ video/* && gulp deploy --user $FTP_USER --password $FTP_PASSWORD
           on:
             branch: develop
         - provider: script
