@@ -136,13 +136,11 @@ export class ContactComponent implements OnInit {
   }
 
   public onSubmitBackToTopDesktop() {
-    document.body.scrollTop = 1005; // For Safari
-    document.documentElement.scrollTop = 1005; // For Chrome, Firefox, IE and Opera
+    document.getElementById('successTop').scrollIntoView();
   }
 
   public onSubmitBackToTopMobile() {
-    document.body.scrollTop = 824; // For Safari
-    document.documentElement.scrollTop = 824; // For Chrome, Firefox, IE and Opera
+    document.getElementById('successTop').scrollIntoView();
   }
 
   public reset(form: NgForm) {
@@ -174,11 +172,11 @@ export class ContactComponent implements OnInit {
         this.spinner.hide();
 
         // TODO: Maybe we don't need this logic.
-        /*  if (this.isMobileResolution()) {
+          if (this.isMobileResolution()) {
             this.onSubmitBackToTopMobile();
           } else {
             this.onSubmitBackToTopDesktop();
-          }*/
+          }
       }, error => {
         // TODO should display error message at top of quote page.
         console.log('error: ' + error, error);
