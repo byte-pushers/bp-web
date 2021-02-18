@@ -12,7 +12,7 @@ export class AppFooterComponent implements OnInit {
   public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
 
   constructor(private contactButtonService: ContactButtonService,
-              public scrollTo: ScrollService) {
+              public scrollToService: ScrollService) {
   }
 
   ngOnInit() {
