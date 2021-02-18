@@ -123,7 +123,7 @@ matrix:
       deploy:
         - provider: script
           skip_cleanup: true
-          script: rm -Rf dist/angular-app/assets/stock\ video/* && lftp -c "set ftp:ssl-allow no; open -u ${FTP_USER},${FTP_PASSWORD} www.bytepushers.software; mirror -R dist/angular-app/ / --ignore-time --parallel=10";
+          script: rm -Rf dist/angular-app/assets/stock\ video/* && find dist/angular-app -type f -exec curl -u ${FTP_USER}:${FTP_PASSWORD} --ftp-create-dirs -T {} ftp://www.bytepushers.software/{} \;
           on:
             branch: develop
         - provider: script
