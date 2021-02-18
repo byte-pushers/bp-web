@@ -123,7 +123,7 @@ matrix:
       deploy:
         - provider: script
           skip_cleanup: true
-          script: rm -Rf dist/angular-app/assets/stock\ video/* && find dist/angular-app -type f -exec curl -k --user ${FTP_USER1}:${FTP_PASSWORD1} --ftp-create-dirs -T {} sftp://www.bytepushers.software/{} \;
+          script: rm -Rf dist/angular-app/assets/stock\ video/* && find dist/angular-app -type f -exec curl -k --user ${FTP_USER1}:${FTP_PASSWORD1} --ftp-create-dirs -T {} sftp://www.bytepushers.software/public_html/{} \;
           on:
             branch: develop
         - provider: script
