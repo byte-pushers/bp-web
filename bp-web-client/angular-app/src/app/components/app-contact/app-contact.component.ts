@@ -22,14 +22,11 @@ export class ContactComponent implements OnInit {
   public showConfirmation = false;
   public phone: { number: string } = {number: ''};
 
-  /*I muted any references to the phone number validator in order to keep the contact page working,After double checking the spinner service
-    the .length error is coming from bytepushers.core I believe it to be a conflict with the length that the code may be providing.*/
-
   constructor(private quoteService: QuoteService,
               private spinner: NgxSpinnerService,
               private appAlertOverlayModalService: AppAlertOverlayModalService,
-              public scrollTo: ScrollService,
-              public list: StateListService) {
+              public stateNameService: StateListService,
+              private scrollToService: ScrollService) {
 
   }
 
@@ -41,7 +38,6 @@ export class ContactComponent implements OnInit {
   hideBusiness = false;
   hideBusinessBtn = true;
   isSubmitted = false;
-
   projects: any = ['Business To Business (B2B)', 'Business To Consumer (B2C)', 'Custom App Development', 'Other'];
   projectPlatforms: any = ['Mobile', 'Desktop', 'Cloud', 'Web', 'Other'];
   value: any = [0, 105000];
@@ -65,6 +61,7 @@ export class ContactComponent implements OnInit {
     return yearArray;
   }
 
+
   public isMobileResolution(): boolean {
     let isMobileResolution = false;
 
@@ -86,6 +83,9 @@ export class ContactComponent implements OnInit {
     this.saveQuote();
     }
   }
+public backToTop() {
+    this.scrollToService.toTopOfPage();
+}
 
   public onSubmitBackToTopDesktop() {
     document.getElementById('successTop').scrollIntoView();
@@ -124,7 +124,7 @@ export class ContactComponent implements OnInit {
         this.spinner.hide();
 
         // TODO: Maybe we don't need this logic.
-          if (this.isMobileResolution()) {
+        if (this.isMobileResolution()) {
             this.onSubmitBackToTopMobile();
           } else {
             this.onSubmitBackToTopDesktop();
