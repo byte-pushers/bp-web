@@ -123,14 +123,14 @@ matrix:
       deploy:
         - provider: script
           skip_cleanup: true
-          script: rm -Rf dist/angular-app/assets/stock\ video/* && find dist/angular-app -type f -exec curl -k --user ${FTP_USER1}:${FTP_PASSWORD1} --ftp-create-dirs -T {} sftp://www.bytepushers.software/public_html/{} \;
+          script: rm -Rf dist/angular-app/assets/stock\ video/* && cd dist/angular-app/ && find . -type f -exec curl -k sftp://www.bytepushers.software/public_html/{} --user ${FTP_USER1}:${FTP_PASSWORD1} -T {} --ftp-create-dirs \;
           on:
             branch: develop
         - provider: script
           skip_cleanup: true
           script: aws s3 sync dist/* ${STATIC_WEBSITE_S3_BUCKET_URL} && aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
           on:
-            branch: develop
+            branch: master
         - provider: script
           skip_cleanup: true
           script: aws s3 sync dist/* ${STATIC_WEBSITE_S3_BUCKET_URL} && aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
