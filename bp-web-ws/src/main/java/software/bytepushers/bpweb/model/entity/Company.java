@@ -24,12 +24,7 @@ public class Company extends AbstractEntity {
     private String type;
 
     @Column
-    @NotEmpty(groups = CreateRequest.class, message = "{company.url.required}")
     private String url;
-
-    @Column
-    @NotEmpty(groups = CreateRequest.class, message = "{company.description.required}")
-    private String description;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "budget_id", referencedColumnName = "id", nullable = false)
