@@ -103,6 +103,10 @@ matrix:
             branch: master
 
     - language: node_js
+      addons:
+        apt:
+          packages:
+            - lftp
       node_js:
         - “12”
       cache:
@@ -119,7 +123,7 @@ matrix:
       deploy:
         - provider: script
           skip_cleanup: true
-          script: rm -Rf dist/angular-app/assets/stock\ video/* && gulp deploy --user $FTP_USER --password $FTP_PASSWORD
+          script: rm -Rf dist/angular-app/assets/stock\ video/* && lftp -c "set ftp:ssl-allow no; open -u ${FTP_USER},${FTP_PASSWORD} www.bytepushers.software; mirror -R dist/angular-app/ / --ignore-time --parallel=10";
           on:
             branch: develop
         - provider: script
