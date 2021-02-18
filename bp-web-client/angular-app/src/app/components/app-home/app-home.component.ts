@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
 
 
   constructor(private window: Window,
-              public scrollTo: ScrollService) {
+              public scrollToService: ScrollService) {
   }
 
   ngOnInit() {
