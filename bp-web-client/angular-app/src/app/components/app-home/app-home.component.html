@@ -33,7 +33,9 @@
       <div class="featuresSections">
         <div class="fadein-out-features" id="cp3Desc">
           <div class="featuresContent">
-            <img src="../../../assets/images/homePage/chucksPick3ColorLogo.svg"/>
+            <a href="{{chucksPick3Url}}">
+            <img  src="../../../assets/images/homePage/chucksPick3ColorLogo.svg"/>
+            </a>
             <h2 style="color: aliceblue; font-size: 40px;">Chuck's Pick 3</h2>
             <p>
               Increase your chances of winning the Pick 3 Lottery with Chuck's picks! Stay up to date on the
@@ -41,7 +43,7 @@
               history and
               much much more!
             </p>
-            <a href="https://www.chuckspick3.com/#/" class="chucks-pick3-link">Read More</a>
+            <a href="{{chucksPick3Url}}" class="chucks-pick3-link">Read More</a>
           </div>
         </div>
       </div>
@@ -224,7 +226,7 @@
                   something great!</p>
               </div>
               <div class="services-copy-link">
-                <a class="webpage-link" [routerLink]="'/services'" (click)="scrollTo.backToTop()">
+                <a class="webpage-link" [routerLink]="'/services'" (click)="scrollToService.toTopOfPage()">
                   <strong>Read More</strong>
                 </a>
               </div>
@@ -244,7 +246,7 @@
                   you!</p>
               </div>
               <div class="services-copy-link">
-                <a class="webpage-link" [routerLink]="'/services'" (click)="scrollTo.backToTop()"
+                <a class="webpage-link" [routerLink]="'/services'" (click)="scrollToService.toTopOfPage()"
                    ><strong>Read More</strong></a>
               </div>
             </div>
@@ -263,7 +265,7 @@
                   visualize and act on your data!</p>
               </div>
               <div class="services-copy-link">
-                <a class="webpage-link" [routerLink]="'/services'" (click)="scrollTo.backToTop()"
+                <a class="webpage-link" [routerLink]="'/services'" (click)="scrollToService.toTopOfPage()"
                    ><strong>Read More</strong></a>
               </div>
             </div>
@@ -296,7 +298,7 @@
                     build something great!</p>
                 </div>
                 <div class="carousel-text">
-                  <a class="webpage-link" [routerLink]="'/services'" (click)="scrollTo.backToTop()"
+                  <a class="webpage-link" [routerLink]="'/services'" (click)="scrollToService.toTopOfPage()"
                      ><strong>Read More</strong></a>
                 </div>
               </section>
@@ -315,7 +317,7 @@
                     for you!</p>
                 </div>
                 <div class="carousel-text">
-                  <a class="webpage-link" [routerLink]="'/services'" (click)="scrollTo.backToTop()"
+                  <a class="webpage-link" [routerLink]="'/services'" (click)="scrollToService.toTopOfPage()"
                      ><strong>Read More</strong></a>
                 </div>
               </section>
@@ -334,7 +336,7 @@
                     visualize and act on your data!</p>
                 </div>
                 <div class="carousel-text">
-                  <a class="webpage-link" [routerLink]="'/services'" (click)="scrollTo.backToTop()"
+                  <a class="webpage-link" [routerLink]="'/services'" (click)="scrollToService.toTopOfPage()"
                      ><strong>Read More</strong></a>
                 </div>
               </section>
@@ -494,7 +496,7 @@
 
     <section class="lets-talk">
       <div class="lets-talk-heading">Like what you see? <br> Let’s talk.</div>
-      <a class="lets-talk-button" [routerLink]="'/contact'" (click)="scrollTo.backToTop()" >Contact
+      <a class="lets-talk-button" [routerLink]="'/contact'" (click)="scrollToService.toTopOfPage()" >Contact
         Us</a>
     </section>
   </div>
