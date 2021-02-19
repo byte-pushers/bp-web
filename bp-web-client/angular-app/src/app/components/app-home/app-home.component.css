@@ -9,9 +9,23 @@
   padding: 0;
 }
 
-.service-container {
+.companies {
+  background: #ebebeb;
+  padding: 80px 0;
   text-align: center;
-  margin-bottom: 2em;
+  width: 100%;
+  color: #5c5c5c;
+  text-transform: uppercase;
+}
+
+.companies-mobile {
+  background: #ebebeb;
+  text-align: center;
+  width: 100%;
+  height: 800px;
+  color: #5c5c5c;
+  text-transform: uppercase;
+
 }
 
 ::ng-deep .carousel-control-next-icon {
@@ -38,88 +52,12 @@
   background-color: rgba(72, 55, 55, 0.79);
 }
 
-.row {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center;
-}
-
 .overview-title {
   color: #62a3d9;
   font-size: 1.5em;
   margin-bottom: 1em !important;
 }
 
-.selection-logos {
-  background: #ebebeb;
-  padding: 80px 0;
-  text-align: center;
-  width: 100%;
-}
-
-.selection-logos-mobile {
-  background: #ebebeb;
-  text-align: center;
-  width: 100%;
-  height: 800px;
-}
-
-.selection-logos h2 {
-  color: #8c8c8c;
-  font-style: 48px;
-  font-weight: 400;
-  text-transform: uppercase;
-  padding: 0px;
-  margin: 0 0 40px 0;
-}
-
-.selection-logos-mobile h2 {
-  color: #8c8c8c;
-  font-style: 48px;
-  font-weight: 400;
-  text-transform: uppercase;
-  padding: 0px;
-  margin: 0 0 40px 0;
-}
-
-.logoColumn {
-  margin-bottom: 2%;
-  padding: 0px !important;
-}
-
-.aviallLogo {
-  max-height: 75px !important;
-}
-
-.geLogo {
-  height: 100px;
-}
-
-.telecomLogo {
-  max-height: 120px !important;
-}
-
-.TRLogo {
-  max-height: 180px !important;
-}
-
-.tillsterLogo {
-  margin-top: 20px;
-}
-
-.TiLogo {
-  max-height: 160px !important;
-}
-
-.llnlLogo {
-  max-height: 180px !important;
-}
-
-.workwithus {
-  background: #fff;
-  width: 100%;
-  padding: 50px 0;
-}
 .icon-text {
   padding-top: 10%;
   font-size: 24px;
@@ -129,97 +67,11 @@
   font-size: 14px;
   filter: opacity(50%) !important;
 }
-.headContent {
-  padding: 70px 50px 70px 25px;
-  margin: 0px;
-  width: 50%;
-  float: left;
-}
-
-.headContent h3 {
-  color: #3466aa;
-  font-size: 42px;
-  margin: 0 0 15px 0;
-  padding: 0px;
-  font-weight: 400;
-}
-
-.rightcontent {
-  float: right;
-  width: 50%;
-  padding: 70px 0px 70px 50px;
-  border-left: solid 1px #000;
-}
-
-.rightcontent button {
-  border: solid 2px #3466aa;
-  background: none;
-  padding: 10px 25px;
-  margin: 0px;
-  color: #3466aa;
-  outline: none;
-  border-radius: 4px;
-}
-
-.workwithus-mobile {
-  background: #fff;
-  width: 100%;
-  padding: 70px 0;
-}
-
-.headContent-mobile {
-  margin: 0px;
-  width: 100%;
-  float: left;
-  text-align: center;
-}
-
-.headContent-mobile h3 {
-  color: #3466aa;
-  font-size: 42px;
-  margin: 0 0 15px 0;
-  padding: 0px;
-  font-weight: 400;
-}
-
-.rightcontent-mobile {
-  float: right;
-  width: 100%;
-  padding: 20px;
-}
-
-.rightcontent-mobile button {
-  border: solid 2px #3466aa;
-  background: none;
-  width: 100%;
-  padding: 20px;
-  margin: 0px;
-  color: #3466aa;
-  outline: none;
-  border-radius: 4px;
-}
-
-.buildIdeaSec {
-  width: 100%;
-}
-
-.about-content {
-  display: inline-block;
-}
-
 
 .about-container {
   text-align: center;
   padding: 0em 2.5em 0em 2.5em;
 }
-
-.row {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  margin: 0 auto !important;
-  justify-content: center;
-}
-
 
 .methodology-carousel {
   height: 500px !important;
@@ -229,19 +81,6 @@
   height: 370px !important;
 
 }
-
-/*::ng-deep .carousel-item {
-  padding: 10px 0px 0px 0px;
-  opacity: 0;
-  transition: opacity .3s ease-in-out;
-  position: relative;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 0;
-  display: block !important;
-}*/
 
 ::ng-deep .carousel-control-next:focus, .carousel-control-next:hover, .carousel-control-prev:focus, .carousel-control-prev:hover {
   color: #ffffff !important;

@@ -29,7 +29,8 @@
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "./node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css",
               "src/assets/scss/new-styles.css",
-              "src/assets/scss/fonts.css"
+              "src/assets/scss/fonts.css",
+              "src/assets/scss/header.css"
             ],
             "scripts": [
               "./node_modules/bootstrap-slider/dist/bootstrap-slider.min.js",
@@ -103,7 +104,7 @@
               "budgets": [
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
+                  "maximumWarning": "10kb"
                 }
               ],
               "fileReplacements": [
