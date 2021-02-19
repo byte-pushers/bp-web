@@ -27,6 +27,7 @@ import {ServicesComponent} from './components/app-services/app-services.componen
 import {PhoneNumberDirective} from './directives/phone-number.directive';
 import {AppRoutingModule} from './app-routing.module';
 import {AppRoutingService} from './shared/services/app-routing.service';
+import {StateNameService} from "./services/state-name.service";
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import {AppRoutingService} from './shared/services/app-routing.service';
     RouterLinkActive,
     QuoteService,
     {provide: Window, useValue: window},
-    AppRoutingService
+    AppRoutingService,
+    StateNameService
   ],
   entryComponents: [
     // Needs to be added here because otherwise we can't

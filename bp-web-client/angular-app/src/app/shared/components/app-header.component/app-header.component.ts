@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ScrollService} from '../../../services/scroll.service';
+import {ScrollToService} from '../../../services/scroll-to.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +7,7 @@ import {ScrollService} from '../../../services/scroll.service';
   styleUrls: ['./app-header.component.css']
 })
 export class AppHeaderComponent implements OnInit {
-  constructor(public scrollTo: ScrollService) {
+  constructor(public scrollTo: ScrollToService) {
   }
 
   ngOnInit() {
@@ -60,7 +60,7 @@ export class AppHeaderComponent implements OnInit {
     }
 
   }
-  
+
   public openCloseMobileNav() {
     const windowCheck = window.innerWidth;
     if (windowCheck <= 480) {
