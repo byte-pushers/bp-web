@@ -4,8 +4,6 @@
 }
 
 
-
-
 ::ng-deep .carousel-control-next-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='gray' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 }
@@ -83,16 +81,10 @@ div[disabled] {
 }
 
 
-
-
-
-
-
-
 .tech-icons-1 {
   height: 14vh;
   vertical-align: auto;
-padding-top: auto;
+  padding-top: auto;
   padding-bottom: auto;
 }
 
@@ -109,6 +101,7 @@ padding-top: auto;
   padding-top: auto;
   padding-bottom: 2vh;
 }
+
 .tech-icons-mobile-2 {
   height: 6vh;
   vertical-align: auto;
@@ -125,15 +118,18 @@ padding-top: auto;
   display: inline-block;
   filter: opacity(50%) !important;
 }
+
 .icon:hover {
   filter: unset !important;
   text-decoration: none;
 }
+
 .tech-text-mobile {
   font-size: 3vh;
   padding-bottom: 2vh;
 
 }
+
 strong:hover {
   color: black;
 }

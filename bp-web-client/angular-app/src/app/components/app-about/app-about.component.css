@@ -26,15 +26,17 @@
 }
 
 .about-text-mobile {
-   font-size: 14px;
-   text-align: left;
-   letter-spacing: .6px;
- }
+  font-size: 14px;
+  text-align: left;
+  letter-spacing: .6px;
+}
+
 .about-text {
   font-size: 20px;
   text-align: left;
   letter-spacing: .6px;
 }
+
 /*
 ::ng-deep .carousel-control-next:focus, .carousel-control-next:hover, .carousel-control-prev:focus, .carousel-control-prev:hover {
   color: #1b1919;
@@ -71,7 +73,6 @@
   visibility: hidden;
 }
 */
-
 
 
 ::ng-deep .carousel-indicators li {
