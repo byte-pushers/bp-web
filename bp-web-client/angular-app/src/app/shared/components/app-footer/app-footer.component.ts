@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ContactButtonService} from '../../../services/contact-button.service';
+import {environment} from '../../../../environments/environment';
+import {ScrollToService} from '../../../services/scroll-to.service';
 
 @Component({
   selector: 'app-footer',
@@ -6,26 +9,40 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app-footer.component.css']
 })
 export class AppFooterComponent implements OnInit {
+  public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
 
-  constructor() { }
+  constructor(private contactButtonService: ContactButtonService,
+              public scrollToService: ScrollToService) {
+  }
 
   ngOnInit() {
   }
+
+  public showBPLogo() {
+    return this.contactButtonService.getShowBpLogo();
+  }
+
+  public showContactButton() {
+    return this.contactButtonService.getShowContactButton();
+  }
+
   public backToTop() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }
-  private openCloseMobileNav() {
+
+  public openCloseMobileNav() {
     const windowCheck = window.innerWidth;
     if (windowCheck <= 480) {
       const mobileNav = document.getElementById('topnav');
 
       if (mobileNav.classList.contains('expanded')) {
-        mobileNav.classList.remove("expanded");
+        mobileNav.classList.remove('expanded');
       } else {
-        mobileNav.classList.add("expanded");
+        mobileNav.classList.add('expanded');
       }
     }
   }
+
 
 }
