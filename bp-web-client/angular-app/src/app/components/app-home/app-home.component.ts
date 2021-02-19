@@ -30,9 +30,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
       $nextButton.click(HomeComponent.nextButtonClickedEventHandler);
     });
     this.resizeObservable$ = fromEvent(window, 'resize');
-    this.resizeSubscription$ = this.resizeObservable$.subscribe( evt => {
+    this.resizeSubscription$ = this.resizeObservable$.subscribe( Window => {
       // TODO: Double check this.  resizeImage() method should have the follwoing params: Window, ElementRef
-      this.resizeImage(evt.currentTarget, this.divView);
+      this.resizeImage(Window.currentTarget, this.divView);
     });
   }
 
