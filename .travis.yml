@@ -123,7 +123,7 @@ matrix:
       deploy:
         - provider: script
           skip_cleanup: true
-          script: rm -Rf dist/angular-app/assets/stock\ video/* && node sftp.js
+          script: node sftp.js
           on:
             branch: develop
         - provider: script
