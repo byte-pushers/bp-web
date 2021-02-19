@@ -5,10 +5,10 @@ import {Quote} from '../../shared/models/quote';
 import {QuoteModel} from '../../shared/models/quote.model';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {AppAlertOverlayModalService} from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.service';
-import {ScrollService} from '../../services/scroll.service';
+import {ScrollToService} from '../../services/scroll-to.service';
 import {AppAlertOverlayModalComponent} from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.component';
 import {ComponentType} from '@angular/cdk/portal/portal';
-import {StateListService} from '../../services/state-list.service';
+import {StateNameService} from '../../services/state-name.service';
 
 
 @Component({
@@ -25,8 +25,8 @@ export class ContactComponent implements OnInit {
   constructor(private quoteService: QuoteService,
               private spinner: NgxSpinnerService,
               private appAlertOverlayModalService: AppAlertOverlayModalService,
-              public stateNameService: StateListService,
-              private scrollToService: ScrollService) {
+              public stateNameService: StateNameService,
+              private scrollToService: ScrollToService) {
 
   }
 
