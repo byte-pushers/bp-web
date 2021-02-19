@@ -28,7 +28,7 @@
       <div class="col-sm-4 footer-quote" style=" height: 120px;" *ngIf="showBPLogo()">
         <ul>
           <li style="margin-top:auto; margin-bottom: auto">
-            <a class="topnav-link" [routerLink]="'/home'" routerLinkActive="active"  (click)="scrollToService.backToTop(); openCloseMobileNav()">
+            <a class="topnav-link" [routerLink]="'/home'" routerLinkActive="active"  (click)="backToTop(); openCloseMobileNav()">
             <img style="height: 5em; margin-top: .7em; margin-bottom: .7em;" src="assets/images/bytePushersLogoMobile.svg">
             </a>
           </li>
@@ -68,7 +68,7 @@
       <div class="col-sm-4 footer-quote-mobile" style=" height: 120px;" *ngIf="showContactButton()">
         <ul>
           <li style="margin-top: 5%">
-            <a class="topnav-link" [routerLink]="'/home'" routerLinkActive="active"  (click)="scrollToService.backToTop(); openCloseMobileNav()">
+            <a class="topnav-link" [routerLink]="'/home'" routerLinkActive="active"  (click)="backToTop(); openCloseMobileNav()">
             <img style="height: 6em" src="assets/images/bytePushersLogoMobile.svg">
             </a>
           </li>

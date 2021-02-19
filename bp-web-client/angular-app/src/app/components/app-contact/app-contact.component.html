@@ -163,7 +163,7 @@
                       name="state"
                       #state="ngModel">
                 <option [ngValue]="null">Please Select A State</option>
-                <option *ngFor="let state of states" [value]="state">{{state}}</option>
+                <option *ngFor="let state of stateNameService.states" [value]="state">{{state}}</option>
               </select>
             </div>
           </div>
@@ -497,21 +497,19 @@
           </div>
 
 
-          <div class="col-12">
-            <label>State</label>
-          </div>
-          <div class="col-12 mobile-row">
-            <select class="form-control"
-                    name="state" [(ngModel)]="quote.contact.address.state"
-                    id="stateMobile" #state='ngModel'>
-              <option [ngValue]="null">Please Select A State</option>
-              <option *ngFor="let state of states" [value]="state">{{state}}</option>
-            </select>
-          </div>
+        <div class="col-12">
+          <label>State</label>
         </div>
-        <button class="btn btn-outline-primary mobile-row  col-12" *ngIf="hidePersonal" (click)="togglePersonal()">Show
-          Less
-        </button>
+        <div class="col-12 mobile-row">
+          <select class="form-control"
+                  name="state" [(ngModel)]="quote.contact.address.state"
+                  id="stateMobile"  #state='ngModel'>
+            <option [ngValue]="null">Please Select A State</option>
+            <option *ngFor="let state of stateNameService.states" [value]="state">{{state}}</option>
+          </select>
+        </div>
+</div>
+        <button class="btn btn-outline-primary mobile-row  col-12"  *ngIf="hidePersonal" (click)="togglePersonal()">Show Less</button>
 
 
         <div class="section-heading">Business Information</div>
@@ -764,7 +762,7 @@
     </section>
     <section class="lets-talk">
       <div class="lets-talk-heading">Take some time <br> to view our work.</div>
-      <a class="lets-talk-button" [routerLink]="'/work'" (click)="scrollTo.backToTop()">View Work</a>
+      <a class="lets-talk-button" [routerLink]="'/work'" (click)="backToTop()" >View Work</a>
     </section>
   </div>
 </main>

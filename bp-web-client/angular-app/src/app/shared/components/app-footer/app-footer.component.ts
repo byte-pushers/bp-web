@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ContactButtonService} from '../../../services/contact-button.service';
 import {environment} from '../../../../environments/environment';
-import {ScrollService} from '../../../services/scroll.service';
+import {ScrollToService} from '../../../services/scroll-to.service';
 
 @Component({
   selector: 'app-footer',
@@ -12,7 +12,7 @@ export class AppFooterComponent implements OnInit {
   public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
 
   constructor(private contactButtonService: ContactButtonService,
-              public scrollToService: ScrollService) {
+              public scrollToService: ScrollToService) {
   }
 
   ngOnInit() {

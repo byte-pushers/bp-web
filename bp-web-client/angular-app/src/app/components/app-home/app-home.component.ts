@@ -1,8 +1,9 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import * as $ from 'jquery';
-import { fromEvent, Observable, Subscription } from 'rxjs';
-import { ScrollService } from '../../services/scroll.service';
+import {fromEvent, Observable, Subscription} from "rxjs";
+import {ScrollToService} from '../../services/scroll-to.service';
 import { environment } from '../../../environments/environment';
+
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
 
 
   constructor(private window: Window,
-              public scrollTo: ScrollService) {
+              public scrollToService: ScrollToService) {
   }
 
   ngOnInit() {

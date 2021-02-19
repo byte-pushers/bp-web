@@ -5,9 +5,10 @@ import {Quote} from '../../shared/models/quote';
 import {QuoteModel} from '../../shared/models/quote.model';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {AppAlertOverlayModalService} from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.service';
-import {ScrollService} from '../../services/scroll.service';
+import {ScrollToService} from '../../services/scroll-to.service';
 import {AppAlertOverlayModalComponent} from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.component';
 import {ComponentType} from '@angular/cdk/portal/portal';
+import {StateNameService} from '../../services/state-name.service';
 import {ContactButtonService} from '../../services/contact-button.service';
 
 
@@ -22,13 +23,11 @@ export class ContactComponent implements OnInit, OnDestroy {
   public showConfirmation = false;
   public phone: { number: string } = {number: ''};
 
-  /*I muted any references to the phone number validator in order to keep the contact page working,After double checking the spinner service
-    the .length error is coming from bytepushers.core I believe it to be a conflict with the length that the code may be providing.*/
-
   constructor(private quoteService: QuoteService,
               private spinner: NgxSpinnerService,
               private appAlertOverlayModalService: AppAlertOverlayModalService,
-              public scrollTo: ScrollService,
+              public stateNameService: StateNameService,
+              private scrollToService: ScrollToService,
               private contactButtonService: ContactButtonService) {
 
   }
@@ -41,57 +40,6 @@ export class ContactComponent implements OnInit, OnDestroy {
   hideBusiness = false;
   hideBusinessBtn = true;
   isSubmitted = false;
-  states: any = [
-    'Alabama',
-    'Alaska',
-    'Arizona',
-    'Arkansas',
-    'California',
-    'Colorado',
-    'Connecticut',
-    'Delaware',
-    'Florida',
-    'Georgia',
-    'Hawaii',
-    'Idaho',
-    'Illinois',
-    'Indiana',
-    'Iowa',
-    'Kansas',
-    'Kentucky',
-    'Louisiana',
-    'Maine',
-    'Maryland',
-    'Massachusetts',
-    'Michigan',
-    'Minnesota',
-    'Mississippi',
-    'Missouri',
-    'Montana',
-    'Nebraska',
-    'Nevada',
-    'New Hampshire',
-    'New Jersey',
-    'New Mexico',
-    'New York',
-    'North Carolina',
-    'North Dakota',
-    'Ohio',
-    'Oklahoma',
-    'Oregon',
-    'Pennsylvania',
-    'Rhode Island',
-    'South Carolina',
-    'South Dakota',
-    'Tennessee',
-    'Texas',
-    'Utah',
-    'Vermont',
-    'Virginia',
-    'Washington',
-    'West Virginia',
-    'Wisconsin',
-    'Wyoming'];
   projects: any = ['Business To Business (B2B)', 'Business To Consumer (B2C)', 'Custom App Development', 'Other'];
   projectPlatforms: any = ['Mobile', 'Desktop', 'Cloud', 'Web', 'Other'];
   value: any = [0, 105000];
@@ -123,6 +71,7 @@ export class ContactComponent implements OnInit, OnDestroy {
     return yearArray;
   }
 
+
   public isMobileResolution(): boolean {
     let isMobileResolution = false;
 
@@ -144,6 +93,9 @@ export class ContactComponent implements OnInit, OnDestroy {
     this.saveQuote();
     }
   }
+public backToTop() {
+    this.scrollToService.toTopOfPage();
+}
 
   public onSubmitBackToTopDesktop() {
     document.getElementById('successTop').scrollIntoView();
