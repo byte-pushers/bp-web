@@ -29,6 +29,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppRoutingService } from './shared/services/app-routing.service';
 import { CommonModule } from '@angular/common';
 import { ContactButtonService } from './services/contact-button.service';
+import {StateNameService} from './services/state-name.service';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { ContactButtonService } from './services/contact-button.service';
     QuoteService,
     {provide: Window, useValue: window},
     ContactButtonService,
-    AppRoutingService
+    AppRoutingService,
+    StateNameService
   ],
   entryComponents: [
     // Needs to be added here because otherwise we can't
