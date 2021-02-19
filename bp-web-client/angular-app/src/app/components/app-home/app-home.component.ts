@@ -1,7 +1,8 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import * as $ from 'jquery';
 import {fromEvent, Observable, Subscription} from "rxjs";
 import {ScrollToService} from '../../services/scroll-to.service';
+import { environment } from '../../../environments/environment';
 
 
 @Component({
@@ -10,9 +11,10 @@ import {ScrollToService} from '../../services/scroll-to.service';
   styleUrls: ['./app-home.component.css']
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
+  public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
   resizeObservable$: Observable<Event>;
   resizeSubscription$: Subscription;
-  @ViewChild("homeBackgroundWorkImg") divView: ElementRef;
+  @ViewChild('homeBackgroundWorkImg') divView: ElementRef;
 
 
   constructor(private window: Window,
@@ -29,8 +31,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy{
       $nextButton.click(HomeComponent.nextButtonClickedEventHandler);
     });
     this.resizeObservable$ = fromEvent(window, 'resize');
-    this.resizeSubscription$ = this.resizeObservable$.subscribe( evt => {
-      this.resizeImage(evt.currentTarget, this.divView);
+    this.resizeSubscription$ = this.resizeObservable$.subscribe( Window => {
+      // TODO: Double check this.  resizeImage() method should have the follwoing params: Window, ElementRef
+      this.resizeImage(Window.currentTarget, this.divView);
     });
   }
 

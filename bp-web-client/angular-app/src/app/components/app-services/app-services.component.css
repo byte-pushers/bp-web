@@ -92,14 +92,15 @@ div[disabled] {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.companies {
+
+.selection-logos {
   background: white;
   padding: 80px 0;
   text-align: center;
   width: 100%;
 }
 
-.companies-mobile {
+.selection-logos-mobile {
   background: white;
   text-align: center;
   width: 100%;
@@ -108,7 +109,7 @@ div[disabled] {
 }
 
 
-.companies h2 {
+.selection-logos h2 {
   color: #000000;
   font-style: 48px;
   font-weight: 400;
@@ -117,7 +118,7 @@ div[disabled] {
   margin: 0 0 40px 0;
 }
 
-.companies-mobile h2 {
+.selection-logos-mobile h2 {
   color: #000000;
   font-style: 48px;
   font-weight: 400;
@@ -125,6 +126,7 @@ div[disabled] {
   padding: 0px;
   margin: 0 0 40px 0;
 }
+
 .icon-text {
   padding-top: 10%;
   font-size: 24px;

@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {QuoteService} from '../../shared/services/quote.service';
 import {Quote} from '../../shared/models/quote';
@@ -9,6 +9,7 @@ import {ScrollToService} from '../../services/scroll-to.service';
 import {AppAlertOverlayModalComponent} from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.component';
 import {ComponentType} from '@angular/cdk/portal/portal';
 import {StateNameService} from '../../services/state-name.service';
+import {ContactButtonService} from '../../services/contact-button.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ import {StateNameService} from '../../services/state-name.service';
   templateUrl: './app-contact.component.html',
   styleUrls: ['./app-contact.component.css']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, OnDestroy {
   public errorMessage: string;
   public errorMessages: [string?] = ['Phone number is invalid.'];
   public showConfirmation = false;
@@ -26,7 +27,8 @@ export class ContactComponent implements OnInit {
               private spinner: NgxSpinnerService,
               private appAlertOverlayModalService: AppAlertOverlayModalService,
               public stateNameService: StateNameService,
-              private scrollToService: ScrollToService) {
+              private scrollToService: ScrollToService,
+              private contactButtonService: ContactButtonService) {
 
   }
 
@@ -50,8 +52,16 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
     this.years = this.calculateYears(+new Date().getFullYear(), 40);
     this.years.push('Older than 1980');
+    this.setOnContactView(false);
+
   }
 
+  ngOnDestroy() {
+    this.setOnContactView(true);
+  }
+  public setOnContactView(setView): void {
+    this.contactButtonService.isOnContactView(setView);
+  }
   public calculateYears(yearList: number, yearsSpan: number): any [] {
     const yearArray = [];
     yearArray.push(yearList);
@@ -152,13 +162,13 @@ public backToTop() {
   public changeTimeline() {
     const timeFrameMin = this.timeframe[0];
     const timeFrameMax = this.timeframe[1];
-    const newBudget = 'Range: '.concat(timeFrameMin + (' Months - ') + timeFrameMax + (' Months'));
-    const newBudgetTop = 'Range: '.concat(timeFrameMin + (' Months - ') + timeFrameMax + (' Months and up'));
+    const newTimeline = 'Range: '.concat(timeFrameMin + (' mo - ') + timeFrameMax + (' mo'));
+    const newTimelineTop = 'Range: '.concat(timeFrameMin + (' mo - ') + timeFrameMax + (' mo or longer'));
 
     if (timeFrameMax <= 32) {
-      this.timelines.splice(0, 1, newBudget);
+      this.timelines.splice(0, 1, newTimeline);
     } else {
-      this.timelines.splice(0, 1, newBudgetTop);
+      this.timelines.splice(0, 1, newTimelineTop);
     }
 
     /* const newMonth = 'Range: '.concat(this.timeframe[0] + (' Months - ') + this.timeframe[1] + (' Months'));

@@ -21,13 +21,18 @@
       <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
         by<span class="br-mobile"></span> our labors of love.
       </div>
+      <div class="row desktop-row">
+        <div class="col-12">
+          <p style="color: #8C8B8A">* Required Information</p>
+        </div>
+      </div>
       <!-- General Form API Errors go here //-->
 
       <form #quoteForm="ngForm" (ngSubmit)="onSubmit();" class="align-items-center needs-validation">
         <div class="form-group">
           <div class="form-row inner-form-section">
             <div class="form-group col-md-4">
-              <label for="firstName">First Name</label>
+              <label for="firstName">First Name*</label>
 
               <input
                 id="firstName"
@@ -59,10 +64,9 @@
                 class="form-control"
                 minlength="2"
                 pattern="^[^0-9]+$"
-                required
-                #lastName="ngModel">
+              #lastName="ngModel">
               <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
-                <div *ngIf="lastName.errors.required">Last name is required.</div>
+                <!--<div *ngIf="lastName.errors.required">Last name is required.</div>-->
                 <div *ngIf="lastName.errors.minlength">A minimum of 2 letters are required.</div>
                 <div *ngIf="lastName.errors.pattern">Last name is not valid.</div>
               </div>
@@ -70,7 +74,7 @@
           </div>
           <div class="form-row inner-form-section">
             <div class="form-group col-md-4">
-              <label for="phoneNumber">Phone Number</label>
+              <label for="phoneNumber">Phone Number*</label>
               <div class="input-group">
                 <div class="input-group-prepend">
                   <div class="input-group-text ">
@@ -81,16 +85,16 @@
                     </svg>
                   </div>
                 </div>
-              <input
-                id="phoneNumber"
-                name="phoneNumber"
-                placeholder="Phone Number"
-                [(ngModel)]="phone.number"
-                type="text"
-                class="form-control"
-                #phoneNumber="ngModel"
-                required
-                phoneNumber>
+                <input
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  placeholder="Phone Number"
+                  [(ngModel)]="phone.number"
+                  type="text"
+                  class="form-control"
+                  #phoneNumber="ngModel"
+                  required
+                  phoneNumber>
               </div>
               <div id="phoneNumberValidError"></div>
               <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)"
@@ -101,26 +105,28 @@
             </div>
             <div class="col-md-2"><!--space--></div>
             <div class="form-group col-md-4">
-              <label for="email">Email</label>
+              <label for="email">Email*</label>
               <div class="input-group">
                 <div class="input-group-prepend">
                   <div class="input-group-text ">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
-                      <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-envelope" viewBox="0 0 16 16">
+                      <path
+                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
                     </svg>
                   </div>
                 </div>
-              <input
-                id="email"
-                name="email"
-                placeholder="Email"
-                [(ngModel)]="quote.contact.email"
-                type="email"
-                class="form-control"
-                minlength="2"
-                email
-                required
-                #email="ngModel">
+                <input
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                  [(ngModel)]="quote.contact.email"
+                  type="email"
+                  class="form-control"
+                  minlength="2"
+                  email
+                  required
+                  #email="ngModel">
               </div>
               <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
                 <div *ngIf="email.errors.required">Email is required.</div>
@@ -130,7 +136,8 @@
             </div>
           </div>
           <div class="form-row inner-form-section">
-              <button class="btn btn-outline-primary col-3"  *ngIf="hidePersonalBtn" (click)="togglePersonal()">Show More</button>
+            <button class="btn btn-outline-primary col-3" *ngIf="hidePersonalBtn" (click)="togglePersonal()">Show More
+            </button>
           </div>
           <div class="form-row inner-form-section" *ngIf="hidePersonal">
             <div class="form-group col-md-4">
@@ -161,17 +168,23 @@
             </div>
           </div>
           <div class="form-row inner-form-section">
-            <button class="btn btn-outline-primary col-3"  *ngIf="hidePersonal" (click)="togglePersonal()">Show Less</button>
+            <button class="btn btn-outline-primary col-3" *ngIf="hidePersonal" (click)="togglePersonal()">Show Less
+            </button>
           </div>
           <div class="section-heading">Business Information</div>
           <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best
             represented
             by<span class="br-mobile"></span> our labors of love.
           </div>
+          <div class="row desktop-row">
+            <div class="col-12">
+              <p style="color: #8C8B8A">* Required Information</p>
+            </div>
+          </div>
           <div class="form-group">
             <div class="form-row inner-form-section">
               <div class="form-group col-md-4">
-                <label for="name">Business Name</label>
+                <label for="name">Business Name*</label>
                 <input
                   id="name"
                   name="name"
@@ -193,141 +206,144 @@
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <div class="input-group-text ">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
-                        <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                           class="bi bi-globe" viewBox="0 0 16 16">
+                        <path
+                          d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
                       </svg>
                     </div>
                   </div>
-                <input
-                  id="url"
-                  name="url"
-                  placeholder="URL"
-                  [(ngModel)]="quote.company.url"
-                  type="text"
-                  class="form-control"
-                  minlength="2"
-                  pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-zA-Z0-9]+([\-\.]{1}[a-zA-Z0-9]+)*\.[a-z]{2,99}(:[0-9])?(\/.*)?$"
-                  required
-                  #url="ngModel">
+                  <input
+                    id="url"
+                    name="url"
+                    placeholder="URL"
+                    [(ngModel)]="quote.company.url"
+                    type="text"
+                    class="form-control"
+                    minlength="2"
+                    pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-zA-Z0-9]+([\-\.]{1}[a-zA-Z0-9]+)*\.[a-z]{2,99}(:[0-9])?(\/.*)?$"
+                    #url="ngModel">
                 </div>
                 <div *ngIf="url.invalid && (url.dirty || url.touched)" class="alert alert-danger">
-                  <div *ngIf="url.errors.required">URL is required.</div>
+                  <!--<div *ngIf="url.errors.required">URL is required.</div>-->
                   <div *ngIf="url.errors.minlength">A minimum of 2 letters are required.</div>
                   <div *ngIf="url.errors.pattern">URL is not valid.</div>
                 </div>
               </div>
             </div>
             <div class="form-row inner-form-section">
-              <button class="btn btn-outline-primary col-3"  *ngIf="hideBusinessBtn" (click)="toggleBusiness()">Show More</button>
+              <button class="btn btn-outline-primary col-3" *ngIf="hideBusinessBtn" (click)="toggleBusiness()">Show
+                More
+              </button>
             </div>
             <div *ngIf="hideBusiness">
-            <div class="form-row inner-form-section">
-              <div class="form-group col-md-4">
-                <label>Year Established</label>
-                <select class="form-control"
-                        id="establishedYear"
-                        [(ngModel)]="quote.company.establishedYear"
-                        name="establishedYear"
+              <div class="form-row inner-form-section">
+                <div class="form-group col-md-4">
+                  <label>Year Established</label>
+                  <select class="form-control"
+                          id="establishedYear"
+                          [(ngModel)]="quote.company.establishedYear"
+                          name="establishedYear"
+                          #establishedYear='ngModel'>
+                    <option [ngValue]="null">Please Select A Year</option>
+                    <option *ngFor="let establishedYear of years" [value]="establishedYear">{{establishedYear}}</option>
+                  </select>
 
-                        #establishedYear='ngModel'>
-                  <option [ngValue]="null">Please Select A Year</option>
-                  <option *ngFor="let establishedYear of years" [value]="establishedYear">{{establishedYear}}</option>
-                </select>
+                </div>
+                <div class="col-md-2"><!--space--></div>
+                <div class="form-group col-md-4">
+                  <label>Is Your Business A(n)</label>
+                  <select class="form-control" id="foundation"
 
+                          [(ngModel)]="quote.company.foundation" name="foundation"
+                          #foundation="ngModel">
+                    <option [ngValue]="null">Please Specify Your Establishment</option>
+                    <option *ngFor="let foundation of foundations" [value]="foundation">{{foundation}}</option>
+                  </select>
+                </div>
               </div>
-              <div class="col-md-2"><!--space--></div>
-              <div class="form-group col-md-4">
-                <label>Is Your Business A(n)</label>
-                <select class="form-control" id="foundation"
+              <div class="form-row inner-form-section">
+                <div class="form-group col-md-4">
+                  <label>Project Type</label>
+                  <select class="form-control"
+                          [(ngModel)]="quote.projectType"
+                          id="projectType"
+                          name="projectType"
+                          #projectType='ngModel'>
+                    <option [ngValue]="null">Please Select A Project Type</option>
+                    <option *ngFor="let projectType of projects" [value]="projectType">{{projectType}}</option>
+                  </select>
+                </div>
+                <div class="col-md-2"><!--space--></div>
+                <div class="form-group col-md-4">
+                  <label>Project Platform</label>
+                  <select class="form-control" id="projectPlatform" name="projectPlatform"
+                          [(ngModel)]="quote.projectPlatform" #projectPlatform='ngModel'>
+                    <option [ngValue]="null">Please Select A Platform</option>
+                    <option *ngFor="let projectPlatform of projectPlatforms"
+                            [value]="projectPlatform">{{projectPlatform}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row inner-form-section">
+                <div class="col-md-4">
+                  <div class="row-1">
+                    <label>Budget:</label>
+                  </div>
+                  <div class="slider-min">
+                    <b>$0 </b>
+                  </div>
+                  <div class="slider-max">
+                    <b> $100k</b>
+                  </div>
+                  <div class="slider-content">
+                    <mv-slider id="range" range="true" (change)="retrieveBudget(value)" [(value)]="value" [min]="0"
+                               [max]="100000"
+                               (change)="changeBudgetOnScroll()">
+                    </mv-slider>
+                  </div>
+                  <input class="form-control" id="budget" *ngFor="let budget of budgets" [value]="budget"
+                         placeholder="{{budget}}" disabled>
+                </div>
+                <div class="col-md-2"><!--space--></div>
+                <div class="form-group col-md-4">
+                  <div class="row-1">
+                    <label>Timeline:</label>
+                  </div>
+                  <div class="slider-min"><b>Short </b></div>
 
-                        [(ngModel)]="quote.company.foundation" name="foundation"
-                        #foundation="ngModel">
-                  <option [ngValue]="null">Please Specify Your Establishment</option>
-                  <option *ngFor="let foundation of foundations" [value]="foundation">{{foundation}}</option>
-                </select>
+                  <div class="slider-max">
+                    <b>Longer</b>
+                  </div>
+                  <div class="slider-content">
+                    <mv-slider id="rangeA" range="false" (change)="retrieveTimeframe(timeframe)" [(value)]="timeframe"
+                               [min]="1" [max]="36"
+                               (change)="changeTimeline()">
+                    </mv-slider>
+                  </div>
+
+                  <input class="form-control" id="timeline" *ngFor="let timeline of timelines" [value]="timeline"
+                         placeholder="{{timeline}}" disabled>
+                </div>
               </div>
             </div>
             <div class="form-row inner-form-section">
-              <div class="form-group col-md-4">
-                <label>Project Type</label>
-                <select class="form-control"
-                        [(ngModel)]="quote.projectType"
-                        id="projectType"
-                        name="projectType"
-                        #projectType='ngModel'>
-                  <option [ngValue]="null">Please Select A Project Type</option>
-                  <option *ngFor="let projectType of projects" [value]="projectType">{{projectType}}</option>
-                </select>
-              </div>
-              <div class="col-md-2"><!--space--></div>
-              <div class="form-group col-md-4">
-                <label>Project Platform</label>
-                <select class="form-control" id="projectPlatform" name="projectPlatform"
-                        [(ngModel)]="quote.projectPlatform"  #projectPlatform='ngModel'>
-                  <option [ngValue]="null">Please Select A Platform</option>
-                  <option *ngFor="let projectPlatform of projectPlatforms"
-                          [value]="projectPlatform">{{projectPlatform}}</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-row inner-form-section">
-              <div class="col-md-4">
-                <div class="row-1">
-                  <label>Budget:</label>
-                </div>
-                <div class="slider-min">
-                  <b>$0 </b>
-                </div>
-                <div class="slider-max">
-                  <b> $100k</b>
-                </div>
-                <div class="slider-content">
-                  <mv-slider id="range" range="true" (change)="retrieveBudget(value)" [(value)]="value" [min]="0"
-                             [max]="100000"
-                             (change)="changeBudgetOnScroll()">
-                  </mv-slider>
-                </div>
-                <input class="form-control" id="budget" *ngFor="let budget of budgets" [value]="budget"
-                       placeholder="{{budget}}"  disabled>
-              </div>
-              <div class="col-md-2"><!--space--></div>
-              <div class="form-group col-md-4">
-                <div class="row-1">
-                  <label>Timeline:</label>
-                </div>
-                <div class="slider-min"><b>Short </b></div>
-
-                <div class="slider-max">
-                  <b>Longer</b>
-                </div>
-                <div class="slider-content">
-                  <mv-slider id="rangeA" range="false" (change)="retrieveTimeframe(timeframe)" [(value)]="timeframe"
-                             [min]="1" [max]="36"
-                             (change)="changeTimeline()">
-                  </mv-slider>
-                </div>
-
-                <input class="form-control" id="timeline" *ngFor="let timeline of timelines" [value]="timeline"
-                       placeholder="{{timeline}}" disabled>
-              </div>
-            </div>
-            </div>
-            <div class="form-row inner-form-section">
-              <button class="btn btn-outline-primary col-3"  *ngIf="hideBusiness" (click)="toggleBusiness()">Show Less</button>
+              <button class="btn btn-outline-primary col-3" *ngIf="hideBusiness" (click)="toggleBusiness()">Show Less
+              </button>
             </div>
           </div>
         </div>
         <div class="form-row inner-form-section">
           <div class="col-10">
+            <label>Project Description*</label>
               <textarea rows="3"
                         id="projectDesc"
                         name="description"
                         [(ngModel)]="quote.company.description"
                         type="text"
                         class="form-control"
-                        minlength="2"
-                        required
                         #description="ngModel"
+                        required
                         placeholder="Describe your project."></textarea>
             <div class="alert alert-danger"
                  *ngIf="description.errors && (description.dirty || description.touched)">
@@ -346,9 +362,16 @@
       <div class="section-subheading">Our philosophy and expertise<span class="br-mobile"></span> are best represented
         by<span class="br-mobile"></span> our labors of love.
       </div>
+
+      <div class="row mobile-row">
+        <div class="col-12">
+          <p style="color: #8C8B8A">* Required Information</p>
+        </div>
+      </div>
+
       <form #quoteForm="ngForm" (ngSubmit)="onSubmit();" class="align-items-center">
         <div class="col-12">
-          <label>First Name</label>
+          <label>First Name*</label>
         </div>
         <div class="col-12 mobile-row">
           <input
@@ -382,39 +405,40 @@
             class="form-control"
             minlength="2"
             pattern="^[^0-9]+$"
-            required
             #lastName="ngModel">
-          <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
+         <!-- <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
             <div *ngIf="lastName.errors.required">Last name is required.</div>
             <div *ngIf="lastName.errors.minlength">A minimum of 2 letters are required.</div>
             <div *ngIf="lastName.errors.pattern">Last name is not valid.</div>
-          </div>
+          </div>-->
         </div>
 
 
         <div class="col-12">
-          <label>Email</label>
+          <label>Email*</label>
         </div>
         <div class="col-12 mobile-row">
           <div class="input-group">
             <div class="input-group-prepend">
               <div class="input-group-text ">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
-                  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-envelope" viewBox="0 0 16 16">
+                  <path
+                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
                 </svg>
               </div>
             </div>
-          <input
-            id="emailMobile"
-            name="email"
-            placeholder="Email"
-            [(ngModel)]="quote.contact.email"
-            type="email"
-            class="form-control"
-            minlength="2"
-            email
-            required
-            #email="ngModel">
+            <input
+              id="emailMobile"
+              name="email"
+              placeholder="Email"
+              [(ngModel)]="quote.contact.email"
+              type="email"
+              class="form-control"
+              minlength="2"
+              email
+              required
+              #email="ngModel">
           </div>
           <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
             <div *ngIf="email.errors.required">Email is required.</div>
@@ -425,7 +449,7 @@
 
 
         <div class="col-12">
-          <label>Phone Number</label>
+          <label>Phone Number*</label>
         </div>
         <div class="col-12 mobile-row">
           <div class="input-group">
@@ -438,39 +462,39 @@
                 </svg>
               </div>
             </div>
-          <input
-            id="phoneNumberMobile"
-            name="phoneNumber"
-            placeholder="Phone Number"
-            [(ngModel)]="phone.number"
-            type="text"
-            class="form-control"
-            #phoneNumber="ngModel"
-            required
-            phoneNumber>
+            <input
+              id="phoneNumberMobile"
+              name="phoneNumber"
+              placeholder="Phone Number"
+              [(ngModel)]="phone.number"
+              type="text"
+              class="form-control"
+              #phoneNumber="ngModel"
+              required
+              phoneNumber>
           </div>
           <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="alert alert-danger">
             <div *ngIf="phoneNumber.errors.required">Phone number is required.</div>
             <div *ngIf="phoneNumber.errors.phoneNumber">Phone number is not valid.</div>
           </div>
         </div>
-          <button class="btn btn-outline-primary mobile-row  col-12"  *ngIf="hidePersonalBtn" (click)="togglePersonal()">Show More</button>
-<div *ngIf="hidePersonal">
-        <div class="col-12">
-          <label>City</label>
-        </div>
-        <div class="col-12 mobile-row">
-          <input
-            id="cityMobile"
-            name="city"
-            placeholder="City"
-            [(ngModel)]="quote.contact.address.city"
-            type="text"
-            class="form-control"
-            minlength="2"
-            pattern="^[^0-9]+$"
-            #city="ngModel">
-        </div>
+        <button class="btn btn-outline-primary mobile-row  col-12" *ngIf="hidePersonalBtn" (click)="togglePersonal()">
+          Show More
+        </button>
+        <div *ngIf="hidePersonal">
+          <div class="col-12">
+            <label>City</label>
+          </div>
+          <div class="col-12 mobile-row">
+            <input
+              id="cityMobile"
+              name="city"
+              placeholder="City"
+              [(ngModel)]="quote.contact.address.city"
+              type="text"
+              class="form-control"
+              #city="ngModel">
+          </div>
 
 
         <div class="col-12">
@@ -493,8 +517,14 @@
           by<span class="br-mobile"></span> our labors of love.
         </div>
 
+        <div class="row mobile-row">
+          <div class="col-12">
+            <p style="color: #8C8B8A">* Required Information</p>
+          </div>
+        </div>
+
         <div class="col-12">
-          <label>Business Name</label>
+          <label>Business Name*</label>
         </div>
         <div class="col-12 mobile-row">
           <input
@@ -522,141 +552,145 @@
           <div class="input-group">
             <div class="input-group-prepend">
               <div class="input-group-text ">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
-                  <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe"
+                     viewBox="0 0 16 16">
+                  <path
+                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
                 </svg>
               </div>
             </div>
-          <input
-            id="urlMobile"
-            name="url"
-            placeholder="URL"
-            [(ngModel)]="quote.company.url"
-            type="text"
-            class="form-control"
-            minlength="2"
-            pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,99}(:[0-9])?(\/.*)?$"
-            required
-            #url="ngModel">
+            <input
+              id="urlMobile"
+              name="url"
+              placeholder="URL"
+              [(ngModel)]="quote.company.url"
+              type="text"
+              class="form-control"
+              minlength="2"
+              pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,99}(:[0-9])?(\/.*)?$"
+              #url="ngModel">
           </div>
           <div *ngIf="url.invalid && (url.dirty || url.touched)" class="alert alert-danger">
-            <div *ngIf="url.errors.required">URL is required.</div>
+            <!--<div *ngIf="url.errors.required">URL is required.</div>-->
             <div *ngIf="url.errors.minlength">A minimum of 2 letters are required.</div>
             <div *ngIf="url.errors.pattern">URL is not valid.</div>
           </div>
         </div>
-        <button class="btn btn-outline-primary mobile-row  col-12"  *ngIf="hideBusinessBtn" (click)="toggleBusiness()">Show More</button>
+        <button class="btn btn-outline-primary mobile-row  col-12" *ngIf="hideBusinessBtn" (click)="toggleBusiness()">
+          Show More
+        </button>
 
         <div *ngIf="hideBusiness">
-        <div class="col-12 mobile-row">
-          <label>Year Established</label>
-          <select class="form-control"
-                  id="establishedYearMobile"
-                  [(ngModel)]="quote.company.establishedYear"
-                  name="establishedYear"
-                  required
-                  #establishedYear='ngModel'>
-            <option [ngValue]="null">Please Select A Year</option>
-            <option *ngFor="let establishedYear of years" [value]="establishedYear">{{establishedYear}}</option>
-          </select>
-          <div *ngIf="establishedYear.invalid && (establishedYear.dirty || establishedYear.touched)"
-               class="alert alert-danger">
-            <div *ngIf="establishedYear.errors.required">Please select a year</div>
+          <div class="col-12 mobile-row">
+            <label>Year Established</label>
+            <select class="form-control"
+                    id="establishedYearMobile"
+                    [(ngModel)]="quote.company.establishedYear"
+                    name="establishedYear"
+                    #establishedYear='ngModel'>
+              <option [ngValue]="null">Please Select A Year</option>
+              <option *ngFor="let establishedYear of years" [value]="establishedYear">{{establishedYear}}</option>
+            </select>
+            <!--<div *ngIf="establishedYear.invalid && (establishedYear.dirty || establishedYear.touched)"
+                 class="alert alert-danger">
+              <div *ngIf="establishedYear.errors.required">Please select a year</div>
+            </div>-->
+          </div>
+          <div class="col-12 mobile-row">
+            <label>Is Your Business A(n)</label>
+            <select class="form-control" id="foundationMobile"
+                    [(ngModel)]="quote.company.foundation" name="foundation"
+                    #foundation="ngModel">
+              <option [ngValue]="null">Please Specify Your Establishment</option>
+              <option *ngFor="let foundation of foundations" [value]="foundation">{{foundation}}</option>
+            </select>
+          </div>
+
+
+          <div class="col-12">
+            <label>Project Type</label>
+          </div>
+          <div class="col-12 mobile-row">
+            <select class="form-control"
+                    [(ngModel)]="quote.projectType"
+                    id="projectTypeMobile"
+                    name="projectType"
+                    #projectType='ngModel'>
+              <option [ngValue]="null">Please Select A Project Type</option>
+              <option *ngFor="let type of projects" [value]="type">{{type}}</option>
+            </select>
+
+          </div>
+
+
+          <div class="col-12">
+            <label>Project Platform</label>
+          </div>
+          <div class="col-12 mobile-row">
+            <select class="form-control" id="projectPlatformMobile" name="projectPlatform"
+                    [(ngModel)]="quote.projectPlatform" #projectPlatform='ngModel'>
+              <option [ngValue]="null">Please Select A Platform</option>
+              <option *ngFor="let projectPlatform of projectPlatforms"
+                      [value]="projectPlatform">{{projectPlatform}}</option>
+            </select>
+
+          </div>
+
+
+          <div class="col-12 mobile-row">
+            <label>Budget: </label>
+          </div>
+          <div class="col-12 mobile-slider">
+            <div class="slider-min">
+              <b>$0 </b>
+            </div>
+            <div class="slider-max">
+              <b> $100k</b>
+            </div>
+            <div class="slider-content">
+              <mv-slider id="rangeMobile" (change)="retrieveBudget(value)" range="true" [(value)]="value" [min]="0"
+                         [max]="100000"
+                         (change)="changeBudgetOnScroll()" style="margin-bottom: 20px; padding-left: 1%">
+              </mv-slider>
+            </div>
+          </div>
+          <div class="mobile-row col-12">
+            <input class="form-control" id="budgetMobile" *ngFor="let budget of budgets" [value]="budget"
+                   placeholder="{{budget}}"  disabled>
+          </div>
+
+
+          <div class="col-12 mobile-row">
+            <label>Timeline: </label>
+          </div>
+          <div class="col-12 mobile-slider">
+            <div class="slider-min">
+              <b>Short </b>
+            </div>
+
+            <div class="slider-max">
+              <b>Longer</b>
+            </div>
+            <div class="slider-content">
+              <mv-slider id="rangeAMobile" range="true" (change)="retrieveTimeframe(timeframe)" [(value)]="timeframe"
+                         [min]="1" [max]="36"
+                         (change)="changeTimeline()" style="margin-bottom: 20px; padding-left: 1%">
+              </mv-slider>
+            </div>
+          </div>
+          <div class="col-12 mobile-row">
+            <input class="form-control col-12 mobile-row" id="timelineMobile" *ngFor="let timeline of timelines"
+                   [value]="timeline"
+                   placeholder="{{timeline}}" disabled style="margin-bottom: 20px;">
           </div>
         </div>
-        <div class="col-12 mobile-row">
-          <label>Is Your Business A(n)</label>
-          <select class="form-control" id="foundationMobile"
-                  [(ngModel)]="quote.company.foundation" name="foundation"
-                  #foundation="ngModel">
-            <option [ngValue]="null">Please Specify Your Establishment</option>
-            <option *ngFor="let foundation of foundations" [value]="foundation">{{foundation}}</option>
-          </select>
-        </div>
+        <button class="btn btn-outline-primary mobile-row col-12" *ngIf="hideBusiness" (click)="toggleBusiness()">Show
+          Less
+        </button>
 
 
         <div class="col-12">
-          <label>Project Type</label>
-        </div>
-        <div class="col-12 mobile-row">
-          <select class="form-control"
-                  [(ngModel)]="quote.projectType"
-                  id="projectTypeMobile"
-                  name="projectType"
-                  #projectType='ngModel'>
-            <option [ngValue]="null">Please Select A Project Type</option>
-            <option *ngFor="let type of projects" [value]="type">{{type}}</option>
-          </select>
-
-        </div>
-
-
-        <div class="col-12">
-          <label>Project Platform</label>
-        </div>
-        <div class="col-12 mobile-row">
-          <select class="form-control" id="projectPlatformMobile" name="projectPlatform"
-                  [(ngModel)]="quote.projectPlatform" #projectPlatform='ngModel'>
-            <option [ngValue]="null">Please Select A Platform</option>
-            <option *ngFor="let projectPlatform of projectPlatforms"
-                    [value]="projectPlatform">{{projectPlatform}}</option>
-          </select>
-
-        </div>
-
-
-        <div class="col-12 mobile-row">
-          <label>Budget: </label>
-        </div>
-        <div class="col-12 mobile-slider">
-          <div class="slider-min">
-            <b>$0 </b>
-          </div>
-          <div class="slider-max">
-            <b> $100k</b>
-          </div>
-          <div class="slider-content">
-            <mv-slider id="rangeMobile" (change)="retrieveBudget(value)" range="true" [(value)]="value" [min]="0"
-                       [max]="10000"
-                       (change)="changeBudgetOnScroll()" style="margin-bottom: 20px; padding-left: 1%">
-            </mv-slider>
-          </div>
-        </div>
-        <div class="mobile-row col-12">
-          <input class="form-control" id="budgetMobile" *ngFor="let budget of budgets" [value]="budget"
-                 placeholder="{{budget}}" required disabled>
-        </div>
-
-
-        <div class="col-12 mobile-row">
-          <label>Timeline: </label>
-        </div>
-        <div class="col-12 mobile-slider">
-          <div class="slider-min">
-            <b>Short </b>
-          </div>
-
-          <div class="slider-max">
-            <b>Longer</b>
-          </div>
-          <div class="slider-content">
-            <mv-slider id="rangeAMobile" range="true" (change)="retrieveTimeframe(timeframe)" [(value)]="timeframe"
-                       [min]="1" [max]="36"
-                       (change)="changeTimeline()" style="margin-bottom: 20px; padding-left: 1%">
-            </mv-slider>
-          </div>
-        </div>
-        <div class="col-12 mobile-row">
-          <input class="form-control col-12 mobile-row" id="timelineMobile" *ngFor="let timeline of timelines"
-                 [value]="timeline"
-                 placeholder="{{timeline}}" disabled style="margin-bottom: 20px;">
-        </div>
-        </div>
-        <button class="btn btn-outline-primary mobile-row col-12"  *ngIf="hideBusiness" (click)="toggleBusiness()">Show Less</button>
-
-
-        <div class="col-12">
-          <label>Project Description</label>
+          <label>Project Description*</label>
         </div>
         <div class="col-12 mobile-row">
                <textarea class="form-control" rows="3"
@@ -666,8 +700,8 @@
                          type="text"
                          class="form-control"
                          minlength="2"
-                         required
                          #description="ngModel"
+                         required=""
                          placeholder="Describe your project."></textarea>
           <div class="alert alert-danger"
                *ngIf="description.errors && (description.dirty || description.touched)">
@@ -676,7 +710,7 @@
           </div>
         </div>
 
-        <button type="submit" class="contact-button btn btn-block">
+        <button type="submit" class="contact-button btn btn-block" >
           Submit
         </button>
         <!-- [disabled]="!quoteForm.valid" //-->
