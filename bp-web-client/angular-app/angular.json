@@ -28,7 +28,7 @@
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "./node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css",
-              "src/assets/scss/styles.css",
+              "src/assets/scss/styles.scss",
               "src/assets/scss/fonts.css",
               "src/assets/scss/header.css"
             ],
@@ -59,7 +59,7 @@
               "testTsconfig": "tsconfig.spec.json",
               "prefix": "app",
               "styles": [
-                "styles.css"
+                "src/assets/scss/styles.scss"
               ],
               "scripts": [],
               "environmentSource": "environments/environment.ts",
@@ -89,7 +89,7 @@
               "testTsconfig": "tsconfig.spec.json",
               "prefix": "app",
               "styles": [
-                "styles.scss"
+                "src/assets/scss/styles.scss"
               ],
               "scripts": [],
               "environmentSource": "environments/environment.ts",
@@ -187,7 +187,7 @@
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "./node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css",
-              "src/assets/scss/styles.css"
+              "src/assets/scss/styles.scss"
             ],
             "scripts": [
               "./node_modules/bootstrap-slider/dist/bootstrap-slider.min.js"
