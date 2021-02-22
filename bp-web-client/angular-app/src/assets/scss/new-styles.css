@@ -2210,16 +2210,16 @@ article.cbp-so-side-right .cbp-so-contents::after {
 }
 
 .fade-in-second {
-  -webkit-animation-delay: 0.9s;
-  -moz-animation-delay: 0.9s;
-  animation-delay: 0.9s
+  -webkit-animation-delay: 0.1s !important;
+  -moz-animation-delay: 0.1s !important;
+  animation-delay: 0.1s !important;
 }
 
 .fade-in-third,
 .hero-arrow {
-  -webkit-animation-delay: 1.3s;
-  -moz-animation-delay: 1.3s;
-  animation-delay: 1.3s
+  -webkit-animation-delay: .5s;
+  -moz-animation-delay: .5s;
+  animation-delay: .5s
 }
 
 .animation-slow {
