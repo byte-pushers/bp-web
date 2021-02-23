@@ -4458,29 +4458,18 @@ body {
   margin: 0 0 40px 0;
 }
 
+.selection-logos-mobile {
+  background: white;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 12% !important;
+}
+
 .logoColumn {
   margin-bottom: 40px;
 }
 
-.aviallLogo {
-  max-height: 100px !important;
-}
-
-.geLogo {
-  width: 40%;
-}
-
-.telecomLogo {
-  max-height: 140px !important;
-}
-
-.TRLogo {
-  max-height: 180px !important;
-}
-
-.tillsterLogo {
-  margin-top: 20px;
-}
 
 .TiLogo {
   max-height: 160px !important;
@@ -4490,7 +4479,7 @@ body {
   max-height: 180px !important;
 }
 
-.workwithus {
+.contact-info {
   background: #fff;
   width: 100%;
   padding: 70px 0;
