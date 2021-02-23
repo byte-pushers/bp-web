@@ -152,6 +152,11 @@
   float: left;
 }
 
+.range-indicator {
+  color: #8C8B8A;
+  margin-bottom: .3em;
+}
+
 .headContent h3 {
   color: #3466aa;
   font-size: 35px;

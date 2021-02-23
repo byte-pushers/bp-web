@@ -162,8 +162,8 @@ public backToTop() {
   public changeTimeline() {
     const timeFrameMin = this.timeframe[0];
     const timeFrameMax = this.timeframe[1];
-    const newTimeline = 'Range: '.concat(timeFrameMin + (' mo - ') + timeFrameMax + (' mo'));
-    const newTimelineTop = 'Range: '.concat(timeFrameMin + (' mo - ') + timeFrameMax + (' mo or longer'));
+    const newTimeline = ''.concat(timeFrameMin + (' mo - ') + timeFrameMax + (' mo'));
+    const newTimelineTop = ''.concat(timeFrameMin + (' mo - ') + timeFrameMax + (' mo or longer'));
 
     if (timeFrameMax <= 32) {
       this.timelines.splice(0, 1, newTimeline);
@@ -182,8 +182,8 @@ public backToTop() {
   public changeBudgetOnScroll() {
     const budgetMin = this.value[0];
     const budgetMax = this.value[1];
-    const newBudget = 'Range: '.concat(('$ ') + budgetMin + ' - ' + ('$ ') + budgetMax);
-    const newBudgetTop = 'Range: '.concat(('$ ') + budgetMin + ' - ' + ('$ ') + budgetMax + (' and up'));
+    const newBudget = ''.concat(('$ ') + budgetMin + ' - ' + ('$') + budgetMax);
+    const newBudgetTop = ''.concat(('$ ') + budgetMin + ' - ' + ('$') + budgetMax + (' and up'));
 
     if (budgetMax <= 97000) {
       this.budgets.splice(0, 1, newBudget);
