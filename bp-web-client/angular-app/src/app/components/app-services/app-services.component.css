@@ -4,14 +4,6 @@
 }
 
 
-.row {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  margin: 0 auto !important;
-  justify-content: center;
-}
-
-
 ::ng-deep .carousel-control-next-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='gray' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 }
@@ -47,10 +39,6 @@ div[disabled] {
   margin-bottom: 2em !important;
 }
 
-
-/*::ng-deep .carousel-inner {
-  height: 350px !important;
-}*/
 
 .services-carousel-title {
   margin-top: 10px !important;
@@ -93,59 +81,10 @@ div[disabled] {
 }
 
 
-.selection-logos {
-  background: white;
-  padding: 80px 0;
-  text-align: center;
-  width: 100%;
-}
-
-.selection-logos-mobile {
-  background: white;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  padding-bottom: 12% !important;
-}
-
-
-.selection-logos h2 {
-  color: #000000;
-  font-style: 48px;
-  font-weight: 400;
-  text-transform: uppercase;
-  padding: 0px;
-  margin: 0 0 40px 0;
-}
-
-.selection-logos-mobile h2 {
-  color: #000000;
-  font-style: 48px;
-  font-weight: 400;
-  text-transform: uppercase;
-  padding: 0px;
-  margin: 0 0 40px 0;
-}
-
-.icon-text {
-  padding-top: 10%;
-  font-size: 24px;
-}
-.icon-text-mobile {
-  padding-top: 10%;
-  font-size: 14px;
-  filter: opacity(50%) !important;
-}
-.logoColumn {
-  margin-bottom: 2%;
-
-
-}
-
 .tech-icons-1 {
   height: 14vh;
   vertical-align: auto;
-padding-top: auto;
+  padding-top: auto;
   padding-bottom: auto;
 }
 
@@ -162,6 +101,7 @@ padding-top: auto;
   padding-top: auto;
   padding-bottom: 2vh;
 }
+
 .tech-icons-mobile-2 {
   height: 6vh;
   vertical-align: auto;
@@ -178,15 +118,18 @@ padding-top: auto;
   display: inline-block;
   filter: opacity(50%) !important;
 }
+
 .icon:hover {
   filter: unset !important;
   text-decoration: none;
 }
+
 .tech-text-mobile {
   font-size: 3vh;
   padding-bottom: 2vh;
 
 }
+
 strong:hover {
   color: black;
 }
