@@ -22,11 +22,9 @@ public class Address extends AbstractEntity {
     private List<String> street;
 
     @Column
-    @NotEmpty(groups = CreateRequest.class, message = "{person.address.city.required}")
     private String city;
 
     @Column
-    @NotEmpty(groups = CreateRequest.class, message = "{person.address.state.required}")
     private String state;
 
     @Column

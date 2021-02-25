@@ -18,17 +18,19 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "./node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css",
-              "src/assets/scss/new-styles.css",
-              "src/assets/scss/fonts.css"
+              "src/assets/scss/styles.scss",
+              "src/assets/scss/fonts.css",
+              "src/assets/scss/header.css"
             ],
             "scripts": [
               "./node_modules/bootstrap-slider/dist/bootstrap-slider.min.js",
@@ -57,7 +59,7 @@
               "testTsconfig": "tsconfig.spec.json",
               "prefix": "app",
               "styles": [
-                "new-styles.scss"
+                "src/assets/scss/styles.scss"
               ],
               "scripts": [],
               "environmentSource": "environments/environment.ts",
@@ -87,7 +89,7 @@
               "testTsconfig": "tsconfig.spec.json",
               "prefix": "app",
               "styles": [
-                "new-styles.scss"
+                "src/assets/scss/styles.scss"
               ],
               "scripts": [],
               "environmentSource": "environments/environment.ts",
@@ -99,6 +101,12 @@
           ],
           "configurations": {
             "dev": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "10kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -110,7 +118,6 @@
               "sourceMap": true,
               "extractCss": false,
               "namedChunks": true,
-              "aot": false,
               "extractLicenses": false,
               "vendorChunk": true,
               "buildOptimizer": false
@@ -127,7 +134,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -181,7 +187,7 @@
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "./node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css",
-              "src/assets/scss/new-styles.css"
+              "src/assets/scss/styles.scss"
             ],
             "scripts": [
               "./node_modules/bootstrap-slider/dist/bootstrap-slider.min.js"
@@ -216,5 +222,8 @@
       }
     }
   },
-  "defaultProject": "angular-app"
+  "defaultProject": "angular-app",
+  "cli": {
+    "analytics": false
+  }
 }

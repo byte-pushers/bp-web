@@ -4,6 +4,7 @@
 
 export const environment = {
   production: null,
+  CHUCKS_PICK_3_URL: null,
   QUOTE_SERVICE: {
     API: {
       HOST: null,

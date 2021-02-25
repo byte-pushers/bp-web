@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ScrollToService} from '../../../services/scroll-to.service';
 
 @Component({
   selector: 'app-header',
@@ -6,7 +7,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./app-header.component.css']
 })
 export class AppHeaderComponent implements OnInit {
-  constructor() {
+  constructor(public scrollTo: ScrollToService) {
   }
 
   ngOnInit() {
@@ -60,12 +61,7 @@ export class AppHeaderComponent implements OnInit {
 
   }
 
-  public backToTop() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  }
-
-  private openCloseMobileNav() {
+  public openCloseMobileNav() {
     const windowCheck = window.innerWidth;
     if (windowCheck <= 480) {
       const mobileNav = document.getElementById('topnav');

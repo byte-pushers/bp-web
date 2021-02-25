@@ -3,6 +3,15 @@ import {TimeLine} from './time-line';
 import {BaseEntity} from './base.entity';
 
 export interface Company extends BaseEntity {
+  name: string;
+  type: string;
+  budget: Budget;
+  url: string;
+  timeline: TimeLine;
+  description: string;
+  establishedYear: number;
+  foundation: string;
+
   getName(): string;
   setName(name: string): void;
 

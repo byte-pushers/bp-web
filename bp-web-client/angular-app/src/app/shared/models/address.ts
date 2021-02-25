@@ -1,6 +1,13 @@
 import {BaseEntity} from "./base.entity";
 
 export interface Address extends BaseEntity {
+  street: [string];
+  city: string;
+  state: string;
+  zip: string;
+  county: string;
+  country: string;
+
   getStreet(): [string];
   setStreet(street: [string]): void;
 
