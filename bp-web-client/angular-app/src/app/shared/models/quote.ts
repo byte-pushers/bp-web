@@ -3,6 +3,11 @@ import {Company} from "./company";
 import {BaseEntity} from "./base.entity";
 
 export interface Quote extends BaseEntity {
+  contact: Person;
+  company: Company;
+  projectPlatform: string;
+  projectType: string;
+
   getContact(): Person;
   setContact(person: Person): void;
 

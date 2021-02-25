@@ -32,6 +32,10 @@ public class Quote extends AbstractEntity {
     private UUID id;
 
     @Column
+    @NotEmpty(groups = CreateRequest.class, message = "{company.description.required}")
+    private String description;
+
+    @Column
     @CreatedDate
     private LocalDateTime createdDate;
 
@@ -50,11 +54,9 @@ public class Quote extends AbstractEntity {
     private Company company;
 
     @Column
-    @NotEmpty(groups = CreateRequest.class, message = "{project.platform.required}")
     private String projectPlatform;
 
     @Column
-    @NotEmpty(groups = CreateRequest.class, message = "{project.type.required}")
     private String projectType;
 
     @Column

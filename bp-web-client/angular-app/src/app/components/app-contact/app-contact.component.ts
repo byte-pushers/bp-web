@@ -1,78 +1,47 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { QuoteService } from '../../shared/services/quote.service';
-import { Quote } from '../../shared/models/quote';
-import { QuoteModel } from '../../shared/models/quote.model';
-import { NgxSpinnerService } from 'ngx-spinner';
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from '@angular/forms';
+import {QuoteService} from '../../shared/services/quote.service';
+import {Quote} from '../../shared/models/quote';
+import {QuoteModel} from '../../shared/models/quote.model';
+import {NgxSpinnerService} from 'ngx-spinner';
+import {AppAlertOverlayModalService} from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.service';
+import {ScrollToService} from '../../services/scroll-to.service';
+import {AppAlertOverlayModalComponent} from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.component';
+import {ComponentType} from '@angular/cdk/portal/portal';
+import {StateNameService} from '../../services/state-name.service';
+import {ContactButtonService} from '../../services/contact-button.service';
+
 
 @Component({
   selector: 'app-contact',
   templateUrl: './app-contact.component.html',
   styleUrls: ['./app-contact.component.css']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, OnDestroy {
+  public errorMessage: string;
+  public errorMessages: [string?] = ['Phone number is invalid.'];
   public showConfirmation = false;
+  public phone: { number: string } = {number: ''};
 
-  constructor(private quoteService: QuoteService, private spinner: NgxSpinnerService) {
+  constructor(private quoteService: QuoteService,
+              private spinner: NgxSpinnerService,
+              private appAlertOverlayModalService: AppAlertOverlayModalService,
+              public stateNameService: StateNameService,
+              private scrollToService: ScrollToService,
+              private contactButtonService: ContactButtonService) {
 
   }
 
-  @ViewChild('quoteForm', {static: false}) quoteForm: any;
+  @ViewChild('quoteForm') quoteForm: any;
+  @ViewChild('phoneNumber') phoneNumber: any;
   public quote: Quote = new QuoteModel(QuoteModel.DEFAULT_CONFIG);
+  hidePersonal = false;
+  hidePersonalBtn = true;
+  hideBusiness = false;
+  hideBusinessBtn = true;
   isSubmitted = false;
-  states: any = [
-    'Alabama',
-    'Alaska',
-    'Arizona',
-    'Arkansas',
-    'California',
-    'Colorado',
-    'Connecticut',
-    'Delaware',
-    'Florida',
-    'Georgia',
-    'Hawaii',
-    'Idaho',
-    'Illinois',
-    'Indiana',
-    'Iowa',
-    'Kansas',
-    'Kentucky',
-    'Louisiana',
-    'Maine',
-    'Maryland',
-    'Massachusetts',
-    'Michigan',
-    'Minnesota',
-    'Mississippi',
-    'Missouri',
-    'Montana',
-    'Nebraska',
-    'Nevada',
-    'New Hampshire',
-    'New Jersey',
-    'New Mexico',
-    'New York',
-    'North Carolina',
-    'North Dakota',
-    'Ohio',
-    'Oklahoma',
-    'Oregon',
-    'Pennsylvania',
-    'Rhode Island',
-    'South Carolina',
-    'South Dakota',
-    'Tennessee',
-    'Texas',
-    'Utah',
-    'Vermont',
-    'Virginia',
-    'Washington',
-    'West Virginia',
-    'Wisconsin',
-    'Wyoming'];
-  projects: any = ['Option 1', 'Option 2', 'Option 3'];
-  projectPlatforms: any = ['Option 1', 'Option 2', 'Option 3'];
+  projects: any = ['Business To Business (B2B)', 'Business To Consumer (B2C)', 'Custom App Development', 'Other'];
+  projectPlatforms: any = ['Mobile', 'Desktop', 'Cloud', 'Web', 'Other'];
   value: any = [0, 105000];
   budgets: any = ['Slide for budget amount'];
   timelines: any = ['Slide for time frame'];
@@ -83,8 +52,16 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
     this.years = this.calculateYears(+new Date().getFullYear(), 40);
     this.years.push('Older than 1980');
+    this.setOnContactView(false);
+
   }
 
+  ngOnDestroy() {
+    this.setOnContactView(true);
+  }
+  public setOnContactView(setView): void {
+    this.contactButtonService.isOnContactView(setView);
+  }
   public calculateYears(yearList: number, yearsSpan: number): any [] {
     const yearArray = [];
     yearArray.push(yearList);
@@ -94,8 +71,9 @@ export class ContactComponent implements OnInit {
     return yearArray;
   }
 
+
   public isMobileResolution(): boolean {
-    let isMobileResolution: boolean = false;
+    let isMobileResolution = false;
 
     if (window.innerWidth < 768) {
       isMobileResolution = true;
@@ -106,25 +84,26 @@ export class ContactComponent implements OnInit {
     return isMobileResolution;
   }
 
-  public onSubmit(): boolean {
+  public onSubmit(): void {
     this.isSubmitted = true;
+
     if (!this.quoteForm.valid) {
-      return false;
+      this.isSubmitted = false;
     } else {
-      this.saveQuote();
+    this.saveQuote();
     }
   }
+public backToTop() {
+    this.scrollToService.toTopOfPage();
+}
 
   public onSubmitBackToTopDesktop() {
-    document.body.scrollTop = 1005; // For Safari
-    document.documentElement.scrollTop = 1005; // For Chrome, Firefox, IE and Opera
+    document.getElementById('successTop').scrollIntoView();
   }
 
   public onSubmitBackToTopMobile() {
-    document.body.scrollTop = 824; // For Safari
-    document.documentElement.scrollTop = 824; // For Chrome, Firefox, IE and Opera
+    document.getElementById('successTop').scrollIntoView();
   }
-
 
   public reset(form: NgForm) {
     form.resetForm();
@@ -147,29 +126,49 @@ export class ContactComponent implements OnInit {
   private saveQuote() {
     this.spinner.show();
     if (this.quote !== null && this.quote !== undefined) {
+      this.quote.contact.phone.number = this.phoneNumber.control.value;
       this.quoteService.createQuote(this.quote).subscribe(newlyCreatedQuote => {
         // TODO should have a new object with IDs populated through out the object graph.
         console.log('newly created quote: ' + newlyCreatedQuote, newlyCreatedQuote);
         this.showConfirmation = true;
         this.spinner.hide();
+
+        // TODO: Maybe we don't need this logic.
+        if (this.isMobileResolution()) {
+            this.onSubmitBackToTopMobile();
+          } else {
+            this.onSubmitBackToTopDesktop();
+          }
       }, error => {
         // TODO should display error message at top of quote page.
         console.log('error: ' + error, error);
+        this.errorMessages.push('Account was not created, internal error.');
+
+        if (this.isMobileResolution()) {
+          this.showOverlayModal(this.errorMessages[0]);
+        }
+
         this.spinner.hide();
       });
     }
   }
 
+  public showOverlayModal(message?: string) {
+    const component: ComponentType<AppAlertOverlayModalComponent> = AppAlertOverlayModalComponent;
+    this.appAlertOverlayModalService.setMessage(message);
+    this.appAlertOverlayModalService.open(component);
+  }
+
   public changeTimeline() {
     const timeFrameMin = this.timeframe[0];
     const timeFrameMax = this.timeframe[1];
-    const newBudget = 'Range: '.concat( timeFrameMin + (' Months - ') + timeFrameMax + (' Months'));
-    const newBudgetTop = 'Range: '.concat( timeFrameMin + (' Months - ') + timeFrameMax + (' Months and up'));
+    const newTimeline = ''.concat(timeFrameMin + (' mo - ') + timeFrameMax + (' mo'));
+    const newTimelineTop = ''.concat(timeFrameMin + (' mo - ') + timeFrameMax + (' mo or longer'));
 
-    if (timeFrameMax <= 32){
-      this.timelines.splice(0, 1, newBudget);
+    if (timeFrameMax <= 32) {
+      this.timelines.splice(0, 1, newTimeline);
     } else {
-      this.timelines.splice(0, 1, newBudgetTop);
+      this.timelines.splice(0, 1, newTimelineTop);
     }
 
     /* const newMonth = 'Range: '.concat(this.timeframe[0] + (' Months - ') + this.timeframe[1] + (' Months'));
@@ -183,13 +182,33 @@ export class ContactComponent implements OnInit {
   public changeBudgetOnScroll() {
     const budgetMin = this.value[0];
     const budgetMax = this.value[1];
-    const newBudget = 'Range: '.concat( ('$ ') + budgetMin + ' - ' + ('$ ') + budgetMax);
-    const newBudgetTop = 'Range: '.concat(('$ ') + budgetMin + ' - ' + ('$ ') + budgetMax + (' and up'));
+    const newBudget = ''.concat(('$ ') + budgetMin + ' - ' + ('$') + budgetMax);
+    const newBudgetTop = ''.concat(('$ ') + budgetMin + ' - ' + ('$') + budgetMax + (' and up'));
 
     if (budgetMax <= 97000) {
       this.budgets.splice(0, 1, newBudget);
     } else {
       this.budgets.splice(0, 1, newBudgetTop);
+    }
+  }
+
+  public togglePersonal(): void {
+    if (this.hidePersonal === true) {
+      this.hidePersonal = false;
+      this.hidePersonalBtn = true;
+    } else {
+      this.hidePersonal = true;
+      this.hidePersonalBtn = false;
+    }
+  }
+
+  public toggleBusiness(): void {
+    if (this.hideBusiness === true) {
+      this.hideBusiness = false;
+      this.hideBusinessBtn = true;
+    } else {
+      this.hideBusiness = true;
+      this.hideBusinessBtn = false;
     }
   }
 }
