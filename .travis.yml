@@ -121,9 +121,11 @@ matrix:
         - npm install
       script:
         - if [ $TRAVIS_BRANCH == "master"]; then
-            npm run build -- prod;
+            echo -e "Running npm run build --prod";
+            npm run build --prod;
           else
-            npm run ng build -- --configuration dev;
+            echo -e "Running npm run build --configuration dev";
+            npm run build -- --configuration dev;
           fi;
       deploy:
         - provider: script
