@@ -124,7 +124,7 @@ matrix:
             npm run build -- prod
           else
             npm run ng build -- --configuration dev
-          fi
+          fi;
       deploy:
         - provider: script
           skip_cleanup: true
