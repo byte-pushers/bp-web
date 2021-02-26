@@ -119,7 +119,12 @@ matrix:
         - cd bp-web-client/angular-app/
       install:
         - npm install
-        - npm run build
+      script:
+        - if [ $TRAVIS_BRANCH == "master"]; then
+            npm run build -- prod
+          else
+            npm run ng build -- --configuration dev
+          fi
       deploy:
         - provider: script
           skip_cleanup: true
