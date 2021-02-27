@@ -122,7 +122,7 @@ matrix:
       script:
         - if [ $TRAVIS_BRANCH == "master"]; then
             echo -e "Running npm run build --prod";
-            npm run build --prod;
+            npm run build -- --prod;
           else
             echo -e "Running npm run build --configuration dev";
             npm run build -- --configuration dev;
