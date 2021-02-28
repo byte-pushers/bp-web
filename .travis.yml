@@ -122,10 +122,10 @@ matrix:
       script:
         - if [ $TRAVIS_BRANCH == "master"]; then
             echo -e "Running npm run build --configuration production";
-            npm run prodBuild;
+            npm run build -- --configuration production;
           else
-            echo -e "Running npm run build --configuration=dev";
-            npm run build;
+            echo -e "Running npm run build --configuration dev";
+            npm run build -- --configuration dev;
           fi;
       deploy:
         - provider: script
