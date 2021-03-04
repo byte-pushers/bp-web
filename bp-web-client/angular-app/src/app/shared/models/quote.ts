@@ -7,6 +7,7 @@ export interface Quote extends BaseEntity {
   company: Company;
   projectPlatform: string;
   projectType: string;
+  description: string;
 
   getContact(): Person;
   setContact(person: Person): void;
@@ -19,4 +20,7 @@ export interface Quote extends BaseEntity {
 
   getProjectType(): string;
   setProjectType(projectType: string): void;
+
+  getDescription(): string;
+  setDescription(description: string): void;
 }

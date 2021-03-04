@@ -32,7 +32,7 @@ public class Quote extends AbstractEntity {
     private UUID id;
 
     @Column
-    @NotEmpty(groups = CreateRequest.class, message = "{company.description.required}")
+    @NotEmpty(groups = CreateRequest.class, message = "{project.description.required}")
     private String description;
 
     @Column

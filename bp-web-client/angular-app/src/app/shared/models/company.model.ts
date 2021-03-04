@@ -13,7 +13,6 @@ export class CompanyModel extends BaseEntityModel implements Company {
     budget: BudgetModel.DEFAULT_CONFIG,
     url: null,
     timeline: TimeLineModel.DEFAULT_CONFIG,
-    description: null,
     establishedYear: null,
     isEstablished: false,
     foundation: null
@@ -29,8 +28,6 @@ export class CompanyModel extends BaseEntityModel implements Company {
   // tslint:disable-next-line:variable-name
   private _timeline: TimeLine;
   // tslint:disable-next-line:variable-name
-  private _description: string;
-  // tslint:disable-next-line:variable-name
   private _establishedYear: number;
   // tslint:disable-next-line:variable-name
   private _isEstablished: boolean;
@@ -44,7 +41,6 @@ export class CompanyModel extends BaseEntityModel implements Company {
     this._budget = (companyModelConfig !== null && companyModelConfig !== undefined) ? new BudgetModel(companyModelConfig.budget) : null;
     this._url = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.url : null;
     this._timeline = (companyModelConfig !== null && companyModelConfig !== undefined) ? new TimeLineModel(companyModelConfig.timeline) : null;
-    this._description = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.description : null;
     this._establishedYear = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.establishedYear : null;
     this._isEstablished = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.isEstablished : null;
     this._foundation = (companyModelConfig !== null && companyModelConfig !== undefined) ? companyModelConfig.foundation : null;
@@ -122,14 +118,6 @@ if (this.establishedYear <= year - 5 ) {
 
   }
 
-  get description() {
-    return this._description;
-  }
-
-  set description(desc: string) {
-    this._description = desc;
-  }
-
   getType() {
     return this._type;
   }
@@ -161,14 +149,6 @@ if (this.establishedYear <= year - 5 ) {
   setTimeline(timeline: TimeLine) {
     this._timeline = timeline;
 
-  }
-
-  getDescription() {
-    return this._description;
-  }
-
-  setDescription(description: string) {
-    this._description = description;
   }
 
   getFoundation() {
