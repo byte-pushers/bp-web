@@ -22,7 +22,7 @@ Globals:
     Cors:
       AllowMethods: "'*'"
       AllowHeaders: "'*'"
-      AllowOrigin: "'*'"
+      AllowOrigin: ${CORS_ALLOWED_ORIGIN}
 Resources:
   BpWebVpcExecutionRole:
     Type: AWS::IAM::Role
