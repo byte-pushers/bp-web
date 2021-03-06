@@ -22,7 +22,7 @@ Globals:
     Cors:
       AllowMethods: "'*'"
       AllowHeaders: "'*'"
-      AllowOrigin: "https://api-dev.bytepushers.io"
+      AllowOrigin: "'https://api-dev.bytepushers.io'"
 Resources:
   BpWebVpcExecutionRole:
     Type: AWS::IAM::Role
