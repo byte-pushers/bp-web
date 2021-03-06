@@ -8,7 +8,6 @@ export interface Company extends BaseEntity {
   budget: Budget;
   url: string;
   timeline: TimeLine;
-  description: string;
   establishedYear: number;
   foundation: string;
 
@@ -26,9 +25,6 @@ export interface Company extends BaseEntity {
 
   getTimeline(): TimeLine;
   setTimeline(timeLine: TimeLine): void;
-
-  getDescription(): string;
-  setDescription(description: string): void;
 
   isEstablishedCompany(): boolean;
 
