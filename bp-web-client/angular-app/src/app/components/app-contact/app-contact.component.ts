@@ -146,6 +146,8 @@ public backToTop() {
 
         if (this.isMobileResolution()) {
           this.showOverlayModal(this.errorMessages[0]);
+        } else if (this.isMobileResolution() === false) {
+          this.showOverlayModal(this.errorMessages[0]);
         }
 
         this.spinner.hide();

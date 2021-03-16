@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {AppAlertOverlayModalService} from "./app-alert-overlay-modal.service";
+import {AppAlertOverlayModalService} from './app-alert-overlay-modal.service';
 
 @Component({
   selector: 'app-alert-overlay-modal',
   styleUrls: ['./app-alert-overlay-modal.component.css'],
   template:
-    `<mat-card>
+
+    `
+      <div class="overlay-box">
+      <mat-card>
         <mat-card-header>
             <mat-card-title>
               {{message.value}}
@@ -14,7 +17,9 @@ import {AppAlertOverlayModalService} from "./app-alert-overlay-modal.service";
         <mat-card-content class="mx-auto">
           <button mat-raised-button class="btn  overlay-btn" (click)="closeModal($event)">Ok</button>
         </mat-card-content>
-    </mat-card>`,
+    </mat-card>
+      </div>
+    `,
 })
 export class AppAlertOverlayModalComponent implements OnInit {
   public message: {value: string} = {value: null};
@@ -27,6 +32,7 @@ export class AppAlertOverlayModalComponent implements OnInit {
     this.appAlertOverlayModalService.message().subscribe(msg => {
       this.message.value = msg;
     });
+    document.body.style.fill = '#f3f3f3';
   }
 
   public closeModal($event) {

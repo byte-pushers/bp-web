@@ -1,4 +1,4 @@
-import {AbstractControl, ValidatorFn} from "@angular/forms";
+import {AbstractControl, ValidatorFn} from '@angular/forms';
 
 export function phoneNumberValidator (expression: RegExp) : ValidatorFn {
   return (control: AbstractControl): {[key:string]: any} | null => {

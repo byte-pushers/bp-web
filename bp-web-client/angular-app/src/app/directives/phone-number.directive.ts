@@ -1,6 +1,6 @@
-import {Directive} from "@angular/core";
-import {AbstractControl, NG_VALIDATORS, Validator} from "@angular/forms";
-import {phoneNumberValidator} from "./phone-number.validator";
+import {Directive} from '@angular/core';
+import {AbstractControl, NG_VALIDATORS, Validator} from '@angular/forms';
+import {phoneNumberValidator} from './phone-number.validator';
 
 @Directive({
   selector: '[phoneNumber] [ngModel]',
