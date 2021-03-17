@@ -59,9 +59,11 @@ export class ContactComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.setOnContactView(true);
   }
+
   public setOnContactView(setView): void {
     this.contactButtonService.isOnContactView(setView);
   }
+
   public calculateYears(yearList: number, yearsSpan: number): any [] {
     const yearArray = [];
     yearArray.push(yearList);
@@ -86,16 +88,16 @@ export class ContactComponent implements OnInit, OnDestroy {
 
   public onSubmit(): void {
     this.isSubmitted = true;
-
     if (!this.quoteForm.valid) {
       this.isSubmitted = false;
     } else {
-    this.saveQuote();
+      this.saveQuote();
     }
   }
-public backToTop() {
+
+  public backToTop() {
     this.scrollToService.toTopOfPage();
-}
+  }
 
   public onSubmitBackToTopDesktop() {
     document.getElementById('successTop').scrollIntoView();
@@ -135,20 +137,16 @@ public backToTop() {
 
         // TODO: Maybe we don't need this logic.
         if (this.isMobileResolution()) {
-            this.onSubmitBackToTopMobile();
-          } else {
-            this.onSubmitBackToTopDesktop();
-          }
+          this.onSubmitBackToTopMobile();
+        } else {
+          this.onSubmitBackToTopDesktop();
+        }
       }, error => {
         // TODO should display error message at top of quote page.
         console.log('error: ' + error, error);
         this.errorMessages.push('Account was not created, internal error.');
 
-        if (this.isMobileResolution()) {
-          this.showOverlayModal(this.errorMessages[0]);
-        } else if (this.isMobileResolution() === false) {
-          this.showOverlayModal(this.errorMessages[0]);
-        }
+        this.showOverlayModal(this.errorMessages[0]);
 
         this.spinner.hide();
       });
