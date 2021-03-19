@@ -232,7 +232,7 @@ Resources:
             Path: /
           Type: Api
       Handler: index.handler
-      MemorySize: 128MB
+      MemorySize: 128
       Role:
         Fn::GetAtt: [ BpWebVpcExecutionRole, Arn ]
       Policies:
