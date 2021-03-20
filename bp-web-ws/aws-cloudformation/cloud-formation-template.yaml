@@ -166,7 +166,7 @@ Resources:
     Properties:
       RetentionInDays: 7
       LogGroupName:
-        !Join ['', ['/aws/lambda/', !Ref AwsApiGatewayBpWebFunction]]
+        !Join [ '', [ '/aws/lambda/', !Ref AwsApiGatewayBpWebFunction ] ]
 
   AwsApiGatewayBpWebFunction:
     Type: AWS::Serverless::Function
@@ -221,7 +221,7 @@ Resources:
             Method: OPTIONS
             Path: /{proxy+}
           Type: Api
-      Handler: index.handler
+      Handler: index.bpwebHandler
       MemorySize: 128
       Role:
         Fn::GetAtt: [ BpWebVpcExecutionRole, Arn ]
