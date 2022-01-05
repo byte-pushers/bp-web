@@ -55,7 +55,7 @@ export class AppHeaderComponent implements OnInit {
 
   public checkMobileNav() {
     const windowCheck = window.innerWidth;
-    if (windowCheck <= 480) {
+    if (windowCheck <= 500) {
       this.openCloseMobileNav();
     }
 

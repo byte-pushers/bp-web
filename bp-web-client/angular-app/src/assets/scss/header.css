@@ -893,7 +893,132 @@ the header component, remaining stylings left on the header componnent are there
     margin-bottom: 0.4em;
   }
 }
+@media only screen and (width: 896px) and (height: 414px) {
+  .topnav-logo-img {
+    background: url(~src/assets/images/bytePushersLogoMobile.svg) no-repeat center;
+    background-size: 130px;
+    width: 130px;
+    height: 130px;
+    margin: 0 auto;
 
+  }
+
+  .topnav.expanded .topnav-links-container {
+    display: block
+  }
+
+  .topnav.expanded .topnav-logo-img {
+    background: url(~src/assets/images/bytePushersLogoWithTextMobileNav-01.svg) no-repeat;
+    background-size: 130px;
+    margin-top: .3em;
+  }
+
+  .topnav.expanded .topnav-link {
+    color: #201d1c;
+  }
+
+  .topnav.expanded .topnav-link:hover,
+  .topnav.expanded .topnav-link.active {
+    border-bottom-color: #201d1c
+  }
+
+  .topnav.expanded .topnav-link-item {
+    margin-top: 0.75em
+  }
+
+  .topnav.expanded .topnav-mobile-menu {
+    background-image: url(~src/assets/images/closeButton-02.svg);
+    font-size: 1.8em;
+    background-size: .8em;
+    margin-top: 1.4em;
+    margin-left: .4em;
+    margin-bottom: 0.4em;
+  }
+}
+@media only screen and (width: 844px) and (height: 390px) {
+  .topnav-logo-img {
+    background: url(~src/assets/images/bytePushersLogoWithText.svg) no-repeat center;
+    background-size: 130px;
+    width: 130px;
+    height: 130px;
+    margin: 0 auto;
+
+  }
+
+  .topnav.expanded .topnav-links-container {
+    display: block
+  }
+
+  .topnav.expanded .topnav-logo-img {
+    background: url(~src/assets/images/bytePushersLogoWithTextMobileNav-01.svg) no-repeat;
+    background-size: 130px;
+    margin-top: .3em;
+  }
+
+  .topnav.expanded .topnav-link {
+    color: #201d1c;
+  }
+
+  .topnav.expanded .topnav-link:hover,
+  .topnav.expanded .topnav-link.active {
+    border-bottom-color: #201d1c
+  }
+
+  .topnav.expanded .topnav-link-item {
+    margin-top: 0.75em
+  }
+
+  .topnav.expanded .topnav-mobile-menu {
+    background-image: url(~src/assets/images/closeButton-02.svg);
+    font-size: 1.8em;
+    background-size: .8em;
+    margin-top: 1.4em;
+    margin-left: .4em;
+    margin-bottom: 0.4em;
+  }
+}
+@media only screen and (width: 851px) and (height: 393px) {
+  .topnav-logo-img {
+    background: url(~src/assets/images/bytePushersLogoWithText.svg) no-repeat center;
+    background-size: 130px;
+    width: 130px;
+    height: 130px;
+    margin: 0 auto;
+
+  }
+
+  .topnav.expanded .topnav-links-container {
+    display: block
+  }
+
+  .topnav.expanded .topnav-logo-img {
+    background: url(~src/assets/images/bytePushersLogoWithTextMobileNav-01.svg) no-repeat;
+    background-size: 130px;
+    margin-top: .3em;
+  }
+
+  .topnav.expanded .topnav-link {
+    color: #201d1c;
+  }
+
+  .topnav.expanded .topnav-link:hover,
+  .topnav.expanded .topnav-link.active {
+    border-bottom-color: #201d1c
+  }
+
+  .topnav.expanded .topnav-link-item {
+    margin-top: 0.75em
+  }
+
+  .topnav.expanded .topnav-mobile-menu {
+    background-image: url(~src/assets/images/closeButton-02.svg);
+    font-size: 1.8em;
+    background-size: .8em;
+    margin-top: 1.4em;
+    margin-left: .4em;
+    margin-bottom: 0.4em;
+  }
+}
 @media screen and (max-height: 320px) {
   .topnav-link-item {
     line-height: 1.5em
