@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import {ScrollToService} from '../../services/scroll-to.service';
 @Component({
   selector: 'app-services',
   templateUrl: './app-services.component.html',
@@ -7,7 +8,7 @@ import * as $ from 'jquery';
 })
 export class ServicesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public scrollToService: ScrollToService) { }
 
   ngOnInit() {
     $(document).ready(function(e) {
