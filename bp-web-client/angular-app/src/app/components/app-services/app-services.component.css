@@ -3,18 +3,19 @@
   padding-right: 0px;
 }
 
-
 ::ng-deep .carousel-control-next-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='gray' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 }
 
-::ng-deep .carousel-control-next, .carousel-control-next, .disabled {
+::ng-deep .carousel-control-next,
+.carousel-control-next,
+.disabled {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
   color: white;
 }
 
 div[disabled] {
-  opacity: 0.0;
+  opacity: 0;
   filter: alpha(opacity=00); /* For IE8 and earlier */
 }
 
@@ -26,19 +27,20 @@ div[disabled] {
   background-color: rgba(72, 55, 55, 0.79);
 }
 
-
-::ng-deep .carousel-control-next:focus, .carousel-control-next:hover, .carousel-control-prev:focus, .carousel-control-prev:hover {
+::ng-deep .carousel-control-next:focus,
+.carousel-control-next:hover,
+.carousel-control-prev:focus,
+.carousel-control-prev:hover {
   color: #1b1919;
   text-decoration: none;
   outline: 0;
-  opacity: .1;
+  opacity: 0.1;
 }
 
 .services-carousel {
   height: 240px !important;
   margin-bottom: 2em !important;
 }
-
 
 .services-carousel-title {
   margin-top: 10px !important;
@@ -48,12 +50,10 @@ div[disabled] {
 ::ng-deep .left.carousel-control.carousel-control-prev.disabled {
   background-color: white;
   opacity: inherit;
-
 }
 
 ::ng-deep .left.carousel-control.carousel-control-prev.disabled span {
   visibility: hidden;
-
 }
 
 ::ng-deep .right.carousel-control.carousel-control-next.disabled {
@@ -64,7 +64,6 @@ div[disabled] {
 ::ng-deep .right.carousel-control.carousel-control-next.disabled span {
   visibility: hidden;
 }
-
 
 ::ng-deep .carousel-indicators li {
   position: relative;
@@ -79,7 +78,6 @@ div[disabled] {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.5);
 }
-
 
 .tech-icons-1 {
   height: 14vh;
@@ -122,12 +120,12 @@ div[disabled] {
 .icon:hover {
   filter: unset !important;
   text-decoration: none;
+  color: #1b1919;
 }
 
 .tech-text-mobile {
   font-size: 3vh;
   padding-bottom: 2vh;
-
 }
 
 strong:hover {

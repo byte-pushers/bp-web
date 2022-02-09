@@ -1,54 +1,58 @@
 .topnav.topnav-scrolling .topnav-link {
   color: #201d1c;
   text-shadow: none;
-  border-bottom-width: 2px
+  border-bottom-width: 2px;
 }
 
-.topnav.topnav-scrolling .topnav-link:hover, .topnav.topnav-scrolling .topnav-link.active {
-  border-bottom-color: #201d1c
+.topnav.topnav-scrolling .topnav-link:hover,
+.topnav.topnav-scrolling .topnav-link.active {
+  border-bottom-color: #201d1c;
 }
 
-.topnav.topnav-scrolling .topnav-link:hover, .topnav.topnav-scrolling .topnav-link.active {
-  border-bottom-color: #201d1c
+.topnav.topnav-scrolling .topnav-link:hover,
+.topnav.topnav-scrolling .topnav-link.active {
+  border-bottom-color: #201d1c;
 }
 
 .topnav.topnav-scrolling .topnav-links-container {
-  margin-top: 1em
+  margin-top: 1em;
 }
 
 .topnav.topnav-scrolling .topnav-link-button:hover {
   background: #201d1c;
-  color: #fff
+  color: #fff;
 }
 
 .topnav.topnav-scrolling .topnav-link-item {
-  margin-top: 0.3em
+  margin-top: 0.3em;
 }
 
 .topnav.topnav-scrolling .topnav-logo {
   margin-top: 0;
-  margin-left: -37.5px
+  margin-left: -37.5px;
 }
 
 .topnav.expanded .topnav-logo-img {
   background-image: url("~src/assets/images/bytePushersLogoWithoutText.svg");
-  background-size: 110px
+  background-size: 110px;
 }
 
 .topnav.expanded .topnav-link {
   color: #201d1c;
 }
 
-.topnav.expanded .topnav-link:hover, .topnav.expanded .topnav-link.active {
-  border-bottom-color: #201d1c
+.topnav.expanded .topnav-link:hover,
+.topnav.expanded .topnav-link.active {
+  border-bottom-color: #201d1c;
 }
 
-.topnav.expanded .topnav-link:hover, .topnav.expanded .topnav-link.active {
-  border-bottom-color: #201d1c
+.topnav.expanded .topnav-link:hover,
+.topnav.expanded .topnav-link.active {
+  border-bottom-color: #201d1c;
 }
 
 .topnav.expanded .topnav-link-item {
-  margin-top: 0.75em
+  margin-top: 0.75em;
 }
 
 .topnav.expanded .topnav-mobile-menu {
@@ -56,7 +60,7 @@
   font-size: 1.8em;
   margin-top: 0.4em;
   margin-bottom: 0.15em;
-  margin-left: 0.1em
+  margin-left: 0.1em;
 }
 
 .topnav-links-container {
@@ -64,32 +68,32 @@
   width: 100%;
   margin-top: 2.5em;
   margin-bottom: 1em;
-  float: right
+  float: right;
 }
 
 .topnav-links {
-  list-style-type: none
+  list-style-type: none;
 }
 
 .topnav-links .topnav-link-item:last-of-type {
-  margin-right: 0
+  margin-right: 0;
 }
 
 .topnav.topnav-scrolling .topnav-link-item {
-  margin-top: 0.3em
+  margin-top: 0.3em;
 }
 
 .topnav.expanded .topnav-link-item {
-  margin-top: 0.75em
+  margin-top: 0.75em;
 }
 
 .topnav-link-item {
   text-align: center;
-  line-height: 1.8em
+  line-height: 1.8em;
 }
 
 .topnav-links .topnav-link-item:last-of-type {
-  margin-right: 0
+  margin-right: 0;
 }
 
 .topnav.topnav-scrolling .topnav-link {
@@ -101,50 +105,48 @@
 
 .topnav.topnav-scrolling .topnav-link:hover,
 .topnav.topnav-scrolling .topnav-link.active {
-  border-bottom-color: #201d1c
+  border-bottom-color: #201d1c;
 }
 
 .topnav.topnav-scrolling .topnav-link:hover,
 .topnav.topnav-scrolling .topnav-link.active {
-  border-bottom-color: #201d1c
+  border-bottom-color: #201d1c;
 }
 
 .topnav.topnav-scrolling .topnav-links-container {
-  margin-top: 1.4em
+  margin-top: 1.4em;
 }
 
 .topnav-link-item {
   text-align: center;
-  line-height: 1.8em
+  line-height: 1.8em;
 }
-
-
-
-
 
 .topnav.topnav-scrolling .topnav-mobile-menu {
   background: url("~src/assets/images/hamburgerMenuBlack.svg") no-repeat center;
-  margin-top: .1em;
-  margin-left: .1em;
+  margin-top: 0.1em;
+  margin-left: 0.1em;
   margin-bottom: 0.4em;
-  height: .5em;
+  height: 0.5em;
 }
 .topnav.topnav-scrolling .topnav-logo-img {
   margin-bottom: 0.25em;
-  background: url("~src/assets/images/bytePushersLogoWithoutText.svg") no-repeat center;
+  background: url("~src/assets/images/bytePushersLogoWithoutText.svg") no-repeat
+    center;
   background-size: 220px;
   width: 220px;
-  height: 80px
+  height: 80px;
 }
 
-
-.lt-ie10 .fade-in-first, .lt-ie10 .fade-in-second, .lt-ie10 .fade-in-third {
-  opacity: 1
+.lt-ie10 .fade-in-first,
+.lt-ie10 .fade-in-second,
+.lt-ie10 .fade-in-third {
+  opacity: 1;
 }
 .fade-in-second {
   -webkit-animation-delay: 0.9s;
   -moz-animation-delay: 0.9s;
-  animation-delay: 0.9s
+  animation-delay: 0.9s;
 }
 .topnav-container .mix {
   display: none;
@@ -152,33 +154,34 @@
 .container {
   margin: 0 auto;
   padding-left: 1em;
-  padding-right: 1em
+  padding-right: 1em;
 }
 .container::after,
 .topnav-container::after,
-.section-header-container::after{
+.section-header-container::after {
   clear: both;
   content: "";
-  display: table
+  display: table;
 }
 .topnav-container {
-  position: relative
+  position: relative;
 }
 .topnav-logo {
   display: block;
   position: absolute;
   left: 45%;
-  margin-left: -43.5px
+  margin-left: -43.5px;
 }
 .topnav.topnav-scrolling .topnav-mobile-menu {
   background: url("~src/assets/images/hamburgerMenuBlack.svg") no-repeat center;
-  margin-top: .1em;
-  margin-left: .1em;
+  margin-top: 0.1em;
+  margin-left: 0.1em;
   margin-bottom: 0.4em;
-  height: .5em;
+  height: 0.5em;
 }
 .topnav-mobile-menu {
-  background: url("~src/assets/images/bytePushersLogoWithoutText.svg") no-repeat center;
+  background: url("~src/assets/images/bytePushersLogoWithoutText.svg") no-repeat
+    center;
   background-size: 0.5em;
   color: #fff;
   font-size: 2.5em;
@@ -187,37 +190,39 @@
   float: left;
   cursor: pointer;
   margin-top: 0.15em;
-  margin-bottom: 0.4em
+  margin-bottom: 0.4em;
 }
 .topnav.expanded .topnav-mobile-menu {
   background-image: url("~src/assets/images/bytePushersLogoWithText.svg");
   font-size: 1.8em;
   margin-top: 0.4em;
   margin-bottom: 0.15em;
-  margin-left: 0.1em
+  margin-left: 0.1em;
 }
 
 .topnav.topnav-scrolling .topnav-logo {
   margin-top: 0;
-  margin-left: -37.5px
+  margin-left: -37.5px;
 }
 
 .topnav.topnav-scrolling .topnav-logo-img {
   margin-bottom: 0.25em;
-  background: url("~src/assets/images/bytePushersLogoWithoutText.svg") no-repeat center;
+  background: url("~src/assets/images/bytePushersLogoWithoutText.svg") no-repeat
+    center;
   background-size: 220px;
   width: 220px;
-  height: 80px
+  height: 80px;
 }
 .topnav-logo-img {
-  background: url(~src/assets/images/bytePushersLogoWithText.svg) no-repeat center center;
+  background: url(~src/assets/images/bytePushersLogoWithText.svg) no-repeat
+    center center;
   background-size: 200px;
   width: 200px;
   height: 110px;
 }
 .topnav.expanded .topnav-logo-img {
   background-image: url("~src/assets/images/bytePushersLogoWithoutText.svg");
-  background-size: 110px
+  background-size: 110px;
 }
 
 /*.topnav.topnav-scrolling .topnav-links-container {
@@ -226,21 +231,15 @@
 
 /*------------------------------------*/
 
-
-
-
-
 .topnav.topnav-scrolling .topnav-logo-img {
   /* margin-top: 0.55em; */
 
   background-size: 220px;
   width: 220px;
   height: 80px;
-  margin-top: .5em;
+  margin-top: 0.5em;
   margin-left: -2em;
 }
-
-
 
 .topnav-mobile-menu {
   background: url(~src/assets/images/hamburgerMenuWhite.svg) no-repeat top left;
@@ -252,12 +251,12 @@
   float: left;
   cursor: pointer;
   margin-top: 1.1em;
-  margin-left: .4em;
-  margin-bottom: 0.4em
+  margin-left: 0.4em;
+  margin-bottom: 0.4em;
 }
 
 .topnav-container {
-  position: relative
+  position: relative;
 }
 
 .topnav-links-container {
@@ -265,26 +264,19 @@
   width: 100%;
   margin-top: 2.5em;
   margin-bottom: 1em;
-  float: right
+  float: right;
 }
 .topnav-links-container-mobile {
   display: block;
   width: 100%;
   margin-top: 2.5em;
   margin-bottom: 1em;
-  float: right
+  float: right;
 }
-
-
-
-
-
-
 
 .topnav-links .topnav-link-item:last-of-type {
-  margin-right: 0
+  margin-right: 0;
 }
-
 
 .topnav-link:hover,
 .topnav-link.active {
@@ -294,7 +286,7 @@
 }
 
 .topnav-link-item-hidden-small {
-  display: block
+  display: block;
 }
 .topnav-links {
   list-style-type: none;
@@ -307,7 +299,7 @@ the header component, remaining stylings left on the header componnent are there
 
 @media only screen and (min-width: 0) and (max-width: 767px) {
   .topnav.expanded {
-    background: #fff
+    background: #fff;
   }
 }
 
@@ -319,25 +311,25 @@ the header component, remaining stylings left on the header componnent are there
     padding-bottom: 0;
     margin-top: -3px;
     margin-bottom: -3px;
-    white-space: nowrap
+    white-space: nowrap;
   }
 
   .topnav.topnav-scrolling .topnav-link-button:hover {
     background: #201d1c;
-    color: #fff
+    color: #fff;
   }
 }
 
 @media only screen and (min-width: 321px) {
   .topnav.topnav-scrolling .topnav-logo {
-    margin-left: -42.6px
+    margin-left: -42.6px;
   }
 }
 
 @media only screen and (min-width: 768px) {
   .topnav.topnav-scrolling .topnav-logo {
     margin-top: 0;
-    margin-left: 0
+    margin-left: 0;
   }
 }
 
@@ -345,62 +337,62 @@ the header component, remaining stylings left on the header componnent are there
   .topnav.topnav-scrolling.expanded .topnav-mobile-menu {
     margin-top: 0.9em;
     margin-bottom: 0.2em;
-    margin-left: 0.1em
+    margin-left: 0.1em;
   }
 }
 
 @media screen and (max-width: 320px), screen and (max-height: 320px) {
   .topnav.topnav-scrolling.expanded .topnav-mobile-menu {
     margin-top: 0.6em;
-    min-height: 0.6em
+    min-height: 0.6em;
   }
 }
 
 @media screen and (max-width: 320px), screen and (max-height: 320px) {
   .topnav.topnav-scrolling.expanded .topnav-logo {
-    margin-left: -37.5px
+    margin-left: -37.5px;
   }
 }
 
 @media only screen and (min-width: 321px) and (max-width: 767px) {
   .topnav.topnav-scrolling.expanded .topnav-logo {
-    margin-left: -42.6px
+    margin-left: -42.6px;
   }
 }
 
 @media screen and (max-width: 320px), screen and (max-height: 320px) {
   .topnav.topnav-scrolling.expanded .topnav-logo-img {
-    background-size: 75px
+    background-size: 75px;
   }
 }
 
 @media only screen and (min-width: 321px) and (max-width: 767px) {
   .topnav.topnav-scrolling.expanded .topnav-logo-img {
-    background-size: 88px
+    background-size: 88px;
   }
 }
 
 @media screen and (max-height: 320px) {
   .topnav.topnav-scrolling .topnav-mobile-menu {
     margin-top: 0.45em;
-    height: 0.38em
+    height: 0.38em;
   }
 }
 
 @media screen and (max-width: 320px), screen and (max-height: 320px) {
   .topnav.topnav-scrolling .topnav-logo-img {
-    background-size: 75px
+    background-size: 75px;
   }
 }
 
 @media only screen and (min-width: 0) and (max-width: 767px) {
   .topnav.expanded .topnav-links-container {
-    display: block
+    display: block;
   }
 
   .topnav.expanded .topnav-logo-img {
     background-image: url("~src/assets/images/bytePushersLogoWithoutText.svg");
-    background-size: 110px
+    background-size: 110px;
   }
 
   .topnav.expanded .topnav-link {
@@ -409,11 +401,11 @@ the header component, remaining stylings left on the header componnent are there
 
   .topnav.expanded .topnav-link:hover,
   .topnav.expanded .topnav-link.active {
-    border-bottom-color: #201d1c
+    border-bottom-color: #201d1c;
   }
 
   .topnav.expanded .topnav-link-item {
-    margin-top: 0.75em
+    margin-top: 0.75em;
   }
 
   .topnav.expanded .topnav-mobile-menu {
@@ -421,7 +413,7 @@ the header component, remaining stylings left on the header componnent are there
     font-size: 1.8em;
     margin-top: 0.4em;
     margin-bottom: 0.15em;
-    margin-left: 0.1em
+    margin-left: 0.1em;
   }
 }
 
@@ -430,7 +422,7 @@ the header component, remaining stylings left on the header componnent are there
   .topnav-container,
   .section-header-container {
     max-width: 1170px;
-    max-width: 65rem
+    max-width: 65rem;
   }
 }
 
@@ -438,52 +430,52 @@ the header component, remaining stylings left on the header componnent are there
   .topnav.topnav-scrolling.expanded .topnav-mobile-menu {
     margin-top: 0.9em;
     margin-bottom: 0.2em;
-    margin-left: 0.1em
+    margin-left: 0.1em;
   }
 }
 
 @media screen and (max-width: 320px), screen and (max-height: 320px) {
   .topnav.topnav-scrolling.expanded .topnav-mobile-menu {
     margin-top: 0.6em;
-    min-height: 0.6em
+    min-height: 0.6em;
   }
 }
 
 @media screen and (max-height: 320px) {
   .topnav.topnav-scrolling .topnav-mobile-menu {
     margin-top: 0.45em;
-    height: 0.38em
+    height: 0.38em;
   }
 }
 
 @media only screen and (min-width: 768px) {
   .topnav-mobile-menu {
-    display: none
+    display: none;
   }
 }
 
 @media only screen and (min-width: 321px) {
   .topnav.topnav-scrolling .topnav-logo {
-    margin-left: -42.6px
+    margin-left: -42.6px;
   }
 }
 
 @media only screen and (min-width: 768px) {
   .topnav.topnav-scrolling .topnav-logo {
     margin-top: 0;
-    margin-left: 0
+    margin-left: 0;
   }
 }
 
 @media screen and (max-width: 320px), screen and (max-height: 320px) {
   .topnav.topnav-scrolling.expanded .topnav-logo {
-    margin-left: -37.5px
+    margin-left: -37.5px;
   }
 }
 
 @media only screen and (min-width: 321px) and (max-width: 767px) {
   .topnav.topnav-scrolling.expanded .topnav-logo {
-    margin-left: -42.6px
+    margin-left: -42.6px;
   }
 }
 
@@ -491,25 +483,25 @@ the header component, remaining stylings left on the header componnent are there
   .topnav-logo {
     position: static;
     float: left;
-    margin-left: 0
+    margin-left: 0;
   }
 }
 
 @media screen and (max-width: 320px), screen and (max-height: 320px) {
   .topnav.topnav-scrolling.expanded .topnav-logo-img {
-    background-size: 75px
+    background-size: 75px;
   }
 }
 
 @media only screen and (min-width: 321px) and (max-width: 767px) {
   .topnav.topnav-scrolling.expanded .topnav-logo-img {
-    background-size: 88px
+    background-size: 88px;
   }
 }
 
 @media screen and (max-width: 320px), screen and (max-height: 320px) {
   .topnav.topnav-scrolling .topnav-logo-img {
-    background-size: 75px
+    background-size: 75px;
   }
 }
 
@@ -518,25 +510,25 @@ the header component, remaining stylings left on the header componnent are there
     background-image: url("~src/assets/images/bytePushersLogoWithTextDesktop-01.svg");
     background-size: 22em;
     width: 22em;
-    height: 11em
+    height: 11em;
   }
 }
 
 @media only screen and (min-width: 768px) {
   .topnav-links-container {
     display: block;
-    width: auto
+    width: auto;
   }
 }
 
 @media only screen and (min-width: 0) and (max-width: 767px) {
   .topnav.expanded .topnav-links-container {
-    display: block
+    display: block;
   }
 
   .topnav.expanded .topnav-logo-img {
     background-image: url("~src/assets/images/bytePushersLogoWithoutText.svg");
-    background-size: 110px
+    background-size: 110px;
   }
 
   .topnav.expanded .topnav-link {
@@ -545,11 +537,11 @@ the header component, remaining stylings left on the header componnent are there
 
   .topnav.expanded .topnav-link:hover,
   .topnav.expanded .topnav-link.active {
-    border-bottom-color: #201d1c
+    border-bottom-color: #201d1c;
   }
 
   .topnav.expanded .topnav-link-item {
-    margin-top: 0.75em
+    margin-top: 0.75em;
   }
 
   .topnav.expanded .topnav-mobile-menu {
@@ -557,13 +549,13 @@ the header component, remaining stylings left on the header componnent are there
     font-size: 1.8em;
     margin-top: 0.4em;
     margin-bottom: 0.15em;
-    margin-left: 0.1em
+    margin-left: 0.1em;
   }
 }
 
 @media screen and (max-height: 320px) {
   .topnav-link-item {
-    line-height: 1.5em
+    line-height: 1.5em;
   }
 }
 
@@ -572,19 +564,19 @@ the header component, remaining stylings left on the header componnent are there
     display: inline-block;
     color: #201d1c;
     margin-top: 2em;
-    margin-left: 1.6em
+    margin-left: 1.6em;
   }
 }
 
 @media only screen and (min-width: 840px) and (max-width: 991px) {
   .topnav-link-item {
-    margin-left: 2em
+    margin-left: 2em;
   }
 }
 
 @media only screen and (min-width: 992px) {
   .topnav-link-item {
-    margin-left: 2.3em
+    margin-left: 2.3em;
   }
 }
 
@@ -595,13 +587,13 @@ the header component, remaining stylings left on the header componnent are there
   .topnav-container,
   .section-header-container {
     max-width: 1170px;
-    max-width: 65rem
+    max-width: 65rem;
   }
 }
 
 @media only screen and (min-width: 0) and (max-width: 767px) {
   .topnav.expanded {
-    background: #fff
+    background: #fff;
   }
 }
 
@@ -613,29 +605,29 @@ the header component, remaining stylings left on the header componnent are there
     padding-bottom: 0;
     margin-top: -3px;
     margin-bottom: -3px;
-    white-space: nowrap
+    white-space: nowrap;
   }
 }
 
 @media only screen and (min-width: 768px) {
   .topnav.topnav-scrolling .topnav-link-button:hover {
     background: #201d1c;
-    color: #fff
+    color: #fff;
   }
 
   .topnav.topnav-scrolling .topnav-link-item {
-    margin-top: 0.3em
+    margin-top: 0.3em;
   }
 
   .topnav.topnav-scrolling .topnav-logo {
     margin-top: 0;
-    margin-left: -37.5px
+    margin-left: -37.5px;
   }
 }
 
 @media only screen and (min-width: 321px) {
   .topnav.topnav-scrolling .topnav-logo {
-    margin-left: -42.6px
+    margin-left: -42.6px;
   }
 }
 
@@ -649,14 +641,14 @@ the header component, remaining stylings left on the header componnent are there
 
 @media only screen and (min-width: 321px) {
   .topnav.topnav-scrolling .topnav-logo {
-    margin-left: -42.6px
+    margin-left: -42.6px;
   }
 }
 
 @media only screen and (min-width: 768px) {
   .topnav.topnav-scrolling .topnav-logo {
     margin-top: 0;
-    margin-left: 0
+    margin-left: 0;
   }
 }
 
@@ -667,22 +659,20 @@ the header component, remaining stylings left on the header componnent are there
     margin-left: 0.1em;
     width: 1em;
     height: 1em;
-
   }
 }
 
 @media screen and (max-width: 320px), screen and (max-height: 320px) {
-
   .topnav.topnav-scrolling.expanded .topnav-mobile-menu {
     margin-top: 0.01em;
-    margin-left: .3em;
-    min-height: 0.6em
+    margin-left: 0.3em;
+    min-height: 0.6em;
   }
 }
 
 @media screen and (max-width: 320px), screen and (max-height: 320px) {
   .topnav.topnav-scrolling.expanded .topnav-logo {
-    margin-left: -37.5px
+    margin-left: -37.5px;
   }
 }
 
@@ -708,7 +698,7 @@ the header component, remaining stylings left on the header componnent are there
     width: 100%;
     margin-top: 2em !important;
     margin-bottom: 1em;
-    float: right
+    float: right;
   }
 
   .hero-arrow {
@@ -718,13 +708,13 @@ the header component, remaining stylings left on the header componnent are there
 
 @media only screen and (min-width: 321px) and (max-width: 767px) {
   .topnav.topnav-scrolling.expanded .topnav-logo {
-    margin-left: -42.6px
+    margin-left: -42.6px;
   }
 }
 
 @media screen and (max-width: 320px), screen and (max-height: 320px) {
   .topnav.topnav-scrolling.expanded .topnav-logo-img {
-    background-size: 75px
+    background-size: 75px;
   }
 }
 
@@ -741,17 +731,16 @@ the header component, remaining stylings left on the header componnent are there
   .topnav.topnav-scrolling .topnav-mobile-menu {
     background-image: url(~src/assets/images/hamburgerMenuBlack.svg);
     margin-top: 0.55em;
-    background-size: .5em;
+    background-size: 0.5em;
     color: #fff;
     font-size: 2.5em;
-    width: .6em;
+    width: 0.6em;
     height: 1em;
-    margin-bottom: 0.4em
+    margin-bottom: 0.4em;
   }
 }
 
 @media screen and (max-height: 320px) {
-
   .topnav.topnav-scrolling .topnav-mobile-menu {
     margin-top: 0.45em;
     height: 0.38em;
@@ -765,14 +754,15 @@ the header component, remaining stylings left on the header componnent are there
     width: 100%;
     margin-top: 3em;
     margin-bottom: 1em;
-    float: right
+    float: right;
   }
 
   .topnav.topnav-scrolling .topnav-logo-img {
-    background: url(~src/assets/images/bytePushersLogoWithoutText.svg) no-repeat center !important;
+    background: url(~src/assets/images/bytePushersLogoWithoutText.svg) no-repeat
+      center !important;
     /* margin-top: 0.64em; */
     background-size: 220px;
-    margin-top: .3em;
+    margin-top: 0.3em;
     height: 20px;
   }
 }
@@ -784,9 +774,10 @@ the header component, remaining stylings left on the header componnent are there
   }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 768px) and (max-height: 522px) and (min-height: 522px ) {
+@media only screen and (min-width: 768px) and (max-width: 768px) and (max-height: 522px) and (min-height: 522px) {
   .topnav-logo-img {
-    background-image: url(~src/assets/images/bytePushersLogoWithText.svg) no-repeat center;
+    background-image: url(~src/assets/images/bytePushersLogoWithText.svg)
+      no-repeat center;
     background-size: 13em !important;
     width: 13em !important;
     height: 11em;
@@ -795,10 +786,8 @@ the header component, remaining stylings left on the header componnent are there
 }
 
 @media only screen and (min-width: 768px) {
-
-
   .topnav-mobile-menu {
-    display: none
+    display: none;
   }
 
   .topnav-logo {
@@ -811,13 +800,14 @@ the header component, remaining stylings left on the header componnent are there
   .topnav-logo {
     position: static;
     float: left;
-    margin-left: 0
+    margin-left: 0;
   }
 }
 
 @media only screen and (max-width: 768px) {
   .topnav-logo-img {
-    background-image: url(~src/assets/images/bytePushersLogoWithText.svg) no-repeat center;
+    background-image: url(~src/assets/images/bytePushersLogoWithText.svg)
+      no-repeat center;
     background-size: 14em;
     width: 14em;
     height: 11em;
@@ -826,7 +816,8 @@ the header component, remaining stylings left on the header componnent are there
 
 @media only screen and (min-width: 768px) and (min-height: 1024px) {
   .topnav-logo-img {
-    background-image: url(~src/assets/images/bytePushersLogoWithText.svg) no-repeat center;
+    background-image: url(~src/assets/images/bytePushersLogoWithText.svg)
+      no-repeat center;
     background-size: 13em;
     width: 13em;
     height: 11em;
@@ -836,7 +827,8 @@ the header component, remaining stylings left on the header componnent are there
 
 @media only screen and (min-width: 1024px) and (min-height: 1366px) {
   .topnav-logo-img {
-    background-image: url(~src/assets/images/bytePushersLogoWithText.svg) no-repeat center;
+    background-image: url(~src/assets/images/bytePushersLogoWithText.svg)
+      no-repeat center;
     background-size: 15em;
     width: 15em;
     height: 11em;
@@ -847,28 +839,29 @@ the header component, remaining stylings left on the header componnent are there
 @media only screen and (min-width: 768px) {
   .topnav-links-container {
     display: block;
-    width: auto
+    width: auto;
   }
 }
 
 @media only screen and (min-width: 0) and (max-width: 767px) {
   .topnav-logo-img {
-    background: url(~src/assets/images/bytePushersLogoWithText.svg) no-repeat center;
+    background: url(~src/assets/images/bytePushersLogoWithText.svg) no-repeat
+      center;
     background-size: 130px;
     width: 130px;
     height: 130px;
     margin: 0 auto;
-
   }
 
   .topnav.expanded .topnav-links-container {
-    display: block
+    display: block;
   }
 
   .topnav.expanded .topnav-logo-img {
-    background: url(~src/assets/images/bytePushersLogoWithTextMobileNav-01.svg) no-repeat;
+    background: url(~src/assets/images/bytePushersLogoWithTextMobileNav-01.svg)
+      no-repeat;
     background-size: 130px;
-    margin-top: .3em;
+    margin-top: 0.3em;
   }
 
   .topnav.expanded .topnav-link {
@@ -877,26 +870,154 @@ the header component, remaining stylings left on the header componnent are there
 
   .topnav.expanded .topnav-link:hover,
   .topnav.expanded .topnav-link.active {
-    border-bottom-color: #201d1c
+    border-bottom-color: #201d1c;
   }
 
   .topnav.expanded .topnav-link-item {
-    margin-top: 0.75em
+    margin-top: 0.75em;
   }
 
   .topnav.expanded .topnav-mobile-menu {
     background-image: url(~src/assets/images/closeButton-02.svg);
     font-size: 1.8em;
-    background-size: .8em;
+    background-size: 0.8em;
     margin-top: 1.4em;
-    margin-left: .4em;
+    margin-left: 0.4em;
     margin-bottom: 0.4em;
   }
 }
+@media only screen and (width: 896px) and (height: 414px) {
+  .topnav-logo-img {
+    background: url(~src/assets/images/bytePushersLogoMobile.svg) no-repeat
+      center;
+    background-size: 130px;
+    width: 130px;
+    height: 130px;
+    margin: 0 auto;
+  }
 
+  .topnav.expanded .topnav-links-container {
+    display: block;
+  }
+
+  .topnav.expanded .topnav-logo-img {
+    background: url(~src/assets/images/bytePushersLogoWithTextMobileNav-01.svg)
+      no-repeat;
+    background-size: 130px;
+    margin-top: 0.3em;
+  }
+
+  .topnav.expanded .topnav-link {
+    color: #201d1c;
+  }
+
+  .topnav.expanded .topnav-link:hover,
+  .topnav.expanded .topnav-link.active {
+    border-bottom-color: #201d1c;
+  }
+
+  .topnav.expanded .topnav-link-item {
+    margin-top: 0.75em;
+  }
+
+  .topnav.expanded .topnav-mobile-menu {
+    background-image: url(~src/assets/images/closeButton-02.svg);
+    font-size: 1.8em;
+    background-size: 0.8em;
+    margin-top: 1.4em;
+    margin-left: 0.4em;
+    margin-bottom: 0.4em;
+  }
+}
+@media only screen and (width: 844px) and (height: 390px) {
+  .topnav-logo-img {
+    background: url(~src/assets/images/bytePushersLogoWithText.svg) no-repeat
+      center;
+    background-size: 130px;
+    width: 130px;
+    height: 130px;
+    margin: 0 auto;
+  }
+
+  .topnav.expanded .topnav-links-container {
+    display: block;
+  }
+
+  .topnav.expanded .topnav-logo-img {
+    background: url(~src/assets/images/bytePushersLogoWithTextMobileNav-01.svg)
+      no-repeat;
+    background-size: 130px;
+    margin-top: 0.3em;
+  }
+
+  .topnav.expanded .topnav-link {
+    color: #201d1c;
+  }
+
+  .topnav.expanded .topnav-link:hover,
+  .topnav.expanded .topnav-link.active {
+    border-bottom-color: #201d1c;
+  }
+
+  .topnav.expanded .topnav-link-item {
+    margin-top: 0.75em;
+  }
+
+  .topnav.expanded .topnav-mobile-menu {
+    background-image: url(~src/assets/images/closeButton-02.svg);
+    font-size: 1.8em;
+    background-size: 0.8em;
+    margin-top: 1.4em;
+    margin-left: 0.4em;
+    margin-bottom: 0.4em;
+  }
+}
+@media only screen and (width: 851px) and (height: 393px) {
+  .topnav-logo-img {
+    background: url(~src/assets/images/bytePushersLogoWithText.svg) no-repeat
+      center;
+    background-size: 130px;
+    width: 130px;
+    height: 130px;
+    margin: 0 auto;
+  }
+
+  .topnav.expanded .topnav-links-container {
+    display: block;
+  }
+
+  .topnav.expanded .topnav-logo-img {
+    background: url(~src/assets/images/bytePushersLogoWithTextMobileNav-01.svg)
+      no-repeat;
+    background-size: 130px;
+    margin-top: 0.3em;
+  }
+
+  .topnav.expanded .topnav-link {
+    color: #201d1c;
+  }
+
+  .topnav.expanded .topnav-link:hover,
+  .topnav.expanded .topnav-link.active {
+    border-bottom-color: #201d1c;
+  }
+
+  .topnav.expanded .topnav-link-item {
+    margin-top: 0.75em;
+  }
+
+  .topnav.expanded .topnav-mobile-menu {
+    background-image: url(~src/assets/images/closeButton-02.svg);
+    font-size: 1.8em;
+    background-size: 0.8em;
+    margin-top: 1.4em;
+    margin-left: 0.4em;
+    margin-bottom: 0.4em;
+  }
+}
 @media screen and (max-height: 320px) {
   .topnav-link-item {
-    line-height: 1.5em
+    line-height: 1.5em;
   }
 }
 
@@ -905,19 +1026,19 @@ the header component, remaining stylings left on the header componnent are there
     display: inline-block;
     color: #201d1c;
     margin-top: 2em;
-    margin-left: 1.6em
+    margin-left: 1.6em;
   }
 }
 
 @media only screen and (min-width: 840px) and (max-width: 991px) {
   .topnav-link-item {
-    margin-left: 2em
+    margin-left: 2em;
   }
 }
 
 @media only screen and (min-width: 992px) {
   .topnav-link-item {
-    margin-left: 2.3em
+    margin-left: 2.3em;
   }
 }
 
@@ -932,34 +1053,36 @@ the header component, remaining stylings left on the header componnent are there
     font-weight: 400;
     color: #fff;
     text-shadow: none;
-    -webkit-transition: background-color 50ms linear, border-color 50ms linear, color 50ms linear;
-    -moz-transition: background-color 50ms linear, border-color 50ms linear, color 50ms linear;
-    transition: background-color 50ms linear, border-color 50ms linear, color 50ms linear
+    -webkit-transition: background-color 50ms linear, border-color 50ms linear,
+      color 50ms linear;
+    -moz-transition: background-color 50ms linear, border-color 50ms linear,
+      color 50ms linear;
+    transition: background-color 50ms linear, border-color 50ms linear,
+      color 50ms linear;
   }
 
   .topnav-link.topnav-link-button:hover {
     background: #fff;
-    color: #201d1c
+    color: #201d1c;
   }
 }
 
 @media only screen and (min-width: 840px) {
   .topnav-link.topnav-link-button {
     padding-left: 1.6667em;
-    padding-right: 1.6667em
+    padding-right: 1.6667em;
   }
 }
 
-
 @media only screen and (min-width: 768px) {
   .topnav-link-item-hidden-small {
-    display: none
+    display: none;
   }
 }
 
 @media only screen and (min-width: 950px) {
   .topnav-link-item-hidden-small {
-    display: inline-block
+    display: inline-block;
   }
 }
 
@@ -975,9 +1098,8 @@ the header component, remaining stylings left on the header componnent are there
   -o-transform: translate3d(0, -2em, 0);
   transform: translate3d(0, -2em, 0);
   background-color: #ffffff;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1)
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 }
-
 
 .topnav-link {
   color: #f5f5f5;
@@ -989,9 +1111,8 @@ the header component, remaining stylings left on the header componnent are there
   padding-bottom: 0.125em;
   -webkit-transition: border-bottom-color 50ms linear;
   -moz-transition: border-bottom-color 50ms linear;
-  transition: border-bottom-color 50ms linear
+  transition: border-bottom-color 50ms linear;
 }
-
 
 .topnav {
   position: fixed;
@@ -1009,10 +1130,14 @@ the header component, remaining stylings left on the header componnent are there
   -webkit-transition: -webkit-transform 0.4s, background 0.4s;
   -moz-transition: -moz-transform 0.4s, background 0.4s;
   -o-transition: -o-transform 0.4s, background 0.4s;
-  transition: transform 0.4s, background 0.4s
+  transition: transform 0.4s, background 0.4s;
 }
 
-.fade-in, .fade-in-first, .fade-in-second, .fade-in-third, .hero-arrow {
+.fade-in,
+.fade-in-first,
+.fade-in-second,
+.fade-in-third,
+.hero-arrow {
   opacity: 0;
   -webkit-animation: fadeIn ease-in 1;
   -moz-animation: fadeIn ease-in 1;
@@ -1025,5 +1150,5 @@ the header component, remaining stylings left on the header componnent are there
   animation-duration: 0.5s;
   -webkit-animation-delay: 0.5s;
   -moz-animation-delay: 0.5s;
-  animation-delay: 0.5s
+  animation-delay: 0.5s;
 }
