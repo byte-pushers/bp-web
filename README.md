@@ -31,3 +31,23 @@ curl --location --request GET 'http://localhost:8080/api/v1/health'
     Postman Collection: [Bp-Web.postman_collection.json](postman%2FBp-Web.postman_collection.json) <br/>
     Postman Environment: [Bp-Web-local.postman_environment.json](postman%2FBp-Web-local.postman_environment.json)
 
+# Deploy to AWS Lambda
+1. AWS CLI should be configured for development environment.
+2. Following properties should be added in environment variable
+    1. DATASOURCE_URL
+    2. JWT_TOKEN_SECRET
+    3. DATASOURCE_USERNAME
+    4. DATASOURCE_PASSWORD
+3. Run following command and build the project <br />
+   ```mvn clean install -P aws```
+4. Run following command to copy jar file <br />
+   ```cp ./bp-web-ws/target/bp-web-ws.jar ./bp-web-ws/target/bytepushers-bpweb-lambda.jar```
+5. Copy jar file to AWS S3 bucket <br />
+   ```aws s3 cp ./bp-web-ws/target/bytepushers-bpweb-lambda.jar s3://com.bytepushers.bpweb.ws/bytepushers-bpweb-lambda.jar```
+6. Run this command to update AWS lambda code with the jar file from the S3 bucket
+   ```aws lambda update-function-code --publish --function-name bytepushers-bpweb-ws --s3-bucket com.bytepushers.bpweb.ws --s3-key bytepushers-bpweb-lambda.jar --region us-east-2```
+7. To check AWS lambda status call following URL. <br />
+   ```curl --location --request GET 'https://api-dev.bytepushers.io/api/v1/health'```
+8. Use following postman collection and environment variable to validate AWS Lambda on development environment. <br/>
+   Postman Collection: [Bp-Web.postman_collection.json](postman%2FBp-Web.postman_collection.json) <br/>
+   Postman Environment: [Bp-Web-dev.postman_environment.json](postman%2FBp-Web-dev.postman_environment.json)
