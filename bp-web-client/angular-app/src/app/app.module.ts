@@ -30,7 +30,8 @@ import { AppRoutingService } from "./shared/services/app-routing.service";
 import { CommonModule } from "@angular/common";
 import { ContactButtonService } from "./services/contact-button.service";
 import { StateNameService } from "./services/state-name.service";
-import { GoogleTagManagerModule } from "angular-google-tag-manager";
+// import { GoogleTagManagerModule } from "angular-google-tag-manager";
+// import { GoogleTagManagerModule } from "angular-google-tag-manager";
 
 @NgModule({
   declarations: [
@@ -66,7 +67,9 @@ import { GoogleTagManagerModule } from "angular-google-tag-manager";
     NgxPageScrollModule,
     CommonModule,
     GoogleTagManagerModule.forRoot({
-      id: YOUR_GTM_ID,
+      id: "GTM-P54344W",
+      // gtm_auth: YOUR_GTM_AUTH,
+      // gtm_preview: YOUR_GTM_ENV
     }),
   ],
   providers: [
@@ -76,6 +79,7 @@ import { GoogleTagManagerModule } from "angular-google-tag-manager";
     ContactButtonService,
     AppRoutingService,
     StateNameService,
+    { provide: "googleTagManagerId", useValue: "GTM-P54344W" },
   ],
   entryComponents: [
     // Needs to be added here because otherwise we can't
