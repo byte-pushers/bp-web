@@ -1,7 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
-import { OverlayModule } from "@angular/cdk/overlay";
 import { AppComponent } from "./shared/components/app.component/app.component";
 import { AppHeaderComponent } from "./shared/components/app-header.component/app-header.component";
 import { AppBodyComponent } from "./shared/components/app-body.component/app-body.component";
@@ -32,6 +31,7 @@ import { ContactButtonService } from "./services/contact-button.service";
 import { StateNameService } from "./services/state-name.service";
 // import { GoogleTagManagerModule } from "angular-google-tag-manager";
 // import { GoogleTagManagerModule } from "angular-google-tag-manager";
+import { OverlayModule } from "@angular/cdk/overlay";
 
 @NgModule({
   declarations: [
@@ -66,11 +66,11 @@ import { StateNameService } from "./services/state-name.service";
     }),
     NgxPageScrollModule,
     CommonModule,
-    GoogleTagManagerModule.forRoot({
-      id: "GTM-P54344W",
-      // gtm_auth: YOUR_GTM_AUTH,
-      // gtm_preview: YOUR_GTM_ENV
-    }),
+    // GoogleTagManagerModule.forRoot({
+    //   id: "GTM-P54344W",
+    //   // gtm_auth: YOUR_GTM_AUTH,
+    //   // gtm_preview: YOUR_GTM_ENV
+    // }),
   ],
   providers: [
     RouterLinkActive,
