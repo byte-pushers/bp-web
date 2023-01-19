@@ -29,8 +29,7 @@ import { AppRoutingService } from "./shared/services/app-routing.service";
 import { CommonModule } from "@angular/common";
 import { ContactButtonService } from "./services/contact-button.service";
 import { StateNameService } from "./services/state-name.service";
-// import { GoogleTagManagerModule } from "angular-google-tag-manager";
-// import { GoogleTagManagerModule } from "angular-google-tag-manager";
+import { GoogleTagManagerModule } from "angular-google-tag-manager";
 import { OverlayModule } from "@angular/cdk/overlay";
 
 @NgModule({
