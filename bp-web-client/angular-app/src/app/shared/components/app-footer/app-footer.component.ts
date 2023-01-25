@@ -44,5 +44,7 @@ export class AppFooterComponent implements OnInit {
     }
   }
 
-
+  currentYearLong(): number {
+    return new Date().getFullYear();
+  }
 }
