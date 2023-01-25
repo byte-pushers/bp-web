@@ -17,12 +17,10 @@ Parameters:
     Type: String
     Description: "AWS Lambda code file name from s3 bucket"
     Default: ""
-Globals:
-  Api:
-    Cors:
-      AllowMethods: "'*'"
-      AllowHeaders: "'*'"
-      AllowOrigin: "'*'"
+  CorsLambdaObjectName:
+    Type: String
+    Description: "AWS Lambda code file name from s3 bucket to support CORS request"
+    Default: ""
 Resources:
   BpWebVpcExecutionRole:
     Type: AWS::IAM::Role
@@ -168,7 +166,7 @@ Resources:
     Properties:
       RetentionInDays: 7
       LogGroupName:
-        !Join ['', ['/aws/lambda/', !Ref AwsApiGatewayBpWebFunction]]
+        !Join [ '', [ '/aws/lambda/', !Ref AwsApiGatewayBpWebFunction ] ]
 
   AwsApiGatewayBpWebFunction:
     Type: AWS::Serverless::Function
@@ -200,6 +198,43 @@ Resources:
                 - 'arn:aws:lambda:*:*:function:*'
       Runtime: java11
       Timeout: 30
+      VpcConfig:
+        SecurityGroupIds:
+          - !Ref BpWebLambdaSecurityGroup
+        SubnetIds:
+          - !Ref BpWebPrivateSubnet1
+          - !Ref BpWebPrivateSubnet2
+
+  AwsApiGatewayCorsLambda:
+    Type: AWS::Serverless::Function
+    DependsOn:
+      - BpWebVpcExecutionRole
+    Properties:
+      CodeUri:
+        Bucket: !Ref BucketName
+        Key: !Ref CorsLambdaObjectName
+      Description: BytePusher CORS support for AWS Serverless APIs
+      FunctionName: bytepushers-bpweb-ws-cors
+      Events:
+        GetResource:
+          Properties:
+            Method: OPTIONS
+            Path: /{proxy+}
+          Type: Api
+      Handler: index.bpwebHandler
+      MemorySize: 128
+      Role:
+        Fn::GetAtt: [ BpWebVpcExecutionRole, Arn ]
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - Statement:
+            - Effect: Allow
+              Action:
+                - 'lambda:InvokeFunction'
+              Resource:
+                - 'arn:aws:lambda:*:*:function:*'
+      Runtime: nodejs14.x
+      Timeout: 3
       VpcConfig:
         SecurityGroupIds:
           - !Ref BpWebLambdaSecurityGroup

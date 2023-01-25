@@ -1,6 +1,8 @@
 .footer {
   display: block;
   background-color: #2b2b2b;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 .footer-mobile {
@@ -17,13 +19,12 @@ h1 {
   color: white;
 }
 a {
-  margin-top: .5%;
-  margin-bottom: .5%;
-  font-size: .9em;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+  font-size: 0.9em;
   color: #8c8c8c;
   font-weight: lighter;
 }
-
 
 h1.mobile {
   margin-top: 2%;
@@ -32,31 +33,28 @@ h1.mobile {
   font-weight: bold;
   color: white;
 }
-a.mobile{
-  margin-top: .5%;
+a.mobile {
+  margin-top: 0.5%;
   margin-bottom: 1%;
   font-size: 1.2em;
   color: #8c8c8c;
   font-weight: lighter;
   letter-spacing: 1.2px;
 }
-.footer-links {
-text-align: end;
-
+.footer-link {
+  text-align: center;
 }
 
 .mobile-footer-links {
   text-align: center;
 }
 
-
 .footer-quote-mobile {
-margin-top: 5%;
+  margin-top: 5%;
   text-align: center;
 }
 
 li.footer-quote-mobile {
-
 }
 
 ul {
@@ -65,7 +63,7 @@ ul {
 
 .copyright {
   color: #5c5c5c;
-text-align: center;
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
   margin-top: 1.7em;
@@ -75,7 +73,6 @@ p .copyright {
   text-align: center;
 }
 .mobile-copyright {
-
   color: #5c5c5c;
   text-align: center;
   margin-left: auto;
@@ -85,5 +82,4 @@ p .copyright {
 
 lets-talk-button {
   margin-top: 4%;
-
 }
