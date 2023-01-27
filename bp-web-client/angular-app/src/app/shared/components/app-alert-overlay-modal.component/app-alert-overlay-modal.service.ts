@@ -4,7 +4,7 @@ import {ComponentPortal} from '@angular/cdk/portal';
 import {AppAlertOverlayModalConfig, AppAlertOverlayModalRef} from './app-alert-overlay-modal-ref';
 /*import * as Object from 'bytepushers-js-obj-extensions';*/
 import {BehaviorSubject, Observable} from 'rxjs';
-import {ComponentType} from "@angular/cdk/portal/portal";
+import {ComponentType} from "@angular/cdk/portal";
 
 @Injectable({
   providedIn: 'root'

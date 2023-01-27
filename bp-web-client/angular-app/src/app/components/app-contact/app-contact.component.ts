@@ -7,7 +7,7 @@ import {NgxSpinnerService} from 'ngx-spinner';
 import {AppAlertOverlayModalService} from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.service';
 import {ScrollToService} from '../../services/scroll-to.service';
 import {AppAlertOverlayModalComponent} from '../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.component';
-import {ComponentType} from '@angular/cdk/portal/portal';
+import {ComponentType} from '@angular/cdk/portal';
 import {StateNameService} from '../../services/state-name.service';
 import {ContactButtonService} from '../../services/contact-button.service';
 
