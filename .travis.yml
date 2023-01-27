@@ -126,7 +126,7 @@ matrix:
             npm run build -- --prod;
           else
             echo -e "Running npm run build --configuration dev";
-            npm run build -- --configuration dev;
+            npm run build -- --configuration development;
           fi;
       deploy:
         - provider: script
