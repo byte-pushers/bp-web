@@ -10,7 +10,7 @@ matrix:
         - pip install -U pip
         - pip install awscli
       install:
-        - mvn clean install -P aws -DskipTests
+        - mvn clean install -P aws
       before_deploy:
         - cp -Rf 'bp-web-ws/target/bp-web-ws.jar' ${S3_DEPLOYMENT_OBJECT_NAME}
       deploy:
