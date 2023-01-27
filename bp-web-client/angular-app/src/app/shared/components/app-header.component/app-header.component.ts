@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { NavigationEnd, Router } from "@angular/router";
+import { GoogleTagManagerService } from "angular-google-tag-manager";
 import { ScrollToService } from "../../../services/scroll-to.service";
 
 @Component({
@@ -7,7 +9,11 @@ import { ScrollToService } from "../../../services/scroll-to.service";
   styleUrls: ["./app-header.component.css"],
 })
 export class AppHeaderComponent implements OnInit {
-  constructor(public scrollTo: ScrollToService) {}
+  constructor(
+    public scrollTo: ScrollToService,
+    private router: Router,
+    private gtmService: GoogleTagManagerService
+  ) {}
 
   ngOnInit() {
     window.onscroll = function () {
@@ -49,6 +55,16 @@ export class AppHeaderComponent implements OnInit {
         showCp3Desc.classList.remove("activate");
       }
     }
+    // push GTM data layer for every visited page
+    this.router.events.forEach((item) => {
+      if (item instanceof NavigationEnd) {
+        const gtmTag = {
+          event: "page",
+          pageName: item.url,
+        };
+        this.gtmService.pushTag(gtmTag);
+      }
+    });
   }
 
   public checkMobileNav() {
