@@ -109,7 +109,7 @@ matrix:
           packages:
             - lftp
       node_js:
-        - “16.13”
+        - “14.20”
       cache:
         directories:
           - "bp-web-client/angular-app/node_modules"
