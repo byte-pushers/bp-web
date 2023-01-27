@@ -144,5 +144,7 @@ notifications:
     recipients:
       - tonte.pouncil@bytepushers.software
       - amanjotabroljava@gmail.com
+      - kailachetan9@gmail.com
+      - jsurya352@gmail.com
     on_success: always
     on_failure: always
