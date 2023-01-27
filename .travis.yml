@@ -10,7 +10,7 @@ matrix:
         - pip install -U pip
         - pip install awscli
       install:
-        - mvn clean install -P aws -DskipTests
+        - mvn clean install -P aws
       before_deploy:
         - cp -Rf 'bp-web-ws/target/bp-web-ws.jar' ${S3_DEPLOYMENT_OBJECT_NAME}
       deploy:
@@ -109,7 +109,7 @@ matrix:
           packages:
             - lftp
       node_js:
-        - “12”
+        - “14.20”
       cache:
         directories:
           - "bp-web-client/angular-app/node_modules"
@@ -126,7 +126,7 @@ matrix:
             npm run build -- --prod;
           else
             echo -e "Running npm run build --configuration dev";
-            npm run build -- --configuration dev;
+            npm run build -- --configuration development;
           fi;
       deploy:
         - provider: script
@@ -144,5 +144,7 @@ notifications:
     recipients:
       - tonte.pouncil@bytepushers.software
       - amanjotabroljava@gmail.com
+      - kailachetan9@gmail.com
+      - jsurya352@gmail.com
     on_success: always
     on_failure: always
