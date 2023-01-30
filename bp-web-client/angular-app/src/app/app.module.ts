@@ -31,6 +31,7 @@ import { ContactButtonService } from "./services/contact-button.service";
 import { StateNameService } from "./services/state-name.service";
 import { GoogleTagManagerModule } from "angular-google-tag-manager";
 import { OverlayModule } from "@angular/cdk/overlay";
+import { environment } from "src/environments/environment";
 
 @NgModule({
   declarations: [
@@ -78,7 +79,7 @@ import { OverlayModule } from "@angular/cdk/overlay";
     ContactButtonService,
     AppRoutingService,
     StateNameService,
-    { provide: "googleTagManagerId", useValue: "GTM-P54344W" },
+    { provide: "googleTagManagerId", useValue: environment.GTM_ID },
   ],
   entryComponents: [
     // Needs to be added here because otherwise we can't
@@ -87,4 +88,6 @@ import { OverlayModule } from "@angular/cdk/overlay";
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  currentEnvironment!: string;
+}
