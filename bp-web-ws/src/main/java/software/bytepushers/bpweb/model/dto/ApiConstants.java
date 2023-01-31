@@ -5,9 +5,6 @@ public class ApiConstants {
     public static final String API_ERROR_E001 = "api.error.e001";
     public static final String API_MESSAGE_E001 = "Something went wrong";
     public static final String API_DEBUG_MESSAGE_E001 = "Exception occurred : $0";
-    public static final String API_ERROR_E002 = "api.error.e002";
-    public static final String API_MESSAGE_E002 = "Invalid argument value: $0";
-    public static final String API_DEBUG_MESSAGE_E002 = "MethodArgumentTypeMismatchException occurred";
 
     public static final String API_VALIDATION_ERROR_E001 = "api.validation.error.e001";
     public static final String API_VALIDATION_MESSAGE_E001 = "Quote must not be empty";
@@ -30,7 +27,6 @@ public class ApiConstants {
     public enum ErrorEnum {
 
         COMMON_API_ERROR(API_ERROR_E001, API_MESSAGE_E001, API_DEBUG_MESSAGE_E001),
-        METHOD_ARGUMENT_TYPE_MISMATCH_ERROR(API_ERROR_E002,API_MESSAGE_E002,API_DEBUG_MESSAGE_E002),
         QUOTE_EMPTY_ERROR(API_VALIDATION_ERROR_E001, API_VALIDATION_MESSAGE_E001, API_VALIDATION_DEBUG_MESSAGE_E001),
         QUOTE_NOT_FOUND_TO_UPDATE(API_VALIDATION_ERROR_E002, API_VALIDATION_MESSAGE_E002, API_VALIDATION_DEBUG_MESSAGE_E002),
         QUOTE_NOT_FOUND_TO_SEARCH(API_VALIDATION_ERROR_E003, API_VALIDATION_MESSAGE_E003, API_VALIDATION_DEBUG_MESSAGE_E003),
