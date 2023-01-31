@@ -27,8 +27,8 @@ public class GlobalRestExceptionHandler {
     @ResponseStatus(BAD_REQUEST)
     @ExceptionHandler(MalformedRequestException.class)
     public ResponseEntity<Object> handleMalformedRequestExceptions(MalformedRequestException ex) {
-        ApiResponse apiError = new ApiResponse(ex.getMessages(), ex.getLocalizedMessage(), BAD_REQUEST);
-        return new ResponseEntity<>(apiError, apiError.getStatus());
+        //ApiResponse apiError = new ApiResponse(ex.getMessages(), ex.getLocalizedMessage(), BAD_REQUEST);
+        return new ResponseEntity<>(ex.getApiResponse1(), BAD_REQUEST);
     }
 
     @ResponseStatus(BAD_REQUEST)
