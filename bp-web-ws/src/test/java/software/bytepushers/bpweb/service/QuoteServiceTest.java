@@ -141,6 +141,7 @@ public class QuoteServiceTest {
     @Test(expected = MalformedRequestException.class)
     public void testGetByIdQuoteWhenQuoteNotFound() {
         Quote quote = ModelUtils.quoteEntity();
+        quote.setId(UUID.randomUUID());
         Mockito.when(quoteRepository.findByIdAndDisabledFalse(quote.getId())).thenReturn(Optional.empty());
         this.quoteServiceImpl.getById(quote.getId());
     }
