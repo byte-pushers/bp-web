@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import software.bytepushers.bpweb.utils.ApplicationUtils;
 
 import java.util.ArrayList;
@@ -15,7 +14,6 @@ import java.util.List;
  */
 @Getter
 @EqualsAndHashCode
-@NoArgsConstructor
 public class ApiValidationError extends ApiError {
 
     private static String type = "API VALIDATION ERROR";
