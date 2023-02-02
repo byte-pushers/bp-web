@@ -19,10 +19,10 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 /**
  * The API response model.
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
-@JsonSubTypes({@JsonSubTypes.Type(value = ApiError.class, name = "API Error"), @JsonSubTypes.Type(value = ApiValidationError.class, name = "Api Validation Error")})
 @Getter
+@Setter
 @EqualsAndHashCode
+@NoArgsConstructor
 public class ApiError {
 
     @JsonIgnore
