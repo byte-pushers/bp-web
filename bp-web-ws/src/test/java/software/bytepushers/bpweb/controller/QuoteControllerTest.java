@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
 import software.bytepushers.bpweb.exceptions.MalformedRequestException;
 import software.bytepushers.bpweb.model.dto.ApiResponse;
+import software.bytepushers.bpweb.model.dto.ApiErrorResponse;
 import software.bytepushers.bpweb.model.entity.Quote;
 import software.bytepushers.bpweb.service.QuoteService;
 import software.bytepushers.bpweb.utils.ModelUtils;
@@ -94,7 +95,7 @@ public class QuoteControllerTest extends AbstractControllerTest {
         MockHttpServletResponse response = mvc.perform(post(QUOTE_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON).content(requestBody)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.BAD_REQUEST.value() : "Missing data must be thrown as bad request";
-        ApiResponse apiResponse = this.objectMapper.readValue(response.getContentAsString(), ApiResponse.class);
+        ApiErrorResponse apiResponse = this.objectMapper.readValue(response.getContentAsString(), ApiErrorResponse.class);
         assert apiResponse.getErrors().size() == 2 : "Missing data must be thrown with validation message";
     }
 
@@ -113,7 +114,7 @@ public class QuoteControllerTest extends AbstractControllerTest {
         MockHttpServletResponse response = mvc.perform(post(QUOTE_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON).content(requestBody)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.BAD_REQUEST.value() : "Invalid data must be thrown as bad request";
-        ApiResponse apiResponse = this.objectMapper.readValue(response.getContentAsString(), ApiResponse.class);
+        ApiErrorResponse apiResponse = this.objectMapper.readValue(response.getContentAsString(), ApiErrorResponse.class);
         assert apiResponse.getErrors().size() == 1 : "Only invalid data must be thrown with validation message";
     }
 
@@ -150,7 +151,7 @@ public class QuoteControllerTest extends AbstractControllerTest {
         MockHttpServletResponse response = mvc.perform(put(QUOTE_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON).content(requestBody)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.BAD_REQUEST.value() : "Quote must be thrown as a bad request";
-        ApiResponse apiResponse = this.objectMapper.readValue(response.getContentAsString(), ApiResponse.class);
+        ApiErrorResponse apiResponse = this.objectMapper.readValue(response.getContentAsString(), ApiErrorResponse.class);
         assert apiResponse.getErrors().size() == 1 : "Missing id error must be thrown";
     }
 
@@ -191,7 +192,7 @@ public class QuoteControllerTest extends AbstractControllerTest {
         MockHttpServletResponse response = mvc.perform(put(QUOTE_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON).content(requestBody)).andReturn().getResponse();
         assert response.getStatus() == HttpStatus.BAD_REQUEST.value() : "Invalid data must be thrown as bad request";
-        ApiResponse apiResponse = this.objectMapper.readValue(response.getContentAsString(), ApiResponse.class);
+        ApiErrorResponse apiResponse = this.objectMapper.readValue(response.getContentAsString(), ApiErrorResponse.class);
         assert apiResponse.getErrors().size() == 1 : "Only invalid data must be thrown with validation message";
     }
 

@@ -1,19 +1,19 @@
 package software.bytepushers.bpweb.exceptions;
 
-import software.bytepushers.bpweb.model.dto.ApiResponse1;
+import software.bytepushers.bpweb.model.dto.ApiErrorResponse;
 
 public class MalformedRequestException extends ApplicationMessageException {
 
-    private ApiResponse1 apiResponse1;
+    private ApiErrorResponse apiErrorResponse;
     public MalformedRequestException(String... msgs) {
         super(msgs);
     }
 
-    public MalformedRequestException(ApiResponse1 apiResponse1){
-        this.apiResponse1 = apiResponse1;
+    public MalformedRequestException(ApiErrorResponse apiErrorResponse){
+        this.apiErrorResponse = apiErrorResponse;
     }
 
-    public ApiResponse1 getApiResponse1() {
-        return apiResponse1;
+    public ApiErrorResponse getApiResponse1() {
+        return apiErrorResponse;
     }
 }
