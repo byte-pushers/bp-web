@@ -1,10 +1,11 @@
 package software.bytepushers.bpweb.utils;
 
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.StringUtils;
 import org.modelmapper.ModelMapper;
 import software.bytepushers.bpweb.exceptions.MalformedRequestException;
 import software.bytepushers.bpweb.model.dto.ApiConstants;
-import software.bytepushers.bpweb.model.dto.ApiResponse1;
+import software.bytepushers.bpweb.model.dto.ApiErrorResponse;
 import software.bytepushers.bpweb.model.dto.ApiValidationError;
 
 import java.util.Arrays;
@@ -32,8 +33,8 @@ public class ApplicationUtils {
             modelMapper.map(source, target);
         } catch (Exception e) {
             log.error("Error on copying properties. {}", e.getMessage(), e);
-            throw new MalformedRequestException(new ApiResponse1(ApiResponse1.FAILURE, Collections.emptyList(),
-                                                                 new ApiValidationError(ApiConstants.ErrorEnum.COMMON_API_ERROR,
+            throw new MalformedRequestException(new ApiErrorResponse(ApiErrorResponse.FAILURE, StringUtils.EMPTY,
+                                                                     new ApiValidationError(ApiConstants.ErrorEnum.COMMON_API_ERROR,
                                                                                         Collections.emptyList(),
                                                                                         Collections.singletonList(e.getMessage()))));
         }
