@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -16,7 +15,6 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
  * The API response model.
  */
 @Getter
-@Setter
 @NoArgsConstructor
 @JsonInclude(NON_NULL)
 public class ApiErrorResponse {
