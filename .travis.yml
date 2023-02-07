@@ -122,8 +122,8 @@ matrix:
         - npm install
       script:
         - if [ $TRAVIS_BRANCH = "master" ]; then
-            echo -e "Running npm run build --prod";
-            npm run build -- --prod;
+            echo -e "Running npm run build --configuration prod";
+            npm run build -- --configuration prod;
           else
             echo -e "Running npm run build --configuration dev";
             npm run build -- --configuration development;
