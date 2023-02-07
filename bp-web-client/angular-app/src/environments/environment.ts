@@ -1,9 +1,10 @@
 // This file can be replaced during build by using the `fileReplacements` array.
-// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
+// `ng build --prod` replaces `environment.ts` with `environment.production.ts`.
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
   production: null,
+  GTM_ID:'GTM-MXBC87C',
   CHUCKS_PICK_3_URL: null,
   QUOTE_SERVICE: {
     API: {
