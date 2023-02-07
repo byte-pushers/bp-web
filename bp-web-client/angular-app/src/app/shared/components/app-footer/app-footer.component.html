@@ -1,90 +1,38 @@
-<section class="footer hidden-mobile hidden-mobile-450 hidden-mobile-768">
-  <div class="container-fluid hidden-mobile hidden-mobile-450 hidden-mobile-768">
-    <div class="row">
-      <div class="col-sm-2" style=" height: 120px;">
-      </div>
-      <div class="col-sm-4 footer-links" style=" height: 120px;">
-
-        <ul>
-          <li><h1>Contact Us</h1></li>
-          <li>
-            <h3><a href="mailto:info@bytepushers.software">info@bytepushers.software</a></h3>
-          </li>
-        </ul>
-    <ul>
-      <li><h1>Our Recent Projects</h1></li>
-      <li><h3><a href="{{chucksPick3Url}}">www.chuckspick3.com</a></h3></li>
-    </ul>
-
-      </div>
-      <div class="col-sm-4 footer-quote" style=" height: 120px;" *ngIf="showContactButton()">
-        <ul>
-          <li><h1>Let's Work Together!</h1></li>
-          <li>
-            <a class="lets-talk-button" [routerLink]="'/contact'" (click)="backToTop()" >Request A Quote</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-sm-4 footer-quote" style=" height: 120px;" *ngIf="showBPLogo()">
-        <ul>
-          <li style="margin-top:auto; margin-bottom: auto">
-            <a class="topnav-link" [routerLink]="'/home'" routerLinkActive="active"  (click)="backToTop(); openCloseMobileNav()">
-            <img style="height: 5em; margin-top: .7em; margin-bottom: .7em;" src="assets/images/bytePushersLogoMobile.svg">
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-sm-2" style=" height: 120px;">
-
-      </div>
+<div class="container-fluid footer">
+  <div class="row">
+    <div class="col-sm-4 footer-link">
+      <ul>
+        <li><h1>Contact Us</h1></li>
+        <li>
+          <h3>
+            <a href="mailto:info@bytepushers.software"
+              >info@bytepushers.software</a
+            >
+          </h3>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-4 footer-link">
+      <ul>
+        <li><h1>Our Recent Projects</h1></li>
+        <li>
+          <h3><a href="{{ chucksPick3Url }}">www.chuckspick3.com</a></h3>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-4 footer-link">
+      <ul>
+        <li>
+          <a routerLink="/contact" (click)="scrollToService.toTopOfPage()"
+            ><h1>Request A Quote</h1></a
+          >
+        </li>
+      </ul>
     </div>
   </div>
   <div class="row copyright">
     <div class="col-12">
-      <p class="copyright"> Copyright &#169; 2020 BytePushers Inc.</p>
+      <p class="copyright">Copyright &#169; {{currentYearLong()}} BytePushers Inc.</p>
     </div>
   </div>
-</section>
-  <section class="footer-mobile hidden-desktop" >
-  <div class="container-fluid hidden-desktop">
-    <div class="row">
-      <div class="col-sm-4 mobile-footer-links" style=" height: 120px;">
-
-        <ul>
-          <li><h1 class="mobile">Contact Us</h1></li>
-          <li>
-            <h3 ><a href="mailto:info@bytepushers.software" class="mobile">info@bytepushers.software</a></h3>
-          </li>
-        </ul>
-        <ul>
-          <li><h1 class="mobile">Our Recent Projects</h1></li>
-          <li><h3><a href="{{chucksPick3Url}}" class="mobile">www.chuckspick3.com</a></h3></li>
-        </ul>
-
-      </div>
-      <div class="col-sm-4 footer-quote-mobile" style=" height: 120px;" *ngIf="showContactButton()">
-        <ul>
-          <li><h1 class="mobile">Let's Work Together!</h1></li>
-          <li style="margin-top: 5%">
-            <a class="lets-talk-button" [routerLink]="'/contact'" (click)="backToTop()"  style="width: 100%">Request A Quote</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-sm-4 footer-quote-mobile" style=" height: 120px;" *ngIf="showContactButton()">
-        <ul>
-          <li style="margin-top: 5%">
-            <a class="topnav-link" [routerLink]="'/home'" routerLinkActive="active"  (click)="backToTop(); openCloseMobileNav()">
-            <img style="height: 6em" src="assets/images/bytePushersLogoMobile.svg">
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="row copyright">
-    <div class="col-12">
-    <p class="copyright"> Copyright &#169; 2020 BytePushers Inc.</p>
-    </div>
-  </div>
-</section>
+</div>

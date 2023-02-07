@@ -22,7 +22,7 @@ import java.util.UUID;
 @Setter
 @Entity(name = "T_QUOTE")
 @ApplicationValidator
-public class Quote extends AbstractEntity {
+public class Quote /*extends AbstractEntity */{
 
     @Id
     @GeneratedValue(generator = "uuid2")
