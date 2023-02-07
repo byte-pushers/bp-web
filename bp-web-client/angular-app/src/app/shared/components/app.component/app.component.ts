@@ -10,9 +10,7 @@ import { environment } from "src/environments/environment";
 })
 export class AppComponent implements OnInit {
   title = "angular-app";
-  hubspotTrackingId:string;
   constructor() {
-    this.hubspotTrackingId= environment.HUBSPOT_TRACKING_ID;
   }
   ngOnInit() {}
 }
