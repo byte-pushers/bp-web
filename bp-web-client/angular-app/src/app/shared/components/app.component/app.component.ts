@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { NavigationEnd, Router } from "@angular/router";
 import { GoogleTagManagerService } from "angular-google-tag-manager";
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: "app-root",
