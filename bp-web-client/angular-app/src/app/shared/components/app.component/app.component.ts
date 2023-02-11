@@ -10,7 +10,6 @@ import { environment } from "src/environments/environment";
 })
 export class AppComponent implements OnInit {
   title = "angular-app";
-  constructor() {
-  }
+  constructor() {}
   ngOnInit() {}
 }
