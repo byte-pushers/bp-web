@@ -1,10 +1,16 @@
 package software.bytepushers.bpweb.utils;
 
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.StringUtils;
 import org.modelmapper.ModelMapper;
 import software.bytepushers.bpweb.exceptions.MalformedRequestException;
+import software.bytepushers.bpweb.model.dto.ApiConstants;
+import software.bytepushers.bpweb.model.dto.ApiErrorResponse;
+import software.bytepushers.bpweb.model.dto.ApiValidationError;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -27,7 +33,10 @@ public class ApplicationUtils {
             modelMapper.map(source, target);
         } catch (Exception e) {
             log.error("Error on copying properties. {}", e.getMessage(), e);
-            throw new MalformedRequestException("Something went wrong");
+            throw new MalformedRequestException(new ApiErrorResponse(ApiErrorResponse.FAILURE, StringUtils.EMPTY,
+                                                                     new ApiValidationError(ApiConstants.ErrorEnum.COMMON_API_ERROR,
+                                                                                        Collections.emptyList(),
+                                                                                        Collections.singletonList(e.getMessage()))));
         }
     }
 
@@ -45,6 +54,15 @@ public class ApplicationUtils {
                         modelMapper.getConfiguration().setPropertyCondition(context ->
                                 !context.getMapping().getLastDestinationProperty().getName().equals(field))));
         return modelMapper;
+    }
+
+    public static String replaceDynamicResponseValue(String message, List<String> values){
+        if(null != message && !values.isEmpty()){
+            for(int i=0;i<values.size();i++){
+                message = message.replaceFirst("\\$"+i, values.get(i));
+            }
+        }
+        return message;
     }
 
 }

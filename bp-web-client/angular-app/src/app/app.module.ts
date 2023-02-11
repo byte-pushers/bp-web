@@ -66,11 +66,6 @@ import { environment } from "src/environments/environment";
     }),
     NgxPageScrollModule,
     CommonModule,
-    // GoogleTagManagerModule.forRoot({
-    //   id: "GTM-P54344W",
-    //   // gtm_auth: YOUR_GTM_AUTH,
-    //   // gtm_preview: YOUR_GTM_ENV
-    // }),
   ],
   providers: [
     RouterLinkActive,
@@ -79,7 +74,6 @@ import { environment } from "src/environments/environment";
     ContactButtonService,
     AppRoutingService,
     StateNameService,
-    { provide: "googleTagManagerId", useValue: environment.GTM_ID },
   ],
   entryComponents: [
     // Needs to be added here because otherwise we can't
