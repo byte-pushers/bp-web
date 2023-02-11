@@ -4,14 +4,14 @@
 
 export const environment = {
   production: null,
-  GTM_ID:'GTM-MXBC87C',
+  // GTM_ID:'GTM-MXBC87C',
   CHUCKS_PICK_3_URL: null,
   QUOTE_SERVICE: {
     API: {
       HOST: null,
-      EXT: null
-    }
-  }
+      EXT: null,
+    },
+  },
 };
 
 /*
