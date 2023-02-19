@@ -32,6 +32,7 @@ import { StateNameService } from "./services/state-name.service";
 import { GoogleTagManagerModule } from "angular-google-tag-manager";
 import { OverlayModule } from "@angular/cdk/overlay";
 import { environment } from "src/environments/environment";
+import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { environment } from "src/environments/environment";
     ContactButtonService,
     AppRoutingService,
     StateNameService,
+    DeactivateGuard
   ],
   entryComponents: [
     // Needs to be added here because otherwise we can't
