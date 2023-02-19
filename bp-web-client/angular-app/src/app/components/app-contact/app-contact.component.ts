@@ -23,7 +23,9 @@ import { IDeactivateComponent } from "src/app/shared/components/iDeactivate/iDea
   templateUrl: "./app-contact.component.html",
   styleUrls: ["./app-contact.component.css"],
 })
-export class ContactComponent implements IDeactivateComponent, OnInit, OnDestroy {
+export class ContactComponent
+  implements IDeactivateComponent, OnInit, OnDestroy
+{
   public errorMessage: string;
   public errorMessages: [string?] = ["Phone number is invalid."];
   public showConfirmation = false;
@@ -65,27 +67,25 @@ export class ContactComponent implements IDeactivateComponent, OnInit, OnDestroy
     this.years.push("Older than 1980");
     this.setOnContactView(false);
   }
-   //Check if there any unsaved data etc. If yes then as for confirmation 
-   canExit() : boolean {
-    if(this.quoteForm.touched){
-      alert('the form is touched');
+
+  //Check if there any unsaved data etc. If yes then as for confirmation
+  canExit(): boolean {
+    if (this.quoteForm.touched) {
       console.log(window);
-      // window.dataLayer = window.dataLayer || [];
-      // window.dataLayer.push({
-      //   'event' : 'formAbandonment',
-      //   'eventCategory' : 'Form Abandonment',
-      //   'eventAction' : it.history.join(" > ")
-      // })
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "formAbandonment",
+        eventCategory: "Form Abandonment",
+        eventAction: `it.history.join(" > ")`,
+      });
     }
-    if (confirm("Do you wish to Please confirm")) {
-        return true
-      } else {
-        return false
-      }
-    }
-
-    
-
+    return true;
+    // if (confirm("Do you wish to Please confirm")) {
+    //     return true
+    //   } else {
+    //     return false
+    //   }
+  }
 
   ngOnDestroy() {
     this.setOnContactView(true);
