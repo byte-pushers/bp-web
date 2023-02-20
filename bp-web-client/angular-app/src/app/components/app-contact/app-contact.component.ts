@@ -76,7 +76,7 @@ export class ContactComponent
       window.dataLayer.push({
         event: "formAbandonment",
         eventCategory: "Form Abandonment",
-        eventAction: `it.history.join(" > ")`,
+        eventAction: `User Navigated Away From Request Quote Form`,
       });
     }
     return true;
