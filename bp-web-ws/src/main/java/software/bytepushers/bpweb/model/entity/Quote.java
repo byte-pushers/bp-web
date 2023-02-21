@@ -60,6 +60,9 @@ public class Quote /*extends AbstractEntity */{
     private String projectType;
 
     @Column
+    private String hubspotQuoteId;
+
+    @Column
     private boolean disabled = false;
 
 }
