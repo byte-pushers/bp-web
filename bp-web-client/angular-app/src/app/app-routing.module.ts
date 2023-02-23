@@ -5,7 +5,7 @@ import {AboutComponent} from './components/app-about/app-about.component';
 import {ContactComponent} from './components/app-contact/app-contact.component';
 import {WorkComponent} from './components/app-work/app-work.component';
 import {ServicesComponent} from './components/app-services/app-services.component';
-
+import {AppLoginComponent} from './components/app-login/app-login.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -13,7 +13,8 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'work', component: WorkComponent},
-  {path: 'services', component: ServicesComponent}
+  {path: 'services', component: ServicesComponent},
+  {path: 'login', component: AppLoginComponent}
 ];
 
 

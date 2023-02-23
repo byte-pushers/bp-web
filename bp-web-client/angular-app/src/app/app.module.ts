@@ -32,6 +32,7 @@ import { StateNameService } from "./services/state-name.service";
 import { GoogleTagManagerModule } from "angular-google-tag-manager";
 import { OverlayModule } from "@angular/cdk/overlay";
 import { environment } from "src/environments/environment";
+import { AppLoginComponent } from "./components/app-login/app-login.component";
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { environment } from "src/environments/environment";
     AppFooterComponent,
     AppAlertOverlayModalComponent,
     PhoneNumberDirective,
+    AppLoginComponent
   ],
   imports: [
     AppRoutingModule,
