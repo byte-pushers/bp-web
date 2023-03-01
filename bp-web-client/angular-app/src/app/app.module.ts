@@ -9,7 +9,7 @@ import { ContactComponent } from "./components/app-contact/app-contact.component
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CarouselModule } from "ngx-bootstrap/carousel";
 import { NgBootstrapFormValidationModule } from "ng-bootstrap-form-validation";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgxBootstrapSliderModule } from "ngx-bootstrap-slider";
 import { QuoteService } from "./shared/services/quote.service";
 import { AppFooterComponent } from "./shared/components/app-footer/app-footer.component";
@@ -48,17 +48,17 @@ import { AppLoginComponent } from "./components/app-login/app-login.component";
     AppFooterComponent,
     AppAlertOverlayModalComponent,
     PhoneNumberDirective,
-    AppLoginComponent
+    AppLoginComponent,
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
     NgBootstrapFormValidationModule.forRoot(),
-    FormsModule,
     NgxBootstrapSliderModule,
-    BrowserModule,
     HttpClientModule,
     NgxSpinnerModule,
     MatCardModule,
