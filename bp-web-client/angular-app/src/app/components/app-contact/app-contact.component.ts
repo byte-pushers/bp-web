@@ -16,13 +16,16 @@ import { AppAlertOverlayModalComponent } from "../../shared/components/app-alert
 import { ComponentType } from "@angular/cdk/portal";
 import { StateNameService } from "../../services/state-name.service";
 import { ContactButtonService } from "../../services/contact-button.service";
+import { IDeactivateComponent } from "src/app/shared/components/iDeactivate/iDeactivate.component";
 
 @Component({
   selector: "app-contact",
   templateUrl: "./app-contact.component.html",
   styleUrls: ["./app-contact.component.css"],
 })
-export class ContactComponent implements OnInit, OnDestroy {
+export class ContactComponent
+  implements IDeactivateComponent, OnInit, OnDestroy
+{
   public errorMessage: string;
   public errorMessages: [string?] = ["Phone number is invalid."];
   public showConfirmation = false;
@@ -63,6 +66,25 @@ export class ContactComponent implements OnInit, OnDestroy {
     this.years = this.calculateYears(+new Date().getFullYear(), 40);
     this.years.push("Older than 1980");
     this.setOnContactView(false);
+  }
+
+  //Check if there any unsaved data etc. If yes then as for confirmation
+  canExit(): boolean {
+    if (this.quoteForm.touched) {
+      console.log(window);
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "formAbandonment",
+        eventCategory: "Form Abandonment",
+        eventAction: `User Navigated Away From Request Quote Form`,
+      });
+    }
+    return true;
+    // if (confirm("Do you wish to Please confirm")) {
+    //     return true
+    //   } else {
+    //     return false
+    //   }
   }
 
   ngOnDestroy() {
