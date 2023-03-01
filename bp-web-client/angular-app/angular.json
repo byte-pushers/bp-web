@@ -41,7 +41,6 @@
           },
           "configurations": {
             "production": {
-              "index": "src/index.production.html",
               "budgets": [
                 {
                   "type": "initial",
