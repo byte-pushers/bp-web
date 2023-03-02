@@ -1,4 +1,4 @@
-import {BaseEntity} from "./base.entity";
+import { BaseEntity } from "./base.entity";
 
 export interface Address extends BaseEntity {
   street: [string];
@@ -25,4 +25,16 @@ export interface Address extends BaseEntity {
 
   getCountry(): string;
   setCountry(country: string): void;
+}
+export interface Product {
+  id?: string;
+  code?: string;
+  name?: string;
+  description?: string;
+  price?: number;
+  quantity?: number;
+  inventoryStatus?: string;
+  category?: string;
+  image?: string;
+  rating?: number;
 }
