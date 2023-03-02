@@ -6,7 +6,7 @@ matrix:
         directories:
           - "$HOME/.m2"
       before_install:
-        - pyenv global 3.7.1
+        - pyenv global 3.7.13
         - pip install -U pip
         - pip install awscli
       install:
@@ -23,7 +23,8 @@ matrix:
           stack_name: bytepushers-bp-web-deployment-bucket
           parameters:
             - BucketName=${S3_DEPLOYMENT_BUCKET}
-          capabilities: [ CAPABILITY_NAMED_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND ]
+          capabilities:
+            [CAPABILITY_NAMED_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND]
           edge: true
           skip_cleanup: true
           on:
@@ -49,13 +50,14 @@ matrix:
             - BucketName=${S3_DEPLOYMENT_BUCKET}
             - ObjectName=${S3_DEPLOYMENT_OBJECT_NAME}
             - CorsLambdaObjectName=cors-lambda.zip
-          capabilities: [CAPABILITY_NAMED_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND]
+          capabilities:
+            [CAPABILITY_NAMED_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND]
           edge: true
           skip_cleanup: true
           on:
             branch: develop
         - provider: script
-          script:  aws lambda update-function-code --publish --function-name bytepushers-bpweb-ws --s3-bucket ${S3_DEPLOYMENT_BUCKET} --s3-key ${S3_DEPLOYMENT_OBJECT_NAME} --region us-east-2
+          script: aws lambda update-function-code --publish --function-name bytepushers-bpweb-ws --s3-bucket ${S3_DEPLOYMENT_BUCKET} --s3-key ${S3_DEPLOYMENT_OBJECT_NAME} --region us-east-2
           on:
             branch: develop
 
@@ -68,7 +70,8 @@ matrix:
           stack_name: bytepushers-bp-web-deployment-bucket
           parameters:
             - BucketName=${S3_DEPLOYMENT_BUCKET}
-          capabilities: [ CAPABILITY_NAMED_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND ]
+          capabilities:
+            [CAPABILITY_NAMED_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND]
           edge: true
           skip_cleanup: true
           on:
@@ -93,7 +96,8 @@ matrix:
           parameters:
             - BucketName=${S3_DEPLOYMENT_BUCKET}
             - ObjectName=${S3_DEPLOYMENT_OBJECT_NAME}
-          capabilities: [ CAPABILITY_NAMED_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND ]
+          capabilities:
+            [CAPABILITY_NAMED_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND]
           edge: true
           skip_cleanup: true
           on:
@@ -114,7 +118,7 @@ matrix:
         directories:
           - "bp-web-client/angular-app/node_modules"
       before_install:
-        - pyenv global 3.7.1
+        - pyenv global 3.7.13
         - pip install -U pip
         - pip install awscli
         - cd bp-web-client/angular-app/
@@ -122,11 +126,11 @@ matrix:
         - npm install
       script:
         - if [ $TRAVIS_BRANCH = "master" ]; then
-            echo -e "Running npm run build --configuration production";
-            npm run build -- --configuration production;
+          echo -e "Running npm run build --configuration production";
+          npm run build -- --configuration production;
           else
-            echo -e "Running npm run build --configuration development";
-            npm run build -- --configuration development;
+          echo -e "Running npm run build --configuration development";
+          npm run build -- --configuration development;
           fi;
       deploy:
         - provider: script
