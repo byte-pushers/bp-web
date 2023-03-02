@@ -4,12 +4,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
-public class HotSpotQuote implements Serializable {
-//    private Long hs_quote_amount;
+public class HubSpotQuote implements Serializable {
     private String hs_sender_company_name;
     private String hs_title;
     private String hs_sender_company_domain;
@@ -24,7 +24,8 @@ public class HotSpotQuote implements Serializable {
     private String hs_sender_lastname;
     private String hs_sender_email;
     private String hs_comments;
-    private LocalDateTime hs_createdate;
-    private LocalDateTime hs_lastmodifieddate;
     private String hs_expiration_date;
+    private String hs_status;
+    private String hs_language;
+    private List<HubSpotAssociation> associations = new ArrayList<>();
 }

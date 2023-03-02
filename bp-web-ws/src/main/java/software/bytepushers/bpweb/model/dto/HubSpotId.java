@@ -7,6 +7,6 @@ import java.io.Serializable;
 
 @Getter
 @Setter
-public class HotSpotProperties implements Serializable {
-    private HotSpotQuote properties;
+public class HubSpotId implements Serializable {
+    private Long id;
 }
