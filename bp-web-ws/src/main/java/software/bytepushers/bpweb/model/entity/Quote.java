@@ -63,6 +63,15 @@ public class Quote /*extends AbstractEntity */{
     private String hubspotQuoteId;
 
     @Column
+    private String hubspotContactId;
+
+    @Column
+    private String hubspotCompanyId;
+
+    @Column
+    private String hubspotDealId;
+
+    @Column
     private boolean disabled = false;
 
 }
