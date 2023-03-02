@@ -6,12 +6,17 @@ import { ContactComponent } from "./components/app-contact/app-contact.component
 import { WorkComponent } from "./components/app-work/app-work.component";
 import { ServicesComponent } from "./components/app-services/app-services.component";
 import { AppLoginComponent } from "./components/app-login/app-login.component";
+import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "home", component: HomeComponent },
   { path: "about", component: AboutComponent },
-  { path: "contact", component: ContactComponent },
+  {
+    path: "contact",
+    component: ContactComponent,
+    canDeactivate: [DeactivateGuard],
+  },
   { path: "work", component: WorkComponent },
   { path: "services", component: ServicesComponent },
   { path: "admin", component: AppLoginComponent },
