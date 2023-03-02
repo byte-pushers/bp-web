@@ -15,6 +15,11 @@ const routes: Routes = [
   { path: "work", component: WorkComponent },
   { path: "services", component: ServicesComponent },
   { path: "admin", component: AppLoginComponent },
+  {
+    path: "dashboard",
+    loadChildren: () =>
+      import("./components/admin/admin.module").then((m) => m.AdminModule),
+  },
 ];
 
 @NgModule({
