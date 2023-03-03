@@ -6,6 +6,7 @@ import {
   Validators,
 } from "@angular/forms";
 import { Router } from "@angular/router";
+import { LoginService } from "src/app/services/login.service";
 
 @Component({
   selector: "app-app-login",
@@ -16,7 +17,11 @@ export class AppLoginComponent implements OnInit {
   loginForm: FormGroup;
   isUserLoggedIn: boolean = false;
   showHideLogin: boolean = false;
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private loginService: LoginService
+  ) {
     this.loginForm = new FormGroup({
       email: new FormControl("", [Validators.required, Validators.email]),
       password: new FormControl("", [Validators.required]),
@@ -28,6 +33,12 @@ export class AppLoginComponent implements OnInit {
     return this.loginForm.value;
   }
   onLoginSubmit() {
+    let loginReqObj = {
+      email: this.loginForm.controls["email"].value,
+      password: this.loginForm.controls["password"].value,
+    };
+    this.loginService.login(loginReqObj);
+
     if (this.loginForm.valid) {
       console.log(this._formValue());
     }
