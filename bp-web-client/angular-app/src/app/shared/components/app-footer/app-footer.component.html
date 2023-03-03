@@ -1,4 +1,4 @@
-<div class="container-fluid footer">
+<div class="container-fluid footer" *ngIf="!isUserLoggedIn">
   <div class="row">
     <div class="col-sm-4 footer-link">
       <ul>
@@ -32,7 +32,9 @@
   </div>
   <div class="row copyright">
     <div class="col-12">
-      <p class="copyright">Copyright &#169; {{currentYearLong()}} BytePushers Inc.</p>
+      <p class="copyright">
+        Copyright &#169; {{ currentYearLong() }} BytePushers Inc.
+      </p>
     </div>
   </div>
 </div>
