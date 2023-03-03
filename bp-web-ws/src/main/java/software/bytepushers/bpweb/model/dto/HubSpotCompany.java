@@ -12,7 +12,6 @@ public class HubSpotCompany implements Serializable {
     private String name;
     private String website;
     private String founded_year;
-    private String type;
     private String address;
     private String address2;
     private String city;

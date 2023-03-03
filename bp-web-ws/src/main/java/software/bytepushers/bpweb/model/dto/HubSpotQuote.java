@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter
@@ -27,5 +25,4 @@ public class HubSpotQuote implements Serializable {
     private String hs_expiration_date;
     private String hs_status;
     private String hs_language;
-    private List<HubSpotAssociation> associations = new ArrayList<>();
 }
