@@ -1,4 +1,4 @@
-<nav class="topnav fade-in-second" id="topnav">
+<nav *ngIf="!isUserLoggedIn" class="topnav fade-in-second" id="topnav">
   <div class="topnav-container">
     <div class="topnav-mobile-menu" (click)="checkMobileNav()"></div>
     <a class="topnav-logo" [routerLink]="'/home'">
