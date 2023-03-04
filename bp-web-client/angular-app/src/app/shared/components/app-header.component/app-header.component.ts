@@ -81,4 +81,8 @@ export class AppHeaderComponent implements OnInit {
       }
     }
   }
+  logout() {
+    this.loginService.logout();
+    this.router.navigate(["/"]);
+  }
 }
