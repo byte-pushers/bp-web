@@ -42,6 +42,6 @@ export class AppLoginComponent implements OnInit {
     if (this.loginForm.valid) {
       console.log(this._formValue());
     }
-    this.router.navigate(["/dashboard"]);
+    this.router.navigate(["/admin"]);
   }
 }
