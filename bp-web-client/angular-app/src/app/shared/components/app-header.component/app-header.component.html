@@ -55,7 +55,7 @@
         <li class="topnav-link-item">
           <a
             class="topnav-link"
-            [routerLink]="'/admin'"
+            [routerLink]="'/adminLogin'"
             routerLinkActive="active"
             (click)="scrollTo.toTopOfPage(); openCloseMobileNav()"
             >Login</a
@@ -65,3 +65,20 @@
     </div>
   </div>
 </nav>
+<div *ngIf="isUserLoggedIn" class="adminNav">
+  <div class="containeraAdminNav">
+    <a class="topnav-logo" [routerLink]="'/home'">
+      <div class="topnav-logo-img" (click)="scrollTo.toTopOfPage()"></div>
+    </a>
+    <ul>
+      <li>
+        <a [routerLink]="'/admin/dashboard'" routerLinkActive="active"
+          >Dashboard</a
+        >
+      </li>
+      <li>
+        <a [routerLink]="'/admin/quotes'" routerLinkActive="active">Quotes</a>
+      </li>
+    </ul>
+  </div>
+</div>
