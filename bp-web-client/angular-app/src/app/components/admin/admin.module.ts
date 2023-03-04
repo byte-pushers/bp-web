@@ -4,15 +4,13 @@ import { RouterModule, Routes } from "@angular/router";
 import { QuotesComponent } from "./quotes/quotes.component";
 import { ProductService } from "src/app/services/quotes.service";
 import { TableModule } from "primeng/table";
-
-const routes: Routes = [
-  // { path: "", redirectTo: "/quotes", pathMatch: "full" },
-  { path: "", component: QuotesComponent },
-];
+import { DashboardComponent } from "./dashboard/dashboard.component";
+import { AdminRoutingModule } from "./admin.routing.module";
+import { AdminComponent } from "./admin.component";
 
 @NgModule({
-  declarations: [QuotesComponent],
-  imports: [CommonModule, RouterModule.forChild(routes), TableModule],
+  declarations: [AdminComponent, QuotesComponent, DashboardComponent],
+  imports: [CommonModule, TableModule, AdminRoutingModule],
   exports: [RouterModule],
   providers: [ProductService],
 })
