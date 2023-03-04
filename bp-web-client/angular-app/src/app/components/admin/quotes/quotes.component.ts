@@ -18,7 +18,9 @@ export class QuotesComponent {
     private window: Window,
     private productService: ProductService,
     public scrollToService: ScrollToService
-  ) {}
+  ) {
+    alert("this is quotes");
+  }
   products: Product[];
 
   cols: any[];
