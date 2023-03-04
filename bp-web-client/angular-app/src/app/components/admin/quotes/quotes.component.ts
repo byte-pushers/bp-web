@@ -13,7 +13,7 @@ import { ProductService } from "src/app/services/quotes.service";
 })
 export class QuotesComponent {
   public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
-
+  loading: boolean = false;
   constructor(
     private window: Window,
     private productService: ProductService,
