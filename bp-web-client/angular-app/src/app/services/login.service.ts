@@ -23,4 +23,8 @@ export class LoginService {
     const user = localStorage.getItem("currentUser");
     this.currentUserSubject.next(user);
   }
+  logout() {
+    localStorage.clear();
+    this.currentUserSubject.next(null);
+  }
 }
