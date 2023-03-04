@@ -3,14 +3,42 @@
     <h1>Quotes</h1>
     <div class="grid">
       <p-table
+        #quotesTable
         [columns]="cols"
         [value]="products"
+        dataKey="id"
+        [rowHover]="true"
+        [rows]="5"
+        [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[5, 10, 15]"
+        [loading]="loading"
+        [paginator]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [filterDelay]="0"
         [tableStyle]="{ 'min-width': '50rem' }"
+        [globalFilterFields]="['name', 'code', 'category', 'quantity']"
       >
+        <ng-template pTemplate="caption">
+          <div class="table-header">
+            List of Quotes
+            <span class="p-input-icon-left">
+              <i class="pi pi-search"></i>
+              <input
+                pInputText
+                type="text"
+                (input)="
+                  quotesTable.filterGlobal($event.target.value, 'contains')
+                "
+                placeholder="Global Search"
+              />
+            </span>
+          </div>
+        </ng-template>
         <ng-template pTemplate="header" let-columns>
           <tr>
-            <th *ngFor="let col of columns">
+            <th *ngFor="let col of columns" pSortableColumn="{{ col.header }}">
               {{ col.header }}
+              <p-sortIcon field="{{ col.header }}"></p-sortIcon>
             </th>
           </tr>
         </ng-template>
