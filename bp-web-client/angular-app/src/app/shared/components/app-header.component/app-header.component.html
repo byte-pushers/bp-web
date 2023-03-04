@@ -65,10 +65,12 @@
     </div>
   </div>
 </nav>
+
+<!-- admin Nav starts here  -->
 <div *ngIf="isUserLoggedIn" class="adminNav">
   <div class="containeraAdminNav">
-    <a class="topnav-logo" [routerLink]="'/home'">
-      <div class="topnav-logo-img" (click)="scrollTo.toTopOfPage()"></div>
+    <a class="topnav-logo" [routerLink]="'/admin/dashboard'">
+      <div class="topnav-logo-img"></div>
     </a>
     <ul>
       <li>
@@ -79,6 +81,7 @@
       <li>
         <a [routerLink]="'/admin/quotes'" routerLinkActive="active">Quotes</a>
       </li>
+      <li><a href="javascript:void(0)" (click)="logout()">Logout</a></li>
     </ul>
   </div>
 </div>
