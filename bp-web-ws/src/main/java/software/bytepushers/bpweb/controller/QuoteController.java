@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import software.bytepushers.bpweb.model.entity.Quote;
+import software.bytepushers.bpweb.service.HubspotService;
 import software.bytepushers.bpweb.service.QuoteService;
 
 import javax.validation.Valid;
@@ -20,9 +21,11 @@ import java.util.UUID;
 public class QuoteController extends AbstractController {
 
     private final QuoteService quoteServiceImpl;
+    private final HubspotService hubspotServiceImpl;
 
-    public QuoteController(QuoteService quoteServiceImpl) {
+    public QuoteController(QuoteService quoteServiceImpl, HubspotService hubspotServiceImpl) {
         this.quoteServiceImpl = quoteServiceImpl;
+        this.hubspotServiceImpl = hubspotServiceImpl;
     }
 
     /**
@@ -47,6 +50,7 @@ public class QuoteController extends AbstractController {
     @PostMapping
     public ResponseEntity<?> create(@RequestBody @Valid Quote quote) {
         log.info("Request to create quote");
+        quote = this.hubspotServiceImpl.createHubspotEntities(quote);
         Quote createdQuote = this.quoteServiceImpl.create(quote);
         log.info("Create quote request served successfully");
         return sendResponse(createdQuote, HttpStatus.CREATED);
