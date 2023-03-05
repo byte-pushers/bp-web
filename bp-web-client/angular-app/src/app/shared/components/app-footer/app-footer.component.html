@@ -1,4 +1,4 @@
-<div class="container-fluid footer" *ngIf="!isUserLoggedIn">
+<div class="container-fluid footer">
   <div class="row">
     <div class="col-sm-4 footer-link">
       <ul>
@@ -20,7 +20,7 @@
         </li>
       </ul>
     </div>
-    <div class="col-sm-4 footer-link">
+    <div class="col-sm-4 footer-link" *ngIf="!isUserLoggedIn">
       <ul>
         <li>
           <a routerLink="/contact" (click)="scrollToService.toTopOfPage()"
