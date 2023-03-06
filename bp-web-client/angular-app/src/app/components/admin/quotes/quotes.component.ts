@@ -4,7 +4,7 @@ import { ScrollToService } from "src/app/services/scroll-to.service";
 import { environment } from "src/environments/environment";
 import * as $ from "jquery";
 import { Product } from "src/app/shared/models/address";
-import { ProductService } from "src/app/services/quotes.service";
+import { QuotesService } from "src/app/services/quotes.service";
 
 @Component({
   selector: "app-quotes",
@@ -16,7 +16,7 @@ export class QuotesComponent {
   loading: boolean = false;
   constructor(
     private window: Window,
-    private productService: ProductService,
+    private quotesService: QuotesService,
     public scrollToService: ScrollToService
   ) {}
   products: Product[];
@@ -24,7 +24,7 @@ export class QuotesComponent {
   cols: any[];
 
   ngOnInit() {
-    this.productService
+    this.quotesService
       .getProductsSmall()
       .then((data) => (this.products = data));
 

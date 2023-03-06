@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Product } from "../shared/models/address";
 
 @Injectable()
-export class ProductService {
+export class QuotesService {
   status: string[] = ["OUTOFSTOCK", "INSTOCK", "LOWSTOCK"];
 
   productNames: string[] = [
