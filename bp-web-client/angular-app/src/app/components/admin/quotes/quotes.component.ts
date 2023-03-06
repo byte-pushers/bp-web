@@ -5,6 +5,8 @@ import { environment } from "src/environments/environment";
 import * as $ from "jquery";
 import { Product } from "src/app/shared/models/address";
 import { QuotesService } from "src/app/services/quotes.service";
+import { QuoteService } from "src/app/shared/services/quote.service";
+import { Quote } from "src/app/shared/models/quote";
 
 @Component({
   selector: "app-quotes",
@@ -14,6 +16,7 @@ import { QuotesService } from "src/app/services/quotes.service";
 export class QuotesComponent {
   public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
   loading: boolean = false;
+  quotesList: Quote[] = [];
   constructor(
     private window: Window,
     private quotesService: QuotesService,
@@ -24,15 +27,34 @@ export class QuotesComponent {
   cols: any[];
 
   ngOnInit() {
-    this.quotesService
-      .getProductsSmall()
-      .then((data) => (this.products = data));
+    this.quotesService.getProductsSmall().then((res) => {
+      console.log(res);
+      this.quotesList = res;
+    });
 
     this.cols = [
-      { field: "code", header: "Code" },
-      { field: "name", header: "Name" },
-      { field: "category", header: "Category" },
-      { field: "quantity", header: "Quantity" },
+      { width: "200", field: "", header: "Company Name" },
+      { width: "200", field: "", header: "Contact Name" },
+      { width: "200", field: "", header: "Email" },
+      { width: "200", field: "", header: "Phone" },
+      { width: "200", field: "", header: "Website" },
+      { width: "200", field: "", header: "Platform" },
+      { width: "200", field: "", header: "Type" },
     ];
+
+    // this.getQuotesList();
   }
+
+  // to be continued
+  // getQuotesList(){
+  //   this.quotesService.getQuotesList().subscribe(
+  //     (res) => {
+  //       console.log(res);
+  // this.quotesList = res.data;
+  //     },
+  //     (err) => {
+  //       console.log(err);
+  //     },
+  //   )
+  // }
 }
