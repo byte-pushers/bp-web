@@ -5,7 +5,7 @@
       <p-table
         #quotesTable
         [columns]="cols"
-        [value]="products"
+        [value]="quotesList"
         dataKey="id"
         [rowHover]="true"
         [rows]="5"
@@ -15,7 +15,9 @@
         [paginator]="true"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [filterDelay]="0"
-        [tableStyle]="{ 'min-width': '50rem' }"
+        responsiveLayout="stack"
+        [breakpoint]="'700px'"
+        [tableStyle]="{ 'min-width': '20rem' }"
         [globalFilterFields]="['name', 'code', 'category', 'quantity']"
       >
         <ng-template pTemplate="caption">
@@ -36,16 +38,52 @@
         </ng-template>
         <ng-template pTemplate="header" let-columns>
           <tr>
-            <th *ngFor="let col of columns" pSortableColumn="{{ col.header }}">
+            <th
+              *ngFor="let col of columns"
+              pSortableColumn="{{ col.header }}"
+              [width]="col.width"
+            >
               {{ col.header }}
               <p-sortIcon field="{{ col.header }}"></p-sortIcon>
             </th>
+            <!-- <th>Company Name</th>
+            <th>Contact Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Website</th>
+            <th>Platform</th>
+            <th>Type</th> -->
           </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <ng-template pTemplate="body" let-quote let-columns="columns">
           <tr>
-            <td *ngFor="let col of columns">
-              {{ rowData[col.field] }}
+            <!-- <td *ngFor="let col of columns">
+              <span class="p-column-title">{{ col.header }}</span> {{ rowData[col.field] }}
+            </td> -->
+            <td>
+              <span class="p-column-title">Company Name</span
+              >{{ quote.company.name }}
+            </td>
+            <td>
+              <span class="p-column-title">Contact Name</span
+              >{{ quote.contact.firstName }} {{ quote.contact.lastName }}
+            </td>
+            <td>
+              <span class="p-column-title">Email</span>{{ quote.contact.email }}
+            </td>
+            <td>
+              <span class="p-column-title">Phone</span
+              >{{ quote.contact.phone.number }}
+            </td>
+            <td>
+              <span class="p-column-title">Website</span>{{ quote.company.url }}
+            </td>
+            <td>
+              <span class="p-column-title">Platform</span
+              >{{ quote.projectPlatform }}
+            </td>
+            <td>
+              <span class="p-column-title">Type</span>{{ quote.projectType }}
             </td>
           </tr>
         </ng-template>
