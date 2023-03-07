@@ -122,42 +122,6 @@
   <ng-template pTemplate="body">
     <div class="details">
       <div class="block">
-        <h2>Company</h2>
-        <ul>
-          <li>
-            <div class="lable">Name</div>
-            <span> : </span>
-            <div class="content">{{ selectedQuote.company.name }}</div>
-          </li>
-          <li>
-            <div class="lable">Foundation</div>
-            <span> : </span>
-            <div class="content">{{ selectedQuote.company.foundation }}</div>
-          </li>
-          <li>
-            <div class="lable">Website</div>
-            <span> : </span>
-            <div class="content">
-              <a href="{{ selectedQuote.company.url }}" target="_blank">{{
-                selectedQuote.company.url
-              }}</a>
-            </div>
-          </li>
-          <li>
-            <div class="lable">Type</div>
-            <span> : </span>
-            <div class="content">{{ selectedQuote.company.type }}</div>
-          </li>
-          <li>
-            <div class="lable">Established</div>
-            <span> : </span>
-            <div class="content">
-              {{ selectedQuote.company.establishedYear }}
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="block">
         <h2>Contact</h2>
         <ul>
           <li>
@@ -196,6 +160,42 @@
               {{ selectedQuote.contact.address.country }},<br />
               {{ selectedQuote.contact.address.county }},
               {{ selectedQuote.contact.address.zip }}
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="block">
+        <h2>Company</h2>
+        <ul>
+          <li>
+            <div class="lable">Name</div>
+            <span> : </span>
+            <div class="content">{{ selectedQuote.company.name }}</div>
+          </li>
+          <li>
+            <div class="lable">Foundation</div>
+            <span> : </span>
+            <div class="content">{{ selectedQuote.company.foundation }}</div>
+          </li>
+          <li>
+            <div class="lable">Website</div>
+            <span> : </span>
+            <div class="content">
+              <a href="{{ selectedQuote.company.url }}" target="_blank">{{
+                selectedQuote.company.url
+              }}</a>
+            </div>
+          </li>
+          <li>
+            <div class="lable">Type</div>
+            <span> : </span>
+            <div class="content">{{ selectedQuote.company.type }}</div>
+          </li>
+          <li>
+            <div class="lable">Established</div>
+            <span> : </span>
+            <div class="content">
+              {{ selectedQuote.company.establishedYear }}
             </div>
           </li>
         </ul>
