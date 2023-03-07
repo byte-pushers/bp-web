@@ -3005,7 +3005,7 @@ body {
   padding-top: 15px;
 
   .container {
-    width: 80%;
+    width: 100%;
     margin: 0px auto;
   }
   h1 {
@@ -3063,6 +3063,19 @@ td.actions {
   margin: 0 auto;
   color: #3466aa;
   border-radius: 5px;
+}
+.p-datatable .p-datatable-header .table-header {
+  display: flex !important;
+  justify-content: space-between !important;
+}
+.p-datatable .p-datatable-thead > tr > th,
+.p-datatable .p-datatable-tbody > tr > td {
+  padding: 0.5rem;
+  font-size: 14px;
+
+  i {
+    font-size: 14px !important  ;
+  }
 }
 .p-dialog .p-dialog-header {
   padding: 0.8rem 1.5rem;

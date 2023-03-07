@@ -35,13 +35,13 @@ export class QuotesComponent {
     });
 
     this.cols = [
-      { width: "200", field: "", header: "Company Name" },
-      { width: "200", field: "", header: "Contact Name" },
-      { width: "200", field: "", header: "Email" },
-      { width: "200", field: "", header: "Phone" },
-      { width: "200", field: "", header: "Website" },
-      { width: "200", field: "", header: "Platform" },
-      { width: "200", field: "", header: "Type" },
+      { width: "300px", field: "", header: "Company Name" },
+      { width: "300px", field: "", header: "Contact Name" },
+      { width: "300px", field: "", header: "Email" },
+      { width: "300px", field: "", header: "Phone" },
+      { width: "300px", field: "", header: "Website" },
+      { width: "300px", field: "", header: "Platform" },
+      { width: "300px", field: "", header: "Type" },
     ];
 
     // this.getQuotesList();
