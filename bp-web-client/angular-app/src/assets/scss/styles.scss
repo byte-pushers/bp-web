@@ -3033,3 +3033,44 @@ body {
     background: rgb(236, 183, 22);
   }
 }
+td.actions {
+  display: flex;
+  justify-content: space-around;
+}
+.p-button-rounded {
+  border: none;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+
+  i {
+    font-size: 14px;
+  }
+}
+.p-button-success {
+  background: #22c55e;
+}
+.p-button-warning {
+  background: #ef4444;
+}
+.btnPrimary {
+  padding: 10px 15px;
+  background-color: white;
+  border: solid 2px #3466aa;
+  align-content: center;
+  margin: 0 auto;
+  color: #3466aa;
+  border-radius: 5px;
+}
+.p-dialog .p-dialog-header {
+  padding: 0.8rem 1.5rem;
+}
+.p-dialog .p-dialog-content {
+  padding: 0 1.5rem 0.5rem 1.5rem;
+  border-bottom: none;
+}
+.p-dialog .p-dialog-footer {
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
+}

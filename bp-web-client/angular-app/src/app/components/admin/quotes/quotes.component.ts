@@ -16,7 +16,9 @@ import { Quote } from "src/app/shared/models/quote";
 export class QuotesComponent {
   public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
   loading: boolean = false;
+  showDetails: boolean = false;
   quotesList: Quote[] = [];
+  selectedQuote: Quote;
   constructor(
     private window: Window,
     private quotesService: QuotesService,
@@ -57,4 +59,12 @@ export class QuotesComponent {
   //     },
   //   )
   // }
+  showQuoteDetails(quote: Quote) {
+    console.log(quote);
+    this.showDetails = true;
+    this.selectedQuote = quote;
+  }
+  deleteQuote(quote: Quote) {
+    console.log(quote);
+  }
 }

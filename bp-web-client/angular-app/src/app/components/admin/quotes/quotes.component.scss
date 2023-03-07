@@ -131,3 +131,27 @@
 ::ng-deep .right.carousel-control.carousel-control-next.disabled span {
   visibility: hidden;
 }
+.details {
+  .block {
+    background: #ececec;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 0 0 10px 0;
+    ul {
+      li {
+        display: flex;
+        margin-bottom: 10px;
+        font-size: 14px;
+
+        .lable {
+          width: 250px;
+          text-align: right;
+          font-weight: 600;
+        }
+        span {
+          margin: 0px 5px;
+        }
+      }
+    }
+  }
+}
