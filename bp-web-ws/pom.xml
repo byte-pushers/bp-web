@@ -404,6 +404,10 @@
                 <datasource.username>${env.DATASOURCE_USERNAME}</datasource.username>
                 <!--suppress UnresolvedMavenProperty -->
                 <datasource.password>${env.DATASOURCE_PASSWORD}</datasource.password>
+                <!--suppress UnresolvedMavenProperty -->
+                <hubspot.base.url>${env.HUBSPOT_BASE_URL}</hubspot.base.url>
+                <!--suppress UnresolvedMavenProperty -->
+                <hubspot.developerKey>${env.HUBSPOT_DEVELOPERKEY}</hubspot.developerKey>
             </properties>
             <dependencies>
                 <dependency>
