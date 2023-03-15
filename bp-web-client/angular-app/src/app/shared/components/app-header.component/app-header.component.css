@@ -1,0 +1,28 @@
+.adminNav {
+  width: 100%;
+  background: #222;
+}
+.containeraAdminNav {
+  margin: 0px auto;
+  width: 1170px;
+  max-width: 65rems;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.containeraAdminNav ul {
+  display: flex;
+}
+.containeraAdminNav ul li {
+  margin: 0 0 0 25px;
+}
+
+.containeraAdminNav ul li a {
+  text-transform: uppercase;
+}
+.containeraAdminNav ul li a:hover,
+.containeraAdminNav ul li a.active {
+  text-decoration: underline;
+  color: #fff;
+}

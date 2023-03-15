@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { NavigationEnd, Router } from "@angular/router";
+import { LoginService } from "src/app/services/login.service";
 import { ScrollToService } from "../../../services/scroll-to.service";
 
 @Component({
@@ -8,7 +9,16 @@ import { ScrollToService } from "../../../services/scroll-to.service";
   styleUrls: ["./app-header.component.css"],
 })
 export class AppHeaderComponent implements OnInit {
-  constructor(public scrollTo: ScrollToService, private router: Router) {}
+  isUserLoggedIn: boolean = false;
+  constructor(
+    public scrollTo: ScrollToService,
+    private router: Router,
+    private loginService: LoginService
+  ) {
+    this.loginService.currentUserSubject.subscribe((value) => {
+      this.isUserLoggedIn = value;
+    });
+  }
 
   ngOnInit() {
     window.onscroll = function () {
@@ -70,5 +80,9 @@ export class AppHeaderComponent implements OnInit {
         mobileNav.classList.add("expanded");
       }
     }
+  }
+  logout() {
+    this.loginService.logout();
+    this.router.navigate(["/"]);
   }
 }
