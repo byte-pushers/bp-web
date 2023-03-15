@@ -1,30 +1,87 @@
-<nav class="topnav fade-in-second" id="topnav">
+<nav *ngIf="!isUserLoggedIn" class="topnav fade-in-second" id="topnav">
   <div class="topnav-container">
     <div class="topnav-mobile-menu" (click)="checkMobileNav()"></div>
     <a class="topnav-logo" [routerLink]="'/home'">
       <div class="topnav-logo-img" (click)="scrollTo.toTopOfPage()"></div>
     </a>
     <div class="topnav-links-container" id="topnav-mobile-links">
-
       <ul class="topnav-links">
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/home'" routerLinkActive="active"  (click)="scrollTo.toTopOfPage(); openCloseMobileNav()">
+          <a
+            class="topnav-link"
+            [routerLink]="'/home'"
+            routerLinkActive="active"
+            (click)="scrollTo.toTopOfPage(); openCloseMobileNav()"
+          >
             Home
           </a>
         </li>
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/services'" routerLinkActive="active" (click)="scrollTo.toTopOfPage(); openCloseMobileNav()" >Services</a>
+          <a
+            class="topnav-link"
+            [routerLink]="'/services'"
+            routerLinkActive="active"
+            (click)="scrollTo.toTopOfPage(); openCloseMobileNav()"
+            >Services</a
+          >
         </li>
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/work'" routerLinkActive="active"  (click)="scrollTo.toTopOfPage(); openCloseMobileNav()" >Work</a>
+          <a
+            class="topnav-link"
+            [routerLink]="'/work'"
+            routerLinkActive="active"
+            (click)="scrollTo.toTopOfPage(); openCloseMobileNav()"
+            >Work</a
+          >
         </li>
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/about'" routerLinkActive="active"  (click)="scrollTo.toTopOfPage(); openCloseMobileNav()" >About Us</a>
+          <a
+            class="topnav-link"
+            [routerLink]="'/about'"
+            routerLinkActive="active"
+            (click)="scrollTo.toTopOfPage(); openCloseMobileNav()"
+            >About Us</a
+          >
         </li>
         <li class="topnav-link-item">
-          <a class="topnav-link" [routerLink]="'/contact'"  routerLinkActive="active" (click)="scrollTo.toTopOfPage(); openCloseMobileNav()" >Contact</a>
+          <a
+            class="topnav-link"
+            [routerLink]="'/contact'"
+            routerLinkActive="active"
+            (click)="scrollTo.toTopOfPage(); openCloseMobileNav()"
+            >Contact</a
+          >
+        </li>
+        <li class="topnav-link-item">
+          <a
+            class="topnav-link"
+            [routerLink]="'/adminLogin'"
+            routerLinkActive="active"
+            (click)="scrollTo.toTopOfPage(); openCloseMobileNav()"
+            >Login</a
+          >
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+<!-- admin Nav starts here  -->
+<div *ngIf="isUserLoggedIn" class="adminNav">
+  <div class="containeraAdminNav">
+    <a class="topnav-logo" [routerLink]="'/admin/dashboard'">
+      <div class="topnav-logo-img"></div>
+    </a>
+    <ul>
+      <li>
+        <a [routerLink]="'/admin/dashboard'" routerLinkActive="active"
+          >Dashboard</a
+        >
+      </li>
+      <li>
+        <a [routerLink]="'/admin/quotes'" routerLinkActive="active">Quotes</a>
+      </li>
+      <li><a href="javascript:void(0)" (click)="logout()">Logout</a></li>
+    </ul>
+  </div>
+</div>

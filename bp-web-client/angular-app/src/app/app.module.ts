@@ -9,7 +9,7 @@ import { ContactComponent } from "./components/app-contact/app-contact.component
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CarouselModule } from "ngx-bootstrap/carousel";
 import { NgBootstrapFormValidationModule } from "ng-bootstrap-form-validation";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgxBootstrapSliderModule } from "ngx-bootstrap-slider";
 import { QuoteService } from "./shared/services/quote.service";
 import { AppFooterComponent } from "./shared/components/app-footer/app-footer.component";
@@ -32,6 +32,7 @@ import { StateNameService } from "./services/state-name.service";
 import { GoogleTagManagerModule } from "angular-google-tag-manager";
 import { OverlayModule } from "@angular/cdk/overlay";
 import { environment } from "src/environments/environment";
+import { AppLoginComponent } from "./components/app-login/app-login.component";
 import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
 
 @NgModule({
@@ -48,16 +49,17 @@ import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
     AppFooterComponent,
     AppAlertOverlayModalComponent,
     PhoneNumberDirective,
+    AppLoginComponent,
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
     NgBootstrapFormValidationModule.forRoot(),
-    FormsModule,
     NgxBootstrapSliderModule,
-    BrowserModule,
     HttpClientModule,
     NgxSpinnerModule,
     MatCardModule,
@@ -75,7 +77,7 @@ import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
     ContactButtonService,
     AppRoutingService,
     StateNameService,
-    DeactivateGuard
+    DeactivateGuard,
   ],
   entryComponents: [
     // Needs to be added here because otherwise we can't
