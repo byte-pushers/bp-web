@@ -153,11 +153,36 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- New dependencies related to securities for login start -->
         <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.10.1</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>${spring.boot.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>javax.servlet-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>${jwt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>${jwt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>${jwt.version}</version>
+        </dependency>
+
+        <!-- New dependencies related to securities for login End-->
 
     </dependencies>
 
@@ -404,10 +429,6 @@
                 <datasource.username>${env.DATASOURCE_USERNAME}</datasource.username>
                 <!--suppress UnresolvedMavenProperty -->
                 <datasource.password>${env.DATASOURCE_PASSWORD}</datasource.password>
-                <!--suppress UnresolvedMavenProperty -->
-                <hubspot.base.url>${env.HUBSPOT_BASE_URL}</hubspot.base.url>
-                <!--suppress UnresolvedMavenProperty -->
-                <hubspot.developerKey>${env.HUBSPOT_DEVELOPERKEY}</hubspot.developerKey>
             </properties>
             <dependencies>
                 <dependency>
