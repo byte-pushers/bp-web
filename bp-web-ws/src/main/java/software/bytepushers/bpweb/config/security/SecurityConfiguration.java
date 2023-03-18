@@ -31,8 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final JwtUtils jwtUtils;
 
-    public SecurityConfiguration(CustomUserDetailsService customUserDetailsService,
-                                 RestAuthenticationEntryPoint restAuthenticationEntryPoint,
+    public SecurityConfiguration(CustomUserDetailsService customUserDetailsService, RestAuthenticationEntryPoint restAuthenticationEntryPoint,
                                  JwtUtils jwtUtils) {
         this.customUserDetailsService = customUserDetailsService;
         this.restAuthenticationEntryPoint = restAuthenticationEntryPoint;
@@ -44,42 +43,34 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
      *
      * @return the single instance of password encoder.
      */
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
+    @Bean public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     /**
      * {@inheritDoc}
      */
-    @Override
-    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+    @Override public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(this.customUserDetailsService).passwordEncoder(passwordEncoder());
     }
 
     /**
      * {@inheritDoc}
      */
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    @Override protected void configure(HttpSecurity http) throws Exception {
         log.info("Securing the rest endpoints");
-        http.cors().and().csrf().disable()
-                .authorizeRequests()
-                .antMatchers(LOGIN_END_POINT, ACCOUNT_TYPE_END_POINT, ROLES_END_POINT).permitAll()
-                .antMatchers(HttpMethod.POST, USERS_END_POINT).permitAll()
-                .antMatchers("/api/**").hasAnyRole(ROLE_PREMIUM, ROLE_BASIC, ROLE_GUEST)
-                .anyRequest().permitAll().and()
-                .exceptionHandling().authenticationEntryPoint(restAuthenticationEntryPoint).and()
-                .addFilter(new JwtAuthorizationFilter(this.authenticationManager(), this.jwtUtils))
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        http.cors().and().csrf().disable().authorizeRequests().antMatchers(LOGIN_END_POINT, ACCOUNT_TYPE_END_POINT, ROLES_END_POINT).permitAll()
+            .antMatchers(HttpMethod.POST, USERS_END_POINT).permitAll().antMatchers(HttpMethod.POST, "/api/v1/quotes").permitAll()
+            .antMatchers("/api/**").hasAnyRole(ROLE_PREMIUM, ROLE_BASIC, ROLE_GUEST).anyRequest().permitAll().and().exceptionHandling()
+            .authenticationEntryPoint(restAuthenticationEntryPoint).and()
+            .addFilter(new JwtAuthorizationFilter(this.authenticationManager(), this.jwtUtils)).sessionManagement()
+            .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
     /**
      * {@inheritDoc}
      */
-    @Bean
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
+    @Bean @Override public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
 
