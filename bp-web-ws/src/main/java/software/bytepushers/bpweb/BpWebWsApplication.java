@@ -20,17 +20,4 @@ public class BpWebWsApplication {
         SpringApplication.run(BpWebWsApplication.class, args);
     }
 
-    @Bean public CommandLineRunner demoData(AccountTypeRepository repo) {
-        return args -> {
-            for (AccountTypeEnum accountTypeEnum : AccountTypeEnum.values()) {
-                AccountType accountType = repo.findByName(accountTypeEnum.name());
-                if (accountType == null) {
-                    AccountType accountTypeSave = new AccountType();
-                    accountTypeSave.setName(accountTypeEnum.name());
-                    repo.save(accountTypeSave);
-                }
-            }
-        };
-    }
-
 }
