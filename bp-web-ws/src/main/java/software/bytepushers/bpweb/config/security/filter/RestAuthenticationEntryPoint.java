@@ -7,11 +7,13 @@ import org.springframework.http.MediaType;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
+import software.bytepushers.bpweb.model.dto.ApiConstraintViolationError;
 import software.bytepushers.bpweb.model.dto.ApiError;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Collections;
 
 import static org.springframework.http.HttpStatus.FORBIDDEN;
 import static org.springframework.http.HttpStatus.UNAUTHORIZED;
@@ -40,7 +42,9 @@ public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
         String errorMessage = StringUtils.isBlank(tokenError) ? e.getMessage() : tokenError;
 
         response.setStatus(responseStatus.value());
-        ApiError apiError = new ApiError(String.valueOf(responseStatus.value()), responseStatus.getReasonPhrase(), errorMessage);
+
+        ApiError apiError = new ApiError(String.valueOf(responseStatus.value()), responseStatus.getReasonPhrase(), responseStatus.getReasonPhrase());
+
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         byte[] body = this.objectMapper.writeValueAsBytes(apiError);
         response.getOutputStream().write(body);
