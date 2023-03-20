@@ -17,6 +17,7 @@ import { ComponentType } from "@angular/cdk/portal";
 import { StateNameService } from "../../services/state-name.service";
 import { ContactButtonService } from "../../services/contact-button.service";
 import { IDeactivateComponent } from "src/app/shared/components/iDeactivate/iDeactivate.component";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-contact",
@@ -34,6 +35,7 @@ export class ContactComponent
   constructor(
     private quoteService: QuoteService,
     private spinner: NgxSpinnerService,
+    private router: Router,
     private appAlertOverlayModalService: AppAlertOverlayModalService,
     public stateNameService: StateNameService,
     private scrollToService: ScrollToService,
