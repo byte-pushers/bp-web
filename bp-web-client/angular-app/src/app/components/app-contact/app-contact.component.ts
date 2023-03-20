@@ -17,6 +17,7 @@ import { ComponentType } from "@angular/cdk/portal";
 import { StateNameService } from "../../services/state-name.service";
 import { ContactButtonService } from "../../services/contact-button.service";
 import { IDeactivateComponent } from "src/app/shared/components/iDeactivate/iDeactivate.component";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-contact",
@@ -34,11 +35,15 @@ export class ContactComponent
   constructor(
     private quoteService: QuoteService,
     private spinner: NgxSpinnerService,
+    private router: Router,
     private appAlertOverlayModalService: AppAlertOverlayModalService,
     public stateNameService: StateNameService,
     private scrollToService: ScrollToService,
     private contactButtonService: ContactButtonService
-  ) {}
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    console.log("am from contact constructor");
+  }
 
   @ViewChild("quoteForm") quoteForm: any;
   @ViewChild("phoneNumber") phoneNumber: any;
@@ -66,6 +71,7 @@ export class ContactComponent
     this.years = this.calculateYears(+new Date().getFullYear(), 40);
     this.years.push("Older than 1980");
     this.setOnContactView(false);
+    console.log("am from contact oninit");
   }
 
   //Check if there any unsaved data etc. If yes then as for confirmation
