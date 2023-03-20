@@ -48,7 +48,9 @@
             class="topnav-link"
             [routerLink]="'/contact'"
             routerLinkActive="active"
-            (click)="scrollTo.toTopOfPage(); openCloseMobileNav()"
+            (click)="
+              scrollTo.toTopOfPage(); openCloseMobileNav(); refreshPage()
+            "
             >Contact</a
           >
         </li>
