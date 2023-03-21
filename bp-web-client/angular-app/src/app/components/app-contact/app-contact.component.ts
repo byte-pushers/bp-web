@@ -32,6 +32,9 @@ export class ContactComponent
   public showConfirmation = false;
   public phone: { number: string } = { number: "" };
 
+  public formStartTime: number = null;
+  public formEndTime: number = null;
+
   constructor(
     private quoteService: QuoteService,
     private spinner: NgxSpinnerService,
@@ -255,5 +258,16 @@ export class ContactComponent
       this.hideBusiness = true;
       this.hideBusinessBtn = false;
     }
+  }
+  captureStartTime() {
+    if (this.formStartTime == null) {
+      this.formStartTime = Date.now();
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "formStarted",
+        timeFormStarted: this.formStartTime,
+      });
+    }
+    console.log(this.formStartTime);
   }
 }
