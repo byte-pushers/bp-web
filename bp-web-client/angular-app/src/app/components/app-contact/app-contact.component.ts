@@ -33,7 +33,7 @@ export class ContactComponent
   public phone: { number: string } = { number: "" };
 
   public formStartTime: number = null;
-  public formEndTime: number = null;
+  public formSubmitTime: number = null;
 
   constructor(
     private quoteService: QuoteService,
@@ -94,6 +94,7 @@ export class ContactComponent
 
   ngOnDestroy() {
     this.setOnContactView(true);
+    this.formStartTime = null;
   }
   public setOnContactView(setView): void {
     this.contactButtonService.isOnContactView(setView);
@@ -121,7 +122,12 @@ export class ContactComponent
 
   public onSubmit(): void {
     this.isSubmitted = true;
-
+    this.formSubmitTime = Date.now();
+    const formDuration = this.formSubmitTime - this.formStartTime;
+    window.dataLayer.push({
+      event: "formSubmitted",
+      formSubmissionDuration: formDuration,
+    });
     if (!this.quoteForm.valid) {
       this.isSubmitted = false;
     } else {
@@ -268,6 +274,5 @@ export class ContactComponent
         timeFormStarted: this.formStartTime,
       });
     }
-    console.log(this.formStartTime);
   }
 }
