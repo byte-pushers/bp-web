@@ -64,10 +64,10 @@
                 placeholder="First Name"
                 [(ngModel)]="quote.contact.firstName"
                 type="text"
+                (click)="captureStartTime()"
                 class="form-control"
                 minlength="2"
                 pattern="^[^0-9]+$"
-                (click)="captureStartTime()"
                 required
                 #firstName="ngModel"
               />
@@ -588,6 +588,7 @@
             placeholder="First Name"
             [(ngModel)]="quote.contact.firstName"
             type="text"
+            (click)="captureStartTime()"
             class="form-control"
             minlength="2"
             pattern="^[^0-9]+$"
@@ -1031,7 +1032,6 @@
             name="description"
             [(ngModel)]="quote.description"
             type="text"
-            class="form-control"
             minlength="2"
             #description="ngModel"
             required=""
