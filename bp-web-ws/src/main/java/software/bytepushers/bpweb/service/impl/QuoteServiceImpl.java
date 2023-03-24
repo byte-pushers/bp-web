@@ -33,13 +33,12 @@ public class QuoteServiceImpl implements QuoteService {
     /**
      * {@inheritDoc}
      */
-    @Override
-    public Quote create(Quote quote) {
+    @Override public Quote create(Quote quote) {
         log.info("Create quote");
         if (quote == null) {
             throw new MalformedRequestException(new ApiErrorResponse(ApiErrorResponse.FAILURE, StringUtils.EMPTY,
                                                                      new ApiValidationError(ApiConstants.ErrorEnum.QUOTE_EMPTY_ERROR,
-                                                                                        Collections.singletonList(ApiConstants.QUOTE_FIELD))));
+                                                                                            Collections.singletonList(ApiConstants.QUOTE_FIELD))));
         }
         Quote createdQuote = this.quoteRepository.save(quote);
         log.info("Quote created");
@@ -108,5 +107,4 @@ public class QuoteServiceImpl implements QuoteService {
         log.info("Fetch. All quotes.");
         return this.quoteRepository.findAllByDisabledFalse();
     }
-
 }

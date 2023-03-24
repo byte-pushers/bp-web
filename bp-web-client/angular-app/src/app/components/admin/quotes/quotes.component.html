@@ -1,0 +1,216 @@
+<div class="adminContent">
+  <div class="container">
+    <h1>Quotes</h1>
+    <div class="grid">
+      <p-table
+        #quotesTable
+        [columns]="cols"
+        [value]="quotesList"
+        dataKey="id"
+        [rowHover]="true"
+        [rows]="5"
+        [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[5, 10, 15]"
+        [loading]="loading"
+        [paginator]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [filterDelay]="0"
+        responsiveLayout="stack"
+        [breakpoint]="'700px'"
+        [tableStyle]="{ 'min-width': '20rem' }"
+        [globalFilterFields]="['name', 'code', 'category', 'quantity']"
+      >
+        <ng-template pTemplate="caption">
+          <div class="table-header">
+            <div>List of Quotes</div>
+            <div class="p-input-icon-right">
+              <i class="pi pi-search"></i>
+              <input
+                pInputText
+                type="text"
+                (input)="
+                  quotesTable.filterGlobal($event.target.value, 'contains')
+                "
+                placeholder="Global Search"
+              />
+            </div>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th
+              *ngFor="let col of columns"
+              pSortableColumn="{{ col.header }}"
+              [width]="col.width"
+            >
+              {{ col.header }}
+              <p-sortIcon field="{{ col.header }}"></p-sortIcon>
+            </th>
+            <th>Actions</th>
+            <!-- <th>Company Name</th>
+            <th>Contact Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Website</th>
+            <th>Platform</th>
+            <th>Type</th> -->
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-quote let-columns="columns">
+          <tr>
+            <!-- <td *ngFor="let col of columns">
+              <span class="p-column-title">{{ col.header }}</span> {{ rowData[col.field] }}
+            </td> -->
+            <td>
+              <span class="p-column-title">Company Name</span
+              >{{ quote.company.name }}
+            </td>
+            <td>
+              <span class="p-column-title">Contact Name</span
+              >{{ quote.contact.firstName }} {{ quote.contact.lastName }}
+            </td>
+            <td>
+              <span class="p-column-title">Email</span>{{ quote.contact.email }}
+            </td>
+            <td>
+              <span class="p-column-title">Phone</span
+              >{{ quote.contact.phone.number }}
+            </td>
+            <td>
+              <span class="p-column-title">Website</span>{{ quote.company.url }}
+            </td>
+            <td>
+              <span class="p-column-title">Platform</span
+              >{{ quote.projectPlatform }}
+            </td>
+            <td>
+              <span class="p-column-title">Type</span>{{ quote.projectType }}
+            </td>
+            <td class="actions">
+              <span class="p-column-title">Actions</span>
+              <button
+                pButton
+                pRipple
+                class="p-button-rounded p-button-success mr-2"
+                (click)="showQuoteDetails(quote)"
+              >
+                <i class="pi pi-external-link"></i>
+              </button>
+              <button
+                pButton
+                pRipple
+                class="p-button-rounded p-button-warning"
+                (click)="deleteQuote(quote)"
+              >
+                <i class="pi pi-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>
+
+<p-dialog
+  [(visible)]="showDetails"
+  header="Quote Details"
+  [breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+>
+  <ng-template pTemplate="body">
+    <div class="details">
+      <div class="block">
+        <h2>Contact</h2>
+        <ul>
+          <li>
+            <div class="lable">Name</div>
+            <span> : </span>
+            <div class="content">
+              {{ selectedQuote.contact.firstName }}
+              {{ selectedQuote.contact.lastName }}
+            </div>
+          </li>
+          <li>
+            <div class="lable">Email</div>
+            <span> : </span>
+            <div class="content">
+              <a href="mailto:{{ selectedQuote.contact.email }}">{{
+                selectedQuote.contact.email
+              }}</a>
+            </div>
+          </li>
+          <li>
+            <div class="lable">Phone</div>
+            <span> : </span>
+            <div class="content">
+              {{ selectedQuote.contact.phone.number }} ({{
+                selectedQuote.contact.phone.number
+              }})
+            </div>
+          </li>
+          <li>
+            <div class="lable">Address</div>
+            <span> : </span>
+            <div class="content">
+              {{ selectedQuote.contact.address.street }}, <br />
+              {{ selectedQuote.contact.address.city }},
+              {{ selectedQuote.contact.address.state }},
+              {{ selectedQuote.contact.address.country }},<br />
+              {{ selectedQuote.contact.address.county }},
+              {{ selectedQuote.contact.address.zip }}
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="block">
+        <h2>Company</h2>
+        <ul>
+          <li>
+            <div class="lable">Name</div>
+            <span> : </span>
+            <div class="content">{{ selectedQuote.company.name }}</div>
+          </li>
+          <li>
+            <div class="lable">Foundation</div>
+            <span> : </span>
+            <div class="content">{{ selectedQuote.company.foundation }}</div>
+          </li>
+          <li>
+            <div class="lable">Website</div>
+            <span> : </span>
+            <div class="content">
+              <a href="{{ selectedQuote.company.url }}" target="_blank">{{
+                selectedQuote.company.url
+              }}</a>
+            </div>
+          </li>
+          <li>
+            <div class="lable">Type</div>
+            <span> : </span>
+            <div class="content">{{ selectedQuote.company.type }}</div>
+          </li>
+          <li>
+            <div class="lable">Established</div>
+            <span> : </span>
+            <div class="content">
+              {{ selectedQuote.company.establishedYear }}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button
+      (click)="showDetails = false"
+      class="btnPrimary"
+      label="Ok"
+      styleClass="p-button-text"
+    >
+      <i class="pi pi-check"></i> Ok
+    </button>
+  </ng-template>
+</p-dialog>
