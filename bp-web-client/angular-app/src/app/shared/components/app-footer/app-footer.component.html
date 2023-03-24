@@ -20,7 +20,7 @@
         </li>
       </ul>
     </div>
-    <div class="col-sm-4 footer-link">
+    <div class="col-sm-4 footer-link" *ngIf="!isUserLoggedIn">
       <ul>
         <li>
           <a routerLink="/contact" (click)="scrollToService.toTopOfPage()"
@@ -32,7 +32,9 @@
   </div>
   <div class="row copyright">
     <div class="col-12">
-      <p class="copyright">Copyright &#169; {{currentYearLong()}} BytePushers Inc.</p>
+      <p class="copyright">
+        Copyright &#169; {{ currentYearLong() }} BytePushers Inc.
+      </p>
     </div>
   </div>
 </div>

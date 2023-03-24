@@ -1,16 +1,28 @@
 import { Component, OnInit } from "@angular/core";
 import { NavigationEnd, Router } from "@angular/router";
+import { LoginService } from "src/app/services/login.service";
 import { ScrollToService } from "../../../services/scroll-to.service";
+import { ReloadRefreshComponent } from "../reloadRefresh/reload-refresh.component";
 
 @Component({
   selector: "app-header",
   templateUrl: "./app-header.component.html",
   styleUrls: ["./app-header.component.css"],
 })
-export class AppHeaderComponent implements OnInit {
-  constructor(public scrollTo: ScrollToService, private router: Router) {}
+export class AppHeaderComponent extends ReloadRefreshComponent {
+  isUserLoggedIn: boolean = false;
+  constructor(
+    public scrollTo: ScrollToService,
+    public override router: Router,
+    private loginService: LoginService
+  ) {
+    super(router);
+    this.loginService.currentUserSubject.subscribe((value) => {
+      this.isUserLoggedIn = value;
+    });
+  }
 
-  ngOnInit() {
+  override ngOnInit() {
     window.onscroll = function () {
       navScroll();
       checkCp3Desc();
@@ -70,5 +82,14 @@ export class AppHeaderComponent implements OnInit {
         mobileNav.classList.add("expanded");
       }
     }
+  }
+  refreshPage() {
+    setTimeout(() => {
+      this.reloadPage();
+    }, 10);
+  }
+  logout() {
+    this.loginService.logout();
+    this.router.navigate(["/"]);
   }
 }
