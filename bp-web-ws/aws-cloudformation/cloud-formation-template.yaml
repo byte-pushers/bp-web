@@ -146,7 +146,7 @@ Resources:
       DBSubnetGroupName:
         Ref: BpWebRdsDBSubnetGroup
       Engine: MySQL
-      EngineVersion: 5.7.22
+      EngineVersion: 5.7.33
       MasterUsername: bpwebrds123
       MasterUserPassword: bpwebrds123
       MultiAZ: false
