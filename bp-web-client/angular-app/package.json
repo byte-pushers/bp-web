@@ -50,7 +50,7 @@
     "primeicons": "^5.0.0",
     "primeng": "^15.2.0",
     "rxjs": "~7.8.0",
-    "ssh2-sftp-client": "^6.0.1",
+    "ssh2-sftp-client": "^9.0.4",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
