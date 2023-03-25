@@ -126,7 +126,7 @@ export class ContactComponent
     const formDuration = this.formSubmitTime - this.formStartTime;
     window.dataLayer.push({
       event: "requestQuoteFormSubmitted",
-      timeFormSubmited: this.formSubmitTime,
+      timeFormSubmitted: this.formSubmitTime,
       formSubmissionDuration2: formDuration,
     });
     if (!this.quoteForm.valid) {
