@@ -3087,3 +3087,21 @@ td.actions {
 .p-dialog .p-dialog-footer {
   padding: 1rem 1.5rem 1.5rem 1.5rem;
 }
+.socialMediaLinks {
+  margin: 30px auto !important;
+  padding: 0;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    margin: 0px 25px;
+    a {
+      i {
+        font-size: 30px;
+      }
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
