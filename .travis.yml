@@ -96,8 +96,8 @@ matrix:
           parameters:
             - BucketName=${S3_DEPLOYMENT_BUCKET}
             - ObjectName=${S3_DEPLOYMENT_OBJECT_NAME}
-          capabilities:
-            [CAPABILITY_NAMED_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND]
+            - CorsLambdaObjectName=cors-lambda.zip
+          capabilities: [ CAPABILITY_NAMED_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND ]
           edge: true
           skip_cleanup: true
           on:
