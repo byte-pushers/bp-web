@@ -34,10 +34,12 @@ curl --location --request GET 'http://localhost:8080/api/v1/health'
 # Deploy to AWS Lambda
 1. AWS CLI should be configured for development environment.
 2. Following properties should be added in environment variable
-    1. DATASOURCE_URL
+    1. **DATASOURCE_URL
     2. JWT_TOKEN_SECRET
     3. DATASOURCE_USERNAME
-    4. DATASOURCE_PASSWORD
+    4. DATASOURCE_PASSWORD**
+    5. HUBSPOT_BASE_URL
+    6. HUBSPOT_DEVELOPERKEY
 3. Run following command and build the project <br />
    ```mvn clean install -P aws```
 4. Run following command to copy jar file <br />
