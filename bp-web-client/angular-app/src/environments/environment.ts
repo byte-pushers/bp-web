@@ -6,6 +6,7 @@ export const environment = {
   production: null,
   // GTM_ID:'GTM-MXBC87C',
   CHUCKS_PICK_3_URL: null,
+  ENDPOINT: "https://api-dev.bytepushers.io/api/v1",
   QUOTE_SERVICE: {
     API: {
       HOST: null,
