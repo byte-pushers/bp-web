@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Quote } from "../models/quote";
-// import { environment } from '../../../environments/environment';
-import { environment } from "src/environments/environment.production";
+import { environment } from "../../../environments/environment";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { EMPTY, Observable, of, throwError } from "rxjs";
 import {
