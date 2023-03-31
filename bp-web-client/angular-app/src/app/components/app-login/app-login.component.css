@@ -20,9 +20,10 @@
   position: absolute;
   bottom: 20px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -35%);
   padding: 20px 30px;
   color: #fff;
+  border-radius: 8px;
 }
 .loginBox h1 {
   font-size: 30px;
