@@ -110,13 +110,13 @@
           <div class="form-row inner-form-section">
             <div class="form-group col-md-4">
               <label for="firstName">First Name*</label>
-
               <input
                 id="firstName"
                 name="firstName"
                 placeholder="First Name"
                 [(ngModel)]="quote.contact.firstName"
                 type="text"
+                (click)="captureStartTime()"
                 class="form-control"
                 minlength="2"
                 pattern="^[^0-9]+$"
@@ -149,6 +149,7 @@
                 placeholder="Last Name"
                 [(ngModel)]="quote.contact.lastName"
                 type="text"
+                (click)="captureStartTime()"
                 class="form-control"
                 minlength="2"
                 pattern="^[^0-9]+$"
@@ -196,6 +197,7 @@
                   [(ngModel)]="phone.number"
                   type="text"
                   class="form-control"
+                  (click)="captureStartTime()"
                   #phoneNumber="ngModel"
                   required
                   phoneNumber
@@ -243,6 +245,7 @@
                   placeholder="Email"
                   [(ngModel)]="quote.contact.email"
                   type="email"
+                  (click)="captureStartTime()"
                   class="form-control"
                   minlength="2"
                   email
@@ -280,6 +283,7 @@
                 placeholder="City"
                 [(ngModel)]="quote.contact.address.city"
                 type="text"
+                (click)="captureStartTime()"
                 class="form-control"
                 minlength="2"
                 pattern="^[^0-9]+$"
@@ -293,6 +297,7 @@
                 class="form-control"
                 id="state"
                 [(ngModel)]="quote.contact.address.state"
+                (click)="captureStartTime()"
                 name="state"
                 #state="ngModel"
               >
@@ -335,6 +340,7 @@
                   placeholder="Business Name"
                   [(ngModel)]="quote.company.name"
                   type="text"
+                  (click)="captureStartTime()"
                   class="form-control"
                   minlength="2"
                   required
@@ -378,6 +384,7 @@
                     placeholder="URL"
                     [(ngModel)]="quote.company.url"
                     type="text"
+                    (click)="captureStartTime()"
                     class="form-control"
                     minlength="2"
                     pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-zA-Z0-9]+([\-\.]{1}[a-zA-Z0-9]+)*\.[a-z]{2,99}(:[0-9])?(\/.*)?$"
@@ -413,6 +420,7 @@
                     class="form-control"
                     id="establishedYear"
                     [(ngModel)]="quote.company.establishedYear"
+                    (click)="captureStartTime()"
                     name="establishedYear"
                     #establishedYear="ngModel"
                   >
@@ -433,6 +441,7 @@
                     id="foundation"
                     [(ngModel)]="quote.company.foundation"
                     name="foundation"
+                    (click)="captureStartTime()"
                     #foundation="ngModel"
                   >
                     <option [ngValue]="null">
@@ -454,6 +463,7 @@
                     class="form-control"
                     [(ngModel)]="quote.projectType"
                     id="projectType"
+                    (click)="captureStartTime()"
                     name="projectType"
                     #projectType="ngModel"
                   >
@@ -475,6 +485,7 @@
                     class="form-control"
                     id="projectPlatform"
                     name="projectPlatform"
+                    (click)="captureStartTime()"
                     [(ngModel)]="quote.projectPlatform"
                     #projectPlatform="ngModel"
                   >
@@ -513,6 +524,7 @@
                     id="budget"
                     *ngFor="let budget of budgets"
                     [value]="budget"
+                    (click)="captureStartTime()"
                     placeholder="{{ budget }}"
                     disabled
                   />
@@ -543,6 +555,7 @@
                     id="timeline"
                     *ngFor="let timeline of timelines"
                     [value]="timeline"
+                    (click)="captureStartTime()"
                     placeholder="{{ timeline }}"
                     disabled
                   />
@@ -569,6 +582,7 @@
               name="description"
               [(ngModel)]="quote.description"
               type="text"
+              (click)="captureStartTime()"
               class="form-control"
               #description="ngModel"
               required
@@ -626,6 +640,7 @@
             placeholder="First Name"
             [(ngModel)]="quote.contact.firstName"
             type="text"
+            (click)="captureStartTime()"
             class="form-control"
             minlength="2"
             pattern="^[^0-9]+$"
