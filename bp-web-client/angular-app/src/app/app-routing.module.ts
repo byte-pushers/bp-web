@@ -19,7 +19,7 @@ const routes: Routes = [
   },
   { path: "work", component: WorkComponent },
   { path: "services", component: ServicesComponent },
-  { path: "adminLogin", component: AppLoginComponent },
+  { path: "admin-login", component: AppLoginComponent },
   {
     path: "admin",
     loadChildren: () =>
