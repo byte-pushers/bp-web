@@ -1038,7 +1038,7 @@ the header component, remaining stylings left on the header componnent are there
 
 @media only screen and (min-width: 992px) {
   .topnav-link-item {
-    margin-left: 2.3em;
+    margin-left: 1.3em;
   }
 }
 

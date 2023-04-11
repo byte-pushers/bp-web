@@ -54,6 +54,15 @@
             >Contact</a
           >
         </li>
+        <li class="topnav-link-item">
+          <a
+            class="requestQuoteBtn"
+            [routerLink]="'/contact'"
+            routerLinkActive="active"
+            (click)="scrollTo.toTopOfPage(); openCloseMobileNav()"
+            >Request A Quote</a
+          >
+        </li>
       </ul>
     </div>
   </div>
