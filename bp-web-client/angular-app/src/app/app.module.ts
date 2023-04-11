@@ -34,7 +34,7 @@ import { OverlayModule } from "@angular/cdk/overlay";
 import { environment } from "src/environments/environment";
 import { AppLoginComponent } from "./components/app-login/app-login.component";
 import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
-import { MADLandingComponent } from "./components/madlanding/madlanding.component";
+import { MADLandingComponent } from "./components/app-madlanding/madlanding.component";
 
 @NgModule({
   declarations: [
