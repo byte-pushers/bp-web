@@ -16,13 +16,15 @@ import { DelayedRetryOperator } from "../operators/delayed-retry/delayed-retry.o
 @Injectable()
 export class QuoteService {
   apiEndPoint = environment.QUOTE_SERVICE.API.HOST;
+  apiOrigin = environment.CHUCKS_PICK_3_URL;
   constructor(private http: HttpClient) {}
 
   createQuote(quote: Quote): Observable<Quote> {
     console.log(quote);
     const header: HttpHeaders = new HttpHeaders()
       .set("Content-Type", "application/json")
-      .set("Accept", "application/json");
+      .set("Accept", "application/json")
+      .set("origin", this.apiOrigin);
 
     return this.http
       .post<Quote>(environment.QUOTE_SERVICE.API.HOST, quote.transformKeys(), {
