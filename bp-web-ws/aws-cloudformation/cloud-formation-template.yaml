@@ -11,7 +11,7 @@ Outputs:
 Parameters:
   BucketName:
     Type: String
-    Description: "AWS Lambda deployment bucket"
+    Description: "Bp web Lambda deployment bucket"
     Default: ""
   ObjectName:
     Type: String
@@ -42,7 +42,7 @@ Resources:
             "Version": "2012-10-17",
             "Statement": [
               {
-                "Sid": "WpWebInlinePolicyLambdaToLambdaInvocation",
+                "Sid": "BpWebInlinePolicyLambdaToLambdaInvocation",
                 "Effect": "Allow",
                 "Action": "lambda:InvokeFunction",
                 "Resource": "*"
@@ -61,6 +61,109 @@ Resources:
         - Key: Name
           Value: BpWebVpcExecutionRole
 
+  BpWebElasticIP:
+    Type: AWS::EC2::EIP
+    DependsOn: BpWebAttachInternetGateway
+    Properties:
+      Domain: vpc
+
+  BpWebNatGateway:
+    Type: AWS::EC2::NatGateway
+    Properties:
+      AllocationId:
+        Fn::GetAtt: [ BpWebElasticIP, AllocationId ]
+      SubnetId:
+        Ref: BpWebPublicSubnet1
+      Tags:
+        - Key: Name
+          Value: BpWebNatGateway
+
+  BpWebInternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: BpWebInternetGateway
+
+  BpWebPrivateRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId:
+        Ref: BpWebWSVpc
+      Tags:
+        - Key: Name
+          Value: BpWebPrivateRouteTable
+  BpWebPrivateRoute:
+    Type: AWS::EC2::Route
+    DependsOn:
+      - BpWebNatGateway
+      - BpWebAttachInternetGateway
+    Properties:
+      RouteTableId:
+        Ref: BpWebPrivateRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      NatGatewayId:
+        Ref: BpWebNatGateway
+
+  BpWebPublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId:
+        Ref: BpWebWSVpc
+      Tags:
+        - Key: Name
+          Value: BpWebPublicRouteTable
+  BpWebPublicRoute:
+    Type: AWS::EC2::Route
+    DependsOn:
+      - BpWebInternetGateway
+      - BpWebAttachInternetGateway
+    Properties:
+      RouteTableId:
+        Ref: BpWebPublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId:
+        Ref: BpWebInternetGateway
+
+  BpWebPrivateSubnet1RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId:
+        Ref: BpWebPrivateSubnet1
+      RouteTableId:
+        Ref: BpWebPrivateRouteTable
+
+  BpWebPrivateSubnet2RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId:
+        Ref: BpWebPrivateSubnet2
+      RouteTableId:
+        Ref: BpWebPrivateRouteTable
+
+  BpWebPublicSubnet1RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId:
+        Ref: BpWebPublicSubnet1
+      RouteTableId:
+        Ref: BpWebPublicRouteTable
+
+  BpWebPublicSubnet2RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId:
+        Ref: BpWebPublicSubnet2
+      RouteTableId:
+        Ref: BpWebPublicRouteTable
+
+  BpWebAttachInternetGateway:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId:
+        Ref: BpWebWSVpc
+      InternetGatewayId:
+        Ref: BpWebInternetGateway
   BpWebWSVpc:
     Type: AWS::EC2::VPC
     Properties:
@@ -90,6 +193,26 @@ Resources:
       Tags:
         - Key: Name
           Value: BpWebPrivateSubnet2-ws
+  BpWebPublicSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId:
+        Ref: BpWebWSVpc
+      CidrBlock: 192.168.0.0/24
+      AvailabilityZone: "us-east-2a"
+      Tags:
+        - Key: Name
+          Value: BpWebPublicSubnet1-ws
+  BpWebPublicSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId:
+        Ref: BpWebWSVpc
+      CidrBlock: 192.168.3.0/24
+      AvailabilityZone: "us-east-2b"
+      Tags:
+        - Key: Name
+          Value: BpWebPublicSubnet2-ws
   BpWebRdsDBSubnetGroup:
     Type: "AWS::RDS::DBSubnetGroup"
     Properties:
@@ -145,10 +268,11 @@ Resources:
       DBName: bpwebdb
       DBSubnetGroupName:
         Ref: BpWebRdsDBSubnetGroup
+      DeletionProtection: true
       Engine: MySQL
       EngineVersion: 5.7.41
       MasterUsername: bpwebrds123
-      MasterUserPassword: bpwebrds123
+      MasterUserPassword: bpwebrds
       MultiAZ: false
       Port: 3306
       PubliclyAccessible: false
