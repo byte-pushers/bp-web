@@ -48,7 +48,6 @@ public class QuoteController extends AbstractController {
      * @return the created quote details.
      */
     @PostMapping
-    @CrossOrigin
     public ResponseEntity<?> create(@RequestBody @Valid Quote quote) {
         log.info("Request to create quote");
         quote = this.hubspotServiceImpl.createHubspotEntities(quote);
