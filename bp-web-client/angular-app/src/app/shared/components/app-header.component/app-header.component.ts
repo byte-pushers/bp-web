@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { NavigationEnd, Router } from "@angular/router";
+import { Observable } from "rxjs";
 import { LoginService } from "src/app/services/login.service";
 import { ScrollToService } from "../../../services/scroll-to.service";
 import { ReloadRefreshComponent } from "../reloadRefresh/reload-refresh.component";
@@ -11,6 +12,7 @@ import { ReloadRefreshComponent } from "../reloadRefresh/reload-refresh.componen
 })
 export class AppHeaderComponent extends ReloadRefreshComponent {
   isUserLoggedIn: boolean = false;
+  stickyHeader: any;
   constructor(
     public scrollTo: ScrollToService,
     public override router: Router,
@@ -19,6 +21,9 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     super(router);
     this.loginService.currentUserSubject.subscribe((value) => {
       this.isUserLoggedIn = value;
+    });
+    this.scrollTo.isthankyouPage.subscribe((value) => {
+      this.stickyHeader = value;
     });
   }
 

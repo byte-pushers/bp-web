@@ -1,4 +1,9 @@
-<nav *ngIf="!isUserLoggedIn" class="topnav fade-in-second" id="topnav">
+<nav
+  *ngIf="!isUserLoggedIn"
+  class="topnav fade-in-second"
+  [ngClass]="stickyHeader ? 'topnav-scrolling' : ''"
+  id="topnav"
+>
   <div class="topnav-container">
     <div class="topnav-mobile-menu" (click)="checkMobileNav()"></div>
     <a class="topnav-logo" [routerLink]="'/home'">
@@ -60,8 +65,8 @@
             [routerLink]="'/contact'"
             routerLinkActive="active"
             (click)="scrollTo.toTopOfPage(); openCloseMobileNav()"
-            >Request A Quote</a
-          >
+            >Request A Quote
+          </a>
         </li>
       </ul>
     </div>

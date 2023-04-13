@@ -35,6 +35,7 @@ import { environment } from "src/environments/environment";
 import { AppLoginComponent } from "./components/app-login/app-login.component";
 import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
 import { MADLandingComponent } from "./components/app-madlanding/madlanding.component";
+import { ThankyouComponent } from "./components/thankyou/thankyou.component";
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { MADLandingComponent } from "./components/app-madlanding/madlanding.comp
     PhoneNumberDirective,
     AppLoginComponent,
     MADLandingComponent,
+    ThankyouComponent,
   ],
   imports: [
     AppRoutingModule,

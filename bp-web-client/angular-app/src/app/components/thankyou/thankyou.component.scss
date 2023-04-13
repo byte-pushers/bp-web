@@ -1,0 +1,28 @@
+.thankyou {
+  width: 100%;
+  height: calc(100vh - 240px);
+  background: #fff;
+  color: black;
+  padding: 100px 0 0 0;
+  text-align: center;
+
+  .cicon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0px auto 10px;
+  }
+  .congrats {
+    font-size: 52px;
+    color: #00b700;
+  }
+  h3 {
+    font-size: 20px;
+    color: #6b6b6b;
+    margin: 5px 0;
+  }
+  .tq {
+    font-size: 30px;
+    color: #555555;
+  }
+}
