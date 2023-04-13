@@ -17,10 +17,16 @@ Parameters:
     Type: String
     Description: "AWS Lambda code file name from s3 bucket"
     Default: ""
-  CorsLambdaObjectName:
-    Type: String
-    Description: "AWS Lambda code file name from s3 bucket to support CORS request"
-    Default: ""
+  #CorsLambdaObjectName:
+    #Type: String
+    #Description: "AWS Lambda code file name from s3 bucket to support CORS request"
+    #Default: ""
+Globals:
+  Api:
+    Cors:
+      AllowMethods: "'*'"
+      AllowHeaders: "'*'"
+      AllowOrigin: "'*'"
 Resources:
   BpWebVpcExecutionRole:
     Type: AWS::IAM::Role
