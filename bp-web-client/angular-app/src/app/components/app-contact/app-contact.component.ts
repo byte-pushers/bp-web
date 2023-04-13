@@ -32,6 +32,9 @@ export class ContactComponent
   public showConfirmation = false;
   public phone: { number: string } = { number: "" };
 
+  public formStartTime: number = null;
+  public formSubmitTime: number = null;
+
   constructor(
     private quoteService: QuoteService,
     private spinner: NgxSpinnerService,
@@ -91,6 +94,7 @@ export class ContactComponent
 
   ngOnDestroy() {
     this.setOnContactView(true);
+    this.formStartTime = null;
   }
   public setOnContactView(setView): void {
     this.contactButtonService.isOnContactView(setView);
@@ -118,7 +122,13 @@ export class ContactComponent
 
   public onSubmit(): void {
     this.isSubmitted = true;
-
+    this.formSubmitTime = Date.now();
+    const formDuration = this.formSubmitTime - this.formStartTime;
+    window.dataLayer.push({
+      event: "requestQuoteFormSubmitted",
+      timeFormSubmitted: this.formSubmitTime,
+      formSubmissionDuration2: formDuration,
+    });
     if (!this.quoteForm.valid) {
       this.isSubmitted = false;
     } else {
@@ -254,6 +264,16 @@ export class ContactComponent
     } else {
       this.hideBusiness = true;
       this.hideBusinessBtn = false;
+    }
+  }
+  captureStartTime() {
+    if (this.formStartTime == null) {
+      this.formStartTime = Date.now();
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "formStarted",
+        timeFormStarted: this.formStartTime,
+      });
     }
   }
 }
