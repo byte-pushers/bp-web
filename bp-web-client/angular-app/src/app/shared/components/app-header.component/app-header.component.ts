@@ -31,8 +31,8 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     function navScroll() {
       const mobileNav = document.getElementById("topnav");
       if (
-        document.body.scrollTop > 570 ||
-        document.documentElement.scrollTop > 570
+        document.body.scrollTop > 100 ||
+        document.documentElement.scrollTop > 100
       ) {
         const scrollingNav = document.getElementById("topnav");
         scrollingNav.classList.add("topnav-scrolling");
