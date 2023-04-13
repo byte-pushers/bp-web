@@ -8,7 +8,6 @@ import { ServicesComponent } from "./components/app-services/app-services.compon
 import { AppLoginComponent } from "./components/app-login/app-login.component";
 import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
 import { MADLandingComponent } from "./components/app-madlanding/madlanding.component";
-import { ThankyouComponent } from "./components/thankyou/thankyou.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -21,7 +20,6 @@ const routes: Routes = [
   },
   { path: "work", component: WorkComponent },
   { path: "services", component: ServicesComponent },
-  { path: "thankyou", component: ThankyouComponent },
   { path: "admin-login", component: AppLoginComponent },
   {
     path: "admin",
