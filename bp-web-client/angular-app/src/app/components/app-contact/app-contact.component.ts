@@ -27,6 +27,7 @@ import { Router } from "@angular/router";
 export class ContactComponent
   implements IDeactivateComponent, OnInit, OnDestroy
 {
+  isError: boolean = false;
   public errorMessage: string;
   public errorMessages: [string?] = ["Phone number is invalid."];
   public showConfirmation = false;
@@ -122,6 +123,7 @@ export class ContactComponent
 
   public onSubmit(): void {
     this.isSubmitted = true;
+    this.isError = true;
     this.formSubmitTime = Date.now();
     const formDuration = this.formSubmitTime - this.formStartTime;
     window.dataLayer.push({
