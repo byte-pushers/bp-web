@@ -16,7 +16,6 @@ import { DelayedRetryOperator } from "../operators/delayed-retry/delayed-retry.o
 @Injectable()
 export class QuoteService {
   apiEndPoint = environment.QUOTE_SERVICE.API.HOST;
-  apiOrigin = environment.CHUCKS_PICK_3_URL;
   constructor(private http: HttpClient) {}
 
   createQuote(quote: Quote): Observable<Quote> {
