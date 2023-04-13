@@ -355,7 +355,7 @@ Resources:
             Method: OPTIONS
             Path: /{proxy+}
           Type: Api
-      Handler: index.bpwebHandler
+      Handler: index.handler
       MemorySize: 128
       Role:
         Fn::GetAtt: [ BpWebVpcExecutionRole, Arn ]
