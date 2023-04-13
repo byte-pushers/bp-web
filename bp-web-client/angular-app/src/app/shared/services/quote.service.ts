@@ -24,7 +24,7 @@ export class QuoteService {
     const header: HttpHeaders = new HttpHeaders()
       .set("Content-Type", "application/json")
       .set("Accept", "application/json")
-      .set("origin",apiOrigin);
+      .set("origin", this.apiOrigin);
 
     return this.http
       .post<Quote>(environment.QUOTE_SERVICE.API.HOST, quote.transformKeys(), {
