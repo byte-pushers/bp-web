@@ -96,6 +96,7 @@ export class ContactComponent
   ngOnDestroy() {
     this.setOnContactView(true);
     this.formStartTime = null;
+    this.isError = false;
   }
   public setOnContactView(setView): void {
     this.contactButtonService.isOnContactView(setView);
@@ -123,7 +124,7 @@ export class ContactComponent
 
   public onSubmit(): void {
     this.isSubmitted = true;
-    this.isError = true;
+
     this.formSubmitTime = Date.now();
     const formDuration = this.formSubmitTime - this.formStartTime;
     window.dataLayer.push({
@@ -190,6 +191,9 @@ export class ContactComponent
         },
         (error) => {
           // TODO should display error message at top of quote page.
+          this.isError = true;
+          this.errorMessage = error;
+          this.backToTop();
           console.log("error: " + error, error);
           this.errorMessages.push("Account was not created, internal error.");
 

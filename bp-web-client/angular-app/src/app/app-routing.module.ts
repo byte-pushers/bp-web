@@ -11,7 +11,7 @@ import { MADLandingComponent } from "./components/app-madlanding/madlanding.comp
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
-  { path: "home", component: MADLandingComponent },
+  { path: "home", component: HomeComponent },
   { path: "about", component: AboutComponent },
   {
     path: "contact",

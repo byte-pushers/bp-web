@@ -100,13 +100,7 @@
           <p style="color: #8c8b8a">* Required Information</p>
         </div>
       </div>
-      <div class="errorBox" *ngIf="isError">
-        <h3>Error</h3>
-        <p>
-          The request is not successfull due to some technical problem. Please
-          try after some time.
-        </p>
-      </div>
+
       <!-- General Form API Errors go here //-->
 
       <form
@@ -1190,3 +1184,12 @@
   </div>
 </main>
 <ngx-spinner type="ball-spin-clockwise"></ngx-spinner>
+<div class="errorPopup" *ngIf="isError">
+  <div class="errorBox">
+    <div class="d-flex j-c-s-b">
+      <h3>Error</h3>
+      <button class="closeError" (click)="isError = !isError">X</button>
+    </div>
+    <div class="cntnt">{{ errorMessage }}.</div>
+  </div>
+</div>
