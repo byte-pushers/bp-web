@@ -96,5 +96,4 @@ public class QuoteController extends AbstractController {
         log.info("Delete quote request served successfully");
         return sendOkResponse();
     }
-    
 }
