@@ -36,6 +36,9 @@ import { AppLoginComponent } from "./components/app-login/app-login.component";
 import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
 import { MADLandingComponent } from "./components/app-madlanding/madlanding.component";
 import { SocialMediaComponent } from "./shared/components/app-social-media.component/app-social-media.component";
+import { RightComponent } from "./components/app-madlanding/right/right.component";
+import { BottomComponent } from "./components/app-madlanding/bottom/bottom.component";
+import { LeftComponent } from "./components/app-madlanding/left/left.component";
 
 @NgModule({
   declarations: [
@@ -54,6 +57,9 @@ import { SocialMediaComponent } from "./shared/components/app-social-media.compo
     PhoneNumberDirective,
     AppLoginComponent,
     MADLandingComponent,
+    RightComponent,
+    BottomComponent,
+    LeftComponent,
   ],
   imports: [
     AppRoutingModule,
