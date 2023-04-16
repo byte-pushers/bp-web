@@ -3091,6 +3091,7 @@ td.actions {
 .socialMediaLinksTop {
   position: absolute;
   right: 30px;
+  width: 40px;
   top: 210px;
   z-index: 99999;
 
@@ -3126,7 +3127,11 @@ td.actions {
     }
   }
 }
-.requestQuoteBtn {
+.MADslogan {
+  font-size: 20px;
+  width: 800px;
+  margin: 10px auto;
+  line-height: 26px;
 }
 .standardYelloBtn {
   border: none;
@@ -3140,5 +3145,50 @@ td.actions {
     border-bottom-color: $standardYellow;
     text-decoration: none;
     color: #000;
+  }
+}
+.rightTemplate {
+  .socialMediaLinksTop {
+    left: 30px !important;
+  }
+
+  .home-hero-text {
+    width: 600px;
+    margin-top: 200px;
+
+    h2 {
+      font-size: 36px;
+    }
+  }
+  .MADslogan {
+    max-width: 100%;
+    margin-left: 15px;
+    text-align: left;
+  }
+  .ctaForm {
+    font-size: 16px;
+    text-align: left;
+    margin-left: 15px;
+    margin-top: 50px;
+    form {
+      display: flex;
+      font-size: 16px;
+      text-align: left;
+      margin: 10px 0;
+      input {
+        background: none;
+        border: solid 1px $standardYellow;
+        border-radius: 0 !important;
+        padding: 0 5px;
+        color: #fff;
+
+        &.name {
+          width: 170px;
+        }
+        &.email {
+          width: 220px;
+        }
+      }
+    }
   }
 }
