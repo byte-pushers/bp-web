@@ -1,0 +1,17 @@
+.MADslogan {
+  font-size: 20px;
+  width: 800px;
+  margin: 10px auto;
+  line-height: 26px;
+}
+.knowMore {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 30px;
+  padding-right: 50px;
+
+  .arrow {
+    margin-right: 30px;
+  }
+}
