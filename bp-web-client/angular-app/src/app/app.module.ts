@@ -35,6 +35,7 @@ import { environment } from "src/environments/environment";
 import { AppLoginComponent } from "./components/app-login/app-login.component";
 import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
 import { MADLandingComponent } from "./components/app-madlanding/madlanding.component";
+import { SocialMediaComponent } from "./shared/components/app-social-media.component/app-social-media.component";
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { MADLandingComponent } from "./components/app-madlanding/madlanding.comp
     ContactComponent,
     InfoComponent,
     AppFooterComponent,
+    SocialMediaComponent,
     AppAlertOverlayModalComponent,
     PhoneNumberDirective,
     AppLoginComponent,
