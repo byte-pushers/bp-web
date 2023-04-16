@@ -27,7 +27,7 @@ import { Router } from "@angular/router";
 export class ContactComponent
   implements IDeactivateComponent, OnInit, OnDestroy
 {
-  isError: boolean = false;
+  public isError: boolean = false;
   public errorMessage: string;
   public errorMessages: [string?] = ["Phone number is invalid."];
   public showConfirmation = false;

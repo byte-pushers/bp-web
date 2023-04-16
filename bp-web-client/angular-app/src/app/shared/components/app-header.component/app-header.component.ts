@@ -11,8 +11,8 @@ import { ReloadRefreshComponent } from "../reloadRefresh/reload-refresh.componen
   styleUrls: ["./app-header.component.css"],
 })
 export class AppHeaderComponent extends ReloadRefreshComponent {
-  isUserLoggedIn: boolean = false;
-  stickyHeader: any;
+  public isUserLoggedIn: boolean = false;
+  public stickyHeader: any;
   constructor(
     public scrollTo: ScrollToService,
     public override router: Router,
