@@ -3147,14 +3147,15 @@ td.actions {
     color: #000;
   }
 }
-.rightTemplate {
+.rightTemplate,
+.leftTemplate {
   .socialMediaLinksTop {
-    left: 30px !important;
+    left: 30px;
   }
 
   .home-hero-text {
     width: 600px;
-    margin-top: 200px;
+    margin-top: 240px;
 
     h2 {
       font-size: 36px;
@@ -3169,7 +3170,7 @@ td.actions {
     font-size: 16px;
     text-align: left;
     margin-left: 15px;
-    margin-top: 50px;
+    margin-top: 20px;
     form {
       display: flex;
       font-size: 16px;
@@ -3190,5 +3191,11 @@ td.actions {
         }
       }
     }
+  }
+}
+.leftTemplate {
+  .socialMediaLinksTop {
+    right: 30px !important;
+    left: auto;
   }
 }
