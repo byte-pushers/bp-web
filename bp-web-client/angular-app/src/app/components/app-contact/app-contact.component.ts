@@ -189,6 +189,7 @@ export class ContactComponent
         (error) => {
           // TODO should display error message at top of quote page.
           console.log("error: " + error, error);
+
           this.errorMessages.push("Account was not created, internal error.");
 
           if (this.isMobileResolution()) {
@@ -196,6 +197,7 @@ export class ContactComponent
           }
 
           this.spinner.hide();
+          throw new Error(error);
         }
       );
     }

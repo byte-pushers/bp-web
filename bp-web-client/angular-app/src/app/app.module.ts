@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { ErrorHandler, NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from "./shared/components/app.component/app.component";
 import { AppHeaderComponent } from "./shared/components/app-header.component/app-header.component";
@@ -34,6 +34,8 @@ import { OverlayModule } from "@angular/cdk/overlay";
 import { environment } from "src/environments/environment";
 import { AppLoginComponent } from "./components/app-login/app-login.component";
 import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
+import { CustomErrorHandlerService } from "./services/custom-error-handler.service";
+import { ModelPopupComponent } from "./shared/components/model-popup/model-popup.component";
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
     AppAlertOverlayModalComponent,
     PhoneNumberDirective,
     AppLoginComponent,
+    ModelPopupComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -78,6 +81,10 @@ import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
     AppRoutingService,
     StateNameService,
     DeactivateGuard,
+    {
+      provide: ErrorHandler,
+      useClass: CustomErrorHandlerService,
+    },
   ],
   entryComponents: [
     // Needs to be added here because otherwise we can't
