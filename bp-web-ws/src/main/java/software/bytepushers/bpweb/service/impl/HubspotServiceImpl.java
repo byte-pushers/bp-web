@@ -5,11 +5,14 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import software.bytepushers.bpweb.constants.HubspotApiConstants;
+import software.bytepushers.bpweb.exceptions.MalformedRequestException;
 import software.bytepushers.bpweb.model.dto.*;
 import software.bytepushers.bpweb.model.entity.Quote;
 import software.bytepushers.bpweb.service.HubspotService;
+import software.bytepushers.bpweb.utils.ApplicationUtils;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -18,9 +21,7 @@ import java.util.*;
 /**
  * The service layer implementation for the quote operations.
  */
-@Log4j2
-@Service
-public class HubspotServiceImpl implements HubspotService {
+@Log4j2 @Service public class HubspotServiceImpl implements HubspotService {
 
     private final RestTemplate restTemplate;
     @Value("${bp.web.hubspot.base.url:https://api.hubapi.com12/crm/v3/objects}") String hubspotCreateBaseUrl;
@@ -80,8 +81,7 @@ public class HubspotServiceImpl implements HubspotService {
         quote.setHubspotContactId(entityIdMap.getOrDefault(HubspotApiConstants.HubSpotAPI.CONTACT.name(), StringUtils.EMPTY));
     }
 
-    public boolean generateHubspotEntityRequest(Quote quote, HubspotApiConstants.HubSpotAPI hubSpotAPI,
-                                                Map<String, String> entityIdMap){
+    public boolean generateHubspotEntityRequest(Quote quote, HubspotApiConstants.HubSpotAPI hubSpotAPI, Map<String, String> entityIdMap) {
         log.info("Started generateHubspotEntityRequest for : {} And entityIdMap : {}", hubSpotAPI.name(), entityIdMap);
         HubSpotRequest hubSpotRequest = new HubSpotRequest<>();
         switch (hubSpotAPI) {
@@ -114,28 +114,27 @@ public class HubspotServiceImpl implements HubspotService {
         return false;
     }
 
-    public String createHubspotEntity(HubSpotRequest hubSpotRequest, HubspotApiConstants.HubSpotAPI hubSpotAPI){
-        String url = hubspotCreateBaseUrl + "/" + hubSpotAPI.name().toLowerCase();
-        log.info("Started createHubspotEntity for : {}, url  : {}", hubSpotAPI.name(), url);
-
+    public String createHubspotEntity(HubSpotRequest hubSpotRequest, HubspotApiConstants.HubSpotAPI hubSpotAPI) {
+        log.info("Started createHubspotEntity ");
         try {
-            HttpHeaders headers = new HttpHeaders();
+            ResponseEntity<Map> httpResponse = postHubspotEntityRequest(hubSpotRequest, hubSpotAPI);
+
+           /* HttpHeaders headers = new HttpHeaders();
             headers.setAccept(List.of(MediaType.APPLICATION_JSON));
             headers.add(HttpHeaders.AUTHORIZATION, "Bearer " + hubspotDeveloperKey);
             HttpEntity<HubSpotRequest> entity = new HttpEntity<>(hubSpotRequest, headers);
-            ResponseEntity<Map> httpResponse = restTemplate.exchange(url, HttpMethod.POST, entity, Map.class);
+            ResponseEntity<Map> httpResponse = restTemplate.exchange(url, HttpMethod.POST, entity, Map.class);*/
 
             if (HttpStatus.OK.value() == httpResponse.getStatusCodeValue() || HttpStatus.CREATED.value() == httpResponse.getStatusCodeValue()) {
                 return !httpResponse.getBody().isEmpty() && httpResponse.getBody().containsKey("id") ?
-                       String.valueOf(httpResponse.getBody().get("id")) :
-                       StringUtils.EMPTY;
+                        String.valueOf(httpResponse.getBody().get("id")) : StringUtils.EMPTY;
             } else {
                 log.warn("Failed to create entity, with statusCode : {} for entity : {}", httpResponse.getStatusCodeValue(), hubSpotAPI.name());
                 log.warn("Failed to create entity, with response : {} for entity: {}",
-                         Objects.nonNull(httpResponse.getBody()) ? httpResponse.getBody() : "NA", hubSpotAPI.name());
+                        Objects.nonNull(httpResponse.getBody()) ? httpResponse.getBody() : "NA", hubSpotAPI.name());
             }
-        }catch (Exception e){
-            log.error("Error: {} to create entity for : {}",e.getMessage(), hubSpotAPI.name());
+        } catch (Exception e) {
+            log.error("Error: {} to create entity for : {}", e.getMessage(), hubSpotAPI.name());
         }
         return StringUtils.EMPTY;
     }
@@ -152,8 +151,8 @@ public class HubspotServiceImpl implements HubspotService {
                 log.info("Entity delete start for: {} having value : {}", k, v);
                 restTemplate.exchange(hubspotCreateBaseUrl + "/" + k.toLowerCase() + "/" + v, HttpMethod.DELETE, entity, String.class);
             });
-        }catch (Exception e){
-            log.error("Error: {} to delete entity",e.getMessage());
+        } catch (Exception e) {
+            log.error("Error: {} to delete entity", e.getMessage());
         }
 
         log.info("End deleteHubspotEntity ");
@@ -274,6 +273,54 @@ public class HubspotServiceImpl implements HubspotService {
         hubSpotDeal.setProject_type(quote.getProjectType());
         log.info("End prepareHubspotDeal");
         return hubSpotDeal;
+    }
+
+    @Override
+    public Map createHubspotContact(HubSpotContactDto hubSpotContactDto) {
+        log.info("Started createHubspotContact");
+        HubSpotRequest<HubSpotContact> hubSpotRequest = new HubSpotRequest<>();
+        hubSpotRequest.setProperties(preparedHubspotContact(hubSpotContactDto));
+
+        ResponseEntity<Map> hubspotContactEntity = null;
+        try {
+            hubspotContactEntity = postHubspotEntityRequest(hubSpotRequest, HubspotApiConstants.HubSpotAPI.CONTACT);
+            if(null != hubspotContactEntity && null != hubspotContactEntity.getBody()){
+                return hubspotContactEntity.getBody();
+            }else{
+                throw new Exception("Issue to create contact to hubspot");
+            }
+        } catch (Exception e) {
+            log.error("Exception occurred to create contact to hubspot: {}", e);
+            throw new MalformedRequestException(new ApiErrorResponse(ApiErrorResponse.FAILURE, StringUtils.EMPTY,
+                    new ApiValidationError(ApiConstants.ErrorEnum.HUBSPOT_CONTACT_CREATE_ISSUE, e.getMessage(), e.getMessage())));
+        }
+    }
+
+    public ResponseEntity<Map> postHubspotEntityRequest(HubSpotRequest hubSpotRequest, HubspotApiConstants.HubSpotAPI hubSpotAPI) {
+
+        String url = hubspotCreateBaseUrl + "/" + hubSpotAPI.name().toLowerCase();
+        log.info("Started postHubspotEntityRequest for : {}, url  : {}", hubSpotAPI.name(), url);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setAccept(List.of(MediaType.APPLICATION_JSON));
+        headers.add(HttpHeaders.AUTHORIZATION, "Bearer " + hubspotDeveloperKey);
+        HttpEntity<HubSpotRequest> entity = new HttpEntity<>(hubSpotRequest, headers);
+        ResponseEntity<Map> httpResponse = restTemplate.exchange(url, HttpMethod.POST, entity, Map.class);
+
+        log.info("End postHubspotEntityRequest for : {}, url  : {}", hubSpotAPI.name(), url);
+
+        return httpResponse;
+    }
+
+    private HubSpotContact preparedHubspotContact(HubSpotContactDto hubSpotContactDto){
+        log.info("Started preparedHubspotContact");
+        HubSpotContact hubSpotContact = new HubSpotContact();
+        ApplicationUtils.copyProperties(hubSpotContactDto,hubSpotContact,"consent","landingPageCategory");
+        hubSpotContact.setHs_feedback_show_nps_web_survey(hubSpotContactDto.getConsent());
+        hubSpotContact.setIndustry(hubSpotContactDto.getLandingPageCategory());
+
+        log.info("End preparedHubspotContact with: {}",hubSpotContact);
+        return hubSpotContact;
     }
 
 }
