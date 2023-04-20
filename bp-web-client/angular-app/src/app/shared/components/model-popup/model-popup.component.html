@@ -2,17 +2,23 @@
   <div class="backdrop"></div>
   <div class="popup">
     <div class="popupHeader">
-      <div class="title">{{ popup.title }}</div>
+      <div class="title">
+        test title
+        <!-- {{ popup.title }} -->
+      </div>
       <Button class="close" (click)="close()">X</Button>
     </div>
     <div class="popupBody">
       <div class="flag">
         <i class="pi pi-error"></i>
-        {{ popup.message }}
+        content
+        <!-- {{ popup.message }} -->
       </div>
     </div>
     <div class="popupFooter">
-      <button type="button">Ok</button>
+      <button type="button" (click)="close()">Ok</button>
+      <button type="button" (click)="close()">Cancel</button>
+      <button type="button" (click)="close()">Confirm</button>
     </div>
   </div>
 </div>
