@@ -180,7 +180,7 @@ export class ContactComponent
           );
           this.showConfirmation = true;
           this.spinner.hide();
-
+          this.quoteForm.reset();
           // TODO: Maybe we don't need this logic.
           if (this.isMobileResolution()) {
             this.onSubmitBackToTopMobile();
@@ -197,6 +197,7 @@ export class ContactComponent
           }
 
           this.spinner.hide();
+          this.quoteForm.reset();
           this.popupService.throwError({
             type: "Error",
             title: `Oops.. ${error.statusText}`,
