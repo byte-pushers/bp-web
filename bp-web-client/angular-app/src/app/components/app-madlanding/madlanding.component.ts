@@ -3,13 +3,14 @@ import {
   Component,
   ElementRef,
   OnDestroy,
-  OnInit,
-  ViewChild,
+  OnInit, Type,
+  ViewChild, ViewContainerRef,
 } from "@angular/core";
 import * as $ from "jquery";
 import { fromEvent, Observable, Subscription } from "rxjs";
 import { ScrollToService } from "../../services/scroll-to.service";
 import { environment } from "../../../environments/environment";
+import {ComponentType} from "@angular/cdk/portal";
 
 @Component({
   selector: "app-madlanding",
@@ -17,15 +18,56 @@ import { environment } from "../../../environments/environment";
   styleUrls: ["./madlanding.component.scss"],
 })
 export class MADLandingComponent implements OnInit, AfterViewInit, OnDestroy {
-  constructor(
-    private window: Window,
-    public scrollToService: ScrollToService
-  ) {}
   public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
-  resizeObservable$: Observable<Event>;
-  resizeSubscription$: Subscription;
+  public resizeObservable$: Observable<Event>;
+  public resizeSubscription$: Subscription;
+  private landingPageLayoutConfig: {createComponent, component: ComponentType<any>, inputs: any}[]  = [
+    {
+      createComponent: ()=> import('./left/left.component').then(it => it.LeftComponent),
+      component: null,
+      inputs: {
+        image: 'somepath',
+        title: 'some title',
+        slogan: 'some slogan'
+      }
+    },
+    {
+      createComponent: ()=> import('./right/right.component').then(it => it.RightComponent),
+      component: null,
+      inputs: {
+        image: 'somepath',
+        title: 'some title',
+        slogan: 'some slogan'
+      }
+    },
+    {
+      createComponent: ()=> import('./bottom/bottom.component').then(it => it.BottomComponent),
+      component: null,
+      inputs: {
+        image: 'somepath',
+        title: 'some title',
+        slogan: 'some slogan'
+      }
+    }
+  ];
   @ViewChild("homeBackgroundWorkImg") divView: ElementRef;
+  @ViewChild('landingPage', {read: ViewContainerRef}) private landingPageContainer!: ViewContainerRef;
 
+  constructor(private window: Window, public scrollToService: ScrollToService) {}
+
+  private createComponent(): Promise<boolean> {
+    return new Promise<boolean>(async (resolve, reject) => {
+      this.landingPageContainer.clear();
+      const landingPageLayoutConfig = await this.randomlySelectLandingPageLayoutConfiguration();
+      const componentRef = this.landingPageContainer.createComponent(await landingPageLayoutConfig?.createComponent());
+
+      Object.entries(landingPageLayoutConfig?.inputs).forEach(([key, value]) => {
+        componentRef.setInput(key, value);
+      });
+
+      resolve(true);
+    });
+  }
   private static previousButtonClickedEventHandler(event: Event): void {
     const $nextButton = $("slide.item.carousel-item");
     $nextButton.removeClass("left-right");
@@ -59,6 +101,12 @@ export class MADLandingComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
+    this.createComponent().then(componentCreated => {
+      console.log(`component created: ${JSON.stringify(componentCreated)}`, componentCreated);
+    }, error => {
+      console.log(`An error occurred: ${JSON.stringify(error)}`, error);
+    });
+
     this.resizeImage(this.window, this.divView);
   }
 
@@ -71,5 +119,11 @@ export class MADLandingComponent implements OnInit, AfterViewInit, OnDestroy {
 
     imageRef.nativeElement.setAttribute("width", windowWidth);
     imageRef.nativeElement.setAttribute("height", height);
+  }
+
+  private async randomlySelectLandingPageLayoutConfiguration() {
+    const landingPageLayoutRandomIndex = Math.floor(Math.random() * (this.landingPageLayoutConfig.length - 0) + 0);
+
+    return this.landingPageLayoutConfig[landingPageLayoutRandomIndex];
   }
 }

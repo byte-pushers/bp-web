@@ -1,7 +1,8 @@
 <main class="page">
-  <app-mad-bottom></app-mad-bottom>
+  <!--app-mad-bottom></app-mad-bottom-->
   <!-- <app-mdn-left></app-mdn-left> -->
   <!-- <app-mdn-right></app-mdn-right> -->
+  <ng-container #landingPage></ng-container>
 
   <div class="main-content-container" id="top-section">
     <section class="gray-background">
@@ -114,7 +115,7 @@
         We are practitioners of <span class="br-mobile"></span>Domain Driven Design (DDD),<span class="br-mobile"></span>
         Test Driven Development (TDD), <span class="br-mobile"></span> and Continuous Delivery!
       </div>-->
-      <carousel [interval]="false" [noWrap]="true" [singleSlideOffset]="true">
+      <carousel [interval]="0" [noWrap]="true" [singleSlideOffset]="true">
         <div class="methodology-carousel">
           <div class="methodology-carousel">
             <ol class="carousel-indicators">
@@ -340,7 +341,7 @@
       <div class="section-heading">Our Services</div>
       <carousel
         class="hidden-desktop"
-        [interval]="false"
+        [interval]="0"
         [noWrap]="true"
         style="margin-bottom: 2em"
       >
