@@ -29,6 +29,9 @@ export class PopupService {
   public confirmPopup(popupInfo: any): Observable<any> {
     return this.showPopup(popupInfo);
   }
+  public throwError(popupInfo: any): Observable<any> {
+    return this.showPopup(popupInfo);
+  }
 
   public okPopup(popupInfo: any): Observable<any> {
     return this.showPopup(popupInfo);
