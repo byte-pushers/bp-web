@@ -47,7 +47,6 @@
     "ngx-page-scroll": "^7.0.3",
     "ngx-page-scroll-core": "^6.0.0",
     "ngx-spinner": "^10.0.1",
-    "primeicons": "^5.0.0",
     "primeng": "^15.2.0",
     "rxjs": "~7.8.0",
     "ssh2-sftp-client": "^6.0.1",

@@ -8,7 +8,7 @@ import { PopupService } from "src/app/services/popup.service";
 })
 export class ModelPopupComponent {
   public popup: any;
-  public isModalPopup: boolean = false;
+  public isModalPopup: boolean = true;
   private button1: string = "";
   private button2: string = "";
   private button3: string = "";
