@@ -202,7 +202,6 @@ export class ContactComponent
             title: `Oops.. ${error.statusText}`,
             message: `${error.message}`,
           });
-          throw new Error(error);
         }
       );
     }

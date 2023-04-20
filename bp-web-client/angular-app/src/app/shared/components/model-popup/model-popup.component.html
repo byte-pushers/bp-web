@@ -2,23 +2,62 @@
   <div class="backdrop"></div>
   <div class="popup">
     <div class="popupHeader">
-      <div class="title">
-        test title
-        <!-- {{ popup.title }} -->
+      <div
+        class="title"
+        [ngClass]="[
+          popup.type == 'Error' ? 'error' : '',
+          popup.type == 'Info' ? 'info' : ''
+        ]"
+      >
+        {{ popup.title }}
       </div>
-      <Button class="close" (click)="close()">X</Button>
+      <Button class="clsPopup" (click)="close()"
+        ><fa-icon [icon]="faClose"></fa-icon
+      ></Button>
     </div>
     <div class="popupBody">
-      <div class="flag">
-        <i class="pi pi-error"></i>
-        content
-        <!-- {{ popup.message }} -->
+      <div
+        class="flag"
+        [ngClass]="[
+          popup.type == 'Error' ? 'error' : '',
+          popup.type == 'Info' ? 'info' : ''
+        ]"
+      >
+        <fa-icon [icon]="faWarning"></fa-icon>
+        <div class="content">
+          {{ popup.message }}
+        </div>
       </div>
     </div>
     <div class="popupFooter">
-      <button type="button" (click)="close()">Ok</button>
-      <button type="button" (click)="close()">Cancel</button>
-      <button type="button" (click)="close()">Confirm</button>
+      <button
+        type="button"
+        *ngIf="
+          popup.type == 'Error' ||
+          popup.type == 'Info' ||
+          popup.type == 'Warning'
+        "
+        class="outlined"
+        (click)="close()"
+      >
+        Close
+      </button>
+      <button
+        type="button"
+        *ngIf="popup.type == 'Confirm'"
+        class="outlined"
+        (click)="close()"
+      >
+        Cancel
+      </button>
+      <button
+        type="button"
+        *ngIf="popup.type == 'Confirm'"
+        class="filled"
+        (click)="close()"
+      >
+        Confirm
+      </button>
     </div>
   </div>
 </div>
