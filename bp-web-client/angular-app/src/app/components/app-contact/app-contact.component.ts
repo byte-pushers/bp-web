@@ -18,6 +18,7 @@ import { StateNameService } from "../../services/state-name.service";
 import { ContactButtonService } from "../../services/contact-button.service";
 import { IDeactivateComponent } from "src/app/shared/components/iDeactivate/iDeactivate.component";
 import { Router } from "@angular/router";
+import { PopupService } from "src/app/services/popup.service";
 
 @Component({
   selector: "app-contact",
@@ -42,7 +43,8 @@ export class ContactComponent
     private appAlertOverlayModalService: AppAlertOverlayModalService,
     public stateNameService: StateNameService,
     private scrollToService: ScrollToService,
-    private contactButtonService: ContactButtonService
+    private contactButtonService: ContactButtonService,
+    private popupService: PopupService
   ) {}
 
   @ViewChild("quoteForm") quoteForm: any;
@@ -188,8 +190,6 @@ export class ContactComponent
         },
         (error) => {
           // TODO should display error message at top of quote page.
-          console.log("error: " + error, error);
-
           this.errorMessages.push("Account was not created, internal error.");
 
           if (this.isMobileResolution()) {
@@ -197,6 +197,11 @@ export class ContactComponent
           }
 
           this.spinner.hide();
+          this.popupService.throwError({
+            type: "Error",
+            title: `Oops.. ${error.statusText}`,
+            message: `${error.message}`,
+          });
           throw new Error(error);
         }
       );
