@@ -179,6 +179,7 @@ export class ContactComponent
             newlyCreatedQuote
           );
           this.showConfirmation = true;
+          this.quoteForm.reset();
           this.spinner.hide();
 
           // TODO: Maybe we don't need this logic.
@@ -202,6 +203,7 @@ export class ContactComponent
             title: `Oops.. ${error.statusText}`,
             message: `${error.message}`,
           });
+          this.quoteForm.reset();
         }
       );
     }
