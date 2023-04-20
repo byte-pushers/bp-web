@@ -37,6 +37,8 @@ import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
 import { CustomErrorHandlerService } from "./services/custom-error-handler.service";
 import { ModelPopupComponent } from "./shared/components/model-popup/model-popup.component";
 
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,6 +69,7 @@ import { ModelPopupComponent } from "./shared/components/model-popup/model-popup
     NgxSpinnerModule,
     MatCardModule,
     OverlayModule,
+    FontAwesomeModule,
     NgxPageScrollCoreModule.forRoot({
       /* custom settings here */
     }),
