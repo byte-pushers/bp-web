@@ -1,1 +1,18 @@
-<p>model-popup works!</p>
+<div *ngIf="isModalPopup">
+  <div class="backdrop"></div>
+  <div class="popup">
+    <div class="popupHeader">
+      <div class="title">{{ popup.title }}</div>
+      <Button class="close" (click)="close()">X</Button>
+    </div>
+    <div class="popupBody">
+      <div class="flag">
+        <i class="pi pi-error"></i>
+        {{ popup.message }}
+      </div>
+    </div>
+    <div class="popupFooter">
+      <button type="button">Ok</button>
+    </div>
+  </div>
+</div>
