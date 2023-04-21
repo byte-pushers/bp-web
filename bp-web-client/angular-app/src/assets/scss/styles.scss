@@ -3104,6 +3104,11 @@ td.actions {
       &:hover {
         color: #fed904;
       }
+      fa-icon {
+        svg {
+          font-size: 30px !important;
+        }
+      }
     }
   }
 }
@@ -3121,6 +3126,11 @@ td.actions {
       }
       &:hover {
         color: #fff;
+      }
+      fa-icon {
+        svg {
+          font-size: 30px !important;
+        }
       }
     }
   }

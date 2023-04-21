@@ -19,6 +19,13 @@ import { ContactButtonService } from "../../services/contact-button.service";
 import { IDeactivateComponent } from "src/app/shared/components/iDeactivate/iDeactivate.component";
 import { Router } from "@angular/router";
 import { PopupService } from "src/app/services/popup.service";
+import {
+  faFacebook,
+  faTwitter,
+  faInstagram,
+  faLinkedin,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
 
 @Component({
   selector: "app-contact",
@@ -28,6 +35,11 @@ import { PopupService } from "src/app/services/popup.service";
 export class ContactComponent
   implements IDeactivateComponent, OnInit, OnDestroy
 {
+  faFacebook = faFacebook;
+  faTwitter = faTwitter;
+  faInstagram = faInstagram;
+  faLinkedin = faLinkedin;
+  faYoutube = faYoutube;
   public errorMessage: string;
   public errorMessages: [string?] = ["Phone number is invalid."];
   public showConfirmation = false;
