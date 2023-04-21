@@ -1,8 +1,10 @@
 import { Component } from "@angular/core";
 import { PopupService } from "src/app/services/popup.service";
 // <i class="fa-solid fa-triangle-exclamation"></i> <i class="fa-solid fa-circle-xmark"></i>
-import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
-import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTriangleExclamation,
+  faCircleXmark,
+} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-model-popup",
