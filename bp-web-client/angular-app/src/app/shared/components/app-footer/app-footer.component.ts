@@ -3,6 +3,13 @@ import { ContactButtonService } from "../../../services/contact-button.service";
 import { environment } from "../../../../environments/environment";
 import { ScrollToService } from "../../../services/scroll-to.service";
 import { LoginService } from "src/app/services/login.service";
+import {
+  faFacebook,
+  faTwitter,
+  faInstagram,
+  faLinkedin,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
 
 @Component({
   selector: "app-footer",
@@ -10,6 +17,11 @@ import { LoginService } from "src/app/services/login.service";
   styleUrls: ["./app-footer.component.css"],
 })
 export class AppFooterComponent implements OnInit {
+  faFacebook = faFacebook;
+  faTwitter = faTwitter;
+  faInstagram = faInstagram;
+  faLinkedin = faLinkedin;
+  faYoutube = faYoutube;
   isUserLoggedIn: boolean = false;
   public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
 
