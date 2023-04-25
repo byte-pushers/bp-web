@@ -3199,3 +3199,17 @@ td.actions {
     left: auto;
   }
 }
+
+// MAD bottom landing page css starts here
+@media only screen and (max-width: 380px) {
+  .MADslogan {
+    display: none;
+  }
+  .knowMore {
+    justify-content: center;
+    padding-right: 0px;
+    img {
+      display: none;
+    }
+  }
+}
