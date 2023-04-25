@@ -3092,7 +3092,8 @@ td.actions {
   position: absolute;
   right: 30px;
   width: 40px;
-  top: 210px;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 99999;
 
   li {
@@ -3106,6 +3107,14 @@ td.actions {
       &:hover {
         color: #fed904;
       }
+      fa-icon {
+        svg {
+          font-size: 30px !important;
+        }
+      }
+    }
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }
@@ -3123,6 +3132,11 @@ td.actions {
       }
       &:hover {
         color: #fff;
+      }
+      fa-icon {
+        svg {
+          font-size: 30px !important;
+        }
       }
     }
   }
@@ -3211,5 +3225,33 @@ td.actions {
     img {
       display: none;
     }
+  }
+}
+@media only screen and (max-width: 440px) {
+  .socialMediaLinks li {
+    margin: 0px 15px;
+  }
+}
+@media only screen and (max-height: 440px) {
+  .socialMediaLinksTop {
+    display: none;
+  }
+}
+// @media screen and (max-width: 740px),
+// screen and (max-height: 440px) {
+//   .socialMediaLinksTop {
+//       display: none;
+//     }
+// }
+
+@media only screen and (max-height: 740px) {
+  .hero-arrow {
+    bottom: 1em;
+  }
+  .home-hero-text-container {
+    bottom: 10%;
+  }
+  .home-hero-text {
+    font-size: 1.8em;
   }
 }

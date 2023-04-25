@@ -1,21 +1,28 @@
-import {Component, OnInit} from '@angular/core';
-import * as $ from 'jquery';
-
+import { Component, OnInit } from "@angular/core";
+import * as $ from "jquery";
+// import { faFacebook } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebook,
+  faTwitter,
+  faInstagram,
+  faLinkedin,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
 @Component({
-  selector: 'app-about',
-  templateUrl: './app-about.component.html',
-  styleUrls: ['./app-about.component.css']
+  selector: "app-about",
+  templateUrl: "./app-about.component.html",
+  styleUrls: ["./app-about.component.css"],
 })
-
 export class AboutComponent implements OnInit {
-
-  constructor() {
-
-  }
+  faFacebook = faFacebook;
+  faTwitter = faTwitter;
+  faInstagram = faInstagram;
+  faLinkedin = faLinkedin;
+  faYoutube = faYoutube;
+  constructor() {}
 
   ngOnInit() {
-
-    $(document).ready(function(e) {
+    $(document).ready(function (e) {
       const $prevButton = $(".left.carousel-control.carousel-control-prev");
       const $nextButton = $(".right.carousel-control.carousel-control-next");
 
@@ -35,5 +42,4 @@ export class AboutComponent implements OnInit {
     $previousButton.removeClass("right-left");
     $previousButton.addClass("left-right");
   }
-
 }
