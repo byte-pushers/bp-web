@@ -3243,14 +3243,14 @@ td.actions {
   }
 }
 // MAD bottom landing page css starts here
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 420px) {
   .MADslogan {
     display: none;
   }
 
   .knowMore {
-    justify-content: center;
-    padding-right: 0px;
+    justify-content: center !important;
+    padding-right: 0px !important;
 
     img {
       display: none;
