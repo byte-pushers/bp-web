@@ -3092,7 +3092,7 @@ td.actions {
   position: absolute;
   right: 30px;
   width: 40px;
-  top: 50%;
+  top: 53%;
   transform: translateY(-50%);
   z-index: 99999;
 
@@ -3218,10 +3218,57 @@ td.actions {
   .socialMediaLinks li {
     margin: 0px 15px;
   }
+  .rightTemplate,
+  .leftTemplate {
+    .socialMediaLinksTop {
+    }
+
+    .home-hero-text {
+      width: 100%;
+      text-align: left;
+    }
+
+    .MADslogan {
+      max-width: 100%;
+      margin-left: 15px;
+      text-align: left;
+    }
+
+    .ctaForm {
+      width: 100%;
+      margin-left: 0;
+
+      form {
+        display: flex;
+        flex-wrap: wrap;
+
+        input {
+          margin-bottom: 15px;
+
+          &.name {
+            width: 100%;
+            max-width: 75%;
+          }
+
+          &.email {
+            width: 100%;
+            max-width: 75%;
+          }
+        }
+      }
+    }
+  }
 }
 @media only screen and (max-height: 440px) {
-  .socialMediaLinksTop {
+  .socialMediaLinksTop,
+  .MADslogan {
     display: none;
+  }
+  .rightTemplate,
+  .leftTemplate {
+    .home-hero-text {
+      margin-top: 200px;
+    }
   }
 }
 // @media screen and (max-width: 740px),
