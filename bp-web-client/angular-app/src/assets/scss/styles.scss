@@ -3214,19 +3214,6 @@ td.actions {
   }
 }
 
-// MAD bottom landing page css starts here
-@media only screen and (max-width: 380px) {
-  .MADslogan {
-    display: none;
-  }
-  .knowMore {
-    justify-content: center;
-    padding-right: 0px;
-    img {
-      display: none;
-    }
-  }
-}
 @media only screen and (max-width: 440px) {
   .socialMediaLinks li {
     margin: 0px 15px;
@@ -3253,5 +3240,20 @@ td.actions {
   }
   .home-hero-text {
     font-size: 1.8em;
+  }
+}
+// MAD bottom landing page css starts here
+@media only screen and (max-width: 380px) {
+  .MADslogan {
+    display: none;
+  }
+
+  .knowMore {
+    justify-content: center;
+    padding-right: 0px;
+
+    img {
+      display: none;
+    }
   }
 }
