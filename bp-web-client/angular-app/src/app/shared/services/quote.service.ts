@@ -6,7 +6,6 @@ import { EMPTY, Observable, of, throwError } from "rxjs";
 import {
   catchError,
   delay,
-  map,
   mergeMap,
   retry,
   retryWhen,
@@ -20,6 +19,7 @@ export class QuoteService {
   constructor(private http: HttpClient) {}
 
   createQuote(quote: Quote): Observable<Quote> {
+    console.log(quote);
     const header: HttpHeaders = new HttpHeaders()
       .set("Content-Type", "application/json")
       .set("Accept", "application/json");
@@ -30,12 +30,11 @@ export class QuoteService {
         responseType: "json",
       })
       .pipe(
-        map((res) => {
-          return res;
-        })
+        DelayedRetryOperator.operate(1000, 3),
+        // catchError(() => EMPTY), // Not Sure why this line works for CP3 but not here.
+        shareReplay()
       );
   }
-
   getQuotesList(): Observable<any> {
     return this.http.get<any>(`${this.apiEndPoint}`);
   }
