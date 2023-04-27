@@ -11,7 +11,7 @@ export const LANDING_PAGE_LAYOUT_CONFIGURATION: {createComponent, component: Com
     }
   },
   {
-    createComponent: ()=> import('../app/components/app-madlanding//right/right.component').then(it => it.RightComponent),
+    createComponent: ()=> import('../app/components/app-madlanding/right/right.component').then(it => it.RightComponent),
     component: null,
     inputs: {
       image: 'somepath',
@@ -20,7 +20,7 @@ export const LANDING_PAGE_LAYOUT_CONFIGURATION: {createComponent, component: Com
     }
   },
   {
-    createComponent: ()=> import('../app/components/app-madlanding//bottom/bottom.component').then(it => it.BottomComponent),
+    createComponent: ()=> import('../app/components/app-madlanding/bottom/bottom.component').then(it => it.BottomComponent),
     component: null,
     inputs: {
       image: 'somepath',
