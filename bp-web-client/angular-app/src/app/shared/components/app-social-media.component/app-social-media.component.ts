@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import {
   faFacebook,
   faTwitter,
@@ -8,7 +8,10 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 @Component({
   selector: "app-social-media",
-  template: `<ul class="socialMediaLinksTop">
+  template: `<ul
+    class="socialMediaLinksTop"
+    [ngClass]="isRightTemplate ? 'alignLeft' : ''"
+  >
     <li>
       <a
         href="https://facebook.com/bytepushersinc"
@@ -62,9 +65,14 @@ import {
   </ul> `,
 })
 export class SocialMediaComponent {
+  @Input() isRightTemplate;
+
   faFacebook = faFacebook;
   faTwitter = faTwitter;
   faInstagram = faInstagram;
   faLinkedin = faLinkedin;
   faYoutube = faYoutube;
+  ngOnInit() {
+    console.log(this.isRightTemplate);
+  }
 }
