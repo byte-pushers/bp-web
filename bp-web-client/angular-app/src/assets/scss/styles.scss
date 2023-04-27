@@ -3221,7 +3221,7 @@ td.actions {
   }
 }
 
-@media only screen and (max-width: 440px) {
+@media only screen and (max-width: 540px) {
   .socialMediaLinks li {
     margin: 0px 15px;
   }
@@ -3231,8 +3231,7 @@ td.actions {
     }
 
     .home-hero-text {
-      width: 100%;
-      text-align: left;
+      width: 80%;
     }
 
     .MADslogan {
@@ -3262,6 +3261,29 @@ td.actions {
             max-width: 75%;
           }
         }
+      }
+    }
+  }
+  .rightTemplate {
+    .home-hero-text {
+      text-align: right;
+    }
+    .ctaForm {
+      text-align: right;
+      form {
+        justify-content: flex-end;
+      }
+    }
+  }
+  .leftTemplate {
+    .home-hero-text {
+      text-align: left;
+    }
+    .ctaForm {
+      text-align: left;
+
+      form {
+        justify-content: flex-start;
       }
     }
   }
