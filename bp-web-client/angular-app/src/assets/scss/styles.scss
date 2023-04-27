@@ -3117,6 +3117,9 @@ td.actions {
       margin-bottom: 0;
     }
   }
+  &.alignLeft {
+    left: 30px !important;
+  }
 }
 .socialMediaLinks {
   margin: 30px auto !important;
@@ -3207,7 +3210,11 @@ td.actions {
     }
   }
 }
+.rightTemplate {
+  justify-content: end;
+}
 .leftTemplate {
+  justify-content: space-between;
   .socialMediaLinksTop {
     right: 30px !important;
     left: auto;
