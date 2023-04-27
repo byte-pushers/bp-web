@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
@@ -6,7 +6,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
   templateUrl: "./left.component.html",
   styleUrls: ["./left.component.scss"],
 })
-export class LeftComponent {
+export class LeftComponent implements OnInit {
   public ctaForm: FormGroup;
   constructor() {
     this.ctaForm = new FormGroup({
@@ -15,6 +15,7 @@ export class LeftComponent {
     });
   }
 
+  ngOnInit() {}
   onCTASubmit() {
     let ctaReqObj = {
       Name: this.ctaForm.controls["ctaName"].value,

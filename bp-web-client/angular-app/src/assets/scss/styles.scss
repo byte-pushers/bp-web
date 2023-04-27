@@ -3092,7 +3092,8 @@ td.actions {
   position: absolute;
   right: 30px;
   width: 40px;
-  top: 210px;
+  top: 53%;
+  transform: translateY(-50%);
   z-index: 99999;
 
   li {
@@ -3106,7 +3107,18 @@ td.actions {
       &:hover {
         color: #fed904;
       }
+      fa-icon {
+        svg {
+          font-size: 30px !important;
+        }
+      }
     }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &.alignLeft {
+    left: 30px !important;
   }
 }
 .socialMediaLinks {
@@ -3123,6 +3135,11 @@ td.actions {
       }
       &:hover {
         color: #fff;
+      }
+      fa-icon {
+        svg {
+          font-size: 30px !important;
+        }
       }
     }
   }
@@ -3193,9 +3210,126 @@ td.actions {
     }
   }
 }
+.rightTemplate {
+  justify-content: end;
+}
 .leftTemplate {
+  justify-content: space-between;
   .socialMediaLinksTop {
     right: 30px !important;
     left: auto;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .socialMediaLinks li {
+    margin: 0px 15px;
+  }
+  .rightTemplate,
+  .leftTemplate {
+    .socialMediaLinksTop {
+    }
+
+    .home-hero-text {
+      width: 80%;
+    }
+
+    .MADslogan {
+      max-width: 100%;
+      margin-left: 15px;
+      text-align: left;
+    }
+
+    .ctaForm {
+      width: 100%;
+      margin-left: 0;
+
+      form {
+        display: flex;
+        flex-wrap: wrap;
+
+        input {
+          margin-bottom: 15px;
+
+          &.name {
+            width: 100%;
+            max-width: 75%;
+          }
+
+          &.email {
+            width: 100%;
+            max-width: 75%;
+          }
+        }
+      }
+    }
+  }
+  .rightTemplate {
+    .home-hero-text {
+      text-align: right;
+    }
+    .ctaForm {
+      text-align: right;
+      form {
+        justify-content: flex-end;
+      }
+    }
+  }
+  .leftTemplate {
+    .home-hero-text {
+      text-align: left;
+    }
+    .ctaForm {
+      text-align: left;
+
+      form {
+        justify-content: flex-start;
+      }
+    }
+  }
+}
+@media only screen and (max-height: 440px) {
+  .socialMediaLinksTop,
+  .MADslogan {
+    display: none;
+  }
+  .rightTemplate,
+  .leftTemplate {
+    .home-hero-text {
+      margin-top: 200px;
+    }
+  }
+}
+// @media screen and (max-width: 740px),
+// screen and (max-height: 440px) {
+//   .socialMediaLinksTop {
+//       display: none;
+//     }
+// }
+
+@media only screen and (max-height: 740px) {
+  .hero-arrow {
+    bottom: 1em;
+  }
+  .home-hero-text-container {
+    bottom: 10%;
+  }
+  .home-hero-text {
+    font-size: 1.8em;
+  }
+}
+// MAD bottom landing page css starts here
+@media only screen and (max-width: 420px) {
+  .MADslogan {
+    display: none;
+  }
+
+  .knowMore {
+    justify-content: center !important;
+    padding-right: 0px !important;
+
+    img {
+      display: none;
+    }
   }
 }

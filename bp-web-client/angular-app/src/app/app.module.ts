@@ -39,6 +39,9 @@ import { SocialMediaComponent } from "./shared/components/app-social-media.compo
 import { RightComponent } from "./components/app-madlanding/right/right.component";
 import { BottomComponent } from "./components/app-madlanding/bottom/bottom.component";
 import { LeftComponent } from "./components/app-madlanding/left/left.component";
+import { ModelPopupComponent } from "./shared/components/model-popup/model-popup.component";
+
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 @NgModule({
   declarations: [
@@ -60,6 +63,7 @@ import { LeftComponent } from "./components/app-madlanding/left/left.component";
     RightComponent,
     BottomComponent,
     LeftComponent,
+    ModelPopupComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -74,6 +78,7 @@ import { LeftComponent } from "./components/app-madlanding/left/left.component";
     NgxSpinnerModule,
     MatCardModule,
     OverlayModule,
+    FontAwesomeModule,
     NgxPageScrollCoreModule.forRoot({
       /* custom settings here */
     }),

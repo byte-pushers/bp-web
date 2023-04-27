@@ -1,8 +1,17 @@
-import { Component } from "@angular/core";
-
+import { Component, Input } from "@angular/core";
+import {
+  faFacebook,
+  faTwitter,
+  faInstagram,
+  faLinkedin,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
 @Component({
   selector: "app-social-media",
-  template: `<ul class="socialMediaLinksTop">
+  template: `<ul
+    class="socialMediaLinksTop"
+    [ngClass]="isRightTemplate ? 'alignLeft' : ''"
+  >
     <li>
       <a
         href="https://facebook.com/bytepushersinc"
@@ -10,7 +19,7 @@ import { Component } from "@angular/core";
         title="Facebook"
         rel="noopener noreferrer"
       >
-        <i class="pi pi-facebook"></i>
+        <fa-icon [icon]="faFacebook"></fa-icon>
       </a>
     </li>
     <li>
@@ -20,7 +29,7 @@ import { Component } from "@angular/core";
         title="Twitter"
         rel="noopener noreferrer"
       >
-        <i class="pi pi-twitter"></i>
+        <fa-icon [icon]="faTwitter"></fa-icon>
       </a>
     </li>
     <li>
@@ -30,7 +39,7 @@ import { Component } from "@angular/core";
         title="Instagram"
         rel="noopener noreferrer"
       >
-        <i class="pi pi-instagram"></i>
+        <fa-icon [icon]="faInstagram"></fa-icon>
       </a>
     </li>
     <li>
@@ -40,7 +49,7 @@ import { Component } from "@angular/core";
         title="LinkedIn"
         rel="noopener noreferrer"
       >
-        <i class="pi pi-linkedin"></i>
+        <fa-icon [icon]="faLinkedin"></fa-icon>
       </a>
     </li>
     <li>
@@ -50,9 +59,20 @@ import { Component } from "@angular/core";
         title="Youtube"
         rel="noopener noreferrer"
       >
-        <i class="pi pi-youtube"></i>
+        <fa-icon [icon]="faYoutube"></fa-icon>
       </a>
     </li>
   </ul> `,
 })
-export class SocialMediaComponent {}
+export class SocialMediaComponent {
+  @Input() isRightTemplate;
+
+  faFacebook = faFacebook;
+  faTwitter = faTwitter;
+  faInstagram = faInstagram;
+  faLinkedin = faLinkedin;
+  faYoutube = faYoutube;
+  ngOnInit() {
+    console.log(this.isRightTemplate);
+  }
+}

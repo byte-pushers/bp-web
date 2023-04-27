@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
@@ -8,6 +8,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 })
 export class RightComponent {
   public ctaForm: FormGroup;
+
   constructor() {
     this.ctaForm = new FormGroup({
       ctaName: new FormControl("", [Validators.required]),
