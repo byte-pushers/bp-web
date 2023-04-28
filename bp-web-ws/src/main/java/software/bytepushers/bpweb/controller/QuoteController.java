@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import software.bytepushers.bpweb.model.entity.Quote;
-import software.bytepushers.bpweb.service.HubspotService;
 import software.bytepushers.bpweb.service.QuoteService;
 import software.bytepushers.bpweb.service.impl.CRMIntegrationService;
 

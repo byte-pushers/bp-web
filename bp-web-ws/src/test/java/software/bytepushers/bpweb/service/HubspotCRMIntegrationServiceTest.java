@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.web.client.RestTemplate;
 import software.bytepushers.bpweb.model.entity.Quote;
-import software.bytepushers.bpweb.service.impl.HubspotServiceImpl;
+import software.bytepushers.bpweb.service.impl.HubspotCRMIntegrationService;
 import software.bytepushers.bpweb.utils.ModelUtils;
 
 import java.util.HashMap;
@@ -28,8 +28,8 @@ import static org.mockito.Mockito.when;
  * The quote service test cases
  */
 @ExtendWith(SpringExtension.class)
-public class HubspotServiceTest {
-    @InjectMocks private HubspotServiceImpl hubspotServiceImpl;
+public class HubspotCRMIntegrationServiceTest {
+    @InjectMocks private HubspotCRMIntegrationService hubspotCRMIntegrationService;
     @Mock private RestTemplate restTemplate;
 
     @Before public void before() {
@@ -49,7 +49,7 @@ public class HubspotServiceTest {
         ResponseEntity<Map> responseEntity = new ResponseEntity<Map>(respontMap, HttpStatus.OK);
         when(restTemplate.exchange(Matchers.anyString(), Matchers.any(HttpMethod.class), Matchers.any(), Matchers.<Class<Map>>any())).thenReturn(
                 responseEntity);
-        Quote createdQuote = hubspotServiceImpl.createHubspotEntities(quote);
+        Quote createdQuote = hubspotCRMIntegrationService.createEntities(quote);
 
         assert createdQuote != null && !StringUtils.isEmpty(createdQuote.getHubspotContactId()) : "Hubspot contact must be created";
         assert createdQuote != null && !StringUtils.isEmpty(createdQuote.getHubspotCompanyId()) : "Hubspot company must be created";
@@ -74,7 +74,7 @@ public class HubspotServiceTest {
                 failedEntity);
         when(restTemplate.exchange(Matchers.eq("null/quote"), Matchers.any(HttpMethod.class), Matchers.any(), Matchers.<Class<Map>>any())).thenReturn(
                 failedEntity);
-        Quote createdQuote = hubspotServiceImpl.createHubspotEntities(quote);
+        Quote createdQuote = hubspotCRMIntegrationService.createEntities(quote);
 
         assert createdQuote != null && StringUtils.isEmpty(createdQuote.getHubspotContactId()) : "Hubspot contact must be created";
         assert createdQuote != null && StringUtils.isEmpty(createdQuote.getHubspotCompanyId()) : "Hubspot company must be created";
@@ -88,7 +88,7 @@ public class HubspotServiceTest {
         ResponseEntity<Map> responseEntity = new ResponseEntity<Map>(null, HttpStatus.BAD_REQUEST);
         when(restTemplate.exchange(Matchers.anyString(), Matchers.any(HttpMethod.class), Matchers.any(), Matchers.<Class<Map>>any())).thenReturn(
                 responseEntity);
-        Quote createdQuote = hubspotServiceImpl.createHubspotEntities(quote);
+        Quote createdQuote = hubspotCRMIntegrationService.createEntities(quote);
 
         assert createdQuote != null && StringUtils.isEmpty(createdQuote.getHubspotContactId()) : "Hubspot contact must be created";
         assert createdQuote != null && StringUtils.isEmpty(createdQuote.getHubspotCompanyId()) : "Hubspot company must be created";
