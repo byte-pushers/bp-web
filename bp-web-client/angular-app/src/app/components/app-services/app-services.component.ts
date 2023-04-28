@@ -1,12 +1,25 @@
 import { Component, OnInit } from "@angular/core";
 import * as $ from "jquery";
 import { ScrollToService } from "../../services/scroll-to.service";
+import {
+  faFacebook,
+  faTwitter,
+  faInstagram,
+  faLinkedin,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
+
 @Component({
   selector: "app-services",
   templateUrl: "./app-services.component.html",
   styleUrls: ["./app-services.component.css"],
 })
 export class ServicesComponent implements OnInit {
+  faFacebook = faFacebook;
+  faTwitter = faTwitter;
+  faInstagram = faInstagram;
+  faLinkedin = faLinkedin;
+  faYoutube = faYoutube;
   constructor(public scrollToService: ScrollToService) {}
 
   ngOnInit() {
