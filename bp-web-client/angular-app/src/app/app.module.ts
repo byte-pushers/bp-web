@@ -34,9 +34,6 @@ import { OverlayModule } from "@angular/cdk/overlay";
 import { environment } from "src/environments/environment";
 import { AppLoginComponent } from "./components/app-login/app-login.component";
 import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
-import { ModelPopupComponent } from "./shared/components/model-popup/model-popup.component";
-
-import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 @NgModule({
   declarations: [
@@ -53,7 +50,6 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
     AppAlertOverlayModalComponent,
     PhoneNumberDirective,
     AppLoginComponent,
-    ModelPopupComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -68,7 +64,6 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
     NgxSpinnerModule,
     MatCardModule,
     OverlayModule,
-    FontAwesomeModule,
     NgxPageScrollCoreModule.forRoot({
       /* custom settings here */
     }),
