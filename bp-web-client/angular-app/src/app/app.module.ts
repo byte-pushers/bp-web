@@ -35,6 +35,7 @@ import { environment } from "src/environments/environment";
 import { AppLoginComponent } from "./components/app-login/app-login.component";
 import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { ModelPopupComponent } from "./shared/components/model-popup/model-popup.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +51,7 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
     AppAlertOverlayModalComponent,
     PhoneNumberDirective,
     AppLoginComponent,
+    ModelPopupComponent,
   ],
   imports: [
     AppRoutingModule,
