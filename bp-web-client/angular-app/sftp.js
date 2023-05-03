@@ -20,6 +20,7 @@ async function main() {
   const dst = '/home/pouncilt/public_html';
 
   try {
+    console.log(`SFTP Config: ${JSON.stringify(config)}`);
     await client.connect(config);
     client.on('upload', info => {
       console.log(`Listener: Uploaded ${info.source}`);
