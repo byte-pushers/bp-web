@@ -25,7 +25,7 @@ async function main() {
     client.on('upload', info => {
       console.log(`Listener: Uploaded ${info.source}`);
     });
-    let rslt = await client.uploadDir('bp-web-client/angular-app/dist/angular-app', dst);
+    let rslt = await client.uploadDir('dist/angular-app', dst); // bp-web-client/angular-app/dist/angular-app
     return rslt;
   } catch(error) {
     console.log(`An error occurred while deploying to godaddy: ${JSON.stringify(error)}`);
