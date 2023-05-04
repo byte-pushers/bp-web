@@ -42,7 +42,6 @@ import { LeftComponent } from "./components/app-madlanding/left/left.component";
 import { ModelPopupComponent } from "./shared/components/model-popup/model-popup.component";
 
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,11 +77,11 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
     NgxSpinnerModule,
     MatCardModule,
     OverlayModule,
-    FontAwesomeModule,
     NgxPageScrollCoreModule.forRoot({
       /* custom settings here */
     }),
     NgxPageScrollModule,
+    FontAwesomeModule,
     CommonModule,
   ],
   providers: [

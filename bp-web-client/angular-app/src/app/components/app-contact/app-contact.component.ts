@@ -18,7 +18,6 @@ import { StateNameService } from "../../services/state-name.service";
 import { ContactButtonService } from "../../services/contact-button.service";
 import { IDeactivateComponent } from "src/app/shared/components/iDeactivate/iDeactivate.component";
 import { Router } from "@angular/router";
-import { PopupService } from "src/app/services/popup.service";
 import {
   faFacebook,
   faTwitter,
@@ -26,6 +25,7 @@ import {
   faLinkedin,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
+import { PopupService } from "src/app/services/popup.service";
 
 @Component({
   selector: "app-contact",

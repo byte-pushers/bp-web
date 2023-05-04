@@ -35,7 +35,6 @@ export class QuoteService {
         })
       );
   }
-
   getQuotesList(): Observable<any> {
     return this.http.get<any>(`${this.apiEndPoint}`);
   }

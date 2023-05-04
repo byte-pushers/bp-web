@@ -99,7 +99,8 @@ matrix:
             - ObjectName=${S3_DEPLOYMENT_OBJECT_NAME}
             - CorsLambdaObjectName=cors-lambda.zip
             - CorsOrigin=${CORS_ALLOWED_ORIGIN}
-          capabilities: [ CAPABILITY_NAMED_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND ]
+          capabilities:
+            [CAPABILITY_NAMED_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND]
           edge: true
           skip_cleanup: true
           on:
@@ -137,12 +138,12 @@ matrix:
       deploy:
         - provider: script
           skip_cleanup: true
-          script: node sftp.js && aws s3 sync dist/* ${STATIC_WEBSITE_S3_BUCKET_URL} && aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
+          script: aws s3 sync dist/* ${STATIC_WEBSITE_S3_BUCKET_URL} && aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
           on:
             branch: develop
         - provider: script
           skip_cleanup: true
-          script: aws s3 sync dist/* ${STATIC_WEBSITE_S3_BUCKET_URL} && aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
+          script: npm run deploy-2-godaddy && aws s3 sync dist/* ${STATIC_WEBSITE_S3_BUCKET_URL} && aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
           on:
             branch: master
 notifications:
