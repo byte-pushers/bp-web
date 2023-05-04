@@ -42,6 +42,8 @@ import { LeftComponent } from "./components/app-madlanding/left/left.component";
 import { ModelPopupComponent } from "./shared/components/model-popup/model-popup.component";
 
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { Version2Component } from "./components/app-landing-pages/version2/version2.component";
+import { Version3Component } from "./components/app-landing-pages/version3/version3.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +65,8 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
     BottomComponent,
     LeftComponent,
     ModelPopupComponent,
+    Version2Component,
+    Version3Component,
   ],
   imports: [
     AppRoutingModule,
