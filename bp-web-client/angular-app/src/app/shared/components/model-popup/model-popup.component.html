@@ -2,18 +2,14 @@
   <div class="backdrop"></div>
   <div class="popup">
     <div class="popupHeader">
-      <div
-        class="title"
+      <div class="title"
         [ngClass]="[
           popup.type == 'Error' ? 'error' : '',
           popup.type == 'Info' ? 'info' : ''
-        ]"
-      >
+        ]">
         {{ popup.title }}
       </div>
-      <Button class="clsPopup" (click)="close()"
-        ><fa-icon [icon]="faClose"></fa-icon
-      ></Button>
+      <Button class="clsPopup" (click)="close()"><fa-icon [icon]="faClose"></fa-icon></Button>
     </div>
     <div class="popupBody">
       <div
@@ -21,8 +17,7 @@
         [ngClass]="[
           popup.type == 'Error' ? 'error' : '',
           popup.type == 'Info' ? 'info' : ''
-        ]"
-      >
+        ]">
         <fa-icon [icon]="faWarning"></fa-icon>
         <div class="content">
           {{ popup.message }}
