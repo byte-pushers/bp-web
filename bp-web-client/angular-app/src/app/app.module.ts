@@ -44,6 +44,9 @@ import { ModelPopupComponent } from "./shared/components/model-popup/model-popup
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { Version2Component } from "./components/app-landing-pages/version2/version2.component";
 import { Version3Component } from "./components/app-landing-pages/version3/version3.component";
+import { V2LeftComponent } from "./components/app-landing-pages/version2/left/left.component";
+import { V2BottomComponent } from "./components/app-landing-pages/version2/bottom/bottom.component";
+import { V2RightComponent } from "./components/app-landing-pages/version2/right/right.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +67,9 @@ import { Version3Component } from "./components/app-landing-pages/version3/versi
     RightComponent,
     BottomComponent,
     LeftComponent,
+    V2RightComponent,
+    V2BottomComponent,
+    V2LeftComponent,
     ModelPopupComponent,
     Version2Component,
     Version3Component,
