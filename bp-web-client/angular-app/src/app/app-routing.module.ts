@@ -8,10 +8,11 @@ import { ServicesComponent } from "./components/app-services/app-services.compon
 import { AppLoginComponent } from "./components/app-login/app-login.component";
 import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
 import { MADLandingComponent } from "./components/app-madlanding/madlanding.component";
+import { Version2Component } from "./components/app-landing-pages/version2/version2.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
-  { path: "home", component: MADLandingComponent },
+  { path: "home", component: Version2Component },
   { path: "about", component: AboutComponent },
   {
     path: "contact",
