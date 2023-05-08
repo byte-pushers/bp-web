@@ -24,15 +24,16 @@ export class QuoteService {
       .set("Content-Type", "application/json")
       .set("Accept", "application/json");
 
-    const payload = quote.transformKeys();
-    return this.http.post<Quote>(environment.QUOTE_SERVICE.API.HOST, payload, {
-      headers: header,
-      responseType: "json",
-    }).pipe(
-      map((res) => {
-        return res;
+    return this.http
+      .post<Quote>(environment.QUOTE_SERVICE.API.HOST, quote.transformKeys(), {
+        headers: header,
+        responseType: "json",
       })
-    );
+      .pipe(
+        map((res) => {
+          return res;
+        })
+      );
   }
   getQuotesList(): Observable<any> {
     return this.http.get<any>(`${this.apiEndPoint}`);
