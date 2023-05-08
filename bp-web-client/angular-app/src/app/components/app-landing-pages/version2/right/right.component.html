@@ -1,0 +1,54 @@
+<header
+  class="hero-fixed hero-home"
+  id="hero"
+  style="
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('assets/images/Byte-Pushers-With-Inline-Form-Right-Align-V2.png')
+        center no-repeat;
+    background-size: cover;
+  "
+>
+  <div class="video-overlay" style="display: none"></div>
+  <app-social-media isRightTemplate="true"></app-social-media>
+  <div class="topnav-container">
+    <div class="rightTemplate d-flex">
+      <div class="home-hero-text">
+        <h2>V2 Mobile App Development Made Simple.</h2>
+        <p class="MADslogan">
+          Mobile App development can be complex, but with Byte Pushers, it
+          doesn't have to be. We'll closely work with you to understand your
+          business goals and create a mobile app that aligns with your vision
+          and budget.
+        </p>
+        <div class="ctaForm">
+          <h3>Want to Learn more?</h3>
+          <form [formGroup]="ctaForm" (ngSubmit)="onCTASubmit()" novalidate>
+            <input
+              type="text"
+              class="form-control name"
+              formControlName="ctaName"
+              placeholder="Name"
+            />
+            <input
+              type="email"
+              class="form-control email"
+              formControlName="ctaEmail"
+              placeholder="Email"
+            />
+            <button type="submit" class="standardYelloBtn">
+              Connect with Us
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="hero-arrow" pageScroll pageScrollOffset="80" href="#top-section">
+    <img
+      alt="caret"
+      src="assets/images/caret.svg"
+      style="width: 50px; height: 50px"
+    />
+  </a>
+</header>
