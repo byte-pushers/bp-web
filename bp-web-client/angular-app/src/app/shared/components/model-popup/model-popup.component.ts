@@ -3,26 +3,23 @@ import { Component } from "@angular/core";
 import {
   faTriangleExclamation,
   faCircleXmark,
-  faCircle
 } from "@fortawesome/free-solid-svg-icons";
-import { PopupModalService } from 'src/app/modules/popup-modal/services/popup-modal.service';
-import { PopupModalInfo } from '../models/popup-modal-info';
+import { PopupService } from "src/app/services/popup.service";
 
 @Component({
   selector: "app-model-popup",
-  templateUrl: "./popup-modal.component.html",
-  styleUrls: ["./popup-modal.component.scss"],
+  templateUrl: "./model-popup.component.html",
+  styleUrls: ["./model-popup.component.scss"],
 })
-export class PopupModalComponent {
-  faCircle = faCircle;
+export class ModelPopupComponent {
   faWarning = faTriangleExclamation;
   faClose = faCircleXmark;
-  public popup: PopupModalInfo;
+  public popup: any;
   public isModalPopup: boolean = false;
   private button1: string = "";
   private button2: string = "";
   private button3: string = "";
-  constructor(private popupService: PopupModalService) {
+  constructor(private popupService: PopupService) {
     this.popupService.getPopupBroadcast().subscribe((popupInfo: any) => {
       console.log(popupInfo);
       this.popup = popupInfo;
