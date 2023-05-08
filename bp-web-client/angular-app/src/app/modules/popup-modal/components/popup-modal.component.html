@@ -12,15 +12,11 @@
       <Button class="clsPopup" (click)="close()"><fa-icon [icon]="faClose"></fa-icon></Button>
     </div>
     <div class="popupBody">
-      <div
-        class="flag"
-        [ngClass]="[
-          popup.type == 'Error' ? 'error' : '',
-          popup.type == 'Info' ? 'info' : ''
-        ]">
-        <fa-icon [icon]="faWarning"></fa-icon>
+      <div class="flag" [ngClass]="[popup.type == 'Error' ? 'error' : '', popup.type == 'Info' ? 'info' : '']" *ngFor="let message of popup.messages">
+        <!--<fa-icon [icon]="faWarning"></fa-icon>-->
+        <fa-icon [icon]="faCircle" style="font-size:12px"></fa-icon>
         <div class="content">
-          {{ popup.message }}
+          {{ message }}
         </div>
       </div>
     </div>

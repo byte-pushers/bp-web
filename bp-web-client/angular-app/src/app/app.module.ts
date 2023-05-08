@@ -35,7 +35,7 @@ import { environment } from "src/environments/environment";
 import { AppLoginComponent } from "./components/app-login/app-login.component";
 import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import { ModelPopupComponent } from "./shared/components/model-popup/model-popup.component";
+import { PopupModalComponent } from "./modules/popup-modal/components/popup-modal.component";
 import { HttpRequestInterceptor } from "./interceptors/http-request.interceptor";
 @NgModule({
   declarations: [
@@ -52,7 +52,7 @@ import { HttpRequestInterceptor } from "./interceptors/http-request.interceptor"
     AppAlertOverlayModalComponent,
     PhoneNumberDirective,
     AppLoginComponent,
-    ModelPopupComponent,
+    PopupModalComponent,
   ],
   imports: [
     AppRoutingModule,
