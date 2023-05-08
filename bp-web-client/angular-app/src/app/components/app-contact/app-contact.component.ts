@@ -25,7 +25,7 @@ import {
   faLinkedin,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
-import { PopupService } from "src/app/services/popup.service";
+import { PopupModalService } from "src/app/modules/popup-modal/services/popup-modal.service";
 
 @Component({
   selector: "app-contact",
@@ -56,7 +56,7 @@ export class ContactComponent
     public stateNameService: StateNameService,
     private scrollToService: ScrollToService,
     private contactButtonService: ContactButtonService,
-    private popupService: PopupService
+    private popupService: PopupModalService
   ) {}
 
   @ViewChild("quoteForm") quoteForm: any;
@@ -213,7 +213,7 @@ export class ContactComponent
           this.popupService.throwError({
             type: "Error",
             title: 'An error occurred while trying to submit a Request Quote request',
-            message: `${error.getMessage()}`,
+            messages: [`${error.getMessage()}`],
           });
         }
       );
