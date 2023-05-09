@@ -3333,3 +3333,50 @@ td.actions {
     }
   }
 }
+
+// theme css implementation starts here
+.theme2 {
+  background-size: cover;
+
+  &.bottom {
+    background: url("../images/landingPages/v2/vector/bottom-align.png") center
+      no-repeat;
+    // background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    //   url("../images/landingPages/v2/vector/bottom-align.png") center no-repeat;
+  }
+
+  &.left {
+    background: url("../images/landingPages/v2/vector/left-align.png") center
+      no-repeat;
+    // background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    //   url("../images/landingPages/v2/vector/left-align.png") center no-repeat;
+  }
+
+  &.right {
+    background: url("../images/landingPages/v2/vector/right-align.png") center
+      no-repeat;
+    // background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    //   url("../images/landingPages/v2/vector/right-align.png") center no-repeat;
+  }
+  .home-hero-text {
+    color: #0263bb;
+
+    .MADslogan,
+    .ctaForm {
+      color: #000;
+    }
+
+    .ctaForm {
+      form {
+        input {
+          border: solid 1px #0263bb;
+          color: #000;
+        }
+        .standardYelloBtn {
+          background: #0263bb;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
