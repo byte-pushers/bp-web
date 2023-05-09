@@ -22,10 +22,12 @@
           popup.type == 'Error' ? 'error' : '',
           popup.type == 'Info' ? 'info' : ''
         ]"
+        *ngFor="let message of popup.messages"
       >
-        <fa-icon [icon]="faWarning"></fa-icon>
+        <!--<fa-icon [icon]="faWarning"></fa-icon>-->
+        <fa-icon [icon]="faCircle" style="font-size: 12px"></fa-icon>
         <div class="content">
-          {{ popup.message }}
+          {{ message }}
         </div>
       </div>
     </div>

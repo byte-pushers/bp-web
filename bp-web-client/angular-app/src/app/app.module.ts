@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AppComponent } from "./shared/components/app.component/app.component";
 import { AppHeaderComponent } from "./shared/components/app-header.component/app-header.component";
 import { AppBodyComponent } from "./shared/components/app-body.component/app-body.component";
@@ -34,19 +34,18 @@ import { OverlayModule } from "@angular/cdk/overlay";
 import { environment } from "src/environments/environment";
 import { AppLoginComponent } from "./components/app-login/app-login.component";
 import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { PopupModalComponent } from "./modules/popup-modal/components/popup-modal.component";
+import { HttpRequestInterceptor } from "./interceptors/http-request.interceptor";
 import { MADLandingComponent } from "./components/app-madlanding/madlanding.component";
 import { SocialMediaComponent } from "./shared/components/app-social-media.component/app-social-media.component";
 import { RightComponent } from "./components/app-madlanding/right/right.component";
 import { BottomComponent } from "./components/app-madlanding/bottom/bottom.component";
 import { LeftComponent } from "./components/app-madlanding/left/left.component";
-import { ModelPopupComponent } from "./shared/components/model-popup/model-popup.component";
+import { LandingPageBottomLayoutComponent } from "./components/app-landing-pages/layouts/bottom/landing-page-bottom-layout.component";
+import { LandingPageLeftLayoutComponent } from "./components/app-landing-pages/layouts/left/landing-page-left-layout.component";
+import { LandingPageRightLayoutComponent } from "./components/app-landing-pages/layouts/right/landing-page-right-layout.component";
 
-import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import { Version2Component } from "./components/app-landing-pages/version2/version2.component";
-import { Version3Component } from "./components/app-landing-pages/version3/version3.component";
-import { V2LeftComponent } from "./components/app-landing-pages/version2/left/left.component";
-import { V2BottomComponent } from "./components/app-landing-pages/version2/bottom/bottom.component";
-import { V2RightComponent } from "./components/app-landing-pages/version2/right/right.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,16 +62,14 @@ import { V2RightComponent } from "./components/app-landing-pages/version2/right/
     AppAlertOverlayModalComponent,
     PhoneNumberDirective,
     AppLoginComponent,
+    PopupModalComponent,
     MADLandingComponent,
     RightComponent,
     BottomComponent,
     LeftComponent,
-    V2RightComponent,
-    V2BottomComponent,
-    V2LeftComponent,
-    ModelPopupComponent,
-    Version2Component,
-    Version3Component,
+    LandingPageBottomLayoutComponent,
+    LandingPageLeftLayoutComponent,
+    LandingPageRightLayoutComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -102,6 +99,11 @@ import { V2RightComponent } from "./components/app-landing-pages/version2/right/
     AppRoutingService,
     StateNameService,
     DeactivateGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpRequestInterceptor,
+      multi: true,
+    },
   ],
   entryComponents: [
     // Needs to be added here because otherwise we can't

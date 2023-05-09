@@ -24,8 +24,9 @@ export class QuoteService {
       .set("Content-Type", "application/json")
       .set("Accept", "application/json");
 
+    const payload = quote.transformKeys();
     return this.http
-      .post<Quote>(environment.QUOTE_SERVICE.API.HOST, quote.transformKeys(), {
+      .post<Quote>(environment.QUOTE_SERVICE.API.HOST, payload, {
         headers: header,
         responseType: "json",
       })

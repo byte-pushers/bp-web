@@ -1,14 +1,16 @@
 import { Injectable } from "@angular/core";
 import { Observable, Subject } from "rxjs";
+import { PopupModalInfo } from "../models/popup-modal-info";
+import { PopupModalIntoModel } from "../models/popup-modal-into.model";
 
 @Injectable({
   providedIn: "root",
 })
-export class PopupService {
+export class PopupModalService {
   private popupResponseSubject: Subject<any>;
-  private popupBroadcastSubject: Subject<any>;
+  private popupBroadcastSubject: Subject<PopupModalInfo>;
   constructor() {
-    this.popupBroadcastSubject = new Subject<{}>();
+    this.popupBroadcastSubject = new Subject<PopupModalInfo>();
     this.popupResponseSubject = new Subject<{}>();
   }
 
@@ -19,8 +21,8 @@ export class PopupService {
     this.popupResponseSubject.next(userResponse);
   }
 
-  public showPopup(popupinfo: any): Observable<boolean> {
-    this.popupBroadcastSubject.next(popupinfo);
+  public showPopup(popupModalInfo: PopupModalInfo): Observable<PopupModalInfo> {
+    this.popupBroadcastSubject.next(popupModalInfo);
     this.popupResponseSubject.unsubscribe();
     this.popupResponseSubject = new Subject<{}>();
     return this.popupBroadcastSubject.asObservable();
