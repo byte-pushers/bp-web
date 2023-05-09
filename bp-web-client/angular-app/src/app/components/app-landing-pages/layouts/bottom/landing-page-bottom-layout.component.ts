@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
   selector: "app-landing-page-bottom-layout",
@@ -6,5 +6,8 @@ import { Component } from "@angular/core";
   styleUrls: ["./landing-page-bottom-layout.component.scss"],
 })
 export class LandingPageBottomLayoutComponent {
+  @Input() image;
+  @Input() title;
+  @Input() slogan;
   wanttoLearnMore() {}
 }

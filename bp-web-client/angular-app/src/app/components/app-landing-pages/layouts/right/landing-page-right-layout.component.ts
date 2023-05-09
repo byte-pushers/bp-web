@@ -7,6 +7,9 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
   styleUrls: ["./landing-page-right-layout.component.scss"],
 })
 export class LandingPageRightLayoutComponent {
+  @Input() image;
+  @Input() title;
+  @Input() slogan;
   public ctaForm: FormGroup;
 
   constructor() {
