@@ -61,7 +61,6 @@ export class MADLandingComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-
     this.dynamicComponentService.createComponent(this.landingPageContainer).then(componentCreated => {
       console.log(`component created: ${JSON.stringify(componentCreated)}`, componentCreated);
     }, error => {

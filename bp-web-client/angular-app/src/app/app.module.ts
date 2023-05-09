@@ -42,6 +42,15 @@ import { SocialMediaComponent } from "./shared/components/app-social-media.compo
 import { RightComponent } from "./components/app-madlanding/right/right.component";
 import { BottomComponent } from "./components/app-madlanding/bottom/bottom.component";
 import { LeftComponent } from "./components/app-madlanding/left/left.component";
+import {
+  LandingPageBottomLayoutComponent
+} from "./components/app-landing-pages/layouts/bottom/landing-page-bottom-layout.component";
+import {
+  LandingPageLeftLayoutComponent
+} from "./components/app-landing-pages/layouts/left/landing-page-left-layout.component";
+import {
+  LandingPageRightLayoutComponent
+} from "./components/app-landing-pages/layouts/right/landing-page-right-layout.component";
 
 @NgModule({
   declarations: [
@@ -63,7 +72,10 @@ import { LeftComponent } from "./components/app-madlanding/left/left.component";
     MADLandingComponent,
     RightComponent,
     BottomComponent,
-    LeftComponent
+    LeftComponent,
+    LandingPageBottomLayoutComponent,
+    LandingPageLeftLayoutComponent,
+    LandingPageRightLayoutComponent
   ],
   imports: [
     AppRoutingModule,
