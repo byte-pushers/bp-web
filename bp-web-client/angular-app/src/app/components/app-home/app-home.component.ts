@@ -5,11 +5,14 @@ import {
   OnDestroy,
   OnInit,
   ViewChild,
+  ViewContainerRef
 } from "@angular/core";
 import * as $ from "jquery";
 import { fromEvent, Observable, Subscription } from "rxjs";
 import { ScrollToService } from "../../services/scroll-to.service";
 import { environment } from "../../../environments/environment";
+import { DynamicComponentService } from '../../shared/services/dynamic-component.service';
+
 import {
   faFacebook,
   faTwitter,
@@ -24,20 +27,19 @@ import {
   styleUrls: ["./app-home.component.css"],
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+  public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
+  public resizeObservable$: Observable<Event>;
+  public resizeSubscription$: Subscription;
+  @ViewChild("homeBackgroundWorkImg") divView: ElementRef;
+  @ViewChild('landingPage', {read: ViewContainerRef}) private landingPageContainer !: ViewContainerRef;
+
   faFacebook = faFacebook;
   faTwitter = faTwitter;
   faInstagram = faInstagram;
   faLinkedin = faLinkedin;
   faYoutube = faYoutube;
 
-  constructor(
-    private window: Window,
-    public scrollToService: ScrollToService
-  ) {}
-  public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
-  resizeObservable$: Observable<Event>;
-  resizeSubscription$: Subscription;
-  @ViewChild("homeBackgroundWorkImg") divView: ElementRef;
+  constructor(private window: Window, public scrollToService: ScrollToService, private dynamicComponentService: DynamicComponentService) {}
 
   private static previousButtonClickedEventHandler(event: Event): void {
     const $nextButton = $("slide.item.carousel-item");
@@ -72,6 +74,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
+    this.dynamicComponentService.createComponent(this.landingPageContainer).then(componentCreated => {
+      console.log(`component created: ${JSON.stringify(componentCreated)}`, componentCreated);
+    }, error => {
+      console.log(`An error occurred: ${JSON.stringify(error)}`, error);
+    });
+
     this.resizeImage(this.window, this.divView);
   }
 

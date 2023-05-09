@@ -6,7 +6,7 @@ export class PopupModalIntoModel implements PopupModalInfo {
   #title: string =  null;
   #messages: string[] = [];
 
-  public static DEFAULT_MODEL: PopupModalInfo = {
+  public static DEFAULT_CONFIG: PopupModalInfo = {
     type: null,
     title: null,
     messages: []

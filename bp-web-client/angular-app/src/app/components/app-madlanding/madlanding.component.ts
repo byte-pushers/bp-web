@@ -4,13 +4,14 @@ import {
   ElementRef,
   OnDestroy,
   OnInit,
-  ViewChild, ViewContainerRef,
+  ViewChild,
+  ViewContainerRef
 } from '@angular/core';
 import * as $ from 'jquery';
 import { fromEvent, Observable, Subscription } from 'rxjs';
 import { ScrollToService } from '../../services/scroll-to.service';
 import { environment } from '../../../environments/environment';
-import {DynamicComponentService} from "../../shared/services/dynamic-component.service";
+import { DynamicComponentService } from '../../shared/services/dynamic-component.service';
 
 @Component({
   selector: 'app-madlanding',
@@ -22,7 +23,7 @@ export class MADLandingComponent implements OnInit, AfterViewInit, OnDestroy {
   public resizeObservable$: Observable<Event>;
   public resizeSubscription$: Subscription;
   @ViewChild('homeBackgroundWorkImg') divView: ElementRef;
-  @ViewChild('landingPage', {read: ViewContainerRef}) private landingPageContainer!: ViewContainerRef;
+  @ViewChild('landingPage', {read: ViewContainerRef}) private landingPageContainer !: ViewContainerRef;
 
   constructor(private window: Window, public scrollToService: ScrollToService, private dynamicComponentService: DynamicComponentService) {}
 
