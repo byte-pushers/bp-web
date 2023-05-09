@@ -1,8 +1,5 @@
 import { Injectable, ViewContainerRef } from "@angular/core";
-import {
-  LANDING_PAGE_LAYOUT_CONFIGURATION,
-  LANDING_PAGE_LAYOUT_CONFIGURATION_MAP,
-} from "../../app.constants";
+import { LANDING_PAGE_LAYOUT_CONFIGURATION_MAP } from "../../app.constants";
 
 @Injectable({ providedIn: "root" })
 export class DynamicComponentService {
