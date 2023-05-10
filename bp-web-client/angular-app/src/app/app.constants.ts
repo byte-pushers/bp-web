@@ -21,42 +21,39 @@ LANDING_PAGE_LAYOUT_CONFIGURATION_MAP.set("default", [
   {
     createComponent: () =>
       import(
-        "../app/components/app-landing-pages/layouts/left/landing-page-left-layout.component"
-      ).then((it) => it.LandingPageLeftLayoutComponent),
+        "../app/components/app-landing-pages/layouts/bottom/landing-page-bottom-layout.component"
+      ).then((it) => it.LandingPageBottomLayoutComponent),
     component: null,
     inputs: {
-      image: "somepath",
+      image: 'somepath',
       title: null,
-      slogan:
-        "Creating solutions to solve today's and tomorrow’s problems bit by bit.",
+      slogan: 'Creating solutions to solve today\'s and tomorrow’s problems <strong>bit</strong> by <strong>bit</strong>.'
     },
   },
   {
     createComponent: () =>
       import(
         "../app/components/app-landing-pages/layouts/right/landing-page-right-layout.component"
-      ).then((it) => it.LandingPageRightLayoutComponent),
+        ).then((it) => it.LandingPageRightLayoutComponent),
     component: null,
     inputs: {
-      image: "somepath",
+      image: 'somepath',
       title: null,
-      slogan:
-        "Creating solutions to solve today's and tomorrow’s problems bit by bit.",
+      slogan: 'Creating solutions to solve today\'s and tomorrow’s problems <strong>bit</strong> by <strong>bit</strong>.'
     },
   },
   {
     createComponent: () =>
       import(
-        "../app/components/app-landing-pages/layouts/bottom/landing-page-bottom-layout.component"
-      ).then((it) => it.LandingPageBottomLayoutComponent),
+        "../app/components/app-landing-pages/layouts/left/landing-page-left-layout.component"
+        ).then((it) => it.LandingPageLeftLayoutComponent),
     component: null,
     inputs: {
-      image: "somepath",
+      image: 'somepath',
       title: null,
-      slogan:
-        "Creating solutions to solve today's and tomorrow’s problems bit by bit.",
+      slogan: 'Creating solutions to solve today\'s and tomorrow’s problems <strong>bit</strong> by <strong>bit</strong>.'
     },
-  },
+  }
 ]);
 
 LANDING_PAGE_LAYOUT_CONFIGURATION_MAP.set("1", [
