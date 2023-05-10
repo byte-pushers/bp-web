@@ -10,6 +10,7 @@ export class LandingPageLeftLayoutComponent implements OnInit {
   @Input() image;
   @Input() title;
   @Input() slogan;
+  @Input() theme;
   public ctaForm: FormGroup;
   constructor() {
     this.ctaForm = new FormGroup({
@@ -25,5 +26,24 @@ export class LandingPageLeftLayoutComponent implements OnInit {
       Email: this.ctaForm.controls["ctaEmail"].value,
     };
     console.log(ctaReqObj);
+  }
+  setThemePrimaryColor() {
+    let styles = {
+      color: this.theme.primaryColor,
+    };
+    return styles;
+  }
+  setThemeSecondaryColor() {
+    let styles = {
+      color: this.theme.secondaryColor,
+    };
+    return styles;
+  }
+  setThemeBGImg() {
+    let styles = {
+      background: `linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url(${this.theme.imagePath.left}) center no-repeat`,
+      "background-size": "cover",
+    };
+    return styles;
   }
 }
