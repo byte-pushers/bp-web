@@ -129,6 +129,32 @@ LANDING_PAGE_LAYOUT_CONFIGURATION_MAP.set("2", [
     inputs: actionItem2Inputs,
   },
 ]);
+LANDING_PAGE_LAYOUT_CONFIGURATION_MAP.set("3", [
+  {
+    createComponent: () =>
+      import(
+        "../app/components/app-landing-pages/layouts/left/landing-page-left-layout.component"
+      ).then((it) => it.LandingPageLeftLayoutComponent),
+    component: null,
+    inputs: actionItem2Inputs,
+  },
+  {
+    createComponent: () =>
+      import(
+        "../app/components/app-landing-pages/layouts/right/landing-page-right-layout.component"
+      ).then((it) => it.LandingPageRightLayoutComponent),
+    component: null,
+    inputs: actionItem2Inputs,
+  },
+  {
+    createComponent: () =>
+      import(
+        "../app/components/app-landing-pages/layouts/bottom/landing-page-bottom-layout.component"
+      ).then((it) => it.LandingPageBottomLayoutComponent),
+    component: null,
+    inputs: actionItem2Inputs,
+  },
+]);
 
 // commented this as we are no longer need this
 // export const LANDING_PAGE_LAYOUT_CONFIGURATION: {
