@@ -43,9 +43,10 @@ LANDING_PAGE_LAYOUT_CONFIGURATION_MAP.set("default", [
       ).then((it) => it.LandingPageBottomLayoutComponent),
     component: null,
     inputs: {
-      image: 'somepath',
+      image: "somepath",
       title: null,
-      slogan: 'Creating solutions to solve today\'s and tomorrow’s problems <strong>bit</strong> by <strong>bit</strong>.'
+      slogan:
+        "Creating solutions to solve today's and tomorrow’s problems <strong>bit</strong> by <strong>bit</strong>.",
     },
   },
   {
@@ -55,9 +56,10 @@ LANDING_PAGE_LAYOUT_CONFIGURATION_MAP.set("default", [
       ).then((it) => it.LandingPageRightLayoutComponent),
     component: null,
     inputs: {
-      image: 'somepath',
+      image: "somepath",
       title: null,
-      slogan: 'Creating solutions to solve today\'s and tomorrow’s problems <strong>bit</strong> by <strong>bit</strong>.'
+      slogan:
+        "Creating solutions to solve today's and tomorrow’s problems <strong>bit</strong> by <strong>bit</strong>.",
     },
   },
   {
@@ -67,11 +69,12 @@ LANDING_PAGE_LAYOUT_CONFIGURATION_MAP.set("default", [
       ).then((it) => it.LandingPageLeftLayoutComponent),
     component: null,
     inputs: {
-      image: 'somepath',
+      image: "somepath",
       title: null,
-      slogan: 'Creating solutions to solve today\'s and tomorrow’s problems <strong>bit</strong> by <strong>bit</strong>.'
+      slogan:
+        "Creating solutions to solve today's and tomorrow’s problems <strong>bit</strong> by <strong>bit</strong>.",
     },
-  }
+  },
 ]);
 
 LANDING_PAGE_LAYOUT_CONFIGURATION_MAP.set("1", [
