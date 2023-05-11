@@ -22,26 +22,26 @@ export class LandingPageLeftLayoutComponent implements OnInit {
   ngOnInit() {}
   onCTASubmit() {
     let ctaReqObj = {
-      Name: this.ctaForm.controls["ctaName"].value,
-      Email: this.ctaForm.controls["ctaEmail"].value,
+      Name: this?.ctaForm?.controls["ctaName"]?.value,
+      Email: this?.ctaForm?.controls["ctaEmail"]?.value,
     };
     console.log(ctaReqObj);
   }
   setThemePrimaryColor() {
     let styles = {
-      color: this.theme.primaryColor,
+      color: this?.theme?.primaryColor,
     };
     return styles;
   }
   setThemeSecondaryColor() {
     let styles = {
-      color: this.theme.secondaryColor,
+      color: this?.theme?.secondaryColor,
     };
     return styles;
   }
   setThemeBGImg() {
     let styles = {
-      background: `linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url(${this.theme.imagePath.left}) center no-repeat`,
+      background: `linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url(${this?.theme?.imagePath?.left}) center no-repeat`,
       "background-size": "cover",
     };
     return styles;
