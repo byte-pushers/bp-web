@@ -27,6 +27,12 @@ export class LandingPageLeftLayoutComponent implements OnInit {
     };
     console.log(ctaReqObj);
   }
+  setTitleColor() {
+    let styles = {
+      color: this?.theme?.titleColor,
+    };
+    return styles;
+  }
   setThemePrimaryColor() {
     let styles = {
       color: this?.theme?.primaryColor,

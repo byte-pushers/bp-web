@@ -11,7 +11,12 @@ export class LandingPageBottomLayoutComponent {
   @Input() slogan;
   @Input() theme;
   wanttoLearnMore() {}
-
+  setTitleColor() {
+    let styles = {
+      color: this?.theme?.titleColor,
+    };
+    return styles;
+  }
   setThemePrimaryColor() {
     let styles = {
       color: this?.theme?.primaryColor,
