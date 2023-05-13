@@ -45,7 +45,7 @@ LANDING_PAGE_LAYOUT_CONFIGURATION_MAP.set("default", [
     inputs: {
       image: 'somepath',
       title: null,
-      slogan: 'Creating solutions to solve today\'s and tomorrow’s problems <strong>bit</strong> by <strong>bit</strong>.'
+      slogan: 'Creating solutions to solve today\'s and tomorrow\'s problems <strong>bit</strong> by <strong>bit</strong>.'
     },
   },
   {
@@ -57,7 +57,7 @@ LANDING_PAGE_LAYOUT_CONFIGURATION_MAP.set("default", [
     inputs: {
       image: 'somepath',
       title: null,
-      slogan: 'Creating solutions to solve today\'s and tomorrow’s problems <strong>bit</strong> by <strong>bit</strong>.'
+      slogan: 'Creating solutions to solve today\'s and tomorrow\'s problems <strong>bit</strong> by <strong>bit</strong>.'
     },
   },
   {
@@ -69,7 +69,7 @@ LANDING_PAGE_LAYOUT_CONFIGURATION_MAP.set("default", [
     inputs: {
       image: 'somepath',
       title: null,
-      slogan: 'Creating solutions to solve today\'s and tomorrow’s problems <strong>bit</strong> by <strong>bit</strong>.'
+      slogan: 'Creating solutions to solve today\'s and tomorrow\'s problems <strong>bit</strong> by <strong>bit</strong>.'
     },
   }
 ]);
