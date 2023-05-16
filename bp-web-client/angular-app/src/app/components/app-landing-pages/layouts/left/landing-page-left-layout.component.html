@@ -4,12 +4,14 @@
   <div class="topnav-container">
     <div class="rightTemplate leftTemplate d-flex">
       <div class="home-hero-text">
-        <h2 [ngStyle]="setTitleColor()">{{ title }}</h2>
-        <p class="MADslogan" [ngStyle]="setThemeSecondaryColor()">
-          {{ slogan }}
-        </p>
+        <h2 [ngStyle]="setTitleColor()" [innerHTML]="title"></h2>
+        <p
+          class="MADslogan"
+          [ngStyle]="setThemeSecondaryColor()"
+          [innerHTML]="slogan"
+        ></p>
         <div class="ctaForm">
-          <h3>Want to Learn more?</h3>
+          <h3 [ngStyle]="setThemeSecondaryColor()">Want to Learn more?</h3>
           <form [formGroup]="ctaForm" (ngSubmit)="onCTASubmit()" novalidate>
             <input
               type="text"

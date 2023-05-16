@@ -2721,7 +2721,7 @@ strong,
 
 .hero-text,
 .home-hero-text {
-  text-align: center;
+  // text-align: center;
   font-size: 2.75em;
   color: #ffffff;
   margin-top: 0;
@@ -3184,13 +3184,13 @@ td.actions {
   }
   .MADslogan {
     max-width: 100%;
-    margin-left: 15px;
+    // margin-left: 15px;
     text-align: left;
   }
   .ctaForm {
     font-size: 16px;
     text-align: left;
-    margin-left: 15px;
+    // margin-left: 15px;
     margin-top: 20px;
     form {
       display: flex;
@@ -3199,7 +3199,7 @@ td.actions {
       margin: 10px 0;
       input {
         background: none;
-        border: solid 1px $standardYellow;
+        border: solid 2px $standardYellow;
         border-radius: 0 !important;
         padding: 0 5px;
         color: #fff;

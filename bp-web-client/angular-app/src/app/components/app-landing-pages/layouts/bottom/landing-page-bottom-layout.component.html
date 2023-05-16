@@ -3,9 +3,13 @@
   <app-social-media></app-social-media>
   <div class="home-hero-text-container">
     <div class="container fade-in-first">
-      <div class="home-hero-text" [ngStyle]="setTitleColor()">
-        {{ title }}
-        <p [innerHTML]="slogan" [ngStyle]="setThemeSecondaryColor()"></p>
+      <div class="home-hero-text" style="text-align: center">
+        <h2 [ngStyle]="setTitleColor()" [innerHTML]="title"></h2>
+        <p
+          class="MADslogan"
+          [innerHTML]="slogan"
+          [ngStyle]="setThemeSecondaryColor()"
+        ></p>
 
         <div class="knowMore">
           <img
