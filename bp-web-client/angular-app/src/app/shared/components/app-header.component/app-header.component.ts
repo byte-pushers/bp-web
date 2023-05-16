@@ -1,5 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { NavigationEnd, Router } from "@angular/router";
+import { HeaderService } from "src/app/services/header.service";
 import { LoginService } from "src/app/services/login.service";
 import { ScrollToService } from "../../../services/scroll-to.service";
 import { ReloadRefreshComponent } from "../reloadRefresh/reload-refresh.component";
@@ -11,10 +12,12 @@ import { ReloadRefreshComponent } from "../reloadRefresh/reload-refresh.componen
 })
 export class AppHeaderComponent extends ReloadRefreshComponent {
   isUserLoggedIn: boolean = false;
+  selectedThemeColor;
   constructor(
     public scrollTo: ScrollToService,
     public override router: Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private headerService: HeaderService
   ) {
     super(router);
     this.loginService.currentUserSubject.subscribe((value) => {
@@ -23,6 +26,11 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   }
 
   override ngOnInit() {
+    this.headerService.currentThemeColor.subscribe((color: string) => {
+      this.selectedThemeColor = color;
+    });
+
+    console.log(this.selectedThemeColor);
     window.onscroll = function () {
       navScroll();
       checkCp3Desc();
@@ -91,5 +99,12 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   logout() {
     this.loginService.logout();
     this.router.navigate(["/"]);
+  }
+  setColor() {
+    let styles = {
+      color: this.selectedThemeColor,
+      "border-bottom-color": this.selectedThemeColor,
+    };
+    return styles;
   }
 }

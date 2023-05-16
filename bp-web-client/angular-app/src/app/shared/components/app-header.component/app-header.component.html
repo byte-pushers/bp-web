@@ -12,6 +12,7 @@
             [routerLink]="'/home'"
             routerLinkActive="active"
             (click)="scrollTo.toTopOfPage(); openCloseMobileNav()"
+            [ngStyle]="setColor()"
           >
             Home
           </a>
@@ -22,6 +23,7 @@
             [routerLink]="'/services'"
             routerLinkActive="active"
             (click)="scrollTo.toTopOfPage(); openCloseMobileNav()"
+            [ngStyle]="setColor()"
             >Services</a
           >
         </li>
@@ -31,6 +33,7 @@
             [routerLink]="'/work'"
             routerLinkActive="active"
             (click)="scrollTo.toTopOfPage(); openCloseMobileNav()"
+            [ngStyle]="setColor()"
             >Work</a
           >
         </li>
@@ -40,6 +43,7 @@
             [routerLink]="'/about'"
             routerLinkActive="active"
             (click)="scrollTo.toTopOfPage(); openCloseMobileNav()"
+            [ngStyle]="setColor()"
             >About Us</a
           >
         </li>
@@ -51,6 +55,7 @@
             (click)="
               scrollTo.toTopOfPage(); openCloseMobileNav(); refreshPage()
             "
+            [ngStyle]="setColor()"
             >Contact</a
           >
         </li>

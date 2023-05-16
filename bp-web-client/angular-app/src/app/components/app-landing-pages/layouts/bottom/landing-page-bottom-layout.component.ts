@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { HeaderService } from "src/app/services/header.service";
 
 @Component({
   selector: "app-landing-page-bottom-layout",
@@ -10,11 +11,14 @@ export class LandingPageBottomLayoutComponent {
   @Input() title;
   @Input() slogan;
   @Input() theme;
+
+  constructor(private headerService: HeaderService) {}
   wanttoLearnMore() {}
   setTitleColor() {
     let styles = {
       color: this?.theme?.titleColor,
     };
+    this.headerService.setThemeColor(this?.theme?.titleColor);
     return styles;
   }
   setThemePrimaryColor() {

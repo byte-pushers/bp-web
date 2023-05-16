@@ -1,5 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { HeaderService } from "src/app/services/header.service";
 
 @Component({
   selector: "app-landing-page-right-layout",
@@ -13,7 +14,7 @@ export class LandingPageRightLayoutComponent {
   @Input() theme;
   public ctaForm: FormGroup;
 
-  constructor() {
+  constructor(private headerService: HeaderService) {
     this.ctaForm = new FormGroup({
       ctaName: new FormControl("", [Validators.required]),
       ctaEmail: new FormControl("", [Validators.required, Validators.email]),
@@ -31,6 +32,7 @@ export class LandingPageRightLayoutComponent {
     let styles = {
       color: this?.theme?.titleColor,
     };
+    this.headerService.setThemeColor(this?.theme?.titleColor);
     return styles;
   }
   setThemePrimaryColor() {
