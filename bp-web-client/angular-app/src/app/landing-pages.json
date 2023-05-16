@@ -1,5 +1,22 @@
 [
   {
+    "id": "default",
+    "inputDetails": {
+      "title": "Creating solutions to solve today's and tomorrow's problems <strong>bit</strong> by <strong>bit</strong>.",
+      "slogan": null,
+      "theme": {
+        "titleColor": "#fff",
+        "primaryColor": "#ffea7a",
+        "secondaryColor": "#fff",
+        "imagePath": {
+          "right": "assets/images/landingPages/v1/right-align.png",
+          "left": "assets/images/landingPages/v1/left-align.png",
+          "bottom": "assets/images/landingPages/v1/bottom-align.png"
+        }
+      }
+    }
+  },
+  {
     "id": 1,
     "inputDetails": {
       "title": "Mobile App Development Made Simple.",
