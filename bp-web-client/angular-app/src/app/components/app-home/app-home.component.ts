@@ -25,7 +25,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   public resizeObservable$: Observable<Event>;
   public resizeSubscription$: Subscription;
   @ViewChild("homeBackgroundWorkImg") private divView: ElementRef;
-  @ViewChild("landingPage", { read: ViewContainerRef }) private landingPageContainer!: ViewContainerRef;
+  @ViewChild("landingPage", { read: ViewContainerRef })
+  private landingPageContainer!: ViewContainerRef;
 
   constructor(
     private window: Window,
@@ -99,9 +100,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   #setLayoutId() {
     this.route.queryParams.subscribe((params) => {
       console.log(`params: ${JSON.stringify(params)}`);
-
       this.#layoutId = params?.id;
-
       console.log(`layout id: ${this.#layoutId}`);
     });
   }
