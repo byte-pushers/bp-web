@@ -3,19 +3,54 @@
   <section class="header"></section>
   <section class="bodyContent">
     <div class="customContainer">
-      <div class="twoCol d-flex j-c-s-b">
-        <div class="socialMediaIcons">
+      <div class="twoCol d-flex j-c-s-b a-bottom">
+        <div class="socialMediaIcons d-flex a-center">
           <app-social-media></app-social-media>
         </div>
-        <div class="contentArea">
+        <div class="contentArea d-flex j-c-s-b a-center">
           <div class="empty"></div>
-          <div class="content">dfgerf</div>
+          <div class="content rightLayout">
+            <h2 [ngStyle]="setTitleColor()" [innerHTML]="title"></h2>
+            <p
+              class="MADslogan"
+              [ngStyle]="setThemeSecondaryColor()"
+              [innerHTML]="slogan"
+            ></p>
+            <div class="ctaForm">
+              <h3 [ngStyle]="setThemeSecondaryColor()">Want to Learn more?</h3>
+              <form [formGroup]="ctaForm" (ngSubmit)="onCTASubmit()" novalidate>
+                <input
+                  type="text"
+                  class="form-control name"
+                  formControlName="ctaName"
+                  placeholder="Name"
+                />
+                <input
+                  type="email"
+                  class="form-control email"
+                  formControlName="ctaEmail"
+                  placeholder="Email"
+                />
+                <button type="submit" class="standardYelloBtn">
+                  Connect with Us
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
   <section class="logos"></section>
-  <section class="btmArrow"></section>
+  <section class="btmArrow">
+    <a class="" pageScroll pageScrollOffset="80" href="#top-section">
+      <img
+        alt="caret"
+        src="assets/images/caret.svg"
+        style="width: 50px; height: 50px"
+      />
+    </a>
+  </section>
 </section>
 
 <header class="hero-fixed hero-home" id="hero" [ngStyle]="setThemeBGImg()">

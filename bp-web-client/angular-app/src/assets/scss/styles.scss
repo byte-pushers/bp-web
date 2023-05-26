@@ -3185,32 +3185,6 @@ td.actions {
     // margin-left: 15px;
     text-align: left;
   }
-  .ctaForm {
-    font-size: 16px;
-    text-align: left;
-    // margin-left: 15px;
-    margin-top: 20px;
-    form {
-      display: flex;
-      font-size: 16px;
-      text-align: left;
-      margin: 10px 0;
-      input {
-        background: none;
-        border: solid 2px $standardYellow;
-        border-radius: 0 !important;
-        padding: 0 5px;
-        color: #fff;
-
-        &.name {
-          width: 170px;
-        }
-        &.email {
-          width: 220px;
-        }
-      }
-    }
-  }
 }
 .rightTemplate {
   justify-content: end;
@@ -3416,8 +3390,48 @@ td.actions {
 
       .content {
         width: 100%;
-        &.bottom {
+
+        &.bottomLayout {
           text-align: center;
+        }
+        &.leftLayout,
+        &.rightLayout {
+          width: auto;
+
+          .MADslogan {
+            width: 600px;
+            margin: 10px 0px;
+          }
+
+          .ctaForm {
+            font-size: 16px;
+            text-align: left;
+            // margin-left: 15px;
+            margin-top: 20px;
+
+            form {
+              display: flex;
+              font-size: 16px;
+              text-align: left;
+              margin: 10px 0;
+
+              input {
+                background: none;
+                border: solid 2px $standardYellow;
+                border-radius: 0 !important;
+                padding: 0 5px;
+                color: #fff;
+
+                &.name {
+                  width: 170px;
+                }
+
+                &.email {
+                  width: 220px;
+                }
+              }
+            }
+          }
         }
         h2 {
           font-size: 2rem;
@@ -3461,4 +3475,8 @@ td.actions {
   padding: 0px 1em;
   max-width: 65rem;
   margin: 0px auto;
+  height: 100%;
+}
+.twoCol {
+  height: 100%;
 }
