@@ -3397,6 +3397,7 @@ td.actions {
         &.leftLayout,
         &.rightLayout {
           width: auto;
+          max-width: 800px;
 
           .MADslogan {
             width: 600px;
@@ -3451,6 +3452,23 @@ td.actions {
     padding: 0 !important;
     text-align: center;
     padding-bottom: 10px;
+  }
+
+  &.bordersTrue {
+    .header {
+      border: solid 1px red !important;
+    }
+    .bodyContent {
+      .customContainer {
+        .twoCol {
+          border: solid 1px red !important;
+
+          .socialMediaIcons {
+            border: solid 1px red !important;
+          }
+        }
+      }
+    }
   }
 }
 
