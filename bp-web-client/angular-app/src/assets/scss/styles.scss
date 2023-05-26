@@ -3372,18 +3372,18 @@ td.actions {
     width: 100%;
     padding: 0;
     height: 220px;
-    background: red;
+    // background: red;
   }
   .bodyContent {
     width: 100%;
     height: calc(100% - 370px);
-    background: lime;
+    // background: lime;
     padding: 0px !important;
 
     .socialMediaIcons,
     .contentArea {
       height: 100%;
-      background: pink;
+      // background: pink;
     }
     .contentArea {
       width: 100%;
@@ -3444,7 +3444,7 @@ td.actions {
       }
     }
     .socialMediaIcons {
-      background: green;
+      // background: green;
     }
   }
   .btmArrow {
