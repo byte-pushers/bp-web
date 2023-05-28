@@ -3386,7 +3386,7 @@ td.actions {
       // background: pink;
     }
     .contentArea {
-      width: 100%;
+      width: calc(100% - 45px);
 
       .content {
         width: 100%;
@@ -3462,11 +3462,23 @@ td.actions {
       .customContainer {
         .twoCol {
           border: solid 1px red !important;
-
+          .contentArea {
+            * {
+              border: solid 1px rgb(3, 197, 51) !important;
+            }
+          }
           .socialMediaIcons {
             border: solid 1px red !important;
           }
         }
+      }
+    }
+    .logos,
+    .btmArrow {
+      border: solid 1px red !important;
+
+      * {
+        border: solid 1px red !important;
       }
     }
   }
@@ -3491,10 +3503,122 @@ td.actions {
 .customContainer {
   width: 100%;
   padding: 0px 1em;
-  max-width: 65rem;
+  // max-width: 65rem;
   margin: 0px auto;
   height: 100%;
 }
 .twoCol {
   height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .headerTheme {
+    .header {
+    }
+
+    .bodyContent {
+      .socialMediaIcons,
+      .contentArea {
+      }
+
+      .contentArea {
+        .content {
+          &.bottomLayout {
+            text-align: center;
+          }
+
+          &.leftLayout,
+          &.rightLayout {
+            width: 100%;
+            text-align: right;
+
+            .MADslogan {
+              width: 100%;
+            }
+
+            .ctaForm {
+              form {
+                width: 100%;
+                flex-flow: column;
+                margin-bottom: 0;
+
+                input {
+                  width: 100%;
+                  margin-bottom: 10px;
+
+                  &.name {
+                    width: 100%;
+                  }
+
+                  &.email {
+                    width: 100%;
+                  }
+                }
+              }
+            }
+          }
+          &.leftLayout {
+            text-align: left;
+          }
+
+          h2 {
+            font-size: 2rem;
+            font-weight: 500;
+
+            strong {
+              color: cornflowerblue;
+            }
+          }
+        }
+      }
+
+      .socialMediaIcons {
+        // background: green;
+      }
+    }
+
+    .btmArrow {
+      padding: 0 !important;
+      text-align: center;
+      padding-bottom: 10px;
+    }
+
+    // &.bordersTrue {
+    //   .header {
+    //     border: solid 1px red !important;
+    //   }
+
+    //   .bodyContent {
+    //     .customContainer {
+    //       .twoCol {
+    //         border: solid 1px red !important;
+
+    //         .contentArea {
+    //           * {
+    //             border: solid 1px rgb(3, 197, 51) !important;
+    //           }
+    //         }
+
+    //         .socialMediaIcons {
+    //           border: solid 1px red !important;
+    //         }
+    //       }
+    //     }
+    //   }
+
+    //   .logos,
+    //   .btmArrow {
+    //     border: solid 1px red !important;
+
+    //     * {
+    //       border: solid 1px red !important;
+    //     }
+    //   }
+    // }
+  }
+}
+@media only screen and (max-width: 800px) {
+  .MADslogan {
+    width: 100%;
+  }
 }
