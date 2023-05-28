@@ -2,7 +2,10 @@
   <div class="topnav-container">
     <div class="topnav-mobile-menu" (click)="checkMobileNav()"></div>
     <a class="topnav-logo" [routerLink]="'/home'">
-      <div class="topnav-logo-img" (click)="scrollTo.toTopOfPage()"></div>
+      <div class="topnav-logo-img"></div>
+      <app-logo-text-aside
+        (click)="scrollTo.toTopOfPage()"
+      ></app-logo-text-aside>
     </a>
     <div class="topnav-links-container" id="topnav-mobile-links">
       <ul class="topnav-links">
