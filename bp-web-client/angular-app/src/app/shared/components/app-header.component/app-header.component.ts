@@ -22,7 +22,7 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
       this.isScrolled = false;
     }
   }
-  selectedThemeColor;
+  selectedTheme;
   constructor(
     public scrollTo: ScrollToService,
     public override router: Router,
@@ -36,11 +36,11 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   }
 
   override ngOnInit() {
-    this.headerService.currentThemeColor.subscribe((color: string) => {
-      this.selectedThemeColor = color;
+    this.headerService.currentTheme.subscribe((theme: any) => {
+      this.selectedTheme = theme;
     });
 
-    console.log(this.selectedThemeColor);
+    console.log(this.selectedTheme);
     window.onscroll = function () {
       navScroll();
       checkCp3Desc();
@@ -110,11 +110,15 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     this.loginService.logout();
     this.router.navigate(["/"]);
   }
+
   setColor() {
     let styles = {
-      color: this.selectedThemeColor,
-      "border-bottom-color": this.selectedThemeColor,
+      color: this.selectedTheme.NavColor,
+      "border-bottom-color": this.selectedTheme.NavColor,
     };
     return styles;
+  }
+  getLogoColor() {
+    return this.selectedTheme.logoColor;
   }
 }

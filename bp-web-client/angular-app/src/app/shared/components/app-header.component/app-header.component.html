@@ -11,6 +11,7 @@
       <app-logo-text-aside
         *ngIf="!isScrolled"
         (click)="scrollTo.toTopOfPage()"
+        [logoColor]="getLogoColor()"
       ></app-logo-text-aside>
       <app-logo-only-text *ngIf="isScrolled"></app-logo-only-text>
     </a>

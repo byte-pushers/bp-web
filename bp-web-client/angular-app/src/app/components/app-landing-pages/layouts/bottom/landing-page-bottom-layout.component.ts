@@ -14,11 +14,15 @@ export class LandingPageBottomLayoutComponent {
 
   constructor(private headerService: HeaderService) {}
   wanttoLearnMore() {}
+
   setTitleColor() {
     let styles = {
       color: this?.theme?.titleColor,
     };
-    this.headerService.setThemeColor(this?.theme?.titleColor);
+    this.headerService.setTheme({
+      logoColor: this?.theme?.secondaryColor,
+      NavColor: this?.theme?.titleColor,
+    });
     return styles;
   }
   setThemePrimaryColor() {

@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
   selector: "app-logo-text-aside",
@@ -7,6 +7,7 @@ import { Component } from "@angular/core";
 })
 export class LogoTextAsideComponent {
   fillColor: string = "red";
+  @Input() logoColor;
 
   setWidthHeight() {
     let dimensions = {
@@ -17,7 +18,7 @@ export class LogoTextAsideComponent {
   }
   setFillColor() {
     let styles = {
-      fill: this.fillColor,
+      fill: this.logoColor,
     };
     return styles;
   }
