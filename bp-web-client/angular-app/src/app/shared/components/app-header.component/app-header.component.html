@@ -1,11 +1,18 @@
-<nav *ngIf="!isUserLoggedIn" class="topnav fade-in-second" id="topnav">
+<nav
+  *ngIf="!isUserLoggedIn"
+  class="topnav fade-in-second"
+  id="topnav"
+  (scroll)="webpageScrolling($event)"
+>
   <div class="topnav-container">
     <div class="topnav-mobile-menu" (click)="checkMobileNav()"></div>
     <a class="topnav-logo" [routerLink]="'/home'">
-      <div class="topnav-logo-img"></div>
+      <!-- <div class="topnav-logo-img"></div> -->
       <app-logo-text-aside
+        *ngIf="!isScrolled"
         (click)="scrollTo.toTopOfPage()"
       ></app-logo-text-aside>
+      <app-logo-only-text *ngIf="isScrolled"></app-logo-only-text>
     </a>
     <div class="topnav-links-container" id="topnav-mobile-links">
       <ul class="topnav-links">

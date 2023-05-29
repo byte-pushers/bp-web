@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, HostListener, Input, OnInit } from "@angular/core";
 import { NavigationEnd, Router } from "@angular/router";
 import { HeaderService } from "src/app/services/header.service";
 import { LoginService } from "src/app/services/login.service";
@@ -12,6 +12,16 @@ import { ReloadRefreshComponent } from "../reloadRefresh/reload-refresh.componen
 })
 export class AppHeaderComponent extends ReloadRefreshComponent {
   isUserLoggedIn: boolean = false;
+  isScrolled: boolean = false;
+  @HostListener("window:scroll", ["$event"])
+  webpageScrolling(event) {
+    const headerBar = document.getElementById("topnav");
+    if (headerBar.classList.contains("topnav-scrolling")) {
+      this.isScrolled = true;
+    } else {
+      this.isScrolled = false;
+    }
+  }
   selectedThemeColor;
   constructor(
     public scrollTo: ScrollToService,
