@@ -46,6 +46,7 @@ import { LandingPageBottomLayoutComponent } from "./components/app-landing-pages
 import { LandingPageLeftLayoutComponent } from "./components/app-landing-pages/layouts/left/landing-page-left-layout.component";
 import { LandingPageRightLayoutComponent } from "./components/app-landing-pages/layouts/right/landing-page-right-layout.component";
 import { LogoTextAsideComponent } from "./shared/components/logo-text-aside/logo-text-aside.component";
+import { LogoOnlyTextComponent } from "./shared/components/logo-only-text/logo-only-text.component";
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { LogoTextAsideComponent } from "./shared/components/logo-text-aside/logo
     LandingPageLeftLayoutComponent,
     LandingPageRightLayoutComponent,
     LogoTextAsideComponent,
+    LogoOnlyTextComponent,
   ],
   imports: [
     AppRoutingModule,
