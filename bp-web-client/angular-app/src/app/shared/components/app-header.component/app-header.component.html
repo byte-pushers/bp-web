@@ -7,13 +7,13 @@
   <div class="topnav-container">
     <div class="topnav-mobile-menu" (click)="checkMobileNav()"></div>
     <a class="topnav-logo" [routerLink]="'/home'">
-      <div class="topnav-logo-img"></div>
-      <!-- <app-logo-text-aside
+      <!-- <div class="topnav-logo-img"></div> -->
+      <app-logo-text-aside
         *ngIf="!isScrolled"
         (click)="scrollTo.toTopOfPage()"
         [logoColor]="getLogoColor()"
       ></app-logo-text-aside>
-      <app-logo-only-text *ngIf="isScrolled"></app-logo-only-text> -->
+      <app-logo-only-text *ngIf="isScrolled"></app-logo-only-text>
     </a>
     <div class="topnav-links-container" id="topnav-mobile-links">
       <ul class="topnav-links">
