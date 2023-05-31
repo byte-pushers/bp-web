@@ -8,8 +8,12 @@
     <div class="topnav-mobile-menu" (click)="checkMobileNav()"></div>
     <a class="topnav-logo" [routerLink]="'/home'">
       <!-- <div class="topnav-logo-img"></div> -->
+      <app-logo-text-bottom
+        [logoColor]="getLogoColor()"
+        *ngIf="showSmallLogo() && !isScrolled"
+      ></app-logo-text-bottom>
       <app-logo-text-aside
-        *ngIf="!isScrolled"
+        *ngIf="!showSmallLogo() && !isScrolled"
         (click)="scrollTo.toTopOfPage()"
         [logoColor]="getLogoColor()"
       ></app-logo-text-aside>
@@ -70,7 +74,7 @@
             >Contact</a
           >
         </li>
-        <li class="topnav-link-item">
+        <li class="topnav-link-item" *ngIf="hideTill1060()">
           <a
             class="standardYelloBtn"
             [routerLink]="'/contact'"

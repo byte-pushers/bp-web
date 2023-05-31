@@ -14,7 +14,7 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   isUserLoggedIn: boolean = false;
   isScrolled: boolean = false;
   @HostListener("window:scroll", ["$event"])
-  webpageScrolling(event) {
+  webpageScrolling(event: any) {
     const headerBar = document.getElementById("topnav");
     if (headerBar.classList.contains("topnav-scrolling")) {
       this.isScrolled = true;
@@ -22,7 +22,7 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
       this.isScrolled = false;
     }
   }
-  selectedTheme;
+  selectedTheme: any;
   constructor(
     public scrollTo: ScrollToService,
     public override router: Router,
@@ -106,19 +106,50 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
       this.reloadPage();
     }, 10);
   }
+
+  showSmallLogo() {
+    if (window.innerWidth <= 768) {
+      return true;
+    }
+    return false;
+  }
+
   logout() {
     this.loginService.logout();
     this.router.navigate(["/"]);
   }
 
   setColor() {
-    let styles = {
+    const headerBar = document.getElementById("topnav");
+    let styles;
+    if (
+      headerBar.classList.contains("expanded") ||
+      headerBar.classList.contains("topnav-scrolling")
+    ) {
+      styles = {
+        color: "#000",
+        "border-bottom-color": "#000",
+      };
+      return styles;
+    }
+
+    styles = {
       color: this.selectedTheme.NavColor,
       "border-bottom-color": this.selectedTheme.NavColor,
     };
     return styles;
   }
   getLogoColor() {
+    const headerBar = document.getElementById("topnav");
+    if (headerBar.classList.contains("expanded")) {
+      return "#000";
+    }
     return this.selectedTheme.logoColor;
+  }
+  hideTill1060() {
+    if (window.innerWidth <= 1060) {
+      return false;
+    }
+    return true;
   }
 }

@@ -11,8 +11,8 @@ export class LogoTextBottomComponent {
 
   setWidthHeight() {
     let dimensions = {
-      width: "22em",
-      height: "11em",
+      width: "130px",
+      height: "130px",
     };
     return dimensions;
   }
