@@ -48,32 +48,3 @@
     </a>
   </section>
 </section>
-
-<header class="hero-fixed hero-home" id="hero" [ngStyle]="setThemeBGImg()">
-  <div class="video-overlay" style="display: none"></div>
-
-  <div class="home-hero-text-container">
-    <div class="container fade-in-first">
-      <div class="home-hero-text" style="text-align: center">
-        <h2 [ngStyle]="setTitleColor()" [innerHTML]="title"></h2>
-        <p
-          class="MADslogan"
-          [innerHTML]="slogan"
-          [ngStyle]="setThemeSecondaryColor()"
-        ></p>
-
-        <div class="knowMore">
-          <img
-            class="arrow"
-            src="../../../../assets/images/Arrow-Vector.png"
-            alt=""
-            srcset=""
-          />
-          <button class="standardYelloBtn" (click)="wanttoLearnMore()">
-            Wnat to Learn More?
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
