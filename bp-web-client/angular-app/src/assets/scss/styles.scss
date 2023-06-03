@@ -3396,11 +3396,12 @@ td.actions {
         }
         &.leftLayout,
         &.rightLayout {
-          width: auto;
-          max-width: 800px;
+          width: 100%;
+          text-align: right;
+          // max-width: 800px;
 
           .MADslogan {
-            width: 600px;
+            width: 60%;
             margin: 10px 0px;
           }
 
@@ -3433,6 +3434,9 @@ td.actions {
               }
             }
           }
+        }
+        &.leftLayout {
+          text-align: left;
         }
         h2 {
           font-size: 2rem;
@@ -3490,6 +3494,12 @@ td.actions {
 
 .j-c-s-b {
   justify-content: space-between;
+}
+.flexColumn {
+  flex-flow: column;
+}
+.flexEnd {
+  align-items: flex-end;
 }
 .flexWrap {
   flex-wrap: wrap;
