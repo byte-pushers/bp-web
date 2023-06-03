@@ -1,5 +1,5 @@
 import { Component, HostListener, Input, OnInit } from "@angular/core";
-import { NavigationEnd, Router } from "@angular/router";
+import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { HeaderService } from "src/app/services/header.service";
 import { LoginService } from "src/app/services/login.service";
 import { ScrollToService } from "../../../services/scroll-to.service";
@@ -27,7 +27,8 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     public scrollTo: ScrollToService,
     public override router: Router,
     private loginService: LoginService,
-    private headerService: HeaderService
+    private headerService: HeaderService,
+    private route: ActivatedRoute
   ) {
     super(router);
     this.loginService.currentUserSubject.subscribe((value) => {
@@ -119,25 +120,42 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     this.router.navigate(["/"]);
   }
 
-  setColor() {
+  setColor(pageName: string) {
+    console.log(this.router.url);
     const headerBar = document.getElementById("topnav");
+    const correntPageURL = this.router.url;
     let styles;
+
     if (
       headerBar.classList.contains("expanded") ||
       headerBar.classList.contains("topnav-scrolling")
     ) {
-      styles = {
-        color: "#000",
-        "border-bottom-color": "#000",
-      };
+      if (correntPageURL.includes(pageName)) {
+        styles = {
+          color: "#000",
+          "border-bottom-color": "#000",
+        };
+      } else {
+        styles = {
+          color: "#000",
+          "border-bottom-color": "transparent",
+        };
+      }
+      return styles;
+    } else {
+      if (correntPageURL.includes(pageName)) {
+        styles = {
+          color: this.selectedTheme.NavColor,
+          "border-bottom-color": this.selectedTheme.NavColor,
+        };
+      } else {
+        styles = {
+          color: this.selectedTheme.NavColor,
+          "border-bottom-color": "transparent",
+        };
+      }
       return styles;
     }
-
-    styles = {
-      color: this.selectedTheme.NavColor,
-      "border-bottom-color": this.selectedTheme.NavColor,
-    };
-    return styles;
   }
   getLogoColor() {
     const headerBar = document.getElementById("topnav");
