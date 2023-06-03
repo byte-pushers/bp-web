@@ -3632,3 +3632,33 @@ td.actions {
     width: 100%;
   }
 }
+
+.logos {
+  padding: 15px !important;
+  align-items: end;
+  .btmArrow {
+    width: 5%;
+  }
+
+  .leftLogos,
+  .rightLogos {
+    width: 45%;
+
+    img {
+      width: 120px;
+      height: auto;
+      padding: 5px;
+      background: #fff;
+    }
+  }
+}
+@media only screen and (max-width: 900px) {
+  .leftLogos,
+  .rightLogos {
+    width: 45%;
+
+    img {
+      display: none;
+    }
+  }
+}
