@@ -31,6 +31,7 @@ export class LandingPageRightLayoutComponent {
   setTitleColor() {
     let styles = {
       color: this?.theme?.titleColor,
+      "font-weight": "200",
     };
     this.headerService.setTheme({
       logoColor: this?.theme?.secondaryColor,
