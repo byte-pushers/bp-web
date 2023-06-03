@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { ActivatedRoute } from "@angular/router";
 import { HeaderService } from "src/app/services/header.service";
 
 @Component({
@@ -13,7 +14,10 @@ export class LandingPageLeftLayoutComponent implements OnInit {
   @Input() slogan;
   @Input() theme;
   public ctaForm: FormGroup;
-  constructor(private headerService: HeaderService) {
+  constructor(
+    private headerService: HeaderService,
+    private route: ActivatedRoute
+  ) {
     this.ctaForm = new FormGroup({
       ctaName: new FormControl("", [Validators.required]),
       ctaEmail: new FormControl("", [Validators.required, Validators.email]),
@@ -57,5 +61,14 @@ export class LandingPageLeftLayoutComponent implements OnInit {
       "background-size": "cover",
     };
     return styles;
+  }
+  showBorders(): boolean | void {
+    let isBorders;
+    this.route.queryParams.subscribe((params) => {
+      if (params?.showBorder == "true") {
+        isBorders = params?.showBorder;
+      }
+    });
+    return isBorders;
   }
 }

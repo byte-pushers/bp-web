@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { HeaderService } from "src/app/services/header.service";
 
 @Component({
@@ -12,7 +13,10 @@ export class LandingPageBottomLayoutComponent {
   @Input() slogan;
   @Input() theme;
 
-  constructor(private headerService: HeaderService) {}
+  constructor(
+    private headerService: HeaderService,
+    private route: ActivatedRoute
+  ) {}
   wanttoLearnMore() {}
 
   setTitleColor() {
@@ -44,5 +48,14 @@ export class LandingPageBottomLayoutComponent {
       "background-size": "cover",
     };
     return styles;
+  }
+  showBorders(): boolean | void {
+    let isBorders;
+    this.route.queryParams.subscribe((params) => {
+      if (params?.showBorder == "true") {
+        isBorders = params?.showBorder;
+      }
+    });
+    return isBorders;
   }
 }
