@@ -31,9 +31,15 @@ export class CTAFormComponent {
     return styles;
   }
   setConcent(event: any) {}
+
   onCTASubmit() {
+    let name = this?.ctaForm?.controls["ctaName"]?.value;
+    name = name.split(" ");
+    console.log(name);
     let ctaReqObj = {
-      Name: this?.ctaForm?.controls["ctaName"]?.value,
+      firstName: name[0],
+      middleName: name.length >= 3 ? name[1] : "",
+      lastName: name.length >= 3 ? name[2] : name[1],
       Email: this?.ctaForm?.controls["ctaEmail"]?.value,
     };
     console.log(ctaReqObj);

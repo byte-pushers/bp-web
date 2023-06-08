@@ -121,7 +121,6 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   }
 
   setColor(pageName: string) {
-    console.log(this.router.url);
     const headerBar = document.getElementById("topnav");
     const correntPageURL = this.router.url;
     let styles;
