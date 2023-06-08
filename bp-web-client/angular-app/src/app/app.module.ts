@@ -48,6 +48,7 @@ import { LandingPageRightLayoutComponent } from "./components/app-landing-pages/
 import { LogoTextAsideComponent } from "./shared/components/logo-text-aside/logo-text-aside.component";
 import { LogoOnlyTextComponent } from "./shared/components/logo-only-text/logo-only-text.component";
 import { LogoTextBottomComponent } from "./shared/components/logo-text-bottom/logo-text-bottom.component";
+import { CTAFormComponent } from "./shared/components/cta-form/cta-form.component";
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { LogoTextBottomComponent } from "./shared/components/logo-text-bottom/lo
     LogoTextAsideComponent,
     LogoOnlyTextComponent,
     LogoTextBottomComponent,
+    CTAFormComponent,
   ],
   imports: [
     AppRoutingModule,
