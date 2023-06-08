@@ -49,6 +49,7 @@ import { LogoTextAsideComponent } from "./shared/components/logo-text-aside/logo
 import { LogoOnlyTextComponent } from "./shared/components/logo-only-text/logo-only-text.component";
 import { LogoTextBottomComponent } from "./shared/components/logo-text-bottom/logo-text-bottom.component";
 import { CTAFormComponent } from "./shared/components/cta-form/cta-form.component";
+import { BytepushersPopupComponent } from "./shared/components/bytepushers-popup/bytepushers-popup.component";
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { CTAFormComponent } from "./shared/components/cta-form/cta-form.componen
     LogoOnlyTextComponent,
     LogoTextBottomComponent,
     CTAFormComponent,
+    BytepushersPopupComponent,
   ],
   imports: [
     AppRoutingModule,

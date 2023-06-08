@@ -16,18 +16,3 @@
     <button type="submit" class="standardYelloBtn">Connect with Us</button>
   </form>
 </div>
-
-<div class="grayOverlay" *ngIf="isConsentModal"></div>
-<div class="ctaPopup" *ngIf="isConsentModal">
-  <div class="popupHeader d-flex j-c-s-b">
-    <div class="title">Call to Action!</div>
-    <a href="" class="close">X</a>
-  </div>
-  <div class="popupBody">
-    <h4>Please provide your Consent.</h4>
-    <input id="consent" type="text" (change)="setConcent($event)" />
-  </div>
-  <div class="popupfooter">
-    <button>Yes</button>
-  </div>
-</div>
