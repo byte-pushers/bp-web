@@ -20,21 +20,22 @@ async function main() {
   const dst = '/home/pouncilt/public_html';
 
   try {
+    console.log(`SFTP Config: ${JSON.stringify(config)}`);
     await client.connect(config);
     client.on('upload', info => {
       console.log(`Listener: Uploaded ${info.source}`);
     });
-    let rslt = await client.uploadDir('dist/angular-app', dst);
+    let rslt = await client.uploadDir('dist/angular-app', dst); // bp-web-client/angular-app/dist/angular-app
     return rslt;
+  } catch(error) {
+    console.log(`An error occurred while deploying to godaddy: ${JSON.stringify(error)}`);
   } finally {
     client.end();
   }
 }
 
-main()
-  .then(msg => {
-    console.log(msg);
-  })
-  .catch(err => {
-    console.log(`main error: ${err.message}`);
-  });
+main().then(msg => {
+    console.log(`Successfully deployed to Godaddy: ${msg}`);
+}).catch(err => {
+    console.log(`Successfully deployed to Godaddy. main error: ${err.message}`);
+});

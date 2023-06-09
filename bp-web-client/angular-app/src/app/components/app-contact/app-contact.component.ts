@@ -18,7 +18,6 @@ import { StateNameService } from "../../services/state-name.service";
 import { ContactButtonService } from "../../services/contact-button.service";
 import { IDeactivateComponent } from "src/app/shared/components/iDeactivate/iDeactivate.component";
 import { Router } from "@angular/router";
-import { PopupService } from "src/app/services/popup.service";
 import {
   faFacebook,
   faTwitter,
@@ -26,6 +25,7 @@ import {
   faLinkedin,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
+import { PopupModalService } from "src/app/modules/popup-modal/services/popup-modal.service";
 
 @Component({
   selector: "app-contact",
@@ -56,7 +56,7 @@ export class ContactComponent
     public stateNameService: StateNameService,
     private scrollToService: ScrollToService,
     private contactButtonService: ContactButtonService,
-    private popupService: PopupService
+    private popupService: PopupModalService
   ) {}
 
   @ViewChild("quoteForm") quoteForm: any;
@@ -183,23 +183,23 @@ export class ContactComponent
     this.spinner.show();
     if (this.quote !== null && this.quote !== undefined) {
       this.quote.contact.phone.number = this.phoneNumber.control.value;
-      this.quoteService.createQuote(this.quote).subscribe(
-        (newlyCreatedQuote) => {
-          // TODO should have a new object with IDs populated through out the object graph.
-          console.log(
-            "newly created quote: " + newlyCreatedQuote,
-            newlyCreatedQuote
-          );
-          this.showConfirmation = true;
-          this.spinner.hide();
-          this.quoteForm.reset();
-          // TODO: Maybe we don't need this logic.
-          if (this.isMobileResolution()) {
-            this.onSubmitBackToTopMobile();
-          } else {
-            this.onSubmitBackToTopDesktop();
-          }
-        },
+      this.quoteService.createQuote(this.quote).subscribe((newlyCreatedQuote) => {
+
+        // TODO should have a new object with IDs populated through out the object graph.
+        console.log(
+          "newly created quote: " + newlyCreatedQuote,
+          newlyCreatedQuote
+        );
+        this.showConfirmation = true;
+        this.spinner.hide();
+        this.quoteForm.reset();
+        // TODO: Maybe we don't need this logic.
+        if (this.isMobileResolution()) {
+          this.onSubmitBackToTopMobile();
+        } else {
+          this.onSubmitBackToTopDesktop();
+        }
+      },
         (error) => {
           // TODO should display error message at top of quote page.
           this.errorMessages.push("Account was not created, internal error.");
@@ -212,8 +212,8 @@ export class ContactComponent
           this.quoteForm.reset();
           this.popupService.throwError({
             type: "Error",
-            title: `Oops.. ${error.statusText}`,
-            message: `${error.message}`,
+            title: 'An error occurred while trying to submit a Request Quote request',
+            messages: [`${error.getMessage()}`],
           });
         }
       );

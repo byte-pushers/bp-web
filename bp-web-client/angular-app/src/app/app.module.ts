@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AppComponent } from "./shared/components/app.component/app.component";
 import { AppHeaderComponent } from "./shared/components/app-header.component/app-header.component";
 import { AppBodyComponent } from "./shared/components/app-body.component/app-body.component";
@@ -35,6 +35,8 @@ import { environment } from "src/environments/environment";
 import { AppLoginComponent } from "./components/app-login/app-login.component";
 import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { PopupModalComponent } from "./modules/popup-modal/components/popup-modal.component";
+import { HttpRequestInterceptor } from "./interceptors/http-request.interceptor";
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +52,7 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
     AppAlertOverlayModalComponent,
     PhoneNumberDirective,
     AppLoginComponent,
+    PopupModalComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -79,6 +82,7 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
     AppRoutingService,
     StateNameService,
     DeactivateGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}
   ],
   entryComponents: [
     // Needs to be added here because otherwise we can't
