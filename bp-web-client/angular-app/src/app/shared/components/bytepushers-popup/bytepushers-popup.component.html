@@ -1,14 +1,24 @@
 <div class="bytepushersPopup" *ngIf="isBPpopup">
+  <!-- <div class="bytepushersPopup"> -->
   <div class="popupHeader d-flex j-c-s-b">
-    <div class="title">Call to Action!</div>
-    <a href="" class="close">X</a>
+    <div class="title"></div>
+    <!-- <button class="close">X</button> -->
   </div>
   <div class="popupBody">
-    <h4>Please provide your Consent.</h4>
-    <input id="consent" type="text" />
+    <div class="consent d-flex a-center">
+      <label class="container"
+        >Please provide your Consent.
+        <input type="checkbox" (change)="setConsent($event)" />
+        <span class="checkmark"></span>
+      </label>
+    </div>
   </div>
   <div class="popupfooter">
-    <button>Yes</button>
+    <button (click)="closeCTA()" class="secondaryBtn">Cancle</button>
+    <button [disabled]="!userConsent" (click)="saveCTA()" class="primaryBtn">
+      Submit
+    </button>
   </div>
 </div>
+<!-- <div class="grayOverlay"></div> -->
 <div class="grayOverlay" *ngIf="isBPpopup"></div>

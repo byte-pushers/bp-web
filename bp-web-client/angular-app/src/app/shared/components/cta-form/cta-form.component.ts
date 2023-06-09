@@ -1,6 +1,8 @@
 import { Component, Input } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
+import { BytePushersPopupService } from "src/app/modules/popup-modal/services/bytepushers-popup.service";
+import { CTAService } from "src/app/services/cta.service";
 import { HeaderService } from "src/app/services/header.service";
 
 @Component({
@@ -16,7 +18,9 @@ export class CTAFormComponent {
 
   constructor(
     private headerService: HeaderService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private ctaService: CTAService,
+    private bpPopupService: BytePushersPopupService
   ) {
     this.ctaForm = new FormGroup({
       ctaName: new FormControl("", [
@@ -32,6 +36,7 @@ export class CTAFormComponent {
   get ctaEmail() {
     return this.ctaForm.get("ctaEmail");
   }
+
   setThemeSecondaryColor() {
     let styles = {
       color: this?.theme?.secondaryColor,
@@ -41,15 +46,20 @@ export class CTAFormComponent {
   setConcent(event: any) {}
 
   onCTASubmit() {
-    let name = this?.ctaForm?.controls["ctaName"]?.value;
-    name = name.split(" ");
-    console.log(name);
-    let ctaReqObj = {
-      firstName: name[0],
-      middleName: name.length >= 3 ? name[1] : "",
-      lastName: name.length >= 3 ? name[2] : name[1],
-      Email: this?.ctaForm?.controls["ctaEmail"]?.value,
-    };
+    let ctaReqObj;
+    if (!this.ctaForm.invalid) {
+      let name = this?.ctaForm?.controls["ctaName"]?.value;
+      name = name.split(" ");
+      ctaReqObj = {
+        firstName: name[0],
+        middleName: name.length >= 3 ? name[1] : "",
+        lastName: name.length >= 3 ? name[2] : name[1],
+        Email: this?.ctaForm?.controls["ctaEmail"]?.value,
+      };
+      this.ctaService.ctaReqObjSubject.next(ctaReqObj);
+      this.bpPopupService.isBPpopupOpenSubject.next(true);
+    }
+
     console.log(ctaReqObj);
   }
 }
