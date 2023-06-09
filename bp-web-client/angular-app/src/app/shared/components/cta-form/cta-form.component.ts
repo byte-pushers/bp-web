@@ -23,7 +23,12 @@ export class CTAFormComponent {
       ctaEmail: new FormControl("", [Validators.required, Validators.email]),
     });
   }
-
+  get ctaName() {
+    return this.ctaForm.get("ctaName");
+  }
+  get ctaEmail() {
+    return this.ctaForm.get("ctaEmail");
+  }
   setThemeSecondaryColor() {
     let styles = {
       color: this?.theme?.secondaryColor,

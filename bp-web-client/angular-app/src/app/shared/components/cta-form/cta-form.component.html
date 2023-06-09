@@ -1,5 +1,5 @@
 <div class="ctaForm">
-  <h3 [ngStyle]="setThemeSecondaryColor()">Want to Learn more? {{ layout }}</h3>
+  <h3 [ngStyle]="setThemeSecondaryColor()">Want to Learn more?</h3>
   <form [formGroup]="ctaForm" (ngSubmit)="onCTASubmit()" novalidate>
     <input
       type="text"
@@ -15,4 +15,21 @@
     />
     <button type="submit" class="standardYelloBtn">Connect with Us</button>
   </form>
+  <div
+    *ngIf="ctaName.invalid && (ctaName.dirty || ctaName.touched)"
+    class="alert alert-danger"
+  >
+    <div *ngIf="ctaName.errors.required">Name is required.</div>
+  </div>
+
+  <div
+    *ngIf="ctaEmail.invalid && (ctaEmail.dirty || ctaEmail.touched)"
+    class="alert alert-danger"
+  >
+    <div *ngIf="ctaEmail.errors.required">Email is required.</div>
+    <div *ngIf="ctaEmail.errors.minlength">
+      A minimum of 2 letters are required.
+    </div>
+    <div *ngIf="ctaEmail.errors.email">Email is not valid.</div>
+  </div>
 </div>
