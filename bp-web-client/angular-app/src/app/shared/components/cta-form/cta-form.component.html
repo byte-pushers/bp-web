@@ -20,6 +20,7 @@
     class="alert alert-danger"
   >
     <div *ngIf="ctaName.errors.required">Name is required.</div>
+    <div *ngIf="ctaName.errors.minlength">Name must be atleast 3 letters.</div>
   </div>
 
   <div

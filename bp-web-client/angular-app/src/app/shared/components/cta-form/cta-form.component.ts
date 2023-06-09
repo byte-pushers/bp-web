@@ -19,7 +19,10 @@ export class CTAFormComponent {
     private route: ActivatedRoute
   ) {
     this.ctaForm = new FormGroup({
-      ctaName: new FormControl("", [Validators.required]),
+      ctaName: new FormControl("", [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
       ctaEmail: new FormControl("", [Validators.required, Validators.email]),
     });
   }
