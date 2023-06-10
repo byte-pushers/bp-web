@@ -54,7 +54,7 @@ export class CTAFormComponent {
         firstName: name[0],
         middleName: name.length >= 3 ? name[1] : "",
         lastName: name.length >= 3 ? name[2] : name[1],
-        Email: this?.ctaForm?.controls["ctaEmail"]?.value,
+        email: this?.ctaForm?.controls["ctaEmail"]?.value,
       };
       this.ctaService.ctaReqObjSubject.next(ctaReqObj);
       this.bpPopupService.isBPpopupOpenSubject.next(true);

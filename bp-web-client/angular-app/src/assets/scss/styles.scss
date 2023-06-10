@@ -3676,6 +3676,9 @@ td.actions {
   &:disabled {
     background: #dddddd;
     color: #000;
+    opacity: 0.6;
+    cursor: not-allowed;
+
     &:hover {
       background: #dddddd;
       opacity: 0.6;

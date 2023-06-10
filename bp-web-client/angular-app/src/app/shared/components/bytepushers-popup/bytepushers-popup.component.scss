@@ -96,10 +96,17 @@
 
   .popupBody {
     border-bottom: 1px solid #bababa;
-    padding: 15px 0;
-    min-height: 200px;
+    padding: 15px 40px;
 
     .consent {
+    }
+    .ctaForm {
+      margin-bottom: 15px;
+      form {
+        input {
+          margin-bottom: 10px;
+        }
+      }
     }
   }
   .popupfooter {
@@ -110,5 +117,33 @@
       margin-left: 15px;
       border: none;
     }
+  }
+}
+.ctaDetails {
+  margin-bottom: 15px;
+
+  .detailRow {
+    font-size: 20px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    .lable {
+      margin-right: 5px;
+      color: #bababa;
+    }
+
+    .lableData {
+      color: #035ba3;
+    }
+  }
+  h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+  p {
+    line-height: 30px;
+  }
+  span {
+    font-weight: 600;
+    color: #2196f3;
   }
 }

@@ -1,5 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { BytePushersPopupService } from "src/app/modules/popup-modal/services/bytepushers-popup.service";
+import { CTAService } from "src/app/services/cta.service";
 import { HeaderService } from "src/app/services/header.service";
 
 @Component({
@@ -15,9 +17,14 @@ export class LandingPageBottomLayoutComponent {
 
   constructor(
     private headerService: HeaderService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private ctaService: CTAService,
+    private bpPopupService: BytePushersPopupService
   ) {}
-  wanttoLearnMore() {}
+  wanttoLearnMore() {
+    this.ctaService.ctaReqObjSubject.next("bottomLayout");
+    this.bpPopupService.isBPpopupOpenSubject.next(true);
+  }
 
   setTitleColor() {
     let styles = {
