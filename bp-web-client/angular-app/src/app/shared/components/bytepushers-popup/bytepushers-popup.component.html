@@ -6,6 +6,7 @@
   </div>
   <div class="popupBody">
     <div class="consent d-flex a-center">
+      {{ ctaequestObj | json }}
       <label class="container"
         >Please provide your Consent.
         <input type="checkbox" (change)="setConsent($event)" />

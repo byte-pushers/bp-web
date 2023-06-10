@@ -59,7 +59,5 @@ export class CTAFormComponent {
       this.ctaService.ctaReqObjSubject.next(ctaReqObj);
       this.bpPopupService.isBPpopupOpenSubject.next(true);
     }
-
-    console.log(ctaReqObj);
   }
 }
