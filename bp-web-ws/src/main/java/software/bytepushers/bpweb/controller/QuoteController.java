@@ -5,8 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import software.bytepushers.bpweb.model.entity.Quote;
-import software.bytepushers.bpweb.service.HubspotService;
 import software.bytepushers.bpweb.service.QuoteService;
+import software.bytepushers.bpweb.service.impl.CRMIntegrationService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -21,11 +21,11 @@ import java.util.UUID;
 public class QuoteController extends AbstractController {
 
     private final QuoteService quoteServiceImpl;
-    private final HubspotService hubspotServiceImpl;
+    private final CRMIntegrationService crmIntegrationService;
 
-    public QuoteController(QuoteService quoteServiceImpl, HubspotService hubspotServiceImpl) {
+    public QuoteController(QuoteService quoteServiceImpl, CRMIntegrationService crmIntegrationService) {
         this.quoteServiceImpl = quoteServiceImpl;
-        this.hubspotServiceImpl = hubspotServiceImpl;
+        this.crmIntegrationService = crmIntegrationService;
     }
 
     /**
@@ -44,13 +44,14 @@ public class QuoteController extends AbstractController {
     /**
      * The rest endpoint implementation to create the quote.
      *
-     * @param quote with details to create
+     * @param quote
+     *         with details to create
      * @return the created quote details.
      */
     @PostMapping
     public ResponseEntity<?> create(@RequestBody @Valid Quote quote) {
         log.info("Request to create quote");
-        quote = this.hubspotServiceImpl.createHubspotEntities(quote);
+        this.crmIntegrationService.createAllCRMEntities(quote);
         Quote createdQuote = this.quoteServiceImpl.create(quote);
         log.info("Create quote request served successfully");
         return sendResponse(createdQuote, HttpStatus.CREATED);
@@ -59,7 +60,8 @@ public class QuoteController extends AbstractController {
     /**
      * The rest endpoint implementation to create the quote.
      *
-     * @param quote with details to update
+     * @param quote
+     *         with details to update
      * @return the updated quote details.
      */
     @PutMapping
@@ -73,7 +75,8 @@ public class QuoteController extends AbstractController {
     /**
      * The rest endpoint implementation to get the quote details.
      *
-     * @param quoteId to get the quote details.
+     * @param quoteId
+     *         to get the quote details.
      * @return the quote details.
      */
     @GetMapping("/{quoteId}")
@@ -87,7 +90,8 @@ public class QuoteController extends AbstractController {
     /**
      * The rest endpoint implementation to delete the quote.
      *
-     * @param quoteId to delete the quote
+     * @param quoteId
+     *         to delete the quote
      */
     @DeleteMapping("/{quoteId}")
     public ResponseEntity<?> delete(@PathVariable UUID quoteId) {
