@@ -5,18 +5,14 @@ import {
   OnDestroy,
   OnInit,
   ViewChild,
+  ViewContainerRef,
 } from "@angular/core";
 import * as $ from "jquery";
 import { fromEvent, Observable, Subscription } from "rxjs";
 import { ScrollToService } from "../../services/scroll-to.service";
 import { environment } from "../../../environments/environment";
-import {
-  faFacebook,
-  faTwitter,
-  faInstagram,
-  faLinkedin,
-  faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
+import { DynamicComponentService } from "../../shared/services/dynamic-component.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-home",
@@ -24,20 +20,21 @@ import {
   styleUrls: ["./app-home.component.css"],
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
-  faFacebook = faFacebook;
-  faTwitter = faTwitter;
-  faInstagram = faInstagram;
-  faLinkedin = faLinkedin;
-  faYoutube = faYoutube;
+  #layoutId: string;
+  #layoutType: string;
+  public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
+  public resizeObservable$: Observable<Event>;
+  public resizeSubscription$: Subscription;
+  @ViewChild("homeBackgroundWorkImg") private divView: ElementRef;
+  @ViewChild("landingPage", { read: ViewContainerRef })
+  private landingPageContainer!: ViewContainerRef;
 
   constructor(
     private window: Window,
-    public scrollToService: ScrollToService
+    public scrollToService: ScrollToService,
+    private dynamicComponentService: DynamicComponentService,
+    private route: ActivatedRoute
   ) {}
-  public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
-  resizeObservable$: Observable<Event>;
-  resizeSubscription$: Subscription;
-  @ViewChild("homeBackgroundWorkImg") divView: ElementRef;
 
   private static previousButtonClickedEventHandler(event: Event): void {
     const $nextButton = $("slide.item.carousel-item");
@@ -52,6 +49,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.#setLayoutId();
     // tslint:disable-next-line:only-arrow-functions
     $(document).ready(function (e) {
       const $prevButton = $(".left.carousel-control.carousel-control-prev");
@@ -72,6 +70,24 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
+    this.dynamicComponentService
+      .createComponent(
+        this.landingPageContainer,
+        this.#layoutId,
+        this.#layoutType
+      )
+      .then(
+        (componentCreated) => {
+          console.log(
+            `component created: ${JSON.stringify(componentCreated)}`,
+            componentCreated
+          );
+        },
+        (error) => {
+          console.log(`An error occurred: ${JSON.stringify(error)}`, error);
+        }
+      );
+
     this.resizeImage(this.window, this.divView);
   }
 
@@ -84,5 +100,14 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
     imageRef.nativeElement.setAttribute("width", windowWidth);
     imageRef.nativeElement.setAttribute("height", height);
+  }
+
+  #setLayoutId() {
+    this.route.queryParams.subscribe((params) => {
+      console.log(`params: ${JSON.stringify(params)}`);
+      this.#layoutId = params?.id;
+      this.#layoutType = params?.layout;
+      console.log(`layout id: ${this.#layoutId}`);
+    });
   }
 }

@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { PopupModalInfo } from '../models/popup-modal-info';
+import { Injectable } from "@angular/core";
+import { Observable, Subject } from "rxjs";
+import { PopupModalInfo } from "../models/popup-modal-info";
 import { PopupModalIntoModel } from "../models/popup-modal-into.model";
 
 @Injectable({

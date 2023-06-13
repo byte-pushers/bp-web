@@ -1,16 +1,16 @@
-import {PopupModalInfo} from "./popup-modal-info";
-import {PopupModalInfoProperties} from "./popup-modal-info.properties";
+import { PopupModalInfo } from "./popup-modal-info";
+import { PopupModalInfoProperties } from "./popup-modal-info.properties";
 
 export class PopupModalIntoModel implements PopupModalInfo {
   #type: string = null;
-  #title: string =  null;
+  #title: string = null;
   #messages: string[] = [];
 
-  public static DEFAULT_MODEL: PopupModalInfo = {
+  public static DEFAULT_CONFIG: PopupModalInfo = {
     type: null,
     title: null,
-    messages: []
-  }
+    messages: [],
+  };
 
   constructor(config: PopupModalInfoProperties) {
     this.#type = config?.type;

@@ -1,0 +1,50 @@
+<!-- newly refactored code -->
+<section
+  class="headerTheme"
+  [ngStyle]="setThemeBGImg()"
+  [ngClass]="showBorders() ? 'bordersTrue' : ''"
+>
+  <section class="header"></section>
+  <section class="bodyContent">
+    <div class="customContainer">
+      <div class="twoCol d-flex j-c-s-b a-bottom">
+        <div class="socialMediaIcons d-flex a-center">
+          <app-social-media></app-social-media>
+        </div>
+        <div class="contentArea d-flex j-c-s-b a-center">
+          <div class="empty"></div>
+          <div class="content rightLayout d-flex flexColumn flexEnd">
+            <h2 [ngStyle]="setTitleColor()" [innerHTML]="title"></h2>
+            <p
+              class="MADslogan"
+              [ngStyle]="setThemeSecondaryColor()"
+              [innerHTML]="slogan"
+            ></p>
+            <app-cta-form [theme]="theme" [layout]="'Right'"></app-cta-form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="logos d-flex j-c-s-b">
+    <div class="leftLogos d-flex j-c-s-b">
+      <img src="assets/images/homePage/bytePushersHomePageAviallLogo.svg" />
+      <img src="assets/images/homePage/bytePushersHomePageGELogo.svg" />
+      <img src="assets/images/homePage/bytePushersHomePageTelecomLogo.svg" />
+    </div>
+    <div class="btmArrow">
+      <a class="" pageScroll pageScrollOffset="80" href="#top-section">
+        <img
+          alt="caret"
+          src="assets/images/caret.svg"
+          style="width: 50px; height: 50px"
+        />
+      </a>
+    </div>
+    <div class="rightLogos d-flex j-c-s-b">
+      <img src="assets/images/homePage/bytePushersHomePageTilsterLogo.svg" />
+      <img src="assets/images/homePage/texas-instruments.svg" />
+      <img src="assets/images/homePage/bytePushersHomePageVALogo.svg" />
+    </div>
+  </section>
+</section>

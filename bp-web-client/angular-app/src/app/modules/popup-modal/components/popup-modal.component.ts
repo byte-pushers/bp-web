@@ -3,10 +3,10 @@ import { Component } from "@angular/core";
 import {
   faTriangleExclamation,
   faCircleXmark,
-  faCircle
+  faCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import { PopupModalService } from 'src/app/modules/popup-modal/services/popup-modal.service';
-import { PopupModalInfo } from '../models/popup-modal-info';
+import { PopupModalService } from "src/app/modules/popup-modal/services/popup-modal.service";
+import { PopupModalInfo } from "../models/popup-modal-info";
 
 @Component({
   selector: "app-model-popup",

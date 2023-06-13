@@ -183,23 +183,23 @@ export class ContactComponent
     this.spinner.show();
     if (this.quote !== null && this.quote !== undefined) {
       this.quote.contact.phone.number = this.phoneNumber.control.value;
-      this.quoteService.createQuote(this.quote).subscribe((newlyCreatedQuote) => {
-
-        // TODO should have a new object with IDs populated through out the object graph.
-        console.log(
-          "newly created quote: " + newlyCreatedQuote,
-          newlyCreatedQuote
-        );
-        this.showConfirmation = true;
-        this.spinner.hide();
-        this.quoteForm.reset();
-        // TODO: Maybe we don't need this logic.
-        if (this.isMobileResolution()) {
-          this.onSubmitBackToTopMobile();
-        } else {
-          this.onSubmitBackToTopDesktop();
-        }
-      },
+      this.quoteService.createQuote(this.quote).subscribe(
+        (newlyCreatedQuote) => {
+          // TODO should have a new object with IDs populated through out the object graph.
+          console.log(
+            "newly created quote: " + newlyCreatedQuote,
+            newlyCreatedQuote
+          );
+          this.showConfirmation = true;
+          this.spinner.hide();
+          this.quoteForm.reset();
+          // TODO: Maybe we don't need this logic.
+          if (this.isMobileResolution()) {
+            this.onSubmitBackToTopMobile();
+          } else {
+            this.onSubmitBackToTopDesktop();
+          }
+        },
         (error) => {
           // TODO should display error message at top of quote page.
           this.errorMessages.push("Account was not created, internal error.");
@@ -212,7 +212,8 @@ export class ContactComponent
           this.quoteForm.reset();
           this.popupService.throwError({
             type: "Error",
-            title: 'An error occurred while trying to submit a Request Quote request',
+            title:
+              "An error occurred while trying to submit a Request Quote request",
             messages: [`${error.getMessage()}`],
           });
         }

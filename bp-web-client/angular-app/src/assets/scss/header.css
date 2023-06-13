@@ -1032,13 +1032,13 @@ the header component, remaining stylings left on the header componnent are there
 
 @media only screen and (min-width: 840px) and (max-width: 991px) {
   .topnav-link-item {
-    margin-left: 2em;
+    margin-left: 1.7em;
   }
 }
 
 @media only screen and (min-width: 992px) {
   .topnav-link-item {
-    margin-left: 2.3em;
+    margin-left: 1.3em;
   }
 }
 
@@ -1107,11 +1107,11 @@ the header component, remaining stylings left on the header componnent are there
   text-decoration: none;
   font-weight: normal;
   text-transform: uppercase;
-  border-bottom: 2px solid transparent;
+  /* border-bottom: 2px solid transparent; */
   padding-bottom: 0.125em;
-  -webkit-transition: border-bottom-color 50ms linear;
+  /* -webkit-transition: border-bottom-color 50ms linear;
   -moz-transition: border-bottom-color 50ms linear;
-  transition: border-bottom-color 50ms linear;
+  transition: border-bottom-color 50ms linear; */
 }
 
 .topnav {
