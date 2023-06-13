@@ -3662,3 +3662,48 @@ td.actions {
     }
   }
 }
+
+.primaryBtn {
+  padding: 8px 12px;
+  border: solid 1px #0263bb;
+  background: #0263bb;
+  color: #fff;
+  cursor: pointer;
+  min-width: 120px;
+  text-align: center;
+  border-radius: 5px;
+
+  &:disabled {
+    background: #dddddd;
+    color: #000;
+    opacity: 0.6;
+    cursor: not-allowed;
+
+    &:hover {
+      background: #dddddd;
+      opacity: 0.6;
+    }
+  }
+  &:hover {
+    background: #003a70;
+  }
+}
+.secondaryBtn {
+  padding: 8px 12px;
+  border: solid 1px #8b8b8b;
+  background: #cbcbcb;
+  border-radius: 5px;
+  color: #000;
+  cursor: pointer;
+  min-width: 120px;
+  text-align: center;
+
+  :disabled {
+    background: #dddddd;
+    color: #000;
+  }
+
+  &:hover {
+    background: #717171;
+  }
+}

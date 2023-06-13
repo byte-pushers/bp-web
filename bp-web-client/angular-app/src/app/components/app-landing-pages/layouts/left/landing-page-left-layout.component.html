@@ -33,26 +33,7 @@
               [ngStyle]="setThemeSecondaryColor()"
               [innerHTML]="slogan"
             ></p>
-            <div class="ctaForm">
-              <h3 [ngStyle]="setThemeSecondaryColor()">Want to Learn more?</h3>
-              <form [formGroup]="ctaForm" (ngSubmit)="onCTASubmit()" novalidate>
-                <input
-                  type="text"
-                  class="form-control name"
-                  formControlName="ctaName"
-                  placeholder="Name"
-                />
-                <input
-                  type="email"
-                  class="form-control email"
-                  formControlName="ctaEmail"
-                  placeholder="Email"
-                />
-                <button type="submit" class="standardYelloBtn">
-                  Connect with Us
-                </button>
-              </form>
-            </div>
+            <app-cta-form [theme]="theme" [layout]="'Left'"></app-cta-form>
           </div>
           <div class="empty"></div>
         </div>

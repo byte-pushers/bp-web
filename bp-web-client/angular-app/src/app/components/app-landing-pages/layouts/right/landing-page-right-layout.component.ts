@@ -13,25 +13,12 @@ export class LandingPageRightLayoutComponent {
   @Input() title;
   @Input() slogan;
   @Input() theme;
-  public ctaForm: FormGroup;
 
   constructor(
     private headerService: HeaderService,
     private route: ActivatedRoute
-  ) {
-    this.ctaForm = new FormGroup({
-      ctaName: new FormControl("", [Validators.required]),
-      ctaEmail: new FormControl("", [Validators.required, Validators.email]),
-    });
-  }
+  ) {}
 
-  onCTASubmit() {
-    let ctaReqObj = {
-      Name: this?.ctaForm?.controls["ctaName"]?.value,
-      Email: this?.ctaForm?.controls["ctaEmail"]?.value,
-    };
-    console.log(ctaReqObj);
-  }
   setTitleColor() {
     let styles = {
       color: this?.theme?.titleColor,
