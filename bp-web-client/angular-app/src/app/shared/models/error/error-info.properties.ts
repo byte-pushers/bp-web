@@ -2,5 +2,5 @@ export interface ErrorInfoProperties {
   code: string;
   type: string;
   message: string;
-  field?: { name: string, min?: number, max?: number, required?: boolean };
+  field?: { name: string; min?: number; max?: number; required?: boolean };
 }

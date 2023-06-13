@@ -1,28 +1,31 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import {
   HttpInterceptor,
   HttpEvent,
   HttpResponse,
   HttpRequest,
   HttpHandler,
-  HttpErrorResponse
-} from '@angular/common/http';
-import {filter, Observable, tap, throwError} from 'rxjs';
-import {catchError, map} from "rxjs/operators";
-import {HttpError} from "../shared/models/http/http-error";
-import {HttpErrorModel} from "../shared/models/http/http-error.model";
-import {HttpErrorInfoModel} from "../shared/models/http/http-error-info.model";
+  HttpErrorResponse,
+} from "@angular/common/http";
+import { filter, Observable, tap, throwError } from "rxjs";
+import { catchError, map } from "rxjs/operators";
+import { HttpError } from "../shared/models/http/http-error";
+import { HttpErrorModel } from "../shared/models/http/http-error.model";
+import { HttpErrorInfoModel } from "../shared/models/http/http-error-info.model";
 
 @Injectable()
 export class HttpRequestInterceptor implements HttpInterceptor {
-  intercept(httpRequest: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  intercept(
+    httpRequest: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
     return next.handle(httpRequest).pipe(
       tap(
-        event => event instanceof HttpResponse ? event : event,
-        error => {
+        (event) => (event instanceof HttpResponse ? event : event),
+        (error) => {
           if (error instanceof HttpErrorResponse) {
-            console.log('http error intercepted');
-            error = (error as HttpErrorResponse);
+            console.log("http error intercepted");
+            error = error as HttpErrorResponse;
 
             if (error.status == 0 || error.statusText === `Unknown Error`) {
               error.status = 500;
@@ -33,8 +36,13 @@ export class HttpRequestInterceptor implements HttpInterceptor {
       ),
       catchError((error: HttpErrorResponse) => {
         const httpErrorInfoArray = [
-          new HttpErrorInfoModel({code: null, type: null, message: error.message, httpStatusCode: error.status})
-        ]
+          new HttpErrorInfoModel({
+            code: null,
+            type: null,
+            message: error.message,
+            httpStatusCode: error.status,
+          }),
+        ];
         return throwError(new HttpErrorModel(httpErrorInfoArray));
       })
     );

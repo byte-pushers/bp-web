@@ -99,7 +99,8 @@ matrix:
             - ObjectName=${S3_DEPLOYMENT_OBJECT_NAME}
             - CorsLambdaObjectName=cors-lambda.zip
             - CorsOrigin=${CORS_ALLOWED_ORIGIN}
-          capabilities: [ CAPABILITY_NAMED_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND ]
+          capabilities:
+            [CAPABILITY_NAMED_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND]
           edge: true
           skip_cleanup: true
           on:

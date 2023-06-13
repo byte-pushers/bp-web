@@ -37,6 +37,20 @@ import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { PopupModalComponent } from "./modules/popup-modal/components/popup-modal.component";
 import { HttpRequestInterceptor } from "./interceptors/http-request.interceptor";
+import { MADLandingComponent } from "./components/app-madlanding/madlanding.component";
+import { SocialMediaComponent } from "./shared/components/app-social-media.component/app-social-media.component";
+import { RightComponent } from "./components/app-madlanding/right/right.component";
+import { BottomComponent } from "./components/app-madlanding/bottom/bottom.component";
+import { LeftComponent } from "./components/app-madlanding/left/left.component";
+import { LandingPageBottomLayoutComponent } from "./components/app-landing-pages/layouts/bottom/landing-page-bottom-layout.component";
+import { LandingPageLeftLayoutComponent } from "./components/app-landing-pages/layouts/left/landing-page-left-layout.component";
+import { LandingPageRightLayoutComponent } from "./components/app-landing-pages/layouts/right/landing-page-right-layout.component";
+import { LogoTextAsideComponent } from "./shared/components/logo-text-aside/logo-text-aside.component";
+import { LogoOnlyTextComponent } from "./shared/components/logo-only-text/logo-only-text.component";
+import { LogoTextBottomComponent } from "./shared/components/logo-text-bottom/logo-text-bottom.component";
+import { CTAFormComponent } from "./shared/components/cta-form/cta-form.component";
+import { BytepushersPopupComponent } from "./shared/components/bytepushers-popup/bytepushers-popup.component";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,10 +63,23 @@ import { HttpRequestInterceptor } from "./interceptors/http-request.interceptor"
     ContactComponent,
     InfoComponent,
     AppFooterComponent,
+    SocialMediaComponent,
     AppAlertOverlayModalComponent,
     PhoneNumberDirective,
     AppLoginComponent,
     PopupModalComponent,
+    MADLandingComponent,
+    RightComponent,
+    BottomComponent,
+    LeftComponent,
+    LandingPageBottomLayoutComponent,
+    LandingPageLeftLayoutComponent,
+    LandingPageRightLayoutComponent,
+    LogoTextAsideComponent,
+    LogoOnlyTextComponent,
+    LogoTextBottomComponent,
+    CTAFormComponent,
+    BytepushersPopupComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -82,7 +109,11 @@ import { HttpRequestInterceptor } from "./interceptors/http-request.interceptor"
     AppRoutingService,
     StateNameService,
     DeactivateGuard,
-    { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpRequestInterceptor,
+      multi: true,
+    },
   ],
   entryComponents: [
     // Needs to be added here because otherwise we can't

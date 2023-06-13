@@ -1,5 +1,5 @@
-import {ErrorInfo} from "./error-info";
-import {ErrorInfoProperties} from "./error-info.properties";
+import { ErrorInfo } from "./error-info";
+import { ErrorInfoProperties } from "./error-info.properties";
 
 export class ErrorInfoModel implements ErrorInfo {
   #code: string;
@@ -26,7 +26,12 @@ export class ErrorInfoModel implements ErrorInfo {
     return this.#field;
   }
 
-  get field(): { name: string; min?: number; max?: number; required?: boolean } {
+  get field(): {
+    name: string;
+    min?: number;
+    max?: number;
+    required?: boolean;
+  } {
     return this.#field;
   }
 
