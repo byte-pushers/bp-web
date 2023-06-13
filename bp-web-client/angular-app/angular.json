@@ -43,6 +43,7 @@
           },
           "configurations": {
             "production": {
+              "index": "src/index.production.html",
               "budgets": [
                 {
                   "type": "initial",
@@ -64,6 +65,7 @@
               "outputHashing": "all"
             },
             "development": {
+              "index": "src/index.html",
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
