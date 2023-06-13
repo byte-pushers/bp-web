@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from "@angular/core";
-import { NavigationEnd, Router } from "@angular/router";
+import { Component, HostListener, Input, OnInit } from "@angular/core";
+import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { HeaderService } from "src/app/services/header.service";
 import { LoginService } from "src/app/services/login.service";
 import { ScrollToService } from "../../../services/scroll-to.service";
@@ -12,12 +12,23 @@ import { ReloadRefreshComponent } from "../reloadRefresh/reload-refresh.componen
 })
 export class AppHeaderComponent extends ReloadRefreshComponent {
   isUserLoggedIn: boolean = false;
-  selectedThemeColor;
+  isScrolled: boolean = false;
+  @HostListener("window:scroll", ["$event"])
+  webpageScrolling(event: any) {
+    const headerBar = document.getElementById("topnav");
+    if (headerBar.classList.contains("topnav-scrolling")) {
+      this.isScrolled = true;
+    } else {
+      this.isScrolled = false;
+    }
+  }
+  selectedTheme: any;
   constructor(
     public scrollTo: ScrollToService,
     public override router: Router,
     private loginService: LoginService,
-    private headerService: HeaderService
+    private headerService: HeaderService,
+    private route: ActivatedRoute
   ) {
     super(router);
     this.loginService.currentUserSubject.subscribe((value) => {
@@ -26,11 +37,11 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   }
 
   override ngOnInit() {
-    this.headerService.currentThemeColor.subscribe((color: string) => {
-      this.selectedThemeColor = color;
+    this.headerService.currentTheme.subscribe((theme: any) => {
+      this.selectedTheme = theme;
     });
 
-    console.log(this.selectedThemeColor);
+    console.log(this.selectedTheme);
     window.onscroll = function () {
       navScroll();
       checkCp3Desc();
@@ -96,15 +107,66 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
       this.reloadPage();
     }, 10);
   }
+
+  showSmallLogo() {
+    if (window.innerWidth <= 768) {
+      return true;
+    }
+    return false;
+  }
+
   logout() {
     this.loginService.logout();
     this.router.navigate(["/"]);
   }
-  setColor() {
-    let styles = {
-      color: this.selectedThemeColor,
-      "border-bottom-color": this.selectedThemeColor,
-    };
-    return styles;
+
+  setColor(pageName: string) {
+    const headerBar = document.getElementById("topnav");
+    const correntPageURL = this.router.url;
+    let styles;
+
+    if (
+      headerBar.classList.contains("expanded") ||
+      headerBar.classList.contains("topnav-scrolling")
+    ) {
+      if (correntPageURL.includes(pageName)) {
+        styles = {
+          color: "#000",
+          "border-bottom-color": "#000",
+        };
+      } else {
+        styles = {
+          color: "#000",
+          "border-bottom-color": "transparent",
+        };
+      }
+      return styles;
+    } else {
+      if (correntPageURL.includes(pageName)) {
+        styles = {
+          color: this.selectedTheme.NavColor,
+          "border-bottom-color": this.selectedTheme.NavColor,
+        };
+      } else {
+        styles = {
+          color: this.selectedTheme.NavColor,
+          "border-bottom-color": "transparent",
+        };
+      }
+      return styles;
+    }
+  }
+  getLogoColor() {
+    const headerBar = document.getElementById("topnav");
+    if (headerBar.classList.contains("expanded")) {
+      return "#000";
+    }
+    return this.selectedTheme.logoColor;
+  }
+  hideTill1060() {
+    if (window.innerWidth <= 1060) {
+      return false;
+    }
+    return true;
   }
 }

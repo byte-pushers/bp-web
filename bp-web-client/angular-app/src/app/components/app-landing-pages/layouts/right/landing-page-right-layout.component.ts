@@ -1,5 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { ActivatedRoute } from "@angular/router";
 import { HeaderService } from "src/app/services/header.service";
 
 @Component({
@@ -12,27 +13,21 @@ export class LandingPageRightLayoutComponent {
   @Input() title;
   @Input() slogan;
   @Input() theme;
-  public ctaForm: FormGroup;
 
-  constructor(private headerService: HeaderService) {
-    this.ctaForm = new FormGroup({
-      ctaName: new FormControl("", [Validators.required]),
-      ctaEmail: new FormControl("", [Validators.required, Validators.email]),
-    });
-  }
+  constructor(
+    private headerService: HeaderService,
+    private route: ActivatedRoute
+  ) {}
 
-  onCTASubmit() {
-    let ctaReqObj = {
-      Name: this?.ctaForm?.controls["ctaName"]?.value,
-      Email: this?.ctaForm?.controls["ctaEmail"]?.value,
-    };
-    console.log(ctaReqObj);
-  }
   setTitleColor() {
     let styles = {
       color: this?.theme?.titleColor,
+      "font-weight": "200",
     };
-    this.headerService.setThemeColor(this?.theme?.titleColor);
+    this.headerService.setTheme({
+      logoColor: this?.theme?.secondaryColor,
+      NavColor: this?.theme?.titleColor,
+    });
     return styles;
   }
   setThemePrimaryColor() {
@@ -53,5 +48,14 @@ export class LandingPageRightLayoutComponent {
       "background-size": "cover",
     };
     return styles;
+  }
+  showBorders(): boolean | void {
+    let isBorders;
+    this.route.queryParams.subscribe((params) => {
+      if (params?.showBorder == "true") {
+        isBorders = params?.showBorder;
+      }
+    });
+    return isBorders;
   }
 }

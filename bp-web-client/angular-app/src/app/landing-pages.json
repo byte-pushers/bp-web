@@ -8,6 +8,7 @@
         "titleColor": "#fff",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#fff",
+        "inputColor": "#fff",
         "imagePath": {
           "right": "assets/images/landingPages/v1/right-align.png",
           "left": "assets/images/landingPages/v1/left-align.png",
@@ -25,6 +26,7 @@
         "titleColor": "#fff",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#fff",
+        "inputColor": "#fff",
         "imagePath": {
           "right": "assets/images/landingPages/v1/right-align.png",
           "left": "assets/images/landingPages/v1/left-align.png",
@@ -42,6 +44,7 @@
         "titleColor": "#0263bb",
         "primaryColor": "#0263bb",
         "secondaryColor": "#000",
+        "inputColor": "#000",
         "imagePath": {
           "right": "assets/images/landingPages/v2/right-align.png",
           "left": "assets/images/landingPages/v2/left-align.png",
@@ -59,6 +62,7 @@
         "titleColor": "#fff",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#fff",
+        "inputColor": "#fff",
         "imagePath": {
           "right": "assets/images/landingPages/v3/right-align.png",
           "left": "assets/images/landingPages/v3/left-align.png",
@@ -76,6 +80,7 @@
         "titleColor": "#fff",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#fff",
+        "inputColor": "#fff",
         "imagePath": {
           "right": "assets/images/landingPages/v4/right-align.png",
           "left": "assets/images/landingPages/v4/left-align.png",
@@ -93,6 +98,7 @@
         "titleColor": "#000",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#000",
+        "inputColor": "#000",
         "imagePath": {
           "right": "assets/images/landingPages/v5/right-align.png",
           "left": "assets/images/landingPages/v5/left-align.png",
@@ -110,6 +116,7 @@
         "titleColor": "#fff",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#fff",
+        "inputColor": "#000",
         "imagePath": {
           "right": "assets/images/landingPages/v6/right-align.png",
           "left": "assets/images/landingPages/v6/left-align.png",
@@ -127,6 +134,7 @@
         "titleColor": "#fff",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#fff",
+        "inputColor": "#000",
         "imagePath": {
           "right": "assets/images/landingPages/v7/right-align.png",
           "left": "assets/images/landingPages/v7/left-align.png",
@@ -144,6 +152,7 @@
         "titleColor": "#000",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#000",
+        "inputColor": "#000",
         "imagePath": {
           "right": "assets/images/landingPages/v8/right-align.png",
           "left": "assets/images/landingPages/v8/left-align.png",
@@ -161,6 +170,7 @@
         "titleColor": "#000",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#000",
+        "inputColor": "#000",
         "imagePath": {
           "right": "assets/images/landingPages/v9/right-align.png",
           "left": "assets/images/landingPages/v9/left-align.png",
@@ -178,6 +188,7 @@
         "titleColor": "#fff",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#fff",
+        "inputColor": "#fff",
         "imagePath": {
           "right": "assets/images/landingPages/v10/right-align.png",
           "left": "assets/images/landingPages/v10/left-align.png",
@@ -195,6 +206,7 @@
         "titleColor": "#fff",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#fff",
+        "inputColor": "#fff",
         "imagePath": {
           "right": "assets/images/landingPages/v11/right-align.png",
           "left": "assets/images/landingPages/v11/left-align.png",
@@ -212,6 +224,7 @@
         "titleColor": "#fff",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#fff",
+        "inputColor": "#fff",
         "imagePath": {
           "right": "assets/images/landingPages/v12/right-align.png",
           "left": "assets/images/landingPages/v12/left-align.png",
@@ -229,6 +242,7 @@
         "titleColor": "#fff",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#fff",
+        "inputColor": "#fff",
         "imagePath": {
           "right": "assets/images/landingPages/v13/bottom-align.png",
           "left": "assets/images/landingPages/v13/bottom-align.png",
@@ -246,6 +260,7 @@
         "titleColor": "#fff",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#fff",
+        "inputColor": "#000",
         "imagePath": {
           "right": "assets/images/landingPages/v14/right-align.png",
           "left": "assets/images/landingPages/v14/left-align.png",
@@ -263,6 +278,7 @@
         "titleColor": "#fff",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#fff",
+        "inputColor": "#fff",
         "imagePath": {
           "right": "assets/images/landingPages/v15/right-align.png",
           "left": "assets/images/landingPages/v15/left-align.png",
@@ -280,6 +296,7 @@
         "titleColor": "#fff",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#fff",
+        "inputColor": "#fff",
         "imagePath": {
           "right": "assets/images/landingPages/v16/right-align.png",
           "left": "assets/images/landingPages/v16/left-align.png",
@@ -297,6 +314,7 @@
         "titleColor": "#000",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#000",
+        "inputColor": "#000",
         "imagePath": {
           "right": "assets/images/landingPages/v17/right-align.png",
           "left": "assets/images/landingPages/v17/left-align.png",
@@ -314,6 +332,7 @@
         "titleColor": "#000",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#000",
+        "inputColor": "#000",
         "imagePath": {
           "right": "assets/images/landingPages/v18/right-align.png",
           "left": "assets/images/landingPages/v18/left-align.png",

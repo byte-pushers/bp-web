@@ -21,11 +21,13 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   #layoutId: string;
+  #layoutType: string;
   public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
   public resizeObservable$: Observable<Event>;
   public resizeSubscription$: Subscription;
   @ViewChild("homeBackgroundWorkImg") private divView: ElementRef;
-  @ViewChild("landingPage", { read: ViewContainerRef }) private landingPageContainer!: ViewContainerRef;
+  @ViewChild("landingPage", { read: ViewContainerRef })
+  private landingPageContainer!: ViewContainerRef;
 
   constructor(
     private window: Window,
@@ -69,7 +71,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
     this.dynamicComponentService
-      .createComponent(this.landingPageContainer, this.#layoutId)
+      .createComponent(
+        this.landingPageContainer,
+        this.#layoutId,
+        this.#layoutType
+      )
       .then(
         (componentCreated) => {
           console.log(
@@ -99,9 +105,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   #setLayoutId() {
     this.route.queryParams.subscribe((params) => {
       console.log(`params: ${JSON.stringify(params)}`);
-
       this.#layoutId = params?.id;
-
+      this.#layoutType = params?.layout;
       console.log(`layout id: ${this.#layoutId}`);
     });
   }

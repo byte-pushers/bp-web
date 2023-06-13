@@ -5,14 +5,17 @@ import { BehaviorSubject, Observable } from "rxjs";
   providedIn: "root",
 })
 export class HeaderService {
-  private themeColor = new BehaviorSubject<string>("#fff");
-  currentThemeColor = this.themeColor.asObservable();
+  private theme = new BehaviorSubject<any>({
+    logoColor: "#fff",
+    NavColor: "#fff",
+  });
+  currentTheme = this.theme.asObservable();
 
   /**
    *
    * @param {string}color
    */
-  public setThemeColor(color: string) {
-    this.themeColor.next(color);
+  public setTheme(selectedTheme: any) {
+    this.theme.next(selectedTheme);
   }
 }

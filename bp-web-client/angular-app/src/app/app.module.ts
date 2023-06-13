@@ -45,6 +45,11 @@ import { LeftComponent } from "./components/app-madlanding/left/left.component";
 import { LandingPageBottomLayoutComponent } from "./components/app-landing-pages/layouts/bottom/landing-page-bottom-layout.component";
 import { LandingPageLeftLayoutComponent } from "./components/app-landing-pages/layouts/left/landing-page-left-layout.component";
 import { LandingPageRightLayoutComponent } from "./components/app-landing-pages/layouts/right/landing-page-right-layout.component";
+import { LogoTextAsideComponent } from "./shared/components/logo-text-aside/logo-text-aside.component";
+import { LogoOnlyTextComponent } from "./shared/components/logo-only-text/logo-only-text.component";
+import { LogoTextBottomComponent } from "./shared/components/logo-text-bottom/logo-text-bottom.component";
+import { CTAFormComponent } from "./shared/components/cta-form/cta-form.component";
+import { BytepushersPopupComponent } from "./shared/components/bytepushers-popup/bytepushers-popup.component";
 
 @NgModule({
   declarations: [
@@ -70,6 +75,11 @@ import { LandingPageRightLayoutComponent } from "./components/app-landing-pages/
     LandingPageBottomLayoutComponent,
     LandingPageLeftLayoutComponent,
     LandingPageRightLayoutComponent,
+    LogoTextAsideComponent,
+    LogoOnlyTextComponent,
+    LogoTextBottomComponent,
+    CTAFormComponent,
+    BytepushersPopupComponent,
   ],
   imports: [
     AppRoutingModule,

@@ -1,3 +1,71 @@
+<!-- newly refactored code -->
+<style>
+  ::placeholder {
+    color: "${theme.inputColor}";
+    opacity: 1;
+    /* Firefox */
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: "${theme.inputColor}";
+  }
+
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: "${theme.inputColor}";
+  }
+</style>
+<section
+  class="headerTheme"
+  [ngStyle]="setThemeBGImg()"
+  [ngClass]="showBorders() ? 'bordersTrue' : ''"
+>
+  <section class="header"></section>
+  <section class="bodyContent">
+    <div class="customContainer">
+      <div class="twoCol d-flex j-c-s-b a-bottom">
+        <div class="contentArea d-flex j-c-s-b a-center">
+          <div class="content leftLayout">
+            <h2 [ngStyle]="setTitleColor()" [innerHTML]="title"></h2>
+            <p
+              class="MADslogan"
+              [ngStyle]="setThemeSecondaryColor()"
+              [innerHTML]="slogan"
+            ></p>
+            <app-cta-form [theme]="theme" [layout]="'Left'"></app-cta-form>
+          </div>
+          <div class="empty"></div>
+        </div>
+        <div class="socialMediaIcons d-flex a-center">
+          <app-social-media></app-social-media>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="logos d-flex j-c-s-b">
+    <div class="leftLogos d-flex j-c-s-b">
+      <img src="assets/images/homePage/bytePushersHomePageAviallLogo.svg" />
+      <img src="assets/images/homePage/bytePushersHomePageGELogo.svg" />
+      <img src="assets/images/homePage/bytePushersHomePageTelecomLogo.svg" />
+    </div>
+    <div class="btmArrow">
+      <a class="" pageScroll pageScrollOffset="80" href="#top-section">
+        <img
+          alt="caret"
+          src="assets/images/caret.svg"
+          style="width: 50px; height: 50px"
+        />
+      </a>
+    </div>
+    <div class="rightLogos d-flex j-c-s-b">
+      <img src="assets/images/homePage/bytePushersHomePageTilsterLogo.svg" />
+      <img src="assets/images/homePage/texas-instruments.svg" />
+      <img src="assets/images/homePage/bytePushersHomePageVALogo.svg" />
+    </div>
+  </section>
+</section>
+<!-- commented just for future reference
 <header class="hero-fixed hero-home" id="hero" [ngStyle]="setThemeBGImg()">
   <div class="video-overlay" style="display: none"></div>
   <app-social-media></app-social-media>
@@ -41,4 +109,4 @@
       style="width: 50px; height: 50px"
     />
   </a>
-</header>
+</header> -->

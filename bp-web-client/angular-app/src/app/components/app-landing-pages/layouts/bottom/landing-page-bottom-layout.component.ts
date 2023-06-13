@@ -1,4 +1,7 @@
 import { Component, Input } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { BytePushersPopupService } from "src/app/modules/popup-modal/services/bytepushers-popup.service";
+import { CTAService } from "src/app/services/cta.service";
 import { HeaderService } from "src/app/services/header.service";
 
 @Component({
@@ -12,13 +15,26 @@ export class LandingPageBottomLayoutComponent {
   @Input() slogan;
   @Input() theme;
 
-  constructor(private headerService: HeaderService) {}
-  wanttoLearnMore() {}
+  constructor(
+    private headerService: HeaderService,
+    private route: ActivatedRoute,
+    private ctaService: CTAService,
+    private bpPopupService: BytePushersPopupService
+  ) {}
+  wanttoLearnMore() {
+    this.ctaService.ctaReqObjSubject.next("bottomLayout");
+    this.bpPopupService.isBPpopupOpenSubject.next(true);
+  }
+
   setTitleColor() {
     let styles = {
       color: this?.theme?.titleColor,
+      "font-weight": "200",
     };
-    this.headerService.setThemeColor(this?.theme?.titleColor);
+    this.headerService.setTheme({
+      logoColor: this?.theme?.secondaryColor,
+      NavColor: this?.theme?.titleColor,
+    });
     return styles;
   }
   setThemePrimaryColor() {
@@ -39,5 +55,14 @@ export class LandingPageBottomLayoutComponent {
       "background-size": "cover",
     };
     return styles;
+  }
+  showBorders(): boolean | void {
+    let isBorders;
+    this.route.queryParams.subscribe((params) => {
+      if (params?.showBorder == "true") {
+        isBorders = params?.showBorder;
+      }
+    });
+    return isBorders;
   }
 }
