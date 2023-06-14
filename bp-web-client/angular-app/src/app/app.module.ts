@@ -50,6 +50,7 @@ import { LogoOnlyTextComponent } from "./shared/components/logo-only-text/logo-o
 import { LogoTextBottomComponent } from "./shared/components/logo-text-bottom/logo-text-bottom.component";
 import { CTAFormComponent } from "./shared/components/cta-form/cta-form.component";
 import { BytepushersPopupComponent } from "./shared/components/bytepushers-popup/bytepushers-popup.component";
+import { AvialLogoComponent } from "./shared/components/heroLogos/avial-logo/avial-logo.component";
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { BytepushersPopupComponent } from "./shared/components/bytepushers-popup
     LogoTextBottomComponent,
     CTAFormComponent,
     BytepushersPopupComponent,
+    AvialLogoComponent,
   ],
   imports: [
     AppRoutingModule,
