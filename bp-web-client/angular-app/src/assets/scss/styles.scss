@@ -3636,6 +3636,7 @@ td.actions {
 .logos {
   padding: 15px !important;
   align-items: end;
+  width: calc(100% - 120px);
   .btmArrow {
     width: 5%;
   }
@@ -3648,7 +3649,6 @@ td.actions {
       width: 120px;
       height: auto;
       padding: 5px;
-      background: #fff;
     }
   }
 }
