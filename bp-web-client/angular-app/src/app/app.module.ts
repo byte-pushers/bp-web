@@ -53,6 +53,7 @@ import { BytepushersPopupComponent } from "./shared/components/bytepushers-popup
 import { AvialLogoComponent } from "./shared/components/heroLogos/avial-logo/avial-logo.component";
 import { GeLogoComponent } from "./shared/components/heroLogos/ge-logo/ge-logo.component";
 import { VartecLogoComponent } from "./shared/components/heroLogos/vartec-logo/vartec-logo.component";
+import { TilsterLogoComponent } from "./shared/components/heroLogos/tilster-logo/tilster-logo.component";
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { VartecLogoComponent } from "./shared/components/heroLogos/vartec-logo/v
     AvialLogoComponent,
     GeLogoComponent,
     VartecLogoComponent,
+    TilsterLogoComponent,
   ],
   imports: [
     AppRoutingModule,
