@@ -55,6 +55,7 @@ import { GeLogoComponent } from "./shared/components/heroLogos/ge-logo/ge-logo.c
 import { VartecLogoComponent } from "./shared/components/heroLogos/vartec-logo/vartec-logo.component";
 import { TilsterLogoComponent } from "./shared/components/heroLogos/tilster-logo/tilster-logo.component";
 import { TexasInstrumentsLogoComponent } from "./shared/components/heroLogos/texas-instruments-logo/texas-instruments-logo.component";
+import { VALogoComponent } from "./shared/components/heroLogos/va-logo/va-logo.component";
 
 @NgModule({
   declarations: [
@@ -90,6 +91,7 @@ import { TexasInstrumentsLogoComponent } from "./shared/components/heroLogos/tex
     VartecLogoComponent,
     TilsterLogoComponent,
     TexasInstrumentsLogoComponent,
+    VALogoComponent,
   ],
   imports: [
     AppRoutingModule,
