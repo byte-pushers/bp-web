@@ -51,6 +51,7 @@ import { LogoTextBottomComponent } from "./shared/components/logo-text-bottom/lo
 import { CTAFormComponent } from "./shared/components/cta-form/cta-form.component";
 import { BytepushersPopupComponent } from "./shared/components/bytepushers-popup/bytepushers-popup.component";
 import { AvialLogoComponent } from "./shared/components/heroLogos/avial-logo/avial-logo.component";
+import { GeLogoComponent } from './shared/components/heroLogos/ge-logo/ge-logo.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { AvialLogoComponent } from "./shared/components/heroLogos/avial-logo/avi
     CTAFormComponent,
     BytepushersPopupComponent,
     AvialLogoComponent,
+    GeLogoComponent,
   ],
   imports: [
     AppRoutingModule,
