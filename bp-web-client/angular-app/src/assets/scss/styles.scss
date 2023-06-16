@@ -3376,7 +3376,7 @@ td.actions {
   }
   .bodyContent {
     width: 100%;
-    height: calc(100% - 370px);
+    height: calc(100% - 330px);
     // background: lime;
     padding: 0px !important;
 
@@ -3637,6 +3637,13 @@ td.actions {
   padding: 15px !important;
   align-items: end;
   width: calc(100% - 120px);
+  flex-wrap: wrap;
+
+  h2 {
+    width: 100%;
+    color: #fff;
+    font-size: 18px;
+  }
   .btmArrow {
     width: 5%;
   }
