@@ -15,6 +15,7 @@ export class CTAFormComponent {
   @Input() theme;
   @Input() layout;
   public ctaForm: FormGroup;
+  public ctaformsubmitted = false;
 
   constructor(
     private headerService: HeaderService,
@@ -46,6 +47,7 @@ export class CTAFormComponent {
   setConcent(event: any) {}
 
   onCTASubmit() {
+    this.ctaformsubmitted = true;
     let ctaReqObj;
     if (!this.ctaForm.invalid) {
       let name = this?.ctaForm?.controls["ctaName"]?.value;
