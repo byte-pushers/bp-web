@@ -1,8 +1,15 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
+import { HeaderService } from "src/app/services/header.service";
 
 @Component({
   selector: "app-hero-logos",
   templateUrl: "./hero-logos.component.html",
   styleUrls: ["./hero-logos.component.scss"],
 })
-export class HeroLogosComponent {}
+export class HeroLogosComponent {
+  @Input() colorofLogos;
+  selectedTheme: any;
+  constructor(private headerService: HeaderService) {}
+
+  ngOnInit() {}
+}
