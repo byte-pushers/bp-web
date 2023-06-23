@@ -79,7 +79,9 @@
             class="standardYelloBtn"
             [routerLink]="'/contact'"
             routerLinkActive="active"
-            (click)="scrollTo.toTopOfPage(); openCloseMobileNav()"
+            (click)="
+              scrollTo.toTopOfPage(); openCloseMobileNav(); goToReqQuote()
+            "
             >Request A Quote</a
           >
         </li>

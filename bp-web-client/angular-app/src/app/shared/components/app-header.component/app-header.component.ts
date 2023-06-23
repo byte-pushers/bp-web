@@ -169,4 +169,12 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     }
     return true;
   }
+
+  goToReqQuote() {
+    this.router.navigate(["/contact"]);
+    window.scrollTo({
+      top: 1000,
+      behavior: "smooth",
+    });
+  }
 }
