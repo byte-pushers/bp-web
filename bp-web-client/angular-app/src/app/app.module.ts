@@ -58,6 +58,7 @@ import { TexasInstrumentsLogoComponent } from "./shared/components/heroLogos/tex
 import { VALogoComponent } from "./shared/components/heroLogos/va-logo/va-logo.component";
 import { HeroLogosComponent } from "./shared/components/hero-logos/hero-logos.component";
 import { LLNLLogoComponent } from "./shared/components/heroLogos/llnl-logo/llnl-logo.component";
+import { ThomsonReutersLogoComponent } from "./shared/components/heroLogos/thomson-reuters-logo/thomson-reuters-logo.component";
 
 @NgModule({
   declarations: [
@@ -96,6 +97,7 @@ import { LLNLLogoComponent } from "./shared/components/heroLogos/llnl-logo/llnl-
     VALogoComponent,
     HeroLogosComponent,
     LLNLLogoComponent,
+    ThomsonReutersLogoComponent,
   ],
   imports: [
     AppRoutingModule,
