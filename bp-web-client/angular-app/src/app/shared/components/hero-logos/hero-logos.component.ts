@@ -15,6 +15,8 @@ export class HeroLogosComponent {
   setcolor() {
     let styles = {
       color: this.colorofLogos.color,
+      height: "24px",
+      width: "100%",
     };
     return styles;
   }

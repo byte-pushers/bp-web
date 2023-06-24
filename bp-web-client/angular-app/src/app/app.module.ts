@@ -59,6 +59,7 @@ import { VALogoComponent } from "./shared/components/heroLogos/va-logo/va-logo.c
 import { HeroLogosComponent } from "./shared/components/hero-logos/hero-logos.component";
 import { LLNLLogoComponent } from "./shared/components/heroLogos/llnl-logo/llnl-logo.component";
 import { ThomsonReutersLogoComponent } from "./shared/components/heroLogos/thomson-reuters-logo/thomson-reuters-logo.component";
+import { ZynxhealthLogoComponent } from "./shared/components/heroLogos/zynxhealth-logo/zynxhealth-logo.component";
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import { ThomsonReutersLogoComponent } from "./shared/components/heroLogos/thoms
     HeroLogosComponent,
     LLNLLogoComponent,
     ThomsonReutersLogoComponent,
+    ZynxhealthLogoComponent,
   ],
   imports: [
     AppRoutingModule,

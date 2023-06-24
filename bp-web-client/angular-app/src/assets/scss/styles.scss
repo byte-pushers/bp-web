@@ -3504,6 +3504,9 @@ td.actions {
 .flexWrap {
   flex-wrap: wrap;
 }
+.f-f-wrap {
+  flex-flow: wrap;
+}
 .a-center {
   align-items: center;
 }
@@ -3656,6 +3659,9 @@ td.actions {
       width: 120px;
       height: auto;
       padding: 5px;
+    }
+    * {
+      width: 25%;
     }
   }
 }

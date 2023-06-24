@@ -1,6 +1,6 @@
 <section class="logos d-flex j-c-s-b">
-  <h2 [ngStyle]="setcolor()">The companies we keep…</h2>
-  <div class="leftLogos d-flex j-c-s-b a-center">
+  <div class="leftLogos d-flex j-c-s-b a-center f-f-wrap">
+    <h2 [ngStyle]="setcolor()">The companies we keep…</h2>
     <app-avial-logo [logoColor]="colorofLogos"></app-avial-logo>
     <app-tilster-logo [logoColor]="colorofLogos"></app-tilster-logo>
     <app-va-logo [logoColor]="colorofLogos"></app-va-logo>
@@ -15,14 +15,16 @@
       />
     </a>
   </div>
-  <div class="rightLogos d-flex j-c-s-b">
+  <div class="rightLogos d-flex j-c-s-b f-f-wrap">
+    <h2 [ngStyle]="setcolor()"></h2>
     <app-ge-logo [logoColor]="colorofLogos"></app-ge-logo>
     <app-texas-instruments-logo
       [logoColor]="colorofLogos"
     ></app-texas-instruments-logo>
     <app-vartec-logo [logoColor]="colorofLogos"></app-vartec-logo>
-    <app-thomson-reuters-logo
+    <!-- <app-thomson-reuters-logo
       [logoColor]="colorofLogos"
-    ></app-thomson-reuters-logo>
+    ></app-thomson-reuters-logo> -->
+    <app-zynxhealth-logo [logoColor]="colorofLogos"></app-zynxhealth-logo>
   </div>
 </section>
