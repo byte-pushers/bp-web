@@ -12,4 +12,10 @@ export class HeroLogosComponent {
   constructor(private headerService: HeaderService) {}
 
   ngOnInit() {}
+  setcolor() {
+    let styles = {
+      color: this.colorofLogos.color,
+    };
+    return styles;
+  }
 }
