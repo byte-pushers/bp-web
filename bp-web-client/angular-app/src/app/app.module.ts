@@ -50,6 +50,17 @@ import { LogoOnlyTextComponent } from "./shared/components/logo-only-text/logo-o
 import { LogoTextBottomComponent } from "./shared/components/logo-text-bottom/logo-text-bottom.component";
 import { CTAFormComponent } from "./shared/components/cta-form/cta-form.component";
 import { BytepushersPopupComponent } from "./shared/components/bytepushers-popup/bytepushers-popup.component";
+import { AvialLogoComponent } from "./shared/components/heroLogos/avial-logo/avial-logo.component";
+import { GeLogoComponent } from "./shared/components/heroLogos/ge-logo/ge-logo.component";
+import { VartecLogoComponent } from "./shared/components/heroLogos/vartec-logo/vartec-logo.component";
+import { TilsterLogoComponent } from "./shared/components/heroLogos/tilster-logo/tilster-logo.component";
+import { TexasInstrumentsLogoComponent } from "./shared/components/heroLogos/texas-instruments-logo/texas-instruments-logo.component";
+import { VALogoComponent } from "./shared/components/heroLogos/va-logo/va-logo.component";
+import { HeroLogosComponent } from "./shared/components/hero-logos/hero-logos.component";
+import { LLNLLogoComponent } from "./shared/components/heroLogos/llnl-logo/llnl-logo.component";
+import { ThomsonReutersLogoComponent } from "./shared/components/heroLogos/thomson-reuters-logo/thomson-reuters-logo.component";
+import { ZynxhealthLogoComponent } from "./shared/components/heroLogos/zynxhealth-logo/zynxhealth-logo.component";
+import { ArrowBottomComponent } from "./shared/components/heroLogos/arrow-bottom/arrow-bottom.component";
 
 @NgModule({
   declarations: [
@@ -80,6 +91,17 @@ import { BytepushersPopupComponent } from "./shared/components/bytepushers-popup
     LogoTextBottomComponent,
     CTAFormComponent,
     BytepushersPopupComponent,
+    AvialLogoComponent,
+    GeLogoComponent,
+    VartecLogoComponent,
+    TilsterLogoComponent,
+    TexasInstrumentsLogoComponent,
+    VALogoComponent,
+    HeroLogosComponent,
+    LLNLLogoComponent,
+    ThomsonReutersLogoComponent,
+    ZynxhealthLogoComponent,
+    ArrowBottomComponent,
   ],
   imports: [
     AppRoutingModule,

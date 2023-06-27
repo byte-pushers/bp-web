@@ -17,7 +17,7 @@ import { ComponentType } from "@angular/cdk/portal";
 import { StateNameService } from "../../services/state-name.service";
 import { ContactButtonService } from "../../services/contact-button.service";
 import { IDeactivateComponent } from "src/app/shared/components/iDeactivate/iDeactivate.component";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import {
   faFacebook,
   faTwitter,
@@ -56,7 +56,8 @@ export class ContactComponent
     public stateNameService: StateNameService,
     private scrollToService: ScrollToService,
     private contactButtonService: ContactButtonService,
-    private popupService: PopupModalService
+    private popupService: PopupModalService,
+    private route: ActivatedRoute
   ) {}
 
   @ViewChild("quoteForm") quoteForm: any;
@@ -109,6 +110,7 @@ export class ContactComponent
   ngOnDestroy() {
     this.setOnContactView(true);
     this.formStartTime = null;
+    localStorage.clear();
   }
   public setOnContactView(setView): void {
     this.contactButtonService.isOnContactView(setView);
