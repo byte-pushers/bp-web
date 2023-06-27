@@ -3376,7 +3376,7 @@ td.actions {
   }
   .bodyContent {
     width: 100%;
-    height: calc(100% - 370px);
+    height: calc(100% - 300px);
     // background: lime;
     padding: 0px !important;
 
@@ -3503,6 +3503,9 @@ td.actions {
 }
 .flexWrap {
   flex-wrap: wrap;
+}
+.f-f-wrap {
+  flex-flow: wrap;
 }
 .a-center {
   align-items: center;
@@ -3636,6 +3639,14 @@ td.actions {
 .logos {
   padding: 15px !important;
   align-items: end;
+  width: calc(100% - 120px);
+  flex-wrap: wrap;
+
+  h2 {
+    width: 100%;
+    color: #fff;
+    font-size: 18px;
+  }
   .btmArrow {
     width: 5%;
   }
@@ -3648,7 +3659,9 @@ td.actions {
       width: 120px;
       height: auto;
       padding: 5px;
-      background: #fff;
+    }
+    * {
+      width: 25%;
     }
   }
 }

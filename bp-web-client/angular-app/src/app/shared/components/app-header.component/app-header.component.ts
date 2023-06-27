@@ -34,6 +34,10 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     this.loginService.currentUserSubject.subscribe((value) => {
       this.isUserLoggedIn = value;
     });
+    router.events.subscribe((val) => {
+      // see also
+      console.log(val instanceof NavigationEnd);
+    });
   }
 
   override ngOnInit() {
@@ -168,5 +172,19 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
       return false;
     }
     return true;
+  }
+  setTopToZero() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    this.isScrolled = false;
+  }
+  goToReqQuote() {
+    this.router.navigate(["/contact"]);
+    window.scrollTo({
+      top: 1000,
+      behavior: "smooth",
+    });
   }
 }

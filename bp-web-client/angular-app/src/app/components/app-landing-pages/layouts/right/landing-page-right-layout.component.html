@@ -26,25 +26,5 @@
       </div>
     </div>
   </section>
-  <section class="logos d-flex j-c-s-b">
-    <div class="leftLogos d-flex j-c-s-b">
-      <img src="assets/images/homePage/bytePushersHomePageAviallLogo.svg" />
-      <img src="assets/images/homePage/bytePushersHomePageGELogo.svg" />
-      <img src="assets/images/homePage/bytePushersHomePageTelecomLogo.svg" />
-    </div>
-    <div class="btmArrow">
-      <a class="" pageScroll pageScrollOffset="80" href="#top-section">
-        <img
-          alt="caret"
-          src="assets/images/caret.svg"
-          style="width: 50px; height: 50px"
-        />
-      </a>
-    </div>
-    <div class="rightLogos d-flex j-c-s-b">
-      <img src="assets/images/homePage/bytePushersHomePageTilsterLogo.svg" />
-      <img src="assets/images/homePage/texas-instruments.svg" />
-      <img src="assets/images/homePage/bytePushersHomePageVALogo.svg" />
-    </div>
-  </section>
+  <app-hero-logos [colorofLogos]="setThemeSecondaryColor()"></app-hero-logos>
 </section>

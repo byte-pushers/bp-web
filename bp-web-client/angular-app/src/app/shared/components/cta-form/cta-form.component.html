@@ -15,22 +15,26 @@
     />
     <button type="submit" class="standardYelloBtn">Connect with Us</button>
   </form>
-  <div
-    *ngIf="ctaName.invalid && (ctaName.dirty || ctaName.touched)"
-    class="alert alert-danger"
-  >
-    <div *ngIf="ctaName.errors.required">Name is required.</div>
-    <div *ngIf="ctaName.errors.minlength">Name must be atleast 3 letters.</div>
-  </div>
-
-  <div
-    *ngIf="ctaEmail.invalid && (ctaEmail.dirty || ctaEmail.touched)"
-    class="alert alert-danger"
-  >
-    <div *ngIf="ctaEmail.errors.required">Email is required.</div>
-    <div *ngIf="ctaEmail.errors.minlength">
-      A minimum of 2 letters are required.
+  <div *ngIf="ctaformsubmitted">
+    <div
+      *ngIf="ctaName.invalid && (ctaName.dirty || ctaName.touched)"
+      class="alert alert-danger"
+    >
+      <div *ngIf="ctaName.errors.required">Name is required.</div>
+      <div *ngIf="ctaName.errors.minlength">
+        Name must be atleast 3 letters.
+      </div>
     </div>
-    <div *ngIf="ctaEmail.errors.email">Email is not valid.</div>
+
+    <div
+      *ngIf="ctaEmail.invalid && (ctaEmail.dirty || ctaEmail.touched)"
+      class="alert alert-danger"
+    >
+      <div *ngIf="ctaEmail.errors.required">Email is required.</div>
+      <div *ngIf="ctaEmail.errors.minlength">
+        A minimum of 2 letters are required.
+      </div>
+      <div *ngIf="ctaEmail.errors.email">Email is not valid.</div>
+    </div>
   </div>
 </div>
