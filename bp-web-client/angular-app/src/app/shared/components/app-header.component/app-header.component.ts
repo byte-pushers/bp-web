@@ -34,10 +34,6 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     this.loginService.currentUserSubject.subscribe((value) => {
       this.isUserLoggedIn = value;
     });
-    router.events.subscribe((val) => {
-      // see also
-      console.log(val instanceof NavigationEnd);
-    });
   }
 
   override ngOnInit() {
