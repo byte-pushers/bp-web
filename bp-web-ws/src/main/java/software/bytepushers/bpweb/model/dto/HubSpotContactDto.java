@@ -25,7 +25,7 @@ public class HubSpotContactDto implements Serializable {
     @Email(groups = ValidatorModel.CreateRequest.class, message = "{person.email.invalid}")
     private String email;
 
-    @NotNull(groups = ValidatorModel.CreateRequest.class, message = "{company.details.required}")
+    //@NotNull(groups = ValidatorModel.CreateRequest.class, message = "{company.details.required}")
     private String company;
     private Boolean consent;
     private String landingPageCategory;
