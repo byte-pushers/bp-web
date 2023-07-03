@@ -119,7 +119,13 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     this.loginService.logout();
     this.router.navigate(["/"]);
   }
-
+  setCTAColor() {
+    let clr = this.getLogoColor();
+    let styles = {
+      color: clr,
+    };
+    return styles;
+  }
   setColor(pageName: string) {
     const headerBar = document.getElementById("topnav");
     const correntPageURL = this.router.url;
@@ -169,6 +175,7 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     }
     return true;
   }
+
   setTopToZero() {
     window.scrollTo({
       top: 0,

@@ -3642,6 +3642,10 @@ td.actions {
   width: calc(100% - 120px);
   flex-wrap: wrap;
 
+  &.w100 {
+    width: 100% !important;
+  }
+
   h2 {
     width: 100%;
     color: #fff;
@@ -3649,6 +3653,11 @@ td.actions {
   }
   .btmArrow {
     width: 5%;
+    margin: 0px auto;
+
+    &.w15 {
+      width: 15% !important;
+    }
   }
 
   .leftLogos,
@@ -3725,7 +3734,7 @@ td.actions {
     color: #fff;
     position: absolute;
     right: 15px;
-    top: 10px;
+    top: -10px;
     text-align: right;
     text-transform: uppercase;
     font-size: 14px;
