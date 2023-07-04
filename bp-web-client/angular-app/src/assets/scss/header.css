@@ -56,7 +56,6 @@
 }
 
 .topnav.expanded .topnav-mobile-menu {
-  background-image: url("~src/assets/images/bytePushersLogoWithText.svg");
   font-size: 1.8em;
   margin-top: 0.4em;
   margin-bottom: 0.15em;
@@ -123,7 +122,6 @@
 }
 
 .topnav.topnav-scrolling .topnav-mobile-menu {
-  background: url("~src/assets/images/hamburgerMenuBlack.svg") no-repeat center;
   margin-top: 0.1em;
   margin-left: 0.1em;
   margin-bottom: 0.4em;
@@ -173,16 +171,12 @@
   margin-left: -43.5px;
 }
 .topnav.topnav-scrolling .topnav-mobile-menu {
-  background: url("~src/assets/images/hamburgerMenuBlack.svg") no-repeat center;
   margin-top: 0.1em;
   margin-left: 0.1em;
   margin-bottom: 0.4em;
   height: 0.5em;
 }
 .topnav-mobile-menu {
-  background: url("~src/assets/images/bytePushersLogoWithoutText.svg") no-repeat
-    center;
-  background-size: 0.5em;
   color: #fff;
   font-size: 2.5em;
   width: 2em;
@@ -193,7 +187,6 @@
   margin-bottom: 0.4em;
 }
 .topnav.expanded .topnav-mobile-menu {
-  background-image: url("~src/assets/images/bytePushersLogoWithText.svg");
   font-size: 1.8em;
   margin-top: 0.4em;
   margin-bottom: 0.15em;
@@ -242,7 +235,6 @@
 }
 
 .topnav-mobile-menu {
-  background: url(~src/assets/images/hamburgerMenuWhite.svg) no-repeat top left;
   background-size: 0.5em;
   color: #fff;
   font-size: 2.5em;
@@ -409,7 +401,6 @@ the header component, remaining stylings left on the header componnent are there
   }
 
   .topnav.expanded .topnav-mobile-menu {
-    background-image: url("~src/assets/images/bytePushersLogoWithText.svg");
     font-size: 1.8em;
     margin-top: 0.4em;
     margin-bottom: 0.15em;
@@ -545,7 +536,6 @@ the header component, remaining stylings left on the header componnent are there
   }
 
   .topnav.expanded .topnav-mobile-menu {
-    background-image: url("~src/assets/images/bytePushersLogoWithText.svg");
     font-size: 1.8em;
     margin-top: 0.4em;
     margin-bottom: 0.15em;
@@ -729,14 +719,14 @@ the header component, remaining stylings left on the header componnent are there
 
 @media only screen and (min-width: 321px) and (max-width: 767px) {
   .topnav.topnav-scrolling .topnav-mobile-menu {
-    background-image: url(~src/assets/images/hamburgerMenuBlack.svg);
     margin-top: 0.55em;
-    background-size: 0.5em;
     color: #fff;
     font-size: 2.5em;
-    width: 0.6em;
     height: 1em;
     margin-bottom: 0.4em;
+
+    width: 1em;
+    margin-left: 0.4em;
   }
 }
 
