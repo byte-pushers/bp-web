@@ -3736,7 +3736,6 @@ td.actions {
     right: 15px;
     top: -10px;
     text-align: right;
-    text-transform: uppercase;
     font-size: 14px;
     line-height: 20px;
 
@@ -3744,7 +3743,14 @@ td.actions {
       font-size: 20px;
       font-weight: 500;
     }
-
+    &.fsReduced {
+      font-size: 12px;
+      top: 25px;
+      span {
+        font-size: 12px;
+        font-weight: 600;
+      }
+    }
     &.two {
       left: 30px !important;
       top: 100px;
