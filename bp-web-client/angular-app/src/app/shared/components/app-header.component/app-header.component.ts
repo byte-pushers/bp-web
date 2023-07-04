@@ -86,7 +86,7 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
 
   public checkMobileNav() {
     const windowCheck = window.innerWidth;
-    if (windowCheck <= 500) {
+    if (windowCheck <= 768) {
       this.openCloseMobileNav();
     }
   }
