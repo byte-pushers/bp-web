@@ -17,7 +17,7 @@
     <div
       class="callToAction two"
       [ngStyle]="setCTAColor()"
-      *ngIf="isScrolled && hideAfter1000()"
+      *ngIf="isScrolled && hideAfter1000() && !isMobileNavOpen"
     >
       Contact Us <span> 1 (800) 441-8935</span>
     </div>

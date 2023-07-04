@@ -13,6 +13,7 @@ import { ReloadRefreshComponent } from "../reloadRefresh/reload-refresh.componen
 export class AppHeaderComponent extends ReloadRefreshComponent {
   isUserLoggedIn: boolean = false;
   isScrolled: boolean = false;
+  isMobileNavOpen: boolean = false;
   @HostListener("window:scroll", ["$event"])
   webpageScrolling(event: any) {
     const headerBar = document.getElementById("topnav");
@@ -92,13 +93,15 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
 
   public openCloseMobileNav() {
     const windowCheck = window.innerWidth;
-    if (windowCheck <= 480) {
+    if (windowCheck <= 768) {
       const mobileNav = document.getElementById("topnav");
 
       if (mobileNav.classList.contains("expanded")) {
         mobileNav.classList.remove("expanded");
+        this.isMobileNavOpen = false;
       } else {
         mobileNav.classList.add("expanded");
+        this.isMobileNavOpen = true;
       }
     }
   }
