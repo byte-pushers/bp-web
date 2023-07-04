@@ -3744,5 +3744,11 @@ td.actions {
       font-size: 20px;
       font-weight: 500;
     }
+
+    &.two {
+      left: 30px !important;
+      top: 100px;
+      text-align: left;
+    }
   }
 }

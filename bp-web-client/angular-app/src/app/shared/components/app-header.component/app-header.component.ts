@@ -169,8 +169,18 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     }
     return this.selectedTheme.logoColor;
   }
+
   hideTill1060() {
     if (window.innerWidth <= 1060) {
+      return false;
+    }
+    return true;
+  }
+  hideAfter1000() {
+    if (
+      document.body.scrollTop > 960 ||
+      document.documentElement.scrollTop > 960
+    ) {
       return false;
     }
     return true;

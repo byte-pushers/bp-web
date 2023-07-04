@@ -5,9 +5,20 @@
   (scroll)="webpageScrolling($event)"
 >
   <div class="topnav-container">
-    <div class="callToAction" [ngStyle]="setCTAColor()">
+    <div
+      class="callToAction one"
+      [ngStyle]="setCTAColor()"
+      *ngIf="!showSmallLogo() && !isScrolled"
+    >
       Contact Us <br />
-      <span>1(800)441-8935</span>
+      <span>1 (800) 441-8935</span>
+    </div>
+    <div
+      class="callToAction two"
+      [ngStyle]="setCTAColor()"
+      *ngIf="isScrolled && hideAfter1000()"
+    >
+      Contact Us <span> 1 (800) 441-8935</span>
     </div>
     <div class="topnav-mobile-menu" (click)="checkMobileNav()"></div>
     <a class="topnav-logo" [routerLink]="'/home'">
