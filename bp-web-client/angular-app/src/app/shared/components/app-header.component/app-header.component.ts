@@ -123,9 +123,8 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     this.router.navigate(["/"]);
   }
   setCTAColor() {
-    let clr = this.getLogoColor();
     let styles = {
-      color: clr,
+      color: this.selectedTheme.logoColor,
     };
     return styles;
   }
@@ -167,7 +166,7 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   }
   getLogoColor() {
     const headerBar = document.getElementById("topnav");
-    if (headerBar.classList.contains("expanded")) {
+    if (headerBar.classList.contains("expanded") || this.isScrolled) {
       return "#000";
     }
     return this.selectedTheme.logoColor;
