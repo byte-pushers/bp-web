@@ -644,9 +644,9 @@ the header component, remaining stylings left on the header componnent are there
 
 @media only screen and (min-width: 0) and (max-width: 767px) {
   .topnav.topnav-scrolling.expanded .topnav-mobile-menu {
-    margin-top: 0.9em;
+    margin-top: 0.8em;
     margin-bottom: 0.2em;
-    margin-left: 0.1em;
+    margin-left: 0.4em;
     width: 1em;
     height: 1em;
   }
@@ -868,9 +868,9 @@ the header component, remaining stylings left on the header componnent are there
   }
 
   .topnav.expanded .topnav-mobile-menu {
-    background-image: url(~src/assets/images/closeButton-02.svg);
+    /* background-image: url(~src/assets/images/closeButton-02.svg); */
     font-size: 1.8em;
-    background-size: 0.8em;
+    /* background-size: 0.8em; */
     margin-top: 1.4em;
     margin-left: 0.4em;
     margin-bottom: 0.4em;

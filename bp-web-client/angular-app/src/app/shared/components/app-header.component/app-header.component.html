@@ -25,7 +25,33 @@
       </div>
     </div>
     <div class="topnav-mobile-menu" (click)="checkMobileNav()">
-      <app-hamburgur [logoColor]="getLogoColor()"></app-hamburgur>
+      <app-hamburgur
+        *ngIf="!isMobileNavOpen"
+        [logoColor]="getLogoColor()"
+      ></app-hamburgur>
+      <svg
+        *ngIf="isMobileNavOpen"
+        id="Layer_1"
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 86 86"
+      >
+        <title>Close Menu</title>
+        <rect
+          x="-6.69"
+          y="32.06"
+          width="80"
+          height="20"
+          transform="translate(43.31 -17.94) rotate(45)"
+        />
+        <rect
+          x="2"
+          y="42"
+          width="80"
+          height="20"
+          transform="translate(104.56 43.31) rotate(135)"
+        />
+      </svg>
     </div>
     <a class="topnav-logo" [routerLink]="'/home'">
       <!-- <div class="topnav-logo-img"></div> -->
