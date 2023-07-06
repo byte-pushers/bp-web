@@ -19,7 +19,10 @@
       [ngStyle]="setCTAColor()"
       *ngIf="isScrolled && hideAfter1000() && !isMobileNavOpen"
     >
-      Contact Us <span>1 (800) 441-8935</span>
+      <div *ngIf="!isMobile()">Contact Us - <span>1 (800) 441-8935</span></div>
+      <div *ngIf="isMobile()">
+        Contact Us <br /><span>1 (800) 441-8935</span>
+      </div>
     </div>
     <div class="topnav-mobile-menu" (click)="checkMobileNav()">
       <app-hamburgur [logoColor]="getLogoColor()"></app-hamburgur>

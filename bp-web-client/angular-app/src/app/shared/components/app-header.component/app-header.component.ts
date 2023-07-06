@@ -178,6 +178,15 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     }
     return true;
   }
+
+  isMobile() {
+    const windowWidth = window.innerWidth;
+    if (windowWidth <= 768) {
+      return true;
+    }
+    return false;
+  }
+
   hideAfter1000() {
     if (
       document.body.scrollTop > 960 ||
