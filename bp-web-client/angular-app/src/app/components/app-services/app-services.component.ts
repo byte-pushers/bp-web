@@ -8,6 +8,7 @@ import {
   faLinkedin,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-services",
@@ -20,7 +21,10 @@ export class ServicesComponent implements OnInit {
   faInstagram = faInstagram;
   faLinkedin = faLinkedin;
   faYoutube = faYoutube;
-  constructor(public scrollToService: ScrollToService) {}
+  constructor(
+    private route: ActivatedRoute,
+    public scrollToService: ScrollToService
+  ) {}
 
   ngOnInit() {
     $(document).ready(function (e) {
@@ -41,5 +45,24 @@ export class ServicesComponent implements OnInit {
     const $previousButton = $("slide.item.carousel-item");
     $previousButton.removeClass("right-left");
     $previousButton.addClass("left-right");
+  }
+
+  setThemeBGImg() {
+    let styles = {
+      background: `url('assets/images/servicesPage/bytePushersServicesBg.png')
+        center no-repeat`,
+      "background-size": "cover",
+    };
+    return styles;
+  }
+
+  showBorders(): boolean | void {
+    let isBorders;
+    this.route.queryParams.subscribe((params) => {
+      if (params?.showBorder == "true") {
+        isBorders = params?.showBorder;
+      }
+    });
+    return isBorders;
   }
 }
