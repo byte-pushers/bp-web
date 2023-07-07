@@ -8,6 +8,7 @@ import {
   faLinkedin,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
+import { ActivatedRoute } from "@angular/router";
 @Component({
   selector: "app-about",
   templateUrl: "./app-about.component.html",
@@ -19,7 +20,7 @@ export class AboutComponent implements OnInit {
   faInstagram = faInstagram;
   faLinkedin = faLinkedin;
   faYoutube = faYoutube;
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     $(document).ready(function (e) {
@@ -41,5 +42,24 @@ export class AboutComponent implements OnInit {
     const $previousButton = $("slide.item.carousel-item");
     $previousButton.removeClass("right-left");
     $previousButton.addClass("left-right");
+  }
+  setThemeBGImg() {
+    let styles = {
+      background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('assets/images/aboutPage/bytePushersAboutPageSplashScreenBackground.png')
+          center no-repeat`,
+      "background-size": "cover",
+    };
+    return styles;
+  }
+
+  showBorders(): boolean | void {
+    let isBorders;
+    this.route.queryParams.subscribe((params) => {
+      if (params?.showBorder == "true") {
+        isBorders = params?.showBorder;
+      }
+    });
+    return isBorders;
   }
 }
