@@ -61,6 +61,7 @@ import { LLNLLogoComponent } from "./shared/components/heroLogos/llnl-logo/llnl-
 import { ThomsonReutersLogoComponent } from "./shared/components/heroLogos/thomson-reuters-logo/thomson-reuters-logo.component";
 import { ZynxhealthLogoComponent } from "./shared/components/heroLogos/zynxhealth-logo/zynxhealth-logo.component";
 import { ArrowBottomComponent } from "./shared/components/heroLogos/arrow-bottom/arrow-bottom.component";
+import { HamburgurComponent } from "./shared/components/hamburgur/hamburgur.component";
 
 @NgModule({
   declarations: [
@@ -102,6 +103,7 @@ import { ArrowBottomComponent } from "./shared/components/heroLogos/arrow-bottom
     ThomsonReutersLogoComponent,
     ZynxhealthLogoComponent,
     ArrowBottomComponent,
+    HamburgurComponent,
   ],
   imports: [
     AppRoutingModule,

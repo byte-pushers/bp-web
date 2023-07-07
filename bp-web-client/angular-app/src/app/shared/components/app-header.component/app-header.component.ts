@@ -13,6 +13,7 @@ import { ReloadRefreshComponent } from "../reloadRefresh/reload-refresh.componen
 export class AppHeaderComponent extends ReloadRefreshComponent {
   isUserLoggedIn: boolean = false;
   isScrolled: boolean = false;
+  isMobileNavOpen: boolean = false;
   @HostListener("window:scroll", ["$event"])
   webpageScrolling(event: any) {
     const headerBar = document.getElementById("topnav");
@@ -33,10 +34,6 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     super(router);
     this.loginService.currentUserSubject.subscribe((value) => {
       this.isUserLoggedIn = value;
-    });
-    router.events.subscribe((val) => {
-      // see also
-      console.log(val instanceof NavigationEnd);
     });
   }
 
@@ -89,20 +86,22 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
 
   public checkMobileNav() {
     const windowCheck = window.innerWidth;
-    if (windowCheck <= 500) {
+    if (windowCheck <= 768) {
       this.openCloseMobileNav();
     }
   }
 
   public openCloseMobileNav() {
     const windowCheck = window.innerWidth;
-    if (windowCheck <= 480) {
+    if (windowCheck <= 768) {
       const mobileNav = document.getElementById("topnav");
 
       if (mobileNav.classList.contains("expanded")) {
         mobileNav.classList.remove("expanded");
+        this.isMobileNavOpen = false;
       } else {
         mobileNav.classList.add("expanded");
+        this.isMobileNavOpen = true;
       }
     }
   }
@@ -123,7 +122,12 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     this.loginService.logout();
     this.router.navigate(["/"]);
   }
-
+  setCTAColor() {
+    let styles = {
+      color: this.selectedTheme.logoColor,
+    };
+    return styles;
+  }
   setColor(pageName: string) {
     const headerBar = document.getElementById("topnav");
     const correntPageURL = this.router.url;
@@ -162,17 +166,37 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   }
   getLogoColor() {
     const headerBar = document.getElementById("topnav");
-    if (headerBar.classList.contains("expanded")) {
+    if (headerBar.classList.contains("expanded") || this.isScrolled) {
       return "#000";
     }
     return this.selectedTheme.logoColor;
   }
+
   hideTill1060() {
     if (window.innerWidth <= 1060) {
       return false;
     }
     return true;
   }
+
+  isMobile() {
+    const windowWidth = window.innerWidth;
+    if (windowWidth <= 768) {
+      return true;
+    }
+    return false;
+  }
+
+  hideAfter1000() {
+    if (
+      document.body.scrollTop > 960 ||
+      document.documentElement.scrollTop > 960
+    ) {
+      return false;
+    }
+    return true;
+  }
+
   setTopToZero() {
     window.scrollTo({
       top: 0,
