@@ -2,8 +2,11 @@
   <!-- newly refactored code -->
   <section
     class="headerTheme"
-    [ngStyle]="setThemeBGImg()"
-    [ngClass]="showBorders() ? 'bordersTrue' : ''"
+    style="
+      background: url('assets/images/contactPage/contactPageSplashBackground.jpg')
+        center no-repeat;
+      background-size: cover;
+    "
   >
     <section class="header"></section>
     <section class="bodyContent">
