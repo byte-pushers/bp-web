@@ -29,7 +29,7 @@
 
 .topnav.topnav-scrolling .topnav-logo {
   margin-top: 0;
-  margin-left: -37.5px;
+  /* margin-left: -37.5px; */
 }
 
 .topnav.expanded .topnav-logo-img {
@@ -195,7 +195,7 @@
 
 .topnav.topnav-scrolling .topnav-logo {
   margin-top: 0;
-  margin-left: -37.5px;
+  /* margin-left: -37.5px; */
 }
 
 .topnav.topnav-scrolling .topnav-logo-img {
@@ -309,12 +309,6 @@ the header component, remaining stylings left on the header componnent are there
   .topnav.topnav-scrolling .topnav-link-button:hover {
     background: #201d1c;
     color: #fff;
-  }
-}
-
-@media only screen and (min-width: 321px) {
-  .topnav.topnav-scrolling .topnav-logo {
-    margin-left: -42.6px;
   }
 }
 
@@ -445,11 +439,11 @@ the header component, remaining stylings left on the header componnent are there
   }
 }
 
-@media only screen and (min-width: 321px) {
+/* @media only screen and (min-width: 321px) {
   .topnav.topnav-scrolling .topnav-logo {
     margin-left: -42.6px;
   }
-}
+} */
 
 @media only screen and (min-width: 768px) {
   .topnav.topnav-scrolling .topnav-logo {
@@ -611,15 +605,15 @@ the header component, remaining stylings left on the header componnent are there
 
   .topnav.topnav-scrolling .topnav-logo {
     margin-top: 0;
-    margin-left: -37.5px;
+    /* margin-left: -37.5px; */
   }
 }
 
-@media only screen and (min-width: 321px) {
+/* @media only screen and (min-width: 321px) {
   .topnav.topnav-scrolling .topnav-logo {
     margin-left: -42.6px;
   }
-}
+} */
 
 @media only screen and (min-width: 768px) {
   .topnav.topnav-scrolling .topnav-logo {
@@ -629,11 +623,11 @@ the header component, remaining stylings left on the header componnent are there
   }
 }
 
-@media only screen and (min-width: 321px) {
+/* @media only screen and (min-width: 321px) {
   .topnav.topnav-scrolling .topnav-logo {
     margin-left: -42.6px;
   }
-}
+} */
 
 @media only screen and (min-width: 768px) {
   .topnav.topnav-scrolling .topnav-logo {
@@ -1141,4 +1135,9 @@ the header component, remaining stylings left on the header componnent are there
   -webkit-animation-delay: 0.5s;
   -moz-animation-delay: 0.5s;
   animation-delay: 0.5s;
+}
+@media only screen and (max-width: 480px) {
+  .topnav.topnav-scrolling .topnav-logo {
+    margin-left: -100px;
+  }
 }
