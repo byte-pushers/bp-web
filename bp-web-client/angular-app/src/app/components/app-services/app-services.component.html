@@ -1,78 +1,36 @@
 <main class="page">
-  <header
-    class="hero-fixed hero-home"
-    id="hero"
+  <!-- newly refactored code -->
+  <section
+    class="headerTheme"
     style="
       background: url('assets/images/servicesPage/bytePushersServicesBg.png')
         center no-repeat;
       background-size: cover;
     "
   >
-    <ul class="socialMediaLinksTop">
-      <li>
-        <a
-          href="https://facebook.com/bytepushersinc"
-          target="_blank"
-          title="Facebook"
-          rel="noopener noreferrer"
-        >
-          <fa-icon [icon]="faFacebook"></fa-icon>
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/BytePushersInc"
-          target="_blank"
-          title="Twitter"
-          rel="noopener noreferrer"
-        >
-          <fa-icon [icon]="faTwitter"></fa-icon>
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://www.instagram.com/bytepushersinc/"
-          target="_blank"
-          title="Instagram"
-          rel="noopener noreferrer"
-        >
-          <fa-icon [icon]="faInstagram"></fa-icon>
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://www.linkedin.com/company/bytepushersinc/"
-          target="_blank"
-          title="LinkedIn"
-          rel="noopener noreferrer"
-        >
-          <fa-icon [icon]="faLinkedin"></fa-icon>
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://www.youtube.com/@bytepushersinc"
-          target="_blank"
-          title="Youtube"
-          rel="noopener noreferrer"
-        >
-          <fa-icon [icon]="faYoutube"></fa-icon>
-        </a>
-      </li>
-    </ul>
-    <div class="home-hero-text-container">
-      <div class="container fade-in-first">
-        <div class="home-hero-text">
-          <strong style="color: #62a3d9">Design</strong>,
-          <strong style="color: #62a3d9">Develop</strong>, and
-          <strong style="color: #62a3d9">Deliver</strong> your ideas <br /><font
-            style="color: #62a3d9"
-            >on time</font
-          >
-          and <font style="color: #62a3d9">under budget</font>.
+    <section class="header"></section>
+    <section class="bodyContent">
+      <div class="customContainer">
+        <div class="twoCol d-flex j-c-s-b a-bottom">
+          <div class="contentArea d-flex flexWrap a-bottom">
+            <div class="empty"></div>
+            <div class="content bottomLayout">
+              <div class="home-hero-text">
+                <strong style="color: #62a3d9">Design</strong>,
+                <strong style="color: #62a3d9">Develop</strong>, and
+                <strong style="color: #62a3d9">Deliver</strong> your ideas
+                <br />
+                <font style="color: #62a3d9">on time</font>
+                and <font style="color: #62a3d9">under budget</font>.
+              </div>
+            </div>
+          </div>
+          <div class="socialMediaIcons d-flex a-center">
+            <app-social-media></app-social-media>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
     <a
       class="icon-down-open-big hero-arrow"
       pageScroll
@@ -85,8 +43,7 @@
         style="width: 50px; height: 50px"
       />
     </a>
-  </header>
-
+  </section>
   <div class="main-content-container" id="top-section">
     <section
       class="gray-background hidden-mobile hidden-mobile-450 hidden-mobile-768"

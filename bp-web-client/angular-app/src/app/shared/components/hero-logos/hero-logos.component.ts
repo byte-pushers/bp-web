@@ -20,4 +20,10 @@ export class HeroLogosComponent {
     };
     return styles;
   }
+  hideTill700() {
+    if (window.innerWidth <= 700) {
+      return false;
+    }
+    return true;
+  }
 }
