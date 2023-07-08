@@ -112,7 +112,7 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   }
 
   showSmallLogo() {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 960) {
       return true;
     }
     return false;
