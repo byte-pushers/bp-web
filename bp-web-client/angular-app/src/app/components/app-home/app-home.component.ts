@@ -1,13 +1,21 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewContainerRef,} from '@angular/core';
-import * as $ from 'jquery';
-import {fromEvent, Observable, Subscription} from 'rxjs';
-import {ScrollToService} from '../../services/scroll-to.service';
-import {environment} from '../../../environments/environment';
-import {DynamicComponentService} from '../../shared/services/dynamic-component.service';
-import {ActivatedRoute} from '@angular/router';
-import {ResizeService} from '../../shared/services/resize.service';
-import {DEVICE_PLATFORM} from '../../shared/models/screen-size.enum';
-import {delay} from "rxjs/operators";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  ViewContainerRef,
+} from "@angular/core";
+import * as $ from "jquery";
+import { fromEvent, Observable, Subscription } from "rxjs";
+import { ScrollToService } from "../../services/scroll-to.service";
+import { environment } from "../../../environments/environment";
+import { DynamicComponentService } from "../../shared/services/dynamic-component.service";
+import { ActivatedRoute } from "@angular/router";
+import { ResizeService } from "../../shared/services/resize.service";
+import { DEVICE_PLATFORM } from "../../shared/models/screen-size.enum";
+import { delay } from "rxjs/operators";
 
 @Component({
   selector: "app-home",
@@ -44,8 +52,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     $previousButton.addClass("left-right");
   }
 
-
-
   ngOnInit() {
     this.#setLayoutId();
     // tslint:disable-next-line:only-arrow-functions
@@ -68,7 +74,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    if (window.innerWidth <= 500) {
+    if (window.innerWidth <= 820) {
       this.#loadLandingPageContainer(DEVICE_PLATFORM.MOBILE);
     } else if (window.innerWidth < 1280) {
       this.#loadLandingPageContainer(DEVICE_PLATFORM.TABLET);
@@ -76,11 +82,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.#loadLandingPageContainer(DEVICE_PLATFORM.DESKTOP);
     }
 
-    this.resizeService.onResize$
-      .pipe(delay(0))
-      .subscribe(devicePlatform => {
-        this.#loadLandingPageContainer(devicePlatform);
-      });
+    this.resizeService.onResize$.pipe(delay(0)).subscribe((devicePlatform) => {
+      this.#loadLandingPageContainer(devicePlatform);
+    });
   }
 
   private resizeImage(win: any, imageRef: ElementRef): void {
@@ -103,23 +107,24 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-
   #loadLandingPageContainer(devicePlatform: DEVICE_PLATFORM) {
-    this.dynamicComponentService.createComponent(
-      this.landingPageContainer,
-      this.#layoutId,
-      devicePlatform === DEVICE_PLATFORM.MOBILE? 'bottom' : this.#layoutType
-    ).then(
-      (componentCreated) => {
-        console.log(
-          `component created: ${JSON.stringify(componentCreated)}`,
-          componentCreated
-        );
-      },
-      (error) => {
-        console.log(`An error occurred: ${JSON.stringify(error)}`, error);
-      }
-    );
+    this.dynamicComponentService
+      .createComponent(
+        this.landingPageContainer,
+        this.#layoutId,
+        devicePlatform === DEVICE_PLATFORM.MOBILE ? "bottom" : this.#layoutType
+      )
+      .then(
+        (componentCreated) => {
+          console.log(
+            `component created: ${JSON.stringify(componentCreated)}`,
+            componentCreated
+          );
+        },
+        (error) => {
+          console.log(`An error occurred: ${JSON.stringify(error)}`, error);
+        }
+      );
     this.resizeImage(this.window, this.divView);
   }
 }
