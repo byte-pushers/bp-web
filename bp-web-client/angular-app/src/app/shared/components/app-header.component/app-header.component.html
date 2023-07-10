@@ -12,16 +12,18 @@
       *ngIf="!isScrolled"
     >
       Contact Us <br />
-      <span>1 (800) 441-8935</span>
+      <a href="tel:1800-441-8935">1 (800) 441-8935</a>
     </div>
     <div
       class="callToAction two"
       [ngStyle]="setCTAColor()"
       *ngIf="isScrolled && hideAfter1000() && !isMobileNavOpen"
     >
-      <div *ngIf="!isMobile()">Contact Us: <span>1 (800) 441-8935</span></div>
+      <div *ngIf="!isMobile()">
+        Contact Us: <a href="tel:1800-441-8935">1 (800) 441-8935</a>
+      </div>
       <div *ngIf="isMobile()">
-        Contact Us <br /><span>1 (800) 441-8935</span>
+        Contact Us <br /><a href="tel:1800-441-8935">1 (800) 441-8935</a>
       </div>
     </div>
     <div class="topnav-mobile-menu" (click)="checkMobileNav()">
