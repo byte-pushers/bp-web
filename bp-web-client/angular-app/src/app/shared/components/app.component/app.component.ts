@@ -1,6 +1,6 @@
-import {AfterViewInit, Component, HostListener, OnInit} from "@angular/core";
-import {DEVICE_PLATFORM} from "../../models/screen-size.enum";
-import {ResizeService} from "../../services/resize.service";
+import { AfterViewInit, Component, HostListener, OnInit } from "@angular/core";
+import { DEVICE_PLATFORM } from "../../models/screen-size.enum";
+import { ResizeService } from "../../services/resize.service";
 
 @Component({
   selector: "app-root",
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   #detectScreenSize() {
-    if (window.innerWidth <= 500) {
+    if (window.innerWidth <= 820) {
       this.resizeService.onResize(DEVICE_PLATFORM.MOBILE);
     } else if (window.innerWidth < 1280) {
       this.resizeService.onResize(DEVICE_PLATFORM.TABLET);

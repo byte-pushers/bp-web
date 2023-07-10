@@ -3657,6 +3657,7 @@ td.actions {
 
     &.w15 {
       width: 15% !important;
+      max-width: 70px;
     }
   }
 
@@ -3740,13 +3741,13 @@ td.actions {
     line-height: 20px;
     font-weight: 500;
 
-    span {
+    a {
       font-size: 20px;
     }
     &.fsReduced {
       font-size: 12px;
       top: 30px;
-      span {
+      a {
         font-size: 12px;
         font-weight: 600;
       }
