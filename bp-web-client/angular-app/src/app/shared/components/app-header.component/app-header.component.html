@@ -1,33 +1,44 @@
 <!-- just test change  //-->
-<nav *ngIf="!isUserLoggedIn" class="topnav fade-in-second" id="topnav" (scroll)="webpageScrolling($event)">
+<nav
+  *ngIf="!isUserLoggedIn"
+  class="topnav fade-in-second"
+  id="topnav"
+  (scroll)="webpageScrolling($event)"
+>
   <div class="topnav-container">
     <div
       class="callToAction one"
       [ngStyle]="setCTAColor()"
       [ngClass]="showSmallLogo() ? 'fsReduced' : ''"
-      *ngIf="!isScrolled">
+      *ngIf="!isScrolled"
+    >
       Contact Us <br />
-      <span>1 (800) 441-8935</span>
+      <a href="tel:1800-441-8935">1 (800) 441-8935</a>
     </div>
     <div
       class="callToAction two"
       [ngStyle]="setCTAColor()"
-      *ngIf="isScrolled && hideAfter1000() && !isMobileNavOpen">
-      <div *ngIf="!isMobile()">Contact Us: <span>1 (800) 441-8935</span></div>
+      *ngIf="isScrolled && hideAfter1000() && !isMobileNavOpen"
+    >
+      <div *ngIf="!isMobile()">
+        Contact Us: <a href="tel:1800-441-8935">1 (800) 441-8935</a>
+      </div>
       <div *ngIf="isMobile()">
-        Contact Us <br /><span>1 (800) 441-8935</span>
+        Contact Us <br /><a href="tel:1800-441-8935">1 (800) 441-8935</a>
       </div>
     </div>
     <div class="topnav-mobile-menu" (click)="checkMobileNav()">
       <app-hamburgur
         *ngIf="!isMobileNavOpen"
-        [logoColor]="getLogoColor()"></app-hamburgur>
+        [logoColor]="getLogoColor()"
+      ></app-hamburgur>
       <svg
         *ngIf="isMobileNavOpen"
         id="Layer_1"
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 86 86">
+        viewBox="0 0 86 86"
+      >
         <rect
           x="-6.69"
           y="32.06"
