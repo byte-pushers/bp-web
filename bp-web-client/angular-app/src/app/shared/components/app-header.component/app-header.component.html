@@ -11,7 +11,7 @@
       [ngClass]="showSmallLogo() ? 'fsReduced' : ''"
       *ngIf="!isScrolled"
     >
-      Contact Us <br />
+      Contact Us <br/>
       <span>1 (800) 441-8935</span>
     </div>
     <div
@@ -21,7 +21,7 @@
     >
       <div *ngIf="!isMobile()">Contact Us: <span>1 (800) 441-8935</span></div>
       <div *ngIf="isMobile()">
-        Contact Us <br /><span>1 (800) 441-8935</span>
+        Contact Us <br/><span>1 (800) 441-8935</span>
       </div>
     </div>
     <div class="topnav-mobile-menu" (click)="checkMobileNav()">
@@ -86,21 +86,15 @@
             (click)="
               scrollTo.toTopOfPage(); openCloseMobileNav(); setTopToZero()
             "
-            [ngStyle]="setColor('/services')"
-            >Services</a
-          >
+            [ngStyle]="setColor('/services')">Services</a>
         </li>
         <li class="topnav-link-item">
           <a
             class="topnav-link"
             [routerLink]="'/work'"
             routerLinkActive="active"
-            (click)="
-              scrollTo.toTopOfPage(); openCloseMobileNav(); setTopToZero()
-            "
-            [ngStyle]="setColor('/work')"
-            >Work</a
-          >
+            (click)="scrollTo.toTopOfPage(); openCloseMobileNav(); setTopToZero()"
+            [ngStyle]="setColor('/work')">Work</a>
         </li>
         <li class="topnav-link-item">
           <a
@@ -111,7 +105,7 @@
               scrollTo.toTopOfPage(); openCloseMobileNav(); setTopToZero()
             "
             [ngStyle]="setColor('/about')"
-            >About Us</a
+          >About Us</a
           >
         </li>
         <li class="topnav-link-item">
@@ -126,7 +120,7 @@
               setTopToZero()
             "
             [ngStyle]="setColor('/contact')"
-            >Contact</a
+          >Contact</a
           >
         </li>
         <li class="topnav-link-item" *ngIf="hideTill1060()">
@@ -137,7 +131,7 @@
             (click)="
               scrollTo.toTopOfPage(); openCloseMobileNav(); goToReqQuote()
             "
-            >Request A Quote</a
+          >Request A Quote</a
           >
         </li>
       </ul>
@@ -154,7 +148,7 @@
     <ul>
       <li>
         <a [routerLink]="'/admin/dashboard'" routerLinkActive="active"
-          >Dashboard</a
+        >Dashboard</a
         >
       </li>
       <li>

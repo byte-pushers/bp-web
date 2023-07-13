@@ -23,6 +23,7 @@ export class BytepushersPopupComponent implements OnInit {
         Validators.minLength(3),
       ]),
       ctaEmail: new FormControl("", [Validators.required, Validators.email]),
+      ctaConsent: new FormControl(false, [Validators.required])
     });
   }
   get ctaName() {
@@ -31,7 +32,14 @@ export class BytepushersPopupComponent implements OnInit {
   get ctaEmail() {
     return this.ctaForm.get("ctaEmail");
   }
-  onCTASubmit() {}
+
+  get ctaConsent() {
+    return this.ctaForm.get("ctaConsent");
+  }
+
+  onCTASubmit() {
+    console.log('form submitted.');
+  }
   ngOnInit() {
     this.bpPopupService.isBPpopupOpenSubject.subscribe((value) => {
       this.isBPpopup = value;
@@ -51,28 +59,27 @@ export class BytepushersPopupComponent implements OnInit {
   }
 
   saveCTA() {
-    // to do service integration
-    let ctaequestObjwithConsent;
-    let ctaReqObj;
+    let ctaRequestObjectWithConsent;
+
     if (this.ctaequestObj != "bottomLayout") {
-      ctaequestObjwithConsent = { ...this.ctaequestObj, consent: true };
+      ctaRequestObjectWithConsent = { ...this.ctaequestObj, consent: true };
     } else {
       if (!this.ctaForm.invalid) {
         let name = this.ctaName?.value;
         name = name.split(" ");
-        ctaReqObj = {
+        ctaRequestObjectWithConsent = {
           firstName: name[0],
           middleName: name.length >= 3 ? name[1] : "",
           lastName: name.length >= 3 ? name[2] : name[1],
           email: this.ctaEmail?.value,
+          consent: this.ctaConsent?.value
         };
-        this.ctaService.ctaReqObjSubject.next(ctaReqObj);
+        this.ctaService.ctaReqObjSubject.next(ctaRequestObjectWithConsent);
         this.bpPopupService.isBPpopupOpenSubject.next(true);
       }
-      ctaequestObjwithConsent = { ...ctaReqObj, consent: true };
     }
 
-    console.log(ctaequestObjwithConsent);
+    console.log(ctaRequestObjectWithConsent);
     this.closeCTA();
   }
 
@@ -80,5 +87,10 @@ export class BytepushersPopupComponent implements OnInit {
     this.userConsent = false;
     this.ctaService.ctaReqObjSubject.next(null);
     this.bpPopupService.isBPpopupOpenSubject.next(false);
+    this.resetCTA();
+  }
+
+  resetCTA(): void {
+    this.ctaForm.reset();
   }
 }
