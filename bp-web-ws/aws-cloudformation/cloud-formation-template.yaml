@@ -269,9 +269,9 @@ Resources:
   BpWebRdsDBInstance:
     Type: AWS::RDS::DBInstance
     Properties:
-      AllocatedStorage: 20
-      AllowMajorVersionUpgrade: false
-      AutoMinorVersionUpgrade: false
+      AllocatedStorage: 30
+      AllowMajorVersionUpgrade: true
+      AutoMinorVersionUpgrade: true
       BackupRetentionPeriod: 7
       DBInstanceClass: db.t4g.micro
       DBInstanceIdentifier: BpWebRds
