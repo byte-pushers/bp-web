@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Renderer2 } from "@angular/core";
 import * as $ from "jquery";
 import { ScrollToService } from "../../services/scroll-to.service";
 import {
@@ -20,9 +20,25 @@ export class ServicesComponent implements OnInit {
   faInstagram = faInstagram;
   faLinkedin = faLinkedin;
   faYoutube = faYoutube;
-  constructor(public scrollToService: ScrollToService) {}
+  constructor(public scrollToService: ScrollToService,private _renderer2: Renderer2) {}
 
   ngOnInit() {
+   let script = this._renderer2.createElement('script');
+   script.type = `text/javascript`;
+   script.text =`
+    var _hsq = window._hsq = window._hsq || [];
+   _hsq.push(["identify",{
+       email: 'pharshu.ram@armam.com',
+       favorite_color: 'orange'
+   }]);
+
+    _hsq.push(['setPath', '/services']);
+    _hsq.push(['trackPageView']);
+
+
+   `;
+   this._renderer2.appendChild(document.body, script);
+
     $(document).ready(function (e) {
       const $prevButton = $(".left.carousel-control.carousel-control-prev");
       const $nextButton = $(".right.carousel-control.carousel-control-next");

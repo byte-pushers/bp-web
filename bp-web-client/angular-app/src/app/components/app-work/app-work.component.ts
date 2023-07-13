@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit,Renderer2 } from "@angular/core";
 import { environment } from "../../../environments/environment";
 import {
   faFacebook,
@@ -20,7 +20,21 @@ export class WorkComponent implements OnInit {
   faLinkedin = faLinkedin;
   faYoutube = faYoutube;
   public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
-  constructor() {}
+  constructor(private _renderer2: Renderer2) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+       let script = this._renderer2.createElement('script');
+       script.type = `text/javascript`;
+       script.text =`
+        var _hsq = window._hsq = window._hsq || [];
+        _hsq.push(["identify",{
+               email: 'pharshu.ram@armam.com',
+               favorite_color: 'orange'
+           }]);
+        _hsq.push(['setPath', '/work']);
+        _hsq.push(['trackPageView']);
+       `;
+       this._renderer2.appendChild(document.body, script);
+
+  }
 }

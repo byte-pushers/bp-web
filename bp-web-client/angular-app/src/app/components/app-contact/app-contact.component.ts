@@ -4,6 +4,7 @@ import {
   OnDestroy,
   OnInit,
   ViewChild,
+  Renderer2
 } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { QuoteService } from "../../shared/services/quote.service";
@@ -56,7 +57,8 @@ export class ContactComponent
     public stateNameService: StateNameService,
     private scrollToService: ScrollToService,
     private contactButtonService: ContactButtonService,
-    private popupService: PopupModalService
+    private popupService: PopupModalService,
+    private _renderer2: Renderer2
   ) {}
 
   @ViewChild("quoteForm") quoteForm: any;
@@ -82,6 +84,20 @@ export class ContactComponent
   foundations: any = ["New Business", "Existing Business"];
 
   ngOnInit() {
+
+     let script = this._renderer2.createElement('script');
+     script.type = `text/javascript`;
+     script.text =`
+      var _hsq = window._hsq = window._hsq || [];
+      _hsq.push(["identify",{
+             email: 'pharshu.ram@armam.com',
+             favorite_color: 'orange'
+         }]);
+      _hsq.push(['setPath', '/contact']);
+      _hsq.push(['trackPageView']);
+     `;
+     this._renderer2.appendChild(document.body, script);
+
     this.years = this.calculateYears(+new Date().getFullYear(), 40);
     this.years.push("Older than 1980");
     this.setOnContactView(false);
