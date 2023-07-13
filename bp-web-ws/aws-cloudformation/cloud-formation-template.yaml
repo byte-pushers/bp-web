@@ -280,7 +280,7 @@ Resources:
         Ref: BpWebRdsDBSubnetGroup
       DeletionProtection: true
       Engine: MySQL
-      EngineVersion: 5.7.41
+      EngineVersion: 8.0.32
       MasterUsername: bpwebrds123
       MasterUserPassword: bpwebrds
       MultiAZ: false
