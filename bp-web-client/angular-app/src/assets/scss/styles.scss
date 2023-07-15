@@ -3851,10 +3851,18 @@ td.actions {
 
 @media only screen and (min-width: 768px) {
   .home-hero-text {
-    font-size: 3.5em !important;
+    font-size: 2em !important;
   }
 
   .headerTheme .bodyContent .contentArea .content h2 {
-    font-size: 3.5em;
+    font-size: 2em;
   }
+}
+
+.w20 {
+  width: 20%;
+}
+
+.w80 {
+  width: 80%;
 }
