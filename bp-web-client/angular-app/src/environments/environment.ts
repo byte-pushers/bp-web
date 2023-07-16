@@ -9,9 +9,14 @@ export const environment = {
   QUOTE_SERVICE: {
     API: {
       HOST: null,
-      EXT: null,
-    },
+      EXT: null
+    }
   },
+  HUBSPOT_CONTACT_SERVICE: {
+    API: {
+      HOST: null
+    }
+  }
 };
 
 /*

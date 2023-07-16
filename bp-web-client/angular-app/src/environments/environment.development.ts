@@ -5,7 +5,12 @@ export const environment = {
   QUOTE_SERVICE: {
     API: {
       HOST: "https://api-dev.bytepushers.io/api/v1/quotes",
-      EXT: ".json",
-    },
+      EXT: ".json"
+    }
   },
+  HUBSPOT_CONTACT_SERVICE: {
+    API: {
+      HOST: "https://api.bytepushers.io/api/v1/hubspot/contact"
+    }
+  }
 };
