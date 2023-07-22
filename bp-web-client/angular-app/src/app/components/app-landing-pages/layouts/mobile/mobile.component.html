@@ -7,32 +7,20 @@
   <section class="header"></section>
   <section class="bodyContent">
     <div class="customContainer">
-      <div class="twoCol d-flex j-c-s-b a-bottom">
+      <div class="twoCol d-flex j-c-s-b a-bottom f-f-wrap">
         <div class="contentArea d-flex flexWrap a-bottom">
           <div class="empty"></div>
           <div class="content bottomLayout">
             <h2 [ngStyle]="setTitleColor()" [innerHTML]="title"></h2>
-            <p
-              class="MADslogan"
-              [innerHTML]="slogan"
-              [ngStyle]="setThemeSecondaryColor()"
-            ></p>
-
-            <div class="knowMore">
-              <img
-                class="arrow"
-                src="../../../../assets/images/Arrow-Vector.png"
-                alt=""
-                srcset=""
-              />
-              <button class="standardYelloBtn" (click)="wanttoLearnMore()">
-                Wnat to Learn More?
-              </button>
-            </div>
           </div>
         </div>
         <div class="socialMediaIcons d-flex a-center">
           <app-social-media></app-social-media>
+        </div>
+        <div class="knowMore">
+          <button class="standardYelloBtn" (click)="wanttoLearnMore()">
+            Wnat to Learn More?
+          </button>
         </div>
       </div>
     </div>

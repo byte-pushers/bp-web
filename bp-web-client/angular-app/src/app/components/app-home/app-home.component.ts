@@ -112,7 +112,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       .createComponent(
         this.landingPageContainer,
         this.#layoutId,
-        devicePlatform === DEVICE_PLATFORM.MOBILE ? "bottom" : this.#layoutType
+        devicePlatform === DEVICE_PLATFORM.MOBILE ? "mobile" : this.#layoutType
       )
       .then(
         (componentCreated) => {
