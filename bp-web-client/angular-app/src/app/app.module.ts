@@ -58,6 +58,7 @@ import { ThomsonReutersLogoComponent } from "./shared/components/heroLogos/thoms
 import { ZynxhealthLogoComponent } from "./shared/components/heroLogos/zynxhealth-logo/zynxhealth-logo.component";
 import { ArrowBottomComponent } from "./shared/components/heroLogos/arrow-bottom/arrow-bottom.component";
 import { HamburgurComponent } from "./shared/components/hamburgur/hamburgur.component";
+import { MobileComponent } from "./components/app-landing-pages/layouts/mobile/mobile.component";
 
 @NgModule({
   declarations: [
@@ -96,6 +97,7 @@ import { HamburgurComponent } from "./shared/components/hamburgur/hamburgur.comp
     ZynxhealthLogoComponent,
     ArrowBottomComponent,
     HamburgurComponent,
+    MobileComponent,
   ],
   imports: [
     AppRoutingModule,
