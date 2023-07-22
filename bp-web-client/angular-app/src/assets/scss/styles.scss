@@ -1,6 +1,7 @@
 @import "header.css";
 
 $standardYellow: #ffea7a;
+
 html,
 body {
   height: 100%;
@@ -2196,6 +2197,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -2205,6 +2207,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -2214,6 +2217,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -2262,6 +2266,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -2271,6 +2276,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -2280,6 +2286,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -2327,6 +2334,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
     -webkit-transform: translateY(-10px);
     opacity: 0;
   }
+
   to {
     -webkit-transform: translateY(0);
     opacity: 1;
@@ -2338,6 +2346,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
     -moz-transform: translateY(-10px);
     opacity: 0;
   }
+
   to {
     -moz-transform: translateY(0);
     opacity: 1;
@@ -2353,6 +2362,7 @@ article.cbp-so-side-right .cbp-so-contents::after {
     transform: translateY(-10px);
     opacity: 0;
   }
+
   to {
     -webkit-transform: translateY(0);
     -moz-transform: translateY(0);
@@ -2826,9 +2836,6 @@ strong,
 }
 
 @media only screen and (min-width: 768px) {
-  .home-hero-text {
-    font-size: 3.5em;
-  }
 }
 
 .home-hero-text small {
@@ -2853,6 +2860,7 @@ strong,
   background-size: cover;
   padding: 2.8em 3.2em;
 }
+
 .lets-talk-work {
   position: relative;
   background: url(~src/assets/images/worksPage/byePushersWorkCalenderContactImage.jpg)
@@ -3000,6 +3008,7 @@ body {
 body {
   margin: 0;
 }
+
 .adminContent {
   background: #fff;
   width: 100%;
@@ -3010,11 +3019,13 @@ body {
     width: 100%;
     margin: 0px auto;
   }
+
   h1 {
     font-size: 36px;
     margin: 0px 0 15px 0;
   }
 }
+
 .tile {
   width: 120px;
   height: 120px;
@@ -3035,10 +3046,12 @@ body {
     background: rgb(236, 183, 22);
   }
 }
+
 td.actions {
   display: flex;
   justify-content: space-around;
 }
+
 .p-button-rounded {
   border: none;
   border-radius: 50%;
@@ -3051,12 +3064,15 @@ td.actions {
     font-size: 14px;
   }
 }
+
 .p-button-success {
   background: #22c55e;
 }
+
 .p-button-warning {
   background: #ef4444;
 }
+
 .btnPrimary {
   padding: 10px 15px;
   background-color: white;
@@ -3066,29 +3082,35 @@ td.actions {
   color: #3466aa;
   border-radius: 5px;
 }
+
 .p-datatable .p-datatable-header .table-header {
   display: flex !important;
   justify-content: space-between !important;
 }
+
 .p-datatable .p-datatable-thead > tr > th,
 .p-datatable .p-datatable-tbody > tr > td {
   padding: 0.5rem;
   font-size: 14px;
 
   i {
-    font-size: 14px !important  ;
+    font-size: 14px !important;
   }
 }
+
 .p-dialog .p-dialog-header {
   padding: 0.8rem 1.5rem;
 }
+
 .p-dialog .p-dialog-content {
   padding: 0 1.5rem 0.5rem 1.5rem;
   border-bottom: none;
 }
+
 .p-dialog .p-dialog-footer {
   padding: 1rem 1.5rem 1.5rem 1.5rem;
 }
+
 .socialMediaLinksTop {
   // position: absolute;
   // right: 30px;
@@ -3101,28 +3123,35 @@ td.actions {
     list-style: none;
     margin: 0 0 20px 0;
     text-align: center;
+
     a {
       color: #fff;
+
       i {
         font-size: 30px;
       }
+
       &:hover {
         color: #fed904;
       }
+
       fa-icon {
         svg {
           font-size: 30px !important;
         }
       }
     }
+
     &:last-child {
       margin-bottom: 0;
     }
   }
+
   &.alignLeft {
     left: 30px !important;
   }
 }
+
 .socialMediaLinks {
   margin: 30px auto !important;
   padding: 0;
@@ -3131,13 +3160,16 @@ td.actions {
   li {
     display: inline-block;
     margin: 0px 25px;
+
     a {
       i {
         font-size: 30px;
       }
+
       &:hover {
         color: #fff;
       }
+
       fa-icon {
         svg {
           font-size: 30px !important;
@@ -3146,12 +3178,14 @@ td.actions {
     }
   }
 }
+
 .MADslogan {
   font-size: 20px;
   width: 800px;
   margin: 10px auto;
   line-height: 26px;
 }
+
 .standardYelloBtn {
   border: none;
   background: $standardYellow;
@@ -3166,6 +3200,7 @@ td.actions {
     color: #000;
   }
 }
+
 .rightTemplate,
 .leftTemplate {
   .socialMediaLinksTop {
@@ -3180,17 +3215,21 @@ td.actions {
       font-size: 36px;
     }
   }
+
   .MADslogan {
     max-width: 100%;
     // margin-left: 15px;
     text-align: left;
   }
 }
+
 .rightTemplate {
   justify-content: end;
 }
+
 .leftTemplate {
   justify-content: space-between;
+
   .socialMediaLinksTop {
     right: 30px !important;
     left: auto;
@@ -3201,6 +3240,7 @@ td.actions {
   .socialMediaLinks li {
     margin: 0px 15px;
   }
+
   .rightTemplate,
   .leftTemplate {
     .socialMediaLinksTop {
@@ -3240,21 +3280,26 @@ td.actions {
       }
     }
   }
+
   .rightTemplate {
     .home-hero-text {
       text-align: right;
     }
+
     .ctaForm {
       text-align: right;
+
       form {
         justify-content: flex-end;
       }
     }
   }
+
   .leftTemplate {
     .home-hero-text {
       text-align: left;
     }
+
     .ctaForm {
       text-align: left;
 
@@ -3264,11 +3309,13 @@ td.actions {
     }
   }
 }
+
 @media only screen and (max-height: 440px) {
   .socialMediaLinksTop,
   .MADslogan {
     display: none;
   }
+
   .rightTemplate,
   .leftTemplate {
     .home-hero-text {
@@ -3276,6 +3323,7 @@ td.actions {
     }
   }
 }
+
 // @media screen and (max-width: 740px),
 // screen and (max-height: 440px) {
 //   .socialMediaLinksTop {
@@ -3287,13 +3335,16 @@ td.actions {
   .hero-arrow {
     bottom: 1em;
   }
+
   .home-hero-text-container {
     bottom: 10%;
   }
+
   .home-hero-text {
     font-size: 1.8em;
   }
 }
+
 // MAD bottom landing page css starts here
 @media only screen and (max-width: 420px) {
   .MADslogan {
@@ -3334,6 +3385,7 @@ td.actions {
     // background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     //   url("../images/landingPages/v2/vector/right-align.png") center no-repeat;
   }
+
   .home-hero-text {
     color: #0263bb;
 
@@ -3348,6 +3400,7 @@ td.actions {
           border: solid 1px #0263bb;
           color: #000;
         }
+
         .standardYelloBtn {
           background: #0263bb;
           color: #fff;
@@ -3374,6 +3427,7 @@ td.actions {
     height: 220px;
     // background: red;
   }
+
   .bodyContent {
     width: 100%;
     height: calc(100% - 300px);
@@ -3385,6 +3439,7 @@ td.actions {
       height: 100%;
       // background: pink;
     }
+
     .contentArea {
       width: calc(100% - 45px);
 
@@ -3394,6 +3449,7 @@ td.actions {
         &.bottomLayout {
           text-align: center;
         }
+
         &.leftLayout,
         &.rightLayout {
           width: 100%;
@@ -3435,9 +3491,11 @@ td.actions {
             }
           }
         }
+
         &.leftLayout {
           text-align: left;
         }
+
         h2 {
           font-size: 2rem;
           font-weight: 500;
@@ -3448,10 +3506,12 @@ td.actions {
         }
       }
     }
+
     .socialMediaIcons {
       // background: green;
     }
   }
+
   .btmArrow {
     padding: 0 !important;
     text-align: center;
@@ -3462,21 +3522,25 @@ td.actions {
     .header {
       border: solid 1px red !important;
     }
+
     .bodyContent {
       .customContainer {
         .twoCol {
           border: solid 1px red !important;
+
           .contentArea {
             * {
               border: solid 1px rgb(3, 197, 51) !important;
             }
           }
+
           .socialMediaIcons {
             border: solid 1px red !important;
           }
         }
       }
     }
+
     .logos,
     .btmArrow {
       border: solid 1px red !important;
@@ -3495,24 +3559,31 @@ td.actions {
 .j-c-s-b {
   justify-content: space-between;
 }
+
 .flexColumn {
   flex-flow: column;
 }
+
 .flexEnd {
   align-items: flex-end;
 }
+
 .flexWrap {
   flex-wrap: wrap;
 }
+
 .f-f-wrap {
   flex-flow: wrap;
 }
+
 .a-center {
   align-items: center;
 }
+
 .a-bottom {
   align-items: end;
 }
+
 .customContainer {
   width: 100%;
   padding: 0px 1em;
@@ -3520,6 +3591,7 @@ td.actions {
   margin: 0px auto;
   height: 100%;
 }
+
 .twoCol {
   height: 100%;
 }
@@ -3570,6 +3642,7 @@ td.actions {
               }
             }
           }
+
           &.leftLayout {
             text-align: left;
           }
@@ -3630,6 +3703,7 @@ td.actions {
     // }
   }
 }
+
 @media only screen and (max-width: 800px) {
   .MADslogan {
     width: 100%;
@@ -3651,6 +3725,7 @@ td.actions {
     color: #fff;
     font-size: 18px;
   }
+
   .btmArrow {
     width: 5%;
     margin: 0px auto;
@@ -3670,11 +3745,13 @@ td.actions {
       height: auto;
       padding: 5px;
     }
+
     * {
       width: 25%;
     }
   }
 }
+
 @media only screen and (max-width: 900px) {
   .leftLogos,
   .rightLogos {
@@ -3707,10 +3784,12 @@ td.actions {
       opacity: 0.6;
     }
   }
+
   &:hover {
     background: #003a70;
   }
 }
+
 .secondaryBtn {
   padding: 8px 12px;
   border: solid 1px #8b8b8b;
@@ -3730,6 +3809,7 @@ td.actions {
     background: #717171;
   }
 }
+
 .topnav-container {
   .callToAction {
     color: #fff;
@@ -3744,14 +3824,17 @@ td.actions {
     a {
       font-size: 20px;
     }
+
     &.fsReduced {
       font-size: 12px;
       top: 30px;
+
       a {
         font-size: 12px;
         font-weight: 600;
       }
     }
+
     &.two {
       left: 30px !important;
       top: 100px;
@@ -3764,4 +3847,22 @@ td.actions {
   .topnav-container .callToAction.two {
     text-align: right;
   }
+}
+
+@media only screen and (min-width: 768px) {
+  .home-hero-text {
+    font-size: 2em !important;
+  }
+
+  .headerTheme .bodyContent .contentArea .content h2 {
+    font-size: 2em;
+  }
+}
+
+.w20 {
+  width: 20%;
+}
+
+.w80 {
+  width: 80%;
 }

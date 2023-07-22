@@ -13,14 +13,17 @@
         </div>
         <div class="contentArea d-flex j-c-s-b a-center">
           <div class="empty"></div>
-          <div class="content rightLayout d-flex flexColumn flexEnd">
-            <h2 [ngStyle]="setTitleColor()" [innerHTML]="title"></h2>
-            <p
-              class="MADslogan"
-              [ngStyle]="setThemeSecondaryColor()"
-              [innerHTML]="slogan"
-            ></p>
-            <app-cta-form [theme]="theme" [layout]="'Right'"></app-cta-form>
+          <div class="content rightLayout d-flex">
+            <div class="w20"></div>
+            <div class="w80 d-flex flexColumn flexEnd">
+              <h2 [ngStyle]="setTitleColor()" [innerHTML]="title"></h2>
+              <p
+                class="MADslogan"
+                [ngStyle]="setThemeSecondaryColor()"
+                [innerHTML]="slogan"
+              ></p>
+              <app-cta-form [theme]="theme" [layout]="'Right'"></app-cta-form>
+            </div>
           </div>
         </div>
       </div>

@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-sm-4 footer-link">
       <ul>
-        <li><h1>Contact Us</h1></li>
+        <li>
+          <h1>Contact Us</h1>
+        </li>
         <li>
           <h3>
             <a href="mailto:info@bytepushers.software"
@@ -14,7 +16,9 @@
     </div>
     <div class="col-sm-4 footer-link">
       <ul>
-        <li><h1>Our Recent Projects</h1></li>
+        <li>
+          <h1>Our Recent Projects</h1>
+        </li>
         <li>
           <h3><a href="{{ chucksPick3Url }}">www.chuckspick3.com</a></h3>
         </li>
@@ -23,9 +27,9 @@
     <div class="col-sm-4 footer-link" *ngIf="!isUserLoggedIn">
       <ul>
         <li>
-          <a routerLink="/contact" (click)="scrollToService.toTopOfPage()"
-            ><h1>Request A Quote</h1></a
-          >
+          <a routerLink="/contact" (click)="scrollToService.toTopOfPage()">
+            <h1>Request A Quote</h1>
+          </a>
         </li>
       </ul>
     </div>
