@@ -37,11 +37,7 @@ import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { PopupModalComponent } from "./modules/popup-modal/components/popup-modal.component";
 import { HttpRequestInterceptor } from "./interceptors/http-request.interceptor";
-import { MADLandingComponent } from "./components/app-madlanding/madlanding.component";
 import { SocialMediaComponent } from "./shared/components/app-social-media.component/app-social-media.component";
-import { RightComponent } from "./components/app-madlanding/right/right.component";
-import { BottomComponent } from "./components/app-madlanding/bottom/bottom.component";
-import { LeftComponent } from "./components/app-madlanding/left/left.component";
 import { LandingPageBottomLayoutComponent } from "./components/app-landing-pages/layouts/bottom/landing-page-bottom-layout.component";
 import { LandingPageLeftLayoutComponent } from "./components/app-landing-pages/layouts/left/landing-page-left-layout.component";
 import { LandingPageRightLayoutComponent } from "./components/app-landing-pages/layouts/right/landing-page-right-layout.component";
@@ -80,10 +76,6 @@ import { HamburgurComponent } from "./shared/components/hamburgur/hamburgur.comp
     PhoneNumberDirective,
     AppLoginComponent,
     PopupModalComponent,
-    MADLandingComponent,
-    RightComponent,
-    BottomComponent,
-    LeftComponent,
     LandingPageBottomLayoutComponent,
     LandingPageLeftLayoutComponent,
     LandingPageRightLayoutComponent,
