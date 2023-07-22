@@ -26,14 +26,17 @@
     <div class="customContainer">
       <div class="twoCol d-flex j-c-s-b a-bottom">
         <div class="contentArea d-flex j-c-s-b a-center">
-          <div class="content leftLayout">
-            <h2 [ngStyle]="setTitleColor()" [innerHTML]="title"></h2>
-            <p
-              class="MADslogan"
-              [ngStyle]="setThemeSecondaryColor()"
-              [innerHTML]="slogan"
-            ></p>
-            <app-cta-form [theme]="theme" [layout]="'Left'"></app-cta-form>
+          <div class="content d-flex leftLayout">
+            <div class="w80">
+              <h2 [ngStyle]="setTitleColor()" [innerHTML]="title"></h2>
+              <p
+                class="MADslogan"
+                [ngStyle]="setThemeSecondaryColor()"
+                [innerHTML]="slogan"
+              ></p>
+              <app-cta-form [theme]="theme" [layout]="'Left'"></app-cta-form>
+            </div>
+            <div class="w20"></div>
           </div>
           <div class="empty"></div>
         </div>

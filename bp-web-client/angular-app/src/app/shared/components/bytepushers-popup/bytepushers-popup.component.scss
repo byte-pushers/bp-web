@@ -101,8 +101,10 @@
 
     .consent {
     }
+
     .ctaForm {
       margin-bottom: 15px;
+
       form {
         input {
           margin-bottom: 10px;
@@ -110,6 +112,7 @@
       }
     }
   }
+
   .popupfooter {
     padding-top: 15px;
     text-align: right;
@@ -120,6 +123,7 @@
     }
   }
 }
+
 .ctaDetails {
   margin-bottom: 15px;
 
@@ -127,6 +131,7 @@
     font-size: 20px;
     margin-bottom: 6px;
     font-weight: 600;
+
     .lable {
       margin-right: 5px;
       color: #bababa;
@@ -136,18 +141,22 @@
       color: #035ba3;
     }
   }
+
   h3 {
     font-size: 22px;
     margin-bottom: 15px;
   }
+
   p {
     line-height: 30px;
   }
+
   span {
     font-weight: 600;
     color: #2196f3;
   }
 }
+
 .disclimer {
   font-size: 11px;
   color: #c4c4c4;
