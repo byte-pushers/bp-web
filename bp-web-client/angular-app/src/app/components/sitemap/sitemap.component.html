@@ -1,8 +1,58 @@
 <section class="siteMap">
   <section class="siteMapHead">
-    <div class="topnav-container d-flex j-c-s-b a-center">
+    <div class="siteMapContainer d-flex j-c-s-b a-center">
       <app-logo-text-aside [logoColor]="'#000'"></app-logo-text-aside>
       <h1>Sitemap</h1>
+    </div>
+  </section>
+  <section class="contentArea">
+    <div class="categories">
+      <div class="category">
+        <div class="colorPad"></div>
+        <h3>Pages</h3>
+        <ul class="linksList">
+          <li>
+            <a [routerLink]="'/home'" routerLinkActive="active">Home</a>
+          </li>
+          <li>
+            <a [routerLink]="'/services'" routerLinkActive="active">Services</a>
+          </li>
+          <li>
+            <a [routerLink]="'/work'" routerLinkActive="active">Work</a>
+          </li>
+          <li>
+            <a [routerLink]="'/about'" routerLinkActive="active">About Us</a>
+          </li>
+          <li>
+            <a [routerLink]="'/contact'" routerLinkActive="active">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="category">
+        <div class="colorPad"></div>
+        <h3>Landing Pages</h3>
+        <ul class="linksList landingPages">
+          <li *ngFor="let lPage of landingPagesList" class="d-flex">
+            <ng-container *ngIf="lPage.id != 'default'">
+              <a
+                (click)="gotothisroute('/home', lPage.id)"
+                routerLinkActive="active"
+                >{{ lPage.id }}</a
+              >
+              <a
+                (click)="gotothisroute('/home', lPage.id, 'left')"
+                routerLinkActive="active"
+                >Left</a
+              >
+              <a
+                (click)="gotothisroute('/home', lPage.id, 'right')"
+                routerLinkActive="active"
+                >Right</a
+              >
+            </ng-container>
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 </section>
