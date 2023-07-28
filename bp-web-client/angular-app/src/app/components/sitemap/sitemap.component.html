@@ -1,7 +1,14 @@
 <section class="siteMap">
   <section class="siteMapHead">
     <div class="siteMapContainer d-flex j-c-s-b a-center">
-      <app-logo-text-aside [logoColor]="'#000'"></app-logo-text-aside>
+      <app-logo-text-aside
+        [logoColor]="'#000'"
+        *ngIf="!showSmallLogo()"
+      ></app-logo-text-aside>
+      <app-logo-text-bottom
+        [logoColor]="'#000'"
+        *ngIf="showSmallLogo()"
+      ></app-logo-text-bottom>
       <h1>Sitemap</h1>
     </div>
   </section>

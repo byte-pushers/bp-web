@@ -26,4 +26,11 @@ export class SitemapComponent implements OnInit, OnDestroy {
       this.router.navigate([page], { queryParams: { id: layoutId } });
     }
   }
+
+  showSmallLogo() {
+    if (window.innerWidth <= 960) {
+      return true;
+    }
+    return false;
+  }
 }
