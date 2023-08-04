@@ -52,6 +52,11 @@
                 >Left</a
               >
               <a
+                (click)="gotothisroute('/home', lPage.id, 'bottom')"
+                routerLinkActive="active"
+                >Bottom</a
+              >
+              <a
                 (click)="gotothisroute('/home', lPage.id, 'right')"
                 routerLinkActive="active"
                 >Right</a
