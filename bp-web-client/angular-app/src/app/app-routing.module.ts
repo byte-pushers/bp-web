@@ -7,6 +7,7 @@ import { WorkComponent } from "./components/app-work/app-work.component";
 import { ServicesComponent } from "./components/app-services/app-services.component";
 import { AppLoginComponent } from "./components/app-login/app-login.component";
 import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
+import { SitemapComponent } from "./components/sitemap/sitemap.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: "work", component: WorkComponent },
   { path: "services", component: ServicesComponent },
   { path: "admin-login", component: AppLoginComponent },
+  { path: "sitemap", component: SitemapComponent },
   {
     path: "admin",
     loadChildren: () =>

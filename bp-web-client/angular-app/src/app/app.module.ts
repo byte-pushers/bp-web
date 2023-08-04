@@ -59,6 +59,7 @@ import { ZynxhealthLogoComponent } from "./shared/components/heroLogos/zynxhealt
 import { ArrowBottomComponent } from "./shared/components/heroLogos/arrow-bottom/arrow-bottom.component";
 import { HamburgurComponent } from "./shared/components/hamburgur/hamburgur.component";
 import { MobileComponent } from "./components/app-landing-pages/layouts/mobile/mobile.component";
+import { SitemapComponent } from "./components/sitemap/sitemap.component";
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import { MobileComponent } from "./components/app-landing-pages/layouts/mobile/m
     ArrowBottomComponent,
     HamburgurComponent,
     MobileComponent,
+    SitemapComponent,
   ],
   imports: [
     AppRoutingModule,
