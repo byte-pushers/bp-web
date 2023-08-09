@@ -16,6 +16,7 @@ import { ActivatedRoute } from "@angular/router";
 import { ResizeService } from "../../shared/services/resize.service";
 import { DEVICE_PLATFORM } from "../../shared/models/screen-size.enum";
 import { delay } from "rxjs/operators";
+import { Meta, Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-home",
@@ -37,8 +38,21 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     public scrollToService: ScrollToService,
     private dynamicComponentService: DynamicComponentService,
     private route: ActivatedRoute,
-    private resizeService: ResizeService
-  ) {}
+    private resizeService: ResizeService,
+    private meta: Meta,
+    private title: Title
+  ) {
+    this.meta.addTags([
+      { name: "description", content: "skdh isuvi syvisd" },
+      { name: "author", content: "skdh isuvi syvisd" },
+      { name: "keywords", content: "skdh isuvi syvisd" },
+    ]);
+    this.setTitle("this is HOME");
+  }
+
+  setTitle(newTitle: any) {
+    this.title.setTitle(newTitle);
+  }
 
   private static previousButtonClickedEventHandler(event: Event): void {
     const $nextButton = $("slide.item.carousel-item");
