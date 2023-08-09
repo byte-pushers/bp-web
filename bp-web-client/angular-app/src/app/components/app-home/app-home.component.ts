@@ -47,7 +47,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       { name: "author", content: "skdh isuvi syvisd" },
       { name: "keywords", content: "skdh isuvi syvisd" },
     ]);
-    this.setTitle("this is HOME");
+    this.setTitle(
+      "Byte Pushers Inc - Creating solutions to solve today's and tomorrow's problems bit by bit."
+    );
   }
 
   setTitle(newTitle: any) {
