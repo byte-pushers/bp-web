@@ -32,5 +32,13 @@ for (let landingPage of landingPages) {
       component: null,
       inputs: landingPage.inputDetails,
     },
+    {
+      createComponent: () =>
+        import(
+          "../app/components/app-landing-pages/layouts/mobile/mobile.component"
+        ).then((it) => it.MobileComponent),
+      component: null,
+      inputs: landingPage.inputDetails,
+    },
   ]);
 }

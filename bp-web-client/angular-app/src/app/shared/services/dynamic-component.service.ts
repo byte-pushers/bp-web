@@ -50,6 +50,8 @@ export class DynamicComponentService {
       landingPageLayoutRandomIndex = 1;
     } else if (landingPageLayoutType == "bottom") {
       landingPageLayoutRandomIndex = 2;
+    } else if (landingPageLayoutType == "mobile") {
+      landingPageLayoutRandomIndex = 3;
     } else {
       landingPageLayoutRandomIndex = Math.floor(
         Math.random() * (landingPageLayoutConfig.length - 0) + 0

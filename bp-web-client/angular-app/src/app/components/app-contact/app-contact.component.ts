@@ -298,4 +298,23 @@ export class ContactComponent
       });
     }
   }
+
+  setThemeBGImg() {
+    let styles = {
+      background: `url('assets/images/contactPage/contactPageSplashBackground.jpg')
+        center no-repeat`,
+      "background-size": "cover",
+    };
+    return styles;
+  }
+
+  showBorders(): boolean | void {
+    let isBorders;
+    this.route.queryParams.subscribe((params) => {
+      if (params?.showBorder == "true") {
+        isBorders = params?.showBorder;
+      }
+    });
+    return isBorders;
+  }
 }

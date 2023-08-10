@@ -1,21 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-info',
-  templateUrl: './app-info.component.html',
-  styleUrls: ['./app-info.component.css']
+  selector: "app-info",
+  templateUrl: "./app-info.component.html",
+  styleUrls: ["./app-info.component.css"],
 })
 export class InfoComponent implements OnInit {
+  constructor() {}
+  ngOnInit() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  public toFeaturesSection () {
+  public toFeaturesSection() {
     window.scrollTo(0, 900);
-
-
   }
-
 }

@@ -19,8 +19,12 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     const headerBar = document.getElementById("topnav");
     if (headerBar.classList.contains("topnav-scrolling")) {
       this.isScrolled = true;
+      if (this.isMobileNavOpen) {
+        this.isMobileNavOpen = false;
+      }
     } else {
       this.isScrolled = false;
+      this.isMobileNavOpen = false;
     }
   }
   selectedTheme: any;
@@ -112,7 +116,7 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   }
 
   showSmallLogo() {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 960) {
       return true;
     }
     return false;

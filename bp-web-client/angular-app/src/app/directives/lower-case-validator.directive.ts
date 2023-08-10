@@ -1,19 +1,24 @@
-import {NG_VALIDATORS, FormControl, ValidatorFn, Validator} from '@angular/forms';
-import {FormValidationService} from '../services/form-validation.service';
-import {Directive} from '@angular/core';
+import {
+  NG_VALIDATORS,
+  FormControl,
+  ValidatorFn,
+  Validator,
+} from "@angular/forms";
+import { FormValidationService } from "../services/form-validation.service";
+import { Directive } from "@angular/core";
 
 // @ts-ignore
 // @ts-ignore
 @Directive({
   // tslint:disable-next-line:directive-selector
-  selector: '[lowercaseValidator] [ngModel]',
+  selector: "[lowercaseValidator] [ngModel]",
   providers: [
     {
       provide: NG_VALIDATORS,
       useExisting: LowercaseValidator,
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class LowercaseValidator implements Validator {
   public validator: ValidatorFn;
@@ -26,14 +31,13 @@ export class LowercaseValidator implements Validator {
 
   public lowercaseValidator(): ValidatorFn {
     return (c: FormControl) => {
-
       if (this.formValidationService.isLowercase(c.value)) {
         return null;
       } else {
         return {
           lowercaseValidator: {
-            valid: false
-          }
+            valid: false,
+          },
         };
       }
     };

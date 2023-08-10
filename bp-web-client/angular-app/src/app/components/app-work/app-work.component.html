@@ -2,12 +2,8 @@
   <!-- newly refactored code -->
   <section
     class="headerTheme"
-    style="
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url('assets/images/worksPage/bytePushersWorksPageSplashScreenBackground.jpg')
-          center no-repeat;
-      background-size: cover;
-    "
+    [ngStyle]="setThemeBGImg()"
+    [ngClass]="showBorders() ? 'bordersTrue' : ''"
   >
     <section class="header"></section>
     <section class="bodyContent">

@@ -1,5 +1,5 @@
-<app-header></app-header>
+<app-header *ngIf="isSiteMap$ | async"></app-header>
 <app-body></app-body>
-<app-footer></app-footer>
+<app-footer *ngIf="isSiteMap$ | async"></app-footer>
 <app-bytepushers-popup></app-bytepushers-popup>
 <app-model-popup></app-model-popup>

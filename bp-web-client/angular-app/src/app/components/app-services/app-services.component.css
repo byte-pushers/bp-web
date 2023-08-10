@@ -16,7 +16,8 @@
 
 div[disabled] {
   opacity: 0;
-  filter: alpha(opacity=00); /* For IE8 and earlier */
+  filter: alpha(opacity=00);
+  /* For IE8 and earlier */
 }
 
 ::ng-deep .carousel-control-prev-icon {

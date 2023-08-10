@@ -20,6 +20,7 @@ h1 {
   font-weight: bold;
   color: white;
 }
+
 a {
   margin-top: 0.5%;
   margin-bottom: 0.5%;
@@ -35,6 +36,7 @@ h1.mobile {
   font-weight: bold;
   color: white;
 }
+
 a.mobile {
   margin-top: 0.5%;
   margin-bottom: 1%;
@@ -43,6 +45,7 @@ a.mobile {
   font-weight: lighter;
   letter-spacing: 1.2px;
 }
+
 .footer-link {
   text-align: center;
 }
@@ -73,6 +76,7 @@ ul {
 p .copyright {
   text-align: center;
 }
+
 .mobile-copyright {
   color: #5c5c5c;
   text-align: center;

@@ -7,6 +7,7 @@ import {
   faLinkedin,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-work",
@@ -20,7 +21,27 @@ export class WorkComponent implements OnInit {
   faLinkedin = faLinkedin;
   faYoutube = faYoutube;
   public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {}
+
+  setThemeBGImg() {
+    let styles = {
+      background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('assets/images/worksPage/bytePushersWorksPageSplashScreenBackground.jpg')
+          center no-repeat`,
+      "background-size": "cover",
+    };
+    return styles;
+  }
+
+  showBorders(): boolean | void {
+    let isBorders;
+    this.route.queryParams.subscribe((params) => {
+      if (params?.showBorder == "true") {
+        isBorders = params?.showBorder;
+      }
+    });
+    return isBorders;
+  }
 }

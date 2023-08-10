@@ -6,6 +6,7 @@
   margin: 0 auto;
   color: #3466aa;
 }
+
 .adminloginContainer {
   width: 100%;
   height: 100vh;
@@ -14,6 +15,7 @@
       center no-repeat;
   background-size: cover;
 }
+
 .loginBox {
   width: 400px;
   background: rgba(0, 0, 0, 0.4);
@@ -25,14 +27,17 @@
   color: #fff;
   border-radius: 8px;
 }
+
 .loginBox h1 {
   font-size: 30px;
   text-align: center;
 }
+
 .loginBox label {
   font-size: 16px;
   color: rgb(189, 189, 189);
 }
+
 .loginBox input {
   color: #000;
 }
