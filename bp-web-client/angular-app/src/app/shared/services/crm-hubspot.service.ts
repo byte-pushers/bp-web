@@ -3,7 +3,9 @@ import {ContactService} from "./contact.service";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CrmHubspotService implements ContactService {
   #defaultHeader: HttpHeaders = new HttpHeaders()
     .set("Content-Type", "application/json")
