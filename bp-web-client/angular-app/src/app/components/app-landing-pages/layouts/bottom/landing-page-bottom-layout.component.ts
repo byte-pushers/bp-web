@@ -29,7 +29,7 @@ export class LandingPageBottomLayoutComponent {
   setTitleColor() {
     let styles = {
       color: this?.theme?.titleColor,
-      "font-weight": "200",
+      "font-weight": "300",
     };
     this.headerService.setTheme({
       logoColor: this?.theme?.secondaryColor,
