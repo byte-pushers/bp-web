@@ -9,6 +9,7 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { ActivatedRoute } from "@angular/router";
+import { Meta, Title } from "@angular/platform-browser";
 @Component({
   selector: "app-about",
   templateUrl: "./app-about.component.html",
@@ -20,8 +21,24 @@ export class AboutComponent implements OnInit {
   faInstagram = faInstagram;
   faLinkedin = faLinkedin;
   faYoutube = faYoutube;
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private meta: Meta,
+    private title: Title
+  ) {
+    this.meta.addTags([
+      { name: "description", content: "skdh isuvi syvisd" },
+      { name: "author", content: "skdh isuvi syvisd" },
+      { name: "keywords", content: "skdh isuvi syvisd" },
+    ]);
+    this.setTitle(
+      "Byte Pushers Inc - Design, Develop, and Deliver your ideas on time and under budget."
+    );
+  }
 
+  setTitle(newTitle: any) {
+    this.title.setTitle(newTitle);
+  }
   ngOnInit() {
     $(document).ready(function (e) {
       const $prevButton = $(".left.carousel-control.carousel-control-prev");
