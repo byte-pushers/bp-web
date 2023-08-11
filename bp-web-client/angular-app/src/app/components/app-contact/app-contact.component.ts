@@ -26,6 +26,7 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { PopupModalService } from "src/app/modules/popup-modal/services/popup-modal.service";
+import { Meta, Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-contact",
@@ -57,9 +58,20 @@ export class ContactComponent
     private scrollToService: ScrollToService,
     private contactButtonService: ContactButtonService,
     private popupService: PopupModalService,
-    private route: ActivatedRoute
-  ) {}
-
+    private route: ActivatedRoute,
+    private meta: Meta,
+    private title: Title
+  ) {
+    this.meta.addTags([
+      { name: "description", content: "skdh isuvi syvisd" },
+      { name: "author", content: "skdh isuvi syvisd" },
+      { name: "keywords", content: "skdh isuvi syvisd" },
+    ]);
+    this.setTitle("Byte Pushers Inc - Contact Byte Pushers team.");
+  }
+  setTitle(newTitle: any) {
+    this.title.setTitle(newTitle);
+  }
   @ViewChild("quoteForm") quoteForm: any;
   @ViewChild("phoneNumber") phoneNumber: any;
   public quote: Quote = new QuoteModel(QuoteModel.DEFAULT_CONFIG);

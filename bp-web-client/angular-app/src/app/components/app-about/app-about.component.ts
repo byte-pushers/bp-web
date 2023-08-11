@@ -32,7 +32,7 @@ export class AboutComponent implements OnInit {
       { name: "keywords", content: "skdh isuvi syvisd" },
     ]);
     this.setTitle(
-      "Byte Pushers Inc - Design, Develop, and Deliver your ideas on time and under budget."
+      "Byte Pushers Inc - Creating solutions to solve today's and tomorrow’s problems bit by bit."
     );
   }
 
