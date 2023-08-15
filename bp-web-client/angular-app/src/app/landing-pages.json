@@ -46,9 +46,9 @@
         "secondaryColor": "#000",
         "inputColor": "#000",
         "imagePath": {
-          "right": "assets/images/landingPages/v2/right-align.png",
-          "left": "assets/images/landingPages/v2/left-align.png",
-          "bottom": "assets/images/landingPages/v2/bottom-align.png"
+          "right": "assets/images/landingPages/v2/lp2.right.aligned.png",
+          "left": "assets/images/landingPages/v2/lp2.left.aligned.png",
+          "bottom": "assets/images/landingPages/v2/lp2.bottom.aligned.png"
         }
       }
     }
@@ -64,9 +64,9 @@
         "secondaryColor": "#fff",
         "inputColor": "#fff",
         "imagePath": {
-          "right": "assets/images/landingPages/v3/right-align.png",
-          "left": "assets/images/landingPages/v3/left-align.png",
-          "bottom": "assets/images/landingPages/v3/bottom-align.png"
+          "right": "assets/images/landingPages/v3/lp3.right.aligned.png",
+          "left": "assets/images/landingPages/v3/lp3.left.aligned.png",
+          "bottom": "assets/images/landingPages/v3/lp3.bottom.aligned.png"
         }
       }
     }
