@@ -30,7 +30,7 @@
     <div class="topnav-mobile-menu" (click)="checkMobileNav()">
       <app-hamburgur
         *ngIf="!isMobileNavOpen"
-        [logoColor]="getLogoColor()"
+        [logoColor]="hamburgerColor"
       ></app-hamburgur>
       <svg
         *ngIf="isMobileNavOpen"
@@ -58,13 +58,13 @@
     <a class="topnav-logo" [routerLink]="'/home'">
       <!-- <div class="topnav-logo-img"></div> -->
       <app-logo-text-bottom
-        [logoColor]="getLogoColor()"
+        [logoColor]="logoTextBottomColor"
         *ngIf="showSmallLogo() && !isScrolled"
       ></app-logo-text-bottom>
       <app-logo-text-aside
         *ngIf="!showSmallLogo() && !isScrolled"
         (click)="scrollTo.toTopOfPage()"
-        [logoColor]="getLogoColor()"
+        [logoColor]="logoTextColor"
       ></app-logo-text-aside>
       <app-logo-only-text *ngIf="isScrolled"></app-logo-only-text>
     </a>
