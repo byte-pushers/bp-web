@@ -1,4 +1,4 @@
-import { Component, HostListener, Input, OnInit } from "@angular/core";
+import {ChangeDetectorRef, Component, HostListener, Input, OnInit } from "@angular/core";
 import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { HeaderService } from "src/app/services/header.service";
 import { LoginService } from "src/app/services/login.service";
@@ -14,6 +14,10 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   isUserLoggedIn: boolean = false;
   isScrolled: boolean = false;
   isMobileNavOpen: boolean = false;
+  logoTextColor = '#fff';
+  logoTextBottomColor = '#fff';
+  hamburgerColor = '#fff';
+
   @HostListener("window:scroll", ["$event"])
   webpageScrolling(event: any) {
     const headerBar = document.getElementById("topnav");
@@ -33,7 +37,8 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     public override router: Router,
     private loginService: LoginService,
     private headerService: HeaderService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cd: ChangeDetectorRef
   ) {
     super(router);
     this.loginService.currentUserSubject.subscribe((value) => {
@@ -59,11 +64,11 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
         document.documentElement.scrollTop > 100
       ) {
         const scrollingNav = document.getElementById("topnav");
-        scrollingNav.classList.add("topnav-scrolling");
-        mobileNav.classList.remove("expanded");
+        scrollingNav?.classList?.add("topnav-scrolling");
+        mobileNav?.classList?.remove("expanded");
       } else {
         const scrollingNav = document.getElementById("topnav");
-        scrollingNav.classList.remove("topnav-scrolling");
+        scrollingNav?.classList?.remove("topnav-scrolling");
       }
     }
 
@@ -167,6 +172,32 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
       }
       return styles;
     }
+  }
+
+
+
+  @HostListener("window:scroll", []) onWindowScroll() {
+    let viewChanged = [];
+
+    viewChanged.push(this.setLogoTextColor('#000'));
+    viewChanged.push(this.setLogoTextBottomColor('#000'));
+    viewChanged.push(this.setHamburgerColor('#000'));
+
+    if (viewChanged.find(vc => vc === true)) {
+      this.cd.detectChanges();
+    }
+  }
+
+  setLogoTextBottomColor(newColor: string): void {
+    this.logoTextBottomColor = newColor
+  }
+
+  setLogoTextColor(newColor: string): void {
+    this.logoTextColor = newColor
+  }
+
+  setHamburgerColor(newColor: string): void {
+    this.hamburgerColor = newColor
   }
   getLogoColor() {
     const headerBar = document.getElementById("topnav");

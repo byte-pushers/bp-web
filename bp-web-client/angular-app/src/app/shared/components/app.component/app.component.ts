@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, HostListener, OnInit } from "@angular/core";
+import {AfterViewInit, ChangeDetectorRef, Component, HostListener, OnInit} from "@angular/core";
 import { Observable } from "rxjs";
 import { SiteMapService } from "src/app/services/sitemap.service";
 import { DEVICE_PLATFORM } from "../../models/screen-size.enum";
@@ -11,10 +11,12 @@ import { ResizeService } from "../../services/resize.service";
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = "angular-app";
-  isSiteMap$: Observable<boolean>;
+  isSiteMap$: Observable<boolean> = this.siteMapService.isSiteMap;
+  isSiteMap = false;
   constructor(
     private siteMapService: SiteMapService,
-    private resizeService: ResizeService
+    private resizeService: ResizeService,
+    private cd: ChangeDetectorRef
   ) {}
 
   @HostListener("window:resize", [])
@@ -23,7 +25,10 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.isSiteMap$ = this.siteMapService.isSiteMap;
+    this.isSiteMap$.subscribe(isSiteMap => {
+      this.isSiteMap = isSiteMap;
+      this.cd.detectChanges();
+    });
   }
 
   ngAfterViewInit() {
