@@ -82,9 +82,9 @@
         "secondaryColor": "#000",
         "inputColor": "#000",
         "imagePath": {
-          "right": "assets/images/landingPages/v4/right-align.png",
-          "left": "assets/images/landingPages/v4/left-align.png",
-          "bottom": "assets/images/landingPages/v4/bottom-align.png"
+          "right": "assets/images/landingPages/v4/lp4.right.align.png",
+          "left": "assets/images/landingPages/v4/lp4.left.align.png",
+          "bottom": "assets/images/landingPages/v4/lp4.bottom.align.png"
         }
       }
     }
