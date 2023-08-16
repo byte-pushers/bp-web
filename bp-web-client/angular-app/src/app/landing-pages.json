@@ -82,9 +82,9 @@
         "secondaryColor": "#000",
         "inputColor": "#000",
         "imagePath": {
-          "right": "assets/images/landingPages/v4/lp4.right.align.png",
-          "left": "assets/images/landingPages/v4/lp4.left.align.png",
-          "bottom": "assets/images/landingPages/v4/lp4.bottom.align.png"
+          "right": "assets/images/landingPages/v4/lp4.right.aligned.png",
+          "left": "assets/images/landingPages/v4/lp4.left.aligned.png",
+          "bottom": "assets/images/landingPages/v4/lp4.bottom.aligned.png"
         }
       }
     }
@@ -100,9 +100,9 @@
         "secondaryColor": "#000",
         "inputColor": "#000",
         "imagePath": {
-          "right": "assets/images/landingPages/v5/right-align.png",
-          "left": "assets/images/landingPages/v5/left-align.png",
-          "bottom": "assets/images/landingPages/v5/bottom-align.png"
+          "right": "assets/images/landingPages/v5/lp5.right.aligned.png",
+          "left": "assets/images/landingPages/v5/lp5.left.aligned.png",
+          "bottom": "assets/images/landingPages/v5/lp5.bottom.aligned.png"
         }
       }
     }
@@ -118,9 +118,9 @@
         "secondaryColor": "#fff",
         "inputColor": "#fff",
         "imagePath": {
-          "right": "assets/images/landingPages/v6/right-align.png",
-          "left": "assets/images/landingPages/v6/left-align.png",
-          "bottom": "assets/images/landingPages/v6/bottom-align.png"
+          "right": "assets/images/landingPages/v6/lp6.right.aligned.png",
+          "left": "assets/images/landingPages/v6/lp6.left.aligned.png",
+          "bottom": "assets/images/landingPages/v6/lp6.bottom.aligned.png"
         }
       }
     }
@@ -136,9 +136,9 @@
         "secondaryColor": "#fff",
         "inputColor": "#fff",
         "imagePath": {
-          "right": "assets/images/landingPages/v7/right-align.png",
-          "left": "assets/images/landingPages/v7/left-align.png",
-          "bottom": "assets/images/landingPages/v7/bottom-align.png"
+          "right": "assets/images/landingPages/v7/lp7.right.aligned.png",
+          "left": "assets/images/landingPages/v7/lp7.left.aligned.png",
+          "bottom": "assets/images/landingPages/v7/lp7.bottom.aligned.png"
         }
       }
     }
