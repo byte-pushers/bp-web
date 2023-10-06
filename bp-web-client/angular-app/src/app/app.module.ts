@@ -14,7 +14,7 @@ import { NgxBootstrapSliderModule } from "ngx-bootstrap-slider";
 import { QuoteService } from "./shared/services/quote.service";
 import { AppFooterComponent } from "./shared/components/app-footer/app-footer.component";
 import { NgxSpinnerModule } from "ngx-spinner";
-import { MatCardModule } from "@angular/material/card";
+// import { MatCardModule } from "@angular/material/card";
 import { AppAlertOverlayModalComponent } from "./shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.component";
 import { NgxPageScrollCoreModule } from "ngx-page-scroll-core";
 import { NgxPageScrollModule } from "ngx-page-scroll";
@@ -112,7 +112,6 @@ import { SitemapComponent } from "./components/sitemap/sitemap.component";
     NgxBootstrapSliderModule,
     HttpClientModule,
     NgxSpinnerModule,
-    MatCardModule,
     OverlayModule,
     NgxPageScrollCoreModule.forRoot({
       /* custom settings here */
