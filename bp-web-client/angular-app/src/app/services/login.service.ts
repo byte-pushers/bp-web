@@ -7,7 +7,6 @@ import { BehaviorSubject, Observable } from "rxjs";
 export class LoginService {
   public currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
-  public localStorage = localStorage;
   constructor() {
     this.currentUserSubject = new BehaviorSubject<any>(
       JSON.parse(localStorage.getItem("currentUser")!)
