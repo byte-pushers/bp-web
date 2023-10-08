@@ -9,7 +9,7 @@ import { NgForm } from "@angular/forms";
 import { QuoteService } from "../../shared/services/quote.service";
 import { Quote } from "../../shared/models/quote";
 import { QuoteModel } from "../../shared/models/quote.model";
-import { NgxSpinnerService } from "ngx-spinner";
+// import { NgxSpinnerService } from "ngx-spinner";
 import { AppAlertOverlayModalService } from "../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.service";
 import { ScrollToService } from "../../services/scroll-to.service";
 import { AppAlertOverlayModalComponent } from "../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.component";
@@ -50,7 +50,7 @@ export class ContactComponent
 
   constructor(
     private quoteService: QuoteService,
-    private spinner: NgxSpinnerService,
+    // private spinner: NgxSpinnerService,
     private router: Router,
     private appAlertOverlayModalService: AppAlertOverlayModalService,
     public stateNameService: StateNameService,
@@ -182,7 +182,7 @@ export class ContactComponent
   }
 
   private saveQuote() {
-    this.spinner.show();
+    // this.spinner.show();
     if (this.quote !== null && this.quote !== undefined) {
       this.quote.contact.phone.number = this.phoneNumber.control.value;
       this.quoteService.createQuote(this.quote).subscribe(
@@ -193,7 +193,7 @@ export class ContactComponent
             newlyCreatedQuote
           );
           this.showConfirmation = true;
-          this.spinner.hide();
+          // this.spinner.hide();
           this.quoteForm.reset();
           // TODO: Maybe we don't need this logic.
           if (this.isMobileResolution()) {
@@ -210,7 +210,7 @@ export class ContactComponent
             this.showOverlayModal(this.errorMessages[0]);
           }
 
-          this.spinner.hide();
+          // this.spinner.hide();
           this.quoteForm.reset();
           this.popupService.throwError({
             type: "Error",

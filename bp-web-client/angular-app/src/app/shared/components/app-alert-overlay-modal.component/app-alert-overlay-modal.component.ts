@@ -4,22 +4,7 @@ import { AppAlertOverlayModalService } from "./app-alert-overlay-modal.service";
 @Component({
   selector: "app-alert-overlay-modal",
   styleUrls: ["./app-alert-overlay-modal.component.css"],
-  template: `<mat-card>
-    <mat-card-header>
-      <mat-card-title>
-        {{ message.value }}
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="mx-auto">
-      <button
-        mat-raised-button
-        class="btn  overlay-btn"
-        (click)="closeModal($event)"
-      >
-        Ok
-      </button>
-    </mat-card-content>
-  </mat-card>`,
+  template: ` the mat card is removed to test `,
 })
 export class AppAlertOverlayModalComponent implements OnInit {
   public message: { value: string } = { value: null };

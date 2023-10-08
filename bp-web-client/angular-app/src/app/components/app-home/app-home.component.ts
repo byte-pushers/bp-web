@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild("homeBackgroundWorkImg") private divView: ElementRef;
   @ViewChild("landingPage", { read: ViewContainerRef })
   private landingPageContainer!: ViewContainerRef;
-
+  public document = document;
   constructor(
     private window: Window,
     public scrollToService: ScrollToService,
