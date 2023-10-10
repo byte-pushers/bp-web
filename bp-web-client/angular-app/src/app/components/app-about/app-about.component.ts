@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Inject, PLATFORM_ID } from "@angular/core";
 import * as $ from "jquery";
 // import { faFacebook } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -9,6 +9,7 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { ActivatedRoute } from "@angular/router";
+import { isPlatformBrowser } from "@angular/common";
 @Component({
   selector: "app-about",
   templateUrl: "./app-about.component.html",
@@ -20,16 +21,21 @@ export class AboutComponent implements OnInit {
   faInstagram = faInstagram;
   faLinkedin = faLinkedin;
   faYoutube = faYoutube;
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: object,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    $(document).ready(function (e) {
-      const $prevButton = $(".left.carousel-control.carousel-control-prev");
-      const $nextButton = $(".right.carousel-control.carousel-control-next");
+    if (isPlatformBrowser(this.platformId)) {
+      $(document).ready(function (e) {
+        const $prevButton = $(".left.carousel-control.carousel-control-prev");
+        const $nextButton = $(".right.carousel-control.carousel-control-next");
 
-      $prevButton.click(AboutComponent.previousButtonClickedEventHandler);
-      $nextButton.click(AboutComponent.nextButtonClickedEventHandler);
-    });
+        $prevButton.click(AboutComponent.previousButtonClickedEventHandler);
+        $nextButton.click(AboutComponent.nextButtonClickedEventHandler);
+      });
+    }
   }
 
   private static previousButtonClickedEventHandler(event: Event): void {

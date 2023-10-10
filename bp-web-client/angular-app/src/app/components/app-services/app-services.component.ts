@@ -9,6 +9,7 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { ActivatedRoute } from "@angular/router";
+import { getWindow, getDocument } from "ssr-window";
 
 @Component({
   selector: "app-services",
@@ -21,6 +22,10 @@ export class ServicesComponent implements OnInit {
   faInstagram = faInstagram;
   faLinkedin = faLinkedin;
   faYoutube = faYoutube;
+
+  window = getWindow();
+  document = getDocument();
+
   constructor(
     private route: ActivatedRoute,
     public scrollToService: ScrollToService

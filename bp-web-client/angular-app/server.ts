@@ -6,9 +6,19 @@ import express from "express";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { AppServerModule } from "./src/main.server";
+import "localstorage-polyfill";
+// import * as MockBrowser from 'mock-browser';
+import { getWindow, getDocument } from "ssr-window";
+// const MockBrowser = require('mock-browser').mocks.MockBrowser;
+
+global["localStorage"] = localStorage;
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
+  // const mock = new MockBrowser();
+  const window = getWindow();
+  const document = getDocument();
+
   const server = express();
   const distFolder = join(process.cwd(), "dist/angular-app/browser");
   const indexHtml = existsSync(join(distFolder, "index.original.html"))

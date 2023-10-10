@@ -11,6 +11,8 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 
+import { getWindow, getDocument } from "ssr-window";
+
 @Component({
   selector: "app-footer",
   templateUrl: "./app-footer.component.html",
@@ -25,6 +27,8 @@ export class AppFooterComponent implements OnInit {
   isUserLoggedIn: boolean = false;
   public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
 
+  window = getWindow();
+  document = getDocument();
   constructor(
     private contactButtonService: ContactButtonService,
     public scrollToService: ScrollToService,

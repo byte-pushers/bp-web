@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Byte Pushers - Corporate Website.</title>
+    <title>Byte Pushers - Corporate Website. - Dev</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -74,6 +74,9 @@
 
     <!-- Google Tag Manager -->
     <script>
+      if (Window === undefined) {
+        console.log("this is not browser");
+      }
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });

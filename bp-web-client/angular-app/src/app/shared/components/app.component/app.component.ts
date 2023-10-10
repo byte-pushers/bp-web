@@ -1,4 +1,13 @@
-import {AfterViewInit, ChangeDetectorRef, Component, HostListener, OnInit} from "@angular/core";
+import { isPlatformBrowser } from "@angular/common";
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  HostListener,
+  OnInit,
+  PLATFORM_ID,
+  Inject,
+} from "@angular/core";
 import { Observable } from "rxjs";
 import { SiteMapService } from "src/app/services/sitemap.service";
 import { DEVICE_PLATFORM } from "../../models/screen-size.enum";
@@ -14,6 +23,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   isSiteMap$: Observable<boolean> = this.siteMapService.isSiteMap;
   isSiteMap = false;
   constructor(
+    @Inject(PLATFORM_ID) private platformId: object,
     private siteMapService: SiteMapService,
     private resizeService: ResizeService,
     private cd: ChangeDetectorRef
@@ -25,7 +35,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.isSiteMap$.subscribe(isSiteMap => {
+    this.isSiteMap$.subscribe((isSiteMap) => {
       this.isSiteMap = isSiteMap;
       this.cd.detectChanges();
     });
@@ -36,12 +46,14 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   #detectScreenSize() {
-    if (window.innerWidth <= 820) {
-      this.resizeService.onResize(DEVICE_PLATFORM.MOBILE);
-    } else if (window.innerWidth < 1280) {
-      this.resizeService.onResize(DEVICE_PLATFORM.TABLET);
-    } else {
-      this.resizeService.onResize(DEVICE_PLATFORM.DESKTOP);
+    if (isPlatformBrowser(this.platformId)) {
+      if (window.innerWidth <= 820) {
+        this.resizeService.onResize(DEVICE_PLATFORM.MOBILE);
+      } else if (window.innerWidth < 1280) {
+        this.resizeService.onResize(DEVICE_PLATFORM.TABLET);
+      } else {
+        this.resizeService.onResize(DEVICE_PLATFORM.DESKTOP);
+      }
     }
   }
 }

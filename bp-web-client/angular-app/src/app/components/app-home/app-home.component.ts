@@ -6,6 +6,8 @@ import {
   OnInit,
   ViewChild,
   ViewContainerRef,
+  PLATFORM_ID,
+  Inject,
 } from "@angular/core";
 import * as $ from "jquery";
 import { fromEvent, Observable, Subscription } from "rxjs";
@@ -16,6 +18,9 @@ import { ActivatedRoute } from "@angular/router";
 import { ResizeService } from "../../shared/services/resize.service";
 import { DEVICE_PLATFORM } from "../../shared/models/screen-size.enum";
 import { delay } from "rxjs/operators";
+
+import { getWindow, getDocument } from "ssr-window";
+import { isPlatformBrowser } from "@angular/common";
 
 @Component({
   selector: "app-home",
@@ -31,9 +36,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild("homeBackgroundWorkImg") private divView: ElementRef;
   @ViewChild("landingPage", { read: ViewContainerRef })
   private landingPageContainer!: ViewContainerRef;
-  public document = document;
+  window = getWindow();
+  document = getDocument();
+
   constructor(
-    private window: Window,
+    @Inject(PLATFORM_ID) private platformId: object,
     public scrollToService: ScrollToService,
     private dynamicComponentService: DynamicComponentService,
     private route: ActivatedRoute,
@@ -55,31 +62,37 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit() {
     this.#setLayoutId();
     // tslint:disable-next-line:only-arrow-functions
-    $(document).ready(function (e) {
-      const $prevButton = $(".left.carousel-control.carousel-control-prev");
-      const $nextButton = $(".right.carousel-control.carousel-control-next");
+    if (isPlatformBrowser(this.platformId)) {
+      $(document).ready(function (e) {
+        const $prevButton = $(".left.carousel-control.carousel-control-prev");
+        const $nextButton = $(".right.carousel-control.carousel-control-next");
 
-      $prevButton.click(HomeComponent.previousButtonClickedEventHandler);
-      $nextButton.click(HomeComponent.nextButtonClickedEventHandler);
-    });
-    this.resizeObservable$ = fromEvent(window, "resize");
-    this.resizeSubscription$ = this.resizeObservable$.subscribe((Window) => {
-      // TODO: Double check this.  resizeImage() method should have the follwoing params: Window, ElementRef
-      this.resizeImage(Window.currentTarget, this.divView);
-    });
+        $prevButton.click(HomeComponent.previousButtonClickedEventHandler);
+        $nextButton.click(HomeComponent.nextButtonClickedEventHandler);
+      });
+      this.resizeObservable$ = fromEvent(window, "resize");
+      this.resizeSubscription$ = this.resizeObservable$.subscribe((Window) => {
+        // TODO: Double check this.  resizeImage() method should have the follwoing params: Window, ElementRef
+        this.resizeImage(Window.currentTarget, this.divView);
+      });
+    }
   }
 
   ngOnDestroy() {
-    this.resizeSubscription$.unsubscribe();
+    if (isPlatformBrowser(this.platformId)) {
+      this.resizeSubscription$.unsubscribe();
+    }
   }
 
   ngAfterViewInit() {
-    if (window.innerWidth <= 820) {
-      this.#loadLandingPageContainer(DEVICE_PLATFORM.MOBILE);
-    } else if (window.innerWidth < 1280) {
-      this.#loadLandingPageContainer(DEVICE_PLATFORM.TABLET);
-    } else {
-      this.#loadLandingPageContainer(DEVICE_PLATFORM.DESKTOP);
+    if (isPlatformBrowser(this.platformId)) {
+      if (window.innerWidth <= 820) {
+        this.#loadLandingPageContainer(DEVICE_PLATFORM.MOBILE);
+      } else if (window.innerWidth < 1280) {
+        this.#loadLandingPageContainer(DEVICE_PLATFORM.TABLET);
+      } else {
+        this.#loadLandingPageContainer(DEVICE_PLATFORM.DESKTOP);
+      }
     }
 
     this.resizeService.onResize$.pipe(delay(0)).subscribe((devicePlatform) => {
