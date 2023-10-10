@@ -1,8 +1,10 @@
 import {
   Component,
   ElementRef,
+  Inject,
   OnDestroy,
   OnInit,
+  PLATFORM_ID,
   ViewChild,
 } from "@angular/core";
 import { NgForm } from "@angular/forms";
@@ -26,6 +28,7 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { PopupModalService } from "src/app/modules/popup-modal/services/popup-modal.service";
+import { isPlatformBrowser } from "@angular/common";
 
 @Component({
   selector: "app-contact",
@@ -49,6 +52,7 @@ export class ContactComponent
   public formSubmitTime: number = null;
 
   constructor(
+    @Inject(PLATFORM_ID) private platformId: object,
     private quoteService: QuoteService,
     // private spinner: NgxSpinnerService,
     private router: Router,
@@ -92,12 +96,14 @@ export class ContactComponent
   canExit(): boolean {
     if (this.quoteForm.touched) {
       console.log(window);
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "formAbandonment",
-        eventCategory: "Form Abandonment",
-        eventAction: `User Navigated Away From Request Quote Form`,
-      });
+      if (isPlatformBrowser(this.platformId)) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "formAbandonment",
+          eventCategory: "Form Abandonment",
+          eventAction: `User Navigated Away From Request Quote Form`,
+        });
+      }
     }
     return true;
     // if (confirm("Do you wish to Please confirm")) {
@@ -126,25 +132,27 @@ export class ContactComponent
 
   public isMobileResolution(): boolean {
     let isMobileResolution = false;
-
-    if (window.innerWidth < 768) {
-      isMobileResolution = true;
-    } else {
-      isMobileResolution = false;
+    if (isPlatformBrowser(this.platformId)) {
+      if (window.innerWidth < 768) {
+        isMobileResolution = true;
+      } else {
+        isMobileResolution = false;
+      }
+      return isMobileResolution;
     }
-
-    return isMobileResolution;
   }
 
   public onSubmit(): void {
     this.isSubmitted = true;
     this.formSubmitTime = Date.now();
     const formDuration = this.formSubmitTime - this.formStartTime;
-    window.dataLayer.push({
-      event: "requestQuoteFormSubmitted",
-      timeFormSubmitted: this.formSubmitTime,
-      formSubmissionDuration2: formDuration,
-    });
+    if (isPlatformBrowser(this.platformId)) {
+      window.dataLayer.push({
+        event: "requestQuoteFormSubmitted",
+        timeFormSubmitted: this.formSubmitTime,
+        formSubmissionDuration2: formDuration,
+      });
+    }
     if (!this.quoteForm.valid) {
       this.isSubmitted = false;
     } else {
@@ -156,11 +164,15 @@ export class ContactComponent
   }
 
   public onSubmitBackToTopDesktop() {
-    document.getElementById("successTop").scrollIntoView();
+    if (isPlatformBrowser(this.platformId)) {
+      document.getElementById("successTop").scrollIntoView();
+    }
   }
 
   public onSubmitBackToTopMobile() {
-    document.getElementById("successTop").scrollIntoView();
+    if (isPlatformBrowser(this.platformId)) {
+      document.getElementById("successTop").scrollIntoView();
+    }
   }
 
   public reset(form: NgForm) {
