@@ -22,9 +22,6 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/custom-theme.scss",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
-              "./node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css",
               "src/assets/scss/styles.scss",
               "src/assets/scss/fonts.css",
               "src/assets/scss/header.css"
