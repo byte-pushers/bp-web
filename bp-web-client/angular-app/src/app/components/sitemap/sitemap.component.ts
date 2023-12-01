@@ -2,6 +2,9 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
 import landingPages from "../../landing-pages.json";
 import { SiteMapService } from "src/app/services/sitemap.service";
 import { Router } from "@angular/router";
+import { PLATFORM_ID, Inject } from "@angular/core";
+import { isPlatformBrowser } from "@angular/common";
+import { WindowRef } from "src/app/services/windowRef.service";
 @Component({
   selector: "app-sitemap",
   templateUrl: "./sitemap.component.html",
@@ -9,7 +12,12 @@ import { Router } from "@angular/router";
 })
 export class SitemapComponent implements OnInit, OnDestroy {
   landingPagesList = landingPages;
-  constructor(private siteMapService: SiteMapService, private router: Router) {}
+  constructor(
+    private siteMapService: SiteMapService,
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: any,
+    private windowRef: WindowRef
+  ) {}
 
   ngOnInit() {
     this.siteMapService.setSiteMap(false);
@@ -28,9 +36,16 @@ export class SitemapComponent implements OnInit, OnDestroy {
   }
 
   showSmallLogo() {
-    if (window.innerWidth <= 960) {
-      return true;
+    if (isPlatformBrowser(this.platformId)) {
+      if (this.windowRef.nativeWindow.innerWidth <= 960) {
+        return true;
+      }
+      return false;
+    } else {
+      if (window.innerWidth <= 960) {
+        return true;
+      }
+      return false;
     }
-    return false;
   }
 }
