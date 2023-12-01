@@ -15,7 +15,9 @@ export class InfoComponent implements OnInit {
   ngOnInit() {}
 
   public toFeaturesSection() {
-    if (!isPlatformBrowser(this.platformId)) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.windowRef.nativeWindow.scrollTo(0, 900);
+    } else {
       window.scrollTo(0, 900);
     }
   }
