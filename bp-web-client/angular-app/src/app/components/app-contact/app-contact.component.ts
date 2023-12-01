@@ -1,6 +1,7 @@
 import {
   Component,
   ElementRef,
+  Inject,
   OnDestroy,
   OnInit,
   ViewChild,
@@ -26,6 +27,10 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { PopupModalService } from "src/app/modules/popup-modal/services/popup-modal.service";
+
+import { PLATFORM_ID } from "@angular/core";
+import { isPlatformBrowser } from "@angular/common";
+import { WindowRef } from "src/app/services/windowRef.service";
 
 @Component({
   selector: "app-contact",
@@ -57,7 +62,9 @@ export class ContactComponent
     private scrollToService: ScrollToService,
     private contactButtonService: ContactButtonService,
     private popupService: PopupModalService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    @Inject(PLATFORM_ID) private platformId: any,
+    private windowRef: WindowRef
   ) {}
 
   @ViewChild("quoteForm") quoteForm: any;
@@ -83,6 +90,9 @@ export class ContactComponent
   foundations: any = ["New Business", "Existing Business"];
 
   ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      console.log(this.windowRef);
+    }
     this.years = this.calculateYears(+new Date().getFullYear(), 40);
     this.years.push("Older than 1980");
     this.setOnContactView(false);
@@ -91,20 +101,24 @@ export class ContactComponent
   //Check if there any unsaved data etc. If yes then as for confirmation
   canExit(): boolean {
     if (this.quoteForm.touched) {
-      console.log(window);
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "formAbandonment",
-        eventCategory: "Form Abandonment",
-        eventAction: `User Navigated Away From Request Quote Form`,
-      });
+      if (isPlatformBrowser(this.platformId)) {
+        this.windowRef.nativeWindow.dataLayer =
+          this.windowRef.nativeWindow.dataLayer || [];
+        this.windowRef.nativeWindow.dataLayer.push({
+          event: "formAbandonment",
+          eventCategory: "Form Abandonment",
+          eventAction: `User Navigated Away From Request Quote Form`,
+        });
+      } else {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "formAbandonment",
+          eventCategory: "Form Abandonment",
+          eventAction: `User Navigated Away From Request Quote Form`,
+        });
+      }
     }
     return true;
-    // if (confirm("Do you wish to Please confirm")) {
-    //     return true
-    //   } else {
-    //     return false
-    //   }
   }
 
   ngOnDestroy() {
@@ -126,11 +140,12 @@ export class ContactComponent
 
   public isMobileResolution(): boolean {
     let isMobileResolution = false;
-
-    if (window.innerWidth < 768) {
-      isMobileResolution = true;
-    } else {
-      isMobileResolution = false;
+    if (!isPlatformBrowser(this.platformId)) {
+      if (window.innerWidth < 768) {
+        isMobileResolution = true;
+      } else {
+        isMobileResolution = false;
+      }
     }
 
     return isMobileResolution;
@@ -140,11 +155,19 @@ export class ContactComponent
     this.isSubmitted = true;
     this.formSubmitTime = Date.now();
     const formDuration = this.formSubmitTime - this.formStartTime;
-    window.dataLayer.push({
-      event: "requestQuoteFormSubmitted",
-      timeFormSubmitted: this.formSubmitTime,
-      formSubmissionDuration2: formDuration,
-    });
+    if (isPlatformBrowser(this.platformId)) {
+      this.windowRef.nativeWindow.dataLayer.push({
+        event: "requestQuoteFormSubmitted",
+        timeFormSubmitted: this.formSubmitTime,
+        formSubmissionDuration2: formDuration,
+      });
+    } else {
+      window.dataLayer.push({
+        event: "requestQuoteFormSubmitted",
+        timeFormSubmitted: this.formSubmitTime,
+        formSubmissionDuration2: formDuration,
+      });
+    }
     if (!this.quoteForm.valid) {
       this.isSubmitted = false;
     } else {
@@ -291,11 +314,21 @@ export class ContactComponent
   captureStartTime() {
     if (this.formStartTime == null) {
       this.formStartTime = Date.now();
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "formStarted",
-        timeFormStarted: this.formStartTime,
-      });
+      if (isPlatformBrowser(this.platformId)) {
+        console.log(this.windowRef);
+        this.windowRef.nativeWindow.dataLayer =
+          this.windowRef.nativeWindow.dataLayer || [];
+        this.windowRef.nativeWindow.dataLayer.push({
+          event: "formStarted",
+          timeFormStarted: this.formStartTime,
+        });
+      } else {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "formStarted",
+          timeFormStarted: this.formStartTime,
+        });
+      }
     }
   }
 
