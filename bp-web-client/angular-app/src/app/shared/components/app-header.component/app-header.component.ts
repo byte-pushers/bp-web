@@ -1,10 +1,18 @@
-import {ChangeDetectorRef, Component, HostListener, Input, OnInit } from "@angular/core";
+import {
+  ChangeDetectorRef,
+  Component,
+  HostListener,
+  Input,
+  OnInit,
+} from "@angular/core";
 import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { HeaderService } from "src/app/services/header.service";
 import { LoginService } from "src/app/services/login.service";
 import { ScrollToService } from "../../../services/scroll-to.service";
 import { ReloadRefreshComponent } from "../reloadRefresh/reload-refresh.component";
-
+import { PLATFORM_ID, Inject } from "@angular/core";
+import { isPlatformBrowser } from "@angular/common";
+import { WindowRef } from "src/app/services/windowRef.service";
 @Component({
   selector: "app-header",
   templateUrl: "./app-header.component.html",
@@ -14,9 +22,9 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   isUserLoggedIn: boolean = false;
   isScrolled: boolean = false;
   isMobileNavOpen: boolean = false;
-  logoTextColor = '#fff';
-  logoTextBottomColor = '#fff';
-  hamburgerColor = '#fff';
+  logoTextColor = "#fff";
+  logoTextBottomColor = "#fff";
+  hamburgerColor = "#fff";
 
   @HostListener("window:scroll", ["$event"])
   webpageScrolling(event: any) {
@@ -38,7 +46,9 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     private loginService: LoginService,
     private headerService: HeaderService,
     private route: ActivatedRoute,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    @Inject(PLATFORM_ID) private platformId: any,
+    private windowRef: WindowRef
   ) {
     super(router);
     this.loginService.currentUserSubject.subscribe((value) => {
@@ -52,10 +62,17 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     });
 
     console.log(this.selectedTheme);
-    window.onscroll = function () {
-      navScroll();
-      checkCp3Desc();
-    };
+    if (isPlatformBrowser(this.platformId)) {
+      this.windowRef.nativeWindow.onscroll = function () {
+        navScroll();
+        checkCp3Desc();
+      };
+    } else {
+      window.onscroll = function () {
+        navScroll();
+        checkCp3Desc();
+      };
+    }
 
     function navScroll() {
       const mobileNav = document.getElementById("topnav");
@@ -92,17 +109,25 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
       }
     }
   }
-
+  public windowCheck;
+  setWindowCheck() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.windowCheck = this.windowRef.nativeWindow.innerWidth;
+    } else {
+      this.windowCheck = window.innerWidth;
+    }
+  }
   public checkMobileNav() {
-    const windowCheck = window.innerWidth;
-    if (windowCheck <= 768) {
+    this.setWindowCheck();
+    if (this.windowCheck <= 768) {
       this.openCloseMobileNav();
     }
   }
 
   public openCloseMobileNav() {
-    const windowCheck = window.innerWidth;
-    if (windowCheck <= 768) {
+    this.setWindowCheck();
+
+    if (this.windowCheck <= 768) {
       const mobileNav = document.getElementById("topnav");
 
       if (mobileNav.classList.contains("expanded")) {
@@ -121,7 +146,8 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   }
 
   showSmallLogo() {
-    if (window.innerWidth <= 960) {
+    this.setWindowCheck();
+    if (this.windowCheck <= 960) {
       return true;
     }
     return false;
@@ -174,30 +200,28 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     }
   }
 
-
-
   @HostListener("window:scroll", []) onWindowScroll() {
     let viewChanged = [];
 
-    viewChanged.push(this.setLogoTextColor('#000'));
-    viewChanged.push(this.setLogoTextBottomColor('#000'));
-    viewChanged.push(this.setHamburgerColor('#000'));
+    viewChanged.push(this.setLogoTextColor("#000"));
+    viewChanged.push(this.setLogoTextBottomColor("#000"));
+    viewChanged.push(this.setHamburgerColor("#000"));
 
-    if (viewChanged.find(vc => vc === true)) {
+    if (viewChanged.find((vc) => vc === true)) {
       this.cd.detectChanges();
     }
   }
 
   setLogoTextBottomColor(newColor: string): void {
-    this.logoTextBottomColor = newColor
+    this.logoTextBottomColor = newColor;
   }
 
   setLogoTextColor(newColor: string): void {
-    this.logoTextColor = newColor
+    this.logoTextColor = newColor;
   }
 
   setHamburgerColor(newColor: string): void {
-    this.hamburgerColor = newColor
+    this.hamburgerColor = newColor;
   }
   getLogoColor() {
     const headerBar = document.getElementById("topnav");
@@ -208,15 +232,16 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   }
 
   hideTill1060() {
-    if (window.innerWidth <= 1060) {
+    this.setWindowCheck();
+    if (this.windowCheck <= 1060) {
       return false;
     }
     return true;
   }
 
   isMobile() {
-    const windowWidth = window.innerWidth;
-    if (windowWidth <= 768) {
+    this.setWindowCheck();
+    if (this.windowCheck <= 768) {
       return true;
     }
     return false;
@@ -233,17 +258,31 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   }
 
   setTopToZero() {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    if (isPlatformBrowser(this.platformId)) {
+      this.windowRef.nativeWindow.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
     this.isScrolled = false;
   }
   goToReqQuote() {
     this.router.navigate(["/contact"]);
-    window.scrollTo({
-      top: 1000,
-      behavior: "smooth",
-    });
+    if (isPlatformBrowser(this.platformId)) {
+      this.windowRef.nativeWindow.scrollTo({
+        top: 1000,
+        behavior: "smooth",
+      });
+    } else {
+      window.scrollTo({
+        top: 1000,
+        behavior: "smooth",
+      });
+    }
   }
 }
