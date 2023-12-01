@@ -142,6 +142,7 @@
             "tsConfig": "tsconfig.server.json",
             "inlineStyleLanguage": "scss"
           },
+          "externalDependencies": ["@firebase/firestore"],
           "configurations": {
             "production": {
               "outputHashing": "media",
