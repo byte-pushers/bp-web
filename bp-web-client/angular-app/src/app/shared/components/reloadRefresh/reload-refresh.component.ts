@@ -11,8 +11,8 @@ import { WindowRef } from "src/app/services/windowRef.service";
 export class ReloadRefreshComponent implements OnInit {
   constructor(
     public router: Router,
-    @Inject(PLATFORM_ID) private platformId: any,
-    private windowRef: WindowRef
+    @Inject(PLATFORM_ID) public platformId: any,
+    public windowRef: WindowRef
   ) {}
   // url=self ? this.router.url :urlToNavigateTo;
   ngOnInit(): void {}

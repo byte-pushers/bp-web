@@ -47,10 +47,10 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     private headerService: HeaderService,
     private route: ActivatedRoute,
     private cd: ChangeDetectorRef,
-    @Inject(PLATFORM_ID) private platformId: any,
-    private windowRef: WindowRef
+    @Inject(PLATFORM_ID) public override platformId: any,
+    public override windowRef: WindowRef
   ) {
-    super(router);
+    super(router, platformId, windowRef);
     this.loginService.currentUserSubject.subscribe((value) => {
       this.isUserLoggedIn = value;
     });
