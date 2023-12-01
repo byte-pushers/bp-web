@@ -60,6 +60,7 @@ import { ArrowBottomComponent } from "./shared/components/heroLogos/arrow-bottom
 import { HamburgurComponent } from "./shared/components/hamburgur/hamburgur.component";
 import { MobileComponent } from "./components/app-landing-pages/layouts/mobile/mobile.component";
 import { SitemapComponent } from "./components/sitemap/sitemap.component";
+import { WindowRef } from "./services/windowRef.service";
 
 @NgModule({
   declarations: [
@@ -134,6 +135,7 @@ import { SitemapComponent } from "./components/sitemap/sitemap.component";
       useClass: HttpRequestInterceptor,
       multi: true,
     },
+    WindowRef,
   ],
   // entryComponents: [
   //   // Needs to be added here because otherwise we can't
