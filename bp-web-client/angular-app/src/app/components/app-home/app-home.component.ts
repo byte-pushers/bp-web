@@ -83,7 +83,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.resizeSubscription$.unsubscribe();
+    this.resizeSubscription$?.unsubscribe();
   }
 
   ngAfterViewInit() {
