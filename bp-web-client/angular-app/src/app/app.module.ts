@@ -125,7 +125,7 @@ import { WindowRef } from "./services/windowRef.service";
   providers: [
     RouterLinkActive,
     QuoteService,
-    { provide: Window, useValue: window },
+    // { provide: Window, useValue: window },
     ContactButtonService,
     AppRoutingService,
     StateNameService,

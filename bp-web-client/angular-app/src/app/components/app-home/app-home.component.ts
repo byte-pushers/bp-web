@@ -17,6 +17,7 @@ import { ActivatedRoute } from "@angular/router";
 import { ResizeService } from "../../shared/services/resize.service";
 import { DEVICE_PLATFORM } from "../../shared/models/screen-size.enum";
 import { delay } from "rxjs/operators";
+import { getWindow, getDocument } from "ssr-window";
 
 import { PLATFORM_ID } from "@angular/core";
 import { isPlatformBrowser } from "@angular/common";
@@ -36,16 +37,17 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild("homeBackgroundWorkImg") private divView: ElementRef;
   @ViewChild("landingPage", { read: ViewContainerRef })
   private landingPageContainer!: ViewContainerRef;
-
+  window = getWindow();
+  document = getDocument();
   constructor(
-    private window: Window,
+    // private window: Window,
     public scrollToService: ScrollToService,
     private dynamicComponentService: DynamicComponentService,
     private route: ActivatedRoute,
-    private resizeService: ResizeService,
-    @Inject(PLATFORM_ID) private platformId: any,
-    private windowRef: WindowRef
-  ) {}
+    private resizeService: ResizeService
+  ) // @Inject(PLATFORM_ID) private platformId: any,
+  // private windowRef: WindowRef
+  {}
 
   private static previousButtonClickedEventHandler(event: Event): void {
     const $nextButton = $("slide.item.carousel-item");
@@ -69,11 +71,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       $prevButton.click(HomeComponent.previousButtonClickedEventHandler);
       $nextButton.click(HomeComponent.nextButtonClickedEventHandler);
     });
-    if (isPlatformBrowser(this.platformId)) {
-      this.resizeObservable$ = fromEvent(this.windowRef.nativeWindow, "resize");
-    } else {
-      this.resizeObservable$ = fromEvent(window, "resize");
-    }
+    // if (isPlatformBrowser(this.platformId)) {
+    //   this.resizeObservable$ = fromEvent(this.windowRef.nativeWindow, "resize");
+    // } else {
+    this.resizeObservable$ = fromEvent(window, "resize");
+    // }
     this.resizeSubscription$ = this.resizeObservable$.subscribe((Window) => {
       // TODO: Double check this.  resizeImage() method should have the follwoing params: Window, ElementRef
       this.resizeImage(Window.currentTarget, this.divView);
@@ -85,25 +87,25 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      // this block is for SSR
-      if (this.windowRef.nativeWindow.innerWidth <= 820) {
-        this.#loadLandingPageContainer(DEVICE_PLATFORM.MOBILE);
-      } else if (this.windowRef.nativeWindow.innerWidth < 1280) {
-        this.#loadLandingPageContainer(DEVICE_PLATFORM.TABLET);
-      } else {
-        this.#loadLandingPageContainer(DEVICE_PLATFORM.DESKTOP);
-      }
+    // if (isPlatformBrowser(this.platformId)) {
+    //   // this block is for SSR
+    //   if (this.windowRef.nativeWindow.innerWidth <= 820) {
+    //     this.#loadLandingPageContainer(DEVICE_PLATFORM.MOBILE);
+    //   } else if (this.windowRef.nativeWindow.innerWidth < 1280) {
+    //     this.#loadLandingPageContainer(DEVICE_PLATFORM.TABLET);
+    //   } else {
+    //     this.#loadLandingPageContainer(DEVICE_PLATFORM.DESKTOP);
+    //   }
+    // } else {
+    // this block is for Browser
+    if (window.innerWidth <= 820) {
+      this.#loadLandingPageContainer(DEVICE_PLATFORM.MOBILE);
+    } else if (window.innerWidth < 1280) {
+      this.#loadLandingPageContainer(DEVICE_PLATFORM.TABLET);
     } else {
-      // this block is for Browser
-      if (window.innerWidth <= 820) {
-        this.#loadLandingPageContainer(DEVICE_PLATFORM.MOBILE);
-      } else if (window.innerWidth < 1280) {
-        this.#loadLandingPageContainer(DEVICE_PLATFORM.TABLET);
-      } else {
-        this.#loadLandingPageContainer(DEVICE_PLATFORM.DESKTOP);
-      }
+      this.#loadLandingPageContainer(DEVICE_PLATFORM.DESKTOP);
     }
+    // }
 
     this.resizeService.onResize$.pipe(delay(0)).subscribe((devicePlatform) => {
       this.#loadLandingPageContainer(devicePlatform);
@@ -148,10 +150,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
           console.log(`An error occurred: ${JSON.stringify(error)}`, error);
         }
       );
-    if (isPlatformBrowser(this.platformId)) {
-      this.resizeImage(this.windowRef.nativeWindow, this.divView);
-    } else {
-      this.resizeImage(this.window, this.divView);
-    }
+    // if (isPlatformBrowser(this.platformId)) {
+    //   this.resizeImage(this.windowRef.nativeWindow, this.divView);
+    // } else {
+    this.resizeImage(this.window, this.divView);
+    // }
   }
 }

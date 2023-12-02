@@ -58,6 +58,7 @@
     "primeng": "^16.4.1",
     "rxjs": "~7.8.0",
     "ssh2-sftp-client": "^9.0.4",
+    "ssr-window": "^4.0.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.3"
   },

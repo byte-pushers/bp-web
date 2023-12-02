@@ -3,6 +3,8 @@ import { HeaderService } from "src/app/services/header.service";
 import { PLATFORM_ID, Inject } from "@angular/core";
 import { isPlatformBrowser } from "@angular/common";
 import { WindowRef } from "src/app/services/windowRef.service";
+import { getWindow, getDocument } from "ssr-window";
+
 @Component({
   selector: "app-hero-logos",
   templateUrl: "./hero-logos.component.html",
@@ -11,11 +13,14 @@ import { WindowRef } from "src/app/services/windowRef.service";
 export class HeroLogosComponent {
   @Input() colorofLogos;
   selectedTheme: any;
+
+  window = getWindow();
+  document = getDocument();
   constructor(
-    private headerService: HeaderService,
-    @Inject(PLATFORM_ID) private platformId: any,
-    private windowRef: WindowRef
-  ) {}
+    private headerService: HeaderService
+  ) // @Inject(PLATFORM_ID) private platformId: any,
+  // private windowRef: WindowRef
+  {}
 
   ngOnInit() {}
   setcolor() {
@@ -27,16 +32,16 @@ export class HeroLogosComponent {
     return styles;
   }
   hideTill820() {
-    if (isPlatformBrowser(this.platformId)) {
-      if (this.windowRef.nativeWindow.innerWidth <= 820) {
-        return false;
-      }
-      return true;
-    } else {
-      if (window.innerWidth <= 820) {
-        return false;
-      }
-      return true;
+    // if (isPlatformBrowser(this.platformId)) {
+    //   if (this.windowRef.nativeWindow.innerWidth <= 820) {
+    //     return false;
+    //   }
+    //   return true;
+    // } else {
+    if (window.innerWidth <= 820) {
+      return false;
     }
+    return true;
+    // }
   }
 }

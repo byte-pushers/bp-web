@@ -13,6 +13,8 @@ import {
 import { PLATFORM_ID, Inject } from "@angular/core";
 import { isPlatformBrowser } from "@angular/common";
 import { WindowRef } from "src/app/services/windowRef.service";
+import { getWindow, getDocument } from "ssr-window";
+
 @Component({
   selector: "app-footer",
   templateUrl: "./app-footer.component.html",
@@ -27,13 +29,15 @@ export class AppFooterComponent implements OnInit {
   isUserLoggedIn: boolean = false;
   public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
 
+  window = getWindow();
+  document = getDocument();
   constructor(
     private contactButtonService: ContactButtonService,
     public scrollToService: ScrollToService,
-    private loginService: LoginService,
-    @Inject(PLATFORM_ID) private platformId: any,
-    private windowRef: WindowRef
-  ) {
+    private loginService: LoginService
+  ) // @Inject(PLATFORM_ID) private platformId: any,
+  // private windowRef: WindowRef
+  {
     this.loginService.currentUserSubject.subscribe((value) => {
       this.isUserLoggedIn = value;
     });
@@ -56,11 +60,11 @@ export class AppFooterComponent implements OnInit {
 
   public openCloseMobileNav() {
     let windowCheck;
-    if (isPlatformBrowser(this.platformId)) {
-      windowCheck = this.windowRef.nativeWindow.innerWidth;
-    } else {
-      windowCheck = window.innerWidth;
-    }
+    // if (isPlatformBrowser(this.platformId)) {
+    //   windowCheck = this.windowRef.nativeWindow.innerWidth;
+    // } else {
+    windowCheck = window.innerWidth;
+    // }
     if (windowCheck <= 480) {
       const mobileNav = document.getElementById("topnav");
 
