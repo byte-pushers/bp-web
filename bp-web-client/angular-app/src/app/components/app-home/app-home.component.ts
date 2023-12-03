@@ -44,9 +44,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     public scrollToService: ScrollToService,
     private dynamicComponentService: DynamicComponentService,
     private route: ActivatedRoute,
-    private resizeService: ResizeService
-  ) // @Inject(PLATFORM_ID) private platformId: any,
-  // private windowRef: WindowRef
+    private resizeService: ResizeService // @Inject(PLATFORM_ID) private platformId: any,
+  ) // private windowRef: WindowRef
   {}
 
   private static previousButtonClickedEventHandler(event: Event): void {
@@ -64,7 +63,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit() {
     this.#setLayoutId();
     // tslint:disable-next-line:only-arrow-functions
-    $(document).ready(function (e) {
+    $(this.document).ready(function (e) {
       const $prevButton = $(".left.carousel-control.carousel-control-prev");
       const $nextButton = $(".right.carousel-control.carousel-control-next");
 

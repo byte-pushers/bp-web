@@ -34,11 +34,10 @@ export class AppFooterComponent implements OnInit {
   constructor(
     private contactButtonService: ContactButtonService,
     public scrollToService: ScrollToService,
-    private loginService: LoginService
-  ) // @Inject(PLATFORM_ID) private platformId: any,
-  // private windowRef: WindowRef
+    private loginService: LoginService // @Inject(PLATFORM_ID) private platformId: any,
+  ) // private windowRef: WindowRef
   {
-    this.loginService.currentUserSubject.subscribe((value) => {
+    this.loginService.currentUserSubject?.subscribe((value) => {
       this.isUserLoggedIn = value;
     });
   }

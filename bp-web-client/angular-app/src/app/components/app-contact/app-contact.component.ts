@@ -67,9 +67,8 @@ export class ContactComponent
     private scrollToService: ScrollToService,
     private contactButtonService: ContactButtonService,
     private popupService: PopupModalService,
-    private route: ActivatedRoute
-  ) // @Inject(PLATFORM_ID) private platformId: any,
-  // private windowRef: WindowRef
+    private route: ActivatedRoute // @Inject(PLATFORM_ID) private platformId: any,
+  ) // private windowRef: WindowRef
   {}
 
   @ViewChild("quoteForm") quoteForm: any;
@@ -115,8 +114,8 @@ export class ContactComponent
       //     eventAction: `User Navigated Away From Request Quote Form`,
       //   });
       // } else {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
+      this.window.dataLayer = this.window.dataLayer || [];
+      this.window.dataLayer.push({
         event: "formAbandonment",
         eventCategory: "Form Abandonment",
         eventAction: `User Navigated Away From Request Quote Form`,
@@ -129,7 +128,7 @@ export class ContactComponent
   ngOnDestroy() {
     this.setOnContactView(true);
     this.formStartTime = null;
-    localStorage.clear();
+    this.window.localStorage?.clear();
   }
   public setOnContactView(setView): void {
     this.contactButtonService.isOnContactView(setView);
@@ -146,7 +145,7 @@ export class ContactComponent
   public isMobileResolution(): boolean {
     let isMobileResolution = false;
     // if (!isPlatformBrowser(this.platformId)) {
-    if (window.innerWidth < 768) {
+    if (this.window.innerWidth < 768) {
       isMobileResolution = true;
     } else {
       isMobileResolution = false;
@@ -167,7 +166,7 @@ export class ContactComponent
     //     formSubmissionDuration2: formDuration,
     //   });
     // } else {
-    window.dataLayer.push({
+    this.window.dataLayer.push({
       event: "requestQuoteFormSubmitted",
       timeFormSubmitted: this.formSubmitTime,
       formSubmissionDuration2: formDuration,
@@ -328,8 +327,8 @@ export class ContactComponent
       //     timeFormStarted: this.formStartTime,
       //   });
       // } else {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
+      this.window.dataLayer = this.window.dataLayer || [];
+      this.window.dataLayer.push({
         event: "formStarted",
         timeFormStarted: this.formStartTime,
       });
