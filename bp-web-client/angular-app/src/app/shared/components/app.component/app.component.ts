@@ -29,9 +29,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   constructor(
     private siteMapService: SiteMapService,
     private resizeService: ResizeService,
-    private cd: ChangeDetectorRef
-  ) // @Inject(PLATFORM_ID) private platformId: any,
-  // private windowRef: WindowRef
+    private cd: ChangeDetectorRef // @Inject(PLATFORM_ID) private platformId: any,
+  ) // private windowRef: WindowRef
   {}
 
   @HostListener("window:resize", [])
@@ -40,7 +39,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.isSiteMap$.subscribe((isSiteMap) => {
+    this.isSiteMap$?.subscribe((isSiteMap) => {
       this.isSiteMap = isSiteMap;
       this.cd.detectChanges();
     });

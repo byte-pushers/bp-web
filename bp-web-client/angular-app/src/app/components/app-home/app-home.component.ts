@@ -44,9 +44,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     public scrollToService: ScrollToService,
     private dynamicComponentService: DynamicComponentService,
     private route: ActivatedRoute,
-    private resizeService: ResizeService // @Inject(PLATFORM_ID) private platformId: any,
-  ) // private windowRef: WindowRef
-  {}
+    private resizeService: ResizeService // @Inject(PLATFORM_ID) private platformId: any, // private windowRef: WindowRef
+  ) {}
 
   private static previousButtonClickedEventHandler(event: Event): void {
     const $nextButton = $("slide.item.carousel-item");
@@ -62,19 +61,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.#setLayoutId();
-    // tslint:disable-next-line:only-arrow-functions
-    $(this.document).ready(function (e) {
-      const $prevButton = $(".left.carousel-control.carousel-control-prev");
-      const $nextButton = $(".right.carousel-control.carousel-control-next");
-
-      $prevButton.click(HomeComponent.previousButtonClickedEventHandler);
-      $nextButton.click(HomeComponent.nextButtonClickedEventHandler);
-    });
-    // if (isPlatformBrowser(this.platformId)) {
-    //   this.resizeObservable$ = fromEvent(this.windowRef.nativeWindow, "resize");
-    // } else {
-    this.resizeObservable$ = fromEvent(window, "resize");
-    // }
+    this.resizeObservable$ = fromEvent(this.window, "resize");
     this.resizeSubscription$ = this.resizeObservable$.subscribe((Window) => {
       // TODO: Double check this.  resizeImage() method should have the follwoing params: Window, ElementRef
       this.resizeImage(Window.currentTarget, this.divView);
@@ -86,20 +73,15 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    // if (isPlatformBrowser(this.platformId)) {
-    //   // this block is for SSR
-    //   if (this.windowRef.nativeWindow.innerWidth <= 820) {
-    //     this.#loadLandingPageContainer(DEVICE_PLATFORM.MOBILE);
-    //   } else if (this.windowRef.nativeWindow.innerWidth < 1280) {
-    //     this.#loadLandingPageContainer(DEVICE_PLATFORM.TABLET);
-    //   } else {
-    //     this.#loadLandingPageContainer(DEVICE_PLATFORM.DESKTOP);
-    //   }
-    // } else {
-    // this block is for Browser
-    if (window.innerWidth <= 820) {
+    const $prevButton = $(".left.carousel-control.carousel-control-prev");
+    const $nextButton = $(".right.carousel-control.carousel-control-next");
+
+    $prevButton.click(HomeComponent.previousButtonClickedEventHandler);
+    $nextButton.click(HomeComponent.nextButtonClickedEventHandler);
+
+    if (this.window.innerWidth <= 820) {
       this.#loadLandingPageContainer(DEVICE_PLATFORM.MOBILE);
-    } else if (window.innerWidth < 1280) {
+    } else if (this.window.innerWidth < 1280) {
       this.#loadLandingPageContainer(DEVICE_PLATFORM.TABLET);
     } else {
       this.#loadLandingPageContainer(DEVICE_PLATFORM.DESKTOP);
@@ -124,10 +106,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   #setLayoutId() {
     this.route.queryParams.subscribe((params) => {
-      console.log(`params: ${JSON.stringify(params)}`);
       this.#layoutId = params?.id;
       this.#layoutType = params?.layout;
-      console.log(`layout id: ${this.#layoutId}`);
     });
   }
 

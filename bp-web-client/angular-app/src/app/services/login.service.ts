@@ -12,10 +12,15 @@ export class LoginService {
   window = getWindow();
   document = getDocument();
   constructor() {
-    this.currentUserSubject = new BehaviorSubject<any>(
-      JSON.parse(this.window.localStorage?.getItem("currentUser")!)
-    );
-    this.currentUser = this.currentUserSubject.asObservable();
+    if (
+      this.window.localStorage?.getItem("currentUser")! &&
+      this.window.localStorage?.getItem("currentUser")! !== undefined
+    ) {
+      this.currentUserSubject = new BehaviorSubject<any>(
+        JSON.parse(this.window.localStorage?.getItem("currentUser")!)
+      );
+    }
+    this.currentUser = this.currentUserSubject?.asObservable();
   }
   public get currentUserValue(): any {
     return this.currentUserSubject.value;

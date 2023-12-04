@@ -13,6 +13,8 @@ import { ReloadRefreshComponent } from "../reloadRefresh/reload-refresh.componen
 import { PLATFORM_ID, Inject } from "@angular/core";
 import { isPlatformBrowser } from "@angular/common";
 import { WindowRef } from "src/app/services/windowRef.service";
+import { getWindow, getDocument } from "ssr-window";
+
 @Component({
   selector: "app-header",
   templateUrl: "./app-header.component.html",
@@ -28,7 +30,7 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
 
   @HostListener("window:scroll", ["$event"])
   webpageScrolling(event: any) {
-    const headerBar = document.getElementById("topnav");
+    const headerBar = this.document.getElementById("topnav");
     if (headerBar.classList.contains("topnav-scrolling")) {
       this.isScrolled = true;
       if (this.isMobileNavOpen) {
@@ -40,6 +42,10 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     }
   }
   selectedTheme: any;
+
+  window = getWindow();
+  document = getDocument();
+
   constructor(
     public scrollTo: ScrollToService,
     public override router: Router,
@@ -51,57 +57,48 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     public override windowRef: WindowRef
   ) {
     super(router, platformId, windowRef);
-    this.loginService.currentUserSubject.subscribe((value) => {
+    this.loginService.currentUserSubject?.subscribe((value) => {
       this.isUserLoggedIn = value;
     });
   }
 
   override ngOnInit() {
-    this.headerService.currentTheme.subscribe((theme: any) => {
+    this.headerService.currentTheme?.subscribe((theme: any) => {
       this.selectedTheme = theme;
     });
-
-    console.log(this.selectedTheme);
-    if (isPlatformBrowser(this.platformId)) {
-      this.windowRef.nativeWindow.onscroll = function () {
-        navScroll();
-        checkCp3Desc();
-      };
-    } else {
-      window.onscroll = function () {
-        navScroll();
-        checkCp3Desc();
-      };
-    }
+    this.window.onscroll = function () {
+      navScroll();
+      checkCp3Desc();
+    };
 
     function navScroll() {
-      const mobileNav = document.getElementById("topnav");
+      const mobileNav = this.document.getElementById("topnav");
       if (
-        document.body.scrollTop > 100 ||
-        document.documentElement.scrollTop > 100
+        this.document.body.scrollTop > 100 ||
+        this.document.documentElement.scrollTop > 100
       ) {
-        const scrollingNav = document.getElementById("topnav");
+        const scrollingNav = this.document.getElementById("topnav");
         scrollingNav?.classList?.add("topnav-scrolling");
         mobileNav?.classList?.remove("expanded");
       } else {
-        const scrollingNav = document.getElementById("topnav");
+        const scrollingNav = this.document.getElementById("topnav");
         scrollingNav?.classList?.remove("topnav-scrolling");
       }
     }
 
     function checkCp3Desc() {
-      const checkCP3 = document.getElementById("cp3Desc");
+      const checkCP3 = this.document.getElementById("cp3Desc");
       if (checkCP3 !== null && checkCP3 !== undefined) {
         showCp3Desc();
       }
     }
 
     function showCp3Desc() {
-      const showCp3Desc = document.getElementById("cp3Desc");
+      const showCp3Desc = this.document.getElementById("cp3Desc");
 
       if (
-        document.body.scrollTop > 1000 ||
-        document.documentElement.scrollTop > 1000
+        this.document.body.scrollTop > 1000 ||
+        this.document.documentElement.scrollTop > 1000
       ) {
         showCp3Desc.classList.add("activate");
       } else {
@@ -111,12 +108,9 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   }
   public windowCheck;
   setWindowCheck() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.windowCheck = this.windowRef.nativeWindow.innerWidth;
-    } else {
-      this.windowCheck = window.innerWidth;
-    }
+    this.windowCheck = this.window.innerWidth;
   }
+
   public checkMobileNav() {
     this.setWindowCheck();
     if (this.windowCheck <= 768) {
@@ -128,7 +122,7 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     this.setWindowCheck();
 
     if (this.windowCheck <= 768) {
-      const mobileNav = document.getElementById("topnav");
+      const mobileNav = this.document.getElementById("topnav");
 
       if (mobileNav.classList.contains("expanded")) {
         mobileNav.classList.remove("expanded");
@@ -164,13 +158,13 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     return styles;
   }
   setColor(pageName: string) {
-    const headerBar = document.getElementById("topnav");
+    const headerBar = this.document.getElementById("topnav");
     const correntPageURL = this.router.url;
     let styles;
 
     if (
-      headerBar.classList.contains("expanded") ||
-      headerBar.classList.contains("topnav-scrolling")
+      headerBar?.classList.contains("expanded") ||
+      headerBar?.classList.contains("topnav-scrolling")
     ) {
       if (correntPageURL.includes(pageName)) {
         styles = {
@@ -224,7 +218,7 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     this.hamburgerColor = newColor;
   }
   getLogoColor() {
-    const headerBar = document.getElementById("topnav");
+    const headerBar = this.document.getElementById("topnav");
     if (headerBar.classList.contains("expanded") || this.isScrolled) {
       return "#000";
     }
@@ -249,8 +243,8 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
 
   hideAfter1000() {
     if (
-      document.body.scrollTop > 960 ||
-      document.documentElement.scrollTop > 960
+      this.document.body.scrollTop > 960 ||
+      this.document.documentElement.scrollTop > 960
     ) {
       return false;
     }
@@ -258,31 +252,17 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   }
 
   setTopToZero() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.windowRef.nativeWindow.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    } else {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }
+    this.window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
     this.isScrolled = false;
   }
   goToReqQuote() {
     this.router.navigate(["/contact"]);
-    if (isPlatformBrowser(this.platformId)) {
-      this.windowRef.nativeWindow.scrollTo({
-        top: 1000,
-        behavior: "smooth",
-      });
-    } else {
-      window.scrollTo({
-        top: 1000,
-        behavior: "smooth",
-      });
-    }
+    this.window.scrollTo({
+      top: 1000,
+      behavior: "smooth",
+    });
   }
 }
