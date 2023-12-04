@@ -16,7 +16,7 @@
     "prepare": "cd ../.. && husky install bp-web-client/angular-app/.husky",
     "dev:ssr": "ng run angular-app:serve-ssr",
     "serve:ssr": "node dist/angular-app/server/main.js",
-    "build:ssr": "ng build --minification=false && ng run angular-app:server",
+    "build:ssr": "ng build && ng run angular-app:server",
     "prerender": "ng run angular-app:prerender"
   },
   "husky": {
