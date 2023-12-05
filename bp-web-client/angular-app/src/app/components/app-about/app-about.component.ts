@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { AfterViewInit, Component, OnInit } from "@angular/core";
 import * as $ from "jquery";
 // import { faFacebook } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -14,7 +14,7 @@ import { ActivatedRoute } from "@angular/router";
   templateUrl: "./app-about.component.html",
   styleUrls: ["./app-about.component.css"],
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent implements OnInit, AfterViewInit {
   faFacebook = faFacebook;
   faTwitter = faTwitter;
   faInstagram = faInstagram;
@@ -22,14 +22,12 @@ export class AboutComponent implements OnInit {
   faYoutube = faYoutube;
   constructor(private route: ActivatedRoute) {}
 
-  ngOnInit() {
-    $(document).ready(function (e) {
-      const $prevButton = $(".left.carousel-control.carousel-control-prev");
-      const $nextButton = $(".right.carousel-control.carousel-control-next");
-
-      $prevButton.click(AboutComponent.previousButtonClickedEventHandler);
-      $nextButton.click(AboutComponent.nextButtonClickedEventHandler);
-    });
+  ngOnInit() {}
+  ngAfterViewInit() {
+    const $prevButton = $(".left.carousel-control.carousel-control-prev");
+    const $nextButton = $(".right.carousel-control.carousel-control-next");
+    $prevButton.click(AboutComponent.previousButtonClickedEventHandler);
+    $nextButton.click(AboutComponent.nextButtonClickedEventHandler);
   }
 
   private static previousButtonClickedEventHandler(event: Event): void {

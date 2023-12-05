@@ -51,15 +51,8 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
       this.isUserLoggedIn = value;
     });
   }
-  setDocument() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.document = this.windowRef.nativeWindow.document;
-    } else {
-      this.document = window.document;
-    }
-  }
+
   override ngOnInit() {
-    this.setDocument();
     this.headerService.currentTheme?.subscribe((theme: any) => {
       this.selectedTheme = theme;
     });
@@ -156,7 +149,7 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   }
   setCTAColor() {
     let styles = {
-      color: this.selectedTheme.logoColor,
+      color: this.selectedTheme?.logoColor,
     };
     return styles;
   }
@@ -184,12 +177,12 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     } else {
       if (correntPageURL.includes(pageName)) {
         styles = {
-          color: this.selectedTheme.NavColor,
-          "border-bottom-color": this.selectedTheme.NavColor,
+          color: this.selectedTheme?.NavColor,
+          "border-bottom-color": this.selectedTheme?.NavColor,
         };
       } else {
         styles = {
-          color: this.selectedTheme.NavColor,
+          color: this.selectedTheme?.NavColor,
           "border-bottom-color": "transparent",
         };
       }
@@ -225,7 +218,7 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     if (headerBar.classList.contains("expanded") || this.isScrolled) {
       return "#000";
     }
-    return this.selectedTheme.logoColor;
+    return this.selectedTheme?.logoColor;
   }
 
   hideTill1060() {
