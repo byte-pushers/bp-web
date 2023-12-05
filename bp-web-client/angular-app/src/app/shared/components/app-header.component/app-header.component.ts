@@ -33,20 +33,6 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   @ViewChild("scrollable") scrollable: any;
 
   @HostListener("window:scroll", ["$event"])
-  webpageScrolling(event: any) {
-    alert("its working");
-    const headerBar = this.document.getElementById("topnav");
-    if (headerBar?.classList.contains("topnav-scrolling")) {
-      this.isScrolled = true;
-      if (this.isMobileNavOpen) {
-        this.isMobileNavOpen = false;
-      }
-    } else {
-      this.isScrolled = false;
-      this.isMobileNavOpen = false;
-    }
-  }
-
   selectedTheme: any;
 
   constructor(
@@ -78,6 +64,17 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
       this.selectedTheme = theme;
     });
     this.window.onscroll = () => {
+      const headerBar = this.document.getElementById("topnav");
+      if (headerBar?.classList.contains("topnav-scrolling")) {
+        this.isScrolled = true;
+        if (this.isMobileNavOpen) {
+          this.isMobileNavOpen = false;
+        }
+      } else {
+        this.isScrolled = false;
+        this.isMobileNavOpen = false;
+      }
+
       const mobileNav = this.document.getElementById("topnav");
       if (
         this.document.body.scrollTop > 100 ||
