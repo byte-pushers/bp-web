@@ -120,10 +120,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       )
       .then(
         (componentCreated) => {
-          console.log(
-            `component created: ${JSON.stringify(componentCreated)}`,
-            componentCreated
-          );
+          // console.log(
+          //   `component created: ${JSON.stringify(componentCreated)}`,
+          //   componentCreated
+          // );
         },
         (error) => {
           console.log(`An error occurred: ${JSON.stringify(error)}`, error);
