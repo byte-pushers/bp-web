@@ -4,6 +4,7 @@ import {
   HostListener,
   Input,
   OnInit,
+  ViewChild,
 } from "@angular/core";
 import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { HeaderService } from "src/app/services/header.service";
@@ -27,11 +28,15 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   logoTextColor = "#fff";
   logoTextBottomColor = "#fff";
   hamburgerColor = "#fff";
+  window = getWindow();
+  document = getDocument();
+  @ViewChild("scrollable") scrollable: any;
 
   @HostListener("window:scroll", ["$event"])
   webpageScrolling(event: any) {
+    alert("its working");
     const headerBar = this.document.getElementById("topnav");
-    if (headerBar.classList.contains("topnav-scrolling")) {
+    if (headerBar?.classList.contains("topnav-scrolling")) {
       this.isScrolled = true;
       if (this.isMobileNavOpen) {
         this.isMobileNavOpen = false;
@@ -41,10 +46,8 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
       this.isMobileNavOpen = false;
     }
   }
-  selectedTheme: any;
 
-  window = getWindow();
-  document = getDocument();
+  selectedTheme: any;
 
   constructor(
     public scrollTo: ScrollToService,
@@ -57,21 +60,25 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     public override windowRef: WindowRef
   ) {
     super(router, platformId, windowRef);
+
     this.loginService.currentUserSubject?.subscribe((value) => {
       this.isUserLoggedIn = value;
     });
   }
-
+  setDocument() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.document = this.windowRef.nativeWindow.document;
+    } else {
+      this.document = window.document;
+    }
+  }
   override ngOnInit() {
+    this.setDocument();
     this.headerService.currentTheme?.subscribe((theme: any) => {
       this.selectedTheme = theme;
     });
-    this.window.onscroll = function () {
-      navScroll();
-      checkCp3Desc();
-    };
-
-    function navScroll() {
+    this.window.onscroll = () => {
+      console.log(this.window);
       const mobileNav = this.document.getElementById("topnav");
       if (
         this.document.body.scrollTop > 100 ||
@@ -84,26 +91,26 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
         const scrollingNav = this.document.getElementById("topnav");
         scrollingNav?.classList?.remove("topnav-scrolling");
       }
+      this.checkCp3Desc();
+    };
+  }
+
+  checkCp3Desc() {
+    const checkCP3 = this.document.getElementById("cp3Desc");
+    if (checkCP3 !== null && checkCP3 !== undefined) {
+      this.showCp3Desc();
     }
+  }
+  showCp3Desc() {
+    const showCp3Desc = this.document.getElementById("cp3Desc");
 
-    function checkCp3Desc() {
-      const checkCP3 = this.document.getElementById("cp3Desc");
-      if (checkCP3 !== null && checkCP3 !== undefined) {
-        showCp3Desc();
-      }
-    }
-
-    function showCp3Desc() {
-      const showCp3Desc = this.document.getElementById("cp3Desc");
-
-      if (
-        this.document.body.scrollTop > 1000 ||
-        this.document.documentElement.scrollTop > 1000
-      ) {
-        showCp3Desc.classList.add("activate");
-      } else {
-        showCp3Desc.classList.remove("activate");
-      }
+    if (
+      this.document.body.scrollTop > 1000 ||
+      this.document.documentElement.scrollTop > 1000
+    ) {
+      showCp3Desc.classList.add("activate");
+    } else {
+      showCp3Desc.classList.remove("activate");
     }
   }
   public windowCheck;
