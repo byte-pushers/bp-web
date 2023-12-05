@@ -78,7 +78,6 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
       this.selectedTheme = theme;
     });
     this.window.onscroll = () => {
-      console.log(this.window);
       const mobileNav = this.document.getElementById("topnav");
       if (
         this.document.body.scrollTop > 100 ||
