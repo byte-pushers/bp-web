@@ -1,9 +1,20 @@
-import {ChangeDetectorRef, Component, HostListener, Input, OnInit } from "@angular/core";
+import {
+  ChangeDetectorRef,
+  Component,
+  HostListener,
+  Input,
+  OnInit,
+  ViewChild,
+} from "@angular/core";
 import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { HeaderService } from "src/app/services/header.service";
 import { LoginService } from "src/app/services/login.service";
 import { ScrollToService } from "../../../services/scroll-to.service";
 import { ReloadRefreshComponent } from "../reloadRefresh/reload-refresh.component";
+import { PLATFORM_ID, Inject } from "@angular/core";
+import { isPlatformBrowser } from "@angular/common";
+import { WindowRef } from "src/app/services/windowRef.service";
+import { getWindow, getDocument } from "ssr-window";
 
 @Component({
   selector: "app-header",
@@ -14,96 +25,100 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   isUserLoggedIn: boolean = false;
   isScrolled: boolean = false;
   isMobileNavOpen: boolean = false;
-  logoTextColor = '#fff';
-  logoTextBottomColor = '#fff';
-  hamburgerColor = '#fff';
+  logoTextColor = "#fff";
+  logoTextBottomColor = "#fff";
+  hamburgerColor = "#fff";
+  window = getWindow();
+  document = getDocument();
+  @ViewChild("scrollable") scrollable: any;
 
   @HostListener("window:scroll", ["$event"])
-  webpageScrolling(event: any) {
-    const headerBar = document.getElementById("topnav");
-    if (headerBar.classList.contains("topnav-scrolling")) {
-      this.isScrolled = true;
-      if (this.isMobileNavOpen) {
-        this.isMobileNavOpen = false;
-      }
-    } else {
-      this.isScrolled = false;
-      this.isMobileNavOpen = false;
-    }
-  }
   selectedTheme: any;
+
   constructor(
     public scrollTo: ScrollToService,
     public override router: Router,
     private loginService: LoginService,
     private headerService: HeaderService,
     private route: ActivatedRoute,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    @Inject(PLATFORM_ID) public override platformId: any,
+    public override windowRef: WindowRef
   ) {
-    super(router);
-    this.loginService.currentUserSubject.subscribe((value) => {
+    super(router, platformId, windowRef);
+
+    this.loginService.currentUserSubject?.subscribe((value) => {
       this.isUserLoggedIn = value;
     });
   }
 
   override ngOnInit() {
-    this.headerService.currentTheme.subscribe((theme: any) => {
+    this.headerService.currentTheme?.subscribe((theme: any) => {
       this.selectedTheme = theme;
     });
+    this.window.onscroll = () => {
+      const headerBar = this.document.getElementById("topnav");
+      if (headerBar?.classList.contains("topnav-scrolling")) {
+        this.isScrolled = true;
+        if (this.isMobileNavOpen) {
+          this.isMobileNavOpen = false;
+        }
+      } else {
+        this.isScrolled = false;
+        this.isMobileNavOpen = false;
+      }
 
-    console.log(this.selectedTheme);
-    window.onscroll = function () {
-      navScroll();
-      checkCp3Desc();
-    };
-
-    function navScroll() {
-      const mobileNav = document.getElementById("topnav");
+      const mobileNav = this.document.getElementById("topnav");
       if (
-        document.body.scrollTop > 100 ||
-        document.documentElement.scrollTop > 100
+        this.document.body.scrollTop > 100 ||
+        this.document.documentElement.scrollTop > 100
       ) {
-        const scrollingNav = document.getElementById("topnav");
+        const scrollingNav = this.document.getElementById("topnav");
         scrollingNav?.classList?.add("topnav-scrolling");
         mobileNav?.classList?.remove("expanded");
       } else {
-        const scrollingNav = document.getElementById("topnav");
+        const scrollingNav = this.document.getElementById("topnav");
         scrollingNav?.classList?.remove("topnav-scrolling");
       }
-    }
+      this.checkCp3Desc();
+    };
+  }
 
-    function checkCp3Desc() {
-      const checkCP3 = document.getElementById("cp3Desc");
-      if (checkCP3 !== null && checkCP3 !== undefined) {
-        showCp3Desc();
-      }
+  checkCp3Desc() {
+    const checkCP3 = this.document.getElementById("cp3Desc");
+    if (checkCP3 !== null && checkCP3 !== undefined) {
+      this.showCp3Desc();
     }
+  }
+  showCp3Desc() {
+    const showCp3Desc = this.document.getElementById("cp3Desc");
 
-    function showCp3Desc() {
-      const showCp3Desc = document.getElementById("cp3Desc");
-
-      if (
-        document.body.scrollTop > 1000 ||
-        document.documentElement.scrollTop > 1000
-      ) {
-        showCp3Desc.classList.add("activate");
-      } else {
-        showCp3Desc.classList.remove("activate");
-      }
+    if (
+      this.document.body.scrollTop > 1000 ||
+      this.document.documentElement.scrollTop > 1000
+    ) {
+      showCp3Desc.classList.add("activate");
+    } else {
+      showCp3Desc.classList.remove("activate");
     }
+  }
+  public windowCheck;
+  setWindowCheck() {
+    this.windowCheck = this.window.innerWidth;
   }
 
   public checkMobileNav() {
-    const windowCheck = window.innerWidth;
-    if (windowCheck <= 768) {
+    this.setWindowCheck();
+    if (this.windowCheck <= 768) {
       this.openCloseMobileNav();
     }
   }
 
   public openCloseMobileNav() {
-    const windowCheck = window.innerWidth;
-    if (windowCheck <= 768) {
-      const mobileNav = document.getElementById("topnav");
+    this.setWindowCheck();
+
+    if (this.windowCheck <= 768) {
+      const mobileNav = this.document.getElementById("topnav");
 
       if (mobileNav.classList.contains("expanded")) {
         mobileNav.classList.remove("expanded");
@@ -121,7 +136,8 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   }
 
   showSmallLogo() {
-    if (window.innerWidth <= 960) {
+    this.setWindowCheck();
+    if (this.windowCheck <= 960) {
       return true;
     }
     return false;
@@ -133,18 +149,18 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   }
   setCTAColor() {
     let styles = {
-      color: this.selectedTheme.logoColor,
+      color: this.selectedTheme?.logoColor,
     };
     return styles;
   }
   setColor(pageName: string) {
-    const headerBar = document.getElementById("topnav");
+    const headerBar = this.document.getElementById("topnav");
     const correntPageURL = this.router.url;
     let styles;
 
     if (
-      headerBar.classList.contains("expanded") ||
-      headerBar.classList.contains("topnav-scrolling")
+      headerBar?.classList.contains("expanded") ||
+      headerBar?.classList.contains("topnav-scrolling")
     ) {
       if (correntPageURL.includes(pageName)) {
         styles = {
@@ -161,12 +177,12 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     } else {
       if (correntPageURL.includes(pageName)) {
         styles = {
-          color: this.selectedTheme.NavColor,
-          "border-bottom-color": this.selectedTheme.NavColor,
+          color: this.selectedTheme?.NavColor,
+          "border-bottom-color": this.selectedTheme?.NavColor,
         };
       } else {
         styles = {
-          color: this.selectedTheme.NavColor,
+          color: this.selectedTheme?.NavColor,
           "border-bottom-color": "transparent",
         };
       }
@@ -174,49 +190,48 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     }
   }
 
-
-
   @HostListener("window:scroll", []) onWindowScroll() {
     let viewChanged = [];
 
-    viewChanged.push(this.setLogoTextColor('#000'));
-    viewChanged.push(this.setLogoTextBottomColor('#000'));
-    viewChanged.push(this.setHamburgerColor('#000'));
+    viewChanged.push(this.setLogoTextColor("#000"));
+    viewChanged.push(this.setLogoTextBottomColor("#000"));
+    viewChanged.push(this.setHamburgerColor("#000"));
 
-    if (viewChanged.find(vc => vc === true)) {
+    if (viewChanged.find((vc) => vc === true)) {
       this.cd.detectChanges();
     }
   }
 
   setLogoTextBottomColor(newColor: string): void {
-    this.logoTextBottomColor = newColor
+    this.logoTextBottomColor = newColor;
   }
 
   setLogoTextColor(newColor: string): void {
-    this.logoTextColor = newColor
+    this.logoTextColor = newColor;
   }
 
   setHamburgerColor(newColor: string): void {
-    this.hamburgerColor = newColor
+    this.hamburgerColor = newColor;
   }
   getLogoColor() {
-    const headerBar = document.getElementById("topnav");
+    const headerBar = this.document.getElementById("topnav");
     if (headerBar.classList.contains("expanded") || this.isScrolled) {
       return "#000";
     }
-    return this.selectedTheme.logoColor;
+    return this.selectedTheme?.logoColor;
   }
 
   hideTill1060() {
-    if (window.innerWidth <= 1060) {
+    this.setWindowCheck();
+    if (this.windowCheck <= 1060) {
       return false;
     }
     return true;
   }
 
   isMobile() {
-    const windowWidth = window.innerWidth;
-    if (windowWidth <= 768) {
+    this.setWindowCheck();
+    if (this.windowCheck <= 768) {
       return true;
     }
     return false;
@@ -224,8 +239,8 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
 
   hideAfter1000() {
     if (
-      document.body.scrollTop > 960 ||
-      document.documentElement.scrollTop > 960
+      this.document.body.scrollTop > 960 ||
+      this.document.documentElement.scrollTop > 960
     ) {
       return false;
     }
@@ -233,7 +248,7 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   }
 
   setTopToZero() {
-    window.scrollTo({
+    this.window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
@@ -241,7 +256,7 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   }
   goToReqQuote() {
     this.router.navigate(["/contact"]);
-    window.scrollTo({
+    this.window.scrollTo({
       top: 1000,
       behavior: "smooth",
     });

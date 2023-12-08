@@ -1,13 +1,19 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-
+import { PLATFORM_ID, Inject } from "@angular/core";
+import { isPlatformBrowser } from "@angular/common";
+import { WindowRef } from "src/app/services/windowRef.service";
 @Component({
   selector: "app-common-functionality",
   template: ` <p>common-functionality works!</p> `,
   styles: [],
 })
 export class ReloadRefreshComponent implements OnInit {
-  constructor(public router: Router) {}
+  constructor(
+    public router: Router,
+    @Inject(PLATFORM_ID) public platformId: any,
+    public windowRef: WindowRef
+  ) {}
   // url=self ? this.router.url :urlToNavigateTo;
   ngOnInit(): void {}
 
@@ -25,6 +31,10 @@ export class ReloadRefreshComponent implements OnInit {
   }
 
   reloadPage() {
-    window.location.reload();
+    if (isPlatformBrowser(this.platformId)) {
+      this.windowRef.nativeWindow.location.reload();
+    } else {
+      window.location.reload();
+    }
   }
 }

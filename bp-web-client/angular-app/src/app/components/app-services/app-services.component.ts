@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, AfterViewInit } from "@angular/core";
 import * as $ from "jquery";
 import { ScrollToService } from "../../services/scroll-to.service";
 import {
@@ -15,7 +15,7 @@ import { ActivatedRoute } from "@angular/router";
   templateUrl: "./app-services.component.html",
   styleUrls: ["./app-services.component.css"],
 })
-export class ServicesComponent implements OnInit {
+export class ServicesComponent implements OnInit, AfterViewInit {
   faFacebook = faFacebook;
   faTwitter = faTwitter;
   faInstagram = faInstagram;
@@ -26,14 +26,12 @@ export class ServicesComponent implements OnInit {
     public scrollToService: ScrollToService
   ) {}
 
-  ngOnInit() {
-    $(document).ready(function (e) {
-      const $prevButton = $(".left.carousel-control.carousel-control-prev");
-      const $nextButton = $(".right.carousel-control.carousel-control-next");
-
-      $prevButton.click(ServicesComponent.previousButtonClickedEventHandler);
-      $nextButton.click(ServicesComponent.nextButtonClickedEventHandler);
-    });
+  ngOnInit() {}
+  ngAfterViewInit() {
+    const $prevButton = $(".left.carousel-control.carousel-control-prev");
+    const $nextButton = $(".right.carousel-control.carousel-control-next");
+    $prevButton.click(ServicesComponent.previousButtonClickedEventHandler);
+    $nextButton.click(ServicesComponent.nextButtonClickedEventHandler);
   }
   private static previousButtonClickedEventHandler(event: Event): void {
     const $nextButton = $("slide.item.carousel-item");
