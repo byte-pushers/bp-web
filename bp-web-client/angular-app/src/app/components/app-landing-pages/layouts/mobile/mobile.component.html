@@ -8,16 +8,12 @@
   <section class="bodyContent">
     <div class="customContainer">
       <div class="twoCol d-flex j-c-s-b a-bottom f-f-wrap">
-        <div class="contentArea d-flex flexWrap a-bottom">
-          <div class="empty"></div>
-          <div class="content bottomLayout">
-            <h2 [ngStyle]="setTitleColor()" [innerHTML]="title"></h2>
-          </div>
-        </div>
-        <div class="socialMediaIcons d-flex a-bottom">
+        <div class="contentArea d-flex flexWrap a-bottom"></div>
+        <div class="socialMediaIcons d-flex a-top">
           <app-social-media></app-social-media>
         </div>
         <div class="knowMore">
+          <h2 [ngStyle]="setTitleColor()" [innerHTML]="title"></h2>
           <button class="standardYelloBtn" (click)="wanttoLearnMore()">
             Wnat to Learn More?
           </button>
