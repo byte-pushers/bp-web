@@ -1,6 +1,7 @@
 import {
   Component,
   ElementRef,
+  Inject,
   OnDestroy,
   OnInit,
   ViewChild,
@@ -9,7 +10,7 @@ import { NgForm } from "@angular/forms";
 import { QuoteService } from "../../shared/services/quote.service";
 import { Quote } from "../../shared/models/quote";
 import { QuoteModel } from "../../shared/models/quote.model";
-import { NgxSpinnerService } from "ngx-spinner";
+// import { NgxSpinnerService } from "ngx-spinner";
 import { AppAlertOverlayModalService } from "../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.service";
 import { ScrollToService } from "../../services/scroll-to.service";
 import { AppAlertOverlayModalComponent } from "../../shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.component";
@@ -26,6 +27,12 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { PopupModalService } from "src/app/modules/popup-modal/services/popup-modal.service";
+
+import { PLATFORM_ID } from "@angular/core";
+import { isPlatformBrowser } from "@angular/common";
+import { WindowRef } from "src/app/services/windowRef.service";
+
+import { getWindow, getDocument } from "ssr-window";
 
 @Component({
   selector: "app-contact",
@@ -48,17 +55,21 @@ export class ContactComponent
   public formStartTime: number = null;
   public formSubmitTime: number = null;
 
+  window = getWindow();
+  document = getDocument();
+
   constructor(
     private quoteService: QuoteService,
-    private spinner: NgxSpinnerService,
+    // private spinner: NgxSpinnerService,
     private router: Router,
     private appAlertOverlayModalService: AppAlertOverlayModalService,
     public stateNameService: StateNameService,
     private scrollToService: ScrollToService,
     private contactButtonService: ContactButtonService,
     private popupService: PopupModalService,
-    private route: ActivatedRoute
-  ) {}
+    private route: ActivatedRoute // @Inject(PLATFORM_ID) private platformId: any,
+  ) // private windowRef: WindowRef
+  {}
 
   @ViewChild("quoteForm") quoteForm: any;
   @ViewChild("phoneNumber") phoneNumber: any;
@@ -83,6 +94,9 @@ export class ContactComponent
   foundations: any = ["New Business", "Existing Business"];
 
   ngOnInit() {
+    // if (isPlatformBrowser(this.platformId)) {
+    //   console.log(this.windowRef);
+    // }
     this.years = this.calculateYears(+new Date().getFullYear(), 40);
     this.years.push("Older than 1980");
     this.setOnContactView(false);
@@ -91,26 +105,30 @@ export class ContactComponent
   //Check if there any unsaved data etc. If yes then as for confirmation
   canExit(): boolean {
     if (this.quoteForm.touched) {
-      console.log(window);
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
+      // if (isPlatformBrowser(this.platformId)) {
+      //   this.windowRef.nativeWindow.dataLayer =
+      //     this.windowRef.nativeWindow.dataLayer || [];
+      //   this.windowRef.nativeWindow.dataLayer.push({
+      //     event: "formAbandonment",
+      //     eventCategory: "Form Abandonment",
+      //     eventAction: `User Navigated Away From Request Quote Form`,
+      //   });
+      // } else {
+      this.window.dataLayer = this.window.dataLayer || [];
+      this.window.dataLayer.push({
         event: "formAbandonment",
         eventCategory: "Form Abandonment",
         eventAction: `User Navigated Away From Request Quote Form`,
       });
+      // }
     }
     return true;
-    // if (confirm("Do you wish to Please confirm")) {
-    //     return true
-    //   } else {
-    //     return false
-    //   }
   }
 
   ngOnDestroy() {
     this.setOnContactView(true);
     this.formStartTime = null;
-    localStorage.clear();
+    this.window.localStorage?.clear();
   }
   public setOnContactView(setView): void {
     this.contactButtonService.isOnContactView(setView);
@@ -126,12 +144,13 @@ export class ContactComponent
 
   public isMobileResolution(): boolean {
     let isMobileResolution = false;
-
-    if (window.innerWidth < 768) {
+    // if (!isPlatformBrowser(this.platformId)) {
+    if (this.window.innerWidth < 768) {
       isMobileResolution = true;
     } else {
       isMobileResolution = false;
     }
+    // }
 
     return isMobileResolution;
   }
@@ -140,11 +159,19 @@ export class ContactComponent
     this.isSubmitted = true;
     this.formSubmitTime = Date.now();
     const formDuration = this.formSubmitTime - this.formStartTime;
-    window.dataLayer.push({
+    // if (isPlatformBrowser(this.platformId)) {
+    //   this.windowRef.nativeWindow.dataLayer.push({
+    //     event: "requestQuoteFormSubmitted",
+    //     timeFormSubmitted: this.formSubmitTime,
+    //     formSubmissionDuration2: formDuration,
+    //   });
+    // } else {
+    this.window.dataLayer.push({
       event: "requestQuoteFormSubmitted",
       timeFormSubmitted: this.formSubmitTime,
       formSubmissionDuration2: formDuration,
     });
+    // }
     if (!this.quoteForm.valid) {
       this.isSubmitted = false;
     } else {
@@ -182,7 +209,7 @@ export class ContactComponent
   }
 
   private saveQuote() {
-    this.spinner.show();
+    // this.spinner.show();
     if (this.quote !== null && this.quote !== undefined) {
       this.quote.contact.phone.number = this.phoneNumber.control.value;
       this.quoteService.createQuote(this.quote).subscribe(
@@ -193,7 +220,7 @@ export class ContactComponent
             newlyCreatedQuote
           );
           this.showConfirmation = true;
-          this.spinner.hide();
+          // this.spinner.hide();
           this.quoteForm.reset();
           // TODO: Maybe we don't need this logic.
           if (this.isMobileResolution()) {
@@ -210,7 +237,7 @@ export class ContactComponent
             this.showOverlayModal(this.errorMessages[0]);
           }
 
-          this.spinner.hide();
+          // this.spinner.hide();
           this.quoteForm.reset();
           this.popupService.throwError({
             type: "Error",
@@ -291,11 +318,21 @@ export class ContactComponent
   captureStartTime() {
     if (this.formStartTime == null) {
       this.formStartTime = Date.now();
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
+      // if (isPlatformBrowser(this.platformId)) {
+      //   console.log(this.windowRef);
+      //   this.windowRef.nativeWindow.dataLayer =
+      //     this.windowRef.nativeWindow.dataLayer || [];
+      //   this.windowRef.nativeWindow.dataLayer.push({
+      //     event: "formStarted",
+      //     timeFormStarted: this.formStartTime,
+      //   });
+      // } else {
+      this.window.dataLayer = this.window.dataLayer || [];
+      this.window.dataLayer.push({
         event: "formStarted",
         timeFormStarted: this.formStartTime,
       });
+      // }
     }
   }
 

@@ -8,13 +8,13 @@ import { HomeComponent } from "./components/app-home/app-home.component";
 import { ContactComponent } from "./components/app-contact/app-contact.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CarouselModule } from "ngx-bootstrap/carousel";
-import { NgBootstrapFormValidationModule } from "ng-bootstrap-form-validation";
+// import { NgBootstrapFormValidationModule } from "ng-bootstrap-form-validation";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { NgxBootstrapSliderModule } from "ngx-bootstrap-slider";
+// import { NgxBootstrapSliderModule } from "ngx-bootstrap-slider";
 import { QuoteService } from "./shared/services/quote.service";
 import { AppFooterComponent } from "./shared/components/app-footer/app-footer.component";
-import { NgxSpinnerModule } from "ngx-spinner";
-import { MatCardModule } from "@angular/material/card";
+// import { NgxSpinnerModule } from "ngx-spinner";
+// import { MatCardModule } from "@angular/material/card";
 import { AppAlertOverlayModalComponent } from "./shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.component";
 import { NgxPageScrollCoreModule } from "ngx-page-scroll-core";
 import { NgxPageScrollModule } from "ngx-page-scroll";
@@ -60,6 +60,7 @@ import { ArrowBottomComponent } from "./shared/components/heroLogos/arrow-bottom
 import { HamburgurComponent } from "./shared/components/hamburgur/hamburgur.component";
 import { MobileComponent } from "./components/app-landing-pages/layouts/mobile/mobile.component";
 import { SitemapComponent } from "./components/sitemap/sitemap.component";
+import { WindowRef } from "./services/windowRef.service";
 
 @NgModule({
   declarations: [
@@ -108,11 +109,11 @@ import { SitemapComponent } from "./components/sitemap/sitemap.component";
     ReactiveFormsModule,
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
-    NgBootstrapFormValidationModule.forRoot(),
-    NgxBootstrapSliderModule,
+    // NgBootstrapFormValidationModule.forRoot(),
+    // NgxBootstrapSliderModule,
     HttpClientModule,
-    NgxSpinnerModule,
-    MatCardModule,
+    // NgxSpinnerModule,
+    // MatCardModule,
     OverlayModule,
     NgxPageScrollCoreModule.forRoot({
       /* custom settings here */
@@ -124,7 +125,7 @@ import { SitemapComponent } from "./components/sitemap/sitemap.component";
   providers: [
     RouterLinkActive,
     QuoteService,
-    { provide: Window, useValue: window },
+    // { provide: Window, useValue: window },
     ContactButtonService,
     AppRoutingService,
     StateNameService,
@@ -134,12 +135,13 @@ import { SitemapComponent } from "./components/sitemap/sitemap.component";
       useClass: HttpRequestInterceptor,
       multi: true,
     },
+    WindowRef,
   ],
-  entryComponents: [
-    // Needs to be added here because otherwise we can't
-    // dynamically render this component at runtime
-    AppAlertOverlayModalComponent,
-  ],
+  // entryComponents: [
+  //   // Needs to be added here because otherwise we can't
+  //   // dynamically render this component at runtime
+  //   AppAlertOverlayModalComponent,
+  // ],
   bootstrap: [AppComponent],
 })
 export class AppModule {
