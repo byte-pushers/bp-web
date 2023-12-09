@@ -14,7 +14,24 @@
           "left": "assets/images/landingPages/v1/left-align.png",
           "bottom": "assets/images/landingPages/v1/bottom-align.png"
         }
-      }
+      },
+      "metaTags": [
+        {
+          "name": "keywords",
+          "content": "Mobile App Development, Website Development, API Development, Angular, React, Redux, Latest Technologies"
+        },
+        {
+          "name": "robots",
+          "content": "index, follow"
+        },
+        {
+          "name": "writer",
+          "content": "Surya Prakash"
+        },
+        {
+          "charset": "UTF-8"
+        }
+      ]
     }
   },
   {
@@ -32,7 +49,24 @@
           "left": "assets/images/landingPages/v1/left-align.png",
           "bottom": "assets/images/landingPages/v1/bottom-align.png"
         }
-      }
+      },
+      "metaTags": [
+        {
+          "name": "keywords",
+          "content": "Mobile App Development, Website Development, API Development, Angular, React, Redux, Latest Technologies"
+        },
+        {
+          "name": "robots",
+          "content": "index, follow"
+        },
+        {
+          "name": "writer",
+          "content": "Surya Prakash"
+        },
+        {
+          "charset": "UTF-8"
+        }
+      ]
     }
   },
   {
@@ -50,7 +84,26 @@
           "left": "assets/images/landingPages/v2/lp2.left.aligned.png",
           "bottom": "assets/images/landingPages/v2/lp2.bottom.aligned.png"
         }
-      }
+      },
+      "metaTags": [
+        [
+          {
+            "name": "keywords",
+            "content": "Mobile App Development, Website Development, API Development, Angular, React, Redux, Latest Technologies"
+          },
+          {
+            "name": "robots",
+            "content": "index, follow"
+          },
+          {
+            "name": "writer",
+            "content": "Surya Prakash"
+          },
+          {
+            "charset": "UTF-8"
+          }
+        ]
+      ]
     }
   },
   {
@@ -68,7 +121,26 @@
           "left": "assets/images/landingPages/v3/lp3.left.aligned.png",
           "bottom": "assets/images/landingPages/v3/lp3.bottom.aligned.png"
         }
-      }
+      },
+      "metaTags": [
+        [
+          {
+            "name": "keywords",
+            "content": "Mobile App Development, Website Development, API Development, Angular, React, Redux, Latest Technologies"
+          },
+          {
+            "name": "robots",
+            "content": "index, follow"
+          },
+          {
+            "name": "writer",
+            "content": "Surya Prakash"
+          },
+          {
+            "charset": "UTF-8"
+          }
+        ]
+      ]
     }
   },
   {
@@ -86,7 +158,26 @@
           "left": "assets/images/landingPages/v4/lp4.left.aligned.png",
           "bottom": "assets/images/landingPages/v4/lp4.bottom.aligned.png"
         }
-      }
+      },
+      "metaTags": [
+        [
+          {
+            "name": "keywords",
+            "content": "Latest TechStack, Implementing challenging Tasks, Website Development, API Development, Angular, React, Redux, Latest Technologies"
+          },
+          {
+            "name": "robots",
+            "content": "index, follow"
+          },
+          {
+            "name": "writer",
+            "content": "Surya Prakash"
+          },
+          {
+            "charset": "UTF-8"
+          }
+        ]
+      ]
     }
   },
   {
@@ -104,7 +195,26 @@
           "left": "assets/images/landingPages/v5/lp5.left.aligned.png",
           "bottom": "assets/images/landingPages/v5/lp5.bottom.aligned.png"
         }
-      }
+      },
+      "metaTags": [
+        [
+          {
+            "name": "keywords",
+            "content": "Software, Integration, Database Management, Mobile App Development, Website Development, API Development, Angular, React, Redux, Latest Technologies"
+          },
+          {
+            "name": "robots",
+            "content": "index, follow"
+          },
+          {
+            "name": "writer",
+            "content": "Surya Prakash"
+          },
+          {
+            "charset": "UTF-8"
+          }
+        ]
+      ]
     }
   },
   {
@@ -122,7 +232,26 @@
           "left": "assets/images/landingPages/v6/lp6.left.aligned.png",
           "bottom": "assets/images/landingPages/v6/lp6.bottom.aligned.png"
         }
-      }
+      },
+      "metaTags": [
+        [
+          {
+            "name": "keywords",
+            "content": "Mobile App Developers, passionate on Development, API Development, Angular, React, Redux, Latest Technologies"
+          },
+          {
+            "name": "robots",
+            "content": "index, follow"
+          },
+          {
+            "name": "writer",
+            "content": "Surya Prakash"
+          },
+          {
+            "charset": "UTF-8"
+          }
+        ]
+      ]
     }
   },
   {
@@ -140,7 +269,26 @@
           "left": "assets/images/landingPages/v7/lp7.left.aligned.png",
           "bottom": "assets/images/landingPages/v7/lp7.bottom.aligned.png"
         }
-      }
+      },
+      "metaTags": [
+        [
+          {
+            "name": "keywords",
+            "content": "Custom Solutions, Mobile App Development, excellent results, Website Development, API Development, Angular, React, Redux, Latest Technologies"
+          },
+          {
+            "name": "robots",
+            "content": "index, follow"
+          },
+          {
+            "name": "writer",
+            "content": "Surya Prakash"
+          },
+          {
+            "charset": "UTF-8"
+          }
+        ]
+      ]
     }
   }
 ]

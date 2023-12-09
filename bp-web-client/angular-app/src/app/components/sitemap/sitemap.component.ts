@@ -34,8 +34,6 @@ export class SitemapComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.siteMapService.setSiteMap(false);
-    const description = this.meta.getTag("name=description");
-    console.log(description.content); //this is to test
   }
   ngOnDestroy() {
     this.siteMapService.setSiteMap(true);
@@ -51,16 +49,9 @@ export class SitemapComponent implements OnInit, OnDestroy {
   }
 
   showSmallLogo() {
-    // if (isPlatformBrowser(this.platformId)) {
-    //   if (this.windowRef.nativeWindow.innerWidth <= 960) {
-    //     return true;
-    //   }
-    //   return false;
-    // } else {
     if (this.window.innerWidth <= 960) {
       return true;
     }
     return false;
-    // }
   }
 }
