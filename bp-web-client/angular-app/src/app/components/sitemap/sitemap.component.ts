@@ -18,9 +18,8 @@ export class SitemapComponent implements OnInit, OnDestroy {
   document = getDocument();
   constructor(
     private siteMapService: SiteMapService,
-    private router: Router
-  ) // @Inject(PLATFORM_ID) private platformId: any,
-  // private windowRef: WindowRef
+    private router: Router // @Inject(PLATFORM_ID) private platformId: any,
+  ) // private windowRef: WindowRef
   {}
 
   ngOnInit() {
@@ -46,7 +45,7 @@ export class SitemapComponent implements OnInit, OnDestroy {
     //   }
     //   return false;
     // } else {
-    if (window.innerWidth <= 960) {
+    if (this.window.innerWidth <= 960) {
       return true;
     }
     return false;
