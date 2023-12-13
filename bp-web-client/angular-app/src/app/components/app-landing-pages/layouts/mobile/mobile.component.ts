@@ -1,26 +1,36 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { BytePushersPopupService } from "src/app/modules/popup-modal/services/bytepushers-popup.service";
 import { CTAService } from "src/app/services/cta.service";
 import { HeaderService } from "src/app/services/header.service";
+import { Meta, Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-mobile",
   templateUrl: "./mobile.component.html",
   styleUrls: ["./mobile.component.scss"],
 })
-export class MobileComponent {
+export class MobileComponent implements OnInit {
   @Input() image;
-  @Input() title;
+  @Input() contentTitle;
   @Input() slogan;
   @Input() theme;
+  @Input() metaTags: any;
 
   constructor(
     private headerService: HeaderService,
     private route: ActivatedRoute,
     private ctaService: CTAService,
-    private bpPopupService: BytePushersPopupService
+    private bpPopupService: BytePushersPopupService,
+    private meta: Meta,
+    private title: Title
   ) {}
+
+  ngOnInit(): void {
+    console.log(this.contentTitle);
+    this.meta?.addTags(this.metaTags);
+    this.title.setTitle(this.contentTitle);
+  }
   wanttoLearnMore() {
     this.ctaService.ctaReqObjSubject.next("bottomLayout");
     this.bpPopupService.isBPpopupOpenSubject.next(true);

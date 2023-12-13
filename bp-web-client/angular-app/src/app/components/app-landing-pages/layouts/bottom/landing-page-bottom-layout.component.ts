@@ -13,7 +13,7 @@ import { Meta, Title } from "@angular/platform-browser";
 })
 export class LandingPageBottomLayoutComponent {
   @Input() image: any;
-  @Input() title: any;
+  @Input() contentTitle: any;
   @Input() slogan: any;
   @Input() theme: any;
   @Input() metaTags: any;
@@ -24,12 +24,12 @@ export class LandingPageBottomLayoutComponent {
     private ctaService: CTAService,
     private bpPopupService: BytePushersPopupService,
     private meta: Meta,
-    private pageTitle: Title
+    private title: Title
   ) {}
   ngOnInit() {
-    console.log(this.title);
-    this.meta.addTags(this.metaTags);
-    this.pageTitle.setTitle(this.title);
+    console.log(this.contentTitle);
+    this.meta?.addTags(this.metaTags);
+    this.title.setTitle(this.contentTitle);
     // console.log(this.meta.getTag('name=writer'));
   }
   wanttoLearnMore() {
