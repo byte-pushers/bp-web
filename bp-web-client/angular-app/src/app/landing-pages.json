@@ -2,7 +2,7 @@
   {
     "id": "default",
     "inputDetails": {
-      "title": "Creating solutions to solve today's and tomorrow's problems <strong>bit</strong> by <strong>bit</strong>.",
+      "contentTitle": "Creating solutions to solve today's and tomorrow's problems <strong>bit</strong> by <strong>bit</strong>.",
       "slogan": null,
       "theme": {
         "titleColor": "#fff",
@@ -37,7 +37,7 @@
   {
     "id": 1,
     "inputDetails": {
-      "title": "Mobile App Development Made Simple.",
+      "contentTitle": "Mobile App Development Made Simple.",
       "slogan": "Mobile App development can be complex, but with Byte Pushers, it doesn't have to be. We'll closely work with you to understand your business goals and create a mobile app that aligns with your vision and budget.",
       "theme": {
         "titleColor": "#fff",
@@ -72,7 +72,7 @@
   {
     "id": 2,
     "inputDetails": {
-      "title": "Innovative mobile solutions, Crafted by Byte Pushers.",
+      "contentTitle": "Innovative mobile solutions, Crafted by Byte Pushers.",
       "slogan": "Byte Pushers builds mobile apps designed to engage your users and drive your business forward. We use the latest mobile technologies and industry best practices to ensure that your app is intuitive, user-friendly, and scalable.",
       "theme": {
         "titleColor": "#0263bb",
@@ -109,7 +109,7 @@
   {
     "id": 3,
     "inputDetails": {
-      "title": "Pioneering mobile app development custom solutions to drive excellent results.",
+      "contentTitle": "Pioneering mobile app development custom solutions to drive excellent results.",
       "slogan": "Byte Pushers team of mobile app developers are passionate about working with you to drive your success and increase your conversions. We stay up to date on relevant trends and technologies to create a mobile app that is cutting-edge and scalable for your platforms.",
       "theme": {
         "titleColor": "#fff",
@@ -146,7 +146,7 @@
   {
     "id": 4,
     "inputDetails": {
-      "title": "Pioneering mobile app development custom solutions to drive excellent results.",
+      "contentTitle": "Pioneering mobile app development custom solutions to drive excellent results.",
       "slogan": "Byte Pushers team of mobile app developers are passionate about working with you to drive your success and increase your conversions. We stay up to date on relevant trends and technologies to create a mobile app that is cutting-edge and scalable for your platforms.",
       "theme": {
         "titleColor": "#000",
@@ -183,7 +183,7 @@
   {
     "id": 5,
     "inputDetails": {
-      "title": "Pioneering mobile app development custom solutions to drive excellent results.",
+      "contentTitle": "Pioneering mobile app development custom solutions to drive excellent results.",
       "slogan": "Byte Pushers team of mobile app developers are passionate about working with you to drive your success and increase your conversions. We stay up to date on relevant trends and technologies to create a mobile app that is cutting-edge and scalable for your platforms.",
       "theme": {
         "titleColor": "#000",
@@ -220,7 +220,7 @@
   {
     "id": 6,
     "inputDetails": {
-      "title": "Pioneering mobile app development custom solutions to drive excellent results.",
+      "contentTitle": "Pioneering mobile app development custom solutions to drive excellent results.",
       "slogan": "Byte Pushers team of mobile app developers are passionate about working with you to drive your success and increase your conversions. We stay up to date on relevant trends and technologies to create a mobile app that is cutting-edge and scalable for your platforms.",
       "theme": {
         "titleColor": "#fff",
@@ -257,7 +257,7 @@
   {
     "id": 7,
     "inputDetails": {
-      "title": "Pioneering mobile app development custom solutions to drive excellent results.",
+      "contentTitle": "Pioneering mobile app development custom solutions to drive excellent results.",
       "slogan": "Byte Pushers team of mobile app developers are passionate about working with you to drive your success and increase your conversions. We stay up to date on relevant trends and technologies to create a mobile app that is cutting-edge and scalable for your platforms.",
       "theme": {
         "titleColor": "#fff",
