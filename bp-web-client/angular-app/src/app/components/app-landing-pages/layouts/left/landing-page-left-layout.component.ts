@@ -19,14 +19,17 @@ export class LandingPageLeftLayoutComponent implements OnInit {
   constructor(
     private headerService: HeaderService,
     private route: ActivatedRoute,
-    private meta: Meta,
+    private metaService: Meta,
     private title: Title
   ) {}
 
   ngOnInit() {
-    console.log(this.contentTitle);
-    this.meta?.addTags(this.metaTags);
     this.title.setTitle(this.contentTitle);
+    this.metaService?.addTags(this.metaTags);
+    this.metaService.addTags(this.metaTags);
+    // just to retrive the tag
+    // const x = this.metaService?.getTag("name='author'");
+    // console.log(x);
   }
 
   setTitleColor() {

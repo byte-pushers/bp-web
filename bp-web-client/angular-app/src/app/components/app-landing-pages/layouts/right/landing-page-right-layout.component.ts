@@ -23,16 +23,12 @@ export class LandingPageRightLayoutComponent implements OnInit {
     private title: Title
   ) {}
 
-  addMetaTags() {
-    for (let metaTag of this.metaTags[0]) {
-      this.metaService.addTag(metaTag);
-    }
-  }
   ngOnInit(): void {
-    this.addMetaTags();
     this.title.setTitle(this.contentTitle);
-    const x = this.metaService?.getTag("name='keywords'");
-    console.log(x);
+    this.metaService.addTags(this.metaTags);
+    // just to retrive the tag
+    // const x = this.metaService?.getTag("name='author'");
+    // console.log(x);
   }
   setTitleColor() {
     let styles = {

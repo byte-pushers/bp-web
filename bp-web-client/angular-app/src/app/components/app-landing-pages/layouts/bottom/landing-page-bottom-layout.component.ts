@@ -23,14 +23,13 @@ export class LandingPageBottomLayoutComponent {
     private route: ActivatedRoute,
     private ctaService: CTAService,
     private bpPopupService: BytePushersPopupService,
-    private meta: Meta,
+    private metaService: Meta,
     private title: Title
   ) {}
   ngOnInit() {
     console.log(this.contentTitle);
-    this.meta?.addTags(this.metaTags);
+    this.metaService?.addTags(this.metaTags);
     this.title.setTitle(this.contentTitle);
-    // console.log(this.meta.getTag('name=writer'));
   }
   wanttoLearnMore() {
     this.ctaService.ctaReqObjSubject.next("bottomLayout");

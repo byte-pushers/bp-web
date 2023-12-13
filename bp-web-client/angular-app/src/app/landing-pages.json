@@ -17,19 +17,20 @@
       },
       "metaTags": [
         {
-          "name": "keywords",
-          "content": "Mobile App Development, Website Development, API Development, Angular, React, Redux, Latest Technologies"
+          "name": "title",
+          "content": "Creating solutions to solve today's and tomorrow's problems bit by bit."
+        },
+        {
+          "name": "description",
+          "content": "Place the meta description text here."
         },
         {
           "name": "robots",
           "content": "index, follow"
         },
         {
-          "name": "writer",
-          "content": "Surya Prakash"
-        },
-        {
-          "charset": "UTF-8"
+          "name": "author",
+          "content": "Bytepushers Software Company"
         }
       ]
     }
@@ -52,19 +53,20 @@
       },
       "metaTags": [
         {
-          "name": "keywords",
-          "content": "Mobile App Development, Website Development, API Development, Angular, React, Redux, Latest Technologies"
+          "name": "title",
+          "content": "Mobile App Development Made Simple."
+        },
+        {
+          "name": "description",
+          "content": "Place the meta description text here."
         },
         {
           "name": "robots",
           "content": "index, follow"
         },
         {
-          "name": "writer",
-          "content": "Surya Prakash"
-        },
-        {
-          "charset": "UTF-8"
+          "name": "author",
+          "content": "Bytepushers Software Company"
         }
       ]
     }
@@ -86,23 +88,22 @@
         }
       },
       "metaTags": [
-        [
-          {
-            "name": "keywords",
-            "content": "Mobile App Development, Website Development, API Development, Angular, React, Redux, Latest Technologies"
-          },
-          {
-            "name": "robots",
-            "content": "index, follow"
-          },
-          {
-            "name": "writer",
-            "content": "Surya Prakash"
-          },
-          {
-            "charset": "UTF-8"
-          }
-        ]
+        {
+          "name": "title",
+          "content": "Innovative mobile solutions, Crafted by Byte Pushers."
+        },
+        {
+          "name": "description",
+          "content": "Place the meta description text here."
+        },
+        {
+          "name": "robots",
+          "content": "index, follow"
+        },
+        {
+          "name": "author",
+          "content": "Bytepushers Software Company"
+        }
       ]
     }
   },
@@ -123,23 +124,22 @@
         }
       },
       "metaTags": [
-        [
-          {
-            "name": "keywords",
-            "content": "Mobile App Development, Website Development, API Development, Angular, React, Redux, Latest Technologies"
-          },
-          {
-            "name": "robots",
-            "content": "index, follow"
-          },
-          {
-            "name": "writer",
-            "content": "Surya Prakash"
-          },
-          {
-            "charset": "UTF-8"
-          }
-        ]
+        {
+          "name": "title",
+          "content": "Pioneering mobile app development custom solutions to drive excellent results."
+        },
+        {
+          "name": "description",
+          "content": "Place the meta description text here."
+        },
+        {
+          "name": "robots",
+          "content": "index, follow"
+        },
+        {
+          "name": "author",
+          "content": "Bytepushers Software Company"
+        }
       ]
     }
   },
@@ -160,23 +160,22 @@
         }
       },
       "metaTags": [
-        [
-          {
-            "name": "keywords",
-            "content": "Latest TechStack, Implementing challenging Tasks, Website Development, API Development, Angular, React, Redux, Latest Technologies"
-          },
-          {
-            "name": "robots",
-            "content": "index, follow"
-          },
-          {
-            "name": "writer",
-            "content": "Surya Prakash"
-          },
-          {
-            "charset": "UTF-8"
-          }
-        ]
+        {
+          "name": "title",
+          "content": "Pioneering mobile app development custom solutions to drive excellent results."
+        },
+        {
+          "name": "description",
+          "content": "Place the meta description text here."
+        },
+        {
+          "name": "robots",
+          "content": "index, follow"
+        },
+        {
+          "name": "author",
+          "content": "Bytepushers Software Company"
+        }
       ]
     }
   },
@@ -197,23 +196,22 @@
         }
       },
       "metaTags": [
-        [
-          {
-            "name": "keywords",
-            "content": "Software, Integration, Database Management, Mobile App Development, Website Development, API Development, Angular, React, Redux, Latest Technologies"
-          },
-          {
-            "name": "robots",
-            "content": "index, follow"
-          },
-          {
-            "name": "writer",
-            "content": "Surya Prakash"
-          },
-          {
-            "charset": "UTF-8"
-          }
-        ]
+        {
+          "name": "title",
+          "content": "Pioneering mobile app development custom solutions to drive excellent results."
+        },
+        {
+          "name": "description",
+          "content": "Place the meta description text here."
+        },
+        {
+          "name": "robots",
+          "content": "index, follow"
+        },
+        {
+          "name": "author",
+          "content": "Bytepushers Software Company"
+        }
       ]
     }
   },
@@ -234,23 +232,22 @@
         }
       },
       "metaTags": [
-        [
-          {
-            "name": "keywords",
-            "content": "Mobile App Developers, passionate on Development, API Development, Angular, React, Redux, Latest Technologies"
-          },
-          {
-            "name": "robots",
-            "content": "index, follow"
-          },
-          {
-            "name": "writer",
-            "content": "Surya Prakash"
-          },
-          {
-            "charset": "UTF-8"
-          }
-        ]
+        {
+          "name": "title",
+          "content": "Pioneering mobile app development custom solutions to drive excellent results."
+        },
+        {
+          "name": "description",
+          "content": "Place the meta description text here."
+        },
+        {
+          "name": "robots",
+          "content": "index, follow"
+        },
+        {
+          "name": "author",
+          "content": "Bytepushers Software Company"
+        }
       ]
     }
   },
@@ -271,23 +268,22 @@
         }
       },
       "metaTags": [
-        [
-          {
-            "name": "keywords",
-            "content": "Custom Solutions, Mobile App Development, excellent results, Website Development, API Development, Angular, React, Redux, Latest Technologies"
-          },
-          {
-            "name": "robots",
-            "content": "index, follow"
-          },
-          {
-            "name": "writer",
-            "content": "Surya Prakash"
-          },
-          {
-            "charset": "UTF-8"
-          }
-        ]
+        {
+          "name": "title",
+          "content": "Pioneering mobile app development custom solutions to drive excellent results."
+        },
+        {
+          "name": "description",
+          "content": "Place the meta description text here."
+        },
+        {
+          "name": "robots",
+          "content": "index, follow"
+        },
+        {
+          "name": "author",
+          "content": "Bytepushers Software Company"
+        }
       ]
     }
   }
