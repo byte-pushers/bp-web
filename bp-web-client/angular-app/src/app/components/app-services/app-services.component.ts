@@ -9,6 +9,7 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { ActivatedRoute } from "@angular/router";
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-services",
@@ -23,10 +24,15 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   faYoutube = faYoutube;
   constructor(
     private route: ActivatedRoute,
-    public scrollToService: ScrollToService
+    public scrollToService: ScrollToService,
+    private title: Title
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.title.setTitle(
+      "Design, Develop and Deliver your ideas on time and under budget."
+    );
+  }
   ngAfterViewInit() {
     const $prevButton = $(".left.carousel-control.carousel-control-prev");
     const $nextButton = $(".right.carousel-control.carousel-control-next");
