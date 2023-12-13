@@ -22,13 +22,13 @@ export class MobileComponent implements OnInit {
     private route: ActivatedRoute,
     private ctaService: CTAService,
     private bpPopupService: BytePushersPopupService,
-    private meta: Meta,
+    private metaService: Meta,
     private title: Title
   ) {}
 
   ngOnInit(): void {
     console.log(this.contentTitle);
-    this.meta?.addTags(this.metaTags);
+    this.metaService?.addTags(this.metaTags);
     this.title.setTitle(this.contentTitle);
   }
   wanttoLearnMore() {
