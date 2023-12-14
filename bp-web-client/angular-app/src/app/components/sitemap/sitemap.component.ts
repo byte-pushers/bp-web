@@ -53,5 +53,6 @@ export class SitemapComponent implements OnInit, OnDestroy {
       return true;
     }
     return false;
+    // }
   }
 }
