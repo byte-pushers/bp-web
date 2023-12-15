@@ -9,6 +9,7 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { ActivatedRoute } from "@angular/router";
+import { Meta, Title } from "@angular/platform-browser";
 @Component({
   selector: "app-about",
   templateUrl: "./app-about.component.html",
@@ -20,9 +21,34 @@ export class AboutComponent implements OnInit, AfterViewInit {
   faInstagram = faInstagram;
   faLinkedin = faLinkedin;
   faYoutube = faYoutube;
-  constructor(private route: ActivatedRoute) {}
+  metaTagsLocal = [
+    {
+      name: "description",
+      content:
+        "Byte Pushers, Inc. is a software design company that specializes in mobile-first application development. We pride ourselves on writing high quality, easily maintainable, and very robust solutions. We take a user-centric approach in our design process to ensure we create meaningful and remarkable user experiences. We're dedicated to helping you reach your vision and meet your goals.",
+    },
+    {
+      name: "robots",
+      content: "index, follow",
+    },
+    {
+      name: "author",
+      content: "Bytepushers Software Company",
+    },
+  ];
 
-  ngOnInit() {}
+  constructor(
+    private route: ActivatedRoute,
+    private metaService: Meta,
+    private title: Title
+  ) {}
+
+  ngOnInit() {
+    this.title.setTitle(
+      "Creating solutions to solve today's and tomorrow’s problems bit by bit."
+    );
+    this.metaService.addTags(this.metaTagsLocal);
+  }
   ngAfterViewInit() {
     const $prevButton = $(".left.carousel-control.carousel-control-prev");
     const $nextButton = $(".right.carousel-control.carousel-control-next");

@@ -1,24 +1,35 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 import { HeaderService } from "src/app/services/header.service";
+import { Meta, Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-landing-page-right-layout",
   templateUrl: "./landing-page-right-layout.component.html",
   styleUrls: ["./landing-page-right-layout.component.scss"],
 })
-export class LandingPageRightLayoutComponent {
+export class LandingPageRightLayoutComponent implements OnInit {
   @Input() image;
-  @Input() title;
+  @Input() contentTitle;
   @Input() slogan;
   @Input() theme;
+  @Input() metaTags;
 
   constructor(
     private headerService: HeaderService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private metaService: Meta,
+    private title: Title
   ) {}
 
+  ngOnInit(): void {
+    this.title.setTitle(this.contentTitle);
+    this.metaService.addTags(this.metaTags);
+    // just to retrive the tag
+    // const x = this.metaService?.getTag("name='author'");
+    // console.log(x);
+  }
   setTitleColor() {
     let styles = {
       color: this?.theme?.titleColor,
