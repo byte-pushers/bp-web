@@ -8,7 +8,9 @@
       *ngIf="!isScrolled"
     >
       Contact Us <br />
-      <a href="tel:1800-441-8935">1 (800) 441-8935</a>
+      <a href="tel:1800-441-8935" title="Call to Bytepushers"
+        >1 (800) 441-8935</a
+      >
     </div>
     <div
       class="callToAction two"
@@ -16,10 +18,15 @@
       *ngIf="isScrolled && hideAfter1000() && !isMobileNavOpen"
     >
       <div *ngIf="!isMobile()">
-        Contact Us: <a href="tel:1800-441-8935">1 (800) 441-8935</a>
+        Contact Us:
+        <a href="tel:1800-441-8935" title="Call to Bytepushers"
+          >1 (800) 441-8935</a
+        >
       </div>
       <div *ngIf="isMobile()">
-        Contact Us <br /><a href="tel:1800-441-8935">1 (800) 441-8935</a>
+        Contact Us <br /><a href="tel:1800-441-8935" title="Call to Bytepushers"
+          >1 (800) 441-8935</a
+        >
       </div>
     </div>
     <div class="topnav-mobile-menu" (click)="checkMobileNav()">
@@ -53,15 +60,20 @@
     <a class="topnav-logo" [routerLink]="'/home'">
       <!-- <div class="topnav-logo-img"></div> -->
       <app-logo-text-bottom
+        title="Byte Pushers Inc."
         [logoColor]="logoTextBottomColor"
         *ngIf="showSmallLogo() && !isScrolled"
       ></app-logo-text-bottom>
       <app-logo-text-aside
+        title="Byte Pushers Inc."
         *ngIf="!showSmallLogo() && !isScrolled"
         (click)="scrollTo.toTopOfPage()"
         [logoColor]="logoTextColor"
       ></app-logo-text-aside>
-      <app-logo-only-text *ngIf="isScrolled"></app-logo-only-text>
+      <app-logo-only-text
+        title="Byte Pushers Inc."
+        *ngIf="isScrolled"
+      ></app-logo-only-text>
     </a>
     <div class="topnav-links-container" id="topnav-mobile-links">
       <ul class="topnav-links">

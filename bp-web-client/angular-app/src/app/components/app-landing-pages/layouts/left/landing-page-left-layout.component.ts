@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Meta, Title } from "@angular/platform-browser";
 import { ActivatedRoute } from "@angular/router";
 import { HeaderService } from "src/app/services/header.service";
 
@@ -10,16 +11,26 @@ import { HeaderService } from "src/app/services/header.service";
 })
 export class LandingPageLeftLayoutComponent implements OnInit {
   @Input() image;
-  @Input() title;
+  @Input() contentTitle;
   @Input() slogan;
   @Input() theme;
   public ctaForm: FormGroup;
+  @Input() metaTags: any;
   constructor(
     private headerService: HeaderService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private metaService: Meta,
+    private title: Title
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.title.setTitle(this.contentTitle);
+    this.metaService?.addTags(this.metaTags);
+    this.metaService.addTags(this.metaTags);
+    // just to retrive the tag
+    // const x = this.metaService?.getTag("name='author'");
+    // console.log(x);
+  }
 
   setTitleColor() {
     let styles = {

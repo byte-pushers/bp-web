@@ -33,6 +33,7 @@ import { isPlatformBrowser } from "@angular/common";
 import { WindowRef } from "src/app/services/windowRef.service";
 
 import { getWindow, getDocument } from "ssr-window";
+import { Meta, Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-contact",
@@ -66,10 +67,11 @@ export class ContactComponent
     public stateNameService: StateNameService,
     private scrollToService: ScrollToService,
     private contactButtonService: ContactButtonService,
+    private metaService: Meta,
+    private title: Title,
     private popupService: PopupModalService,
-    private route: ActivatedRoute // @Inject(PLATFORM_ID) private platformId: any,
-  ) // private windowRef: WindowRef
-  {}
+    private route: ActivatedRoute // @Inject(PLATFORM_ID) private platformId: any, // private windowRef: WindowRef
+  ) {}
 
   @ViewChild("quoteForm") quoteForm: any;
   @ViewChild("phoneNumber") phoneNumber: any;
@@ -92,11 +94,29 @@ export class ContactComponent
   timeframe: any = [0, 39];
   years = [];
   foundations: any = ["New Business", "Existing Business"];
-
+  metaTagsLocal = [
+    {
+      name: "description",
+      content:
+        "Our philosophy and expertise are best represented by our labors of love.",
+    },
+    {
+      name: "robots",
+      content: "index, follow",
+    },
+    {
+      name: "author",
+      content: "Bytepushers Software Company",
+    },
+  ];
   ngOnInit() {
     // if (isPlatformBrowser(this.platformId)) {
     //   console.log(this.windowRef);
     // }
+    this.title.setTitle(
+      "Creating solutions to solve today's and tomorrow’s problems bit by bit."
+    );
+    this.metaService.addTags(this.metaTagsLocal);
     this.years = this.calculateYears(+new Date().getFullYear(), 40);
     this.years.push("Older than 1980");
     this.setOnContactView(false);
