@@ -7,12 +7,10 @@ import { AppBodyComponent } from "./shared/components/app-body.component/app-bod
 import { HomeComponent } from "./components/app-home/app-home.component";
 import { ContactComponent } from "./components/app-contact/app-contact.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { CarouselModule } from "ngx-bootstrap/carousel";
 // import { NgBootstrapFormValidationModule } from "ng-bootstrap-form-validation";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 // import { NgxBootstrapSliderModule } from "ngx-bootstrap-slider";
 import { QuoteService } from "./shared/services/quote.service";
-import { AppFooterComponent } from "./shared/components/app-footer/app-footer.component";
 // import { NgxSpinnerModule } from "ngx-spinner";
 // import { MatCardModule } from "@angular/material/card";
 import { AppAlertOverlayModalComponent } from "./shared/components/app-alert-overlay-modal.component/app-alert-overlay-modal.component";
@@ -34,10 +32,8 @@ import { OverlayModule } from "@angular/cdk/overlay";
 import { environment } from "src/environments/environment";
 import { AppLoginComponent } from "./components/app-login/app-login.component";
 import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
-import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { PopupModalComponent } from "./modules/popup-modal/components/popup-modal.component";
 import { HttpRequestInterceptor } from "./interceptors/http-request.interceptor";
-import { SocialMediaComponent } from "./shared/components/app-social-media.component/app-social-media.component";
 import { LandingPageBottomLayoutComponent } from "./components/app-landing-pages/layouts/bottom/landing-page-bottom-layout.component";
 import { LandingPageLeftLayoutComponent } from "./components/app-landing-pages/layouts/left/landing-page-left-layout.component";
 import { LandingPageRightLayoutComponent } from "./components/app-landing-pages/layouts/right/landing-page-right-layout.component";
@@ -61,6 +57,8 @@ import { HamburgurComponent } from "./shared/components/hamburgur/hamburgur.comp
 import { MobileComponent } from "./components/app-landing-pages/layouts/mobile/mobile.component";
 import { SitemapComponent } from "./components/sitemap/sitemap.component";
 import { WindowRef } from "./services/windowRef.service";
+import { ServicesModule } from "./modules/services/services.module";
+import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -73,8 +71,6 @@ import { WindowRef } from "./services/windowRef.service";
     AboutComponent,
     ContactComponent,
     InfoComponent,
-    AppFooterComponent,
-    SocialMediaComponent,
     AppAlertOverlayModalComponent,
     PhoneNumberDirective,
     AppLoginComponent,
@@ -108,7 +104,6 @@ import { WindowRef } from "./services/windowRef.service";
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    CarouselModule.forRoot(),
     // NgBootstrapFormValidationModule.forRoot(),
     // NgxBootstrapSliderModule,
     HttpClientModule,
@@ -119,9 +114,11 @@ import { WindowRef } from "./services/windowRef.service";
       /* custom settings here */
     }),
     NgxPageScrollModule,
-    FontAwesomeModule,
     CommonModule,
+    SharedModule,
+    ServicesModule,
   ],
+  exports: [],
   providers: [
     Meta,
     RouterLinkActive,

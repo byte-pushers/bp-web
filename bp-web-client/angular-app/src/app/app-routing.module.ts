@@ -22,6 +22,11 @@ const routes: Routes = [
   { path: "services", component: ServicesComponent },
   { path: "admin-login", component: AppLoginComponent },
   { path: "sitemap", component: SitemapComponent },
+  // {
+  //   path: "services",
+  //   loadChildren: () =>
+  //     import("./modules/services/services.module").then((m) => m.ServicesModule),
+  // },
   {
     path: "admin",
     loadChildren: () =>
