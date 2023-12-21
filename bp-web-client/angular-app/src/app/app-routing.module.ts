@@ -12,7 +12,7 @@ import { SitemapComponent } from "./components/sitemap/sitemap.component";
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "home", component: HomeComponent },
-  { path: "about", component: AboutComponent },
+  // { path: "about", component: AboutComponent },
   {
     path: "contact",
     component: ContactComponent,
@@ -22,6 +22,11 @@ const routes: Routes = [
   // { path: "services", component: ServicesComponent },
   { path: "admin-login", component: AppLoginComponent },
   { path: "sitemap", component: SitemapComponent },
+  {
+    path: "about",
+    loadChildren: () =>
+      import("./modules/about-us/about-us.module").then((m) => m.AboutUsModule),
+  },
   {
     path: "work",
     loadChildren: () =>
