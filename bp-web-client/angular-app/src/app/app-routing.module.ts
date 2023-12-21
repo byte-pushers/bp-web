@@ -18,15 +18,22 @@ const routes: Routes = [
     component: ContactComponent,
     canDeactivate: [DeactivateGuard],
   },
-  { path: "work", component: WorkComponent },
-  { path: "services", component: ServicesComponent },
+  // { path: "work", component: WorkComponent },
+  // { path: "services", component: ServicesComponent },
   { path: "admin-login", component: AppLoginComponent },
   { path: "sitemap", component: SitemapComponent },
-  // {
-  //   path: "services",
-  //   loadChildren: () =>
-  //     import("./modules/services/services.module").then((m) => m.ServicesModule),
-  // },
+  {
+    path: "work",
+    loadChildren: () =>
+      import("./modules/work/work.module").then((m) => m.WorkModule),
+  },
+  {
+    path: "services",
+    loadChildren: () =>
+      import("./modules/services/services.module").then(
+        (m) => m.ServicesModule
+      ),
+  },
   {
     path: "admin",
     loadChildren: () =>
