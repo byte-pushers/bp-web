@@ -13,11 +13,11 @@ const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "home", component: HomeComponent },
   // { path: "about", component: AboutComponent },
-  {
-    path: "contact",
-    component: ContactComponent,
-    canDeactivate: [DeactivateGuard],
-  },
+  // {
+  //   path: "contact",
+  //   component: ContactComponent,
+  //   canDeactivate: [DeactivateGuard],
+  // },
   // { path: "work", component: WorkComponent },
   // { path: "services", component: ServicesComponent },
   { path: "admin-login", component: AppLoginComponent },
@@ -43,6 +43,13 @@ const routes: Routes = [
     path: "admin",
     loadChildren: () =>
       import("./components/admin/admin.module").then((m) => m.AdminModule),
+  },
+  {
+    path: "contact",
+    loadChildren: () =>
+      import("./modules/contact-us/contact-us.module").then(
+        (m) => m.ContactUsModule
+      ),
   },
 ];
 
