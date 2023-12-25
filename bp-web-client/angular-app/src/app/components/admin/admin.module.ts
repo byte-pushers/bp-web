@@ -9,10 +9,11 @@ import { AdminRoutingModule } from "./admin.routing.module";
 import { AdminComponent } from "./admin.component";
 import { DialogModule } from "primeng/dialog";
 import { CrmComponent } from './crm/crm.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [AdminComponent, CrmComponent, DashboardComponent, QuotesComponent],
-  imports: [CommonModule, TableModule, AdminRoutingModule, DialogModule],
+  imports: [CommonModule, TableModule, AdminRoutingModule, DialogModule, MatCardModule],
   exports: [RouterModule],
   providers: [QuotesService],
 })

@@ -1,0 +1,15 @@
+{
+  "/keap-api/*": {
+    "target": "https://accounts.infusionsoft.com",
+    "secure": true,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": { "^/keap-api": "" }
+  },
+  "/api/v1/*": {
+    "target": "http://localhost:8080",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": false
+  }
+}

@@ -1,8 +1,10 @@
 package software.bytepushers.bpweb.config;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.reactive.config.CorsRegistry;
+import org.springframework.web.reactive.config.WebFluxConfigurer;
+// import org.springframework.web.servlet.config.annotation.CorsRegistry;
+// import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import static org.springframework.http.HttpMethod.*;
 
@@ -10,7 +12,7 @@ import static org.springframework.http.HttpMethod.*;
  * Enable CORS for the all requests
  */
 @Configuration
-public class CorsConfig implements WebMvcConfigurer {
+public class CorsConfig implements WebFluxConfigurer {
 
     /**
      * {@inheritDoc}
