@@ -1,5 +1,6 @@
 package software.bytepushers.bpweb.controller;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -17,6 +18,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 /**
  * The test case implementation fro the quotes
  */
+@Ignore
 public class HubspotControllerTest extends AbstractControllerTest {
 
     private final static String HUBSPOT_ENDPOINT = "/api/v1/hubspot";

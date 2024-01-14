@@ -1,5 +1,6 @@
 package software.bytepushers.bpweb.controller;
 
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -15,11 +16,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static software.bytepushers.bpweb.config.security.SecurityConstants.AUTHORIZE_APP_END_POINT;
+
+@Log4j2
 @RestController
 @RequestMapping(AUTHORIZE_APP_END_POINT)
 public class AuthorizationController {
-    @Autowired
-    WebClient webClient;
+    /*@Autowired
+    private WebClient webClient;*/
 
     private Map<String, AuthorizationRequestService> registeredAuthorizationServices = new HashMap<>();
 
@@ -38,13 +41,15 @@ public class AuthorizationController {
 
     @GetMapping
     Mono<String> getAuthorizationCode(@RequestParam AuthorizationPlatform platformName) {
+        log.info("getAuthorizationCode method - start");
         AuthorizationRequestService service = this.registeredAuthorizationServices.get(platformName.name());
 
-        Mono<String> retrievedResource = webClient.get()
+        /*Mono<String> retrievedResource = webClient.get()
                 .uri(service.authorizeUrl())
                 .retrieve()
                 .bodyToMono(String.class);
         return retrievedResource.map(string ->
-                "We retrieved the following resource using Oauth: " + string);
+                "We retrieved the following resource using Oauth: " + string);*/
+        return Mono.just("Hello");
     }
 }

@@ -23,6 +23,7 @@ import org.springframework.security.oauth2.client.web.reactive.function.client.S
 import org.springframework.security.oauth2.client.web.server.AuthenticatedPrincipalServerOAuth2AuthorizedClientRepository;
 import org.springframework.security.oauth2.client.web.server.ServerOAuth2AuthorizedClientRepository;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.web.reactive.function.client.WebClient;
 import software.bytepushers.bpweb.config.CustomUserDetailsService;
@@ -80,7 +81,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         log.info("Securing the rest endpoints");
         http.cors().and().csrf().disable().authorizeRequests().antMatchers(LOGIN_END_POINT, ACCOUNT_TYPE_END_POINT, ROLES_END_POINT).permitAll()
                 .antMatchers(HttpMethod.POST, USERS_END_POINT).permitAll().antMatchers(HttpMethod.POST, "/api/v1/quotes").permitAll()
-                .antMatchers(HttpMethod.GET, AUTHORIZE_APP_END_POINT).permitAll()
                 .antMatchers("/api/**").hasAnyRole(ROLE_PREMIUM, ROLE_BASIC, ROLE_GUEST).anyRequest().permitAll().and().exceptionHandling()
                 .authenticationEntryPoint(restAuthenticationEntryPoint).and()
                 .addFilter(new JwtAuthorizationFilter(this.authenticationManager(), this.jwtUtils)).sessionManagement()
@@ -97,6 +97,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http.authorizeRequests(authorizeRequests -> authorizeRequests.anyRequest().permitAll()).csrf().disable();
+        return http.build();
+    }
+
+    /*@Bean
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
         http.authorizeExchange()
                 .anyExchange()
@@ -154,5 +160,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Bean
     org.springframework.security.oauth2.client.ReactiveOAuth2AuthorizedClientService reactiveOAuth2AuthorizedClientService(ReactiveClientRegistrationRepository clientRegistrationRepository) {
         return new InMemoryReactiveOAuth2AuthorizedClientService(clientRegistrationRepository);
-    }
+    }*/
 }
