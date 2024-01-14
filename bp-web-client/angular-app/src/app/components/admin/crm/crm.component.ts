@@ -19,7 +19,7 @@ export class CrmComponent implements OnInit {
   }
 
   authorizeApp(): void {
-    const clientId = 'a05db9db-c5fb-4425-a8dd-aa712764d1f8';
+    const clientId = 'G980N1pB9Epfzvv6ttLHRNBSW6F6gGQsLHXpiChwD4sOA0ta';
     const redirectUri = 'https://bytepushers.software/admin';
     const responseType = 'code';
     const scope = 'full';

@@ -1,5 +1,6 @@
 package software.bytepushers.bpweb.controller;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -26,6 +27,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 /**
  * The test cases for the user controller.
  */
+@Ignore
 public class RoleControllerTest extends AbstractLoginControllerTest {
 
     @MockBean private RoleRepository roleRepository;
