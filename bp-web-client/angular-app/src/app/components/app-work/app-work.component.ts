@@ -8,6 +8,7 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { ActivatedRoute } from "@angular/router";
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-work",
@@ -21,9 +22,13 @@ export class WorkComponent implements OnInit {
   faLinkedin = faLinkedin;
   faYoutube = faYoutube;
   public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private title: Title) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.title.setTitle(
+      "Design, Develop and Deliver your ideas on time and under budget."
+    );
+  }
 
   setThemeBGImg() {
     let styles = {

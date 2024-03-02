@@ -39,7 +39,6 @@ export class BytepushersPopupComponent implements OnInit {
     this.ctaService.ctaReqObjSubject.subscribe((value) => {
       this.ctaequestObj = value;
     });
-    console.log(this.ctaequestObj);
   }
 
   setConsent(event: any) {
