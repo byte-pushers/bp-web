@@ -72,7 +72,5 @@ export class SocialMediaComponent {
   faInstagram = faInstagram;
   faLinkedin = faLinkedin;
   faYoutube = faYoutube;
-  ngOnInit() {
-    console.log(this.isRightTemplate);
-  }
+  ngOnInit() {}
 }

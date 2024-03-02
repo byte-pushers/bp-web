@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  Inject,
   OnDestroy,
   OnInit,
   ViewChild,
@@ -16,6 +17,11 @@ import { ActivatedRoute } from "@angular/router";
 import { ResizeService } from "../../shared/services/resize.service";
 import { DEVICE_PLATFORM } from "../../shared/models/screen-size.enum";
 import { delay } from "rxjs/operators";
+import { getWindow, getDocument } from "ssr-window";
+
+import { PLATFORM_ID } from "@angular/core";
+import { isPlatformBrowser } from "@angular/common";
+import { WindowRef } from "src/app/services/windowRef.service";
 
 @Component({
   selector: "app-home",
@@ -31,13 +37,14 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild("homeBackgroundWorkImg") private divView: ElementRef;
   @ViewChild("landingPage", { read: ViewContainerRef })
   private landingPageContainer!: ViewContainerRef;
-
+  window = getWindow();
+  document = getDocument();
   constructor(
-    private window: Window,
+    // private window: Window,
     public scrollToService: ScrollToService,
     private dynamicComponentService: DynamicComponentService,
     private route: ActivatedRoute,
-    private resizeService: ResizeService
+    private resizeService: ResizeService // @Inject(PLATFORM_ID) private platformId: any, // private windowRef: WindowRef
   ) {}
 
   private static previousButtonClickedEventHandler(event: Event): void {
@@ -54,15 +61,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.#setLayoutId();
-    // tslint:disable-next-line:only-arrow-functions
-    $(document).ready(function (e) {
-      const $prevButton = $(".left.carousel-control.carousel-control-prev");
-      const $nextButton = $(".right.carousel-control.carousel-control-next");
-
-      $prevButton.click(HomeComponent.previousButtonClickedEventHandler);
-      $nextButton.click(HomeComponent.nextButtonClickedEventHandler);
-    });
-    this.resizeObservable$ = fromEvent(window, "resize");
+    this.resizeObservable$ = fromEvent(this.window, "resize");
     this.resizeSubscription$ = this.resizeObservable$.subscribe((Window) => {
       // TODO: Double check this.  resizeImage() method should have the follwoing params: Window, ElementRef
       this.resizeImage(Window.currentTarget, this.divView);
@@ -70,17 +69,24 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.resizeSubscription$.unsubscribe();
+    this.resizeSubscription$?.unsubscribe();
   }
 
   ngAfterViewInit() {
-    if (window.innerWidth <= 820) {
+    const $prevButton = $(".left.carousel-control.carousel-control-prev");
+    const $nextButton = $(".right.carousel-control.carousel-control-next");
+
+    $prevButton.click(HomeComponent.previousButtonClickedEventHandler);
+    $nextButton.click(HomeComponent.nextButtonClickedEventHandler);
+
+    if (this.window.innerWidth <= 820) {
       this.#loadLandingPageContainer(DEVICE_PLATFORM.MOBILE);
-    } else if (window.innerWidth < 1280) {
+    } else if (this.window.innerWidth < 1280) {
       this.#loadLandingPageContainer(DEVICE_PLATFORM.TABLET);
     } else {
       this.#loadLandingPageContainer(DEVICE_PLATFORM.DESKTOP);
     }
+    // }
 
     this.resizeService.onResize$.pipe(delay(0)).subscribe((devicePlatform) => {
       this.#loadLandingPageContainer(devicePlatform);
@@ -100,10 +106,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   #setLayoutId() {
     this.route.queryParams.subscribe((params) => {
-      console.log(`params: ${JSON.stringify(params)}`);
       this.#layoutId = params?.id;
       this.#layoutType = params?.layout;
-      console.log(`layout id: ${this.#layoutId}`);
     });
   }
 
@@ -116,15 +120,19 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       )
       .then(
         (componentCreated) => {
-          console.log(
-            `component created: ${JSON.stringify(componentCreated)}`,
-            componentCreated
-          );
+          // console.log(
+          //   `component created: ${JSON.stringify(componentCreated)}`,
+          //   componentCreated
+          // );
         },
         (error) => {
           console.log(`An error occurred: ${JSON.stringify(error)}`, error);
         }
       );
+    // if (isPlatformBrowser(this.platformId)) {
+    //   this.resizeImage(this.windowRef.nativeWindow, this.divView);
+    // } else {
     this.resizeImage(this.window, this.divView);
+    // }
   }
 }

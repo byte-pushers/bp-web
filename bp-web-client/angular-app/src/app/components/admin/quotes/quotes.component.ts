@@ -20,7 +20,6 @@ export class QuotesComponent {
   quotesList: Quote[] = [];
   selectedQuote: Quote;
   constructor(
-    private window: Window,
     private quotesService: QuotesService,
     public scrollToService: ScrollToService
   ) {}
