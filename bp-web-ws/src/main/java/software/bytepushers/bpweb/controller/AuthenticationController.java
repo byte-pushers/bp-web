@@ -20,9 +20,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-import static software.bytepushers.bpweb.config.security.SecurityConstants.LOGIN_END_POINT;
-import static software.bytepushers.bpweb.config.security.SecurityConstants.LOGOUT_END_POINT;
-import static software.bytepushers.bpweb.config.security.SecurityConstants.TOKEN_EXPIRY_TIME;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
+import static software.bytepushers.bpweb.config.security.SecurityConstants.*;
 
 @Log4j2
 @RestController
@@ -58,9 +61,11 @@ public class AuthenticationController {
             this.authenticationManager.authenticate(authRequest);
             UserDetailsDto userDetails = this.userService.getByUsername(username);
             log.info("Login Successful. Username: {}", username);
-            String token = this.jwtUtils.generateJwtToken(userDetails.getUsername(), userDetails.getRoles(), TOKEN_EXPIRY_TIME);
+            Date expiration = new Date(System.currentTimeMillis() + TOKEN_EXPIRY_TIME);
+            LocalDateTime tokenExpiredAt = expiration.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+            String token = this.jwtUtils.generateJwtToken(userDetails.getUsername(), userDetails.getRoles(), expiration);
             this.jwtUtils.sendTokenInCookie(token, request, response);
-            return new ResponseEntity<>(new LoginResponseDto(token, userDetails), HttpStatus.OK);
+            return new ResponseEntity<>(new LoginResponseDto(token,tokenExpiredAt.toString(), TOKEN_PREFIX.trim(),userDetails), HttpStatus.OK);
         } catch (Exception e) {
             log.error("Login error: {}", e.getMessage(), e);
             throw new UsernameNotFoundException("Invallid credentials");

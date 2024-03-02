@@ -15,6 +15,8 @@ import lombok.Setter;
 public class LoginResponseDto {
 
     private String token;
+    private String expire_at;
+    private String token_type;
 
     private UserDetailsDto userDetail;
 
