@@ -38,7 +38,7 @@ export class LandingPageLeftLayoutComponent implements OnInit {
       "font-weight": "200",
     };
     this.headerService.setTheme({
-      logoColor: this?.theme?.secondaryColor,
+      logoColor: this?.theme?.mainLogoColor,
       NavColor: this?.theme?.titleColor,
     });
     return styles;
