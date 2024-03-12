@@ -27,10 +27,14 @@ export class LandingPageBottomLayoutComponent {
     private title: Title
   ) {}
   ngOnInit() {
-    console.log(this.contentTitle);
     this.metaService?.addTags(this.metaTags);
     this.title.setTitle(this.contentTitle);
+    this.headerService.setTheme({
+      logoColor: this?.theme?.mainLogoColor,
+      NavColor: this?.theme?.titleColor,
+    });
   }
+
   wanttoLearnMore() {
     this.ctaService.ctaReqObjSubject.next("bottomLayout");
     this.bpPopupService.isBPpopupOpenSubject.next(true);
@@ -41,10 +45,7 @@ export class LandingPageBottomLayoutComponent {
       color: this?.theme?.titleColor,
       "font-weight": "300",
     };
-    this.headerService.setTheme({
-      logoColor: this?.theme?.secondaryColor,
-      NavColor: this?.theme?.titleColor,
-    });
+
     return styles;
   }
   setThemePrimaryColor() {

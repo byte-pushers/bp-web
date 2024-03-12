@@ -5,6 +5,7 @@
       "contentTitle": "Creating solutions to solve today's and tomorrow's problems <strong>bit</strong> by <strong>bit</strong>.",
       "slogan": null,
       "theme": {
+        "mainLogoColor": "#fff",
         "titleColor": "#fff",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#fff",
@@ -41,6 +42,7 @@
       "contentTitle": "Mobile App Development Made Simple.",
       "slogan": "Mobile App development can be complex, but with Byte Pushers, it doesn't have to be. We'll closely work with you to understand your business goals and create a mobile app that aligns with your vision and budget.",
       "theme": {
+        "mainLogoColor": "#fff",
         "titleColor": "#fff",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#fff",
@@ -77,6 +79,7 @@
       "contentTitle": "Innovative mobile solutions, Crafted by Byte Pushers.",
       "slogan": "Byte Pushers builds mobile apps designed to engage your users and drive your business forward. We use the latest mobile technologies and industry best practices to ensure that your app is intuitive, user-friendly, and scalable.",
       "theme": {
+        "mainLogoColor": "#000",
         "titleColor": "#0263bb",
         "primaryColor": "#0263bb",
         "secondaryColor": "#000",
@@ -113,6 +116,7 @@
       "contentTitle": "Pioneering mobile app development custom solutions to drive excellent results.",
       "slogan": "Byte Pushers team of mobile app developers are passionate about working with you to drive your success and increase your conversions. We stay up to date on relevant trends and technologies to create a mobile app that is cutting-edge and scalable for your platforms.",
       "theme": {
+        "mainLogoColor": "#fff",
         "titleColor": "#fff",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#fff",
@@ -149,6 +153,7 @@
       "contentTitle": "Pioneering mobile app development custom solutions to drive excellent results.",
       "slogan": "Byte Pushers team of mobile app developers are passionate about working with you to drive your success and increase your conversions. We stay up to date on relevant trends and technologies to create a mobile app that is cutting-edge and scalable for your platforms.",
       "theme": {
+        "mainLogoColor": "#000",
         "titleColor": "#000",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#000",
@@ -185,6 +190,7 @@
       "contentTitle": "Pioneering mobile app development custom solutions to drive excellent results.",
       "slogan": "Byte Pushers team of mobile app developers are passionate about working with you to drive your success and increase your conversions. We stay up to date on relevant trends and technologies to create a mobile app that is cutting-edge and scalable for your platforms.",
       "theme": {
+        "mainLogoColor": "#000",
         "titleColor": "#000",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#000",
@@ -221,10 +227,11 @@
       "contentTitle": "Pioneering mobile app development custom solutions to drive excellent results.",
       "slogan": "Byte Pushers team of mobile app developers are passionate about working with you to drive your success and increase your conversions. We stay up to date on relevant trends and technologies to create a mobile app that is cutting-edge and scalable for your platforms.",
       "theme": {
+        "mainLogoColor": "#000",
         "titleColor": "#fff",
         "primaryColor": "#ffea7a",
-        "secondaryColor": "#fff",
-        "inputColor": "#fff",
+        "secondaryColor": "#000",
+        "inputColor": "#000",
         "imagePath": {
           "right": "assets/images/landingPages/v6/lp6.right.aligned.png",
           "left": "assets/images/landingPages/v6/lp6.left.aligned.png",
@@ -257,6 +264,7 @@
       "contentTitle": "Pioneering mobile app development custom solutions to drive excellent results.",
       "slogan": "Byte Pushers team of mobile app developers are passionate about working with you to drive your success and increase your conversions. We stay up to date on relevant trends and technologies to create a mobile app that is cutting-edge and scalable for your platforms.",
       "theme": {
+        "mainLogoColor": "#fff",
         "titleColor": "#fff",
         "primaryColor": "#ffea7a",
         "secondaryColor": "#fff",
