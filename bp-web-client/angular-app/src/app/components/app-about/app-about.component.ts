@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { ActivatedRoute } from "@angular/router";
 import { Meta, Title } from "@angular/platform-browser";
+import { HeaderService } from "src/app/services/header.service";
 @Component({
   selector: "app-about",
   templateUrl: "./app-about.component.html",
@@ -40,10 +41,15 @@ export class AboutComponent implements OnInit, AfterViewInit {
   constructor(
     private route: ActivatedRoute,
     private metaService: Meta,
-    private title: Title
+    private title: Title,
+    private headerService: HeaderService
   ) {}
 
   ngOnInit() {
+    this.headerService.setTheme({
+      logoColor: "#fff",
+      NavColor: "#fff",
+    });
     this.title.setTitle(
       "Creating solutions to solve today's and tomorrow’s problems bit by bit."
     );

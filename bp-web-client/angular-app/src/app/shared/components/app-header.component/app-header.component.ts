@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   ChangeDetectorRef,
   Component,
   HostListener,
@@ -25,7 +26,7 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   isUserLoggedIn: boolean = false;
   isScrolled: boolean = false;
   isMobileNavOpen: boolean = false;
-  logoTextColor = "#fff";
+  logoTextColor;
   logoTextBottomColor = "#fff";
   hamburgerColor = "#fff";
   window = getWindow();
@@ -50,12 +51,16 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
     this.loginService.currentUserSubject?.subscribe((value) => {
       this.isUserLoggedIn = value;
     });
+
+    setTimeout(() => {
+      this.headerService.currentTheme?.subscribe((theme: any) => {
+        this.selectedTheme = theme;
+      });
+      this.setLogoTextColor(this.selectedTheme.logoColor);
+    }, 10);
   }
 
   override ngOnInit() {
-    this.headerService.currentTheme?.subscribe((theme: any) => {
-      this.selectedTheme = theme;
-    });
     this.window.onscroll = () => {
       const headerBar = this.document.getElementById("topnav");
       if (headerBar?.classList.contains("topnav-scrolling")) {
@@ -66,6 +71,7 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
       } else {
         this.isScrolled = false;
         this.isMobileNavOpen = false;
+        this.setLogoTextColor(this.selectedTheme.logoColor);
       }
 
       const mobileNav = this.document.getElementById("topnav");
@@ -82,6 +88,9 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
       }
       this.checkCp3Desc();
     };
+
+    // this.setLogoTextBottomColor("#000")
+    // this.setHamburgerColor("#000")
   }
 
   checkCp3Desc() {
@@ -193,7 +202,7 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   @HostListener("window:scroll", []) onWindowScroll() {
     let viewChanged = [];
 
-    viewChanged.push(this.setLogoTextColor("#000"));
+    viewChanged.push(this.setLogoTextColor(this.selectedTheme.mainLogoColor));
     viewChanged.push(this.setLogoTextBottomColor("#000"));
     viewChanged.push(this.setHamburgerColor("#000"));
 
@@ -212,13 +221,6 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
 
   setHamburgerColor(newColor: string): void {
     this.hamburgerColor = newColor;
-  }
-  getLogoColor() {
-    const headerBar = this.document.getElementById("topnav");
-    if (headerBar.classList.contains("expanded") || this.isScrolled) {
-      return "#000";
-    }
-    return this.selectedTheme?.logoColor;
   }
 
   hideTill1060() {
