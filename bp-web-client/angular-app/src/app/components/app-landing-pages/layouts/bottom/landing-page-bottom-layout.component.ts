@@ -29,6 +29,10 @@ export class LandingPageBottomLayoutComponent {
   ngOnInit() {
     this.metaService?.addTags(this.metaTags);
     this.title.setTitle(this.contentTitle);
+    this.headerService.setTheme({
+      logoColor: this?.theme?.mainLogoColor,
+      NavColor: this?.theme?.titleColor,
+    });
   }
 
   wanttoLearnMore() {
