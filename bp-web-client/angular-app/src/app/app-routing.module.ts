@@ -4,7 +4,6 @@ import { HomeComponent } from "./components/app-home/app-home.component";
 import { AboutComponent } from "./components/app-about/app-about.component";
 import { ContactComponent } from "./components/app-contact/app-contact.component";
 import { WorkComponent } from "./components/app-work/app-work.component";
-import { ServicesComponent } from "./components/app-services/app-services.component";
 import { AppLoginComponent } from "./components/app-login/app-login.component";
 import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
 import { SitemapComponent } from "./components/sitemap/sitemap.component";
@@ -19,7 +18,6 @@ const routes: Routes = [
   //   canDeactivate: [DeactivateGuard],
   // },
   // { path: "work", component: WorkComponent },
-  // { path: "services", component: ServicesComponent },
   { path: "admin-login", component: AppLoginComponent },
   { path: "sitemap", component: SitemapComponent },
   {
@@ -68,5 +66,4 @@ export const routingComponents = [
   AboutComponent,
   ContactComponent,
   WorkComponent,
-  ServicesComponent,
 ];
