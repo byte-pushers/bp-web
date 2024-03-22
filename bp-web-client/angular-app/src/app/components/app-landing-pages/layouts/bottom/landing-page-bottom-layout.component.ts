@@ -29,10 +29,6 @@ export class LandingPageBottomLayoutComponent {
   ngOnInit() {
     this.metaService?.addTags(this.metaTags);
     this.title.setTitle(this.contentTitle);
-    this.headerService.setTheme({
-      logoColor: this?.theme?.mainLogoColor,
-      NavColor: this?.theme?.titleColor,
-    });
   }
 
   wanttoLearnMore() {
@@ -45,7 +41,13 @@ export class LandingPageBottomLayoutComponent {
       color: this?.theme?.titleColor,
       "font-weight": "300",
     };
-
+    this.headerService.setTheme(
+      {
+        logoColor: this?.theme?.mainLogoColor,
+        NavColor: this?.theme?.titleColor,
+      },
+      "bottom"
+    );
     return styles;
   }
   setThemePrimaryColor() {

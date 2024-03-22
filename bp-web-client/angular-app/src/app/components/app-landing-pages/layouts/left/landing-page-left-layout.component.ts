@@ -37,10 +37,13 @@ export class LandingPageLeftLayoutComponent implements OnInit {
       color: this?.theme?.titleColor,
       "font-weight": "200",
     };
-    this.headerService.setTheme({
-      logoColor: this?.theme?.mainLogoColor,
-      NavColor: this?.theme?.titleColor,
-    });
+    this.headerService.setTheme(
+      {
+        logoColor: this?.theme?.mainLogoColor,
+        NavColor: this?.theme?.titleColor,
+      },
+      "left"
+    );
     return styles;
   }
   setThemePrimaryColor() {
