@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./components/app-home/app-home.component";
-import { ContactComponent } from "./components/app-contact/app-contact.component";
 import { AppLoginComponent } from "./components/app-login/app-login.component";
 import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
 import { SitemapComponent } from "./components/sitemap/sitemap.component";
@@ -9,11 +8,6 @@ import { SitemapComponent } from "./components/sitemap/sitemap.component";
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "home", component: HomeComponent },
-  // {
-  //   path: "contact",
-  //   component: ContactComponent,
-  //   canDeactivate: [DeactivateGuard],
-  // },
   { path: "admin-login", component: AppLoginComponent },
   { path: "sitemap", component: SitemapComponent },
   {
@@ -57,4 +51,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule {}
 
-export const routingComponents = [HomeComponent, ContactComponent];
+export const routingComponents = [HomeComponent];

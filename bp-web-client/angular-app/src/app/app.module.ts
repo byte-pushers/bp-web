@@ -5,7 +5,6 @@ import { AppComponent } from "./shared/components/app.component/app.component";
 import { AppHeaderComponent } from "./shared/components/app-header.component/app-header.component";
 import { AppBodyComponent } from "./shared/components/app-body.component/app-body.component";
 import { HomeComponent } from "./components/app-home/app-home.component";
-import { ContactComponent } from "./components/app-contact/app-contact.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 // import { NgBootstrapFormValidationModule } from "ng-bootstrap-form-validation";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -63,7 +62,6 @@ import { SharedModule } from "./shared/shared.module";
     AppHeaderComponent,
     AppBodyComponent,
     HomeComponent,
-    ContactComponent,
     InfoComponent,
     AppAlertOverlayModalComponent,
     PhoneNumberDirective,
