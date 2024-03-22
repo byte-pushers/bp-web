@@ -3,7 +3,6 @@ import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./components/app-home/app-home.component";
 import { AboutComponent } from "./components/app-about/app-about.component";
 import { ContactComponent } from "./components/app-contact/app-contact.component";
-import { WorkComponent } from "./components/app-work/app-work.component";
 import { AppLoginComponent } from "./components/app-login/app-login.component";
 import { DeactivateGuard } from "./shared/guards/CanDeactivate.guard.service";
 import { SitemapComponent } from "./components/sitemap/sitemap.component";
@@ -17,7 +16,6 @@ const routes: Routes = [
   //   component: ContactComponent,
   //   canDeactivate: [DeactivateGuard],
   // },
-  // { path: "work", component: WorkComponent },
   { path: "admin-login", component: AppLoginComponent },
   { path: "sitemap", component: SitemapComponent },
   {
@@ -65,5 +63,4 @@ export const routingComponents = [
   HomeComponent,
   AboutComponent,
   ContactComponent,
-  WorkComponent,
 ];

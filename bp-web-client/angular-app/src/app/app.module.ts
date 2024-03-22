@@ -19,7 +19,6 @@ import { NgxPageScrollModule } from "ngx-page-scroll";
 import { RouterLinkActive } from "@angular/router";
 import { InfoComponent } from "./components/app-info/app-info.component";
 import { AboutComponent } from "./components/app-about/app-about.component";
-import { WorkComponent } from "./components/app-work/app-work.component";
 import { PhoneNumberDirective } from "./directives/phone-number.directive";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppRoutingService } from "./shared/services/app-routing.service";
@@ -65,7 +64,6 @@ import { SharedModule } from "./shared/shared.module";
     AppHeaderComponent,
     AppBodyComponent,
     HomeComponent,
-    WorkComponent,
     AboutComponent,
     ContactComponent,
     InfoComponent,
