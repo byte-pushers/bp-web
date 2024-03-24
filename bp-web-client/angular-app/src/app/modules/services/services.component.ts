@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
+import { HeaderService } from "src/app/services/header.service";
 
 @Component({
   selector: "app-services",
@@ -25,7 +26,8 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   constructor(
     private route: ActivatedRoute,
     public scrollToService: ScrollToService,
-    private title: Title
+    private title: Title,
+    private headerService: HeaderService
   ) {}
   ngOnInit() {
     this.title.setTitle(
@@ -51,6 +53,13 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   }
 
   setThemeBGImg() {
+    this.headerService.setTheme(
+      {
+        logoColor: "#fff",
+        NavColor: "#fff",
+      },
+      "services"
+    );
     let styles = {
       background: `url('assets/images/servicesPage/bytePushersServicesBg.png')
         center no-repeat`,
