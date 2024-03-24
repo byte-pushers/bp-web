@@ -9,6 +9,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
+import { HeaderService } from "src/app/services/header.service";
 
 @Component({
   selector: "app-work",
@@ -22,11 +23,22 @@ export class WorkComponent implements OnInit {
   faLinkedin = faLinkedin;
   faYoutube = faYoutube;
   public chucksPick3Url = environment.CHUCKS_PICK_3_URL;
-  constructor(private route: ActivatedRoute, private title: Title) {}
+  constructor(
+    private route: ActivatedRoute,
+    private title: Title,
+    private headerService: HeaderService
+  ) {}
 
   ngOnInit() {
     this.title.setTitle(
       "Design, Develop and Deliver your ideas on time and under budget."
+    );
+    this.headerService.setTheme(
+      {
+        logoColor: "#fff",
+        NavColor: "#fff",
+      },
+      "Work"
     );
   }
 
