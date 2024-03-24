@@ -45,7 +45,13 @@ export class LandingPageBottomLayoutComponent {
       color: this?.theme?.titleColor,
       "font-weight": "300",
     };
-
+    this.headerService.setTheme(
+      {
+        logoColor: this?.theme?.mainLogoColor,
+        NavColor: this?.theme?.titleColor,
+      },
+      "bottom"
+    );
     return styles;
   }
   setThemePrimaryColor() {

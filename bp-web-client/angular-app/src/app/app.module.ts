@@ -5,7 +5,6 @@ import { AppComponent } from "./shared/components/app.component/app.component";
 import { AppHeaderComponent } from "./shared/components/app-header.component/app-header.component";
 import { AppBodyComponent } from "./shared/components/app-body.component/app-body.component";
 import { HomeComponent } from "./components/app-home/app-home.component";
-import { ContactComponent } from "./components/app-contact/app-contact.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 // import { NgBootstrapFormValidationModule } from "ng-bootstrap-form-validation";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -18,9 +17,6 @@ import { NgxPageScrollCoreModule } from "ngx-page-scroll-core";
 import { NgxPageScrollModule } from "ngx-page-scroll";
 import { RouterLinkActive } from "@angular/router";
 import { InfoComponent } from "./components/app-info/app-info.component";
-import { AboutComponent } from "./components/app-about/app-about.component";
-import { WorkComponent } from "./components/app-work/app-work.component";
-import { ServicesComponent } from "./components/app-services/app-services.component";
 import { PhoneNumberDirective } from "./directives/phone-number.directive";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppRoutingService } from "./shared/services/app-routing.service";
@@ -66,10 +62,6 @@ import { SharedModule } from "./shared/shared.module";
     AppHeaderComponent,
     AppBodyComponent,
     HomeComponent,
-    ServicesComponent,
-    WorkComponent,
-    AboutComponent,
-    ContactComponent,
     InfoComponent,
     AppAlertOverlayModalComponent,
     PhoneNumberDirective,
