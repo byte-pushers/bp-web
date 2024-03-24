@@ -15,7 +15,7 @@ export class HeaderService {
    *
    * @param {string}color
    */
-  public setTheme(selectedTheme: any) {
+  public setTheme(selectedTheme: any, from?: any) {
     this.theme.next(selectedTheme);
   }
 }

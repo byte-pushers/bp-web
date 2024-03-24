@@ -34,6 +34,7 @@ import { WindowRef } from "src/app/services/windowRef.service";
 
 import { getWindow, getDocument } from "ssr-window";
 import { Meta, Title } from "@angular/platform-browser";
+import { HeaderService } from "src/app/services/header.service";
 
 @Component({
   selector: "app-contact-us",
@@ -61,6 +62,7 @@ export class ContactUsComponent
 
   constructor(
     private quoteService: QuoteService,
+    private headerService: HeaderService,
     // private spinner: NgxSpinnerService,
     private router: Router,
     private appAlertOverlayModalService: AppAlertOverlayModalService,
@@ -113,6 +115,13 @@ export class ContactUsComponent
     // if (isPlatformBrowser(this.platformId)) {
     //   console.log(this.windowRef);
     // }
+    this.headerService.setTheme(
+      {
+        logoColor: "#fff",
+        NavColor: "#fff",
+      },
+      "Contact Us"
+    );
     this.title.setTitle(
       "Creating solutions to solve today's and tomorrow’s problems bit by bit."
     );
