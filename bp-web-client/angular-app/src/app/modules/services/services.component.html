@@ -4,6 +4,7 @@
     class="headerTheme"
     [ngStyle]="setThemeBGImg()"
     [ngClass]="showBorders() ? 'bordersTrue' : ''"
+    id="top-section"
   >
     <section class="header"></section>
     <section class="bodyContent">
@@ -28,12 +29,7 @@
         </div>
       </div>
     </section>
-    <a
-      class="icon-down-open-big hero-arrow"
-      pageScroll
-      pageScrollOffset="80"
-      href="#top-section"
-    >
+    <a class="icon-down-open-big hero-arrow" (click)="scrollToTop()">
       <img
         alt="caret"
         src="assets/images/caret.svg"
@@ -41,7 +37,7 @@
       />
     </a>
   </section>
-  <div class="main-content-container" id="top-section">
+  <div class="main-content-container">
     <section
       class="gray-background hidden-mobile hidden-mobile-450 hidden-mobile-768"
     >
