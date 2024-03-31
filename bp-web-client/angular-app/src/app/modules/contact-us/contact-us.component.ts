@@ -139,7 +139,7 @@ export class ContactUsComponent
     let height = screen.height;
     const topVal = height - 80;
     this.window.scrollTo({
-      top: 1000,
+      top: 1020,
       behavior: "smooth",
     });
   }
