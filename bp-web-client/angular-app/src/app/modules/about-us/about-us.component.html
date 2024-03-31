@@ -25,12 +25,7 @@
         </div>
       </div>
     </section>
-    <a
-      class="icon-down-open-big hero-arrow"
-      pageScroll
-      pageScrollOffset="80"
-      href="#top-section"
-    >
+    <a class="icon-down-open-big hero-arrow" (click)="scrollToTop()">
       <img
         alt="caret"
         src="assets/images/caret.svg"
@@ -39,7 +34,7 @@
     </a>
   </section>
 
-  <div class="main-content-container" id="top-section">
+  <div class="main-content-container">
     <section class="container-fluid">
       <div class="section-heading" style="margin-bottom: 1em">About Us</div>
       <p class="about-text">

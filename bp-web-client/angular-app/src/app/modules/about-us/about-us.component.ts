@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, OnInit } from "@angular/core";
+import {
+  AfterViewInit,
+  Component,
+  HostListener,
+  OnInit,
+  ViewChild,
+} from "@angular/core";
 import * as $ from "jquery";
 // import { faFacebook } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -11,6 +17,7 @@ import {
 import { ActivatedRoute } from "@angular/router";
 import { Meta, Title } from "@angular/platform-browser";
 import { HeaderService } from "src/app/services/header.service";
+import { getWindow, getDocument } from "ssr-window";
 
 @Component({
   selector: "app-about-us",
@@ -18,6 +25,10 @@ import { HeaderService } from "src/app/services/header.service";
   styleUrls: ["./about-us.component.scss"],
 })
 export class AboutUsComponent implements OnInit, AfterViewInit {
+  @ViewChild("scrollable") scrollable: any;
+
+  @HostListener("window:scroll", ["$event"])
+  window = getWindow();
   faFacebook = faFacebook;
   faTwitter = faTwitter;
   faInstagram = faInstagram;
@@ -59,6 +70,14 @@ export class AboutUsComponent implements OnInit, AfterViewInit {
     );
     this.metaService.addTags(this.metaTagsLocal);
   }
+
+  scrollToTop() {
+    this.window.scrollTo({
+      top: 1000,
+      behavior: "smooth",
+    });
+  }
+
   ngAfterViewInit() {
     const $prevButton = $(".left.carousel-control.carousel-control-prev");
     const $nextButton = $(".right.carousel-control.carousel-control-next");

@@ -259,7 +259,7 @@ export class AppHeaderComponent extends ReloadRefreshComponent {
   goToReqQuote() {
     this.router.navigate(["/contact"]);
     this.window.scrollTo({
-      top: 1000,
+      top: 1020,
       behavior: "smooth",
     });
   }
