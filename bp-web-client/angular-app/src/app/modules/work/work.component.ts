@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, HostListener, OnInit, ViewChild } from "@angular/core";
 import { environment } from "../../../environments/environment";
 import {
   faFacebook,
@@ -10,6 +10,7 @@ import {
 import { ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
 import { HeaderService } from "src/app/services/header.service";
+import { getWindow, getDocument } from "ssr-window";
 
 @Component({
   selector: "app-work",
@@ -17,6 +18,10 @@ import { HeaderService } from "src/app/services/header.service";
   styleUrls: ["./work.component.scss"],
 })
 export class WorkComponent implements OnInit {
+  @ViewChild("scrollable") scrollable: any;
+
+  @HostListener("window:scroll", ["$event"])
+  window = getWindow();
   faFacebook = faFacebook;
   faTwitter = faTwitter;
   faInstagram = faInstagram;
@@ -40,6 +45,13 @@ export class WorkComponent implements OnInit {
       },
       "Work"
     );
+  }
+
+  scrollToTop() {
+    this.window.scrollTo({
+      top: 1000,
+      behavior: "smooth",
+    });
   }
 
   setThemeBGImg() {
