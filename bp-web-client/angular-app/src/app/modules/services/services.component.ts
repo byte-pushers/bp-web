@@ -1,4 +1,10 @@
-import { Component, OnInit, AfterViewInit } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  HostListener,
+  ViewChild,
+} from "@angular/core";
 import * as $ from "jquery";
 import { ScrollToService } from "../../services/scroll-to.service";
 import {
@@ -11,6 +17,7 @@ import {
 import { ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
 import { HeaderService } from "src/app/services/header.service";
+import { getWindow, getDocument } from "ssr-window";
 
 @Component({
   selector: "app-services",
@@ -18,6 +25,10 @@ import { HeaderService } from "src/app/services/header.service";
   styleUrls: ["./services.component.scss"],
 })
 export class ServicesComponent implements OnInit, AfterViewInit {
+  @ViewChild("scrollable") scrollable: any;
+
+  @HostListener("window:scroll", ["$event"])
+  window = getWindow();
   faFacebook = faFacebook;
   faTwitter = faTwitter;
   faInstagram = faInstagram;
@@ -29,10 +40,17 @@ export class ServicesComponent implements OnInit, AfterViewInit {
     private title: Title,
     private headerService: HeaderService
   ) {}
+
   ngOnInit() {
     this.title.setTitle(
       "Design, Develop and Deliver your ideas on time and under budget."
     );
+  }
+  scrollToTop() {
+    this.window.scrollTo({
+      top: 1000,
+      behavior: "smooth",
+    });
   }
   ngAfterViewInit() {
     const $prevButton = $(".left.carousel-control.carousel-control-prev");
