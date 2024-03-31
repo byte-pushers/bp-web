@@ -1,6 +1,7 @@
 import {
   Component,
   ElementRef,
+  HostListener,
   Inject,
   OnDestroy,
   OnInit,
@@ -44,6 +45,9 @@ import { HeaderService } from "src/app/services/header.service";
 export class ContactUsComponent
   implements IDeactivateComponent, OnInit, OnDestroy
 {
+  @ViewChild("scrollable") scrollable: any;
+
+  @HostListener("window:scroll", ["$event"])
   faFacebook = faFacebook;
   faTwitter = faTwitter;
   faInstagram = faInstagram;
@@ -131,6 +135,14 @@ export class ContactUsComponent
     this.setOnContactView(false);
   }
 
+  scrollToTop() {
+    let height = screen.height;
+    const topVal = height - 80;
+    this.window.scrollTo({
+      top: 1000,
+      behavior: "smooth",
+    });
+  }
   //Check if there any unsaved data etc. If yes then as for confirmation
   canExit(): boolean {
     if (this.quoteForm.touched) {

@@ -47,6 +47,8 @@ export class ServicesComponent implements OnInit, AfterViewInit {
     );
   }
   scrollToTop() {
+    let height = screen.height;
+    const topVal = height - 80;
     this.window.scrollTo({
       top: 1000,
       behavior: "smooth",
