@@ -17,16 +17,16 @@ install:
   - npm install
 script:
   - if [ $TRAVIS_BRANCH = "master" ]; then
-    echo -e "Running npm run build && npm run serve:ssr";
-    npm run build:ssr:production && npm run serve:ssr;
+    echo -e "Running npm run build";
+    npm run build:ssr:production;
     else
-    echo -e "Running npm run build && npm run serve:ssr";
-    npm run build:ssr && npm run serve:ssr;
+    echo -e "Running npm run build";
+    npm run build:ssr;
     fi;
 deploy:
   - provider: script
     skip_cleanup: true
-    script: npm run deploy-bytepushers-services-2-godaddy
+    script: npm run deploy-bytepushers-services-2-godaddy && npm run serve:ssr
     on:
       branch: develop
 notifications:
