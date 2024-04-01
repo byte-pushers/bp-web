@@ -1,10 +1,10 @@
 language: node_js
+node_js:
+  - 18
 addons:
   apt:
     packages:
       - lftp
-node_js:
-  - “14.20”
 cache:
   directories:
     - "bp-web-client/angular-app/node_modules"
