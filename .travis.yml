@@ -1,42 +1,38 @@
-nvmmatrix:
-  include:
-    - language: node_js
-      addons:
-        apt:
-          packages:
-            - lftp
-      node_js:
-        - “14.20”
-      cache:
-        directories:
-          - "bp-web-client/angular-app/node_modules"
-      before_install:
-        - pyenv global 3.7.13
-        - pip install -U pip
-        - pip install awscli
-        - cd bp-web-client/angular-app/
-      install:
-        - npm install
-      script:
-        - if [ $TRAVIS_BRANCH = "master" ]; then
-          echo -e "Running npm run build --configuration production";
-          npm run build:ssr:production -- --configuration production && npm run serve:ssr;
-          else
-          echo -e "Running npm run build --configuration development";
-          npm run build:ssr -- --configuration development && npm run serve:ssr;
-          fi;
-      deploy:
-        - provider: script
-          skip_cleanup: true
-          script: npm run deploy-bytepushers-services-2-godaddy
-          on:
-            branch: develop
+language: node_js
+addons:
+  apt:
+    packages:
+      - lftp
+node_js:
+  - “14.20”
+cache:
+  directories:
+    - "bp-web-client/angular-app/node_modules"
+before_install:
+  - pyenv global 3.7.13
+  - pip install -U pip
+  - pip install awscli
+  - cd bp-web-client/angular-app/
+install:
+  - npm install
+script:
+  - if [ $TRAVIS_BRANCH = "master" ]; then
+    echo -e "Running npm run build --configuration production && npm run serve:ssr";
+    npm run build:ssr:production -- --configuration production && npm run serve:ssr;
+    else
+    echo -e "Running npm run build --configuration development && npm run serve:ssr";
+    npm run build:ssr -- --configuration development && npm run serve:ssr;
+    fi;
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script: npm run deploy-bytepushers-services-2-godaddy
+    on:
+      branch: develop
 notifications:
   email:
     recipients:
       - tonte.pouncil@bytepushers.software
-      - amanjotabroljava@gmail.com
-      - kailachetan9@gmail.com
       - jsurya352@gmail.com
     on_success: always
     on_failure: always
