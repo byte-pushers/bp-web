@@ -1,6 +1,7 @@
+dist: bionic
 language: node_js
 node_js:
-  - 18
+  - "18.16.1"
 addons:
   apt:
     packages:
