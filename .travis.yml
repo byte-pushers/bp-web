@@ -17,11 +17,11 @@ install:
   - npm install
 script:
   - if [ $TRAVIS_BRANCH = "master" ]; then
-    echo -e "Running npm run build --configuration production && npm run serve:ssr";
-    npm run build:ssr:production --configuration production && npm run serve:ssr;
+    echo -e "Running npm run build && npm run serve:ssr";
+    npm run build:ssr:production && npm run serve:ssr;
     else
-    echo -e "Running npm run build --configuration development && npm run serve:ssr";
-    npm run build:ssr --configuration development && npm run serve:ssr;
+    echo -e "Running npm run build && npm run serve:ssr";
+    npm run build:ssr && npm run serve:ssr;
     fi;
 deploy:
   - provider: script

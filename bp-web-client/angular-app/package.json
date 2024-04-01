@@ -18,8 +18,8 @@
     "dev:ssr": "ng run angular-app:serve-ssr",
     "serve:ssr": "node dist/angular-app/server/main.js",
     "serve:godaddy:bp:services:ssr": "node dist/angular-app/server/main.js",
-    "build:ssr": "ng build && ng run angular-app:server",
-    "build:ssr:production": "ng build && ng run angular-app:server:production",
+    "build:ssr": "ng build -c development && ng run angular-app:server",
+    "build:ssr:production": "ng build -c production && ng run angular-app:server:production",
     "prerender": "ng run angular-app:prerender"
   },
   "husky": {
