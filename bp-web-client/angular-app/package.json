@@ -7,6 +7,8 @@
     "start-dev": "ng serve --configuration=development",
     "build": "ng build",
     "build-dev": "ng build --configuration=development",
+    "deploy-2-godaddy": "node sftp.js",
+    "deploy-2-godaddy-angular": "sftp-2-bytepushers-services-angular.js",
     "deploy-bytepushers-software-2-godaddy": "node sftp-2-bytepushers-software.js",
     "deploy-bytepushers-services-2-godaddy": "node sftp-2-bytepushers-services.js",
     "lint": "ng lint",

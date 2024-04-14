@@ -17,16 +17,16 @@ install:
   - npm install
 script:
   - if [ $TRAVIS_BRANCH = "master" ]; then
-    echo -e "Running npm run build --configuration production";
-    npm run build -- --configuration production;
+    echo -e "Running npm run build";
+    npm run build:ssr:production;
     else
-    echo -e "Running npm run build --configuration development";
-    npm run build -- --configuration development;
+    echo -e "Running npm run build";
+    npm run build:ssr;
     fi;
 deploy:
   - provider: script
     skip_cleanup: true
-    script: npm run deploy-2-godaddy-angular
+    script: npm run deploy-bytepushers-services-2-godaddy
     on:
       branch: feature/deployment-refactor
 notifications:
