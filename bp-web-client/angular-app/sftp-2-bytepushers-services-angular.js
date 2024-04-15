@@ -25,7 +25,7 @@ async function main() {
     client.on("upload", (info) => {
       console.log(`Listener: Uploaded ${info.source}`);
     });
-    let rslt = await client.uploadDir("dist/angular-app", dst); // bp-web-client/angular-app/dist/angular-app
+    let rslt = await client.uploadDir("dist/angular-app/browser", dst); // bp-web-client/angular-app/dist/angular-app
     return rslt;
   } catch (error) {
     console.log(
