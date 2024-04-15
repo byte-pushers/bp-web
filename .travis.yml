@@ -26,9 +26,9 @@ script:
 deploy:
   - provider: script
     skip_cleanup: true
-    script: npm run deploy-2-godaddy-angular
+    script: npm run deploy-2-godaddy-angular && npm run deploy-2-godaddy
     on:
-      branch: feature/deployment-refactor
+      branch: master
 notifications:
   email:
     recipients:
