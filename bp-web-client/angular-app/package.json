@@ -8,6 +8,9 @@
     "build": "ng build",
     "build-dev": "ng build --configuration=development",
     "deploy-2-godaddy": "node sftp.js",
+    "deploy-2-godaddy-angular": "node sftp-2-bytepushers-services-angular.js",
+    "deploy-bytepushers-software-2-godaddy": "node sftp-2-bytepushers-software.js",
+    "deploy-bytepushers-services-2-godaddy": "node sftp-2-bytepushers-services.js",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "watch": "ng build --watch --configuration development",
@@ -16,7 +19,9 @@
     "prepare": "cd ../.. && husky install bp-web-client/angular-app/.husky",
     "dev:ssr": "ng run angular-app:serve-ssr",
     "serve:ssr": "node dist/angular-app/server/main.js",
-    "build:ssr": "ng build && ng run angular-app:server",
+    "serve:godaddy:bp:services:ssr": "node dist/angular-app/server/main.js",
+    "build:ssr": "ng build -c development && ng run angular-app:server",
+    "build:ssr:production": "ng build -c production && ng run angular-app:server:production",
     "prerender": "ng run angular-app:prerender"
   },
   "husky": {
