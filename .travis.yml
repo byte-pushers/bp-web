@@ -28,7 +28,7 @@ deploy:
     skip_cleanup: true
     script: npm run deploy-2-godaddy-angular
     on:
-      branch: feature/deployment-refactor
+      branch: develop
 notifications:
   email:
     recipients:
