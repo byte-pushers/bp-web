@@ -9,7 +9,7 @@ const dotenvPath = path.join("dist/angular-app/", "..", ".env");
 require("dotenv").config({ path: dotenvPath });
 
 const config = {
-  host: "www.bytepushers.software",
+  host: "www.bytepushers.services",
   username: process.env.FTP_USER1,
   password: process.env.FTP_PASSWORD1,
   port: process.env.SFTP_PORT || 22,
