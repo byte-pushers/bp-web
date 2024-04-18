@@ -10,7 +10,7 @@ require("dotenv").config({ path: dotenvPath });
 
 const config = {
   host: "www.bytepushers.services",
-  username: process.env.FTP_USER1,
+  user: process.env.FTP_USER1,
   password: process.env.FTP_PASSWORD1,
   port: process.env.SFTP_PORT || 22,
 };
