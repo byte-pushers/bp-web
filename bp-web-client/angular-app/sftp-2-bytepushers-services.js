@@ -22,6 +22,7 @@ async function main() {
   try {
     console.log(`SFTP Config: ${JSON.stringify(config)}`);
     await client.connect(config);
+    console.log(`SFTP Client connected successfully.`);
     client.on("upload", (info) => {
       console.log(`Listener: Uploaded ${info.source}`);
     });
