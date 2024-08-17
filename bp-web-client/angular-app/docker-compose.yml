@@ -1,0 +1,14 @@
+services:
+  angular-app:
+    container_name: angular-app-container
+    build: .
+    image: angular-app:v1
+    ports:
+      - 80:4000
+    expose:
+      - 80
+    networks:
+      - internalnet
+networks:
+  internalnet:
+    driver: bridge
