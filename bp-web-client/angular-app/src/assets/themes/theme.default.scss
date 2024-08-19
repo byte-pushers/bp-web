@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+:root, [data-theme="default"] {
+  -hero-home-background-image-bottom: url('http://localhost:4000/assets/images/landing-pages/default/bottom-align.png');
+  -hero-home-background-image-left: url(http://localhost:4000/assets/images/landing-pages/default/left-align.png);
+  -hero-home-background-image-right: url(http://localhost:4000/assets/images/landing-pages/default/right-align.png);
+  --color-primary: blue;
+  /* color contrasts */
+  --color-bg: white;
+  --color-contrast-lower: hsl(0, 0%, 95%);
+  --color-contrast-low: hsl(240, 1%, 83%);
+  --color-contrast-medium: hsl(240, 1%, 48%);
+  --color-contrast-high: hsl(240, 4%, 20%);
+  --color-contrast-higher: black;
+}
+
+[data-theme] {
+  background-color: var(--color-bg);
+  color: var(--color-contrast-high);
+}
+
+@layer base {
+
+}
