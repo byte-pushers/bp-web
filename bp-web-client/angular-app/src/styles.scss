@@ -3,4 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@import 'assets/themes/theme.default', 'assets/themes/theme.1';
+@import 'assets/themes/theme.default', 'assets/themes/theme.mobile';
+
+[data-theme] {
+
+}
+
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), var(--hero-home-background-image-left-url) center no-repeat;
+}
