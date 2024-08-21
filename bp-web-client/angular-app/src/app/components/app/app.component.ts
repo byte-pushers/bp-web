@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject, InjectionToken } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -11,8 +12,15 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent {
   title = 'angular-app';
 
-  constructor() {
+  constructor(@Inject(DOCUMENT) private document: Document) {
     console.log('AppComponent(): inside constructor');
+  }
+
+  //const navLinks = document.querySelector('.nav-links')
+  onToggleMenu(e: any){
+    const navLinks = document.querySelector('.nav-links');
+    e.name = e.name === 'menu' ? 'close' : 'menu'
+    navLinks?.classList.toggle('top-[9%]')
   }
 
 }
