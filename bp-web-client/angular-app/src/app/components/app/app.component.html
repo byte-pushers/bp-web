@@ -4,7 +4,7 @@
       <img class="w-16 cursor-pointer" src="https://cdn-icons-png.flaticon.com/512/5968/5968204.png" alt="...">
     </div>
     <div
-      class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
+      class="-z-10 nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
       <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
         <li>
           <a class="hover:text-gray-500" href="#">Products</a>
@@ -26,9 +26,14 @@
     <div class="flex items-center gap-6">
       <button class="bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Sign in</button>
 
-      <svg (click)="onToggleMenu(this)" class="w-6 cursor-pointer md:hidden"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+      <svg *ngIf="menuState === 'closed'" (click)="toggleMenu(this)" class="w-6 cursor-pointer md:hidden"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
       </svg>
+
+      <svg *ngIf="menuState === 'opened'" (click)="toggleMenu(this)"class="w-6 cursor-pointer md:hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+      </svg>
+
     </div>
   </nav>
 </header>
