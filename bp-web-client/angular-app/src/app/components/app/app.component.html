@@ -1,40 +1,44 @@
-<header class="bg-white">
-  <nav class="flex justify-between items-center w-[92%]  mx-auto">
-    <div>
-      <img class="w-16 cursor-pointer" src="https://cdn-icons-png.flaticon.com/512/5968/5968204.png" alt="...">
-    </div>
-    <div
-      class="-z-10 nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
-      <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
-        <li>
-          <a class="hover:text-gray-500" href="#">Products</a>
-        </li>
-        <li>
-          <a class="hover:text-gray-500" href="#">Solution</a>
-        </li>
-        <li>
-          <a class="hover:text-gray-500" href="#">Resource</a>
-        </li>
-        <li>
-          <a class="hover:text-gray-500" href="#">Developers</a>
-        </li>
-        <li>
-          <a class="hover:text-gray-500" href="#">Pricing</a>
-        </li>
-      </ul>
-    </div>
-    <div class="flex items-center gap-6">
-      <button class="bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Sign in</button>
+<div class="m-5">
+  <header class="border-red-500 border-0">
+    <nav class="flex justify-between items-center border-0 border-yellow-500">
+      <div class="border-0 border-orange-500 ml-2">
+        <svg *ngIf="menuState === 'closed'" (click)="toggleMenu(this)" class="w-8 cursor-pointer md:hidden"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
 
-      <svg *ngIf="menuState === 'closed'" (click)="toggleMenu(this)" class="w-6 cursor-pointer md:hidden"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-      </svg>
-
-      <svg *ngIf="menuState === 'opened'" (click)="toggleMenu(this)"class="w-6 cursor-pointer md:hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-      </svg>
-
-    </div>
-  </nav>
-</header>
-<router-outlet/>
+        <svg *ngIf="menuState === 'opened'" (click)="toggleMenu(this)"class="w-8 cursor-pointer md:hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </div>
+      <div class="border-0 border-green-500">
+        <img class="w-36 cursor-pointer" src="assets/images/logos/bytePushersLogoMobile.svg">
+      </div>
+      <div class="border-0 border-gray-500 mr-2 md:hidden">
+        <svg class="w-8 text-transparent" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </div>
+      <div
+        class="border-0 border-b-cyan-500 -z-10 nav-links duration-500 md:static absolute bg-white md:bg-transparent md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
+        <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+          <li>
+            <a class="hover:text-gray-500" href="#">Products</a>
+          </li>
+          <li>
+            <a class="hover:text-gray-500" href="#">Solution</a>
+          </li>
+          <li>
+            <a class="hover:text-gray-500" href="#">Resource</a>
+          </li>
+          <li>
+            <a class="hover:text-gray-500" href="#">Developers</a>
+          </li>
+          <li>
+            <a class="hover:text-gray-500" href="#">Pricing</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <router-outlet/>
+</div>
