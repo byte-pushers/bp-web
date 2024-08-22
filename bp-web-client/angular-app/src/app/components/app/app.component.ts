@@ -1,11 +1,12 @@
 import { Component, Inject, InjectionToken } from '@angular/core';
 import { DOCUMENT, NgIf } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { SocialMediaComponent } from '../social-media.component/app-social-media.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgIf],
+  imports: [RouterOutlet, NgIf, SocialMediaComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
