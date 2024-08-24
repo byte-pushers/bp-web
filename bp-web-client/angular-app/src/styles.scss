@@ -16,7 +16,9 @@ body {
   background-attachment: fixed;
   background-position: center;
 }
-
+.hero-text {
+  font-family: "Verlag A", "Verlag B", Helvetica, Arial, sans-serif;
+}
 .socialMediaLinksTop {
   position: relative;
   // right: 30px;
@@ -83,11 +85,4 @@ body {
       }
     }
   }
-}
-
-.bottomLayout {
-  text-align: center;
-}
-.home-hero-text {
-
 }
