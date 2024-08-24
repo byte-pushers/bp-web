@@ -21,7 +21,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         title="Facebook"
         rel="noopener noreferrer"
       >
-        <fa-icon [icon]="faFacebook" class="text-3xl"></fa-icon>
+        <fa-icon [icon]="faFacebook" class="text-3xl hover:text-yellow-400"></fa-icon>
       </a>
     </li>
     <li>
@@ -31,7 +31,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         title="Twitter"
         rel="noopener noreferrer"
       >
-        <fa-icon [icon]="faTwitter" class="text-3xl"></fa-icon>
+        <fa-icon [icon]="faTwitter" class="text-3xl hover:text-yellow-400"></fa-icon>
       </a>
     </li>
     <li>
@@ -41,7 +41,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         title="Instagram"
         rel="noopener noreferrer"
       >
-        <fa-icon [icon]="faInstagram" class="text-3xl"></fa-icon>
+        <fa-icon [icon]="faInstagram" class="text-3xl hover:text-yellow-400"></fa-icon>
       </a>
     </li>
     <li>
@@ -51,7 +51,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         title="LinkedIn"
         rel="noopener noreferrer"
       >
-        <fa-icon [icon]="faLinkedin" class="text-3xl"></fa-icon>
+        <fa-icon [icon]="faLinkedin" class="text-3xl hover:text-yellow-400"></fa-icon>
       </a>
     </li>
     <li>
@@ -61,7 +61,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         title="Youtube"
         rel="noopener noreferrer"
       >
-        <fa-icon [icon]="faYoutube" class="text-3xl"></fa-icon>
+        <fa-icon [icon]="faYoutube" class="text-3xl hover:text-yellow-400"></fa-icon>
       </a>
     </li>
   </ul> `,
