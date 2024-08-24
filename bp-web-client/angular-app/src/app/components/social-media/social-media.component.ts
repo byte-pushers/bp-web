@@ -13,16 +13,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   standalone: true,
   imports: [FontAwesomeModule],
   template: `<!-- [ngClass]="isRightTemplate ? 'alignLeft' : ''"//--><ul
-    class="socialMediaLinksTop"
-  >
-    <li>
+    class="relative mx-2">
+    <li class="mb-2">
       <a
         href="https://facebook.com/bytepushersinc"
         target="_blank"
         title="Facebook"
         rel="noopener noreferrer"
       >
-        <fa-icon [icon]="faFacebook"></fa-icon>
+        <fa-icon [icon]="faFacebook" class="text-3xl"></fa-icon>
       </a>
     </li>
     <li>
@@ -32,7 +31,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         title="Twitter"
         rel="noopener noreferrer"
       >
-        <fa-icon [icon]="faTwitter"></fa-icon>
+        <fa-icon [icon]="faTwitter" class="text-3xl"></fa-icon>
       </a>
     </li>
     <li>
@@ -42,7 +41,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         title="Instagram"
         rel="noopener noreferrer"
       >
-        <fa-icon [icon]="faInstagram"></fa-icon>
+        <fa-icon [icon]="faInstagram" class="text-3xl"></fa-icon>
       </a>
     </li>
     <li>
@@ -52,7 +51,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         title="LinkedIn"
         rel="noopener noreferrer"
       >
-        <fa-icon [icon]="faLinkedin"></fa-icon>
+        <fa-icon [icon]="faLinkedin" class="text-3xl"></fa-icon>
       </a>
     </li>
     <li>
@@ -62,7 +61,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         title="Youtube"
         rel="noopener noreferrer"
       >
-        <fa-icon [icon]="faYoutube"></fa-icon>
+        <fa-icon [icon]="faYoutube" class="text-3xl"></fa-icon>
       </a>
     </li>
   </ul> `,
