@@ -2,11 +2,13 @@ import { Component, Inject, InjectionToken } from '@angular/core';
 import { DOCUMENT, NgClass, NgIf } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { SocialMediaComponent } from '../social-media/social-media.component';
+import { LogoTextAsideComponent } from '../logo-text-aside/logo-text-aside.component';
+import { LogoTextBottomComponent } from '../logo-text-bottom/logo-text-bottom.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgIf, SocialMediaComponent, NgClass],
+  imports: [LogoTextAsideComponent, LogoTextBottomComponent, RouterOutlet, NgClass, NgIf, SocialMediaComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
