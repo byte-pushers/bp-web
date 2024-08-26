@@ -20,11 +20,27 @@ export class AppComponent {
     console.log('AppComponent(): inside constructor');
   }
 
-  //const navLinks = document.querySelector('.nav-links')
   toggleMenu(e: any){
+    console.log(`menu isOpen: ${this.isOpen}`);
+
     const navLinks = document.querySelector('.nav-links');
-    // e.name = e.name === 'menu' ? 'close' : 'menu' // if we use ionic icon, as it has name attribute
+    const unorderedList = document.querySelector('div.nav-links ul');
+
+    unorderedList?.classList.remove('text-black');
+
     this.isOpen = !this.isOpen;
-    navLinks?.classList.toggle('top-[9%]')
+
+    if (this.isOpen) {
+      (function repeat(){
+        setTimeout(function(){
+          const unorderedList = document.querySelector('div.nav-links ul');
+          unorderedList?.classList.add('text-black');
+          unorderedList?.classList.add('z-10');
+        }, 300);
+      })();
+    }
+
+    navLinks?.classList.toggle(`top-[20%]`);
+    console.log(`menu isOpen: ${this.isOpen}`);
   }
 }
