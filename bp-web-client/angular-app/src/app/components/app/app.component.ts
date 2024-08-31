@@ -40,7 +40,7 @@ export class AppComponent {
       })();
     }
 
-    navLinks?.classList.toggle(`top-[20%]`);
+    navLinks?.classList.toggle(`top-[14%]`);
     console.log(`menu isOpen: ${this.isOpen}`);
   }
 }
