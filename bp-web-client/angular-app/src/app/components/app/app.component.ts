@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { SocialMediaComponent } from '../social-media/social-media.component';
 import { LogoTextAsideComponent } from '../logo-text-aside/logo-text-aside.component';
 import { LogoTextBottomComponent } from '../logo-text-bottom/logo-text-bottom.component';
+import { WINDOW } from '../../services/windows/window';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent {
   title = 'angular-app';
   isOpen = false;
 
-  constructor(@Inject(DOCUMENT) private document: Document) {
+  constructor(@Inject(WINDOW) private window: Window, @Inject(DOCUMENT) private document: Document) {
     console.log('AppComponent(): inside constructor');
   }
 
@@ -40,7 +41,14 @@ export class AppComponent {
       })();
     }
 
-    navLinks?.classList.toggle(`top-[14%]`);
+    if (this.window.screen.width <= 360) {
+      navLinks?.classList.remove(`top-[14%]`);
+      navLinks?.classList.toggle(`top-[13%]`);
+    } else {
+      navLinks?.classList.remove(`top-[13%]`);
+      navLinks?.classList.toggle(`top-[14%]`);
+    }
+
     console.log(`menu isOpen: ${this.isOpen}`);
   }
 }
