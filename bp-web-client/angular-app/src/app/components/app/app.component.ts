@@ -43,9 +43,19 @@ export class AppComponent {
 
     if (this.window.screen.width <= 360) {
       navLinks?.classList.remove(`top-[14%]`);
+      navLinks?.classList.remove(`top-[13.5%]`);
       navLinks?.classList.toggle(`top-[13%]`);
+    } else if (this.window.screen.width <= 375) {
+      navLinks?.classList.remove(`top-[13%]`);
+      navLinks?.classList.remove(`top-[13.5%]`);
+      navLinks?.classList.toggle(`top-[14%]`);
+    } else if (this.window.screen.width <= 540) {
+      navLinks?.classList.remove(`top-[14%]`);
+      navLinks?.classList.remove(`top-[13%]`);
+      navLinks?.classList.toggle(`top-[13.5%]`);
     } else {
       navLinks?.classList.remove(`top-[13%]`);
+      navLinks?.classList.remove(`top-[13.5%]`);
       navLinks?.classList.toggle(`top-[14%]`);
     }
 
