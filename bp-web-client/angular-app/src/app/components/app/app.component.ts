@@ -17,10 +17,12 @@ export class AppComponent {
   title = 'angular-app';
   isOpen = false;
   dimension: {width: number, height: number} = {width: 100, height: 100};
-  dimension2: {width: number, height: number} = {width: 18, height: 9};
+  logoDimension: {width: number, height: number} | undefined;
+
 
   constructor(@Inject(WINDOW) private window: Window, @Inject(DOCUMENT) private document: Document) {
     console.log('AppComponent(): inside constructor');
+    this.logoDimension = this.#getLogoDimension();
   }
 
   toggleMenu(e: any){
@@ -62,5 +64,15 @@ export class AppComponent {
     }
 
     console.log(`menu isOpen: ${this.isOpen}`);
+  }
+
+  #getLogoDimension() {
+    let logoDimension;
+
+    if (this.window?.screen?.width >= 768 && this.window?.screen?.width <= 820) {
+      logoDimension = {width: 18, height: 9};
+    }
+
+    return logoDimension;
   }
 }
