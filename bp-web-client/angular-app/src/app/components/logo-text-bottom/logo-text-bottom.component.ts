@@ -11,14 +11,17 @@ import { NgStyle } from '@angular/common';
   ]
 })
 export class LogoTextBottomComponent {
+  #defaultDimension: {width: number, height: number} = {width: 130, height: 130};
   fillColor: string = "red";
   @Input() logoColor: string | undefined;
+  @Input() dimension: {width: number, height: number} | undefined;
 
   setWidthHeight() {
     let dimensions = {
-      width: "130px",
-      height: "130px",
+      width: this.dimension ? this.dimension.width + 'px' : this.#defaultDimension.width + 'px',
+      height: this.dimension ? this.dimension.height + 'px' : this.#defaultDimension.height + 'px',
     };
+
     return dimensions;
   }
   setFillColor() {

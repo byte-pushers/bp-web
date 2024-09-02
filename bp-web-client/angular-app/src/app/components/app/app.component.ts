@@ -16,6 +16,8 @@ import { WINDOW } from '@services/windows/window';
 export class AppComponent {
   title = 'angular-app';
   isOpen = false;
+  dimension: {width: number, height: number} = {width: 100, height: 100};
+  dimension2: {width: number, height: number} = {width: 18, height: 9};
 
   constructor(@Inject(WINDOW) private window: Window, @Inject(DOCUMENT) private document: Document) {
     console.log('AppComponent(): inside constructor');
