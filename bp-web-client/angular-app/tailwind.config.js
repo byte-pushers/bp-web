@@ -21,6 +21,9 @@ module.exports = {
         indigo: colors.indigo,
         white: colors.white,
       },
+      fontFamily: {
+        verlag: ['"Verlag XLight"', '"Verlag Light Italic"', '"Helvetica"', "Arial", "sans-serif"]
+      },
       zIndex: {
         100: "100",
       }

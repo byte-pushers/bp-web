@@ -9,6 +9,16 @@
 
 }
 
+@font-face {
+  font-family: "Verlag XLight";
+  src: url("assets/fonts/Verlag-Font-Family/Verlag-XLight.ttf");
+}
+
+@font-face {
+  font-family: "Verlag Light Italic";
+  src: url("assets/fonts/Verlag-Font-Family/Verlag-LightItalic.ttf");
+}
+
 body {
   background-image: var(--hero-home-background-image-left-url);
   background-size: cover;
@@ -17,5 +27,5 @@ body {
   background-position: center;
 }
 .hero-text {
-  font-family: "Verlag A", "Verlag B", Helvetica, Arial, sans-serif;
+
 }

@@ -1,4 +1,4 @@
-import { Component, Inject, InjectionToken } from '@angular/core';
+import { /*AfterViewInit, */Component, /*HostListener, */Inject/*, InjectionToken, OnInit */ } from '@angular/core';
 import { DOCUMENT, NgClass, NgIf } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { SocialMediaComponent } from '@components/social-media/social-media.component';
@@ -13,7 +13,7 @@ import { WINDOW } from '@services/windows/window';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent /*implements OnInit, AfterViewInit*/ {
   title = 'angular-app';
   isOpen = false;
   dimension: {width: number, height: number} = {width: 100, height: 100};
@@ -75,4 +75,32 @@ export class AppComponent {
 
     return logoDimension;
   }
+
+  /*@HostListener('window:resize', ['$event'])
+  onResize($event: any) {
+    const heroText = document.querySelector('.hero-text');
+
+    if (this.window.screen.width >= 820) {
+      heroText?.classList.remove(`text-4xl`);
+      heroText?.classList.add(`text-4xl`);
+    }
+
+    $event.target.innerWidth;
+  }
+  ngAfterViewInit() {
+
+  }
+
+  ngOnInit() {
+    this.#detectScreenSize();
+  }
+
+  #detectScreenSize() {
+    const heroText = document.querySelector('.hero-text');
+
+    if (this.window.screen.width >= 820) {
+      heroText?.classList.remove(`text-4xl`);
+      heroText?.classList.add(`text-6xl`);
+    }
+  }*/
 }
