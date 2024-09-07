@@ -26,29 +26,32 @@ module.exports = {
       },
       zIndex: {
         100: "100",
+      },
+      screens: {
+        sm: "640px",
+        md: "768px",
+        lg: "912px",
+        xl: "1024px",
+        "2xl": "1280px",
+        "3xl": "1536px"
       }
     },
     screens: {
-      xxsm: "360px",
-      // => @media (min-width: 360px) { ... }
-
-      xsm: "540px",
-      // => @media (min-width: 360px) { ... }
-
-      sm: "640px",
-      // => @media (min-width: 640px) { ... }
-
-      md: "768px",
-      // => @media (min-width: 768px) { ... }
-
-      lg: "1024px",
-      // => @media (min-width: 1024px) { ... }
-
-      xl: "1280px",
-      // => @media (min-width: 1280px) { ... }
-
-      "2xl": "1536px",
-      // => @media (min-width: 1536px) { ... }
+      "8xsm": "344px", // min-width Samsung Z Fold 5
+      "7xsm": "360px", // min-width Samsung Galaxy S8+
+      "6xsm": "375px", // min-width iPhone SE
+      "5xsm": "390px", // min-width iPhone 12 Pro
+      "4xsm": "412px", // min-width Pixel 7 & Samsung Galaxy S20 Ultra, Samsung Galaxy A51/71
+      "3xsm": "430px", // min-width iPhone 12 Pro Max
+      "2xsm": "414px", // min-width iPhone XR
+      sm: "540px", // Surface Duo
+      md: "768px", // min-width iPad Mini
+      "2md": "820px", // min-width iPad Air
+      "3md": "853px", // min-width Asus Zenbook Fold
+      lg: "912px", // min-width Surface Pro 7
+      xl: "1024px", // min-width iPad Pro, Nest Hub
+      "2xl": "1280px", // min-width Nest Hub Max
+      "3xl": "1536px"
     }
   },
   plugins: [],
