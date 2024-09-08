@@ -21,7 +21,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         title="Facebook"
         rel="noopener noreferrer"
       >
-        <fa-icon [icon]="faFacebook" class="8xsm:text-3xl 7xsm:text-2xl 6xsm:text-2xl 5xsm:text-3xl 4xsm:text-3xl 3xsm:text-3xl sm:text-2xl md:text-4xl lg:text-4xl 3md:text-5xl lg:text-7xl xl:text-5xl hover:text-yellow-400"></fa-icon>
+        <fa-icon [icon]="faFacebook" class="8xsm:text-3xl 7xsm:text-2xl 6xsm:text-2xl 5xsm:text-3xl 4xsm:text-3xl 3xsm:text-3xl sm:text-2xl md:text-4xl 3md:text-5xl lg:text-5xl xl:text-5xl ipad:text-5xl nesthub:text-2xl hover:text-yellow-400"></fa-icon>
       </a>
     </li>
     <li>
@@ -31,7 +31,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         title="Twitter"
         rel="noopener noreferrer"
       >
-        <fa-icon [icon]="faTwitter" class="8xsm:text-3xl 7xsm:text-2xl 6xsm:text-2xl 5xsm:text-3xl 4xsm:text-3xl 3xsm:text-3xl sm:text-2xl md:text-4xl lg:text-4xl 3md:text-5xl lg:text-7xl xl:text-5xl hover:text-yellow-400"></fa-icon>
+        <fa-icon [icon]="faTwitter" class="8xsm:text-3xl 7xsm:text-2xl 6xsm:text-2xl 5xsm:text-3xl 4xsm:text-3xl 3xsm:text-3xl sm:text-2xl md:text-4xl lg:text-5xl 3md:text-5xl  xl:text-5xl ipad:text-5xl nesthub:text-2xl hover:text-yellow-400"></fa-icon>
       </a>
     </li>
     <li>
@@ -41,7 +41,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         title="Instagram"
         rel="noopener noreferrer"
       >
-        <fa-icon [icon]="faInstagram" class="8xsm:text-3xl 7xsm:text-2xl 6xsm:text-2xl 5xsm:text-3xl 4xsm:text-3xl 3xsm:text-3xl sm:text-2xl md:text-4xl lg:text-4xl 3md:text-5xl lg:text-7xl xl:text-5xl hover:text-yellow-400"></fa-icon>
+        <fa-icon [icon]="faInstagram" class="8xsm:text-3xl 7xsm:text-2xl 6xsm:text-2xl 5xsm:text-3xl 4xsm:text-3xl 3xsm:text-3xl sm:text-2xl md:text-4xl lg:text-5xl 3md:text-5xl  xl:text-5xl ipad:text-5xl nesthub:text-2xl hover:text-yellow-400"></fa-icon>
       </a>
     </li>
     <li>
@@ -51,7 +51,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         title="LinkedIn"
         rel="noopener noreferrer"
       >
-        <fa-icon [icon]="faLinkedin" class="8xsm:text-3xl 7xsm:text-2xl 6xsm:text-2xl 5xsm:text-3xl 4xsm:text-3xl 3xsm:text-3xl sm:text-2xl md:text-4xl lg:text-4xl 3md:text-5xl lg:text-7xl xl:text-5xl hover:text-yellow-400"></fa-icon>
+        <fa-icon [icon]="faLinkedin" class="8xsm:text-3xl 7xsm:text-2xl 6xsm:text-2xl 5xsm:text-3xl 4xsm:text-3xl 3xsm:text-3xl sm:text-2xl md:text-4xl lg:text-5xl 3md:text-5xl  xl:text-5xl ipad:text-5xl nesthub:text-2xl hover:text-yellow-400"></fa-icon>
       </a>
     </li>
     <li>
@@ -61,7 +61,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         title="Youtube"
         rel="noopener noreferrer"
       >
-        <fa-icon [icon]="faYoutube" class="8xsm:text-3xl 7xsm:text-2xl 6xsm:text-2xl 5xsm:text-3xl 4xsm:text-3xl 3xsm:text-3xl sm:text-2xl md:text-4xl lg:text-4xl 3md:text-5xl lg:text-7xl xl:text-5xl hover:text-yellow-400"></fa-icon>
+        <fa-icon [icon]="faYoutube" class="8xsm:text-3xl 7xsm:text-2xl 6xsm:text-2xl 5xsm:text-3xl 4xsm:text-3xl 3xsm:text-3xl sm:text-2xl md:text-4xl lg:text-5xl 3md:text-5xl  xl:text-5xl ipad:text-5xl nesthub:text-2xl hover:text-yellow-400"></fa-icon>
       </a>
     </li>
   </ul> `,

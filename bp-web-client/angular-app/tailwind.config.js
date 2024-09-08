@@ -49,9 +49,12 @@ module.exports = {
       "2md": "820px", // min-width iPad Air
       "3md": "853px", // min-width Asus Zenbook Fold
       lg: "912px", // min-width Surface Pro 7
-      xl: "1024px", // min-width iPad Pro, Nest Hub
-      "2xl": "1280px", // min-width Nest Hub Max
-      "3xl": "1536px"
+      xl: "1024px", // min-width iPad Pro
+      nesthub: { 'raw': '(min-height: 600px)' },
+      nesthubMax: { 'raw': '(min-height: 800px)' },
+      ipad: { 'raw': '(min-height: 1366px)' },
+      "2xl": "1280px", // min-width
+      "3xl": "1470px" // min-width
     }
   },
   plugins: [],
