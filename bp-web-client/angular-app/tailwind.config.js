@@ -32,8 +32,7 @@ module.exports = {
         md: "768px",
         lg: "912px",
         xl: "1024px",
-        "2xl": "1280px",
-        "3xl": "1536px"
+        "2xl": "1280px"
       }
     },
     screens: {
@@ -50,11 +49,11 @@ module.exports = {
       "3md": "853px", // min-width Asus Zenbook Fold
       lg: "912px", // min-width Surface Pro 7
       xl: "1024px", // min-width iPad Pro
-      nesthub: { 'raw': '(min-height: 600px)' },
-      nesthubMax: { 'raw': '(min-height: 800px)' },
-      ipad: { 'raw': '(min-height: 1366px)' },
-      "2xl": "1280px", // min-width
-      "3xl": "1470px" // min-width
+      nesthub: { 'raw': '(min-width: 1024px) and (min-height: 600px)' },
+      nesthubMax: { 'raw': '(min-width: 1024px) and (min-height: 800px)' },
+      ipadpro: { 'raw': '(min-width: 1024px) and (min-height: 1366px)' },
+      "2xl": { 'raw': '(min-width: 1280px) and (min-height: 744px)' },
+      "3xl": { 'raw': '(min-width: 1470px) and (min-height: 864px)' }
     }
   },
   plugins: [],
