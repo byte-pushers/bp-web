@@ -4,7 +4,7 @@ DOCKER_IMAGE_NAME=bp-web-ng-ssr-app
 SHA := $(shell git rev-parse --short HEAD)
 
 dockerbuild:
-    docker build -t $(DOCKER_IMAGE_NAME):latest .
+    docker build -t $(DOCKER_IMAGE_NAME):latest ./bp-web-client/angular-app
 
 dockerpush: dockerbuild
 	echo $(DOCKER_PASSWORD) | docker login -u "$(DOCKER_USERNAME)" --password-stdin
