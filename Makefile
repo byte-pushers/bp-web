@@ -1,10 +1,10 @@
 BASEDIR=$(CURDIR)
 
-DOCKER_IMAGE_NAME=bp-web-ng-ssr-app
+DOCKER_IMAGE_NAME=bp-web
 SHA := $(shell git rev-parse --short HEAD)
 
 dockerbuild:
-    docker build -t $(DOCKER_IMAGE_NAME):latest ./bp-web-client/angular-app
+    docker build -t $(DOCKER_IMAGE_NAME):latest bp-web-client/angular-app
 
 dockerpush: dockerbuild
 	echo $(DOCKER_PASSWORD) | docker login -u "$(DOCKER_USERNAME)" --password-stdin
