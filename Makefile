@@ -8,5 +8,7 @@ dockerbuild:
 
 dockerpush: dockerbuild
 	echo $(DOCKER_PASSWORD) | docker login -u "$(DOCKER_USERNAME)" --password-stdin
-    docker tag tontepouncil/$(DOCKER_IMAGE_NAME) tontepouncil/$(DOCKER_IMAGE_NAME):$(SHA)
-    docker push tontepouncil/$(DOCKER_IMAGE_NAME):$(SHA)
+    #docker tag tontepouncil/$(DOCKER_IMAGE_NAME) tontepouncil/$(DOCKER_IMAGE_NAME):latest
+    #docker tag tontepouncil/$(DOCKER_IMAGE_NAME) tontepouncil/$(DOCKER_IMAGE_NAME):$(SHA)
+    docker push tontepouncil/$(DOCKER_IMAGE_NAME):latest
+    #docker push tontepouncil/$(DOCKER_IMAGE_NAME):$(SHA)
