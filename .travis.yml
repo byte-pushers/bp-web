@@ -1,9 +1,15 @@
 language: bash
-
 sudo: required
-
 services:
-  - docker
-
+- docker
 script:
-  - make dockerpush
+- make dockerpush
+before_install:
+- openssl aes-256-cbc -K $encrypted_9b862676235a_key -iv $encrypted_9b862676235a_iv
+  -in travis-ci_rsa.enc -out ./deploy-key/travis-ci_rsa -d
+- ssh-add ./deploy_key
+- eval "$(ssh-agent -s)"
+- chmod 600 ./deploy_key
+- echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- ssh-add ./deploy_key
+- ssh -i ./deploy_key pouncilt@184.168.21.89 pwd
