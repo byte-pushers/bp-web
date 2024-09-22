@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng build && ng serve --live-reload --port 4000",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:angular-app": "node dist/angular-app/server/server.mjs"
+    "serve:ssr:angular-app": "ng build && node dist/angular-app/server/server.mjs"
   },
   "private": true,
   "dependencies": {

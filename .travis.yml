@@ -4,11 +4,17 @@ services:
 - docker
 script:
 - make dockerpush
-before_install:
-- openssl aes-256-cbc -K $encrypted_9b862676235a_key -iv $encrypted_9b862676235a_iv
-  -in deploy_key.enc -out ./deploy_key -d
-- eval "$(ssh-agent -s)"
-- chmod 600 ./deploy_key
-- echo -e "Host 184.168.21.89\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-- ssh-add ./deploy_key
-- ssh -i ./deploy_key pouncilt@184.168.21.89 pwd
+#before_install:
+#- openssl aes-256-cbc -K $encrypted_9b862676235a_key -iv $encrypted_9b862676235a_iv
+#  -in deploy_key.enc -out ./deploy_key -d
+#- eval "$(ssh-agent -s)"
+#- chmod 600 ./deploy_key
+#- echo -e "Host 184.168.21.89\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+#- ssh-add ./deploy_key
+#- ssh -i ./deploy_key pouncilt@184.168.21.89 pwd
+#after_success:
+#  - docker login -u ${DOCKER_USERNAME} -p ${DOCKER_USER_TOKEN}
+#  - echo "${SSH_KEY}" |  base64 --decode > /tmp/ssh_rsa
+#  - chmod 600 /tmp/ssh_rsa
+#  - ssh -o "StrictHostKeyChecking no" pouncilt@$184.168.21.89 -i /tmp/ssh_rsa "echo test > test.log"
+#  - ssh -o "StrictHostKeyChecking no" pouncilt@$184.168.21.89 -i /tmp/ssh_rsa "cd ${INSTALL_LOCATION} && git pull ${TRAVIS_BUILD_WEB_URL} && docker image build -t ${IMGNAME} ${INSTALL_LOCATION}/. && docker push ${IMGNAME} && docker stop discordbot; docker rm discordbot; docker run --name discordbot --restart always -d -e TOKEN=${TOKEN} ${IMGNAME}"
