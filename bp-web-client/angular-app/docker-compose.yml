@@ -4,9 +4,9 @@ services:
     build: .
     image: tontepouncil/bp-web:latest
     ports:
-      - 80:4000
+      - 4000:4000
     expose:
-      - 80
+      - 4000
     networks:
       - internalnet
 networks:
