@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-:root, [data-theme="default"] {
+:root, [data-theme="default-dark"] {
   --hero-home-background-image-bottom-url: url('/assets/images/landing-pages/1/bottom.aligned.png');
   --hero-home-background-image-left-url: url('/assets/images/landing-pages/1/left.aligned.png');
   --hero-home-background-image-right-url: url('/assets/images/landing-pages/1/right.aligned.png');
-  --logo-primary-color: hsl(100, 100%, 98%);
-  --font-primary-color: hsl(100, 100%, 98%);
+  --logo-primary-color: hsl(0, 0%, 13%);
+  --font-primary-color: hsl(100, 0%, 13%);
 }

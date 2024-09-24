@@ -3,10 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@import 'assets/themes/theme.default', 'assets/themes/theme.mobile';
+@import 'assets/themes/theme.default', 'assets/themes/theme.default.dark', 'assets/themes/theme.mobile';
 
 [data-theme] {
-
+  color: var(--font-primary-color)
 }
 
 @font-face {
