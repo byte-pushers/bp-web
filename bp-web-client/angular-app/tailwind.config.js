@@ -51,6 +51,7 @@ module.exports = {
       xl: "1024px", // min-width iPad Pro
       nesthub: { 'raw': '(min-width: 1024px) and (min-height: 600px)' },
       nesthubMax: { 'raw': '(min-width: 1024px) and (min-height: 800px)' },
+      ipadmini: { 'raw': '(min-width: 768px) and (min-height: 1024px)' },
       ipadpro: { 'raw': '(min-width: 1024px) and (min-height: 1366px)' },
       "2xl": { 'raw': '(min-width: 1280px) and (min-height: 744px)' },
       "3xl": { 'raw': '(min-width: 1470px) and (min-height: 864px)' }

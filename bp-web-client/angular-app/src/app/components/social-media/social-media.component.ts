@@ -14,7 +14,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [FontAwesomeModule],
   template: `<!-- [ngClass]="isRightTemplate ? 'alignLeft' : ''"//--><ul
     class="relative mx-2">
-    <li class="mb-2 3xsm:mb-3 sm:mb-0 8xsm:mb-2 3md:mb-4 nesthub:mb-0 nesthubMax:mb-1 2xl:mb-[.375rem]">
+    <li class="mb-2 ipadmini:mb-3 ipadpro:mb-5 lg:mb-6 3xsm:mb-3 sm:mb-0 8xsm:mb-2 3md:mb-4 nesthub:mb-0 nesthubMax:mb-1 2xl:mb-[.375rem]">
       <a
         href="https://facebook.com/bytepushersinc"
         target="_blank"
@@ -24,7 +24,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         <fa-icon [icon]="faFacebook" class="8xsm:text-3xl 7xsm:text-2xl 6xsm:text-2xl 5xsm:text-3xl 4xsm:text-3xl 3xsm:text-3xl sm:text-2xl md:text-4xl 3md:text-5xl lg:text-5xl xl:text-5xl ipadpro:text-5xl nesthub:text-2xl 2xl:text-3xl 3xl:text-4xl hover:text-yellow-400"></fa-icon>
       </a>
     </li>
-    <li class="mb-2 3xsm:mb-3 sm:mb-0 8xsm:mb-2 3md:mb-4 nesthub:mb-0 nesthubMax:mb-1 2xl:mb-[.375rem]">
+    <li class="mb-2 ipadmini:mb-3 ipadpro:mb-5 lg:mb-6 3xsm:mb-3 sm:mb-0 8xsm:mb-2 3md:mb-4 nesthub:mb-0 nesthubMax:mb-1 2xl:mb-[.375rem]">
       <a
         href="https://twitter.com/BytePushersInc"
         target="_blank"
@@ -34,7 +34,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         <fa-icon [icon]="faTwitter" class="8xsm:text-3xl 7xsm:text-2xl 6xsm:text-2xl 5xsm:text-3xl 4xsm:text-3xl 3xsm:text-3xl sm:text-2xl md:text-4xl lg:text-5xl 3md:text-5xl  xl:text-5xl ipadpro:text-5xl nesthub:text-2xl 2xl:text-3xl 3xl:text-4xl hover:text-yellow-400"></fa-icon>
       </a>
     </li>
-    <li class="mb-2 3xsm:mb-3 sm:mb-0 8xsm:mb-2 3md:mb-4 nesthub:mb-0 nesthubMax:mb-1 2xl:mb-[.375rem]">
+    <li class="mb-2 ipadmini:mb-3 ipadpro:mb-5 lg:mb-6 3xsm:mb-3 sm:mb-0 8xsm:mb-2 3md:mb-4 nesthub:mb-0 nesthubMax:mb-1 2xl:mb-[.375rem]">
       <a
         href="https://www.instagram.com/bytepushersinc/"
         target="_blank"
@@ -44,7 +44,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         <fa-icon [icon]="faInstagram" class="8xsm:text-3xl 7xsm:text-2xl 6xsm:text-2xl 5xsm:text-3xl 4xsm:text-3xl 3xsm:text-3xl sm:text-2xl md:text-4xl lg:text-5xl 3md:text-5xl  xl:text-5xl ipadpro:text-5xl nesthub:text-2xl 2xl:text-3xl 3xl:text-4xl hover:text-yellow-400"></fa-icon>
       </a>
     </li>
-    <li class="mb-2 3xsm:mb-3 sm:mb-0 8xsm:mb-2 3md:mb-4 nesthub:mb-0 nesthubMax:mb-1 2xl:mb-[.375rem]">
+    <li class="mb-2 ipadmini:mb-3 ipadpro:mb-5 lg:mb-6 3xsm:mb-3 sm:mb-0 8xsm:mb-2 3md:mb-4 nesthub:mb-0 nesthubMax:mb-1 2xl:mb-[.375rem]">
       <a
         href="https://www.linkedin.com/company/bytepushersinc/"
         target="_blank"
@@ -54,7 +54,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         <fa-icon [icon]="faLinkedin" class="8xsm:text-3xl 7xsm:text-2xl 6xsm:text-2xl 5xsm:text-3xl 4xsm:text-3xl 3xsm:text-3xl sm:text-2xl md:text-4xl lg:text-5xl 3md:text-5xl  xl:text-5xl ipadpro:text-5xl nesthub:text-2xl 2xl:text-3xl 3xl:text-4xl hover:text-yellow-400"></fa-icon>
       </a>
     </li>
-    <li class="mb-2 3xsm:mb-3 sm:mb-0 8xsm:mb-2 3md:mb-4 nesthub:mb-0 nesthubMax:mb-1 2xl:mb-[.375rem]">
+    <li class="mb-2 ipadmini:mb-3 ipadpro:mb-5 lg:mb-6 3xsm:mb-3 sm:mb-0 8xsm:mb-2 3md:mb-4 nesthub:mb-0 nesthubMax:mb-1 2xl:mb-[.375rem]">
       <a
         href="https://www.youtube.com/@bytepushersinc"
         target="_blank"
