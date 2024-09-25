@@ -1,0 +1,176 @@
+<!-- just test change  //-->
+<nav *ngIf="!isUserLoggedIn" class="topnav fade-in-second" id="topnav">
+  <div class="topnav-container">
+    <div
+      class="callToAction one"
+      [ngStyle]="setCTAColor()"
+      [ngClass]="showSmallLogo() ? 'fsReduced' : ''"
+      *ngIf="!isScrolled"
+    >
+      Contact Us <br />
+      <a href="tel:1800-441-8935" title="Call to Bytepushers"
+        >1 (800) 441-8935</a
+      >
+    </div>
+    <div
+      class="callToAction two"
+      [ngStyle]="setCTAColor()"
+      *ngIf="isScrolled && hideAfter1000() && !isMobileNavOpen"
+    >
+      <div *ngIf="!isMobile()">
+        Contact Us:
+        <a href="tel:1800-441-8935" title="Call to Bytepushers"
+          >1 (800) 441-8935</a
+        >
+      </div>
+      <div *ngIf="isMobile()">
+        Contact Us <br /><a href="tel:1800-441-8935" title="Call to Bytepushers"
+          >1 (800) 441-8935</a
+        >
+      </div>
+    </div>
+    <div class="topnav-mobile-menu" (click)="checkMobileNav()">
+      <app-hamburgur
+        *ngIf="!isMobileNavOpen"
+        [logoColor]="hamburgerColor"
+      ></app-hamburgur>
+      <svg
+        *ngIf="isMobileNavOpen"
+        id="Layer_1"
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 86 86"
+      >
+        <rect
+          x="-6.69"
+          y="32.06"
+          width="80"
+          height="20"
+          transform="translate(43.31 -17.94) rotate(45)"
+        />
+        <rect
+          x="2"
+          y="42"
+          width="80"
+          height="20"
+          transform="translate(104.56 43.31) rotate(135)"
+        />
+      </svg>
+    </div>
+    <a class="topnav-logo" [routerLink]="'/home'">
+      <!-- <div class="topnav-logo-img"></div> -->
+      <app-logo-text-bottom
+        title="Byte Pushers Inc."
+        [logoColor]="logoTextBottomColor"
+        *ngIf="showSmallLogo() && !isScrolled"
+      ></app-logo-text-bottom>
+      <app-logo-text-aside
+        title="Byte Pushers Inc."
+        *ngIf="!showSmallLogo() && !isScrolled"
+        (click)="scrollTo.toTopOfPage()"
+        [logoColor]="logoTextColor"
+      ></app-logo-text-aside>
+      <app-logo-only-text
+        title="Byte Pushers Inc."
+        *ngIf="isScrolled"
+      ></app-logo-only-text>
+    </a>
+    <div class="topnav-links-container" id="topnav-mobile-links">
+      <ul class="topnav-links">
+        <li class="topnav-link-item">
+          <a
+            class="topnav-link"
+            [routerLink]="'/home'"
+            routerLinkActive="active"
+            (click)="openCloseMobileNav(); setTopToZero()"
+            [ngStyle]="setColor('/home')"
+          >
+            Home
+          </a>
+        </li>
+        <li class="topnav-link-item">
+          <a
+            class="topnav-link"
+            [routerLink]="'/services'"
+            routerLinkActive="active"
+            (click)="
+              scrollTo.toTopOfPage(); openCloseMobileNav(); setTopToZero()
+            "
+            [ngStyle]="setColor('/services')"
+            >Services</a
+          >
+        </li>
+        <li class="topnav-link-item">
+          <a
+            class="topnav-link"
+            [routerLink]="'/work'"
+            routerLinkActive="active"
+            (click)="
+              scrollTo.toTopOfPage(); openCloseMobileNav(); setTopToZero()
+            "
+            [ngStyle]="setColor('/work')"
+            >Work</a
+          >
+        </li>
+        <li class="topnav-link-item">
+          <a
+            class="topnav-link"
+            [routerLink]="'/about'"
+            routerLinkActive="active"
+            (click)="
+              scrollTo.toTopOfPage(); openCloseMobileNav(); setTopToZero()
+            "
+            [ngStyle]="setColor('/about')"
+            >About Us</a
+          >
+        </li>
+        <li class="topnav-link-item">
+          <a
+            class="topnav-link"
+            [routerLink]="'/contact'"
+            routerLinkActive="active"
+            (click)="
+              scrollTo.toTopOfPage();
+              openCloseMobileNav();
+              refreshPage();
+              setTopToZero()
+            "
+            [ngStyle]="setColor('/contact')"
+            >Contact</a
+          >
+        </li>
+        <li class="topnav-link-item" *ngIf="hideTill1060()">
+          <a
+            class="standardYelloBtn"
+            [routerLink]="'/contact'"
+            routerLinkActive="active"
+            (click)="
+              scrollTo.toTopOfPage(); openCloseMobileNav(); goToReqQuote()
+            "
+            >Request A Quote</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- admin Nav starts here  -->
+<div *ngIf="isUserLoggedIn" class="adminNav">
+  <div class="containeraAdminNav">
+    <a class="topnav-logo" [routerLink]="'/admin/dashboard'">
+      <div class="topnav-logo-img"></div>
+    </a>
+    <ul>
+      <li>
+        <a [routerLink]="'/admin/dashboard'" routerLinkActive="active"
+          >Dashboard</a
+        >
+      </li>
+      <li>
+        <a [routerLink]="'/admin/quotes'" routerLinkActive="active">Quotes</a>
+      </li>
+      <li><a href="javascript:void(0)" (click)="logout()">Logout</a></li>
+    </ul>
+  </div>
+</div>

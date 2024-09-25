@@ -29,5 +29,9 @@ public interface TestConstants {
 
     String USER_MIDDLE_NAME = "Middle Name";
 
+    String USER_COMPANY = "Company";
+
+    String HUBSPOT_RESPONSE_ID = "id";
+    Integer HUBSPOT_RESPONSE_ID_VALUE = 1122;
 
 }

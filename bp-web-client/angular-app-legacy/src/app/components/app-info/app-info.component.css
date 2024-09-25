@@ -1,0 +1,140 @@
+.contact-info {
+  background: #fff;
+  width: 100%;
+  padding: 50px 0 !important;
+}
+
+.featuredProjectsDesc {
+  color: #fff;
+  font-size: 2.2em;
+  float: left;
+  text-align: left;
+}
+
+.headContent {
+  padding: 45px;
+  margin: 0px;
+  width: 50%;
+  float: left;
+}
+
+.headContent h3 {
+  color: #3466aa;
+  font-size: 35px;
+  margin: 0 0 15px 0;
+  padding: 0px;
+  font-weight: 400;
+}
+
+.featuredProjectsHeadContent {
+  padding: 45px;
+
+  width: 50%;
+  float: left;
+}
+
+.featuredProjectsHeadContent h3 {
+  color: #ffffff;
+  font-size: 35px;
+  margin: 0 0 15px 0;
+  padding: 0px;
+  font-weight: 400;
+}
+
+.rightcontent {
+  float: right;
+  width: 50%;
+  padding: 70px 0px 70px 50px;
+  border-left: solid 1px #000;
+  text-align: center;
+}
+
+.rightcontent h3 {
+  color: #3466aa;
+  font-size: 25px;
+  padding: 0px;
+  font-weight: 400;
+}
+
+.rightcontent button {
+  border: solid 2px #3466aa;
+  background: none;
+  padding: 10px 25px;
+  margin: 0px;
+  color: #3466aa;
+  outline: none;
+  border-radius: 4px;
+}
+
+.featuredProjectsRightContent {
+  float: right;
+  width: 50%;
+  padding: 30px 0px 0px 125px;
+  text-align: center;
+}
+
+.contact-info-mobile {
+  background: #fff;
+  width: 100%;
+  padding: 70px 0;
+}
+
+.headContent-mobile {
+  margin: 0px;
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+
+.headContent-mobile h3 {
+  color: #3466aa;
+  font-size: 25px;
+  margin: 0 0 15px 0;
+  padding: 0px;
+  font-weight: 400;
+}
+
+.rightcontent-mobile {
+  float: right;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+.lets-talk-button {
+  padding: 10px !important;
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1500px) {
+  .lets-talk-padding {
+    padding-top: 60px;
+    padding-right: 90px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 980px) {
+  .lets-talk-padding {
+    padding-top: 90px;
+  }
+}
+
+.rightcontent-mobile button {
+  border: solid 2px #3466aa;
+  background: none;
+  width: 100%;
+  padding: 20px;
+  margin: 0px;
+  color: #3466aa;
+  outline: none;
+  border-radius: 4px;
+}
+
+.buildIdeaSec {
+  width: 100%;
+}
+
+@media only screen and (min-width: 500) and (max-width: 800px) {
+  .lets-talk-button {
+    width: 0px;
+  }
+}

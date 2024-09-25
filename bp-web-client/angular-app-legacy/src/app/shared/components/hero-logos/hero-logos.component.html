@@ -1,0 +1,26 @@
+<section class="logos d-flex j-c-s-b" [ngClass]="!hideTill820() ? 'w100' : ''">
+  <div class="leftLogos d-flex j-c-s-b a-center f-f-wrap" *ngIf="hideTill820()">
+    <h2 [ngStyle]="setcolor()">The companies we keep…</h2>
+    <app-avial-logo [logoColor]="colorofLogos"></app-avial-logo>
+    <app-tilster-logo [logoColor]="colorofLogos"></app-tilster-logo>
+    <app-va-logo [logoColor]="colorofLogos"></app-va-logo>
+    <app-llnl-logo [logoColor]="colorofLogos"></app-llnl-logo>
+  </div>
+  <div class="btmArrow" [ngClass]="!hideTill820() ? 'w15' : ''">
+    <a class="" pageScroll pageScrollOffset="80" href="#top-section">
+      <app-arrow-bottom [logoColor]="colorofLogos"></app-arrow-bottom>
+    </a>
+  </div>
+  <div class="rightLogos d-flex j-c-s-b f-f-wrap" *ngIf="hideTill820()">
+    <h2 [ngStyle]="setcolor()"></h2>
+    <app-ge-logo [logoColor]="colorofLogos"></app-ge-logo>
+    <app-texas-instruments-logo
+      [logoColor]="colorofLogos"
+    ></app-texas-instruments-logo>
+    <app-vartec-logo [logoColor]="colorofLogos"></app-vartec-logo>
+    <!-- <app-thomson-reuters-logo
+      [logoColor]="colorofLogos"
+    ></app-thomson-reuters-logo> -->
+    <app-zynxhealth-logo [logoColor]="colorofLogos"></app-zynxhealth-logo>
+  </div>
+</section>
