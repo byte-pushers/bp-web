@@ -1,0 +1,65 @@
+<div *ngIf="isModalPopup">
+  <div class="backdrop"></div>
+  <div class="popup">
+    <div class="popupHeader">
+      <div
+        class="title"
+        [ngClass]="[
+          popup.type == 'Error' ? 'error' : '',
+          popup.type == 'Info' ? 'info' : ''
+        ]"
+      >
+        {{ popup.title }}
+      </div>
+      <Button class="clsPopup" (click)="close()"
+        ><fa-icon [icon]="faClose"></fa-icon
+      ></Button>
+    </div>
+    <div class="popupBody">
+      <div
+        class="flag"
+        [ngClass]="[
+          popup.type == 'Error' ? 'error' : '',
+          popup.type == 'Info' ? 'info' : ''
+        ]"
+        *ngFor="let message of popup.messages"
+      >
+        <!--<fa-icon [icon]="faWarning"></fa-icon>-->
+        <fa-icon [icon]="faCircle" style="font-size: 12px"></fa-icon>
+        <div class="content">
+          {{ message }}
+        </div>
+      </div>
+    </div>
+    <div class="popupFooter">
+      <button
+        type="button"
+        *ngIf="
+          popup.type == 'Error' ||
+          popup.type == 'Info' ||
+          popup.type == 'Warning'
+        "
+        class="outlined"
+        (click)="close()"
+      >
+        Close
+      </button>
+      <button
+        type="button"
+        *ngIf="popup.type == 'Confirm'"
+        class="outlined"
+        (click)="close()"
+      >
+        Cancel
+      </button>
+      <button
+        type="button"
+        *ngIf="popup.type == 'Confirm'"
+        class="filled"
+        (click)="close()"
+      >
+        Confirm
+      </button>
+    </div>
+  </div>
+</div>

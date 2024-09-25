@@ -1,0 +1,82 @@
+<div class="bytepushersPopup" *ngIf="isBPpopup">
+  <!-- <div class="bytepushersPopup"> -->
+  <div class="popupHeader d-flex j-c-s-b">
+    <div class="title"></div>
+    <!-- <button class="close">X</button> -->
+  </div>
+  <div class="popupBody">
+    <div class="ctaForm" *ngIf="ctaequestObj == 'bottomLayout'">
+      <h3>Want to Learn more?</h3>
+      <form [formGroup]="ctaForm" (ngSubmit)="onCTASubmit()" novalidate>
+        <input
+          type="text"
+          class="form-control name"
+          formControlName="ctaName"
+          placeholder="Name"
+        />
+        <div
+          *ngIf="ctaName.invalid && (ctaName.dirty || ctaName.touched)"
+          class="alert alert-danger"
+        >
+          <div *ngIf="ctaName.errors.required">Name is required.</div>
+          <div *ngIf="ctaName.errors.minlength">
+            Name must be atleast 3 letters.
+          </div>
+        </div>
+        <input
+          type="email"
+          class="form-control email"
+          formControlName="ctaEmail"
+          placeholder="Email"
+        />
+        <div
+          *ngIf="ctaEmail.invalid && (ctaEmail.dirty || ctaEmail.touched)"
+          class="alert alert-danger"
+        >
+          <div *ngIf="ctaEmail.errors.required">Email is required.</div>
+          <div *ngIf="ctaEmail.errors.minlength">
+            A minimum of 2 letters are required.
+          </div>
+          <div *ngIf="ctaEmail.errors.email">Email is not valid.</div>
+        </div>
+        <!-- <button type="submit" class="standardYelloBtn">Connect with Us</button> -->
+      </form>
+    </div>
+
+    <div class="ctaDetails" *ngIf="ctaequestObj != 'bottomLayout'">
+      <h3>Verify your details and provide Consent.</h3>
+      <div class="detailRow d-flex">
+        <div class="lable">Name :</div>
+        <div class="lableData">
+          {{ ctaequestObj.firstName }} {{ ctaequestObj.middleName
+          }}{{ ctaequestObj.lastName }}
+        </div>
+      </div>
+      <div class="detailRow d-flex">
+        <div class="lable">Email :</div>
+        <div class="lableData">{{ ctaequestObj.email }}</div>
+      </div>
+    </div>
+    <div class="consent d-flex a-center">
+      <label class="container"
+        >Please provide your Consent.
+        <input type="checkbox" (change)="setConsent($event)" />
+        <span class="checkmark"></span>
+        <p class="disclimer">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry.Lorem Ipsum has been the industry's standard dummy text
+          including versions of Lorem Ipsum. Lorem Ipsum has been the industry's
+          standard dummy text including versions of Lorem Ipsum.
+        </p>
+      </label>
+    </div>
+  </div>
+  <div class="popupfooter">
+    <button (click)="closeCTA()" class="secondaryBtn">Cancle</button>
+    <button [disabled]="!userConsent" (click)="saveCTA()" class="primaryBtn">
+      Submit
+    </button>
+  </div>
+</div>
+<!-- <div class="grayOverlay"></div> -->
+<div class="grayOverlay" *ngIf="isBPpopup"></div>
