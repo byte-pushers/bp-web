@@ -1,6 +1,7 @@
 package software.bytepushers.bpweb.utils;
 
 import org.fluttercode.datafactory.impl.DataFactory;
+import software.bytepushers.bpweb.model.dto.HubSpotContactDto;
 import software.bytepushers.bpweb.model.dto.LoginDto;
 import software.bytepushers.bpweb.model.dto.UserDetailsDto;
 import software.bytepushers.bpweb.model.dto.UserDto;
@@ -8,9 +9,7 @@ import software.bytepushers.bpweb.model.dto.enums.AccountTypeEnum;
 import software.bytepushers.bpweb.model.entity.*;
 
 import java.time.LocalDateTime;
-import java.util.Collections;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 import static software.bytepushers.bpweb.utils.TestConstants.*;
 
@@ -167,5 +166,21 @@ public class ModelUtils {
         return accountType;
     }
 
+    public static HubSpotContactDto hubspotContactEntity() {
+        HubSpotContactDto hubSpotContactDto = new HubSpotContactDto();
+        hubSpotContactDto.setFirstname(USER_FIRST_NAME);
+        hubSpotContactDto.setLastname(USER_LAST_NAME);
+        hubSpotContactDto.setEmail(USER_EMAIL);
+        hubSpotContactDto.setCompany(USER_COMPANY);
+        hubSpotContactDto.setConsent(true);
+        hubSpotContactDto.setLandingPageCategory(USER_COMPANY);
+        return hubSpotContactDto;
+    }
+
+    public static Map hubspotContactResponseEntity() {
+        Map hubspotContactResponse = new HashMap();
+        hubspotContactResponse.put(HUBSPOT_RESPONSE_ID, HUBSPOT_RESPONSE_ID_VALUE);
+        return hubspotContactResponse;
+    }
 }
 

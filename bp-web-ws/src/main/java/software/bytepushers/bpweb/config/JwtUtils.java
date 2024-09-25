@@ -36,8 +36,8 @@ public class JwtUtils {
      * @param roles    to add in jwt token.
      * @return the valid jwt token.
      */
-    public String generateJwtToken(String username, List<String> roles, int expirationInMilliseconds) {
-        Date expiration = new Date(System.currentTimeMillis() + expirationInMilliseconds);
+    public String generateJwtToken(String username, List<String> roles, Date expiration) {
+//        Date expiration = new Date(System.currentTimeMillis() + expirationInMilliseconds);
         return Jwts.builder().setSubject(username)
                 .setIssuer(String.join(JWT_ROLE_JOIN_DELIMITER, roles))
                 .setExpiration(expiration)
