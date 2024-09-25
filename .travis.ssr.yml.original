@@ -1,0 +1,38 @@
+language: node_js
+node_js:
+  - 17
+addons:
+  apt:
+    packages:
+      - lftp
+cache:
+  directories:
+    - "bp-web-client/angular-app/node_modules"
+before_install:
+  - pyenv global 3.7.13
+  - pip install -U pip
+  - pip install awscli
+  - cd bp-web-client/angular-app/
+install:
+  - npm install
+script:
+  - if [ $TRAVIS_BRANCH = "master" ]; then
+    echo -e "Running npm run build";
+    npm run build:ssr:production;
+    else
+    echo -e "Running npm run build";
+    npm run build:ssr;
+    fi;
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script: npm run deploy-bytepushers-services-2-godaddy
+    on:
+      branch: feature/deployment-refactor
+notifications:
+  email:
+    recipients:
+      - tonte.pouncil@bytepushers.software
+      - jsurya352@gmail.com
+    on_success: always
+    on_failure: always

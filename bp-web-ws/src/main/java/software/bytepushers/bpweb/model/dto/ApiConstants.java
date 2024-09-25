@@ -24,6 +24,10 @@ public class ApiConstants {
     public static final String API_VALIDATION_ERROR_E004 = "api.validation.error.e004";
     public static final String API_VALIDATION_MESSAGE_E004 = "Quote not found to delete having quoteId $0";
     public static final String API_VALIDATION_DEBUG_MESSAGE_E004 = "Quote must be exist in the database having quiteId $0 to delete";
+
+    public static final String API_VALIDATION_ERROR_E005 = "api.validation.error.e005";
+    public static final String API_VALIDATION_MESSAGE_E005 = "Issue to create contact into hubspot: $0";
+    public static final String API_VALIDATION_DEBUG_MESSAGE_E005 = "Issue to create contact into hubspot";
     public static final String QUOTE_FIELD = "quote";
 
 
@@ -34,7 +38,9 @@ public class ApiConstants {
         QUOTE_EMPTY_ERROR(API_VALIDATION_ERROR_E001, API_VALIDATION_MESSAGE_E001, API_VALIDATION_DEBUG_MESSAGE_E001),
         QUOTE_NOT_FOUND_TO_UPDATE(API_VALIDATION_ERROR_E002, API_VALIDATION_MESSAGE_E002, API_VALIDATION_DEBUG_MESSAGE_E002),
         QUOTE_NOT_FOUND_TO_SEARCH(API_VALIDATION_ERROR_E003, API_VALIDATION_MESSAGE_E003, API_VALIDATION_DEBUG_MESSAGE_E003),
-        QUOTE_NOT_FOUND_TO_DELETE(API_VALIDATION_ERROR_E004, API_VALIDATION_MESSAGE_E004, API_VALIDATION_DEBUG_MESSAGE_E004);
+        QUOTE_NOT_FOUND_TO_DELETE(API_VALIDATION_ERROR_E004, API_VALIDATION_MESSAGE_E004, API_VALIDATION_DEBUG_MESSAGE_E004),
+
+        HUBSPOT_CONTACT_CREATE_ISSUE(API_VALIDATION_ERROR_E005, API_VALIDATION_MESSAGE_E005, API_VALIDATION_DEBUG_MESSAGE_E005);
 
         private final String code;
         private final String message;

@@ -1,0 +1,88 @@
+<main class="page">
+  <!-- newly refactored code -->
+  <section
+    class="headerTheme"
+    [ngStyle]="setThemeBGImg()"
+    [ngClass]="showBorders() ? 'bordersTrue' : ''"
+  >
+    <section class="header"></section>
+    <section class="bodyContent">
+      <div class="customContainer">
+        <div class="twoCol d-flex j-c-s-b a-bottom">
+          <div class="contentArea d-flex flexWrap a-bottom flexEnd">
+            <div class="empty"></div>
+            <div class="content bottomLayout">
+              <div class="home-hero-text">
+                <strong>Design</strong>, <strong>Develop</strong> and
+                <strong>Deliver</strong> your ideas <br /><strong
+                  style="color: #62a3d9"
+                  >on time</strong
+                >
+                and <strong style="color: #62a3d9">under budget</strong>.
+              </div>
+            </div>
+          </div>
+          <div class="socialMediaIcons d-flex a-center">
+            <app-social-media></app-social-media>
+          </div>
+        </div>
+      </div>
+    </section>
+    <a class="icon-down-open-big hero-arrow" (click)="scrollToTop()">
+      <img
+        alt="caret"
+        src="assets/images/caret.svg"
+        style="width: 50px; height: 50px"
+      />
+    </a>
+  </section>
+  <div class="main-content-container" id="top-section">
+    <section class="gray-background">
+      <div class="section">
+        <p style="text-align: center; font-size: 1.4em">
+          When you enjoy what you do, it's kind of hard to call it work!
+        </p>
+      </div>
+    </section>
+    <section style="padding-bottom: 0px !important">
+      <div class="section-heading">Featured Projects</div>
+      <div class="section-subheading">
+        Our philosophy and expertise<span class="br-mobile"></span> are best
+        represented by<span class="br-mobile"></span> our labors of love.
+      </div>
+    </section>
+    <section class="section-image">
+      <div class="featuresSections">
+        <div class="fadein-out-features" id="cp3Desc">
+          <div class="featuresContent">
+            <a href="{{ chucksPick3Url }}">
+              <img src="assets/images/homePage/chucksPick3ColorLogo.svg" />
+            </a>
+            <h2 style="color: aliceblue; font-size: 40px">Chuck's Pick 3</h2>
+            <p>
+              Increase your chances of winning the Pick 3 Lottery with Chuck's
+              picks! Stay up to date on the latest winning Pick 3 Lottery
+              numbers, receive notifications of generated winning numbers, track
+              your history and much much more!
+            </p>
+            <a href="{{ chucksPick3Url }}" class="chucks-pick3-link"
+              >Read More</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <img
+      class="full-width"
+      src="assets/images/aboutPage/bytePushersAboutPageSplashScreenBackground.png"
+      alt="Office 3"
+    />
+    <section class="gray-background">
+      <div class="section">
+        <p style="text-align: center; font-size: 1.4em">
+          Collaboration + Cohesion, makes for a fun productive team!
+        </p>
+      </div>
+    </section>
+  </div>
+</main>

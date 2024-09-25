@@ -1,156 +1,32 @@
-matrix:
-  include:
-    - language: java
-      jdk: oraclejdk11
-      cache:
-        directories:
-          - "$HOME/.m2"
-      before_install:
-        - pyenv global 3.7.13
-        - pip install -U pip
-        - pip install awscli
-      install:
-        - mvn clean install -P aws
-      before_deploy:
-        - cp -Rf 'bp-web-ws/target/bp-web-ws.jar' ${S3_DEPLOYMENT_OBJECT_NAME}
-      deploy:
-        - provider: cloudformation
-          access_key_id: ${AWS_ACCESS_KEY_ID}
-          secret_access_key: ${AWS_SECRET_ACCESS_KEY}
-          region: us-east-2
-          wait: true
-          template: bp-web-ws/aws-cloudformation/cloud-formation-deployment-bucket-template.yaml
-          stack_name: bytepushers-bp-web-deployment-bucket
-          parameters:
-            - BucketName=${S3_DEPLOYMENT_BUCKET}
-          capabilities:
-            [CAPABILITY_NAMED_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND]
-          edge: true
-          skip_cleanup: true
-          on:
-            branch: develop
-        - provider: s3
-          access_key_id: ${AWS_ACCESS_KEY_ID}
-          secret_access_key: ${AWS_SECRET_ACCESS_KEY}
-          bucket: ${S3_DEPLOYMENT_BUCKET}
-          region: us-east-2
-          skip_cleanup: true
-          glob: ${S3_DEPLOYMENT_OBJECT_NAME}
-          edge: true
-          on:
-            branch: develop
-        - provider: cloudformation
-          access_key_id: ${AWS_ACCESS_KEY_ID}
-          secret_access_key: ${AWS_SECRET_ACCESS_KEY}
-          region: us-east-2
-          wait: true
-          template: bp-web-ws/aws-cloudformation/cloud-formation-template.yaml
-          stack_name: bytepushers-bp-web-ws
-          parameters:
-            - BucketName=${S3_DEPLOYMENT_BUCKET}
-            - ObjectName=${S3_DEPLOYMENT_OBJECT_NAME}
-            - CorsLambdaObjectName=cors-lambda.zip
-            - CorsOrigin=${CORS_ALLOWED_ORIGIN}
-          capabilities:
-            [CAPABILITY_NAMED_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND]
-          edge: true
-          skip_cleanup: true
-          on:
-            branch: develop
-        - provider: script
-          script: aws lambda update-function-code --publish --function-name bytepushers-bpweb-ws --s3-bucket ${S3_DEPLOYMENT_BUCKET} --s3-key ${S3_DEPLOYMENT_OBJECT_NAME} --region us-east-2
-          on:
-            branch: develop
-
-        - provider: cloudformation
-          access_key_id: ${AWS_ACCESS_KEY_ID}
-          secret_access_key: ${AWS_SECRET_ACCESS_KEY}
-          region: us-east-2
-          wait: true
-          template: bp-web-ws/aws-cloudformation/cloud-formation-deployment-bucket-template.yaml
-          stack_name: bytepushers-bp-web-deployment-bucket
-          parameters:
-            - BucketName=${S3_DEPLOYMENT_BUCKET}
-          capabilities:
-            [CAPABILITY_NAMED_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND]
-          edge: true
-          skip_cleanup: true
-          on:
-            branch: master
-        - provider: s3
-          access_key_id: ${AWS_ACCESS_KEY_ID}
-          secret_access_key: ${AWS_SECRET_ACCESS_KEY}
-          bucket: ${S3_DEPLOYMENT_BUCKET}
-          region: us-east-2
-          skip_cleanup: true
-          glob: ${S3_DEPLOYMENT_OBJECT_NAME}
-          edge: true
-          on:
-            branch: master
-        - provider: cloudformation
-          access_key_id: ${AWS_ACCESS_KEY_ID}
-          secret_access_key: ${AWS_SECRET_ACCESS_KEY}
-          region: us-east-2
-          wait: true
-          template: bp-web-ws/aws-cloudformation/cloud-formation-template.yaml
-          stack_name: bytepushers-bp-web-ws
-          parameters:
-            - BucketName=${S3_DEPLOYMENT_BUCKET}
-            - ObjectName=${S3_DEPLOYMENT_OBJECT_NAME}
-            - CorsLambdaObjectName=cors-lambda.zip
-            - CorsOrigin=${CORS_ALLOWED_ORIGIN}
-          capabilities: [ CAPABILITY_NAMED_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND ]
-          edge: true
-          skip_cleanup: true
-          on:
-            branch: master
-        - provider: script
-          script: aws lambda update-function-code --publish --function-name bytepushers-bpweb-ws --s3-bucket ${S3_DEPLOYMENT_BUCKET} --s3-key ${S3_DEPLOYMENT_OBJECT_NAME} --region us-east-2
-          on:
-            branch: master
-
-    - language: node_js
-      addons:
-        apt:
-          packages:
-            - lftp
-      node_js:
-        - “14.20”
-      cache:
-        directories:
-          - "bp-web-client/angular-app/node_modules"
-      before_install:
-        - pyenv global 3.7.13
-        - pip install -U pip
-        - pip install awscli
-        - cd bp-web-client/angular-app/
-      install:
-        - npm install
-      script:
-        - if [ $TRAVIS_BRANCH = "master" ]; then
-          echo -e "Running npm run build --configuration production";
-          npm run build -- --configuration production;
-          else
-          echo -e "Running npm run build --configuration development";
-          npm run build -- --configuration development;
-          fi;
-      deploy:
-        - provider: script
-          skip_cleanup: true
-          script: aws s3 sync dist/* ${STATIC_WEBSITE_S3_BUCKET_URL} && aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
-          on:
-            branch: develop
-        - provider: script
-          skip_cleanup: true
-          script: npm run deploy-2-godaddy && aws s3 sync dist/* ${STATIC_WEBSITE_S3_BUCKET_URL} && aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
-          on:
-            branch: master
+language: bash
+sudo: required
+services:
+- docker
+#script:
+#- make dockerpush
+#before_install:
+#- openssl aes-256-cbc -K $encrypted_9b862676235a_key -iv $encrypted_9b862676235a_iv
+#  -in deploy_key.enc -out ./deploy_key -d
+#- eval "$(ssh-agent -s)"
+#- chmod 600 ./deploy_key
+#- echo -e "Host 184.168.21.89\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+#- ssh-add ./deploy_key
+#- ssh -i ./deploy_key pouncilt@184.168.21.89 pwd
+#after_success:
+#  - docker login -u ${DOCKER_USERNAME} -p ${DOCKER_USER_TOKEN}
+#  - echo "${SSH_KEY}" |  base64 --decode > /tmp/ssh_rsa
+#  - chmod 600 /tmp/ssh_rsa
+#  - ssh -o "StrictHostKeyChecking no" pouncilt@$184.168.21.89 -i /tmp/ssh_rsa "echo test > test.log"
+#  - ssh -o "StrictHostKeyChecking no" pouncilt@$184.168.21.89 -i /tmp/ssh_rsa "cd ${INSTALL_LOCATION} && git pull ${TRAVIS_BUILD_WEB_URL} && docker image build -t ${IMGNAME} ${INSTALL_LOCATION}/. && docker push ${IMGNAME} && docker stop discordbot; docker rm discordbot; docker run --name discordbot --restart always -d -e TOKEN=${TOKEN} ${IMGNAME}"
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script:
+      - make dockerpush
 notifications:
   email:
     recipients:
       - tonte.pouncil@bytepushers.software
-      - amanjotabroljava@gmail.com
-      - kailachetan9@gmail.com
       - jsurya352@gmail.com
     on_success: always
     on_failure: always

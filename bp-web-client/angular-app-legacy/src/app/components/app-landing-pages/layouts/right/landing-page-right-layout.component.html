@@ -1,0 +1,33 @@
+<!-- newly refactored code -->
+<section
+  class="headerTheme"
+  [ngStyle]="setThemeBGImg()"
+  [ngClass]="showBorders() ? 'bordersTrue' : ''"
+>
+  <section class="header"></section>
+  <section class="bodyContent">
+    <div class="customContainer">
+      <div class="twoCol d-flex j-c-s-b a-bottom">
+        <div class="socialMediaIcons d-flex a-center">
+          <app-social-media></app-social-media>
+        </div>
+        <div class="contentArea d-flex j-c-s-b a-center">
+          <div class="empty"></div>
+          <div class="content rightLayout d-flex">
+            <div class="w35"></div>
+            <div class="w65 d-flex flexColumn flexEnd">
+              <h2 [ngStyle]="setTitleColor()" [innerHTML]="contentTitle"></h2>
+              <p
+                class="MADslogan"
+                [ngStyle]="setThemeSecondaryColor()"
+                [innerHTML]="slogan"
+              ></p>
+              <app-cta-form [theme]="theme" [layout]="'Right'"></app-cta-form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <app-hero-logos [colorofLogos]="setThemeSecondaryColor()"></app-hero-logos>
+</section>
