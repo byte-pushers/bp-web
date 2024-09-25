@@ -20,7 +20,9 @@ import java.io.IOException;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -97,7 +99,8 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
                 log.info("Lucky User. Refreshing token before it getting expired.");
                 String username = expiredJwtTokenClaims.getSubject();
                 List<String> roles = this.jwtUtils.getRoles(expiredJwtTokenClaims);
-                String refreshedToken = this.jwtUtils.generateJwtToken(username, roles, TOKEN_EXPIRY_TIME);
+                Date expiration = new Date(System.currentTimeMillis() + TOKEN_EXPIRY_TIME);
+                String refreshedToken = this.jwtUtils.generateJwtToken(username, roles, expiration);
                 this.jwtUtils.sendTokenInCookie(refreshedToken, request, response);
 
                 ApplicationUser refreshedUser = this.jwtUtils.parseToken(refreshedToken);
