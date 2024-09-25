@@ -1,0 +1,14 @@
+services:
+  bp-web:
+    container_name: bp-web-angular-app-container
+    build: .
+    image: tontepouncil/bp-web:latest
+    ports:
+      - 4000:4000
+    expose:
+      - 4000
+    networks:
+      - internalnet
+networks:
+  internalnet:
+    driver: bridge

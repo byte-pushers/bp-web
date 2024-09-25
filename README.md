@@ -1,4 +1,4 @@
-# bp-web
+# bp-web project
 ![Travis CI Build](https://travis-ci.com/byte-pushers/bp-web.svg?branch=master)
 
 # Dev Setup
