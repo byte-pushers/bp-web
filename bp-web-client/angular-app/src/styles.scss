@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'assets/themes/theme.default', 'assets/themes/theme.default.dark', 'assets/themes/theme.mobile';
+
+[data-theme] {
+  color: var(--font-primary-color)
+}
+
+@font-face {
+  font-family: "Verlag XLight";
+  src: url("assets/fonts/Verlag-Font-Family/Verlag-XLight.ttf");
+}
+
+@font-face {
+  font-family: "Verlag Light Italic";
+  src: url("assets/fonts/Verlag-Font-Family/Verlag-LightItalic.ttf");
+}
+
+body {
+  background-image: var(--hero-home-background-image-left-url);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
