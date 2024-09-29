@@ -5,6 +5,7 @@ import { TilsterLogoComponent } from './tilster-logo/tilster-logo.component';
 import { ThomsonReutersLogoComponent } from './thomson-reuters-logo/thomson-reuters-logo.component';
 import { TexasInstrumentsLogoComponent } from './texas-instruments-logo/texas-instruments-logo.component';
 import { LLNLLogoComponent } from './llnl-logo/llnl-logo.component';
+import { GeLogoComponent } from './ge-logo/ge-logo.component';
 
 @Component({
   selector: 'app-companies-we-keep',
@@ -16,6 +17,7 @@ import { LLNLLogoComponent } from './llnl-logo/llnl-logo.component';
     ThomsonReutersLogoComponent,
     TexasInstrumentsLogoComponent,
     LLNLLogoComponent,
+    GeLogoComponent,
   ],
   templateUrl: './companies-we-keep.component.html',
   styleUrl: './companies-we-keep.component.scss',
