@@ -6,6 +6,7 @@ import { ThomsonReutersLogoComponent } from './thomson-reuters-logo/thomson-reut
 import { TexasInstrumentsLogoComponent } from './texas-instruments-logo/texas-instruments-logo.component';
 import { LLNLLogoComponent } from './llnl-logo/llnl-logo.component';
 import { GeLogoComponent } from './ge-logo/ge-logo.component';
+import { AvialLogoComponent } from './avial-logo/avial-logo.component';
 
 @Component({
   selector: 'app-companies-we-keep',
@@ -18,6 +19,7 @@ import { GeLogoComponent } from './ge-logo/ge-logo.component';
     TexasInstrumentsLogoComponent,
     LLNLLogoComponent,
     GeLogoComponent,
+    AvialLogoComponent,
   ],
   templateUrl: './companies-we-keep.component.html',
   styleUrl: './companies-we-keep.component.scss',
