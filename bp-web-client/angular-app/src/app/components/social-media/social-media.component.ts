@@ -1,4 +1,4 @@
-import { Component/*, Input*/ } from "@angular/core";
+import { Component, OnInit/*, Input*/ } from "@angular/core";
 import {
   faFacebook,
   faTwitter,
@@ -7,6 +7,7 @@ import {
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: "social-media",
@@ -66,13 +67,31 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     </li>
   </ul> `,
 })
-export class SocialMediaComponent {
+export class SocialMediaComponent implements OnInit {
   // @Input() isRightTemplate;
 
+  constructor(private route: ActivatedRoute) {
+  }
   faFacebook = faFacebook;
   faTwitter = faTwitter;
   faInstagram = faInstagram;
   faLinkedin = faLinkedin;
   faYoutube = faYoutube;
-  ngOnInit() {}
+  ngOnInit() {
+    this.route.queryParams.subscribe((params) => {
+      if (params?.['showBorders'] == "true") {
+        this.#showBorders((/true/i).test(params?.['showBorders']));
+      }
+    });
+  }
+
+  #showBorders(showBorders: boolean): void {
+    if (showBorders) {
+      document.querySelector('.border-0')?.classList.toggle('border-2', true);
+      document.querySelector('.border-0')?.classList.remove('border-0');
+    } else {
+      document.querySelector('.border-2')?.classList.toggle('border-0', false);
+      document.querySelector('.border-2')?.classList.remove('border-2');
+    }
+  }
 }
