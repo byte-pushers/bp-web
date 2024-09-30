@@ -33,11 +33,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    /*this.route.queryParams.subscribe((params) => {
-      if (params?.['showBorders'] == "true") {
-        this.#showBorders((/true/i).test(params?.['showBorders']));
-      }
-    });*/
+
   }
 
   #showBorders(showBorders: boolean): void {

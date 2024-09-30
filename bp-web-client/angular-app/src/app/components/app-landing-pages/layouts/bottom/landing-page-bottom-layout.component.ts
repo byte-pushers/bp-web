@@ -35,9 +35,11 @@ export class LandingPageBottomLayoutComponent implements OnInit, AfterViewInit{
 
   showBorders(): string {
     let style = '';
+
     if (this.borderVisible) {
       style = 'showBorders'
     }
+
     return style;
   }
 }
