@@ -51,6 +51,6 @@ export class DynamicComponentService {
       landingPageLayoutConfiguration = LANDING_PAGE_LAYOUT_CONFIGURATION_MAP.get(landingPageLayoutType);
     }
 
-    return landingPageLayoutConfiguration;
+    return landingPageLayoutConfiguration ? landingPageLayoutConfiguration : LANDING_PAGE_LAYOUT_CONFIGURATION_MAP.get('default');
   }
 }
