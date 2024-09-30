@@ -133,20 +133,20 @@ export class AppHomeComponent implements OnInit, AfterViewInit {
     // }
   }
 
-  private isMobileDevice(width: number, height: number) {
-    return this.findDeviceDimension('mobile', width, height);
+  private isMobileDevice(screenWidth: number, screenHeight: number) {
+    return this.findDeviceDimension('mobile', screenWidth, screenHeight);
   }
 
-  private isTabletDevice(width: number, height: number) {
-    return this.findDeviceDimension('tablet', width, height);
+  private isTabletDevice(screenWidth: number, screenHeight: number) {
+    return this.findDeviceDimension('tablet', screenWidth, screenHeight);
   }
 
-  private isDesktopDevice(width: number, height: number) {
-    return this.findDeviceDimension('desktop', width, height);
+  private isDesktopDevice(screenWidth: number, screenHeight: number) {
+    return this.findDeviceDimension('desktop', screenWidth, screenHeight);
   }
 
-  private findDeviceDimension(deviceName: string, width: number, height: number): boolean {
-    const foundDevice = this.#deviceDimensions.get(deviceName)?.some((deviceDimension) =>  width === deviceDimension.width && height === deviceDimension.height);
+  private findDeviceDimension(deviceName: string, screenWidth: number, screenHeight: number): boolean {
+    const foundDevice = this.#deviceDimensions.get(deviceName)?.some((deviceDimension) =>  screenWidth === deviceDimension.width && screenHeight === deviceDimension.height);
 
     return foundDevice != null ? foundDevice : false;
   }
