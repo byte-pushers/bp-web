@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostListener, Inject, Input, OnInit } from '@angular/core';
 import { VartecLogoComponent } from './vartec-logo/vartec-logo.component';
 import { VALogoComponent } from './va-logo/va-logo.component';
 import { TilsterLogoComponent } from './tilster-logo/tilster-logo.component';
@@ -7,11 +7,14 @@ import { TexasInstrumentsLogoComponent } from './texas-instruments-logo/texas-in
 import { LLNLLogoComponent } from './llnl-logo/llnl-logo.component';
 import { GeLogoComponent } from './ge-logo/ge-logo.component';
 import { AvialLogoComponent } from './avial-logo/avial-logo.component';
+import { NgIf } from '@angular/common';
+import { WINDOW } from '@app/services/windows/window';
 
 @Component({
   selector: 'app-companies-we-keep',
   standalone: true,
   imports: [
+    NgIf,
     VartecLogoComponent,
     VALogoComponent,
     TilsterLogoComponent,
@@ -24,6 +27,21 @@ import { AvialLogoComponent } from './avial-logo/avial-logo.component';
   templateUrl: './companies-we-keep.component.html',
   styleUrl: './companies-we-keep.component.scss',
 })
-export class CompaniesWeKeepComponent {
+export class CompaniesWeKeepComponent implements OnInit {
   @Input() logosColor: string | undefined;
+  public screenWidth: number;
+
+  constructor(@Inject(WINDOW) private window: Window) {
+    this.screenWidth = window.innerWidth;
+  }
+  ngOnInit(): void {}
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.screenWidth = this.window.innerWidth;
+  }
+
+  showFrom(allowedWidth: any) {
+    return allowedWidth <= this.screenWidth;
+  }
 }

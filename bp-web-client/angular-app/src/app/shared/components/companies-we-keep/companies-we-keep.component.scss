@@ -1,0 +1,33 @@
+.vartec {
+  width: 4%;
+}
+.va {
+  width: 14%;
+}
+.tilster {
+  width: 5%;
+}
+.thomson {
+  width: 3%;
+}
+.texas {
+  width: 3%;
+}
+.llnl {
+  width: 5%;
+}
+.ge {
+  width: 4%;
+}
+.avial {
+  padding: 8px;
+  width: 8%;
+}
+@media only screen and (max-width: 600px) {
+  .vartec {
+    width: 30%;
+  }
+  .va {
+    width: 40%;
+  }
+}

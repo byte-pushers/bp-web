@@ -12,7 +12,6 @@ export class VartecLogoComponent {
   @Input() fillColor: any;
 
   setFillColor() {
-    console.log(this.fillColor);
     let styles = {
       fill: this.fillColor,
     };
