@@ -23,11 +23,73 @@
   padding: 8px;
   width: 8%;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1100px) {
   .vartec {
+    width: 6%;
+  }
+  .va {
     width: 30%;
+  }
+  .tilster {
+    width: 12%;
+  }
+  .thomson {
+    width: 6%;
+  }
+  .texas {
+    width: 6%;
+  }
+  .llnl {
+    width: 6%;
+  }
+}
+@media only screen and (max-width: 980px) {
+  .vartec {
+    width: 8%;
+  }
+  .va {
+    width: 30%;
+  }
+  .tilster {
+    width: 15%;
+  }
+  .thomson {
+    width: 8%;
+  }
+  .texas {
+    width: 8%;
+  }
+}
+@media only screen and (max-width: 840px) {
+  .vartec {
+    width: 10%;
   }
   .va {
     width: 40%;
+  }
+  .tilster {
+    width: 15%;
+  }
+  .thomson {
+    width: 10%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .vartec {
+    width: 15%;
+  }
+  .va {
+    width: 50%;
+  }
+  .tilster {
+    width: 25%;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .vartec {
+    width: 20%;
+  }
+  .va {
+    width: 70%;
   }
 }

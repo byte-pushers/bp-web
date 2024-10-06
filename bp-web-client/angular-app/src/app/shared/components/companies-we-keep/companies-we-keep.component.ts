@@ -7,7 +7,7 @@ import { TexasInstrumentsLogoComponent } from './texas-instruments-logo/texas-in
 import { LLNLLogoComponent } from './llnl-logo/llnl-logo.component';
 import { GeLogoComponent } from './ge-logo/ge-logo.component';
 import { AvialLogoComponent } from './avial-logo/avial-logo.component';
-import { NgIf } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { WINDOW } from '@app/services/windows/window';
 
 @Component({
@@ -15,6 +15,7 @@ import { WINDOW } from '@app/services/windows/window';
   standalone: true,
   imports: [
     NgIf,
+    NgClass,
     VartecLogoComponent,
     VALogoComponent,
     TilsterLogoComponent,
@@ -44,4 +45,10 @@ export class CompaniesWeKeepComponent implements OnInit {
   showFrom(allowedWidth: any) {
     return allowedWidth <= this.screenWidth;
   }
+  // setWidth(companyName: string) {
+  //   if (companyName == 'vartec')
+  //     if (this.screenWidth <= 500) {
+  //       return 'w-1/3';
+  //     }
+  // }
 }
