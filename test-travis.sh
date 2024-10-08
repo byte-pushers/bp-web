@@ -1,4 +1,5 @@
-export TRAVIS_BRANCH=master
+# test travis sh
+# export TRAVIS_BRANCH=master
 echo "TRAVIS_BRANCH = " $TRAVIS_BRANCH;
 if [ $TRAVIS_BRANCH = "master" ]; then
   echo -e "Running npm run build --prod";
