@@ -1,0 +1,11 @@
+<section class="border-0 border-red-500 p-5 w-full flex justify-between items-center">
+    <app-vartec-logo [fillColor]="logosColor" class="vartec"></app-vartec-logo>
+    <app-va-logo [fillColor]="logosColor" class="va"></app-va-logo>
+    <app-tilster-logo [fillColor]="logosColor" class="tilster" *ngIf="showFrom(540)"></app-tilster-logo>
+    <app-thomson-reuters-logo [fillColor]="logosColor" class="thomson" *ngIf="showFrom(700)"></app-thomson-reuters-logo>
+    <app-texas-instruments-logo [fillColor]="logosColor" class="texas"
+        *ngIf="showFrom(840)"></app-texas-instruments-logo>
+    <app-llnl-logo [fillColor]="logosColor" class="llnl" *ngIf="showFrom(980)"></app-llnl-logo>
+    <app-ge-logo [fillColor]="logosColor" class="ge" *ngIf="showFrom(1100)"></app-ge-logo>
+    <app-avial-logo [fillColor]="logosColor" class="avial" *ngIf="showFrom(1240)"></app-avial-logo>
+</section>

@@ -5,19 +5,20 @@ import { SocialMediaComponent } from '@components/social-media/social-media.comp
 import { LogoTextAsideComponent } from '@components/logo-text-aside/logo-text-aside.component';
 import { LogoTextBottomComponent } from '@components/logo-text-bottom/logo-text-bottom.component';
 import { WINDOW } from '@services/windows/window';
+import { CompaniesWeKeepComponent } from '@app/shared/components/companies-we-keep/companies-we-keep.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [LogoTextAsideComponent, LogoTextBottomComponent, RouterOutlet, NgClass, NgIf, SocialMediaComponent],
+  imports: [LogoTextAsideComponent, LogoTextBottomComponent, RouterOutlet, NgClass, NgIf, SocialMediaComponent, CompaniesWeKeepComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent /*implements OnInit, AfterViewInit*/ {
   title = 'angular-app';
   isOpen = false;
-  dimension: {width: number, height: number} = {width: 100, height: 100};
-  logoDimension: {width: number, height: number} | undefined;
+  dimension: { width: number, height: number } = { width: 100, height: 100 };
+  logoDimension: { width: number, height: number } | undefined;
 
 
   constructor(@Inject(WINDOW) private window: Window, @Inject(DOCUMENT) private document: Document) {
@@ -25,7 +26,7 @@ export class AppComponent /*implements OnInit, AfterViewInit*/ {
     this.logoDimension = this.#getLogoDimension();
   }
 
-  toggleMenu(e: any){
+  toggleMenu(e: any) {
     console.log(`menu isOpen: ${this.isOpen}`);
 
     const navLinks = document.querySelector('.nav-links');
@@ -36,8 +37,8 @@ export class AppComponent /*implements OnInit, AfterViewInit*/ {
     this.isOpen = !this.isOpen;
 
     if (this.isOpen) {
-      (function repeat(){
-        setTimeout(function(){
+      (function repeat() {
+        setTimeout(function () {
           const unorderedList = document.querySelector('div.nav-links ul');
           unorderedList?.classList.add('text-black');
           unorderedList?.classList.add('z-10');
@@ -70,7 +71,7 @@ export class AppComponent /*implements OnInit, AfterViewInit*/ {
     let logoDimension;
 
     if (this.window?.screen?.width >= 768 && this.window?.screen?.width <= 820) {
-      logoDimension = {width: 18, height: 9};
+      logoDimension = { width: 18, height: 9 };
     }
 
     return logoDimension;
