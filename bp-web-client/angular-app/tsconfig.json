@@ -25,8 +25,9 @@
     ],
     "paths": {
       "@app/*": ["src/app/*"],
+      "@assets/*": ["src/assets/*"],
       "@components/*": [ "src/app/components/*" ],
-      "@services/*": [ "src/app/services/*" ],
+      "@services/*": [ "src/app/services/*" ]
     }
   },
   "angularCompilerOptions": {
