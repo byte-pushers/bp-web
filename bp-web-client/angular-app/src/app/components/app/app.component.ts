@@ -4,11 +4,12 @@ import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { LogoTextAsideComponent } from '@components/logo-text-aside/logo-text-aside.component';
 import { LogoTextBottomComponent } from '@components/logo-text-bottom/logo-text-bottom.component';
 import { WINDOW } from '@services/windows/window';
+import { SocialMediaComponent } from '@components/social-media/social-media.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [LogoTextAsideComponent, LogoTextBottomComponent, RouterOutlet, NgClass, NgIf],
+  imports: [LogoTextAsideComponent, LogoTextBottomComponent, RouterOutlet, NgClass, NgIf, SocialMediaComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
