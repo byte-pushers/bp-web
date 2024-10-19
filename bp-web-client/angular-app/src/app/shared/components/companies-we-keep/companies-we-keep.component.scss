@@ -1,0 +1,96 @@
+.vartec {
+  width: 4%;
+  padding: 0 0 5px 0;
+}
+.va {
+  width: 14%;
+}
+.tilster {
+  width: 5%;
+}
+.thomson {
+  width: 3%;
+}
+.texas {
+  width: 3%;
+}
+.llnl {
+  width: 5%;
+}
+.ge {
+  width: 4%;
+}
+.avial {
+  padding: 10px 8px 0px 8px;
+  width: 8%;
+}
+@media only screen and (max-width: 1100px) {
+  .vartec {
+    width: 6%;
+  }
+  .va {
+    width: 30%;
+  }
+  .tilster {
+    width: 12%;
+  }
+  .thomson {
+    width: 6%;
+  }
+  .texas {
+    width: 6%;
+  }
+  .llnl {
+    width: 6%;
+  }
+}
+@media only screen and (max-width: 980px) {
+  .vartec {
+    width: 6%;
+  }
+  .va {
+    width: 27%;
+  }
+  .tilster {
+    width: 13%;
+  }
+  .thomson {
+    width: 6%;
+  }
+  .texas {
+    width: 6%;
+  }
+}
+@media only screen and (max-width: 840px) {
+  .vartec {
+    width: 8%;
+  }
+  .va {
+    width: 36%;
+  }
+  .tilster {
+    width: 12%;
+  }
+  .thomson {
+    width: 8%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .vartec {
+    width: 10%;
+  }
+  .va {
+    width: 50%;
+  }
+  .tilster {
+    width: 20%;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .vartec {
+    width: 12%;
+  }
+  .va {
+    width: 55%;
+  }
+}
