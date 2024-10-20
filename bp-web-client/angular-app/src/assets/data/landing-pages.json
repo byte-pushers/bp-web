@@ -1,0 +1,298 @@
+[
+  {
+    "id": "default",
+    "inputDetails": {
+      "heroContent": "Creating solutions to solve today's and tomorrow’s problems\n        <span class=\"text-blue-500\"><b>bit</b></span> by <span class=\"text-blue-500\"><b>bit</b></span>.",
+      "slogan": null,
+      "theme": {
+        "mainLogoColor": "#fff",
+        "titleColor": "#fff",
+        "primaryColor": "#ffea7a",
+        "secondaryColor": "#fff",
+        "inputColor": "#fff",
+        "imagePath": {
+          "right": "assets/images/landingPages/v1/right-align.png",
+          "left": "assets/images/landingPages/v1/left-align.png",
+          "bottom": "assets/images/landingPages/v1/bottom-align.png"
+        }
+      },
+      "metaTags": [
+        {
+          "name": "title",
+          "content": "Creating solutions to solve today's and tomorrow's problems bit by bit."
+        },
+        {
+          "name": "description",
+          "content": "Place the meta description text here."
+        },
+        {
+          "name": "robots",
+          "content": "index, follow"
+        },
+        {
+          "name": "author",
+          "content": "Bytepushers Software Company"
+        }
+      ]
+    }
+  },
+  {
+    "id": 1,
+    "inputDetails": {
+      "heroContent": "Mobile App Development Made Simple.",
+      "slogan": "Mobile App development can be complex, but with Byte Pushers, it doesn't have to be. We'll closely work with you to understand your business goals and create a mobile app that aligns with your vision and budget.",
+      "theme": {
+        "mainLogoColor": "#fff",
+        "titleColor": "#fff",
+        "primaryColor": "#ffea7a",
+        "secondaryColor": "#fff",
+        "inputColor": "#fff",
+        "imagePath": {
+          "right": "assets/images/landingPages/v1/right-align.png",
+          "left": "assets/images/landingPages/v1/left-align.png",
+          "bottom": "assets/images/landingPages/v1/bottom-align.png"
+        }
+      },
+      "metaTags": [
+        {
+          "name": "title",
+          "content": "Mobile App Development Made Simple."
+        },
+        {
+          "name": "description",
+          "content": "Place the meta description text here."
+        },
+        {
+          "name": "robots",
+          "content": "index, follow"
+        },
+        {
+          "name": "author",
+          "content": "Bytepushers Software Company"
+        }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "inputDetails": {
+      "heroContent": "Innovative mobile solutions, Crafted by Byte Pushers.",
+      "slogan": "Byte Pushers builds mobile apps designed to engage your users and drive your business forward. We use the latest mobile technologies and industry best practices to ensure that your app is intuitive, user-friendly, and scalable.",
+      "theme": {
+        "mainLogoColor": "#000",
+        "titleColor": "#0263bb",
+        "primaryColor": "#0263bb",
+        "secondaryColor": "#000",
+        "inputColor": "#000",
+        "imagePath": {
+          "right": "assets/images/landingPages/v2/lp2.right.aligned.png",
+          "left": "assets/images/landingPages/v2/lp2.left.aligned.png",
+          "bottom": "assets/images/landingPages/v2/lp2.bottom.aligned.png"
+        }
+      },
+      "metaTags": [
+        {
+          "name": "title",
+          "content": "Innovative mobile solutions, Crafted by Byte Pushers."
+        },
+        {
+          "name": "description",
+          "content": "Place the meta description text here."
+        },
+        {
+          "name": "robots",
+          "content": "index, follow"
+        },
+        {
+          "name": "author",
+          "content": "Bytepushers Software Company"
+        }
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "inputDetails": {
+      "heroContent": "Pioneering mobile app development custom solutions to drive excellent results.",
+      "slogan": "Byte Pushers team of mobile app developers are passionate about working with you to drive your success and increase your conversions. We stay up to date on relevant trends and technologies to create a mobile app that is cutting-edge and scalable for your platforms.",
+      "theme": {
+        "mainLogoColor": "#fff",
+        "titleColor": "#fff",
+        "primaryColor": "#ffea7a",
+        "secondaryColor": "#fff",
+        "inputColor": "#fff",
+        "imagePath": {
+          "right": "assets/images/landingPages/v3/lp3.right.aligned.png",
+          "left": "assets/images/landingPages/v3/lp3.left.aligned.png",
+          "bottom": "assets/images/landingPages/v3/lp3.bottom.aligned.png"
+        }
+      },
+      "metaTags": [
+        {
+          "name": "title",
+          "content": "Pioneering mobile app development custom solutions to drive excellent results."
+        },
+        {
+          "name": "description",
+          "content": "Place the meta description text here."
+        },
+        {
+          "name": "robots",
+          "content": "index, follow"
+        },
+        {
+          "name": "author",
+          "content": "Bytepushers Software Company"
+        }
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "inputDetails": {
+      "heroContent": "Pioneering mobile app development custom solutions to drive excellent results.",
+      "slogan": "Byte Pushers team of mobile app developers are passionate about working with you to drive your success and increase your conversions. We stay up to date on relevant trends and technologies to create a mobile app that is cutting-edge and scalable for your platforms.",
+      "theme": {
+        "mainLogoColor": "#000",
+        "titleColor": "#000",
+        "primaryColor": "#ffea7a",
+        "secondaryColor": "#000",
+        "inputColor": "#000",
+        "imagePath": {
+          "right": "assets/images/landingPages/v4/lp4.right.aligned.png",
+          "left": "assets/images/landingPages/v4/lp4.left.aligned.png",
+          "bottom": "assets/images/landingPages/v4/lp4.bottom.aligned.png"
+        }
+      },
+      "metaTags": [
+        {
+          "name": "title",
+          "content": "Pioneering mobile app development custom solutions to drive excellent results."
+        },
+        {
+          "name": "description",
+          "content": "Place the meta description text here."
+        },
+        {
+          "name": "robots",
+          "content": "index, follow"
+        },
+        {
+          "name": "author",
+          "content": "Bytepushers Software Company"
+        }
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "inputDetails": {
+      "heroContent": "Pioneering mobile app development custom solutions to drive excellent results.",
+      "slogan": "Byte Pushers team of mobile app developers are passionate about working with you to drive your success and increase your conversions. We stay up to date on relevant trends and technologies to create a mobile app that is cutting-edge and scalable for your platforms.",
+      "theme": {
+        "mainLogoColor": "#000",
+        "titleColor": "#000",
+        "primaryColor": "#ffea7a",
+        "secondaryColor": "#000",
+        "inputColor": "#000",
+        "imagePath": {
+          "right": "assets/images/landingPages/v5/lp5.right.aligned.png",
+          "left": "assets/images/landingPages/v5/lp5.left.aligned.png",
+          "bottom": "assets/images/landingPages/v5/lp5.bottom.aligned.png"
+        }
+      },
+      "metaTags": [
+        {
+          "name": "title",
+          "content": "Pioneering mobile app development custom solutions to drive excellent results."
+        },
+        {
+          "name": "description",
+          "content": "Place the meta description text here."
+        },
+        {
+          "name": "robots",
+          "content": "index, follow"
+        },
+        {
+          "name": "author",
+          "content": "Bytepushers Software Company"
+        }
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "inputDetails": {
+      "heroContent": "Pioneering mobile app development custom solutions to drive excellent results.",
+      "slogan": "Byte Pushers team of mobile app developers are passionate about working with you to drive your success and increase your conversions. We stay up to date on relevant trends and technologies to create a mobile app that is cutting-edge and scalable for your platforms.",
+      "theme": {
+        "mainLogoColor": "#000",
+        "titleColor": "#fff",
+        "primaryColor": "#ffea7a",
+        "secondaryColor": "#000",
+        "inputColor": "#000",
+        "imagePath": {
+          "right": "assets/images/landingPages/v6/lp6.right.aligned.png",
+          "left": "assets/images/landingPages/v6/lp6.left.aligned.png",
+          "bottom": "assets/images/landingPages/v6/lp6.bottom.aligned.png"
+        }
+      },
+      "metaTags": [
+        {
+          "name": "title",
+          "content": "Pioneering mobile app development custom solutions to drive excellent results."
+        },
+        {
+          "name": "description",
+          "content": "Place the meta description text here."
+        },
+        {
+          "name": "robots",
+          "content": "index, follow"
+        },
+        {
+          "name": "author",
+          "content": "Bytepushers Software Company"
+        }
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "inputDetails": {
+      "heroContent": "Pioneering mobile app development custom solutions to drive excellent results.",
+      "slogan": "Byte Pushers team of mobile app developers are passionate about working with you to drive your success and increase your conversions. We stay up to date on relevant trends and technologies to create a mobile app that is cutting-edge and scalable for your platforms.",
+      "theme": {
+        "mainLogoColor": "#fff",
+        "titleColor": "#fff",
+        "primaryColor": "#ffea7a",
+        "secondaryColor": "#fff",
+        "inputColor": "#fff",
+        "imagePath": {
+          "right": "assets/images/landingPages/v7/lp7.right.aligned.png",
+          "left": "assets/images/landingPages/v7/lp7.left.aligned.png",
+          "bottom": "assets/images/landingPages/v7/lp7.bottom.aligned.png"
+        }
+      },
+      "metaTags": [
+        {
+          "name": "title",
+          "content": "Pioneering mobile app development custom solutions to drive excellent results."
+        },
+        {
+          "name": "description",
+          "content": "Place the meta description text here."
+        },
+        {
+          "name": "robots",
+          "content": "index, follow"
+        },
+        {
+          "name": "author",
+          "content": "Bytepushers Software Company"
+        }
+      ]
+    }
+  }
+]
