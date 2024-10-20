@@ -13,17 +13,21 @@ import { MobileComponent } from '@components/app-landing-pages/layouts/mobile/mo
 import {
   LandingPageRightLayoutComponent
 } from '@components/app-landing-pages/layouts/right/landing-page-right-layout.component';
+import { CompaniesWeKeepComponent } from '@app/shared/components/companies-we-keep/companies-we-keep.component';
+import { DOCUMENT, NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-    imports: [
-        RouterOutlet,
-        LandingPageBottomLayoutComponent,
-        LandingPageLeftLayoutComponent,
-        MobileComponent,
-        LandingPageRightLayoutComponent
-    ],
+  imports: [
+    RouterOutlet,
+    LandingPageBottomLayoutComponent,
+    LandingPageLeftLayoutComponent,
+    MobileComponent,
+    NgClass,
+    LandingPageRightLayoutComponent,
+    CompaniesWeKeepComponent
+  ],
   templateUrl: './app-home.component.html',
   styleUrl: './app-home.component.scss'
 })
@@ -33,8 +37,10 @@ export class AppHomeComponent implements OnInit, AfterViewInit {
   @ViewChild('landingPage', { read: ViewContainerRef })
   private landingPageContainer!: ViewContainerRef;
   #deviceDimensions = new Map<String, {name?: string, width: number, height: number}[]>();
+  public borderVisible = false;
 
-  constructor(@Inject(WINDOW) private window: Window, private dynamicComponentService: DynamicComponentService, private route: ActivatedRoute) {
+  constructor(@Inject(WINDOW) private window: Window, private dynamicComponentService: DynamicComponentService,
+              private route: ActivatedRoute, @Inject(DOCUMENT) private document: Document) {
     console.log('AppHomeComponent(): inside constructor');
 
     this.#deviceDimensions.set('mobile', [
@@ -82,6 +88,11 @@ export class AppHomeComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.#setLayoutId();
+    this.route.queryParams.subscribe((params) => {
+      if (params?.['showBorders'] == "true") {
+        this.borderVisible = (/true/i).test(params?.['showBorders']);
+      }
+    });
   }
 
   ngAfterViewInit() {
@@ -149,5 +160,15 @@ export class AppHomeComponent implements OnInit, AfterViewInit {
     const foundDevice = this.#deviceDimensions.get(deviceName)?.some((deviceDimension) =>  screenWidth === deviceDimension.width && screenHeight === deviceDimension.height);
 
     return foundDevice != null ? foundDevice : false;
+  }
+
+  showBorders(): string {
+    let style = '';
+
+    if (this.borderVisible) {
+      style = 'showBorders'
+    }
+
+    return style;
   }
 }
