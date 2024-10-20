@@ -6,15 +6,25 @@ import { LogoTextAsideComponent } from '@components/logo-text-aside/logo-text-as
 import { LogoTextBottomComponent } from '@components/logo-text-bottom/logo-text-bottom.component';
 import { WINDOW } from '@services/windows/window';
 import { CompaniesWeKeepComponent } from '@app/shared/components/companies-we-keep/companies-we-keep.component';
+import { ConnectComponent } from '@app/shared/components/connect/connect.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [LogoTextAsideComponent, LogoTextBottomComponent, RouterOutlet, NgClass, NgIf, SocialMediaComponent, CompaniesWeKeepComponent],
+  imports: [
+    RouterOutlet,
+    NgClass,
+    NgIf,
+    LogoTextAsideComponent,
+    LogoTextBottomComponent,
+    ConnectComponent,
+    SocialMediaComponent,
+    CompaniesWeKeepComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent /*implements OnInit, AfterViewInit*/ {
+  theme: any;
   title = 'angular-app';
   isOpen = false;
   dimension: { width: number, height: number } = { width: 100, height: 100 };
