@@ -36,53 +36,54 @@ export class AppHomeComponent implements OnInit, AfterViewInit {
   #layoutType: string = '';
   @ViewChild('landingPage', { read: ViewContainerRef })
   private landingPageContainer!: ViewContainerRef;
-  #deviceDimensions = new Map<String, {name?: string, width: number, height: number}[]>();
+  #deviceDimensions = new Map<String, { name?: string, width: number, height: number }[]>();
   public borderVisible = false;
 
   constructor(@Inject(WINDOW) private window: Window, private dynamicComponentService: DynamicComponentService,
-              private route: ActivatedRoute, @Inject(DOCUMENT) private document: Document) {
+    private route: ActivatedRoute, @Inject(DOCUMENT) private document: Document) {
     console.log('AppHomeComponent(): inside constructor');
 
     this.#deviceDimensions.set('mobile', [
-      {name: 'iPhone SE', width: 375, height: 667},
-      {name: 'iPhone XR', width: 414, height: 896},
-      {name: 'iPhone 12 Pro', width: 390, height: 844},
-      {name: 'iPhone 14 Pro Max', width: 430, height: 932},
-      {name: 'Pixel 7', width: 412, height: 915},
-      {name: 'Samsung Galaxy S8+', width: 360, height: 740},
-      {name: 'Samsung Galaxy S20 Ultra', width: 412, height: 915},
-      {name: 'Galaxy Z Fold 5', width: 344, height: 882},
-      {name: 'Asus Zenbook Fold', width: 853, height: 1280},
-      {name: 'Samsung Galaxy S8+', width: 360, height: 740},
-      {name: 'Samsung Galaxy S20 Ultra', width: 412, height: 915},
-      {name: 'Samsung Galaxy A51/71', width: 412, height: 914},
-      {name: 'Surface Duo', width: 540, height: 720}
+      { name: 'iPhone SE', width: 375, height: 667 },
+      { name: 'iPhone XR', width: 414, height: 896 },
+      { name: 'iPhone 12 Pro', width: 390, height: 844 },
+      { name: 'iPhone 14 Pro Max', width: 430, height: 932 },
+      { name: 'Pixel 7', width: 412, height: 915 },
+      { name: 'Samsung Galaxy S8+', width: 360, height: 740 },
+      { name: 'Samsung Galaxy S20 Ultra', width: 412, height: 915 },
+      { name: 'Galaxy Z Fold 5', width: 344, height: 882 },
+      { name: 'Asus Zenbook Fold', width: 853, height: 1280 },
+      { name: 'Samsung Galaxy S8+', width: 360, height: 740 },
+      { name: 'Samsung Galaxy S20 Ultra', width: 412, height: 915 },
+      { name: 'Samsung Galaxy A51/71', width: 412, height: 914 },
+      { name: 'Surface Duo', width: 540, height: 720 }
     ]);
 
     this.#deviceDimensions.set('tablet', [
-      {name: 'iPad Mini', width: 768, height: 1024},
-      {name: 'iPad Air', width: 820, height: 1180},
-      {name: 'iPad Pro', width: 1024, height: 1366},
-      {name: 'Surface Pro 7', width: 912, height: 1368},
-      {name: 'Nest Hub', width: 1024, height: 600},
-      {name: 'Nest Hub Max', width: 1280, height: 800}
+      { name: 'iPad Mini', width: 768, height: 1024 },
+      { name: 'iPad Air', width: 820, height: 1180 },
+      { name: 'iPad Pro', width: 1024, height: 1366 },
+      { name: 'Surface Pro 7', width: 912, height: 1368 },
+      { name: 'Nest Hub', width: 1024, height: 600 },
+      { name: 'Nest Hub Max', width: 1280, height: 800 }
     ]);
 
     this.#deviceDimensions.set('desktop', [
-      {width: 2560, height: 1664},
-      {width: 2560, height: 1600},
-      {width: 2048, height: 1332},
-      {width: 2048, height: 1280},
-      {width: 1920, height: 1200},
-      {width: 1710, height: 1112},
-      {width: 1710, height: 1068},
-      {width: 1470, height: 956},
-      {width: 1470, height: 918},
-      {width: 1280, height: 832},
-      {width: 1280, height: 800},
-      {width: 1024, height: 666},
-      {width: 1024, height: 640},
-      {width: 960, height: 600}
+      { width: 2560, height: 1664 },
+      { width: 2560, height: 1600 },
+      { width: 2048, height: 1332 },
+      { width: 2048, height: 1280 },
+      { width: 1920, height: 1200 },
+      { width: 1710, height: 1112 },
+      { width: 1710, height: 1068 },
+      { width: 1470, height: 956 },
+      { width: 1470, height: 918 },
+      { width: 1280, height: 832 },
+      { width: 1280, height: 800 },
+      { width: 1280, height: 720 },
+      { width: 1024, height: 666 },
+      { width: 1024, height: 640 },
+      { width: 960, height: 600 }
     ]);
   }
 
@@ -128,11 +129,11 @@ export class AppHomeComponent implements OnInit, AfterViewInit {
         devicePlatform === DEVICE_PLATFORM.MOBILE ? 'mobile' : this.#layoutType
       )
       .then((componentCreated: any) => {
-          console.log(
-             `component created: ${JSON.stringify(componentCreated)}`,
-             componentCreated
-          );
-        },
+        console.log(
+          `component created: ${JSON.stringify(componentCreated)}`,
+          componentCreated
+        );
+      },
         (error: any) => {
           console.log(`An error occurred: ${JSON.stringify(error)}`, error);
         }
@@ -157,7 +158,8 @@ export class AppHomeComponent implements OnInit, AfterViewInit {
   }
 
   private findDeviceDimension(deviceName: string, screenWidth: number, screenHeight: number): boolean {
-    const foundDevice = this.#deviceDimensions.get(deviceName)?.some((deviceDimension) =>  screenWidth === deviceDimension.width && screenHeight === deviceDimension.height);
+    console.log(this.#deviceDimensions.get(deviceName));
+    const foundDevice = this.#deviceDimensions.get(deviceName)?.some((deviceDimension) => screenWidth === deviceDimension.width && screenHeight === deviceDimension.height);
 
     return foundDevice != null ? foundDevice : false;
   }
