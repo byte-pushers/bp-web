@@ -1,11 +1,12 @@
 import { Injectable, ViewContainerRef } from '@angular/core';
 import { LANDING_PAGE_LAYOUT_CONFIGURATION_MAP } from '@app/app.constants';
 import { ComponentType } from '@angular/cdk/portal';
-import landingPageConfig from '@assets/data/landing-pages.json';
+// import landingPageConfig from '@assets/data/landing-pages.json';
+import landingPageConfig from '@assets/data/landing-pages.json'
 
 @Injectable({ providedIn: "root" })
 export class DynamicComponentService {
-  public constructor() {}
+  public constructor() { }
 
   public createComponent(
     container: ViewContainerRef,
@@ -40,7 +41,7 @@ export class DynamicComponentService {
   }
 
   private async randomlySelectLandingPageLayoutConfiguration(landingPageLayoutType?: string):
-    Promise<void|{ createComponent: Function, component?: ComponentType<any>, inputs?: any}> {
+    Promise<void | { createComponent: Function, component?: ComponentType<any>, inputs?: any }> {
     let landingPageLayoutConfiguration = LANDING_PAGE_LAYOUT_CONFIGURATION_MAP.get('default');
 
     if (landingPageLayoutType == null) {

@@ -1,6 +1,6 @@
-<div class="flex flex-col justify-between border-0 border-blue-500 h-screen">
+<div class="border-0 border-blue-500 h-screen">
   <header [ngClass]="isOpen? 'bg-white': ''" class="border-0 border-red-500 md:bg-transparent">
-    <nav class="flex justify-between items-center border-0 border-yellow-500 m-5">
+    <nav class="flex justify-between items-center border-0 border-yellow-500 p-5">
       <div class="border-0 border-orange-500 ml-2 md:hidden">
         <svg *ngIf="!isOpen" (click)="toggleMenu(this)" class="w-8 cursor-pointer"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
