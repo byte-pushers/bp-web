@@ -5,6 +5,7 @@ import { SocialMediaComponent } from '@components/social-media/social-media.comp
 import { WINDOW } from '@services/windows/window';
 import { Title } from '@angular/platform-browser';
 import { CompaniesWeKeepComponent } from "@app/shared/components/companies-we-keep/companies-we-keep.component";
+import { BPClassNames } from '@app/app.classnames'
 
 @Component({
   selector: "app-landing-page-right-layout",
@@ -14,6 +15,7 @@ import { CompaniesWeKeepComponent } from "@app/shared/components/companies-we-ke
   standalone: true
 })
 export class LandingPageRightLayoutComponent implements OnInit {
+  BPClassNames = BPClassNames;
   public borderVisible = false;
   @Input() heroContent: any;
   constructor(
