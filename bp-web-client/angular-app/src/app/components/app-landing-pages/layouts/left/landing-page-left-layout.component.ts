@@ -32,11 +32,9 @@ export class LandingPageLeftLayoutComponent implements OnInit {
 
   showBorders(): string {
     let style = '';
-
     if (this.borderVisible) {
       style = 'showBorders'
     }
-
     return style;
   }
 }
