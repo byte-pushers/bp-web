@@ -1,4 +1,8 @@
-<section [ngClass]="showBorders()" class="border-0 border-blue-500 flex-grow flex flex-row justify-between p-5 w-full">
+
+<div class="flex flex-col justify-between custonHeight">
+
+
+<section [ngClass]="showBorders()" class="border-0 border-blue-500 flex-grow flex flex-row justify-between p-5 py-0w-full">
   <div [ngClass]="showBorders()" class="border-0 border-green-500 flex items-center justify-center">
     <social-media></social-media>
   </div>
@@ -15,5 +19,8 @@
       <!-- <span [innerHTML]="heroContent"></span> -->
     </div>
   </div>
+<app-companies-we-keep [ngClass]="showBorders()" class="border-0 border-gray-500" [logosColor]="'var(--companies-logo-color)'"></app-companies-we-keep>
+
 </section>
+</div>
 

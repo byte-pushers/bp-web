@@ -2,7 +2,7 @@ import { Injectable, ViewContainerRef } from '@angular/core';
 import { LANDING_PAGE_LAYOUT_CONFIGURATION_MAP } from '@app/app.constants';
 import { ComponentType } from '@angular/cdk/portal';
 // import landingPageConfig from '@assets/data/landing-pages.json';
-import * as landingPageConfig from '@assets/data/landing-pages.json'
+import landingPageConfig from '@assets/data/landing-pages.json'
 
 @Injectable({ providedIn: "root" })
 export class DynamicComponentService {
