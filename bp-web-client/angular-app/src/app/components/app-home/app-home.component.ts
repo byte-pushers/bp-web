@@ -77,7 +77,7 @@ export class AppHomeComponent implements OnInit, AfterViewInit {
       { width: 1920, height: 1080 },
       { width: 1710, height: 1112 },
       { width: 1710, height: 1068 },
-      { width: 1470, height: 956 },
+      /*{ width: 1470, height: 956 },*/
       { width: 1470, height: 918 },
       { width: 1280, height: 832 },
       { width: 1280, height: 800 },
@@ -104,15 +104,19 @@ export class AppHomeComponent implements OnInit, AfterViewInit {
       this.#loadLandingPageContainer(DEVICE_PLATFORM.TABLET);
     } else if (this.isDesktopDevice(this.window.screen?.width, this.window.screen?.height)) {
       this.#loadLandingPageContainer(DEVICE_PLATFORM.DESKTOP);
+    } else {
+      //Todo: Re-evaluate device by width only
+      if (this.window.screen?.width <= 820) {
+        this.#loadLandingPageContainer(DEVICE_PLATFORM.MOBILE);
+      } else if (this.window.screen?.width < 1280) {
+        this.#loadLandingPageContainer(DEVICE_PLATFORM.TABLET);
+      } else {
+        this.#loadLandingPageContainer(DEVICE_PLATFORM.DESKTOP);
+      }
+      // this.#loadLandingPageContainer(DEVICE_PLATFORM.DESKTOP);
     }
 
-    /*if (this.window.innerWidth <= 820) {
-      this.#loadLandingPageContainer(DEVICE_PLATFORM.MOBILE);
-    } else if (this.window.innerWidth < 1280) {
-      this.#loadLandingPageContainer(DEVICE_PLATFORM.TABLET);
-    } else {
-      this.#loadLandingPageContainer(DEVICE_PLATFORM.DESKTOP);
-    }*/
+    /**/
   }
 
   #setLayoutId() {
