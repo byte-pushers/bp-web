@@ -5,6 +5,7 @@ import { SocialMediaComponent } from '@components/social-media/social-media.comp
 import { WINDOW } from '@services/windows/window';
 import { Title } from '@angular/platform-browser';
 import { CompaniesWeKeepComponent } from "@app/shared/components/companies-we-keep/companies-we-keep.component";
+import { BPClassNames } from "@app/app.classnames";
 
 @Component({
   selector: "app-landing-page-bottom-layout",
@@ -14,6 +15,7 @@ import { CompaniesWeKeepComponent } from "@app/shared/components/companies-we-ke
   standalone: true
 })
 export class LandingPageBottomLayoutComponent implements OnInit, AfterViewInit {
+  BPClassNames = BPClassNames;
   @Input() heroContent: any;
   public borderVisible = false;
 
@@ -36,11 +38,9 @@ export class LandingPageBottomLayoutComponent implements OnInit, AfterViewInit {
 
   showBorders(): string {
     let style = '';
-
     if (this.borderVisible) {
       style = 'showBorders'
     }
-
     return style;
   }
 }

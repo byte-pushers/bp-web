@@ -32,3 +32,20 @@ body {
 .showBorders {
   border-width: 2px;
 }
+@layer components {
+  .layoutContainer {
+    @apply flex flex-col justify-between custonHeight;
+  }
+  .socialMediaFlexBox {
+    @apply border-0 border-blue-500 flex-grow flex flex-row justify-between p-5 py-0 w-full;
+  }
+  .heroTextBoxLR {
+    @apply border-0 border-red-500 flex-grow flex items-center;
+  }
+  .heroText {
+    @apply font-verlag 8xsm:text-4xl 7xsm:text-4xl 6xsm:text-3xl 5xsm:text-4xl 4xsm:text-5xl 3xsm:text-5xl sm:text-4xl md:text-6xl lg:text-6xl 3md:text-7xl lg:text-7xl xl:text-8xl ipadpro:text-8xl nesthub:text-5xl nesthubMax:text-6xl 2xl:text-[3.25rem] 3xl:text-6xl;
+  }
+  .socialMediaCol {
+    @apply border-0 border-green-500 flex items-center justify-center;
+  }
+}
