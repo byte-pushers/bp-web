@@ -1,26 +1,22 @@
-
-<div class="flex flex-col justify-between custonHeight">
-
-
-<section [ngClass]="showBorders()" class="border-0 border-blue-500 flex-grow flex flex-row justify-between p-5 w-full">
-  <div [ngClass]="showBorders()" class="border-0 border-green-500 flex items-center justify-center">
-    <social-media></social-media>
-  </div>
-  <div [ngClass]="showBorders()" class="border-0 border-red-500 flex-grow"></div>
-</section>
-<section [ngClass]="showBorders()" class="border-0 border-purple-500">
-
-  <div [ngClass]="showBorders()" class="border-0 border-purple-500 flex-grow text-center ml-4 mr-5">
-    <div [ngClass]="showBorders()" class="font-verlag 8xsm:text-4xl 7xsm:text-4xl 6xsm:text-3xl 5xsm:text-4xl 4xsm:text-5xl 3xsm:text-5xl sm:text-4xl md:text-6xl lg:text-6xl 3md:text-7xl lg:text-7xl xl:text-8xl ipadpro:text-8xl nesthub:text-5xl nesthubMax:text-6xl 2xl:text-[3.25rem] 3xl:text-6xl">
-      <span>
-        Creating solutions to solve today's and tomorrow’s problems
-        <span class="text-blue-500"><b>bit</b></span> by <span class="text-blue-500"><b>bit</b></span>.
-      </span>
-      <!-- <span [innerHTML]="heroContent"></span> -->
+<div class="layoutContainer">
+  <section [ngClass]="showBorders()"
+    class="socialMediaFlexBox">
+    <div [ngClass]="showBorders()" class="socialMediaCol">
+      <social-media></social-media>
     </div>
-  </div>
-<app-companies-we-keep [ngClass]="showBorders()" class="border-0 border-gray-500" [logosColor]="'var(--companies-logo-color)'"></app-companies-we-keep>
-
-</section>
+    <div [ngClass]="showBorders()" class="border-0 border-red-500 flex-grow"></div>
+  </section>
+  <section [ngClass]="showBorders()" class="border-0 border-purple-500">
+    <div [ngClass]="showBorders()" class="border-0 border-purple-500 flex-grow text-center ml-4 mr-5">
+      <div [ngClass]="showBorders()" class="heroText">
+        <span>
+          Creating solutions to solve today's and tomorrow’s problems
+          <span class="text-blue-500"><b>bit</b></span> by <span class="text-blue-500"><b>bit</b></span>.
+        </span>
+        <!-- <span [innerHTML]="heroContent"></span> -->
+      </div>
+    </div>
+    <app-companies-we-keep [ngClass]="showBorders()" class="border-0 border-gray-500"
+      [logosColor]="'var(--companies-logo-color)'"></app-companies-we-keep>
+  </section>
 </div>
-

@@ -74,6 +74,7 @@ export class AppHomeComponent implements OnInit, AfterViewInit {
       { width: 2048, height: 1332 },
       { width: 2048, height: 1280 },
       { width: 1920, height: 1200 },
+      { width: 1920, height: 1080 },
       { width: 1710, height: 1112 },
       { width: 1710, height: 1068 },
       /*{ width: 1470, height: 956 },*/

@@ -4,7 +4,7 @@ import { Meta, Title } from "@angular/platform-browser";
 import { ActivatedRoute, RouterOutlet } from "@angular/router";
 import { SocialMediaComponent } from "@app/components/social-media/social-media.component";
 import { CompaniesWeKeepComponent } from "@app/shared/components/companies-we-keep/companies-we-keep.component";
-
+import { BPClassNames } from '@app/app.classnames'
 @Component({
   selector: "app-landing-page-left-layout",
   templateUrl: "./landing-page-left-layout.component.html",
@@ -13,6 +13,8 @@ import { CompaniesWeKeepComponent } from "@app/shared/components/companies-we-ke
   standalone: true
 })
 export class LandingPageLeftLayoutComponent implements OnInit {
+  layoutContainer = 'flex flex-col justify-between custonHeight'
+  BPClassNames = BPClassNames;
   @Input() heroContent: any;
   public borderVisible = false;
   constructor(
