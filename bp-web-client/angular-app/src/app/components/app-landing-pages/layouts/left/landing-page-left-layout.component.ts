@@ -13,7 +13,7 @@ import { BPClassNames } from '@app/app.classnames'
   standalone: true
 })
 export class LandingPageLeftLayoutComponent implements OnInit {
-  layoutContainer = 'flex flex-col justify-between custonHeight'
+  layoutContainer = 'flex flex-col justify-between customHeight'
   BPClassNames = BPClassNames;
   @Input() heroContent: any;
   public borderVisible = false;
@@ -30,6 +30,9 @@ export class LandingPageLeftLayoutComponent implements OnInit {
         this.borderVisible = (/true/i).test(params?.['showBorders']);
       }
     });
+
+    const theme = document.body.getAttribute("data-theme");
+    document.body.setAttribute("data-layout", `${theme}-left`);
   }
 
   showBorders(): string {
