@@ -1,9 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 [data-theme="mobile"] {
-  --hero-home-background-image-bottom-url: url('/assets/images/landing-pages/2/bottom.aligned.png');
-  --hero-home-background-image-left-url: url('/assets/images/landing-pages/2/left.aligned.png');
-  --hero-home-background-image-right-url: url('/assets/images/landing-pages/2/right.aligned.png');
   --logo-primary-color: hsl(185, 81%, 29%);
   --font-primary-color: hsl(100, 0%, 13%);
   --companies-logo-color: hsl(100, 0%, 13%);
+}
+
+:root, [data-layout="mobile-right"] {
+  --hero-home-background-image-url: url('/assets/images/landing-pages/2/right.aligned.png');
+}
+
+:root, [data-layout="mobile-left"] {
+  --hero-home-background-image-url: url('/assets/images/landing-pages/2/left.aligned.png');
+}
+
+:root, [data-layout="mobile-bottom"] {
+  --hero-home-background-image-url: url('/assets/images/landing-pages/2/bottom.aligned.png');
 }
