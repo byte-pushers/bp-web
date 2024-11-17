@@ -30,6 +30,9 @@ export class LandingPageBottomLayoutComponent implements OnInit, AfterViewInit {
         this.borderVisible = (/true/i).test(params?.['showBorders']);
       }
     });
+
+    const theme = document.body.getAttribute("data-theme");
+    document.body.setAttribute("data-layout", `${theme}-bottom`);
   }
 
   ngAfterViewInit() {

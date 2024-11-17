@@ -31,6 +31,9 @@ export class LandingPageRightLayoutComponent implements OnInit {
         this.borderVisible = (/true/i).test(params?.['showBorders']);
       }
     });
+
+    const theme = document.body.getAttribute("data-theme");
+    document.body.setAttribute("data-layout", `${theme}-right`);
   }
   showBorders(): string {
     let style = '';

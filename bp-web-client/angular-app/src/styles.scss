@@ -20,13 +20,13 @@
 }
 
 body {
-  background-image: var(--hero-home-background-image-left-url);
+  background-image: var(--hero-home-background-image-url);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
 }
-.custonHeight {
+.customHeight {
   height: calc(100vh - 216px) !important;
 }
 .showBorders {
@@ -34,7 +34,7 @@ body {
 }
 @layer components {
   .layoutContainer {
-    @apply flex flex-col justify-between custonHeight;
+    @apply flex flex-col justify-between customHeight;
   }
   .socialMediaFlexBox {
     @apply border-0 border-blue-500 flex-grow flex flex-row justify-between p-5 py-0 w-full;
