@@ -22,6 +22,9 @@ export class MobileComponent implements OnInit {
 
   ngOnInit(): void {
     this.title.setTitle(this.heroContent);
+
+    const theme = document.body.getAttribute("data-theme");
+    document.body.setAttribute("data-layout", `${theme}-bottom`);
   }
 
   showBorders(): boolean | void {
