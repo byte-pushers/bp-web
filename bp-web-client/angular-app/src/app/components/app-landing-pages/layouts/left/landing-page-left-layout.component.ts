@@ -16,7 +16,9 @@ export class LandingPageLeftLayoutComponent implements OnInit {
   layoutContainer = 'flex flex-col justify-between customHeight'
   BPClassNames = BPClassNames;
   @Input() heroContent: any;
+  @Input() metaTags: any;
   public borderVisible = false;
+
   constructor(
     private route: ActivatedRoute,
     private metaService: Meta,
@@ -24,6 +26,7 @@ export class LandingPageLeftLayoutComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.metaService?.addTags(this.metaTags);
     this.title.setTitle(this.heroContent);
     this.route.queryParams.subscribe((params) => {
       if (params?.['showBorders'] == "true") {

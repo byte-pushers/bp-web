@@ -3,7 +3,7 @@ import { ActivatedRoute, RouterOutlet } from "@angular/router";
 import { DOCUMENT, NgClass, NgIf, NgStyle } from '@angular/common';
 import { SocialMediaComponent } from '@components/social-media/social-media.component';
 import { WINDOW } from '@services/windows/window';
-import { Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { CompaniesWeKeepComponent } from "@app/shared/components/companies-we-keep/companies-we-keep.component";
 import { BPClassNames } from '@app/app.classnames'
 
@@ -18,13 +18,17 @@ export class LandingPageRightLayoutComponent implements OnInit {
   BPClassNames = BPClassNames;
   public borderVisible = false;
   @Input() heroContent: any;
+  @Input() metaTags: any;
+
   constructor(
     @Inject(WINDOW) private window: Window, @Inject(DOCUMENT) private document: Document,
     private route: ActivatedRoute,
+    private metaService: Meta,
     private title: Title
   ) { }
 
   ngOnInit() {
+    this.metaService?.addTags(this.metaTags);
     this.title.setTitle(this.heroContent);
     this.route.queryParams.subscribe((params) => {
       if (params?.['showBorders'] == "true") {
