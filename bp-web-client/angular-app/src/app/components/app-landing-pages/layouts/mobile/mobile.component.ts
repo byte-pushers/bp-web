@@ -3,7 +3,7 @@ import { ActivatedRoute, RouterOutlet } from "@angular/router";
 import { DOCUMENT, NgClass, NgIf } from '@angular/common';
 import { SocialMediaComponent } from '@components/social-media/social-media.component';
 import { WINDOW } from '@services/windows/window';
-import { Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: "app-mobile",
@@ -14,13 +14,17 @@ import { Title } from '@angular/platform-browser';
 })
 export class MobileComponent implements OnInit {
   @Input() heroContent: any;
+  @Input() metaTags: any;
+
   constructor(
     @Inject(WINDOW) private window: Window, @Inject(DOCUMENT) private document: Document,
     private route: ActivatedRoute,
+    private metaService: Meta,
     private title: Title
   ) {}
 
   ngOnInit(): void {
+    this.metaService?.addTags(this.metaTags);
     this.title.setTitle(this.heroContent);
 
     const theme = document.body.getAttribute("data-theme");
