@@ -6,6 +6,7 @@ import { LogoTextAsideComponent } from '@components/logo-text-aside/logo-text-as
 import { LogoTextBottomComponent } from '@components/logo-text-bottom/logo-text-bottom.component';
 import { WINDOW } from '@services/windows/window';
 import { CompaniesWeKeepComponent } from '@app/shared/components/companies-we-keep/companies-we-keep.component';
+import { SearchEngineService } from '@services/search-engine/search-engine.service';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   // public borderVisible = false;
 
   constructor(@Inject(WINDOW) private window: Window, @Inject(DOCUMENT) private document: Document,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute, private searchEngine: SearchEngineService) {
     console.log('AppComponent(): inside constructor');
     this.logoDimension = this.#getLogoDimension();
   }
@@ -33,6 +34,12 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.#showBorders((/true/i).test(params?.['showBorders']));
       }
     });
+
+    const searchData = this.searchEngine.getSearchKeywords();
+    if (searchData) {
+      // Do something with the search keywords
+      console.log(`User searched for: ${searchData.keywords}`);
+    }
   }
 
   ngAfterViewInit() {
