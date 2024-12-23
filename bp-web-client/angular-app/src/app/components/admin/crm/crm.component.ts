@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {KeapService} from '../../../services/keap.service';
+import { Component, OnInit } from '@angular/core';
+import { KeapService } from '@services/keap.service';
 
 @Component({
   selector: 'app-crm',
+  standalone: true,
+  imports: [],
   templateUrl: './crm.component.html',
   styleUrls: ['./crm.component.scss']
 })

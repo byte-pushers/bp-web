@@ -76,6 +76,10 @@
             "proxyConfig": "src/proxy.conf.json",
             "port": 4200
           },
+          "options": {
+            "proxyConfig": "src/proxy.conf.json",
+            "port": 4200
+          },
           "configurations": {
             "production": {
               "buildTarget": "angular-app:build:production"

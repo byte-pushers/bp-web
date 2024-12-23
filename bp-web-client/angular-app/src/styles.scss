@@ -49,3 +49,44 @@ body {
     @apply border-0 border-green-500 flex items-center justify-center;
   }
 }
+
+
+.adminHeaderPlaceHolder {
+  margin: 0;
+  padding: 0;
+  height: 226px;
+  background: none;
+}
+crmContent {
+  background: #fff;
+  width: 100%;
+  min-height: calc(100vh - 198px);
+  padding-top: 15px;
+
+  .container {
+    width: 100%;
+    margin: 0px auto;
+  }
+
+  h1 {
+    font-size: 36px;
+    margin: 0px 0 15px 0;
+  }
+}
+
+.adminContent {
+  background: #fff;
+  width: 100%;
+  min-height: calc(100vh - 198px);
+  padding-top: 15px;
+
+  .container {
+    width: 100%;
+    margin: 0px auto;
+  }
+
+  h1 {
+    font-size: 36px;
+    margin: 0px 0 15px 0;
+  }
+}
