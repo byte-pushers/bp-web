@@ -26,15 +26,15 @@ import java.util.*;
 @Service
 public class HubspotServiceImpl implements HubspotService {
 
-    private RestTemplate restTemplate = new RestTemplate();
+    private final RestTemplate restTemplate;
     @Value("${bp.web.hubspot.base.url:https://api.hubapi.com12/crm/v3/objects}")
     String hubspotCreateBaseUrl;
     //private CloseableHttpClient httpClient ;
     @Value("${bp.web.hubspot.developerKey}")
     String hubspotDeveloperKey;
 
-    public HubspotServiceImpl(/*RestTemplate restTemplate*/) {
-        // this.restTemplate = restTemplate;
+    public HubspotServiceImpl(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
     }
 
     @Override

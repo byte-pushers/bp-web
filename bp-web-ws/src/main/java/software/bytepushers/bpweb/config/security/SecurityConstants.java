@@ -29,8 +29,6 @@ public interface SecurityConstants {
 
     String ACCOUNT_TYPE_END_POINT = "/api/v1/account-type";
 
-    String AUTHORIZE_APP_END_POINT = "/api/v1/authorize-app";
-
     String TOKEN_ERROR_ATTRIBUTE_KEY = "tokenError";
 
     int TOKEN_REFRESH_WINDOW_IN_MINUTES = 5 * 60;
