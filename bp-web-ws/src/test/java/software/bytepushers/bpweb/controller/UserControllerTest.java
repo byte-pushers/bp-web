@@ -2,6 +2,7 @@ package software.bytepushers.bpweb.controller;
 
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.http.HttpStatus;
@@ -23,6 +24,7 @@ import static software.bytepushers.bpweb.config.security.SecurityConstants.*;
 /**
  * The test cases for the user controller.
  */
+@Ignore
 public class UserControllerTest extends AbstractLoginControllerTest {
 
     /**

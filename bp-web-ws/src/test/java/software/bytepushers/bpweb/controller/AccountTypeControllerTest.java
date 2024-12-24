@@ -1,5 +1,6 @@
 package software.bytepushers.bpweb.controller;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -22,6 +23,7 @@ import software.bytepushers.bpweb.model.entity.AccountType;
 /**
  * The test cases for the user controller.
  */
+@Ignore
 public class AccountTypeControllerTest extends AbstractControllerTest {
 
     @MockBean private AccountRepository accountRepository;

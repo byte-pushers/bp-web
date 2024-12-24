@@ -6,6 +6,7 @@
     "baseUrl": "./",
     "outDir": "./out-tsc/app",
     "paths": {
+      "@admin/*": ["src/app/components/admin/*"],
       "@app/*": ["src/app/*"],
       "@assets/*": ["src/assets/*"],
       "@components/*": [ "src/app/components/*" ],

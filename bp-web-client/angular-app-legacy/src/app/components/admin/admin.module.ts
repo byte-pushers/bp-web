@@ -8,10 +8,12 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { AdminRoutingModule } from "./admin.routing.module";
 import { AdminComponent } from "./admin.component";
 import { DialogModule } from "primeng/dialog";
+import { CrmComponent } from './crm/crm.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
-  declarations: [AdminComponent, QuotesComponent, DashboardComponent],
-  imports: [CommonModule, TableModule, AdminRoutingModule, DialogModule],
+  declarations: [AdminComponent, CrmComponent, DashboardComponent, QuotesComponent],
+  imports: [CommonModule, TableModule, AdminRoutingModule, DialogModule, MatCardModule],
   exports: [RouterModule],
   providers: [QuotesService],
 })

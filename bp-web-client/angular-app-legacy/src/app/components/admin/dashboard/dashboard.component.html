@@ -2,8 +2,11 @@
   <div class="container">
     <h1>Admin Dashboard</h1>
     <div class="d-flex">
-      <div class="tile quotes" (click)="goToQuotes()">
+      <div class="tile quotes" routerLink="/admin/quotes">
         <span>Quotes</span>
+      </div>
+      <div class="tile quotes" routerLink="/admin/crm">
+        <span>CRM</span>
       </div>
     </div>
   </div>

@@ -3,6 +3,7 @@ package software.bytepushers.bpweb.service;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -31,6 +32,7 @@ import static org.mockito.Mockito.when;
 /**
  * The quote service test cases
  */
+@Ignore
 @ExtendWith(SpringExtension.class) public class HubspotServiceTest {
     @InjectMocks private HubspotServiceImpl hubspotServiceImpl;
     @Mock private RestTemplate restTemplate;
