@@ -48,4 +48,7 @@ body {
   .socialMediaCol {
     @apply border-0 border-green-500 flex items-center justify-center;
   }
+  .bdrGray500 {
+    @apply border-0 border-gray-500;
+  }
 }
