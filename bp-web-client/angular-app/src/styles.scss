@@ -37,7 +37,7 @@ body {
     @apply flex flex-col justify-between customHeight;
   }
   .socialMediaFlexBox {
-    @apply border-0 border-blue-500 flex-grow flex flex-row justify-between p-5 py-0 w-full;
+    @apply bdrBlue500 flex-grow flex flex-row justify-between p-5 py-0 w-full;
   }
   .heroTextBoxLR {
     @apply border-0 border-red-500 flex-grow flex items-center;
@@ -50,5 +50,8 @@ body {
   }
   .bdrGray500 {
     @apply border-0 border-gray-500;
+  }
+  .bdrBlue500 {
+    @apply border-0 border-blue-500;
   }
 }
