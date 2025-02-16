@@ -33,19 +33,50 @@ body {
   border-width: 2px;
 }
 @layer components {
+  .bpNav {
+    @apply flex justify-between items-center bdrYellow500 p-5
+  }
   .layoutContainer {
     @apply flex flex-col justify-between customHeight;
   }
   .socialMediaFlexBox {
-    @apply border-0 border-blue-500 flex-grow flex flex-row justify-between p-5 py-0 w-full;
+    @apply bdrBlue500 flex-grow flex flex-row justify-between p-5 py-0 w-full;
   }
   .heroTextBoxLR {
-    @apply border-0 border-red-500 flex-grow flex items-center;
+    @apply bdrRed500 flex items-center w-3/5;
   }
   .heroText {
     @apply font-verlag 8xsm:text-4xl 7xsm:text-4xl 6xsm:text-3xl 5xsm:text-4xl 4xsm:text-5xl 3xsm:text-5xl sm:text-4xl md:text-6xl lg:text-6xl 3md:text-7xl lg:text-7xl xl:text-8xl ipadpro:text-8xl nesthub:text-5xl nesthubMax:text-6xl 2xl:text-[3.25rem] 3xl:text-6xl;
   }
   .socialMediaCol {
-    @apply border-0 border-green-500 flex items-center justify-center;
+    @apply bdrGreen500 flex items-center justify-center;
+  }
+  .bdrGray500 {
+    @apply border-0 border-gray-500;
+  }
+  .bdrBlue500 {
+    @apply border-0 border-blue-500;
+  }
+  .bdrOrange500 {
+    @apply border-0 border-orange-500;
+  }
+  .bdrYellow500 {
+    @apply border-0 border-yellow-500;
+  }
+  .bdrRed500 {
+    @apply border-0 border-red-500;
+  }
+  .bdrGreen500 {
+    @apply border-0 border-green-500;
+  }
+  .bdrPurple500 {
+    @apply border-0 border-purple-500;
+  }
+
+  .companiesWeKeep {
+    @apply bdrRed500 p-5 w-full flex justify-between items-center;
+  }
+  .heroTextBox {
+    @apply bdrPurple500 flex-grow text-center ml-4 mr-5;
   }
 }
