@@ -1,10 +1,10 @@
-<div class="layoutContainer">
+<div class="layout-container">
     <section [ngClass]="showBorders()"
         class="socialMediaFlexBox">
         <div [ngClass]="showBorders()" class="socialMediaCol">
             <social-media></social-media>
         </div>
-        <div [ngClass]="showBorders()" class="heroTextBoxLR justify-end text-right">
+        <div [ngClass]="showBorders()" class="hero-text-container-LR justify-end text-right">
             <div [ngClass]="showBorders()"
                 class="heroText">
                 <span>
@@ -15,8 +15,8 @@
             </div>
         </div>
     </section>
-    <section [ngClass]="showBorders()" class="bdrPurple500">
-        <app-companies-we-keep [ngClass]="showBorders()" class="bdrGray500"
+    <section [ngClass]="showBorders()" class="bdr-purple-500">
+        <app-companies-we-keep [ngClass]="showBorders()" class="bdr-gray-500"
             [logosColor]="'var(--companies-logo-color)'"></app-companies-we-keep>
     </section>
 </div>

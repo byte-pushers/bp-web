@@ -1,13 +1,13 @@
-<div class="layoutContainer">
+<div class="layout-container">
   <section [ngClass]="showBorders()"
     class="socialMediaFlexBox">
     <div [ngClass]="showBorders()" class="socialMediaCol">
       <social-media></social-media>
     </div>
-    <div [ngClass]="showBorders()" class="bdrRed500 flex-grow"></div>
+    <div [ngClass]="showBorders()" class="bdr-red-500 flex-grow"></div>
   </section>
-  <section [ngClass]="showBorders()" class="bdrPurple500">
-    <div [ngClass]="showBorders()" class="heroTextBox">
+  <section [ngClass]="showBorders()" class="bdr-purple-500">
+    <div [ngClass]="showBorders()" class="hero-text-container">
       <div [ngClass]="showBorders()" class="heroText">
         <span>
           Creating solutions to solve today's and tomorrow’s problems
@@ -16,7 +16,7 @@
         <!-- <span [innerHTML]="heroContent"></span> -->
       </div>
     </div>
-    <app-companies-we-keep [ngClass]="showBorders()" class="bdrGray500"
+    <app-companies-we-keep [ngClass]="showBorders()" class="bdr-gray-500"
       [logosColor]="'var(--companies-logo-color)'"></app-companies-we-keep>
   </section>
 </div>
