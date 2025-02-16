@@ -1,6 +1,6 @@
 <div class="bdrBlue500 h-screen">
   <header [ngClass]="isOpen? 'bg-white': ''" class="bdrRed500 md:bg-transparent">
-    <nav class="flex justify-between items-center bdrYellow500 p-5">
+    <nav class="bpNav">
       <div class="bdrOrange500 ml-2 md:hidden">
         <svg *ngIf="!isOpen" (click)="toggleMenu(this)" class="w-8 cursor-pointer"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -12,12 +12,14 @@
       </div>
       <div [ngClass]="isOpen ? 'bg-white z-10': 'bg-transparent'" class="bdrGreen500 md:bg-transparent">
         <app-logo-text-bottom
-          class="block md:hidden"
+          class="logoClick block md:hidden"
+          (click)="goHome()"
           title="Byte Pushers Inc."
           [logoColor]="'var(--logo-primary-color)'">
         </app-logo-text-bottom>
         <app-logo-text-aside
-          class="hidden md:block"
+          class="logoClick hidden md:block"
+          (click)="goHome()"
           title="Byte Pushers Inc."
           [dimension]="logoDimension"
           [logoColor]="'var(--logo-primary-color)'">

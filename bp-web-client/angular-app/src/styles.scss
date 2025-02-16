@@ -33,6 +33,9 @@ body {
   border-width: 2px;
 }
 @layer components {
+  .bpNav {
+    @apply flex justify-between items-center bdrYellow500 p-5
+  }
   .layoutContainer {
     @apply flex flex-col justify-between customHeight;
   }
@@ -66,8 +69,14 @@ body {
   .bdrGreen500 {
     @apply border-0 border-green-500;
   }
+  .bdrPurple500 {
+    @apply border-0 border-purple-500;
+  }
 
   .companiesWeKeep {
     @apply bdrRed500 p-5 w-full flex justify-between items-center;
+  }
+  .heroTextBox {
+    @apply bdrPurple500 flex-grow text-center ml-4 mr-5;
   }
 }
