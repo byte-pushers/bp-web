@@ -7,11 +7,12 @@ import { LogoTextBottomComponent } from '@components/logo-text-bottom/logo-text-
 import { WINDOW } from '@services/windows/window';
 import { CompaniesWeKeepComponent } from '@app/shared/components/companies-we-keep/companies-we-keep.component';
 import { SearchEngineService } from '@services/search-engine/search-engine.service';
+import { PopupComponent } from '@app/shared/components/popup/popup.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [LogoTextAsideComponent, LogoTextBottomComponent, RouterOutlet, NgClass, NgIf, SocialMediaComponent, CompaniesWeKeepComponent],
+  imports: [LogoTextAsideComponent, LogoTextBottomComponent, RouterOutlet, NgClass, NgIf, SocialMediaComponent, CompaniesWeKeepComponent, PopupComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
