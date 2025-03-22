@@ -1,0 +1,43 @@
+<div class="ctaForm">
+      <form [formGroup]="ctaForm" (ngSubmit)="onCTASubmit()" novalidate>
+        <div class="formControl">
+        <input type="text" name="firstName" id="firstName" aria-label="Name"
+            placeholder="Name" formControlName="ctaName">
+            <div *ngIf="ctaName?.invalid && (ctaName?.dirty || ctaName?.touched)" class="alert alert-danger">
+                <div *ngIf="ctaName?.errors?.['required']">Name is required.</div>
+                <div *ngIf="ctaName?.errors?.['minlength']">
+                    Name must be atleast 3 letters.
+                </div>
+            </div>
+        </div>
+        <div class="formControl">
+        <input type="email" name="email" id="email" aria-label="Email"
+            placeholder="you@example.com" formControlName="ctaEmail">
+            <div *ngIf="ctaEmail?.invalid && (ctaEmail?.dirty || ctaEmail?.touched)" class="alert alert-danger">
+                <div *ngIf="ctaEmail?.errors?.['required']">Email is required.</div>
+                <div *ngIf="ctaEmail?.errors?.['minlength']">
+                    A minimum of 2 letters are required.
+                </div>
+                <div *ngIf="ctaEmail?.errors?.['email']">Email is not valid.</div>
+            </div>
+        </div>
+
+            <div class="consent flex items-start">
+                <input type="checkbox" name="consent" id="consent" formControlName="ctaConsent">
+                <label class="consentLabel" for="consent">
+                    <h4>Please Provide your consent.</h4>
+                    <p class="disclimer">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting
+                        industry.Lorem Ipsum has been the industry's standard dummy text
+                        including versions of Lorem Ipsum. Lorem Ipsum has been the industry's
+                        standard dummy text including versions of Lorem Ipsum.
+                    </p>
+                </label>
+            </div>
+            <div class="actions">
+                <button class="">Cancle</button>
+                <button type="submit" class="">Submit</button>
+            </div>
+    </form>
+
+</div>
