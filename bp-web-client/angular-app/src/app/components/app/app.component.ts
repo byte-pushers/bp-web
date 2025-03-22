@@ -25,7 +25,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   constructor(@Inject(WINDOW) private window: Window, @Inject(DOCUMENT) private document: Document,
     private route: ActivatedRoute, private searchEngine: SearchEngineService, private router: Router) {
-    console.log('AppComponent(): inside constructor');
+    // console.log('AppComponent(): inside constructor');
     this.logoDimension = this.#getLogoDimension();
   }
 
@@ -39,7 +39,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     const searchData = this.searchEngine.getSearchKeywords();
     if (searchData) {
       // Do something with the search keywords
-      console.log(`User searched for: ${searchData.keywords}`);
+      // console.log(`User searched for: ${searchData.keywords}`);
     }
   }
 
@@ -61,7 +61,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   toggleMenu(e: any) {
-    console.log(`menu isOpen: ${this.isOpen}`);
+    // console.log(`menu isOpen: ${this.isOpen}`);
 
     const navLinks = document.querySelector('.nav-links');
     const unorderedList = document.querySelector('div.nav-links ul');
@@ -98,7 +98,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       navLinks?.classList.toggle(`top-[14%]`);
     }
 
-    console.log(`menu isOpen: ${this.isOpen}`);
+    // console.log(`menu isOpen: ${this.isOpen}`);
   }
 
   #getLogoDimension() {
