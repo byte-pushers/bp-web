@@ -1,0 +1,43 @@
+services:
+  springboot-app:
+    container_name: bp-web-ws
+    image: bp-web-ws:latest
+    restart: always
+    build: .
+    ports:
+      - 8090:8090
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/bpweb?createDatabaseIfNotExist=true&serverTimezone=CST6CDT&useLegacyDatetimeCode=false
+      SPRING_DATASOURCE_USERNAME: bpweb
+      SPRING_DATASOURCE_PASSWORD: bpweb
+    depends_on:
+      - mysqldb
+    volumes:
+      - springboot-app:/var/app/bp-web-ws
+    #networks:
+      #- bp-network
+
+  mysqldb:
+    container_name: mysqldb
+    image: mysql:8.0
+    platform: linux/x86_64
+    environment:
+      DATABASE_HOST: mysqldb
+      DATABASE_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bpweb
+      MYSQL_USER: bpweb
+      MYSQL_PASSWORD: bpweb
+    volumes:
+      - mysql-data:/var/app/mysql
+      #- ./mysql-init:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+    #networks:
+      #- bp-network
+
+volumes:
+  mysql-data:
+  springboot-app:
+#networks:
+  #bp-network:

@@ -27,11 +27,11 @@ const routes: Routes = [
         (m) => m.ServicesModule
       ),
   },
-  {
+  /*{
     path: "admin",
     loadChildren: () =>
       import("./components/admin/admin.module").then((m) => m.AdminModule),
-  },
+  },*/
   {
     path: "contact",
     loadChildren: () =>
