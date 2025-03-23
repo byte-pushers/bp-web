@@ -32,6 +32,9 @@ body {
 .showBorders {
   border-width: 2px;
 }
+.errorClr {
+  color: rgb(206, 3, 3)
+}
 @layer components {
   .bpNav {
     @apply flex justify-between items-center bdrYellow500 p-5
@@ -79,4 +82,38 @@ body {
   .hero-text-container {
     @apply bdr-purple-500 flex-grow text-center ml-4 mr-5;
   }
+  .buttonPrimary {
+    // @apply bg-red-500;
+      padding: 4px 12px;
+      border: solid 1px #0263bb;
+      background: #0263bb;
+      color: #fff;
+      cursor: pointer;
+      min-width: 120px;
+      text-align: center;
+      border-radius: 5px;
+  }
+    .buttonPrimary:hover {
+        background: #003a70;
+        }
+    .buttonPrimary:disabled {
+        @apply bg-gray-100 text-gray-500 border-gray-200 cursor-not-allowed;
+        }
+  .buttonPrimaryOutline {
+    padding: 4px 12px;
+      border: solid 2px #0263bb;
+      color: #0263bb;
+      cursor: pointer;
+      min-width: 120px;
+      text-align: center;
+      border-radius: 5px;
+  }
+    .buttonPrimaryOutline:hover {
+      border: solid 2px #003a70;
+    }
+    .buttonPrimaryOutline:disabled {
+      cursor: not-allowed;
+      border: solid 2px #9b9b9b;
+      color: #909090;
+    }
 }

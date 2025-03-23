@@ -26,7 +26,7 @@ export class CallToActionComponent {
         Validators.minLength(3),
       ]),
       ctaEmail: new FormControl("", [Validators.required, Validators.email]),
-      ctaConsent: new FormControl("", [Validators.required]),
+      ctaConsent: new FormControl("", [Validators.requiredTrue]),
     });
   }
   get ctaName() {

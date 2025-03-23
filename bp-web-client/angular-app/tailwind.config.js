@@ -8,6 +8,9 @@ module.exports = {
   content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      colors: {
+        black: "#000000",
+      },
       width: {
         126: "31.25rem",
         128: "32rem",
@@ -33,6 +36,7 @@ module.exports = {
         ],
       },
       zIndex: {
+        9: "9",
         100: "100",
       },
       screens: {

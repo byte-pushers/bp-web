@@ -5,12 +5,22 @@
 
 
 @layer components {
+    .grayOverlay {
+            @apply w-full h-screen fixed left-[0px] top-[0px] z-9 bg-black/40;
+            // width: 100%;
+            // height: 100vh;
+            // position: fixed;
+            // left: 0;
+            // top: 0;
+            // z-index: 9;
+            // background: rgba(0, 0, 0, 0.4);
+        }
     .bpPopup {
         @apply fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white w-126 p-[15px] z-10 rounded-xl;
     }
 
     .popupHeader {
-        @apply border-b border-gray-700 text-[18px] text-blue-700;
+        @apply border-b border-gray-300 text-[18px] font-medium text-[#0263bb];
     }
     .popupBody {
         @apply text-black
