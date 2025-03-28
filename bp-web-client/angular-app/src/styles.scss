@@ -83,37 +83,21 @@ body {
     @apply bdr-purple-500 flex-grow text-center ml-4 mr-5;
   }
   .buttonPrimary {
-    // @apply bg-red-500;
-      padding: 4px 12px;
-      border: solid 1px #0263bb;
-      background: #0263bb;
-      color: #fff;
-      cursor: pointer;
-      min-width: 120px;
-      text-align: center;
-      border-radius: 5px;
+    @apply text-white border border-[#0263bb] cursor-pointer min-w-[120px] px-3 py-1 bg-[#0263bb] text-center rounded-[5px]
   }
     .buttonPrimary:hover {
-        background: #003a70;
+      @apply bg-[#003a70]
         }
     .buttonPrimary:disabled {
         @apply bg-gray-100 text-gray-500 border-gray-200 cursor-not-allowed;
         }
   .buttonPrimaryOutline {
-    padding: 4px 12px;
-      border: solid 2px #0263bb;
-      color: #0263bb;
-      cursor: pointer;
-      min-width: 120px;
-      text-align: center;
-      border-radius: 5px;
+    @apply px-3 py-1 border-2 border-[#0263bb] text-[#0263bb] cursor-pointer min-w-[120px] text-center rounded-[5px]
   }
     .buttonPrimaryOutline:hover {
-      border: solid 2px #003a70;
+      @apply border-2 border-[#003a70]
     }
     .buttonPrimaryOutline:disabled {
-      cursor: not-allowed;
-      border: solid 2px #9b9b9b;
-      color: #909090;
+      @apply border-2 border-[#9b9b9b] cursor-not-allowed text-[#909090];
     }
 }
