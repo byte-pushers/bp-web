@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, /*HostListener, */Inject,/* InjectionToken,*/ OnInit } from '@angular/core';
 import { DOCUMENT, NgClass, NgIf } from '@angular/common';
-import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { SocialMediaComponent } from '@components/social-media/social-media.component';
 import { LogoTextAsideComponent } from '@components/logo-text-aside/logo-text-aside.component';
 import { LogoTextBottomComponent } from '@components/logo-text-bottom/logo-text-bottom.component';
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   // public borderVisible = false;
 
   constructor(@Inject(WINDOW) private window: Window, @Inject(DOCUMENT) private document: Document,
-              private route: ActivatedRoute, private searchEngine: SearchEngineService) {
+    private route: ActivatedRoute, private searchEngine: SearchEngineService, private router: Router) {
     console.log('AppComponent(): inside constructor');
     this.logoDimension = this.#getLogoDimension();
   }
@@ -44,6 +44,9 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
 
+  }
+  goHome() {
+    this.router.navigate(['/home'])
   }
 
   #showBorders(showBorders: boolean): void {

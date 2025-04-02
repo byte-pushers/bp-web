@@ -1,7 +1,7 @@
-<div class="border-0 border-blue-500 h-screen">
-  <header [ngClass]="isOpen? 'bg-white': ''" class="border-0 border-red-500 md:bg-transparent">
-    <nav class="flex justify-between items-center border-0 border-yellow-500 p-5">
-      <div class="border-0 border-orange-500 ml-2 md:hidden">
+<div class="bdr-blue-500 h-screen">
+  <header [ngClass]="isOpen? 'bg-white': ''" class="bdr-red-500 md:bg-transparent">
+    <nav class="bpNav">
+      <div class="bdr-orange-500 ml-2 md:hidden">
         <svg *ngIf="!isOpen" (click)="toggleMenu(this)" class="w-8 cursor-pointer"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
@@ -10,20 +10,22 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
         </svg>
       </div>
-      <div [ngClass]="isOpen ? 'bg-white z-10': 'bg-transparent'" class="border-0 border-green-500 md:bg-transparent">
+      <div [ngClass]="isOpen ? 'bg-white z-10': 'bg-transparent'" class="bdr-green-500 md:bg-transparent">
         <app-logo-text-bottom
-          class="block md:hidden"
+          class="logoClick block md:hidden"
+          (click)="goHome()"
           title="Byte Pushers Inc."
           [logoColor]="'var(--logo-primary-color)'">
         </app-logo-text-bottom>
         <app-logo-text-aside
-          class="hidden md:block"
+          class="logoClick hidden md:block"
+          (click)="goHome()"
           title="Byte Pushers Inc."
           [dimension]="logoDimension"
           [logoColor]="'var(--logo-primary-color)'">
         </app-logo-text-aside>
       </div>
-      <div class="bdrGray500 mr-2 md:hidden">
+      <div class="bdr-gray-500 mr-2 md:hidden">
         <svg class="w-8 text-transparent" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
