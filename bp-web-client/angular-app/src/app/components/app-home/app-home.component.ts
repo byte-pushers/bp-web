@@ -41,7 +41,7 @@ export class AppHomeComponent implements OnInit, AfterViewInit {
 
   constructor(@Inject(WINDOW) private window: Window, private dynamicComponentService: DynamicComponentService,
     private route: ActivatedRoute, @Inject(DOCUMENT) private document: Document) {
-    console.log('AppHomeComponent(): inside constructor');
+    // console.log('AppHomeComponent(): inside constructor');
 
     this.#deviceDimensions.set('mobile', [
       { name: 'iPhone SE', width: 375, height: 667 },
@@ -163,7 +163,7 @@ export class AppHomeComponent implements OnInit, AfterViewInit {
   }
 
   private findDeviceDimension(deviceName: string, screenWidth: number, screenHeight: number): boolean {
-    console.log(this.#deviceDimensions.get(deviceName));
+    // console.log(this.#deviceDimensions.get(deviceName));
     const foundDevice = this.#deviceDimensions.get(deviceName)?.some((deviceDimension) => screenWidth === deviceDimension.width && screenHeight === deviceDimension.height);
 
     return foundDevice != null ? foundDevice : false;

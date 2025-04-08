@@ -5,11 +5,12 @@ import { ActivatedRoute, RouterOutlet } from "@angular/router";
 import { SocialMediaComponent } from "@app/components/social-media/social-media.component";
 import { CompaniesWeKeepComponent } from "@app/shared/components/companies-we-keep/companies-we-keep.component";
 import { BPClassNames } from '@app/app.classnames'
+import { CtaComponent } from "@app/components/cta/cta.component";
 @Component({
   selector: "app-landing-page-left-layout",
   templateUrl: "./landing-page-left-layout.component.html",
   styleUrls: ["./landing-page-left-layout.component.scss"],
-  imports: [RouterOutlet, NgClass, NgIf, SocialMediaComponent, NgStyle, CompaniesWeKeepComponent],
+  imports: [RouterOutlet, CtaComponent, NgClass, NgIf, SocialMediaComponent, NgStyle, CompaniesWeKeepComponent],
   standalone: true
 })
 export class LandingPageLeftLayoutComponent implements OnInit {
