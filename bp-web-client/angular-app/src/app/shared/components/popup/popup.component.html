@@ -1,4 +1,4 @@
-<div class="bpPopup">
+<div class="bpPopup" *ngIf="isDialog">
     <div class="popupHeader">
         Want to Learn More?
     </div>
@@ -7,4 +7,4 @@
     </div>
     <div class="popupFooter"></div>
 </div>
-<div class="grayOverlay"></div>
+<div class="grayOverlay" *ngIf="isDialog"></div>
