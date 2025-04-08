@@ -101,3 +101,13 @@ body {
       @apply border-2 border-[#9b9b9b] cursor-not-allowed text-[#909090];
     }
 }
+.ng-valid[required],
+.ng-valid.required {
+  border: 5px solid #42A948 !important;
+  /* green */
+}
+
+.ng-invalid:not(form) {
+  border: 2px solid red !important;
+    /* red */
+}

@@ -20,7 +20,7 @@
     }
 
     .popupHeader {
-        @apply border-b border-gray-300 text-[18px] font-medium text-[#0263bb];
+        @apply border-b border-gray-300 text-[18px] font-medium text-[#0263bb] pb-[5px] mb-[15px];
     }
     .popupBody {
         @apply text-black
