@@ -32,6 +32,9 @@ body {
 .showBorders {
   border-width: 2px;
 }
+.errorClr {
+  color: rgb(206, 3, 3)
+}
 @layer components {
   .bpNav {
     @apply flex justify-between items-center bdrYellow500 p-5
@@ -79,4 +82,32 @@ body {
   .hero-text-container {
     @apply bdr-purple-500 flex-grow text-center ml-4 mr-5;
   }
+  .buttonPrimary {
+    @apply text-white border border-[#0263bb] cursor-pointer min-w-[120px] px-3 py-1 bg-[#0263bb] text-center rounded-[5px]
+  }
+    .buttonPrimary:hover {
+      @apply bg-[#003a70]
+        }
+    .buttonPrimary:disabled {
+        @apply bg-gray-100 text-gray-500 border-gray-200 cursor-not-allowed;
+        }
+  .buttonPrimaryOutline {
+    @apply px-3 py-1 border-2 border-[#0263bb] text-[#0263bb] cursor-pointer min-w-[120px] text-center rounded-[5px]
+  }
+    .buttonPrimaryOutline:hover {
+      @apply border-2 border-[#003a70]
+    }
+    .buttonPrimaryOutline:disabled {
+      @apply border-2 border-[#9b9b9b] cursor-not-allowed text-[#909090];
+    }
+}
+.ng-valid[required],
+.ng-valid.required {
+  border: 5px solid #42A948 !important;
+  /* green */
+}
+
+.ng-invalid:not(form) {
+  border: 2px solid red !important;
+    /* red */
 }

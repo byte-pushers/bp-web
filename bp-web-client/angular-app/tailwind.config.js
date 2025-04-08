@@ -5,11 +5,16 @@ const colors = require("tailwindcss/colors");
 
 module.exports = {
   mode: "jit",
-  content: [
-    "./src/**/*.{html,js,jsx,ts,tsx}",
-  ],
+  content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      colors: {
+        black: "#000000",
+      },
+      width: {
+        126: "31.25rem",
+        128: "32rem",
+      },
       colors: {
         // Build your palette here
         transparent: "transparent",
@@ -22,9 +27,16 @@ module.exports = {
         white: colors.white,
       },
       fontFamily: {
-        verlag: ['"Verlag XLight"', '"Verlag Light Italic"', '"Helvetica"', "Arial", "sans-serif"]
+        verlag: [
+          '"Verlag XLight"',
+          '"Verlag Light Italic"',
+          '"Helvetica"',
+          "Arial",
+          "sans-serif",
+        ],
       },
       zIndex: {
+        9: "9",
         100: "100",
       },
       screens: {
@@ -32,8 +44,8 @@ module.exports = {
         md: "768px",
         lg: "912px",
         xl: "1024px",
-        "2xl": "1280px"
-      }
+        "2xl": "1280px",
+      },
     },
     screens: {
       "8xsm": "344px", // min-width Samsung Z Fold 5
@@ -49,14 +61,13 @@ module.exports = {
       "3md": "853px", // min-width Asus Zenbook Fold
       lg: "912px", // min-width Surface Pro 7
       xl: "1024px", // min-width iPad Pro
-      nesthub: { 'raw': '(min-width: 1024px) and (min-height: 600px)' },
-      nesthubMax: { 'raw': '(min-width: 1024px) and (min-height: 800px)' },
-      ipadmini: { 'raw': '(min-width: 768px) and (min-height: 1024px)' },
-      ipadpro: { 'raw': '(min-width: 1024px) and (min-height: 1366px)' },
-      "2xl": { 'raw': '(min-width: 1280px) and (min-height: 744px)' },
-      "3xl": { 'raw': '(min-width: 1470px) and (min-height: 864px)' }
-    }
+      nesthub: { raw: "(min-width: 1024px) and (min-height: 600px)" },
+      nesthubMax: { raw: "(min-width: 1024px) and (min-height: 800px)" },
+      ipadmini: { raw: "(min-width: 768px) and (min-height: 1024px)" },
+      ipadpro: { raw: "(min-width: 1024px) and (min-height: 1366px)" },
+      "2xl": { raw: "(min-width: 1280px) and (min-height: 744px)" },
+      "3xl": { raw: "(min-width: 1470px) and (min-height: 864px)" },
+    },
   },
   plugins: [],
-}
-
+};
