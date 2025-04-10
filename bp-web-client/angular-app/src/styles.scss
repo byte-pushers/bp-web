@@ -102,8 +102,8 @@ body {
       @apply border-2 border-[#9b9b9b] cursor-not-allowed text-[#909090];
     }
         .standardYellowBtn {
-          @apply bg-[($standardYellow)] text-[#000] px-[16px] py-[8px] text-base font-semibold;
-          // background: $standardYellow;
+          @apply text-[#000] px-[16px] py-[8px] text-base font-semibold cursor-pointer;
+          background: $standardYellow;
           
         }
 }

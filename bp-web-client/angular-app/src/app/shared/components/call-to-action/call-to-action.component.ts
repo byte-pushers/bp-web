@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { DialogService } from '@app/services/dialog/dialog.service';
 
 @Component({
   selector: 'app-call-to-action',
@@ -19,6 +20,7 @@ export class CallToActionComponent {
     // private route: ActivatedRoute,
     // private ctaService: CTAService,
     // private bpPopupService: BytePushersPopupService
+    private dialog: DialogService
   ) {
     this.ctaForm = new FormGroup({
       ctaName: new FormControl("", [
@@ -39,12 +41,6 @@ export class CallToActionComponent {
     return this.ctaForm.get("ctaConsent");
   }
 
-  // setThemeSecondaryColor() {
-  //   let styles = {
-  //     color: this?.theme?.secondaryColor,
-  //   };
-  //   return styles;
-  // }
   setConcent(event: any) { }
 
   onCTASubmit() {
@@ -63,5 +59,12 @@ export class CallToActionComponent {
       // this.bpPopupService.isBPpopupOpenSubject.next(true);
     }
     console.log(ctaReqObj);
+    this.dialog.hide()
+
+  }
+
+  cancle() {
+    this.ctaForm.reset()
+    this.dialog.hide()
   }
 }
