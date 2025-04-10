@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './variables';
 @import 'assets/themes/theme.default', 'assets/themes/theme.default.dark', 'assets/themes/theme.mobile';
 
 [data-theme] {
@@ -100,6 +101,11 @@ body {
     .buttonPrimaryOutline:disabled {
       @apply border-2 border-[#9b9b9b] cursor-not-allowed text-[#909090];
     }
+        .standardYellowBtn {
+          @apply bg-[($standardYellow)] text-[#000] px-[16px] py-[8px] text-base font-semibold;
+          // background: $standardYellow;
+          
+        }
 }
 .ng-valid[required],
 .ng-valid.required {
