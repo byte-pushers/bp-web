@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '../../../../variables';
+@layer components {
+.btnPrimary {
+    @apply text-white border border-[#0263bb] cursor-pointer min-w-[120px] px-3 py-1 bg-[#0263bb] text-center rounded-[5px]
+}
+
+.btnPrimary:hover {
+    @apply bg-[#003a70]
+}
+
+.btnPrimary:disabled {
+    @apply bg-gray-100 text-gray-500 border-gray-200 cursor-not-allowed;
+}
+
+.btnPrimaryOutline {
+    @apply px-3 py-1 border-2 border-[#0263bb] text-[#0263bb] cursor-pointer min-w-[120px] text-center rounded-[5px]
+}
+
+.btnPrimaryOutline:hover {
+    @apply border-2 border-[#003a70]
+}
+
+.btnPrimaryOutline:disabled {
+    @apply border-2 border-[#9b9b9b] cursor-not-allowed text-[#909090];
+}
+.standardYellowBtn {
+    @apply text-[#000] px-[16px] py-[8px] text-base font-semibold cursor-pointer;
+    background: $standardYellow;
+
+}
+}

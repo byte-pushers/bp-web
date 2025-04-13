@@ -2,6 +2,7 @@
       <form [formGroup]="ctaForm" (ngSubmit)="onCTASubmit()" novalidate>
             <app-bp-input [label]="'Name'" [placeHolder]="'Jhon Smit'" [type]="'text'" [formControl]="ctaForm?.controls['ctaName']" />
             <app-bp-input [label]="'Email'" [placeHolder]="'jhon.smit@test.com'" [type]="'email'" [formControl]="ctaForm?.controls['ctaEmail']" />
+            
             <div class="formControl consent flex items-start">
                 <label class="chkBoxContainer"  for="consent">
                     <input type="checkbox" name="consent" id="consent" formControlName="ctaConsent">
@@ -18,8 +19,9 @@
                 </label>
             </div>
             <div class="actions">
-                <button type="reset" class="buttonPrimaryOutline" (click)="cancle()">Cancle</button>
-                <button type="submit" class="buttonPrimary" [disabled]="ctaForm.invalid">Submit</button>
+                <!-- <button type="reset" class="buttonPrimaryOutline" (click)="cancle()">Cancle</button> -->
+                <bp-button type="reset" title="Cancle" uiType="primary outline" (onClick)="cancle()" />
+                <bp-button type="submit" title="Submit" uiType="primary" [isDisabled]="ctaForm.invalid"/>
             </div>
     </form>
 </div>

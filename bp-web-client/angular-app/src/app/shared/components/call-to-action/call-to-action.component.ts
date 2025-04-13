@@ -3,11 +3,12 @@ import { NgIf } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DialogService } from '@app/services/dialog/dialog.service';
 import { BpInputComponent } from '../bp-input/bp-input.component';
+import { BpButtonComponent } from '../bp-button/bp-button.component';
 
 @Component({
   selector: 'app-call-to-action',
   standalone: true,
-  imports: [NgIf, FormsModule, ReactiveFormsModule, BpInputComponent],
+  imports: [NgIf, FormsModule, ReactiveFormsModule, BpInputComponent, BpButtonComponent],
   templateUrl: './call-to-action.component.html',
   styleUrl: './call-to-action.component.scss'
 })
@@ -24,12 +25,12 @@ export class CallToActionComponent {
     private dialog: DialogService
   ) {
     this.ctaForm = new FormGroup({
-      ctaName: new FormControl("", [
+      ctaName: new FormControl<any>("", [
         Validators.required,
         Validators.minLength(3),
       ]),
-      ctaEmail: new FormControl("", [Validators.required, Validators.email]),
-      ctaConsent: new FormControl("", [Validators.requiredTrue]),
+      ctaEmail: new FormControl<any>("", [Validators.required, Validators.email]),
+      ctaConsent: new FormControl<any>("", [Validators.requiredTrue]),
     });
   }
   get ctaName() {
