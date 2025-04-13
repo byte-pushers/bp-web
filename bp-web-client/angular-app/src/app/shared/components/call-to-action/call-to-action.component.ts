@@ -67,7 +67,7 @@ export class CallToActionComponent {
 
   }
 
-  cancle() {
+  cancel() {
     this.ctaForm.reset()
     this.dialog.hide()
   }
