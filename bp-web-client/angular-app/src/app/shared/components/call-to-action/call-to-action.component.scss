@@ -96,27 +96,19 @@
 }
 
 .ctaForm {
-    .formControl {
-            width: 70%;
-            margin: 10px auto;
-        input {
-            border:solid 1px gray;
-            width: 100%;
-            border-radius: 5px;
-            padding: 4px 5px;
-            
-        }
-        .consentLabel {
-            h4{
-
-            }
+    .groupControls {
+        width: 70%;
+        margin: 0px auto;
+    }
+    .consentLabel {
+            h4 {}
+    
             .disclimer {
                 font-size: 10px;
                 line-height: 12px;
                 color: #a5a5a5;
             }
         }
-    }
     .actions {
         @apply border-t border-gray-300;
         margin: 10px 0 0 0;

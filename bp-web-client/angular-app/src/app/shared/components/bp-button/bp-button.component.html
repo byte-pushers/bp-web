@@ -1,0 +1,8 @@
+<button [type]="type" (click)="handleClick()" 
+[disabled]="disabled"
+[ngClass]="uiType == 'primary'? 'btnPrimary': uiType == 'primary outline'? 'btnPrimaryOutline':uiType == 'secondary'? 'btnSecondary': uiType == 'secondary outline'? 'btnSecondaryOutline': uiType == 'standardYellow'? 'standardYellowBtn':null">
+<!-- <i class="{{icon}}" ></i> -->
+<fa-icon [icon]="icon" *ngIf="icon && iconPosition != 'right'"></fa-icon>
+{{title}}
+<fa-icon [icon]="icon" *ngIf="icon && iconPosition == 'right'"></fa-icon>
+</button>

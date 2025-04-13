@@ -15,6 +15,11 @@
         </span>
         <!-- <span [innerHTML]="heroContent"></span> -->
       </div>
+      <div [ngClass]="showBorders()" class="knowMore">
+        <img src="../../../../../assets/images/Arrow-Vector.png" alt="" srcset="">
+        <bp-button title="Want to Learn More?" uiType="standardYellow" (onClick)="getCTA()" />
+
+      </div>
     </div>
     <app-companies-we-keep [ngClass]="showBorders()" class="bdr-gray-500"
       [logosColor]="'var(--companies-logo-color)'"></app-companies-we-keep>

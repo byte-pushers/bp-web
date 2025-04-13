@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { NgIf } from '@angular/common';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { DialogService } from '@app/services/dialog/dialog.service';
+import { BpInputComponent } from '../bp-input/bp-input.component';
+import { BpButtonComponent } from '../bp-button/bp-button.component';
+import { faFloppyDisk, faXmark } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-call-to-action',
   standalone: true,
-  imports: [NgIf, ReactiveFormsModule,],
+  imports: [NgIf, FormsModule, ReactiveFormsModule, BpInputComponent, BpButtonComponent],
   templateUrl: './call-to-action.component.html',
   styleUrl: './call-to-action.component.scss'
 })
@@ -13,20 +16,23 @@ export class CallToActionComponent {
   public isConsentModal: boolean = true;
   public ctaForm: FormGroup;
   public ctaformsubmitted = false;
+  saveIcon = faFloppyDisk
+  closeIcon = faXmark
 
   constructor(
     // private headerService: HeaderService,
     // private route: ActivatedRoute,
     // private ctaService: CTAService,
     // private bpPopupService: BytePushersPopupService
+    private dialog: DialogService
   ) {
     this.ctaForm = new FormGroup({
-      ctaName: new FormControl("", [
+      ctaName: new FormControl<any>("", [
         Validators.required,
         Validators.minLength(3),
       ]),
-      ctaEmail: new FormControl("", [Validators.required, Validators.email]),
-      ctaConsent: new FormControl("", [Validators.requiredTrue]),
+      ctaEmail: new FormControl<any>("", [Validators.required, Validators.email]),
+      ctaConsent: new FormControl<any>("", [Validators.requiredTrue]),
     });
   }
   get ctaName() {
@@ -39,12 +45,6 @@ export class CallToActionComponent {
     return this.ctaForm.get("ctaConsent");
   }
 
-  // setThemeSecondaryColor() {
-  //   let styles = {
-  //     color: this?.theme?.secondaryColor,
-  //   };
-  //   return styles;
-  // }
   setConcent(event: any) { }
 
   onCTASubmit() {
@@ -63,5 +63,12 @@ export class CallToActionComponent {
       // this.bpPopupService.isBPpopupOpenSubject.next(true);
     }
     console.log(ctaReqObj);
+    this.dialog.hide()
+
+  }
+
+  cancel() {
+    this.ctaForm.reset()
+    this.dialog.hide()
   }
 }
