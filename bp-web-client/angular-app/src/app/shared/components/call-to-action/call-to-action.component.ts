@@ -4,7 +4,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { DialogService } from '@app/services/dialog/dialog.service';
 import { BpInputComponent } from '../bp-input/bp-input.component';
 import { BpButtonComponent } from '../bp-button/bp-button.component';
-
+import { faFloppyDisk, faXmark } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-call-to-action',
   standalone: true,
@@ -16,6 +16,8 @@ export class CallToActionComponent {
   public isConsentModal: boolean = true;
   public ctaForm: FormGroup;
   public ctaformsubmitted = false;
+  saveIcon = faFloppyDisk
+  closeIcon = faXmark
 
   constructor(
     // private headerService: HeaderService,

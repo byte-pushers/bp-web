@@ -22,8 +22,8 @@
             </div>
             <div class="actions">
                 <!-- <button type="reset" class="buttonPrimaryOutline" (click)="cancle()">Cancle</button> -->
-                <bp-button type="reset" title="Cancle" uiType="primary outline" (onClick)="cancle()" />
-                <bp-button type="submit" title="Submit" uiType="primary" [disabled]="ctaForm.invalid"/>
+                <bp-button type="reset" title="Cancle" uiType="primary outline" (onClick)="cancle()" [icon]="closeIcon" iconPosition="left" />
+                <bp-button type="submit" title="Submit" uiType="primary" [disabled]="ctaForm.invalid" [icon]="saveIcon" iconPosition="right"/>
             </div>
     </form>
 </div>
