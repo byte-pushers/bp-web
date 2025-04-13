@@ -18,7 +18,7 @@ import {
 export class BpButtonComponent implements OnInit {
   @Input() iconAlign: 'left' | 'right' = 'left';
   @Input() title: string | undefined = undefined;
-  @Input() isDisabled: boolean = false;
+  @Input() disabled: boolean = false;
   @Input() type: string = '';
   @Input() uiType: 'primary' | 'secondary' | 'primary outline' | 'secondary outline' | 'standardYellow' = 'primary';
   @Output() onClick = new EventEmitter<any>();

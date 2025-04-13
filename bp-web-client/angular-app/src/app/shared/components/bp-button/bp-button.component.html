@@ -1,5 +1,5 @@
 <button [type]="type" (click)="handleClick()" 
-[disabled]="isDisabled"
+[disabled]="disabled"
 [ngClass]="uiType == 'primary'? 'btnPrimary': uiType == 'primary outline'? 'btnPrimaryOutline':uiType == 'secondary'? 'btnSecondary': uiType == 'secondary outline'? 'btnSecondaryOutline': uiType == 'standardYellow'? 'standardYellowBtn':null">
     {{title}}
 </button>
