@@ -5,13 +5,13 @@
 
 @if(control?.invalid && (control?.dirty || control?.touched)){
     @if (control.errors?.['required']){
-    <div  class="errorClr">{{label}} is required.</div>
+    <div  class="alert alert-danger">{{label}} is required.</div>
     }
     @if (control.errors?.['minlength']){
-    <div  class="errorClr">{{label}} must be atleast {{minlength}} letters.</div>
+    <div  class="alert alert-danger">{{label}} must be atleast {{minlength}} letters.</div>
     }
     @if (control.errors?.['email']){
-    <div  class="errorClr">{{label}} is not valid.</div>
+    <div  class="alert alert-danger">{{label}} is not valid.</div>
     }
 }
 </div>
