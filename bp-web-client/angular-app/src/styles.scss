@@ -7,7 +7,7 @@
 @import 'assets/themes/theme.default', 'assets/themes/theme.default.dark', 'assets/themes/theme.mobile';
 
 [data-theme] {
-  color: var(--font-primary-color)
+  color: var(--font-primary-color) !important
 }
 
 @font-face {
@@ -85,6 +85,9 @@ body {
   }
 .alert {
   @apply relative py-[.75rem] px-[1.25rem] mb-[1rem] border border-transparent rounded-[.25rem];
+}
+.align-end {
+  align-items: end;
 }
 .alert-danger {
   color: $errorText;

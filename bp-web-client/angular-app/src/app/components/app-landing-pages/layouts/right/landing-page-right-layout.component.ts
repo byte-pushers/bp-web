@@ -6,12 +6,13 @@ import { WINDOW } from '@services/windows/window';
 import { Meta, Title } from '@angular/platform-browser';
 import { CompaniesWeKeepComponent } from "@app/shared/components/companies-we-keep/companies-we-keep.component";
 import { BPClassNames } from '@app/app.classnames'
+import { InlineCTAComponent } from "@app/shared/components/inline-cta/inline-cta.component";
 
 @Component({
   selector: "app-landing-page-right-layout",
   templateUrl: "./landing-page-right-layout.component.html",
   styleUrls: ["./landing-page-right-layout.component.scss"],
-  imports: [RouterOutlet, NgClass, NgIf, SocialMediaComponent, NgStyle, CompaniesWeKeepComponent],
+  imports: [RouterOutlet, NgClass, NgIf, SocialMediaComponent, NgStyle, CompaniesWeKeepComponent, InlineCTAComponent],
   standalone: true
 })
 export class LandingPageRightLayoutComponent implements OnInit {
