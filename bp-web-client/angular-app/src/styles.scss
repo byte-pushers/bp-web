@@ -100,11 +100,11 @@ body {
 }
 .ng-valid[required],
 .ng-valid.required {
-  border: 5px solid #42A948 !important;
+  border: 1px solid #42A948 !important;
   /* green */
 }
 
 .ng-touched.ng-invalid:not(form) {
-  border: 2px solid rgb(206, 3, 3)!important;
+  border: 1px solid $errorText!important;
     /* red */
 }
