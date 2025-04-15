@@ -28,8 +28,11 @@
     @apply border-2 border-[#9b9b9b] cursor-not-allowed text-[#909090];
 }
 .standardYellowBtn {
-    @apply text-[#000] px-[16px] py-[8px] text-base font-semibold cursor-pointer;
+    @apply text-[#000] px-[16px] py-[8px] text-base font-semibold cursor-pointer w-max;
     background: $standardYellow;
-
+}
+.standardYellowBtn:disabled {
+    @apply text-[#000] px-[16px] py-[8px] text-base font-semibold cursor-not-allowed w-max;
+    background: $standardYellow;
 }
 }

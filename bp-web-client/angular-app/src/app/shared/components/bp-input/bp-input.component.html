@@ -8,7 +8,7 @@
     <div  class="errorClr">{{label}} is required.</div>
     }
     @if (control.errors?.['minlength']){
-    <div  class="errorClr">{{label}} must be atleast 3 letters.</div>
+    <div  class="errorClr">{{label}} must be atleast {{minlength}} letters.</div>
     }
     @if (control.errors?.['email']){
     <div  class="errorClr">{{label}} is not valid.</div>
