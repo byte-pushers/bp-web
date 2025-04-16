@@ -1,0 +1,39 @@
+@import '../../../../variables' ;
+
+.inlineCTA {
+    h3 {
+        width: 100%;
+        color: $white;
+    }
+
+    form {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 12px;
+
+        input {
+            background: none;
+            border: solid 2px $standardYellow;
+            border-right: 0px;
+            color: $white;
+            font-weight: 400;
+            outline: none;
+            padding: 5px;            
+        }
+    }
+}
+::placeholder {
+    color: $standardYellow;
+    opacity: 1;
+    /* Firefox */
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: $standardYellow;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: $standardYellow;
+}

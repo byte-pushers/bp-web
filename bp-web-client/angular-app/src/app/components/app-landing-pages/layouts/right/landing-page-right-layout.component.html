@@ -4,15 +4,16 @@
         <div [ngClass]="showBorders()" class="socialMediaCol">
             <social-media></social-media>
         </div>
-        <div [ngClass]="showBorders()" class="hero-text-container-LR justify-end text-right">
+        <div [ngClass]="showBorders()" class="hero-text-container-LR align-end">
             <div [ngClass]="showBorders()"
-                class="heroText">
+                class="heroText text-right">
                 <span>
                     Creating solutions to solve today's and tomorrow’s problems
                     <span class="text-blue-500"><b>bit</b></span> by <span class="text-blue-500"><b>bit</b></span>.
                 </span>
                 <!-- <span [innerHTML]="heroContent"></span> -->
             </div>
+            <app-inline-cta></app-inline-cta>
         </div>
     </section>
     <section [ngClass]="showBorders()" class="bdr-purple-500">
