@@ -4,7 +4,7 @@
     <input placeHolder="Name" type="text" formControlName="ctaName" class="inputInline" />
     <input placeHolder="jhon.smit@test.com" type="email" class="inputInline"
         formControlName="ctaEmail" />
-    <bp-button title="Connect with Us" uiType="standardYellow" (onClick)="setCTAData()" [disabled]="ctaForm.invalid" />
+    <bp-button title="Connect with Us" uiType="standardYellow" [disabled]="ctaForm.invalid" />
 </form>
     <div *ngIf="ctaName?.invalid && (ctaName?.dirty || ctaName?.touched)" class="alert alert-danger">
         <div *ngIf="ctaName?.errors.required">Name is required.</div>

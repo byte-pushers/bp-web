@@ -1,6 +1,7 @@
 <div class="ctaForm">
-      <form [formGroup]="ctaForm" (ngSubmit)="onCTASubmit()" novalidate>
+    <form [formGroup]="ctaForm" (ngSubmit)="onCTASubmit()" novalidate>
         <div class="groupControls">
+            <h3 *ngIf="isInlineCTASubmitted">Verify your details and provide Consent.</h3>
             <app-bp-input [label]="'Name'" [placeHolder]="'Jhon Smit'" [type]="'text'" [formControl]="ctaForm?.controls['ctaName']" />
             <app-bp-input [label]="'Email'" [placeHolder]="'jhon.smit@test.com'" [type]="'email'" [formControl]="ctaForm?.controls['ctaEmail']" />
             

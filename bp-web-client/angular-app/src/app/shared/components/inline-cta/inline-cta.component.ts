@@ -1,6 +1,8 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CallToActionService } from '@app/services/callToAction/callToAction.service';
+import { DialogService } from '@app/services/dialog/dialog.service';
 import { BpButtonComponent } from '../bp-button/bp-button.component';
 
 @Component({
@@ -13,7 +15,7 @@ import { BpButtonComponent } from '../bp-button/bp-button.component';
 export class InlineCTAComponent {
   public ctaForm: FormGroup;
 
-  constructor() {
+  constructor(private ctaService: CallToActionService, private dialog: DialogService) {
     this.ctaForm = new FormGroup({
       ctaName: new FormControl<any>("", [
         Validators.required,
@@ -22,13 +24,23 @@ export class InlineCTAComponent {
       ctaEmail: new FormControl<any>("", [Validators.required, Validators.email]),
     });
   }
-  setCTAData() {
-    console.log(this.ctaForm.value);
-  }
+
   get ctaName() {
     return this.ctaForm.get("ctaName");
   }
   get ctaEmail() {
     return this.ctaForm.get("ctaEmail");
+  }
+
+  setCTAData() {
+    this.ctaService.isInlineCTASubject.next(true);
+    let ctaReqObj;
+    ctaReqObj = {
+      fullname: this?.ctaForm?.controls["ctaName"]?.value,
+      email: this?.ctaForm?.controls["ctaEmail"]?.value,
+    };
+    this.ctaService.ctaReqObjSubject.next(ctaReqObj)
+    this.ctaForm.reset()
+    this.dialog.show()
   }
 }

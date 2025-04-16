@@ -6,11 +6,17 @@ import { BehaviorSubject, Observable } from "rxjs";
     providedIn: "root",
 })
 export class CallToActionService {
+    public isInlineCTASubject: BehaviorSubject<any>;
+    public isInlineCTA: Observable<any>;
+
     public ctaReqObjSubject: BehaviorSubject<any>;
     public ctaReqObj: Observable<any>;
 
-    constructor(private http: HttpClient) {
-        this.ctaReqObjSubject = new BehaviorSubject<any>(null);
+    constructor() {
+        this.isInlineCTASubject = new BehaviorSubject<any>(false);
+        this.isInlineCTA = this.isInlineCTASubject.asObservable();
+
+        this.ctaReqObjSubject = new BehaviorSubject<any>({});
         this.ctaReqObj = this.ctaReqObjSubject.asObservable();
     }
 }
