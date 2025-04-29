@@ -8,12 +8,14 @@ import { CompaniesWeKeepComponent } from "@app/shared/components/companies-we-ke
 import { BPClassNames } from "@app/app.classnames";
 import { DialogService } from "@app/services/dialog/dialog.service";
 import { BpButtonComponent } from "@app/shared/components/bp-button/bp-button.component";
+import { SelectDropdownComponent } from "@app/shared/components/select-dropdown/select-dropdown.component";
 
 @Component({
   selector: "app-landing-page-bottom-layout",
   templateUrl: "./landing-page-bottom-layout.component.html",
   styleUrls: ["./landing-page-bottom-layout.component.scss"],
-  imports: [RouterOutlet, NgClass, NgIf, SocialMediaComponent, NgStyle, CompaniesWeKeepComponent, BpButtonComponent],
+  imports: [RouterOutlet, NgClass, NgIf, SocialMediaComponent, NgStyle,
+    CompaniesWeKeepComponent, BpButtonComponent, SelectDropdownComponent],
   standalone: true
 })
 export class LandingPageBottomLayoutComponent implements OnInit, AfterViewInit {

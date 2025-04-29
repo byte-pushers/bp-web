@@ -1,0 +1,39 @@
+/* select-dropdown.component.css */
+.select-container {
+    position: relative;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+        cursor: pointer;
+        z-index: 99;
+}
+
+.selected-value {
+    padding: 4px 8px 4px 5px;
+}
+
+.options-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-top: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+    background-color: #fff;
+}
+
+.select-container.open .options-list {
+    display: block;
+}
+
+.options-list li {
+    padding: 5px 10px;
+}
+
+.options-list li:hover {
+    background-color: #eee;
+}
