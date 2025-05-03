@@ -1,4 +1,5 @@
 <div class="bdr-blue-500 h-screen">
+  <bp-header></bp-header>
   <header [ngClass]="isOpen? 'bg-white': ''" class="bdr-red-500 md:bg-transparent">
     <nav class="bpNav">
       <div class="bdr-orange-500 ml-2 md:hidden">
@@ -11,19 +12,7 @@
         </svg>
       </div>
       <div [ngClass]="isOpen ? 'bg-white z-10': 'bg-transparent'" class="bdr-green-500 md:bg-transparent">
-        <app-logo-text-bottom
-          class="logoClick block md:hidden"
-          (click)="goHome()"
-          title="Byte Pushers Inc."
-          [logoColor]="'var(--logo-primary-color)'">
-        </app-logo-text-bottom>
-        <app-logo-text-aside
-          class="logoClick hidden md:block"
-          (click)="goHome()"
-          title="Byte Pushers Inc."
-          [dimension]="logoDimension"
-          [logoColor]="'var(--logo-primary-color)'">
-        </app-logo-text-aside>
+        
       </div>
       <div class="bdr-gray-500 mr-2 md:hidden">
         <svg class="w-8 text-transparent" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
