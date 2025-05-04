@@ -32,7 +32,7 @@ import { DOCUMENT, NgClass } from '@angular/common';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit, AfterViewInit {
-  #layoutId: string = '';
+  #landingPageId: string = '';
   #layoutType: string = '';
   @ViewChild('landingPage', { read: ViewContainerRef })
   private landingPageContainer!: ViewContainerRef;
@@ -89,7 +89,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.#setLayoutId();
+    this.#setLandingPageId();
     this.route.queryParams.subscribe((params) => {
       if (params?.['showBorders'] == "true") {
         this.borderVisible = (/true/i).test(params?.['showBorders']);
@@ -119,9 +119,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
     /**/
   }
 
-  #setLayoutId() {
+  #setLandingPageId() {
     this.route.queryParams.subscribe((params) => {
-      this.#layoutId = params?.['id'];
+      this.#landingPageId = params?.['id'];
       this.#layoutType = params?.['layout'];
     });
   }
@@ -130,7 +130,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.dynamicComponentService
       .createComponent(
         this.landingPageContainer,
-        undefined,
+        this.#landingPageId,
         devicePlatform === DEVICE_PLATFORM.MOBILE ? 'mobile' : this.#layoutType
       )
       .then((componentCreated: any) => {

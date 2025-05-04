@@ -1,20 +1,7 @@
-import { ComponentType } from "@angular/cdk/portal";
-import landingPages from "./landing-pages.json";
+import { ComponentType } from '@angular/cdk/portal';
 
 export const LANDING_PAGE_LAYOUT_CONFIGURATION_MAP: Map<
   string, { createComponent: Function ; component?: ComponentType<any>; inputs?: any }> = new Map();
-
-function findPage(pageId: string, landingPages: any[]): any {
-  return landingPages.find(page => {
-    if (page != null) {
-      if (page.id === pageId) {
-        return true;
-      }
-    }
-
-    return false;
-  })
-}
 
 LANDING_PAGE_LAYOUT_CONFIGURATION_MAP.set("default",
   {
@@ -22,7 +9,7 @@ LANDING_PAGE_LAYOUT_CONFIGURATION_MAP.set("default",
       import(
         "../app/components/app-landing-pages/layouts/bottom/landing-page-bottom-layout.component"
         ).then((it) => it.LandingPageBottomLayoutComponent),
-    inputs: findPage('default', landingPages)?.inputDetails
+    inputs: undefined
   }
 );
 
@@ -32,7 +19,7 @@ LANDING_PAGE_LAYOUT_CONFIGURATION_MAP.set("left",
       import(
         "../app/components/app-landing-pages/layouts/left/landing-page-left-layout.component"
       ).then((it) => it.LandingPageLeftLayoutComponent),
-    inputs: findPage('left', landingPages)?.inputDetails
+    inputs: undefined
   }
 );
 
@@ -42,7 +29,7 @@ LANDING_PAGE_LAYOUT_CONFIGURATION_MAP.set("right",
       import(
         "../app/components/app-landing-pages/layouts/right/landing-page-right-layout.component"
       ).then((it) => it.LandingPageRightLayoutComponent),
-    inputs: findPage('right', landingPages)?.inputDetails
+    inputs: undefined
   }
 );
 
@@ -52,6 +39,6 @@ LANDING_PAGE_LAYOUT_CONFIGURATION_MAP.set("bottom",
       import(
         "../app/components/app-landing-pages/layouts/bottom/landing-page-bottom-layout.component"
       ).then((it) => it.LandingPageBottomLayoutComponent),
-    inputs: findPage('bottom', landingPages)?.inputDetails
+    inputs: undefined
   }
 );
