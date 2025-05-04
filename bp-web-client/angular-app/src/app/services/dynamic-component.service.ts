@@ -19,7 +19,7 @@ export class DynamicComponentService {
         landingPageLayoutType
       );
       const componentRef = container?.createComponent(
-        await landingPageLayoutConfig.createComponent()
+        await landingPageLayoutConfig?.createComponent()
       );
       const targetLandingPageConfigDefault = landingPageConfig.find((config) => (config.id === 'default'));
       let targetLandingPageConfig = landingPageConfig.find((config) => (config.id === landingPageLayoutId));
@@ -41,7 +41,7 @@ export class DynamicComponentService {
   }
 
   private async randomlySelectLandingPageLayoutConfiguration(landingPageLayoutType?: string):
-    Promise<{ createComponent: Function, component?: ComponentType<any> | null, inputs?: any } | void> {
+    Promise<void | { createComponent: Function, component?: ComponentType<any>, inputs?: any }> {
     let landingPageLayoutConfiguration = LANDING_PAGE_LAYOUT_CONFIGURATION_MAP.get('default');
 
     if (landingPageLayoutType == null) {
