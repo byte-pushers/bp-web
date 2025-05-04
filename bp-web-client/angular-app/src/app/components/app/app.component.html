@@ -1,37 +1,7 @@
 <div class="bdr-blue-500 h-screen">
   <bp-header></bp-header>
-  <header [ngClass]="isOpen? 'bg-white': ''" class="bdr-red-500 md:bg-transparent">
-    <nav class="bpNav">
-      <div class="bdr-orange-500 ml-2 md:hidden">
-        <svg *ngIf="!isOpen" (click)="toggleMenu(this)" class="w-8 cursor-pointer"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-        </svg>
-
-        <svg *ngIf="isOpen" (click)="toggleMenu(this)" class="w-8 cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-        </svg>
-      </div>
-      <div [ngClass]="isOpen ? 'bg-white z-10': 'bg-transparent'" class="bdr-green-500 md:bg-transparent">
-        
-      </div>
-      <div class="bdr-gray-500 mr-2 md:hidden">
-        <svg class="w-8 text-transparent" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-        </svg>
-      </div>
-      <!--<div nav-links class="border-0 border-b-cyan-500 nav-links flex flex-col duration-500 text-white md:bg-transparent md:w-auto w-full px-5 md:px-1 mt-9 md:mt-0 md:pl-5 md:static absolute md:relative md:min-h-fit min-h-[20vh] left-0 top-[-100%] items-center"> &lt;!&ndash; md:pl-5 md:static absolute md:relative md:min-h-fit min-h-[20vh] left-0 top-[-100%] items-center //&ndash;&gt;
-        &lt;!&ndash;<div [ngClass]="!isOpen ? 'hidden' : 'border-0 border-fuchsia-500 flex-grow w-screen h-[57px] md:mt-0'"></div>&ndash;&gt;
-        <ul class="flex flex-col md:text-black md:flex-row bg-white md:bg-transparent md:items-center md:gap-[2vw] gap-8 w-screen md:w-auto py-5 text-center">
-          <li>
-            <a class="hover:text-gray-500" href="#">Home</a>
-          </li>
-          <li>
-            <a class="hover:text-gray-500" href="#">Services</a>
-          </li>
-        </ul>
-      </div>-->
-    </nav>
-  </header>
-  <router-outlet></router-outlet>
+  <div class="pt-[200px]">
+    <router-outlet></router-outlet>
+  </div>
 </div>
 <app-dialog></app-dialog>

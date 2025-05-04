@@ -1,14 +1,27 @@
-<div class="bpHeader">
+<div class="bpHeader flex justify-between items-center" [ngClass]="isScrolled ? 'scrolled' : ''">
     <div class="logo">
         <app-logo-text-bottom class="logoClick block md:hidden" (click)="goHome()" title="Byte Pushers Inc."
             [logoColor]="'var(--logo-primary-color)'">
         </app-logo-text-bottom>
-        <app-logo-text-aside class="logoClick hidden md:block" (click)="goHome()" title="Byte Pushers Inc." [logoColor]="'var(--logo-primary-color)'">
+        <app-logo-text-aside  *ngIf="!isScrolled" class="logoClick hidden md:block" (click)="goHome()" title="Byte Pushers Inc." [logoColor]="'var(--logo-primary-color)'">
         </app-logo-text-aside>
+        <app-logo-only-text title="Byte Pushers Inc." *ngIf="isScrolled"></app-logo-only-text>
     </div>
     <div class="navigation">
         <ul>
-            <li><a href="http://"></a></li>
+            <li><a routerLink="/home" routerLinkActive="active" href="javascript:void(0)" >Home</a></li>
+            <li><a routerLink="/services" routerLinkActive="active" href="javascript:void(0)" >Services</a></li>
+            <li><a routerLink="/work" routerLinkActive="active" href="javascript:void(0)" >Work</a></li>
+            <li><a routerLink="/about" routerLinkActive="active" href="javascript:void(0)" >About Us</a></li>
+            <li><a routerLink="/contact" routerLinkActive="active" href="javascript:void(0)" >Contact</a></li>
+            <li><bp-button title="Request a Quote" uiType="standardYellow" (onClick)="requestaQuote()" /></li>
         </ul>
+    </div>
+    <div class="callToPhone one" *ngIf="!isScrolled">
+        Contact Us <br />
+        <a href="tel:1800-441-8935" title="Call to Bytepushers">1 (800) 441-8935</a>
+    </div>
+    <div class="callToPhone two" *ngIf="isScrolled">
+        Contact Us <a href="tel:1800-441-8935" title="Call to Bytepushers">1 (800) 441-8935</a>
     </div>
 </div>

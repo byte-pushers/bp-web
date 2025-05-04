@@ -1,0 +1,70 @@
+
+.bpHeader {
+    width: 100%;
+    padding: 30px;
+    background:transparent;
+    position: fixed;top: 0;left: 0;
+    z-index: 100;
+
+    .callToPhone {
+        position: absolute;
+
+        &.one {
+          right: 30px;
+        top: 15px; 
+        }
+        &.two {
+          left: 130px;
+        bottom: -30px;
+        }
+        
+    }
+
+    .logo {
+        * {
+            cursor: pointer;
+        }
+    }
+
+    .navigation {
+
+        ul {
+            li {
+                display: inline-block;
+                margin: 0px 0px 0 20px;
+
+                a {
+                    text-transform: uppercase;
+                    padding-bottom: 3px;
+                    border-bottom: 2px solid transparent;
+
+                    &:hover, &.active {
+                        border-bottom: 2px solid #fff;
+                    }
+                }
+            }
+        }
+    }
+&.scrolled {
+    position: fixed;
+    top: 0px;
+    background: #fff;
+    height: 100px;
+
+    .navigation {
+
+        ul {
+            li {
+                a {
+                    color: #000;
+
+                    &:hover,&.active {
+                            border-bottom: 2px solid #000;
+                        }
+                }
+            }
+        }
+    }
+}
+
+}

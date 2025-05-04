@@ -28,10 +28,10 @@ import { DOCUMENT, NgClass } from '@angular/common';
     LandingPageRightLayoutComponent,
     CompaniesWeKeepComponent
   ],
-  templateUrl: './app-home.component.html',
-  styleUrl: './app-home.component.scss'
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss'
 })
-export class AppHomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit, AfterViewInit {
   #layoutId: string = '';
   #layoutType: string = '';
   @ViewChild('landingPage', { read: ViewContainerRef })
