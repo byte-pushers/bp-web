@@ -36,6 +36,7 @@ export class LandingPageBottomLayoutComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute, private metaService: Meta, private dialog: DialogService) { }
 
   ngOnInit() {
+    console.log(this.contentTitle)
     this.metaService?.addTags(this.metaTags);
     this.title.setTitle(this.contentTitle);
     this.route.queryParams.subscribe((params) => {
