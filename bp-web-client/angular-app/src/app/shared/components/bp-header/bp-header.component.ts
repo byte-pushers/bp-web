@@ -22,7 +22,6 @@ export class BpHeaderComponent {
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(event: Event): void {
     // Perform actions based on the scroll event
-    console.log('Scroll Event', window.pageYOffset);
     if (window.pageYOffset >= 10) {
       this.isScrolled = true;
     } else {
