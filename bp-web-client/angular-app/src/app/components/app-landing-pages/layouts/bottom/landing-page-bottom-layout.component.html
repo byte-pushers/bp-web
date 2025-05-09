@@ -1,65 +1,27 @@
-<!-- newly refactored code -->
-<section class="headerTheme" [ngStyle]="setThemeBGImg()" [ngClass]="showBorders() ? 'bordersTrue' : ''">
-  <section class="header"></section>
-  <section class="bodyContent">
-    <div class="customContainer">
-      <div class="twoCol d-flex j-c-s-b a-bottom">
-        <div class="contentArea d-flex flexWrap a-bottom flexEnd">
-          <div class="empty"></div>
-          <div class="content bottomLayout">
-            <h2 [ngStyle]="setTitleColor()" [innerHTML]="contentTitle"></h2>
-            <p class="MADslogan" [innerHTML]="slogan" [ngStyle]="setThemeSecondaryColor()"></p>
-
-            <div class="knowMore">
-              <img class="arrow" src="../../../../assets/images/Arrow-Vector.png" alt="" srcset="" />
-              <bp-button title="Want to Learn More?" uiType="standardYellow" (onClick)="getCTA()" />
-            </div>
-          </div>
+<div class="layout-container">
+  <section [ngClass]="showBorders()" class="socialMediaFlexBox">
+    <div [ngClass]="showBorders()" class="bdr-red-500 flex-grow flex items-end">
+      <div [ngClass]="showBorders()" class="hero-text-container">
+        <div [ngClass]="showBorders()" class="heroText">
+          <span>
+            Creating solutions to solve today's and tomorrow’s problems
+            <span class="text-blue-500"><b>bit</b></span> by <span class="text-blue-500"><b>bit</b></span>.
+          </span>
         </div>
-        <div class="socialMediaIcons d-flex a-center">
-          <social-media></social-media>
+        <div [ngClass]="showBorders()" class="knowMore">
+          <img src="../../../../../assets/images/Arrow-Vector.png" alt="" srcset="">
+          <bp-button title="Want to Learn More?" uiType="standardYellow" (onClick)="getCTA()" />
+
         </div>
       </div>
     </div>
-  </section>
-  <!-- <app-hero-logos [colorofLogos]="setThemeSecondaryColor()"></app-hero-logos> -->
-  <app-companies-we-keep [ngClass]="showBorders()" class="bdr-gray-500"
-    [logosColor]="'var(--companies-logo-color)'"></app-companies-we-keep>
-</section>
-
-
-
-
-
-
-
-
-
-
-<!-- 
-<div class="layout-container">
-  <section [ngClass]="showBorders()"
-    class="socialMediaFlexBox">
     <div [ngClass]="showBorders()" class="socialMediaCol">
       <social-media></social-media>
     </div>
-    <div [ngClass]="showBorders()" class="bdr-red-500 flex-grow"></div>
   </section>
   <section [ngClass]="showBorders()" class="bdr-purple-500">
-    <div [ngClass]="showBorders()" class="hero-text-container">
-      <div [ngClass]="showBorders()" class="heroText">
-        <span>
-          Creating solutions to solve today's and tomorrow’s problems
-          <span class="text-blue-500"><b>bit</b></span> by <span class="text-blue-500"><b>bit</b></span>.
-        </span>
-      </div>
-      <div [ngClass]="showBorders()" class="knowMore">
-        <img src="../../../../../assets/images/Arrow-Vector.png" alt="" srcset="">
-        <bp-button title="Want to Learn More?" uiType="standardYellow" (onClick)="getCTA()" />
 
-      </div>
-    </div>
     <app-companies-we-keep [ngClass]="showBorders()" class="bdr-gray-500"
       [logosColor]="'var(--companies-logo-color)'"></app-companies-we-keep>
   </section>
-</div> -->
+</div>
