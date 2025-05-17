@@ -18,6 +18,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 export class BpHeaderComponent implements OnInit {
   faBars = faBars;
   isScrolled: boolean = false;
+  isMobileMenu: boolean = false;
   screenWidth: any;
   constructor(private router: Router) {
 
@@ -31,6 +32,7 @@ export class BpHeaderComponent implements OnInit {
     } else {
       this.isScrolled = false;
     }
+    this.isMobileMenu = false;
   }
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
@@ -53,5 +55,7 @@ export class BpHeaderComponent implements OnInit {
   requestaQuote() {
     this.router.navigate(['/contact'])
   }
-
+  toggleMobileMenu() {
+    this.isMobileMenu = !this.isMobileMenu
+  }
 }

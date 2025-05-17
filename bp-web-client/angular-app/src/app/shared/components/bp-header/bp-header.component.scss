@@ -1,4 +1,6 @@
 
+
+
 .bpHeader {
     width: 100%;
     padding: 30px;
@@ -67,4 +69,70 @@
     }
 }
 
+}
+.bpHeaderMobile {
+    width: 100%;
+    background: transparent;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 30px;
+
+        .empty {
+            width: 20px;height: 20px;
+        }
+.hamburgur {
+    font-size: 30px;
+}
+        .callToPhone {
+                position: absolute;
+        
+                &.one {
+                    right: 15px;
+                    top: 30px;
+                }
+        
+                &.two {
+                    left: 130px;
+                    bottom: -30px;
+                }
+                &.fsRedused {
+                    font-size: 12px;
+                        top: 66px;
+                        text-align: right;
+                }
+        
+            }
+
+&.scrolled {
+        position: fixed;
+        top: 0px;
+        background: #fff;
+        padding: 10px 30px;
+}
+
+.mNavigation {
+    width: 100%;
+    background: #fff;
+    color: #000;
+    text-align: center;
+
+    ul {
+        margin: 10px 0 0 0;
+
+        li {
+            margin: 0 0 6px 0;
+
+            a {
+                text-transform: uppercase;
+                font-weight: 400;
+                border-bottom: 2px solid transparent;
+
+                &.active {
+                   border-bottom: 2px solid #000; 
+                }
+            }
+        }
+    }
+}
 }
