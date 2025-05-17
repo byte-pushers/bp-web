@@ -111,3 +111,13 @@ body {
   border: 1px solid $errorText!important;
     /* red */
 }
+
+// media queries started
+.hide {
+  display: none !important;
+}
+@media (max-width: 600px) {
+  .bpHeader {
+    display: none;
+  }
+}
