@@ -9,7 +9,7 @@
           </span>
         </div>
         <div [ngClass]="showBorders()" class="knowMore">
-          <img src="../../../../../assets/images/Arrow-Vector.png" alt="" srcset="">
+          <img *ngIf="hideTill(500)" src="../../../../../assets/images/Arrow-Vector.png" alt="" srcset="">
           <bp-button title="Want to Learn More?" uiType="standardYellow" (onClick)="getCTA()" />
 
         </div>

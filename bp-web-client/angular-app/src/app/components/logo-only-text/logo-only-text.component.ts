@@ -12,8 +12,6 @@ export class LogoOnlyTextComponent {
   setWidthHeight() {
     let dimensions = {
       width: "220px",
-      height: "90px",
-      "margin-left": "1em",
       "padding-top": "0.5em",
       "margin-bottom": 0,
     };

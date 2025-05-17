@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Inject, Input, OnInit } from "@angular/core";
+import { AfterViewInit, Component, HostListener, Inject, Input, OnInit } from "@angular/core";
 import { ActivatedRoute, RouterOutlet } from "@angular/router";
 import { DOCUMENT, NgClass, NgIf, NgStyle } from '@angular/common';
 import { SocialMediaComponent } from '@components/social-media/social-media.component';
@@ -25,6 +25,8 @@ export class LandingPageBottomLayoutComponent implements OnInit, AfterViewInit {
   @Input() slogan: any;
   @Input() theme: any;
   @Input() metaTags: any;
+  isScrolled: boolean = false;
+  screenWidth: any;
 
   BPClassNames = BPClassNames;
   @Input() heroContent: any;
@@ -88,6 +90,26 @@ export class LandingPageBottomLayoutComponent implements OnInit, AfterViewInit {
       "background-size": "cover",
     };
     return styles;
+  }
+  @HostListener('window:resize', ['$event'])
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(event: Event): void {
+    // Perform actions based on the scroll event
+    if (window.pageYOffset >= 10) {
+      this.isScrolled = true;
+    } else {
+      this.isScrolled = false;
+    }
+  }
+  onResize(event: any) {
+    this.screenWidth = window.innerWidth;
+  }
+  setScreenWidth() {
+    this.screenWidth = window.innerWidth;
+  }
+  hideTill(till: any) {
+    this.setScreenWidth()
+    return this.screenWidth < till ? false : true;
   }
 
   showBorders(): string {

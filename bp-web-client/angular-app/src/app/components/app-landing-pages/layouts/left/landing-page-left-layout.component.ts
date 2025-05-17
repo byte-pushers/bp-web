@@ -1,5 +1,5 @@
 import { NgClass, NgIf, NgStyle } from "@angular/common";
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, HostListener, Input, OnInit } from "@angular/core";
 import { Meta, Title } from "@angular/platform-browser";
 import { ActivatedRoute, RouterOutlet } from "@angular/router";
 import { SocialMediaComponent } from "@app/components/social-media/social-media.component";
@@ -21,6 +21,8 @@ import { InlineCTAComponent } from "@app/shared/components/inline-cta/inline-cta
 export class LandingPageLeftLayoutComponent implements OnInit {
   layoutContainer = 'flex flex-col justify-between customHeight'
   BPClassNames = BPClassNames;
+  isScrolled: boolean = false;
+  screenWidth: any;
   @Input() heroContent: any;
   @Input() metaTags: any;
   public ctaForm: FormGroup;
@@ -39,8 +41,25 @@ export class LandingPageLeftLayoutComponent implements OnInit {
       ctaEmail: new FormControl("", [Validators.required, Validators.email]),
     });
   }
+  @HostListener('window:resize', ['$event'])
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(event: Event): void {
+    // Perform actions based on the scroll event
+    if (window.pageYOffset >= 10) {
+      this.isScrolled = true;
+    } else {
+      this.isScrolled = false;
+    }
+  }
+  onResize(event: any) {
+    this.screenWidth = window.innerWidth;
+  }
+  setScreenWidth() {
+    this.screenWidth = window.innerWidth;
+  }
 
   ngOnInit() {
+    this.screenWidth = window.innerWidth;
     this.metaService?.addTags(this.metaTags);
     this.title.setTitle(this.heroContent);
     this.route.queryParams.subscribe((params) => {
@@ -51,6 +70,11 @@ export class LandingPageLeftLayoutComponent implements OnInit {
 
     const theme = document.body.getAttribute("data-theme");
     document.body.setAttribute("data-layout", `${theme}-left`);
+  }
+
+  hideTill(till: any) {
+    this.setScreenWidth()
+    return this.screenWidth < till ? false : true;
   }
 
   showBorders(): string {
