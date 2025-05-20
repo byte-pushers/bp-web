@@ -5,6 +5,10 @@
             <app-bp-input [label]="'Name'" [placeHolder]="'Jhon Smit'" [type]="'text'" [formControl]="ctaForm?.controls['ctaName']" />
             <app-bp-input [label]="'Email'" [placeHolder]="'jhon.smit@test.com'" [type]="'email'" [formControl]="ctaForm?.controls['ctaEmail']" />
             
+            <!-- <app-select-dropdown [placeHolder]="'Select an item'" [options]="myOptions" formControlName="myControl"
+                (selectionChange)="onSelectionChange($event)"></app-select-dropdown> -->
+
+                
             <div class="formControl consent flex items-start">
                 <label class="chkBoxContainer"  for="consent">
                     <input type="checkbox" name="consent" id="consent" formControlName="ctaConsent">

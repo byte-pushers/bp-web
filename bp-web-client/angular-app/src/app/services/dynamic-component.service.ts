@@ -24,7 +24,7 @@ export class DynamicComponentService {
       const targetLandingPageConfigDefault = landingPageConfig.find((config) => (config.id === 'default'));
       let targetLandingPageConfig = landingPageConfig.find((config) => (config.id === landingPageLayoutId));
 
-      if (targetLandingPageConfig == null) targetLandingPageConfig = targetLandingPageConfigDefault;
+      if (targetLandingPageConfig != null) targetLandingPageConfig = targetLandingPageConfigDefault;
 
       if (landingPageLayoutConfig != null) {
         landingPageLayoutConfig.inputs = targetLandingPageConfig?.inputDetails;

@@ -16,7 +16,7 @@
             // background: rgba(0, 0, 0, 0.4);
         }
     .bpPopup {
-        @apply fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white w-126 p-[15px] z-10 rounded-xl;
+        @apply fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white w-126 p-[15px] z-10 rounded-xl max-w-[80%];
     }
 
     .popupHeader {

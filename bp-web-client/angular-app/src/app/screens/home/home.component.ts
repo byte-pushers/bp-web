@@ -28,11 +28,11 @@ import { DOCUMENT, NgClass } from '@angular/common';
     LandingPageRightLayoutComponent,
     CompaniesWeKeepComponent
   ],
-  templateUrl: './app-home.component.html',
-  styleUrl: './app-home.component.scss'
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss'
 })
-export class AppHomeComponent implements OnInit, AfterViewInit {
-  #layoutId: string = '';
+export class HomeComponent implements OnInit, AfterViewInit {
+  #landingPageId: string = '';
   #layoutType: string = '';
   @ViewChild('landingPage', { read: ViewContainerRef })
   private landingPageContainer!: ViewContainerRef;
@@ -89,7 +89,7 @@ export class AppHomeComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.#setLayoutId();
+    this.#setLandingPageId();
     this.route.queryParams.subscribe((params) => {
       if (params?.['showBorders'] == "true") {
         this.borderVisible = (/true/i).test(params?.['showBorders']);
@@ -119,9 +119,9 @@ export class AppHomeComponent implements OnInit, AfterViewInit {
     /**/
   }
 
-  #setLayoutId() {
+  #setLandingPageId() {
     this.route.queryParams.subscribe((params) => {
-      this.#layoutId = params?.['id'];
+      this.#landingPageId = params?.['id'];
       this.#layoutType = params?.['layout'];
     });
   }
@@ -130,7 +130,7 @@ export class AppHomeComponent implements OnInit, AfterViewInit {
     this.dynamicComponentService
       .createComponent(
         this.landingPageContainer,
-        undefined,
+        this.#landingPageId,
         devicePlatform === DEVICE_PLATFORM.MOBILE ? 'mobile' : this.#layoutType
       )
       .then((componentCreated: any) => {

@@ -27,6 +27,9 @@ body {
   background-attachment: fixed;
   background-position: center;
 }
+* {
+  transition: all ease 0.3s;
+}
 .customHeight {
   height: calc(100vh - 216px) !important;
 }
@@ -107,4 +110,23 @@ body {
 .ng-touched.ng-invalid:not(form) {
   border: 1px solid $errorText!important;
     /* red */
+}
+.black {
+  color: #000;
+}
+.bgWhite {
+  background: #fff !important;
+}
+.white {
+  color: #fff;
+}
+
+// media queries started
+.hide {
+  display: none !important;
+}
+@media (max-width: 600px) {
+  .bpHeader {
+    display: none;
+  }
 }
