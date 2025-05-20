@@ -1,6 +1,6 @@
 <div class="select-container" [class.open]="isOpen">
     <div class="selected-value flex justify-between items-center" (click)="toggleDropdown()">
-       <span>{{ selectedOption ? selectedOption.label : placeHolder }}</span> 
+        <span>{{ selectedOption ? selectedOption.label : placeHolder }}</span>
         <fa-icon [icon]="faCaretRight" [ngStyle]="{'transform': isOpen ? 'rotate(90deg)' : 'rotate(0deg)'}"></fa-icon>
     </div>
     <ul class="options-list" *ngIf="isOpen">
