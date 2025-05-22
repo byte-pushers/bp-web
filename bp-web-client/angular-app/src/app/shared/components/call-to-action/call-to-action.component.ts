@@ -22,11 +22,13 @@ export class CallToActionComponent implements OnInit {
   closeIcon = faXmark;
   inlineCTAData: any;
   isInlineCTASubmitted: any;
+
   myOptions = [
     { value: '1', label: 'Option 1' },
     { value: '2', label: 'Option 2' },
     { value: '3', label: 'Option 3' },
   ];
+
   constructor(
     // private headerService: HeaderService,
     // private route: ActivatedRoute,
@@ -46,10 +48,10 @@ export class CallToActionComponent implements OnInit {
     });
   }
 
+
   onSelectionChange(value: any) {
     console.log('Selection changed to:', value);
   }
-
 
   ngOnInit() {
     this.ctaService.isInlineCTA.subscribe((flag: any) => {
