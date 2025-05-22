@@ -22,15 +22,13 @@ export class CallToActionComponent implements OnInit {
   closeIcon = faXmark;
   inlineCTAData: any;
   isInlineCTASubmitted: any;
-<<<<<<< HEAD
+
   myOptions = [
     { value: '1', label: 'Option 1' },
     { value: '2', label: 'Option 2' },
     { value: '3', label: 'Option 3' },
   ];
-=======
 
->>>>>>> cb2cc5c2002ecd133bd77c2ab2d0e6f2ff5328e7
   constructor(
     // private headerService: HeaderService,
     // private route: ActivatedRoute,
@@ -49,15 +47,12 @@ export class CallToActionComponent implements OnInit {
       ctaConsent: new FormControl<any>("", [Validators.requiredTrue]),
     });
   }
-<<<<<<< HEAD
+
 
   onSelectionChange(value: any) {
     console.log('Selection changed to:', value);
   }
 
-
-=======
->>>>>>> cb2cc5c2002ecd133bd77c2ab2d0e6f2ff5328e7
   ngOnInit() {
     this.ctaService.isInlineCTA.subscribe((flag: any) => {
       this.isInlineCTASubmitted = flag
