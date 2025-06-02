@@ -12,7 +12,7 @@
     <div class="navigation">
         <ul>
             <li><a routerLink="/home" routerLinkActive="active" href="javascript:void(0)">Home</a></li>
-            <li><a routerLink="/services" routerLinkActive="active" href="javascript:void(0)">Services</a></li>
+            <!-- <li><a routerLink="/services" routerLinkActive="active" href="javascript:void(0)">Services</a></li>
             <li><a routerLink="/work" routerLinkActive="active" href="javascript:void(0)">Work</a></li>
             <li><a routerLink="/about" routerLinkActive="active" href="javascript:void(0)">About Us</a></li>
             <li><a routerLink="/contact" routerLinkActive="active" href="javascript:void(0)">Contact</a></li>
@@ -21,13 +21,17 @@
             <li *ngIf="hideTill(1100) && isScrolled">
                 <a href="tel:800-441-8935" class="noBorder"> <bp-button title="800-441-8935" uiType="primary"
                         [icon]="faPhone" /></a>
+            </li> -->
+            <li>
+                <a href="tel:+18004418935" class="noBorder"> <bp-button title="800-441-8935" uiType="primary"
+                        [icon]="faPhone" /></a>
             </li>
         </ul>
     </div>
-    <div class="callToPhone one" *ngIf="!isScrolled">
+    <!-- <div class="callToPhone one" *ngIf="!isScrolled">
         Contact Us <br />
         <a href="tel:1800-441-8935" title="Call to Bytepushers">1 (800) 441-8935</a>
-    </div>
+    </div> -->
 </div>
 <div class="bpHeaderMobile" *ngIf="!hideTill(610)"
     [ngClass]="[isScrolled ? 'scrolled' : '', isMobileMenu? 'bgWhite': '']">
@@ -42,18 +46,22 @@
         <div class="callToPhone one" *ngIf="!isScrolled"
             [ngClass]="[!hideTill(610) ? 'fsRedused':'', isMobileMenu? 'black': 'white']">
             Contact Us <br />
-            <a href="tel:1800-441-8935" title="Call to Bytepushers">1 (800) 441-8935</a>
+            <a href="tel:18004418935" title="Call to Bytepushers">1 (800) 441-8935</a>
         </div>
     </div>
     <div class="mNavigation" *ngIf="isMobileMenu">
         <ul>
             <li><a routerLink="/home" routerLinkActive="active" href="javascript:void(0)">Home</a></li>
-            <li><a routerLink="/services" routerLinkActive="active" href="javascript:void(0)">Services</a></li>
+            <!-- <li><a routerLink="/services" routerLinkActive="active" href="javascript:void(0)">Services</a></li>
             <li><a routerLink="/work" routerLinkActive="active" href="javascript:void(0)">Work</a></li>
             <li><a routerLink="/about" routerLinkActive="active" href="javascript:void(0)">About Us</a></li>
             <li><a routerLink="/contact" routerLinkActive="active" href="javascript:void(0)">Contact</a></li>
             <li *ngIf="hideTill(1000)"><bp-button title="Request a Quote" uiType="standardYellow"
-                    (onClick)="requestaQuote()" /></li>
+                    (onClick)="requestaQuote()" /></li> -->
+            <li>
+                <a href="tel:+18004418935" class="noBorder"> <bp-button title="800-441-8935" uiType="primary"
+                        [icon]="faPhone" /></a>
+            </li>
         </ul>
     </div>
 </div>
