@@ -1,11 +1,29 @@
+.headerTheme  {
+  background: red;
+  .header {
+
+  }
+  .bodyContent {
+    .customContainer {
+      .twoCol {
+        .contentArea {
+
+        }
+        .socialMediaIcons {
+
+        }
+      }
+    }
+  }
+}
+
 .knowMore {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  gap: 30px;
   padding-top: 10px;
   padding-right: 50px;
-
-  .arrow {
-    margin-right: 30px;
-  }
 }
+
+

@@ -5,12 +5,9 @@
       class="callToAction one"
       [ngStyle]="setCTAColor()"
       [ngClass]="showSmallLogo() ? 'fsReduced' : ''"
-      *ngIf="!isScrolled"
-    >
+      *ngIf="!isScrolled">
       Contact Us <br />
-      <a href="tel:1800-441-8935" title="Call to Bytepushers"
-        >1 (800) 441-8935</a
-      >
+      <a href="tel:1800-441-8935" title="Call to Bytepushers">1 (800) 441-8935</a>
     </div>
     <div
       class="callToAction two"
@@ -18,10 +15,7 @@
       *ngIf="isScrolled && hideAfter1000() && !isMobileNavOpen"
     >
       <div *ngIf="!isMobile()">
-        Contact Us:
-        <a href="tel:1800-441-8935" title="Call to Bytepushers"
-          >1 (800) 441-8935</a
-        >
+        Contact Us:<a href="tel:1800-441-8935" title="Call to Bytepushers">1 (800) 441-8935</a>
       </div>
       <div *ngIf="isMobile()">
         Contact Us <br /><a href="tel:1800-441-8935" title="Call to Bytepushers"

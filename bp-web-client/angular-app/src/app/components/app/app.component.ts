@@ -7,12 +7,13 @@ import { LogoTextBottomComponent } from '@components/logo-text-bottom/logo-text-
 import { WINDOW } from '@services/windows/window';
 import { CompaniesWeKeepComponent } from '@app/shared/components/companies-we-keep/companies-we-keep.component';
 import { SearchEngineService } from '@services/search-engine/search-engine.service';
-import { PopupComponent } from '@app/shared/components/popup/popup.component';
+import { DialogComponent } from '@app/shared/components/dialog/dialog.component';
+import { BpHeaderComponent } from '@app/shared/components/bp-header/bp-header.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [LogoTextAsideComponent, LogoTextBottomComponent, RouterOutlet, NgClass, NgIf, SocialMediaComponent, CompaniesWeKeepComponent, PopupComponent],
+  imports: [BpHeaderComponent, RouterOutlet, NgClass, NgIf, SocialMediaComponent, CompaniesWeKeepComponent, DialogComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -24,7 +25,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   // public borderVisible = false;
 
   constructor(@Inject(WINDOW) private window: Window, @Inject(DOCUMENT) private document: Document,
-    private route: ActivatedRoute, private searchEngine: SearchEngineService, private router: Router) {
+    private route: ActivatedRoute, private searchEngine: SearchEngineService,) {
     // console.log('AppComponent(): inside constructor');
     this.logoDimension = this.#getLogoDimension();
   }
@@ -46,9 +47,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
 
   }
-  goHome() {
-    this.router.navigate(['/home'])
-  }
+
 
   #showBorders(showBorders: boolean): void {
     if (showBorders) {

@@ -1,8 +1,7 @@
 import { ComponentType } from "@angular/cdk/portal";
 import landingPages from "./landing-pages.json";
 
-export const LANDING_PAGE_LAYOUT_CONFIGURATION_MAP: Map<
-  string,
+export const LANDING_PAGE_LAYOUT_CONFIGURATION_MAP: Map<string,
   { createComponent; component: ComponentType<any>; inputs: any }[]
 > = new Map();
 
