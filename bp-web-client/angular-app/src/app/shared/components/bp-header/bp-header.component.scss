@@ -1,25 +1,25 @@
-
-
-
 .bpHeader {
     width: 100%;
     padding: 30px;
-    background:transparent;
-    position: fixed;top: 0;left: 0;
+    background: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: 100;
 
     .callToPhone {
         position: absolute;
 
         &.one {
-          right: 30px;
-        top: 15px; 
+            right: 30px;
+            top: 15px;
         }
+
         &.two {
-          left: 130px;
-        bottom: -30px;
+            left: 130px;
+            bottom: -30px;
         }
-        
+
     }
 
     .logo {
@@ -40,99 +40,122 @@
                     padding-bottom: 3px;
                     border-bottom: 2px solid transparent;
 
-                    &:hover, &.active {
+                    &:hover,
+                    &.active {
                         border-bottom: 2px solid #fff;
+                    }
+
+                    &.noBorder {
+
+                        &:hover {
+                            border-bottom: 2px solid transparent;
+                        }
+
                     }
                 }
             }
         }
     }
-&.scrolled {
-    position: fixed;
-    top: 0px;
-    background: #fff;
-    height: 100px;
 
-    .navigation {
+    &.scrolled {
+        position: fixed;
+        top: 0px;
+        background: #fff;
+        height: 100px;
 
-        ul {
-            li {
-                a {
-                    color: #000;
+        .navigation {
 
-                    &:hover,&.active {
+            ul {
+                li {
+                    a {
+                        color: #000;
+
+                        &:hover,
+                        &.active {
                             border-bottom: 2px solid #000;
                         }
+
+                        &.noBorder {
+                            &:hover {
+                                border-bottom: 2px solid transparent;
+                            }
+
+                        }
+                    }
                 }
             }
         }
     }
-}
 
 }
+
 .bpHeaderMobile {
     width: 100%;
     background: transparent;
-        position: fixed;
-        top: 0;
-        left: 0;
-        padding: 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 30px;
 
-        .empty {
-            width: 20px;height: 20px;
+    .empty {
+        width: 20px;
+        height: 20px;
+    }
+
+    .hamburgur {
+        font-size: 30px;
+    }
+
+    .callToPhone {
+        position: absolute;
+
+        &.one {
+            right: 15px;
+            top: 30px;
         }
-.hamburgur {
-    font-size: 30px;
-}
-        .callToPhone {
-                position: absolute;
-        
-                &.one {
-                    right: 15px;
-                    top: 30px;
-                }
-        
-                &.two {
-                    left: 130px;
-                    bottom: -30px;
-                }
-                &.fsRedused {
-                    font-size: 12px;
-                        top: 66px;
-                        text-align: right;
-                }
-        
-            }
 
-&.scrolled {
+        &.two {
+            left: 130px;
+            bottom: -30px;
+        }
+
+        &.fsRedused {
+            font-size: 12px;
+            top: 66px;
+            text-align: right;
+        }
+
+    }
+
+    &.scrolled {
         position: fixed;
         top: 0px;
         background: #fff;
         padding: 10px 30px;
-}
+    }
 
-.mNavigation {
-    width: 100%;
-    background: #fff;
-    color: #000;
-    text-align: center;
+    .mNavigation {
+        width: 100%;
+        background: #fff;
+        color: #000;
+        text-align: center;
 
-    ul {
-        margin: 10px 0 0 0;
+        ul {
+            margin: 10px 0 0 0;
 
-        li {
-            margin: 0 0 6px 0;
+            li {
+                margin: 0 0 6px 0;
 
-            a {
-                text-transform: uppercase;
-                font-weight: 400;
-                border-bottom: 2px solid transparent;
+                a {
+                    text-transform: uppercase;
+                    font-weight: 400;
+                    border-bottom: 2px solid transparent;
 
-                &.active {
-                   border-bottom: 2px solid #000; 
+                    &.active {
+                        border-bottom: 2px solid #000;
+                    }
                 }
             }
         }
     }
-}
 }

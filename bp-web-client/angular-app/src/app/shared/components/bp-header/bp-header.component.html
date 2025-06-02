@@ -1,39 +1,46 @@
-<div class="bpHeader flex justify-between items-center"  *ngIf="hideTill(610)" [ngClass]="isScrolled ? 'scrolled' : ''">
+<div class="bpHeader flex justify-between items-center" *ngIf="hideTill(610)" [ngClass]="isScrolled ? 'scrolled' : ''">
     <div class="logo">
-        <app-logo-text-bottom class="logoClick"  *ngIf="!isScrolled && !hideTill(830)" (click)="goHome()" title="Byte Pushers Inc."
-            [logoColor]="'var(--logo-primary-color)'">
+        <app-logo-text-bottom class="logoClick" *ngIf="!isScrolled && !hideTill(830)" (click)="goHome()"
+            title="Byte Pushers Inc." [logoColor]="'var(--logo-primary-color)'">
         </app-logo-text-bottom>
-        <app-logo-text-aside  *ngIf="!isScrolled && hideTill(830)" class="logoClick" title="Byte Pushers Inc." [logoColor]="'var(--logo-primary-color)'">
+        <app-logo-text-aside *ngIf="!isScrolled && hideTill(830)" class="logoClick" title="Byte Pushers Inc."
+            [logoColor]="'var(--logo-primary-color)'">
         </app-logo-text-aside>
-        <app-logo-only-text title="Byte Pushers Inc." *ngIf="isScrolled && hideTill(610)" (click)="goHome()"></app-logo-only-text>
+        <app-logo-only-text title="Byte Pushers Inc." *ngIf="isScrolled && hideTill(610)"
+            (click)="goHome()"></app-logo-only-text>
     </div>
     <div class="navigation">
         <ul>
-            <li><a routerLink="/home" routerLinkActive="active" href="javascript:void(0)" >Home</a></li>
-            <li><a routerLink="/services" routerLinkActive="active" href="javascript:void(0)" >Services</a></li>
-            <li><a routerLink="/work" routerLinkActive="active" href="javascript:void(0)" >Work</a></li>
-            <li><a routerLink="/about" routerLinkActive="active" href="javascript:void(0)" >About Us</a></li>
-            <li><a routerLink="/contact" routerLinkActive="active" href="javascript:void(0)" >Contact</a></li>
-            <li *ngIf="hideTill(1000)"><bp-button title="Request a Quote" uiType="standardYellow" (onClick)="requestaQuote()" /></li>
+            <li><a routerLink="/home" routerLinkActive="active" href="javascript:void(0)">Home</a></li>
+            <li><a routerLink="/services" routerLinkActive="active" href="javascript:void(0)">Services</a></li>
+            <li><a routerLink="/work" routerLinkActive="active" href="javascript:void(0)">Work</a></li>
+            <li><a routerLink="/about" routerLinkActive="active" href="javascript:void(0)">About Us</a></li>
+            <li><a routerLink="/contact" routerLinkActive="active" href="javascript:void(0)">Contact</a></li>
+            <li *ngIf="hideTill(1000)"><bp-button title="Request a Quote" uiType="standardYellow"
+                    (onClick)="requestaQuote()" /></li>
+            <li *ngIf="hideTill(1100) && isScrolled">
+                <a href="tel:800-441-8935" class="noBorder"> <bp-button title="800-441-8935" uiType="primary"
+                        [icon]="faPhone" /></a>
+            </li>
         </ul>
     </div>
     <div class="callToPhone one" *ngIf="!isScrolled">
         Contact Us <br />
         <a href="tel:1800-441-8935" title="Call to Bytepushers">1 (800) 441-8935</a>
     </div>
-    <div class="callToPhone two" *ngIf="isScrolled">
-        Contact Us <a href="tel:1800-441-8935" title="Call to Bytepushers">1 (800) 441-8935</a>
-    </div>
 </div>
-<div class="bpHeaderMobile"  *ngIf="!hideTill(610)" [ngClass]="[isScrolled ? 'scrolled' : '', isMobileMenu? 'bgWhite': '']">
+<div class="bpHeaderMobile" *ngIf="!hideTill(610)"
+    [ngClass]="[isScrolled ? 'scrolled' : '', isMobileMenu? 'bgWhite': '']">
     <div class="flex justify-between items-center">
-        <fa-icon [icon]="faBars" class="hamburgur" [ngClass]="isScrolled || isMobileMenu? 'black': 'white'" (click)="toggleMobileMenu()"></fa-icon>
-        <app-logo-text-bottom class="logoClick" *ngIf="!isScrolled && !hideTill(830)" (click)="goHome()" title="Byte Pushers Inc."
-            [logoColor]="isMobileMenu ? '#000' : 'var(--logo-primary-color)'">
+        <fa-icon [icon]="faBars" class="hamburgur" [ngClass]="isScrolled || isMobileMenu? 'black': 'white'"
+            (click)="toggleMobileMenu()"></fa-icon>
+        <app-logo-text-bottom class="logoClick" *ngIf="!isScrolled && !hideTill(830)" (click)="goHome()"
+            title="Byte Pushers Inc." [logoColor]="isMobileMenu ? '#000' : 'var(--logo-primary-color)'">
         </app-logo-text-bottom>
         <app-logo-only-text title="Byte Pushers Inc." *ngIf="isScrolled" (click)="goHome()"></app-logo-only-text>
         <div class="empty"></div>
-        <div class="callToPhone one" *ngIf="!isScrolled" [ngClass]="[!hideTill(610) ? 'fsRedused':'', isMobileMenu? 'black': 'white']">
+        <div class="callToPhone one" *ngIf="!isScrolled"
+            [ngClass]="[!hideTill(610) ? 'fsRedused':'', isMobileMenu? 'black': 'white']">
             Contact Us <br />
             <a href="tel:1800-441-8935" title="Call to Bytepushers">1 (800) 441-8935</a>
         </div>
@@ -46,7 +53,7 @@
             <li><a routerLink="/about" routerLinkActive="active" href="javascript:void(0)">About Us</a></li>
             <li><a routerLink="/contact" routerLinkActive="active" href="javascript:void(0)">Contact</a></li>
             <li *ngIf="hideTill(1000)"><bp-button title="Request a Quote" uiType="standardYellow"
-                 (onClick)="requestaQuote()" /></li>
+                    (onClick)="requestaQuote()" /></li>
         </ul>
     </div>
 </div>
