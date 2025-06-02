@@ -5,7 +5,7 @@ import { LogoOnlyTextComponent } from '@app/components/logo-only-text/logo-only-
 import { LogoTextAsideComponent } from '@app/components/logo-text-aside/logo-text-aside.component';
 import { LogoTextBottomComponent } from '@app/components/logo-text-bottom/logo-text-bottom.component';
 import { BpButtonComponent } from '../bp-button/bp-button.component';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
@@ -17,6 +17,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 })
 export class BpHeaderComponent implements OnInit {
   faBars = faBars;
+  faPhone = faPhone;
   isScrolled: boolean = false;
   isMobileMenu: boolean = false;
   screenWidth: any;
