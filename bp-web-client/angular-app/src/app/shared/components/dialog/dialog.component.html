@@ -1,6 +1,7 @@
 <div class="bpPopup" *ngIf="isDialog">
     <div class="popupHeader">
-        Want to Learn More?
+        <div class="title">Want to Learn More?</div>
+        <div class="close" (click)="closeDialog()"><fa-icon [icon]="faClose"></fa-icon></div>
     </div>
     <div class="popupBody">
         <app-call-to-action></app-call-to-action>
