@@ -1,4 +1,4 @@
-package software.bytepushers.prospect.resource.server;
+package software.bytepushers.prospect.resource.server.model;
 
 import java.io.File;
 

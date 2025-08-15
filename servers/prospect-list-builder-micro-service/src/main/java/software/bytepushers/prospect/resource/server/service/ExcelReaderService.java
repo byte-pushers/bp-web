@@ -1,4 +1,4 @@
-package software.bytepushers.prospect.resource.server;
+package software.bytepushers.prospect.resource.server.service;
 
 import org.apache.poi.ss.usermodel.*;
 import org.springframework.core.io.ByteArrayResource;

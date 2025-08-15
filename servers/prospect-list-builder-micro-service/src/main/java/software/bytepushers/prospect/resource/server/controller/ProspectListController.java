@@ -1,4 +1,4 @@
-package software.bytepushers.prospect.resource.server;
+package software.bytepushers.prospect.resource.server.controller;
 
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
@@ -6,6 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import software.bytepushers.prospect.resource.server.service.ProspectService;
 
 import java.io.File;
 import java.nio.file.Files;
