@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CallToActionService } from '@app/services/callToAction/callToAction.service';
@@ -8,7 +8,7 @@ import { BpButtonComponent } from '../bp-button/bp-button.component';
 @Component({
   selector: 'app-inline-cta',
   standalone: true,
-  imports: [BpButtonComponent, ReactiveFormsModule, NgIf],
+  imports: [BpButtonComponent, ReactiveFormsModule, NgIf,NgClass],
   templateUrl: './inline-cta.component.html',
   styleUrl: './inline-cta.component.scss'
 })

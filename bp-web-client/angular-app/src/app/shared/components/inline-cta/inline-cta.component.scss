@@ -37,3 +37,30 @@
     /* Microsoft Edge */
     color: $standardYellow;
 }
+
+.errorBlock {
+    height: 80px;
+    max-height: 80px;
+    overflow-y: auto;
+    width: 100%;
+    padding: 8px 15px;
+    border-radius: 5px;
+
+    &.active {
+            color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    }
+
+    ul {
+        color: rgb(100, 0, 0);
+        font-size: 14px;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            margin-bottom: 5px;
+        }   
+    }
+}
