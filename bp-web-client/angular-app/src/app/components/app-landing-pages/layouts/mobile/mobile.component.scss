@@ -36,3 +36,9 @@
     }
   }
 }
+@media screen and (max-height: 500px) {
+  .knowMore {
+    justify-content: center;
+    padding-right: 0px !important;
+  }
+}

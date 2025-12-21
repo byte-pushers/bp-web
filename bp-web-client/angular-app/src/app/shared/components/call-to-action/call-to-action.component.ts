@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgIf } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DialogService } from '@app/services/dialog/dialog.service';
 import { BpInputComponent } from '../bp-input/bp-input.component';
@@ -10,7 +10,7 @@ import { SelectDropdownComponent } from '../select-dropdown/select-dropdown.comp
 @Component({
   selector: 'app-call-to-action',
   standalone: true,
-  imports: [NgIf, FormsModule, ReactiveFormsModule, BpInputComponent, BpButtonComponent, SelectDropdownComponent],
+  imports: [NgIf, NgClass, FormsModule, ReactiveFormsModule, BpInputComponent, BpButtonComponent, SelectDropdownComponent],
   templateUrl: './call-to-action.component.html',
   styleUrl: './call-to-action.component.scss'
 })

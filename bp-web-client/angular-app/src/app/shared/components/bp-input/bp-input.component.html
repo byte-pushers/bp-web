@@ -3,7 +3,7 @@
     [formControl]="control" 
     placeholder="{{placeHolder}}" />
 
-@if(control?.invalid && (control?.dirty || control?.touched)){
+<!-- @if(control?.invalid && (control?.dirty || control?.touched)){
     @if (control.errors?.['required']){
     <div  class="alert alert-danger">{{label}} is required.</div>
     }
@@ -13,5 +13,5 @@
     @if (control.errors?.['email']){
     <div  class="alert alert-danger">{{label}} is not valid.</div>
     }
-}
+} -->
 </div>
