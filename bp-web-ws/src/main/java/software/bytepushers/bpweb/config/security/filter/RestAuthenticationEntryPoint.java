@@ -22,7 +22,7 @@ import static software.bytepushers.bpweb.config.security.SecurityConstants.TOKEN
 /**
  * The custom authentication entry point to handle the authentication errors
  */
-@Component
+// @Component
 public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
     private final ObjectMapper objectMapper;

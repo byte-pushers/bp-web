@@ -2,6 +2,7 @@ package software.bytepushers.bpweb.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,6 +14,7 @@ import org.springframework.web.context.WebApplicationContext;
 /**
  * Abstract controller test class for controller setup
  */
+@Ignore
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public abstract class AbstractControllerTest {

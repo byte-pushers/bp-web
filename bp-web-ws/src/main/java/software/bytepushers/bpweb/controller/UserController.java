@@ -23,10 +23,10 @@ import static software.bytepushers.bpweb.config.security.SecurityConstants.USERS
 @RequestMapping(USERS_END_POINT)
 public class UserController {
 
-    private final UserService userServiceImpl;
+    //private final UserService userServiceImpl;
 
-    public UserController(UserService userServiceImpl) {
-        this.userServiceImpl = userServiceImpl;
+    public UserController(/*UserService userServiceImpl*/) {
+        // this.userServiceImpl = userServiceImpl;
     }
 
     /**
@@ -38,7 +38,7 @@ public class UserController {
     @GetMapping("/{id}")
     public UserDetailsDto userById(@PathVariable Long id) {
         log.info("Fetch User. Id: {}", id);
-        return this.userServiceImpl.getById(id);
+        return null; // this.userServiceImpl.getById(id);
     }
 
     /**
@@ -54,7 +54,7 @@ public class UserController {
         validateRequest(objectsToValidate, UserDto.CreateUserRequest.class);
         UserDetailsDto userDetailsDto = userDto.getUser();
         log.info("Save User. username: {}", userDetailsDto.getUsername());
-        return this.userServiceImpl.save(userDto);
+        return null; // this.userServiceImpl.save(userDto);
     }
 
     /**
@@ -67,7 +67,7 @@ public class UserController {
         validateRequest(Collections.singletonList(userDto.getUser()), UserDto.UpdateUserRequest.class);
         UserDetailsDto userDetailsDto = userDto.getUser();
         log.info("Update User. Id: {}", userDetailsDto.getId());
-        this.userServiceImpl.update(userDto);
+        // this.userServiceImpl.update(userDto);
     }
 
     /**
@@ -78,7 +78,7 @@ public class UserController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         log.info("Delete User. Id: {}", id);
-        this.userServiceImpl.delete(id);
+        // this.userServiceImpl.delete(id);
     }
 
     /**

@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 /**
  * Customer user details service implementation for spring security.
  */
-@Service
+// @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;

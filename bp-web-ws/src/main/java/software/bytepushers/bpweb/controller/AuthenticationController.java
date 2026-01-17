@@ -28,7 +28,7 @@ import java.util.Date;
 import static software.bytepushers.bpweb.config.security.SecurityConstants.*;
 
 @Log4j2
-@RestController
+//@RestController
 public class AuthenticationController {
 
     private final AuthenticationManager authenticationManager;

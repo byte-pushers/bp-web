@@ -16,7 +16,7 @@ import java.util.UUID;
  * The rest endpoints for the quotes operations.
  */
 @Log4j2
-@RestController
+// @RestController
 @RequestMapping("/api/v1/quotes")
 public class QuoteController extends AbstractController {
 

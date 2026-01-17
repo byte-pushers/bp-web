@@ -21,7 +21,7 @@ import java.util.UUID;
  * The service layer implementation for the quote operations.
  */
 @Log4j2
-@Service
+// @Service
 public class QuoteServiceImpl implements QuoteService {
 
     private final QuoteRepository quoteRepository;

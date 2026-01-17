@@ -1,5 +1,6 @@
 package software.bytepushers.bpweb.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 import software.bytepushers.bpweb.model.entity.ValidatorModel.CreateRequest;
@@ -9,6 +10,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
+import java.time.LocalDate;
 
 /**
  * The person entity model.
@@ -29,6 +32,19 @@ public class Person extends AbstractEntity {
     @NotEmpty(groups = CreateRequest.class, message = "{person.email.required}")
     @Email(groups = {CreateRequest.class, UpdateRequest.class}, message = "{person.email.invalid}")
     private String email;
+
+    @Column
+    private String gender;
+
+    @Column
+    private String website;
+
+    @Column
+    private String timezone;
+
+    @Column
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dateOfBirth;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "phone_id", referencedColumnName = "id", nullable = false)

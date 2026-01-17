@@ -21,7 +21,7 @@ import static software.bytepushers.bpweb.config.security.SecurityConstants.ACCOU
  * The rest endpoint implementations for the account types
  */
 @Log4j2
-@RestController
+// @RestController
 @RequestMapping(ACCOUNT_TYPE_END_POINT)
 public class AccountTypeController {
 

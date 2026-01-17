@@ -15,7 +15,7 @@ import java.util.Map;
  * The rest endpoints for the hubspot operations.
  */
 @Log4j2
-@RestController
+// @RestController
 @RequestMapping("/api/v1/hubspot")
 public class HubspotController extends AbstractController {
 

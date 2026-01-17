@@ -29,7 +29,7 @@ import static software.bytepushers.bpweb.model.dto.UserDetailsDto.fromEntity;
  * Service layer implementation for the user operations.
  */
 @Log4j2
-@Service
+//@Service
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;

@@ -1,5 +1,5 @@
 spring.profiles.active: in-memory
-
+#spring.profiles.active: local
 config:
   numPlaysToPredict: 10
 errors:

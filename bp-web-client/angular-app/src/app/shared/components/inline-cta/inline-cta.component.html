@@ -9,7 +9,7 @@
     <div *ngIf="ctaName?.invalid && (ctaName?.dirty || ctaName?.touched)" class="alert alert-danger">
         <div *ngIf="ctaName?.errors.required">Name is required.</div>
         <div *ngIf="ctaName?.errors.minlength">
-            Name must be atleast 3 letters.
+            Name must be at least 3 letters.
         </div>
     </div>
     <div *ngIf="ctaEmail?.invalid && (ctaEmail?.dirty || ctaEmail?.touched)" class="alert alert-danger">

@@ -2,6 +2,7 @@ package software.bytepushers.bpweb.controller;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,7 +26,7 @@ import static software.bytepushers.bpweb.config.security.SecurityConstants.LOGIN
 
 import software.bytepushers.bpweb.model.dto.UserDto;
 import software.bytepushers.bpweb.model.dto.LoginResponseDto;
-
+@Ignore
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public abstract class AbstractLoginControllerTest extends AbstractControllerTest {

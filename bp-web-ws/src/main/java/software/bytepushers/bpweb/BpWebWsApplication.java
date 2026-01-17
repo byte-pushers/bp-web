@@ -2,13 +2,14 @@ package software.bytepushers.bpweb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 /**
  * The spring boot application for the byte pushers web services.
  */
-@SpringBootApplication
-@EnableJpaAuditing
+@SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
+//@EnableJpaAuditing
 public class BpWebWsApplication {
 
     public static void main(String[] args) {

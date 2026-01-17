@@ -23,7 +23,7 @@ import static software.bytepushers.bpweb.config.security.SecurityConstants.*;
 /**
  * The JWT Token component to work with security integration.
  */
-@Component
+//@Component
 public class JwtUtils {
 
     @Value("${application.security.token}")

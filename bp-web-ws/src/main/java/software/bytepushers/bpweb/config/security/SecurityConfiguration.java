@@ -21,8 +21,7 @@ import static software.bytepushers.bpweb.config.security.SecurityConstants.*;
  * Security Configuration class for the  application
  */
 @Log4j2
-@Configuration
-
+//@Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final CustomUserDetailsService customUserDetailsService;

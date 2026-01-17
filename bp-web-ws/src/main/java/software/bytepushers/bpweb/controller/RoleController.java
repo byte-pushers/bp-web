@@ -17,7 +17,7 @@ import static software.bytepushers.bpweb.config.security.SecurityConstants.ROLES
  * The rest endpoint implementation for the User operations
  */
 @Log4j2
-@RestController
+// @RestController
 @RequestMapping(ROLES_END_POINT)
 public class RoleController {
 
