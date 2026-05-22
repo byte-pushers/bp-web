@@ -29,11 +29,13 @@ export class DynamicComponentService {
       if (landingPageLayoutConfig != null) {
         landingPageLayoutConfig.inputs = targetLandingPageConfig?.inputDetails;
 
-        Object.entries(landingPageLayoutConfig?.inputs).forEach(
-          ([key, value]) => {
-            componentRef?.setInput(key, value);
-          }
-        );
+        if (landingPageLayoutConfig?.inputs != null) {
+          Object.entries(landingPageLayoutConfig?.inputs).forEach(
+            ([key, value]) => {
+              componentRef?.setInput(key, value);
+            }
+          );
+        }
       }
 
       resolve(true);

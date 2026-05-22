@@ -1,5 +1,5 @@
-import { NgClass, NgIf, NgStyle } from "@angular/common";
-import { Component, HostListener, Input, OnInit } from "@angular/core";
+import {DOCUMENT, NgClass, NgIf, NgStyle} from "@angular/common";
+import {Component, HostListener, Inject, Input, OnInit} from "@angular/core";
 import { Meta, Title } from "@angular/platform-browser";
 import { ActivatedRoute, RouterOutlet } from "@angular/router";
 import { SocialMediaComponent } from "@app/components/social-media/social-media.component";
@@ -10,6 +10,7 @@ import { BpInputComponent } from "@app/shared/components/bp-input/bp-input.compo
 import { BpButtonComponent } from "@app/shared/components/bp-button/bp-button.component";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { InlineCTAComponent } from "@app/shared/components/inline-cta/inline-cta.component";
+import {WINDOW} from "@services/windows/window";
 @Component({
   selector: "app-landing-page-left-layout",
   templateUrl: "./landing-page-left-layout.component.html",
@@ -29,6 +30,8 @@ export class LandingPageLeftLayoutComponent implements OnInit {
   public borderVisible = false;
 
   constructor(
+    @Inject(WINDOW) private window: Window,
+    @Inject(DOCUMENT) private document: Document,
     private route: ActivatedRoute,
     private metaService: Meta,
     private title: Title
@@ -45,21 +48,21 @@ export class LandingPageLeftLayoutComponent implements OnInit {
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(event: Event): void {
     // Perform actions based on the scroll event
-    if (window.pageYOffset >= 10) {
+    if (this.window.pageYOffset >= 10) {
       this.isScrolled = true;
     } else {
       this.isScrolled = false;
     }
   }
   onResize(event: any) {
-    this.screenWidth = window.innerWidth;
+    this.screenWidth = this.window.innerWidth;
   }
   setScreenWidth() {
-    this.screenWidth = window.innerWidth;
+    this.screenWidth = this.window.innerWidth;
   }
 
   ngOnInit() {
-    this.screenWidth = window.innerWidth;
+    this.screenWidth = this.window.innerWidth;
     this.metaService?.addTags(this.metaTags);
     this.title.setTitle(this.heroContent);
     this.route.queryParams.subscribe((params) => {
@@ -68,8 +71,8 @@ export class LandingPageLeftLayoutComponent implements OnInit {
       }
     });
 
-    const theme = document.body.getAttribute("data-theme");
-    document.body.setAttribute("data-layout", `${theme}-left`);
+    const theme = this.document.body.getAttribute("data-theme");
+    this.document.body.setAttribute("data-layout", `${theme}-left`);
   }
 
   hideTill(till: any) {

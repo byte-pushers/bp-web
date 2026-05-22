@@ -51,19 +51,19 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   #showBorders(showBorders: boolean): void {
     if (showBorders) {
-      document.querySelector('.border-0')?.classList.toggle('border-2', true);
-      document.querySelector('.border-0')?.classList.remove('border-0');
+      this.document.querySelector('.border-0')?.classList.toggle('border-2', true);
+      this.document.querySelector('.border-0')?.classList.remove('border-0');
     } else {
-      document.querySelector('.border-2')?.classList.toggle('border-0', false);
-      document.querySelector('.border-2')?.classList.remove('border-2');
+      this.document.querySelector('.border-2')?.classList.toggle('border-0', false);
+      this.document.querySelector('.border-2')?.classList.remove('border-2');
     }
   }
 
   toggleMenu(e: any) {
     // console.log(`menu isOpen: ${this.isOpen}`);
 
-    const navLinks = document.querySelector('.nav-links');
-    const unorderedList = document.querySelector('div.nav-links ul');
+    const navLinks = this.document.querySelector('.nav-links');
+    const unorderedList = this.document.querySelector('div.nav-links ul');
 
     unorderedList?.classList.remove('text-black');
 
@@ -112,7 +112,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   /*@HostListener('window:resize', ['$event'])
   onResize($event: any) {
-    const heroText = document.querySelector('.hero-text');
+    const heroText = this.document.querySelector('.hero-text');
 
     if (this.window.screen.width >= 820) {
       heroText?.classList.remove(`text-4xl`);
@@ -130,7 +130,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   #detectScreenSize() {
-    const heroText = document.querySelector('.hero-text');
+    const heroText = this.document.querySelector('.hero-text');
 
     if (this.window.screen.width >= 820) {
       heroText?.classList.remove(`text-4xl`);
