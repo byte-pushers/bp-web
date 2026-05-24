@@ -9,7 +9,7 @@ import software.bytepushers.bpweb.model.entity.Person;
 @Getter
 @Setter
 @RequiredArgsConstructor
-public class GoHighLevelContactRequestBody {
+public class BPGoHighLevelContactRequestBody {
     private Person person;
     private GoHighLevelInfo goHighLevelInfo;
     private PersonInfo personInfo;
