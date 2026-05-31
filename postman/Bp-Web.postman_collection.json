@@ -1,133 +1,2343 @@
 {
-	"info": {
-		"_postman_id": "a97ff8fa-5263-469b-9b1a-fc87ab318a31",
-		"name": "Bp-Web",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "Quote",
-			"item": [
-				{
-					"name": "Create",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.environment.set(\"quote_id\", pm.response.json().data.id);"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"projectPlatform\": \"string\",\n    \"projectType\": \"string\",\n    \"description\": \"string\",\n    \"contact\": {\n        \"firstName\": \"Aman\",\n        \"lastName\": \"Abrol\",\n        \"email\": \"aman@gmail.com\",\n        \"phone\": {\n            \"number\": \"1234567890\",\n            \"type\": \"home\"\n        },\n        \"address\": {\n            \"street\": [\n                \"16241 N 30th Pl\",\n                \"1200\"\n            ],\n            \"city\": \"phoenix\",\n            \"state\": \"az\",\n            \"zip\": \"85032\",\n            \"county\": \"genesee\",\n            \"country\": \"USA\"\n        }\n    },\n    \"company\": {\n        \"name\": \"Private LLP\",\n        \"type\": \"LLP\",\n        \"establishedYear\": \"2012\",\n        \"url\": \"https://www.google.com\",\n        \"description\": \"description\",\n        \"budget\": {\n            \"min\": 15000,\n            \"max\": 100000,\n            \"isMaxFinite\": true\n        },\n        \"timeline\": {\n            \"min\": 4,\n            \"max\": 7,\n            \"isMaxFinite\": true\n        },\n        \"isEstablished\": false,\n        \"foundation\": \"New Business\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}quotes",
-							"host": [
-								"{{url}}quotes"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}quotes",
-							"host": [
-								"{{url}}quotes"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"id\": \"{{quote_id}}\",\n    \"projectPlatform\": \"Platform\",\n    \"projectType\": \"Type\",\n    \"contact\": {\n        \"firstName\": \"Aman\",\n        \"lastName\": \"Abrol\",\n        \"email\": \"aman@gmail.com\",\n        \"phone\": {\n            \"number\": \"1234567890\",\n            \"type\": \"home\"\n        },\n        \"address\": {\n            \"street\": [\n                \"16241 N 30th Pl\",\n                \"1200\"\n            ],\n            \"city\": \"phoenix\",\n            \"state\": \"AZ\",\n            \"zip\": \"85032\",\n            \"county\": \"genesee\",\n            \"country\": \"USA\"\n        }\n    },\n    \"company\": {\n        \"name\": \"Private LLP\",\n        \"type\": \"LLP\",\n        \"establishedYear\": \"2012\",\n        \"url\": \"https://www.google.com\",\n        \"description\": \"description\",\n        \"budget\": {\n            \"min\": 15,\n            \"max\": 10\n        },\n        \"timeline\": {\n            \"min\": \"434\",\n            \"max\": \"734\"\n        }\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}quotes",
-							"host": [
-								"{{url}}quotes"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{url}}quotes/{{quote_id}}",
-							"host": [
-								"{{url}}quotes"
-							],
-							"path": [
-								"{{quote_id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get by Id",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}quotes/{{quote_id}}",
-							"host": [
-								"{{url}}quotes"
-							],
-							"path": [
-								"{{quote_id}}"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Health Check",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}health",
-					"host": [
-						"{{url}}health"
-					]
-				}
-			},
-			"response": []
-		}
-	]
+  "info": {
+    "_postman_id": "af56c7db-1e28-4640-8d34-9d1791c6d715",
+    "name": "Bp-Web",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "2974743",
+    "_collection_link": "https://go.postman.co/collection/2974743-af56c7db-1e28-4640-8d34-9d1791c6d715?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Quote Prod",
+      "item": [
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"description\": \"Arzu Enterprice Quote1\",\n    \"projectPlatform\": \"New\",\n    \"projectType\": \"IT Service\",\n    \"contact\": {\n        \"firstName\": \"Jayendra_120423_1\",\n        \"lastName\": \"Rathava_120423_1\",\n        \"email\": \"jayurathova_120423_1@gmail.com\",\n        \"phone\": {\n            \"number\": \"2023041201\",\n            \"type\": \"mobile\"\n        },\n        \"address\": {\n            \"street\": [\n                \"16241 N 30th Z1\",\n                \"1201\"\n            ],\n            \"city\": \"phoenix\",\n            \"state\": \"az\",\n            \"zip\": \"85132\",\n            \"county\": \"genesee\",\n            \"country\": \"USA\"\n        }\n    },\n    \"company\": {\n        \"name\": \"Arzu Enterprice\",\n        \"type\": \"LLP\",\n        \"establishedYear\": \"2012\",\n        \"url\": \"https://google.com\",\n        \"description\": \"Company for excellent IT service\",\n        \"budget\": {\n            \"min\": 15000,\n            \"max\": 100000,\n            \"isMaxFinite\": true\n        },\n        \"timeline\": {\n            \"min\": 4,\n            \"max\": 7,\n            \"isMaxFinite\": true\n        },\n        \"isEstablished\": false,\n        \"foundation\": \"New Business\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://api.bytepushers.io/api/v1/quotes",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bytepushers",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "quotes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.bytepushers.io/api/v1/quotes",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bytepushers",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "quotes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"cbbf6622-7d2a-4c15-9009-5ab67713bcac\",\n    \"projectPlatform\": \"Platform\",\n    \"projectType\": \"Type\",\n    \"contact\": {\n        \"firstName\": \"Aman\",\n        \"lastName\": \"Abrol\",\n        \"email\": \"aman@gmail.com\",\n        \"phone\": {\n            \"number\": \"1234567890\",\n            \"type\": \"home\"\n        },\n        \"address\": {\n            \"street\": [\n                \"16241 N 30th Pl\",\n                \"1200\"\n            ],\n            \"city\": \"phoenix\",\n            \"state\": \"AZ\",\n            \"zip\": \"85032\",\n            \"county\": \"genesee\",\n            \"country\": \"USA\"\n        }\n    },\n    \"company\": {\n        \"name\": \"Private LLP\",\n        \"type\": \"LLP\",\n        \"establishedYear\": \"2012\",\n        \"url\": \"https://www.google.com\",\n        \"description\": \"description\",\n        \"budget\": {\n            \"min\": 15,\n            \"max\": 10\n        },\n        \"timeline\": {\n            \"min\": \"434\",\n            \"max\": \"734\"\n        }\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://api.bytepushers.io/api/v1/quotes",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bytepushers",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "quotes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"rockuser\",\n    \"password\": \"rockuser123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://api.bytepushers.io/api/v1/login",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bytepushers",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://api.bytepushers.io/api/v1/quotes/5329480d-2a47-440d-b189-31252d99c46a",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bytepushers",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "quotes",
+                "5329480d-2a47-440d-b189-31252d99c46a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CreateAccountType",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://api.bytepushers.io/api/v1/account-type",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bytepushers",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "account-type"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CreateRole",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://api.bytepushers.io/api/v1/roles",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bytepushers",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "roles"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CreateUser",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"firstName\": \"rock\",\n        \"lastName\": \"user\",\n        \"email\": \"rockuser@gmail.com\",\n        \"phone\": \"8798545874\",\n        \"state\": \"Tesla\",\n        \"username\": \"rockuser\",\n        \"password\": \"rockuser123\"\n    },\n    \"type\": \"PREMIUM\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://api.bytepushers.io/api/v1/users",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bytepushers",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get by Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://mgejj4ng5b.execute-api.us-east-2.amazonaws.com/Prod/api/v1/quotes/5329480d-2a47-440d-b189-31252d99c46a",
+              "protocol": "https",
+              "host": [
+                "mgejj4ng5b",
+                "execute-api",
+                "us-east-2",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "Prod",
+                "api",
+                "v1",
+                "quotes",
+                "5329480d-2a47-440d-b189-31252d99c46a"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Quote Dev",
+      "item": [
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"description\": \"Arzu Enterprice Quote1\",\n    \"projectPlatform\": \"New\",\n    \"projectType\": \"IT Service\",\n    \"contact\": {\n        \"firstName\": \"Jayendra_260323_1\",\n        \"lastName\": \"Rathava_260323_1\",\n        \"email\": \"jayurathova_260323_1@gmail.com\",\n        \"phone\": {\n            \"number\": \"2603202301\",\n            \"type\": \"mobile\"\n        },\n        \"address\": {\n            \"street\": [\n                \"16241 N 30th Z1\",\n                \"1201\"\n            ],\n            \"city\": \"phoenix\",\n            \"state\": \"az\",\n            \"zip\": \"85132\",\n            \"county\": \"genesee\",\n            \"country\": \"USA\"\n        }\n    },\n    \"company\": {\n        \"name\": \"Arzu Enterprice\",\n        \"type\": \"LLP\",\n        \"establishedYear\": \"2012\",\n        \"url\": \"https://google.com\",\n        \"description\": \"Company for excellent IT service\",\n        \"budget\": {\n            \"min\": 15000,\n            \"max\": 100000,\n            \"isMaxFinite\": true\n        },\n        \"timeline\": {\n            \"min\": 4,\n            \"max\": 7,\n            \"isMaxFinite\": true\n        },\n        \"isEstablished\": false,\n        \"foundation\": \"New Business\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://api-dev.bytepushers.io/api/v1/quotes",
+              "protocol": "https",
+              "host": [
+                "api-dev",
+                "bytepushers",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "quotes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Copy",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"projectPlatform\": \"string\",\n    \"projectType\": \"string\",\n    \"contact\": {\n        \"firstName\": \"Aman1\",\n        \"lastName\": \"Abrol1\",\n        \"email\": \"aman1@gmail.com\",\n        \"phone\": {\n            \"number\": \"+91-1234567890\",\n            \"type\": \"home\"\n        },\n        \"address\": {\n            \"street\": [\n                \"16241 N 30th Pl\",\n                \"1200\"\n            ],\n            \"city\": \"phoenix\",\n            \"state\": \"az\",\n            \"zip\": \"85032\",\n            \"county\": \"genesee\",\n            \"country\": \"USA\"\n        }\n    },\n    \"company\": {\n        \"name\": \"Private LLP\",\n        \"type\": \"LLP\",\n        \"establishedYear\": \"2012\",\n        \"url\": \"https://www.google.com\",\n        \"description\": \"description\",\n        \"budget\": {\n            \"min\": 15000,\n            \"max\": 100000,\n            \"isMaxFinite\": true\n        },\n        \"timeline\": {\n            \"min\": 4,\n            \"max\": 7,\n            \"isMaxFinite\": true\n        },\n        \"isEstablished\": false,\n        \"foundation\": \"New Business\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://api-dev.bytepushers.io/api/v1/quotes",
+              "protocol": "https",
+              "host": [
+                "api-dev",
+                "bytepushers",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "quotes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJyb2NrdXNlciIsImlzcyI6IlJPTEVfUFJFTUlVTSIsImV4cCI6MTY4MzgyNDY5M30.rjXQn9k5WLY_CFHLaQCSotlkIqFnThD3qwx9ySatDoNf0J4EDxng6-K64XZtvfdy",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://api-dev.bytepushers.io/api/v1/quotes",
+              "protocol": "https",
+              "host": [
+                "api-dev",
+                "bytepushers",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "quotes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"45b18222-cad5-4628-8b54-9ae1ee0bc16a\",\n    \"projectPlatform\": \"Platform\",\n    \"projectType\": \"Type\",\n    \"contact\": {\n        \"firstName\": \"Aman\",\n        \"lastName\": \"Abrol\",\n        \"email\": \"aman@gmail.com\",\n        \"phone\": {\n            \"number\": \"1234567890\",\n            \"type\": \"home\"\n        },\n        \"address\": {\n            \"street\": [\n                \"16241 N 30th Pl\",\n                \"1200\"\n            ],\n            \"city\": \"phoenix\",\n            \"state\": \"AZ\",\n            \"zip\": \"85032\",\n            \"county\": \"genesee\",\n            \"country\": \"USA\"\n        }\n    },\n    \"company\": {\n        \"name\": \"Private LLP\",\n        \"type\": \"LLP\",\n        \"establishedYear\": \"2012\",\n        \"url\": \"https://www.google.com\",\n        \"description\": \"description\",\n        \"budget\": {\n            \"min\": 15,\n            \"max\": 10\n        },\n        \"timeline\": {\n            \"min\": \"434\",\n            \"max\": \"734\"\n        }\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://api-dev.bytepushers.io/api/v1/quotes",
+              "protocol": "https",
+              "host": [
+                "api-dev",
+                "bytepushers",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "quotes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://api-dev.bytepushers.io/api/v1/quotes/5329480d-2a47-440d-b189-31252d99c46a",
+              "protocol": "https",
+              "host": [
+                "api-dev",
+                "bytepushers",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "quotes",
+                "5329480d-2a47-440d-b189-31252d99c46a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CreateAccountType",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://api-dev.bytepushers.io/api/v1/account-type",
+              "protocol": "https",
+              "host": [
+                "api-dev",
+                "bytepushers",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "account-type"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CreateRole",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://api-dev.bytepushers.io/api/v1/roles",
+              "protocol": "https",
+              "host": [
+                "api-dev",
+                "bytepushers",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "roles"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CreateUser",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"firstName\": \"rock\",\n        \"lastName\": \"user\",\n        \"email\": \"rockuser@gmail.com\",\n        \"phone\": \"8798545874\",\n        \"state\": \"Tesla\",\n        \"username\": \"rockuser\",\n        \"password\": \"rockuser123\"\n    },\n    \"type\": \"PREMIUM\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://api-dev.bytepushers.io/api/v1/users",
+              "protocol": "https",
+              "host": [
+                "api-dev",
+                "bytepushers",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"rockuser\",\n    \"password\": \"rockuser123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://api-dev.bytepushers.io/api/v1/login",
+              "protocol": "https",
+              "host": [
+                "api-dev",
+                "bytepushers",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get by Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api-dev.bytepushers.io/api/v1/quotes/44f1a09b-3b66-4cbc-950c-5d47bd216264",
+              "protocol": "https",
+              "host": [
+                "api-dev",
+                "bytepushers",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "quotes",
+                "44f1a09b-3b66-4cbc-950c-5d47bd216264"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CreateHubspotContact Copy",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstname\":\"Jayendra_190423_3\",\n    \"lastname\":\"Rathava_190423_3\",\n    \"email\": \"jayurathova_190423_3@gmail.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseUrl}}/api/v1/hubspot/contact",
+              "host": [
+                "{{BaseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "hubspot",
+                "contact"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Quote Local",
+      "item": [
+        {
+          "name": "Project",
+          "item": [
+            {
+              "name": "Create",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"description\": \"Arzu Enterprice Quote1\",\n    \"projectPlatform\": \"New\",\n    \"projectType\": \"IT Service\",\n    \"contact\": {\n        \"firstName\": \"Jayendra_200423_1\",\n        \"lastName\": \"Rathava_200423_1\",\n        \"email\": \"jayurathova_200423_1@gmail.com\",\n        \"phone\": {\n            \"number\": \"2603202301\",\n            \"type\": \"mobile\"\n        },\n        \"address\": {\n            \"street\": [\n                \"16241 N 30th Z1\",\n                \"1201\"\n            ],\n            \"city\": \"phoenix\",\n            \"state\": \"az\",\n            \"zip\": \"85132\",\n            \"county\": \"genesee\",\n            \"country\": \"USA\"\n        }\n    },\n    \"company\": {\n        \"name\": \"Arzu Enterprice\",\n        \"type\": \"LLP\",\n        \"establishedYear\": \"2012\",\n        \"url\": \"https://google.com\",\n        \"description\": \"Company for excellent IT service\",\n        \"budget\": {\n            \"min\": 15000,\n            \"max\": 100000,\n            \"isMaxFinite\": true\n        },\n        \"timeline\": {\n            \"min\": 4,\n            \"max\": 7,\n            \"isMaxFinite\": true\n        },\n        \"isEstablished\": false,\n        \"foundation\": \"New Business\"\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{BaseUrl}}/api/v1/quotes",
+                  "host": [
+                    "{{BaseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "quotes"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "CreateHubspotContact",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"firstname\":\"Jayendra_190423_3\",\n    \"lastname\":\"Rathava_190423_3\",\n    \"email\": \"jayurathova_190423_3@gmail.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{BaseUrl}}/api/v1/hubspot/contact",
+                  "host": [
+                    "{{BaseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "hubspot",
+                    "contact"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create Copy",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"projectPlatform\": \"string\",\n    \"projectType\": \"string\",\n    \"contact\": {\n        \"firstName\": \"Aman1\",\n        \"lastName\": \"Abrol1\",\n        \"email\": \"aman1@gmail.com\",\n        \"phone\": {\n            \"number\": \"+91-1234567890\",\n            \"type\": \"home\"\n        },\n        \"address\": {\n            \"street\": [\n                \"16241 N 30th Pl\",\n                \"1200\"\n            ],\n            \"city\": \"phoenix\",\n            \"state\": \"az\",\n            \"zip\": \"85032\",\n            \"county\": \"genesee\",\n            \"country\": \"USA\"\n        }\n    },\n    \"company\": {\n        \"name\": \"Private LLP\",\n        \"type\": \"LLP\",\n        \"establishedYear\": \"2012\",\n        \"url\": \"https://www.google.com\",\n        \"description\": \"description\",\n        \"budget\": {\n            \"min\": 15000,\n            \"max\": 100000,\n            \"isMaxFinite\": true\n        },\n        \"timeline\": {\n            \"min\": 4,\n            \"max\": 7,\n            \"isMaxFinite\": true\n        },\n        \"isEstablished\": false,\n        \"foundation\": \"New Business\"\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://api-dev.bytepushers.io/api/v1/quotes",
+                  "protocol": "https",
+                  "host": [
+                    "api-dev",
+                    "bytepushers",
+                    "io"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "quotes"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BaseUrl}}/api/v1/quotes",
+                  "host": [
+                    "{{BaseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "quotes"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"id\": \"9d0e0403-96d5-41d3-8e7e-782e688f7b75\",\n    \"description\": \"testing\",\n    \"projectPlatform\": \"string\",\n    \"projectType\": \"string\",\n    \"contact\": {\n        \"firstName\": \"Aman1\",\n        \"lastName\": \"Abrol1\",\n        \"email\": \"aman1@gmail.com\",\n        \"phone\": {\n            \"number\": \"9686558455\",\n            \"type\": \"home\"\n        },\n        \"address\": {\n            \"street\": [\n                \"16241 N 30th Pl\",\n                \"1200\"\n            ],\n            \"city\": \"phoenix\",\n            \"state\": \"az\",\n            \"zip\": \"85032\",\n            \"county\": \"genesee\",\n            \"country\": \"USA\"\n        }\n    },\n    \"company\": {\n        \"name\": \"Private LLP\",\n        \"type\": \"LLP\",\n        \"establishedYear\": \"2012\",\n        \"url\": \"https://www.google.com\",\n        \"description\": \"description\",\n        \"budget\": {\n            \"min\": 15000,\n            \"max\": 100000,\n            \"isMaxFinite\": true\n        },\n        \"timeline\": {\n            \"min\": 4,\n            \"max\": 7,\n            \"isMaxFinite\": true\n        },\n        \"isEstablished\": false,\n        \"foundation\": \"New Business\"\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{BaseUrl}}/api/v1/quotes",
+                  "host": [
+                    "{{BaseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "quotes"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjaGV0YW5rYWlsYSIsImlzcyI6IlJPTEVfUFJFTUlVTSIsImV4cCI6MTY3OTIyNDcwOX0.nEUZfksUTiF95e6bUSnZhLRVrLvfwEdA-Pn5UGY0QxovvSK_DRqwZeHj3ooIIWoY",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{BaseUrl}}/api/v1/quotes/5885af06-4321-4e38-bc0f-0a25f1a3a3aa",
+                  "host": [
+                    "{{BaseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "quotes",
+                    "5885af06-4321-4e38-bc0f-0a25f1a3a3aa"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Login",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "postman.setEnvironmentVariable(\"access_token\", jsonData.token);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"username\": \"rockuser\",\n    \"password\": \"rockuser123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{BaseUrl}}/api/v1/login",
+                  "host": [
+                    "{{BaseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "CreateRole",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{BaseUrl}}/api/v1/roles",
+                  "host": [
+                    "{{BaseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "roles"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "CreateAccountType",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{BaseUrl}}/api/v1/account-type",
+                  "host": [
+                    "{{BaseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "account-type"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "CreateUser",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"user\": {\n        \"firstName\": \"Chetan\",\n        \"lastName\": \"Kaila\",\n        \"email\": \"kailachetan@gmail.com\",\n        \"phone\": \"9638983851\",\n        \"state\": \"Gujarat\",\n        \"username\": \"chetankaila\",\n        \"password\": \"Chetan123\"\n    },\n    \"type\": \"PREMIUM\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{BaseUrl}}/api/v1/users",
+                  "host": [
+                    "{{BaseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "users"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "UpdateUser",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"user\": {\n        \"firstName\": \"Chetan\",\n        \"lastName\": \"Kaila\",\n        \"email\": \"kailachetan9@gmail.com\",\n        \"phone\": \"9638983856\",\n        \"state\": \"Gujarat\",\n        \"username\": \"chetankaila\",\n        \"password\": \"Chetan123\",\n        \"roles\": [\n            \"ROLE_PREMIUM\",\n            \"ROLE_BASIC\",\n            \"ROLE_GUEST\"\n        ]\n    },\n    \"type\": \"PREMIUM\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{BaseUrl}}/api/v1/users",
+                  "host": [
+                    "{{BaseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "users"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "DeleteUser",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{BaseUrl}}/api/v1/users/4",
+                  "host": [
+                    "{{BaseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "users",
+                    "4"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getUsers",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            },
+            {
+              "name": "Get by Id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BaseUrl}}/api/v1/quotes/80fc7390-e14f-434e-8740-3629b9b8bfcd",
+                  "host": [
+                    "{{BaseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "quotes",
+                    "80fc7390-e14f-434e-8740-3629b9b8bfcd"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Hubspot",
+          "item": [
+            {
+              "name": "GetHubSpotContacts",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.hubapi.com/crm/v3/objects/contacts/5251",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubapi",
+                    "com"
+                  ],
+                  "path": [
+                    "crm",
+                    "v3",
+                    "objects",
+                    "contacts",
+                    "5251"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetHubspotContactByEmailId",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.hubapi.com/contacts/v1/contact/email/kmohanti@gmail.com",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubapi",
+                    "com"
+                  ],
+                  "path": [
+                    "contacts",
+                    "v1",
+                    "contact",
+                    "email",
+                    "kmohanti@gmail.com"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetHubSpotQuote",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.hubapi.com/crm/v3/objects/quotes?limit=10&archived=false",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubapi",
+                    "com"
+                  ],
+                  "path": [
+                    "crm",
+                    "v3",
+                    "objects",
+                    "quotes"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "archived",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetHubSpotQuoteById",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.hubapi.com/crm/v3/objects/quotes/67139136?properties=hs_num_associated_deals",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubapi",
+                    "com"
+                  ],
+                  "path": [
+                    "crm",
+                    "v3",
+                    "objects",
+                    "quotes",
+                    "67139136"
+                  ],
+                  "query": [
+                    {
+                      "key": "properties",
+                      "value": "hs_num_associated_deals"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetHubSpotDealById",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.hubapi.com/crm/v3/objects/contact/6301",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubapi",
+                    "com"
+                  ],
+                  "path": [
+                    "crm",
+                    "v3",
+                    "objects",
+                    "contact",
+                    "6301"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetHubSpotQuoteProperties",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.hubapi.com/crm/v3/properties/quotes",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubapi",
+                    "com"
+                  ],
+                  "path": [
+                    "crm",
+                    "v3",
+                    "properties",
+                    "quotes"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetHubSpotContactProperties",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.hubapi.com/crm/v3/properties/contact",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubapi",
+                    "com"
+                  ],
+                  "path": [
+                    "crm",
+                    "v3",
+                    "properties",
+                    "contact"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetHubSpotCompanyProperties",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.hubapi.com/crm/v3/properties/company",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubapi",
+                    "com"
+                  ],
+                  "path": [
+                    "crm",
+                    "v3",
+                    "properties",
+                    "company"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetHubSpotDealProperties",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.hubapi.com/crm/v3/properties/deals",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubapi",
+                    "com"
+                  ],
+                  "path": [
+                    "crm",
+                    "v3",
+                    "properties",
+                    "deals"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetHubSpotQuoteProperties Copy",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.hubapi.com/crm/v3/properties/contacts",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubapi",
+                    "com"
+                  ],
+                  "path": [
+                    "crm",
+                    "v3",
+                    "properties",
+                    "contacts"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "CreateHubSpotQuote",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"properties\": {\n        \"hs_sender_company_name\": \"Arti Enterprice\",\n        \"hs_title\": \"Arti Enterprice Quote\",\n        \"hs_sender_company_domain\": \"arti.com\",\n        \"hs_sender_phone\": \"(91) 9685475457\",\n        \"hs_sender_company_address\": \"Ajali Kunj\",\n        \"hs_sender_company_city\": \"Dehradoon\",\n        \"hs_sender_company_state\": \"Uttarakhand\",\n        \"hs_sender_company_zip\": \"968754\",\n        \"hs_sender_company_country\": \"India\",\n        \"hs_sender_firstname\": \"Mohanti\",\n        \"hs_sender_lastname\": \"Kumar\",\n        \"hs_sender_email\": \"kmohanti@gmail.com\",\n        \"hs_comments\": \"New quote or arti enterprice\",\n        \"hs_expiration_date\": \"2028-01-26T12:33:24.143Z\",\n        \"hs_status\": \"DRAFT\",\n        \"hs_language\": \"en\"\n    },\n    \"associations\": [\n        {\n            \"to\": {\n                \"id\": 5251\n            },\n            \"types\": [\n                {\n                    \"associationCategory\": \"HUBSPOT_DEFINED\",\n                    \"associationTypeId\": 69\n                }\n            ]\n        },\n        {\n            \"to\": {\n                \"id\": 14907816967\n            },\n            \"types\": [\n                {\n                    \"associationCategory\": \"HUBSPOT_DEFINED\",\n                    \"associationTypeId\": 71\n                }\n            ]\n        },\n        {\n            \"to\": {\n                \"id\": 12343425536\n            },\n            \"types\": [\n                {\n                    \"associationCategory\": \"HUBSPOT_DEFINED\",\n                    \"associationTypeId\": 64\n                }\n            ]\n        }\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://api.hubapi.com/crm/v3/objects/quote",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubapi",
+                    "com"
+                  ],
+                  "path": [
+                    "crm",
+                    "v3",
+                    "objects",
+                    "quote"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "CreateHubSpotQuote Copy",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"properties\": {\n        \"hs_sender_company_name\": \"Arti Enterprice\",\n        \"hs_title\": \"Arti Enterprice Quote\",\n        \"hs_sender_company_domain\": \"arti.com\",\n        \"hs_sender_phone\": \"(91) 9685475457\",\n        \"hs_sender_company_address\": \"Ajali Kunj\",\n        \"hs_sender_company_city\": \"Dehradoon\",\n        \"hs_sender_company_state\": \"Uttarakhand\",\n        \"hs_sender_company_zip\": \"968754\",\n        \"hs_sender_company_country\": \"India\",\n        \"hs_sender_firstname\": \"Mohanti\",\n        \"hs_sender_lastname\": \"Kumar\",\n        \"hs_sender_email\": \"kmohanti@gmail.com\",\n        \"hs_comments\": \"New quote or arti enterprice\",\n        \"hs_expiration_date\": \"2028-01-26T12:33:24.143Z\",\n        \"hs_status\": \"DRAFT\",\n        \"hs_language\": \"en\"\n    },\n    \"associations\": [\n        {\n            \"to\": {\n                \"id\": 5251\n            },\n            \"types\": [\n                {\n                    \"associationCategory\": \"HUBSPOT_DEFINED\",\n                    \"associationTypeId\": 69\n                }\n            ]\n        },\n        {\n            \"to\": {\n                \"id\": 14907816967\n            },\n            \"types\": [\n                {\n                    \"associationCategory\": \"HUBSPOT_DEFINED\",\n                    \"associationTypeId\": 71\n                }\n            ]\n        },\n        {\n            \"to\": {\n                \"id\": 12343425536\n            },\n            \"types\": [\n                {\n                    \"associationCategory\": \"HUBSPOT_DEFINED\",\n                    \"associationTypeId\": 64\n                }\n            ]\n        }\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://api.hubapi.com/crm/v3/objects/quote",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubapi",
+                    "com"
+                  ],
+                  "path": [
+                    "crm",
+                    "v3",
+                    "objects",
+                    "quote"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "CreateHubspotContact",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"properties\": {\n        \"firstname\": \"Mohanti2\",\n        \"lastname\": \"Kumar2\",\n        \"email\": \"kmohanti2@gmail.com\"\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://api.hubapi.com/crm/v3/objects/contact",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubapi",
+                    "com"
+                  ],
+                  "path": [
+                    "crm",
+                    "v3",
+                    "objects",
+                    "contact"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "CreateHubspotContact Copy",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"properties\": {\n        \"phone\": \"9658475485\",\n        \"address\": \"16241 N 30th Z1\",\n        \"city\": \"phoenix\",\n        \"state\": \"az\",\n        \"zip\": \"85132\",\n        \"country\": \"USA\",\n        \"firstname\": \"Jayendra\",\n        \"lastname\": \"Jadeja\",\n        \"email\": \"jaydeepj@gmail.com\",\n        \"company\": \"Arzu Enterprice\",\n        \"website\": \"https://google.com\"\n    },\n    \"associations\": []\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://api.hubapi.com/crm/v3/objects/contact",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubapi",
+                    "com"
+                  ],
+                  "path": [
+                    "crm",
+                    "v3",
+                    "objects",
+                    "contact"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "CreateHubspotCompany",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"properties\": {\n        \"name\": \"Arti Enterprice\",\n        \"domain\": \"arti.com\",\n        \"founded_year\": \"1997\"\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://api.hubapi.com/crm/v3/objects/company",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubapi",
+                    "com"
+                  ],
+                  "path": [
+                    "crm",
+                    "v3",
+                    "objects",
+                    "company"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "CreateHubspotCompany Copy",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"properties\": {\n        \"name\": \"Arzu Enterprice\",\n        \"website\": \"https://google.com\",\n        \"founded_year\": \"2012\",\n        \"address\": \"16241 N 30th Pl\",\n        \"address2\": \"1200\",\n        \"city\": \"phoenix\",\n        \"state\": \"az\",\n        \"country\": \"USA\",\n        \"zip\": \"85032\",\n        \"owneremail\": \"jaydeepj@gmail.com\"\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://api.hubapi.com/crm/v3/objects/company",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubapi",
+                    "com"
+                  ],
+                  "path": [
+                    "crm",
+                    "v3",
+                    "objects",
+                    "company"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "CreateHubSpotDeal",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"properties\": {\n    \"amount\": 1000000,\n    \"dealname\": \"Deal for Arti Enterprice\",\n    \"project_target_time_line_min\": 12,\n    \"project_target_time_line_max\": 18,\n    \"project_target_time_line_max_finite\": 1,\n    \"project_budget_amount_min\": 1000000,\n    \"project_budget_amount_max\": 10000000,\n    \"project_budget_amount_max_finite\": 1,\n    \"company_established\": 1,\n    \"company_established_year\": 1997,\n    \"company_foundation\": 1995,\n    \"project_plateform\": \"International Investor\",\n    \"project_type\": \"It Service\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://api.hubapi.com/crm/v3/objects/deals",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubapi",
+                    "com"
+                  ],
+                  "path": [
+                    "crm",
+                    "v3",
+                    "objects",
+                    "deals"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "DeleteHubspotContact",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.hubapi.com/crm/v3/objects/contact/12701",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubapi",
+                    "com"
+                  ],
+                  "path": [
+                    "crm",
+                    "v3",
+                    "objects",
+                    "contact",
+                    "12701"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "DeleteHubspotDeal",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.hubapi.com/crm/v3/objects/company/15513911135",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubapi",
+                    "com"
+                  ],
+                  "path": [
+                    "crm",
+                    "v3",
+                    "objects",
+                    "company",
+                    "15513911135"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "RetriveAssociation",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.hubspot.com/crm/v3/objects/associations/quote",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubspot",
+                    "com"
+                  ],
+                  "path": [
+                    "crm",
+                    "v3",
+                    "objects",
+                    "associations",
+                    "quote"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetSchemas",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.hubapi.com/crm/v3/schemas/QUOTE",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubapi",
+                    "com"
+                  ],
+                  "path": [
+                    "crm",
+                    "v3",
+                    "schemas",
+                    "QUOTE"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetLinkedAssociations",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "authorization",
+                    "value": "Bearer pat-na1-5e2361cc-7465-4dea-849e-1024a801ffa0"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.hubspot.com/crm/v4/associations/quote/contact/labels",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "hubspot",
+                    "com"
+                  ],
+                  "path": [
+                    "crm",
+                    "v4",
+                    "associations",
+                    "quote",
+                    "contact",
+                    "labels"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CRM",
+      "item": [
+        {
+          "name": "Go High Level",
+          "item": [
+            {
+              "name": "Private Integration Tokens",
+              "item": [
+                {
+                  "name": "Get Contacts",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer pit-751d6a33-35ae-416e-b0f6-6c3c6e00a63e",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Version",
+                        "value": "2021-07-28",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text",
+                        "disabled": true
+                      },
+                      {
+                        "key": "Version",
+                        "value": "2021-07-28",
+                        "type": "text",
+                        "disabled": true
+                      }
+                    ],
+                    "url": {
+                      "raw": "https://services.leadconnectorhq.com/contacts/?locationId=Ua0wWjHlOay64q6sxvyC",
+                      "protocol": "https",
+                      "host": [
+                        "services",
+                        "leadconnectorhq",
+                        "com"
+                      ],
+                      "path": [
+                        "contacts",
+                        ""
+                      ],
+                      "query": [
+                        {
+                          "key": "locationId",
+                          "value": "Ua0wWjHlOay64q6sxvyC",
+                          "type": "text"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Create Contact",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer pit-751d6a33-35ae-416e-b0f6-6c3c6e00a63e",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Version",
+                        "value": "2021-07-28",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"name\": \"Jack Reacher\",\n    \"email\": \"tonte.pouncil+postman-test-2026-05-30-1-jack.reacher@gmail.com\",\n    \"locationId\": \"Ua0wWjHlOay64q6sxvyC\",\n    \"phone\": \"+1 111-111-1111\",\n    \"timezone\": \"America/Chicago\",\n    \"companyName\": \"ABC Inc.\",\n    \"customFields\": [\n        {\n            \"id\": \"PhVcsvpGnnXmXfOKQAw2\",\n            \"key\": \"email_optin\",\n            \"field_value\": \"true\"\n        },\n        {\n            \"id\": \"yaEk5eQ7gfZekbddIHhC\",\n            \"key\": \"email_double_optin\",\n            \"field_value\": \"false\"\n        }\n    ],\n    \"tags\": [\"bp | newsletters subscribed\"]\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "https://services.leadconnectorhq.com/contacts/",
+                      "protocol": "https",
+                      "host": [
+                        "services",
+                        "leadconnectorhq",
+                        "com"
+                      ],
+                      "path": [
+                        "contacts",
+                        ""
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Get Custom Fields",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Version",
+                        "value": "2021-07-28",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer pit-751d6a33-35ae-416e-b0f6-6c3c6e00a63e",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "https://services.leadconnectorhq.com/locations/:locationId/customFields",
+                      "protocol": "https",
+                      "host": [
+                        "services",
+                        "leadconnectorhq",
+                        "com"
+                      ],
+                      "path": [
+                        "locations",
+                        ":locationId",
+                        "customFields"
+                      ],
+                      "variable": [
+                        {
+                          "key": "locationId",
+                          "value": "Ua0wWjHlOay64q6sxvyC"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Sign Up For Newsletter",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer pit-751d6a33-35ae-416e-b0f6-6c3c6e00a63e",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"locationId\": \"Ua0wWjHlOay64q6sxvyC\",\n    \"formId\": \"VREPNnpWL9FNDCnw0lZg\",\n    \"formData\": {\n        \"full_name\": \"Tonte Test\",\n        \"email\": \"tonte.pouncil+test@gmail.com\",\n        \"terms_and_conditions\": \"yes\"\n    }\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "https://backend.leadconnectorhq.com/forms/submit",
+                      "protocol": "https",
+                      "host": [
+                        "backend",
+                        "leadconnectorhq",
+                        "com"
+                      ],
+                      "path": [
+                        "forms",
+                        "submit"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Get Forms",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer pit-751d6a33-35ae-416e-b0f6-6c3c6e00a63e",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Version",
+                        "value": "2021-07-28",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "https://backend.leadconnectorhq.com/forms/?locationId=Ua0wWjHlOay64q6sxvyC",
+                      "protocol": "https",
+                      "host": [
+                        "backend",
+                        "leadconnectorhq",
+                        "com"
+                      ],
+                      "path": [
+                        "forms",
+                        ""
+                      ],
+                      "query": [
+                        {
+                          "key": "locationId",
+                          "value": "Ua0wWjHlOay64q6sxvyC"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "Get Access Token",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "client_id",
+                      "value": "68aa7379054d78397db3fd59-mep2b1p9",
+                      "type": "text",
+                      "uuid": "ece904e0-3205-4a63-aee3-b215f9744e3b"
+                    },
+                    {
+                      "key": "client_secret",
+                      "value": "81bf7969-19f8-455a-818f-777105816d5c",
+                      "type": "text",
+                      "uuid": "d83dde27-e465-4c5b-ab32-a81dadc7c437"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "authorization_code",
+                      "type": "text",
+                      "uuid": "63ac79e7-1175-46a0-ac3a-0ac60beb21d5"
+                    },
+                    {
+                      "key": "code",
+                      "value": "23c286414ef158c69c0044a61ba9e0b8aff34f6f",
+                      "type": "text",
+                      "uuid": "e9a2644d-b0bf-4fdd-8f8e-d3e0a3f7240c"
+                    },
+                    {
+                      "key": "user_type",
+                      "value": "Location",
+                      "type": "text",
+                      "uuid": "70348a21-33b0-4925-b325-d68febe98a89"
+                    },
+                    {
+                      "key": "redirect_uri",
+                      "value": "http://localhost:4000/home",
+                      "type": "text",
+                      "uuid": "4b1ff21a-947c-4ece-9aa7-9914f8cf230d"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://services.leadconnectorhq.com/oauth/token",
+                  "protocol": "https",
+                  "host": [
+                    "services",
+                    "leadconnectorhq",
+                    "com"
+                  ],
+                  "path": [
+                    "oauth",
+                    "token"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Access Token - Client Credential Grant",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "client_id",
+                      "value": "68aa7379054d78397db3fd59-mep2b1p9",
+                      "type": "text",
+                      "uuid": "ece904e0-3205-4a63-aee3-b215f9744e3b"
+                    },
+                    {
+                      "key": "client_secret",
+                      "value": "81bf7969-19f8-455a-818f-777105816d5c",
+                      "type": "text",
+                      "uuid": "d83dde27-e465-4c5b-ab32-a81dadc7c437"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "client_credentials",
+                      "type": "text",
+                      "uuid": "e9a2644d-b0bf-4fdd-8f8e-d3e0a3f7240c"
+                    },
+                    {
+                      "key": "refresh_token",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "7be686d7-5069-4a7b-846e-731d7440d0fd",
+                      "disabled": true
+                    },
+                    {
+                      "key": "user_type",
+                      "value": "Location",
+                      "type": "text",
+                      "uuid": "70348a21-33b0-4925-b325-d68febe98a89"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://services.leadconnectorhq.com/oauth/token",
+                  "protocol": "https",
+                  "host": [
+                    "services",
+                    "leadconnectorhq",
+                    "com"
+                  ],
+                  "path": [
+                    "oauth",
+                    "token"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Authorize - Authorization Code Grant",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "",
+                    "variables": ""
+                  }
+                },
+                "url": {
+                  "raw": "https://marketplace.leadconnectorhq.com/oauth/chooselocation?response_type=code&redirect_uri=http://localhost:4000/home&client_id=68aa7379054d78397db3fd59-mep2b1p9&scope=contacts.readonly contacts.write businesses.write forms.write locations.readonly",
+                  "protocol": "https",
+                  "host": [
+                    "marketplace",
+                    "leadconnectorhq",
+                    "com"
+                  ],
+                  "path": [
+                    "oauth",
+                    "chooselocation"
+                  ],
+                  "query": [
+                    {
+                      "key": "response_type",
+                      "value": "code"
+                    },
+                    {
+                      "key": "redirect_uri",
+                      "value": "http://localhost:4000/home"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "68aa7379054d78397db3fd59-mep2b1p9"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "contacts.readonly contacts.write businesses.write forms.write locations.readonly"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Contacts - Deprecated",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoQ2xhc3MiOiJMb2NhdGlvbiIsImF1dGhDbGFzc0lkIjoiVWEwd1dqSGxPYXk2NHE2c3h2eUMiLCJzb3VyY2UiOiJJTlRFR1JBVElPTiIsInNvdXJjZUlkIjoiNjhhYTczNzkwNTRkNzgzOTdkYjNmZDU5LW1lcDJiMXA5IiwiY2hhbm5lbCI6Ik9BVVRIIiwicHJpbWFyeUF1dGhDbGFzc0lkIjoiVWEwd1dqSGxPYXk2NHE2c3h2eUMiLCJvYXV0aE1ldGEiOnsic2NvcGVzIjpbImNvbnRhY3RzLnJlYWRvbmx5IiwiY29udGFjdHMud3JpdGUiLCJidXNpbmVzc2VzLndyaXRlIiwiZm9ybXMud3JpdGUiLCJsb2NhdGlvbnMucmVhZG9ubHkiXSwiY2xpZW50IjoiNjhhYTczNzkwNTRkNzgzOTdkYjNmZDU5IiwidmVyc2lvbklkIjoiNjhhYTczNzkwNTRkNzgzOTdkYjNmZDU5IiwiY2xpZW50S2V5IjoiNjhhYTczNzkwNTRkNzgzOTdkYjNmZDU5LW1lcDJiMXA5In0sImlhdCI6MTc1NjYzMDIzOS4wNDksImV4cCI6MTc1NjcxNjYzOS4wNDl9.VFbcaOChMPbCboUGnA2R9Se6o9TCfguW2UyD3hy_1XdTwaYrmmW8OkN_n85aBbRq3uJ6OLHj8R9LRAYdaVrli9s8zQmVY6VhfyepI5txjwiyvLiLmkj_J5huTj3WeWerBBpRLK24D2_QRuwm7oCU0vpa_-WXtq0OpEbJjZ2K_4DpZNG5YhaY71ty8gxExKqgLdj2VBBIvzdpdBdQsbjUa4bIjZHWnTVF_uDleo9Dk-VCIBezAihAUpLWtr9fk0XOBJLDWEwOm6HlYvqq42xmBHw6OuO2DldT2oE6aMQNmjRqXiqhlKZ1fp1nacUrSYiMIMw0SX87BOFHVjAZH_YKkQ_FwxxKe34PiYPU7NmyGth8RDHSpbTcadtuHnt1R4U55ocajgo9pn8vtYJRedxwtVMJONjRYFLS80cjbhQphTGRKgLsDHMGBbgUyf1pX68Bnmi-0tm0nihurUPob0PeSUyC4j1o6g7mz1urJ3e7VsfLY51QHphAW0tiXrINT2KezPiCals2M2zcCo1Jjcabvr8aVo9bkaiQK01AFnlHcogsIy1eYZoqTYewXKjmPzSHd-RcdHeca9MEMC27tWRmo5fz7ut87OY-Gui1eFzrE6Ld8rPz9DEE1YEoSXVvBvQBW8K9ehy_6OLU2IKJv11R-RdfYK7wmvaqByMMhW2XSrc"
+                  },
+                  {
+                    "key": "Version",
+                    "value": "2021-07-28",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://services.leadconnectorhq.com/contacts/?locationId=Ua0wWjHlOay64q6sxvyC",
+                  "protocol": "https",
+                  "host": [
+                    "services",
+                    "leadconnectorhq",
+                    "com"
+                  ],
+                  "path": [
+                    "contacts",
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "key": "locationId",
+                      "value": "Ua0wWjHlOay64q6sxvyC"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create Contact",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"person\": {\n        \"firstName\": \"Jack\",\n        \"lastName\": \"Reacher\",\n        \"email\": \"tonte.pouncil+bp-contact-test-2026-05-30-2-jack.reacher@gmail.com\",\n        \"gender\": \"male\",\n        \"website\": null,\n        \"timezone\": null,\n        \"dateOfBirth\": \"1970-02-28\",\n        \"phone\": {\n            \"number\": \"+1 000-000-0016\",\n            \"type\": null\n        },\n        \"address\": {\n            \"street\": [\"123 GreyFriar St\", \"Apt A\"],\n            \"city\": \"Dallas\",\n            \"state\": \"TX\",\n            \"zip\": \"75238\",\n            \"country\": \"US\",\n            \"county\": \"Dallas\"\n        }\n    },\n    \"goHighLevelInfo\": {\n        \"locationId\": \"Ua0wWjHlOay64q6sxvyC\",\n        \"source\": null,\n        \"assignedTo\": null\n    },\n    \"personInfo\": {\n        \"companyName\": \"Abc Inc.\"\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/ghl/contacts",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "ghl",
+                    "contacts"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "authorize-app",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/authorize-app?platformName=KEAP",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "authorize-app"
+          ],
+          "query": [
+            {
+              "key": "platformName",
+              "value": "KEAP"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
 }
