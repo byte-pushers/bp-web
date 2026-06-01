@@ -120,7 +120,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   #setLandingPageId() {
-    debugger
     this.route.queryParams.subscribe((params) => {
       this.#landingPageId = params?.['id'];
       this.#layoutType = params?.['layout'];

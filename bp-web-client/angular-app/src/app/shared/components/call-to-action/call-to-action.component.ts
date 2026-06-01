@@ -43,7 +43,8 @@ export class CallToActionComponent implements OnInit {
         Validators.minLength(3),
       ]),
       ctaEmail: new FormControl<any>("", [Validators.required, Validators.email]),
-      myControl: new FormControl<any>("", [Validators.required]),
+      ctaPhone: new FormControl<any>("", [Validators.required]),
+      ctaCompany: new FormControl<any>("", [Validators.required]),
       ctaConsent: new FormControl<any>("", [Validators.requiredTrue]),
     });
   }
@@ -71,8 +72,11 @@ export class CallToActionComponent implements OnInit {
   get ctaEmail() {
     return this.ctaForm.get("ctaEmail");
   }
-  get myControl() {
-    return this.ctaForm.get("myControl");
+  get ctaPhone() {
+    return this.ctaForm.get("ctaPhone");
+  }
+  get ctaCompany() {
+    return this.ctaForm.get("ctaCompany");
   }
   get ctaConsent() {
     return this.ctaForm.get("ctaConsent");
@@ -99,6 +103,8 @@ export class CallToActionComponent implements OnInit {
         middleName: name.length >= 3 ? name[1] : "",
         lastName: name.length >= 3 ? name[2] : name[1],
         email: this?.ctaForm?.controls["ctaEmail"]?.value,
+        phone: this?.ctaForm?.controls["ctaPhone"]?.value,
+        company: this?.ctaForm?.controls["ctaCompany"]?.value,
       };
       // this.ctaService.ctaReqObjSubject.next(ctaReqObj);
       // this.bpPopupService.isBPpopupOpenSubject.next(true);

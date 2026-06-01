@@ -1,6 +1,7 @@
 .formControl {
     width: 100%;
-    margin:0 0 15px 0;
+    margin: 0 0 15px 0;
+    display: flex;
 
     input {
         border: solid 1px gray;
@@ -9,12 +10,12 @@
         padding: 4px 5px;
         margin-bottom: 8px;
 
-        &:disabled{
+        &:disabled {
             opacity: 0.4;
         }
     }
 
-    
+
 }
 
 input {
