@@ -22,18 +22,20 @@ export class DynamicComponentService {
         await landingPageLayoutConfig?.createComponent()
       );
       const targetLandingPageConfigDefault = landingPageConfig.find((config) => (config.id === 'default'));
-      let targetLandingPageConfig = landingPageConfig.find((config) => (config.id === landingPageLayoutId));
+      let targetLandingPageConfig = landingPageConfig.find((config) => (config.id == landingPageLayoutId));
 
-      if (targetLandingPageConfig != null) targetLandingPageConfig = targetLandingPageConfigDefault;
+      if (targetLandingPageConfig == null) targetLandingPageConfig = targetLandingPageConfigDefault;
 
       if (landingPageLayoutConfig != null) {
         landingPageLayoutConfig.inputs = targetLandingPageConfig?.inputDetails;
 
-        Object.entries(landingPageLayoutConfig?.inputs).forEach(
-          ([key, value]) => {
-            componentRef?.setInput(key, value);
-          }
-        );
+        if (landingPageLayoutConfig?.inputs != null) {
+          Object.entries(landingPageLayoutConfig?.inputs).forEach(
+            ([key, value]) => {
+              componentRef?.setInput(key, value);
+            }
+          );
+        }
       }
 
       resolve(true);

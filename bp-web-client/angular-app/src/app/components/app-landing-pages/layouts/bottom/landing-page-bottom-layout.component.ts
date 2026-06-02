@@ -47,8 +47,8 @@ export class LandingPageBottomLayoutComponent implements OnInit, AfterViewInit {
       }
     });
 
-    const theme = document.body.getAttribute("data-theme");
-    document.body.setAttribute("data-layout", `${theme}-bottom`);
+    const theme = this.document.body.getAttribute("data-theme");
+    this.document.body.setAttribute("data-layout", `${theme}-bottom`);
   }
 
   ngAfterViewInit() {
@@ -95,17 +95,17 @@ export class LandingPageBottomLayoutComponent implements OnInit, AfterViewInit {
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(event: Event): void {
     // Perform actions based on the scroll event
-    if (window.pageYOffset >= 10) {
+    if (this.window.pageYOffset >= 10) {
       this.isScrolled = true;
     } else {
       this.isScrolled = false;
     }
   }
   onResize(event: any) {
-    this.screenWidth = window.innerWidth;
+    this.screenWidth = this.window.innerWidth;
   }
   setScreenWidth() {
-    this.screenWidth = window.innerWidth;
+    this.screenWidth = this.window.innerWidth;
   }
   hideTill(till: any) {
     this.setScreenWidth()

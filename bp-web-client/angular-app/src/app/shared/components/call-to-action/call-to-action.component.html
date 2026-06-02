@@ -1,46 +1,69 @@
+<!-- [showLabel]="true" will show label on top of input -->
+
 <div class="ctaForm">
     <form [formGroup]="ctaForm" (ngSubmit)="onCTASubmit()" novalidate>
         <div class="groupControls">
             <h3 *ngIf="isInlineCTASubmitted">Verify your details and provide Consent.</h3>
-            <app-bp-input [label]="'Name'" [placeHolder]="'Jhon Smit'" [type]="'text'" [formControl]="ctaForm?.controls['ctaName']" />
-            <app-bp-input [label]="'Email'" [placeHolder]="'jhon.smit@test.com'" [type]="'email'" [formControl]="ctaForm?.controls['ctaEmail']" />
+            <app-bp-input 
             
-            <!-- <app-select-dropdown [placeHolder]="'Select an item'" [options]="myOptions" formControlName="myControl"
-                (selectionChange)="onSelectionChange($event)"></app-select-dropdown> -->
+            label="Name"
+                placeholder="John Smith"
+                [control]="ctaForm.controls['ctaName']" />
+            <app-bp-input label="Email"
+                placeholder="john@gmail.com"
+                type="email"
+                [control]="ctaForm.controls['ctaEmail']"
+                [validationMessages]="{
+                    required: 'Email cannot be empty',
+                    email: 'Enter a valid company email'
+                }" />
+                <app-bp-input label="Phone" placeholder="9876543210" type="tel" [control]="$any(ctaForm.controls['ctaPhone'])"
+                    [validationMessages]="{
+                            required: 'Phone number is required',
+                            pattern: 'Please enter a valid US phone number'
+                        }">
+                </app-bp-input>
+                <app-bp-input label="Company" placeholder="Company." [control]="ctaForm.controls['ctaCompany']" />
 
-                
+
             <div class="formControl consent flex items-start">
-                <label class="chkBoxContainer"  for="consent">
+                <label class="chkBoxContainer" for="consent">
                     <input type="checkbox" name="consent" id="consent" formControlName="ctaConsent">
                     <span class="checkmark"></span>
                 </label>
                 <label class="consentLabel " for="consent">
                     <h4>Please Provide your consent.</h4>
-                    
+
                 </label>
             </div>
-            <div class="errorBlock" *ngIf="ctaName?.invalid && (ctaName?.dirty || ctaName?.touched) || ctaEmail?.invalid && (ctaEmail?.dirty || ctaEmail?.touched)" [ngClass]="{ 'active': ctaName?.invalid && (ctaName?.dirty || ctaName?.touched) || ctaEmail?.invalid && (ctaEmail?.dirty || ctaEmail?.touched) }">
-    <ul>
-        <li *ngIf="ctaName?.invalid && (ctaName?.dirty || ctaName?.touched)">
-            <div *ngIf="ctaName?.errors.required">Name is required.</div>
-            <div *ngIf="ctaName?.errors.minlength">
-                Name must be atleast 3 letters.
-            </div>
-        </li>
-        <li *ngIf="ctaEmail?.invalid && (ctaEmail?.dirty || ctaEmail?.touched)">
-            <div *ngIf="ctaEmail?.errors.required">Email is required.</div>
-            <div *ngIf="ctaEmail?.errors.minlength">
-                A minimum of 2 letters are required.
-            </div>
-            <div *ngIf="ctaEmail?.errors.email">Email is not valid.</div>
-    </ul>
+            <!-- <div style="height: 80px;margin-top: 10px;">
+                <div class="errorBlock"
+                    *ngIf="ctaName?.invalid && (ctaName?.dirty || ctaName?.touched) || ctaEmail?.invalid && (ctaEmail?.dirty || ctaEmail?.touched)"
+                    [ngClass]="{ 'active': ctaName?.invalid && (ctaName?.dirty || ctaName?.touched) || ctaEmail?.invalid && (ctaEmail?.dirty || ctaEmail?.touched) }">
+                    <ul>
+                        <li *ngIf="ctaName?.invalid && (ctaName?.dirty || ctaName?.touched)">
+                            <div *ngIf="ctaName?.errors.required">Name is required.</div>
+                            <div *ngIf="ctaName?.errors.minlength">
+                                Name must be atleast 3 letters.
+                            </div>
+                        </li>
+                        <li *ngIf="ctaEmail?.invalid && (ctaEmail?.dirty || ctaEmail?.touched)">
+                            <div *ngIf="ctaEmail?.errors.required">Email is required.</div>
+                            <div *ngIf="ctaEmail?.errors.minlength">
+                                A minimum of 2 letters are required.
+                            </div>
+                            <div *ngIf="ctaEmail?.errors.email">Email is not valid.</div>
+                    </ul>
 
-</div>
-            </div>
-            <div class="actions">
-                <!-- <button type="reset" class="buttonPrimaryOutline" (click)="cancel()">cancel</button> -->
-                <bp-button type="reset" title="Cancel" uiType="primary outline" (onClick)="cancel()" [icon]="closeIcon" />
-                <bp-button type="submit" title="Submit" uiType="primary" [disabled]="ctaForm.invalid" [icon]="saveIcon" iconPosition="right"/>
-            </div>
+                </div>
+            </div> -->
+
+        </div>
+        <div class="actions">
+            <!-- <button type="reset" class="buttonPrimaryOutline" (click)="cancel()">cancel</button> -->
+            <bp-button type="reset" title="Cancel" uiType="primary outline" (onClick)="cancel()" [icon]="closeIcon" />
+            <bp-button type="submit" title="Submit" uiType="primary" [disabled]="ctaForm.invalid" [icon]="saveIcon"
+                iconPosition="right" />
+        </div>
     </form>
 </div>

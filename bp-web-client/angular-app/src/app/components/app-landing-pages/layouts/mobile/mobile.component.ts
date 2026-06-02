@@ -27,8 +27,8 @@ export class MobileComponent implements OnInit {
     this.metaService?.addTags(this.metaTags);
     this.title.setTitle(this.heroContent);
 
-    const theme = document.body.getAttribute("data-theme");
-    document.body.setAttribute("data-layout", `${theme}-bottom`);
+    const theme = this.document.body.getAttribute("data-theme");
+    this.document.body.setAttribute("data-layout", `${theme}-bottom`);
   }
 
   showBorders(): boolean | void {

@@ -1,25 +1,24 @@
-.formControl {
-    width: 100%;
-    margin:0 0 15px 0;
-
-    input {
-        border: solid 1px gray;
-        width: 100%;
-        border-radius: 5px;
-        padding: 4px 5px;
-        margin-bottom: 8px;
-
-        &:disabled{
-            opacity: 0.4;
-        }
-    }
-
-    
+.form-control {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: relative;
 }
 
 input {
-    border: solid 1px #ccc;
-    width: 100%;
-    border-radius: 5px;
-    padding: 4px 5px;
+    padding: 10px;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    margin-bottom: 30px;
+}
+
+input.ng-invalid.ng-touched {
+    border-color: #721c24;
+}
+
+.error {
+    color: #721c24;
+    font-size: 12px;
+    position: absolute;
+    bottom: 12px;
 }

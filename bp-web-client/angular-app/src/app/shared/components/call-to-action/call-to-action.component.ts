@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgClass, NgIf } from '@angular/common';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DialogService } from '@app/services/dialog/dialog.service';
 import { BpInputComponent } from '../bp-input/bp-input.component';
 import { BpButtonComponent } from '../bp-button/bp-button.component';
@@ -15,8 +15,8 @@ import { SelectDropdownComponent } from '../select-dropdown/select-dropdown.comp
   styleUrl: './call-to-action.component.scss'
 })
 export class CallToActionComponent implements OnInit {
+  ctaForm!: FormGroup;
   public isConsentModal: boolean = true;
-  public ctaForm: FormGroup;
   public ctaformsubmitted = false;
   saveIcon = faFloppyDisk
   closeIcon = faXmark;
@@ -30,23 +30,11 @@ export class CallToActionComponent implements OnInit {
   ];
 
   constructor(
-    // private headerService: HeaderService,
-    // private route: ActivatedRoute,
-    // private ctaService: CTAService,
-    // private bpPopupService: BytePushersPopupService
+    private fb: FormBuilder,
     private dialog: DialogService,
     private ctaService: CallToActionService
-  ) {
-    this.ctaForm = new FormGroup({
-      ctaName: new FormControl<any>("", [
-        Validators.required,
-        Validators.minLength(3),
-      ]),
-      ctaEmail: new FormControl<any>("", [Validators.required, Validators.email]),
-      myControl: new FormControl<any>("", [Validators.required]),
-      ctaConsent: new FormControl<any>("", [Validators.requiredTrue]),
-    });
-  }
+  ) {}
+
 
 
   onSelectionChange(value: any) {
@@ -54,6 +42,15 @@ export class CallToActionComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.ctaForm = this.fb.group({
+      ctaName: ['', [Validators.required]],
+      ctaEmail: ['', [Validators.required, Validators.email]],
+      ctaPhone: ['', [Validators.required, Validators.pattern(/^(\+1\s?)?(\(\d{3}\)|\d{3})[-.\s]?\d{3}[-.\s]?\d{4}$/)]],
+      ctaCompany: ['', [Validators.required]],
+      ctaConsent: ['', [Validators.requiredTrue]],
+    })
+
+
     this.ctaService.isInlineCTA.subscribe((flag: any) => {
       this.isInlineCTASubmitted = flag
     })
@@ -71,8 +68,11 @@ export class CallToActionComponent implements OnInit {
   get ctaEmail() {
     return this.ctaForm.get("ctaEmail");
   }
-  get myControl() {
-    return this.ctaForm.get("myControl");
+  get ctaPhone() {
+    return this.ctaForm.get("ctaPhone");
+  }
+  get ctaCompany() {
+    return this.ctaForm.get("ctaCompany");
   }
   get ctaConsent() {
     return this.ctaForm.get("ctaConsent");
@@ -92,13 +92,11 @@ export class CallToActionComponent implements OnInit {
     this.ctaformsubmitted = true;
     let ctaReqObj;
     if (!this.ctaForm.invalid) {
-      let name = this?.ctaForm?.controls["ctaName"]?.value;
-      name = name.split(" ");
       ctaReqObj = {
-        firstName: name[0],
-        middleName: name.length >= 3 ? name[1] : "",
-        lastName: name.length >= 3 ? name[2] : name[1],
+        name: this?.ctaForm?.controls["ctaName"]?.value,
         email: this?.ctaForm?.controls["ctaEmail"]?.value,
+        phone: this?.ctaForm?.controls["ctaPhone"]?.value,
+        company: this?.ctaForm?.controls["ctaCompany"]?.value,
       };
       // this.ctaService.ctaReqObjSubject.next(ctaReqObj);
       // this.bpPopupService.isBPpopupOpenSubject.next(true);
