@@ -45,6 +45,13 @@ module.exports = {
         lg: "912px",
         xl: "1024px",
         "2xl": "1280px",
+        "8xsm": "344px", // min-width Samsung Z Fold 5
+      "7xsm": "360px", // min-width Samsung Galaxy S8+
+      "6xsm": "375px", // min-width iPhone SE
+      "5xsm": "390px", // min-width iPhone 12 Pro
+      "4xsm": "412px", // min-width Pixel 7 & Samsung Galaxy S20 Ultra, Samsung Galaxy A51/71
+      "3xsm": "430px", // min-width iPhone 12 Pro Max
+      "2xsm": "414px", // min-width iPhone XR
       },
     },
     screens: {

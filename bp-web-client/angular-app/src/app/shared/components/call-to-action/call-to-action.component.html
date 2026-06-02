@@ -2,7 +2,7 @@
     <form [formGroup]="ctaForm" (ngSubmit)="onCTASubmit()" novalidate>
         <div class="groupControls">
             <h3 *ngIf="isInlineCTASubmitted">Verify your details and provide Consent.</h3>
-            <app-bp-input [label]="'Name'" [placeHolder]="'Jhon Smit'" [type]="'text'"
+            <app-bp-input class="test" [label]="'Name'" [placeHolder]="'Jhon Smit'" [type]="'text'"
                 [formControl]="ctaForm?.controls['ctaName']" />
             <app-bp-input [label]="'Email'" [placeHolder]="'jhon.smit@test.com'" [type]="'email'"
                 [formControl]="ctaForm?.controls['ctaEmail']" />
@@ -25,25 +25,28 @@
 
                 </label>
             </div>
-            <div class="errorBlock"
-                *ngIf="ctaName?.invalid && (ctaName?.dirty || ctaName?.touched) || ctaEmail?.invalid && (ctaEmail?.dirty || ctaEmail?.touched)"
-                [ngClass]="{ 'active': ctaName?.invalid && (ctaName?.dirty || ctaName?.touched) || ctaEmail?.invalid && (ctaEmail?.dirty || ctaEmail?.touched) }">
-                <ul>
-                    <li *ngIf="ctaName?.invalid && (ctaName?.dirty || ctaName?.touched)">
-                        <div *ngIf="ctaName?.errors.required">Name is required.</div>
-                        <div *ngIf="ctaName?.errors.minlength">
-                            Name must be atleast 3 letters.
-                        </div>
-                    </li>
-                    <li *ngIf="ctaEmail?.invalid && (ctaEmail?.dirty || ctaEmail?.touched)">
-                        <div *ngIf="ctaEmail?.errors.required">Email is required.</div>
-                        <div *ngIf="ctaEmail?.errors.minlength">
-                            A minimum of 2 letters are required.
-                        </div>
-                        <div *ngIf="ctaEmail?.errors.email">Email is not valid.</div>
-                </ul>
+            <div style="height: 80px;margin-top: 10px;">
+                <div class="errorBlock"
+                    *ngIf="ctaName?.invalid && (ctaName?.dirty || ctaName?.touched) || ctaEmail?.invalid && (ctaEmail?.dirty || ctaEmail?.touched)"
+                    [ngClass]="{ 'active': ctaName?.invalid && (ctaName?.dirty || ctaName?.touched) || ctaEmail?.invalid && (ctaEmail?.dirty || ctaEmail?.touched) }">
+                    <ul>
+                        <li *ngIf="ctaName?.invalid && (ctaName?.dirty || ctaName?.touched)">
+                            <div *ngIf="ctaName?.errors.required">Name is required.</div>
+                            <div *ngIf="ctaName?.errors.minlength">
+                                Name must be atleast 3 letters.
+                            </div>
+                        </li>
+                        <li *ngIf="ctaEmail?.invalid && (ctaEmail?.dirty || ctaEmail?.touched)">
+                            <div *ngIf="ctaEmail?.errors.required">Email is required.</div>
+                            <div *ngIf="ctaEmail?.errors.minlength">
+                                A minimum of 2 letters are required.
+                            </div>
+                            <div *ngIf="ctaEmail?.errors.email">Email is not valid.</div>
+                    </ul>
 
+                </div>
             </div>
+
         </div>
         <div class="actions">
             <!-- <button type="reset" class="buttonPrimaryOutline" (click)="cancel()">cancel</button> -->

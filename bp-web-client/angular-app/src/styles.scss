@@ -27,55 +27,72 @@ body {
   background-attachment: fixed;
   background-position: center;
 }
+
 * {
   transition: all ease 0.3s;
 }
+
 .customHeight {
   height: calc(100vh - 216px) !important;
 }
+
 .showBorders {
   border-width: 2px;
 }
+
 .errorClr {
   color: rgb(206, 3, 3)
 }
+
 @layer components {
   .bpNav {
     @apply flex justify-between items-center bdrYellow500 p-5
   }
+
   .layout-container {
     @apply flex flex-col justify-between customHeight;
   }
+
   .socialMediaFlexBox {
     @apply bdr-blue-500 flex-grow flex flex-row justify-between p-5 py-0 w-full;
   }
+
   .hero-text-container-LR {
     @apply bdr-red-500 flex items-start w-3/5 gap-[7px] flex-col justify-center;
   }
+
   .heroText {
     @apply font-verlag 8xsm:text-4xl 7xsm:text-4xl 6xsm:text-3xl 5xsm:text-4xl 4xsm:text-5xl 3xsm:text-5xl sm:text-4xl md:text-6xl lg:text-6xl 3md:text-7xl lg:text-7xl xl:text-8xl ipadpro:text-8xl nesthub:text-5xl nesthubMax:text-6xl 2xl:text-[3.25rem] 3xl:text-6xl;
   }
+
   .socialMediaCol {
     @apply bdr-green-500 flex items-center justify-center;
   }
+
   .bdr-gray-500 {
     @apply border-0 border-gray-500;
   }
+
   .bdr-blue-500 {
     @apply border-0 border-blue-500;
   }
+
   .bdr-orange-500 {
     @apply border-0 border-orange-500;
   }
+
   .bdrYellow500 {
     @apply border-0 border-yellow-500;
   }
+
   .bdr-red-500 {
     @apply border-0 border-red-500;
   }
+
   .bdr-green-500 {
     @apply border-0 border-green-500;
   }
+
   .bdr-purple-500 {
     @apply border-0 border-purple-500;
   }
@@ -83,24 +100,29 @@ body {
   .companies-we-keep {
     @apply bdr-red-500 p-5 w-full flex justify-between items-center;
   }
+
   .hero-text-container {
     @apply bdr-purple-500 flex-grow text-center ml-4 mr-5;
   }
-.alert {
-  @apply relative py-[.75rem] px-[1.25rem] mb-[1rem] border border-transparent rounded-[.25rem];
-}
-.align-end {
-  align-items: end;
-}
-.alert-danger {
-  color: $errorText;
-  background-color: $errorBG;
-  border-color: $errorBdr;
-}
+
+  .alert {
+    @apply relative py-[.75rem] px-[1.25rem] mb-[1rem] border border-transparent rounded-[.25rem];
+  }
+
+  .align-end {
+    align-items: end;
+  }
+
+  .alert-danger {
+    color: $errorText;
+    background-color: $errorBG;
+    border-color: $errorBdr;
+  }
 
 
-        
+
 }
+
 .ng-valid[required],
 .ng-valid.required {
   border: 1px solid #42A948 !important;
@@ -108,15 +130,18 @@ body {
 }
 
 .ng-touched.ng-invalid:not(form) {
-  border: 1px solid $errorText!important;
-    /* red */
+  border: 1px solid $errorText !important;
+  /* red */
 }
+
 .black {
   color: #000;
 }
+
 .bgWhite {
   background: #fff !important;
 }
+
 .white {
   color: #fff;
 }
@@ -125,6 +150,7 @@ body {
 .hide {
   display: none !important;
 }
+
 @media (max-width: 600px) {
   .bpHeader {
     display: none;
@@ -132,30 +158,30 @@ body {
 }
 
 .errorBlock {
-    height: 80px;
-    max-height: 80px;
-    overflow-y: auto;
-    width: 100%;
-    padding: 8px 15px;
-    border-radius: 5px;
+  height: 80px;
+  max-height: 80px;
+  overflow-y: auto;
+  width: 100%;
+  padding: 8px 15px;
+  border-radius: 5px;
 
-    &.active {
-            color: #721c24;
+  &.active {
+    color: #721c24;
     background-color: #f8d7da;
     border-color: #f5c6cb;
-    }
+  }
 
-    ul {
-        color: rgb(100, 0, 0);
-        font-size: 14px;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
+  ul {
+    color: rgb(100, 0, 0);
+    font-size: 14px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 
-        li {
-            margin-bottom: 5px;
-        }   
+    li {
+      margin-bottom: 5px;
     }
+  }
 }
 
 @media (max-height: 500px) {
@@ -164,4 +190,12 @@ body {
     justify-content: center !important;
     padding: 0px !important;
   }
+}
+
+:host.ng-invalid.ng-touched input {
+  border: 1px solid red;
+}
+
+:host.ng-valid.ng-touched input {
+  border: 1px solid green;
 }
