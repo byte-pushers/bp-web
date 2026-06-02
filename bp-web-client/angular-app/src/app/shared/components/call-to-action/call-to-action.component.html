@@ -20,10 +20,10 @@
                 <app-bp-input label="Phone" placeholder="9876543210" type="tel" [control]="$any(ctaForm.controls['ctaPhone'])"
                     [validationMessages]="{
                             required: 'Phone number is required',
-                            pattern: 'Please enter a valid 10-digit mobile number'
+                            pattern: 'Please enter a valid US phone number'
                         }">
                 </app-bp-input>
-                <app-bp-input label="Company" placeholder="Byte Pushers Inc." [control]="ctaForm.controls['ctaCompany']" />
+                <app-bp-input label="Company" placeholder="Company." [control]="ctaForm.controls['ctaCompany']" />
 
 
             <div class="formControl consent flex items-start">

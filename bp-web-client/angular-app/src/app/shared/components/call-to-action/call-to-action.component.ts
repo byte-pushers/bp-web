@@ -45,7 +45,7 @@ export class CallToActionComponent implements OnInit {
     this.ctaForm = this.fb.group({
       ctaName: ['', [Validators.required]],
       ctaEmail: ['', [Validators.required, Validators.email]],
-      ctaPhone: ['', [Validators.required]],
+      ctaPhone: ['', [Validators.required, Validators.pattern(/^(\+1\s?)?(\(\d{3}\)|\d{3})[-.\s]?\d{3}[-.\s]?\d{4}$/)]],
       ctaCompany: ['', [Validators.required]],
       ctaConsent: ['', [Validators.requiredTrue]],
     })
