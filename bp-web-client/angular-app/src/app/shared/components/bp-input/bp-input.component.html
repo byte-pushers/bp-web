@@ -1,3 +1,13 @@
-<div class="formControl">
-    <input type="{{type}}" id="{{label}}" [formControl]="control" placeholder="{{placeHolder}}" />
+<div class="form-control">
+
+    <label *ngIf="showLabel">
+        {{ label }}
+    </label>
+
+    <input [type]="type" [formControl]="control" [placeholder]="placeholder" />
+
+    <small class="error" *ngIf="showError">
+        {{ errorMessage }}
+    </small>
+
 </div>

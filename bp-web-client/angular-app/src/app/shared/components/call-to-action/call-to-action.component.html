@@ -1,18 +1,29 @@
+<!-- [showLabel]="true" will show label on top of input -->
+
 <div class="ctaForm">
     <form [formGroup]="ctaForm" (ngSubmit)="onCTASubmit()" novalidate>
         <div class="groupControls">
             <h3 *ngIf="isInlineCTASubmitted">Verify your details and provide Consent.</h3>
-            <app-bp-input class="test" [label]="'Name'" [placeHolder]="'Jhon Smit'" [type]="'text'"
-                [formControl]="ctaForm?.controls['ctaName']" />
-            <app-bp-input [label]="'Email'" [placeHolder]="'jhon.smit@test.com'" [type]="'email'"
-                [formControl]="ctaForm?.controls['ctaEmail']" />
-            <app-bp-input [label]="'Phone'" [placeHolder]="'XXX-XXX-XXXX'" [type]="'text'"
-                [formControl]="ctaForm?.controls['ctaPhone']" />
-            <app-bp-input [label]="'Company'" [placeHolder]="'Byte Pushers Inc.'" [type]="'text'"
-                [formControl]="ctaForm?.controls['ctaCompany']" />
-
-            <!-- <app-select-dropdown [placeHolder]="'Select an item'" [options]="myOptions" formControlName="myControl"
-                (selectionChange)="onSelectionChange($event)"></app-select-dropdown> -->
+            <app-bp-input 
+            
+            label="Name"
+                placeholder="John Smith"
+                [control]="ctaForm.controls['ctaName']" />
+            <app-bp-input label="Email"
+                placeholder="john@gmail.com"
+                type="email"
+                [control]="ctaForm.controls['ctaEmail']"
+                [validationMessages]="{
+                    required: 'Email cannot be empty',
+                    email: 'Enter a valid company email'
+                }" />
+                <app-bp-input label="Phone" placeholder="9876543210" type="tel" [control]="$any(ctaForm.controls['ctaPhone'])"
+                    [validationMessages]="{
+                            required: 'Phone number is required',
+                            pattern: 'Please enter a valid 10-digit mobile number'
+                        }">
+                </app-bp-input>
+                <app-bp-input label="Company" placeholder="Byte Pushers Inc." [control]="ctaForm.controls['ctaCompany']" />
 
 
             <div class="formControl consent flex items-start">
@@ -25,7 +36,7 @@
 
                 </label>
             </div>
-            <div style="height: 80px;margin-top: 10px;">
+            <!-- <div style="height: 80px;margin-top: 10px;">
                 <div class="errorBlock"
                     *ngIf="ctaName?.invalid && (ctaName?.dirty || ctaName?.touched) || ctaEmail?.invalid && (ctaEmail?.dirty || ctaEmail?.touched)"
                     [ngClass]="{ 'active': ctaName?.invalid && (ctaName?.dirty || ctaName?.touched) || ctaEmail?.invalid && (ctaEmail?.dirty || ctaEmail?.touched) }">
@@ -45,7 +56,7 @@
                     </ul>
 
                 </div>
-            </div>
+            </div> -->
 
         </div>
         <div class="actions">
