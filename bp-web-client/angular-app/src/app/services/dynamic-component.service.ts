@@ -2,10 +2,32 @@ import { Injectable, ViewContainerRef } from '@angular/core';
 import { LANDING_PAGE_LAYOUT_CONFIGURATION_MAP } from '@app/app.constants';
 import { ComponentType } from '@angular/cdk/portal';
 // import landingPageConfig from '@assets/data/landing-pages.json';
-import landingPageConfig from '@assets/data/landing-pages.json'
+import landingPageData from '@assets/data/landing-pages.json'
 
+interface LandingPageConfig {
+  id: string | number;
+  inputDetails: {
+    /*contentTitle: string;*/
+    heroContent: string | null;
+    slogan: string | null;
+    theme: {
+      mainLogoColor: string | null;
+      titleColor: string | null;
+      primaryColor: string | null;
+      secondaryColor: string | null;
+      inputColor: string | null;
+      imagePath: {
+        right: string | null;
+        left: string | null;
+        bottom: string | null;
+      }
+    };
+    metaTags: {name: string | null, content: string | null}[]
+  }
+}
 @Injectable({ providedIn: "root" })
 export class DynamicComponentService {
+  public landingPageConfig: Array<LandingPageConfig> = landingPageData;
   public constructor() { }
 
   public createComponent(
@@ -21,10 +43,10 @@ export class DynamicComponentService {
       const componentRef = container?.createComponent(
         await landingPageLayoutConfig?.createComponent()
       );
-      const targetLandingPageConfigDefault = landingPageConfig.find((config) => (config.id === 'default'));
-      let targetLandingPageConfig = landingPageConfig.find((config) => (config.id === landingPageLayoutId));
+      const targetLandingPageConfigDefault = this.landingPageConfig.find((config) => (config.id === 'default'));
+      let targetLandingPageConfig = this.landingPageConfig.find((config) => (config.id == landingPageLayoutId));
 
-      if (targetLandingPageConfig != null) targetLandingPageConfig = targetLandingPageConfigDefault;
+      if (targetLandingPageConfig == null) targetLandingPageConfig = targetLandingPageConfigDefault;
 
       if (landingPageLayoutConfig != null) {
         landingPageLayoutConfig.inputs = targetLandingPageConfig?.inputDetails;

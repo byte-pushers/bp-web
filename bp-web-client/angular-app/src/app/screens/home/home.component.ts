@@ -91,7 +91,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.#setLandingPageId();
     this.route.queryParams.subscribe((params) => {
-      if (params?.['showBorders'] == "true") {
+      if (params['showBorders'] == "true") {
         this.borderVisible = (/true/i).test(params?.['showBorders']);
       }
     });
@@ -121,8 +121,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   #setLandingPageId() {
     this.route.queryParams.subscribe((params) => {
-      this.#landingPageId = params?.['id'];
-      this.#layoutType = params?.['layout'];
+      this.#landingPageId = params['id'] ||  '';
+      this.#layoutType = params['layout'] || '';
     });
   }
 
