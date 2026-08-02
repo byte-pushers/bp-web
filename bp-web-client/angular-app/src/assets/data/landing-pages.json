@@ -122,9 +122,9 @@
         "secondaryColor": "#fff",
         "inputColor": "#fff",
         "imagePath": {
-          "right": "assets/images/landing-pages/v3/lp3.right.aligned.png",
-          "left": "assets/images/landing-pages/v3/lp3.left.aligned.png",
-          "bottom": "assets/images/landing-pages/v3/lp3.bottom.aligned.png"
+          "right": "assets/images/landing-pages/3/lp3.right.aligned.png",
+          "left": "assets/images/landing-pages/3/lp3.left.aligned.png",
+          "bottom": "assets/images/landing-pages/3/lp3.bottom.aligned.png"
         }
       },
       "metaTags": [
@@ -159,9 +159,9 @@
         "secondaryColor": "#000",
         "inputColor": "#000",
         "imagePath": {
-          "right": "assets/images/landing-pages/v4/lp4.right.aligned.png",
-          "left": "assets/images/landing-pages/v4/lp4.left.aligned.png",
-          "bottom": "assets/images/landing-pages/v4/lp4.bottom.aligned.png"
+          "right": "assets/images/landing-pages/4/lp4.right.aligned.png",
+          "left": "assets/images/landing-pages/4/lp4.left.aligned.png",
+          "bottom": "assets/images/landing-pages/4/lp4.bottom.aligned.png"
         }
       },
       "metaTags": [
@@ -196,9 +196,9 @@
         "secondaryColor": "#000",
         "inputColor": "#000",
         "imagePath": {
-          "right": "assets/images/landing-pages/v5/lp5.right.aligned.png",
-          "left": "assets/images/landing-pages/v5/lp5.left.aligned.png",
-          "bottom": "assets/images/landing-pages/v5/lp5.bottom.aligned.png"
+          "right": "assets/images/landing-pages/5/lp5.right.aligned.png",
+          "left": "assets/images/landing-pages/5/lp5.left.aligned.png",
+          "bottom": "assets/images/landing-pages/5/lp5.bottom.aligned.png"
         }
       },
       "metaTags": [
@@ -233,9 +233,9 @@
         "secondaryColor": "#000",
         "inputColor": "#000",
         "imagePath": {
-          "right": "assets/images/landing-pages/v6/lp6.right.aligned.png",
-          "left": "assets/images/landing-pages/v6/lp6.left.aligned.png",
-          "bottom": "assets/images/landing-pages/v6/lp6.bottom.aligned.png"
+          "right": "assets/images/landing-pages/6/lp6.right.aligned.png",
+          "left": "assets/images/landing-pages/6/lp6.left.aligned.png",
+          "bottom": "assets/images/landing-pages/6/lp6.bottom.aligned.png"
         }
       },
       "metaTags": [
@@ -270,9 +270,9 @@
         "secondaryColor": "#fff",
         "inputColor": "#fff",
         "imagePath": {
-          "right": "assets/images/landing-pages/v7/lp7.right.aligned.png",
-          "left": "assets/images/landing-pages/v7/lp7.left.aligned.png",
-          "bottom": "assets/images/landing-pages/v7/lp7.bottom.aligned.png"
+          "right": "assets/images/landing-pages/7/lp7.right.aligned.png",
+          "left": "assets/images/landing-pages/7/lp7.left.aligned.png",
+          "bottom": "assets/images/landing-pages/7/lp7.bottom.aligned.png"
         }
       },
       "metaTags": [
