@@ -2,11 +2,11 @@
     <section [ngClass]="showBorders()" class="socialMediaFlexBox">
         <div [ngClass]="showBorders()" class="hero-text-container-LR">
             <div [ngClass]="showBorders()" class="heroText">
-                <span>
+                <!--<span>
                     Creating solutions to solve today's and tomorrow’s problems
                     <span class="text-blue-500"><b>bit</b></span> by <span class="text-blue-500"><b>bit</b></span>.
-                </span>
-                <!-- <span [innerHTML]="heroContent"></span> -->
+                </span>-->
+                 <span [innerHTML]="heroContent"></span>
             </div>
             <app-inline-cta *ngIf="hideTill(630)"></app-inline-cta>
         </div>

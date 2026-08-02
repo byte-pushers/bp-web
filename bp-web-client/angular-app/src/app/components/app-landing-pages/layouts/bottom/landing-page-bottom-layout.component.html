@@ -3,10 +3,11 @@
     <div [ngClass]="showBorders()" class="bdr-red-500 flex-grow flex items-end">
       <div [ngClass]="showBorders()" class="hero-text-container">
         <div [ngClass]="showBorders()" class="heroText">
-          <span>
+          <!--<span>
             Creating solutions to solve today's and tomorrow’s problems
             <span class="text-blue-500"><b>bit</b></span> by <span class="text-blue-500"><b>bit</b></span>.
-          </span>
+          </span>-->
+          <span [innerHTML]="heroContent"></span>
         </div>
         <div [ngClass]="showBorders()" class="knowMore">
           <img *ngIf="hideTill(500)" src="../../../../../assets/images/Arrow-Vector.png" alt="" srcset="">

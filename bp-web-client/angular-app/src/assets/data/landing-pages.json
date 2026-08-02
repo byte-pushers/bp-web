@@ -2,7 +2,7 @@
   {
     "id": "default",
     "inputDetails": {
-      "heroContent": "Creating solutions to solve today's and tomorrow’s problems\n        <span class=\"text-blue-500\"><b>bit</b></span> by <span class=\"text-blue-500\"><b>bit</b></span>.",
+      "heroContent": "Creating solutions to solve today's and tomorrow's problems <strong>bit</strong> by <strong>bit</strong>.",
       "slogan": null,
       "theme": {
         "mainLogoColor": "#fff",
@@ -11,9 +11,9 @@
         "secondaryColor": "#fff",
         "inputColor": "#fff",
         "imagePath": {
-          "right": "assets/images/landingPages/v1/right-align.png",
-          "left": "assets/images/landingPages/v1/left-align.png",
-          "bottom": "assets/images/landingPages/v1/bottom-align.png"
+          "right": "assets/images/landing-pages/1/right-align.png",
+          "left": "assets/images/landing-pages/1/left-align.png",
+          "bottom": "assets/images/landing-pages/1/bottom-align.png"
         }
       },
       "metaTags": [
@@ -48,9 +48,9 @@
         "secondaryColor": "#fff",
         "inputColor": "#fff",
         "imagePath": {
-          "right": "assets/images/landingPages/v1/right-align.png",
-          "left": "assets/images/landingPages/v1/left-align.png",
-          "bottom": "assets/images/landingPages/v1/bottom-align.png"
+          "right": "assets/images/landing-pages/1/right-align.png",
+          "left": "assets/images/landing-pages/1/left-align.png",
+          "bottom": "assets/images/landing-pages/1/bottom-align.png"
         }
       },
       "metaTags": [
@@ -85,9 +85,9 @@
         "secondaryColor": "#000",
         "inputColor": "#000",
         "imagePath": {
-          "right": "assets/images/landingPages/v2/lp2.right.aligned.png",
-          "left": "assets/images/landingPages/v2/lp2.left.aligned.png",
-          "bottom": "assets/images/landingPages/v2/lp2.bottom.aligned.png"
+          "right": "assets/images/landing-pages/2/right.aligned.png",
+          "left": "assets/images/landing-pages/2/left.aligned.png",
+          "bottom": "assets/images/landing-pages/2/bottom.aligned.png"
         }
       },
       "metaTags": [
@@ -122,9 +122,9 @@
         "secondaryColor": "#fff",
         "inputColor": "#fff",
         "imagePath": {
-          "right": "assets/images/landingPages/v3/lp3.right.aligned.png",
-          "left": "assets/images/landingPages/v3/lp3.left.aligned.png",
-          "bottom": "assets/images/landingPages/v3/lp3.bottom.aligned.png"
+          "right": "assets/images/landing-pages/v3/lp3.right.aligned.png",
+          "left": "assets/images/landing-pages/v3/lp3.left.aligned.png",
+          "bottom": "assets/images/landing-pages/v3/lp3.bottom.aligned.png"
         }
       },
       "metaTags": [
@@ -159,9 +159,9 @@
         "secondaryColor": "#000",
         "inputColor": "#000",
         "imagePath": {
-          "right": "assets/images/landingPages/v4/lp4.right.aligned.png",
-          "left": "assets/images/landingPages/v4/lp4.left.aligned.png",
-          "bottom": "assets/images/landingPages/v4/lp4.bottom.aligned.png"
+          "right": "assets/images/landing-pages/v4/lp4.right.aligned.png",
+          "left": "assets/images/landing-pages/v4/lp4.left.aligned.png",
+          "bottom": "assets/images/landing-pages/v4/lp4.bottom.aligned.png"
         }
       },
       "metaTags": [
@@ -196,9 +196,9 @@
         "secondaryColor": "#000",
         "inputColor": "#000",
         "imagePath": {
-          "right": "assets/images/landingPages/v5/lp5.right.aligned.png",
-          "left": "assets/images/landingPages/v5/lp5.left.aligned.png",
-          "bottom": "assets/images/landingPages/v5/lp5.bottom.aligned.png"
+          "right": "assets/images/landing-pages/v5/lp5.right.aligned.png",
+          "left": "assets/images/landing-pages/v5/lp5.left.aligned.png",
+          "bottom": "assets/images/landing-pages/v5/lp5.bottom.aligned.png"
         }
       },
       "metaTags": [
@@ -233,9 +233,9 @@
         "secondaryColor": "#000",
         "inputColor": "#000",
         "imagePath": {
-          "right": "assets/images/landingPages/v6/lp6.right.aligned.png",
-          "left": "assets/images/landingPages/v6/lp6.left.aligned.png",
-          "bottom": "assets/images/landingPages/v6/lp6.bottom.aligned.png"
+          "right": "assets/images/landing-pages/v6/lp6.right.aligned.png",
+          "left": "assets/images/landing-pages/v6/lp6.left.aligned.png",
+          "bottom": "assets/images/landing-pages/v6/lp6.bottom.aligned.png"
         }
       },
       "metaTags": [
@@ -270,9 +270,9 @@
         "secondaryColor": "#fff",
         "inputColor": "#fff",
         "imagePath": {
-          "right": "assets/images/landingPages/v7/lp7.right.aligned.png",
-          "left": "assets/images/landingPages/v7/lp7.left.aligned.png",
-          "bottom": "assets/images/landingPages/v7/lp7.bottom.aligned.png"
+          "right": "assets/images/landing-pages/v7/lp7.right.aligned.png",
+          "left": "assets/images/landing-pages/v7/lp7.left.aligned.png",
+          "bottom": "assets/images/landing-pages/v7/lp7.bottom.aligned.png"
         }
       },
       "metaTags": [
