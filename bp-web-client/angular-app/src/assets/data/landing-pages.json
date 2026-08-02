@@ -2,7 +2,7 @@
   {
     "id": "default",
     "inputDetails": {
-      "heroContent": "Creating solutions to solve today's and tomorrow's problems <strong>bit</strong> by <strong>bit</strong>.",
+      "heroContent": "Creating solutions to solve today's and tomorrow’s problems\n        <span class=\"text-blue-500\"><b>bit</b></span> by <span class=\"text-blue-500\"><b>bit</b></span>.",
       "slogan": null,
       "theme": {
         "mainLogoColor": "#fff",
